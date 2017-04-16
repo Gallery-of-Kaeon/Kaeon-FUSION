@@ -1,0 +1,8 @@
+Arguments
+	
+	Overview
+		
+		-
+			The arguments command contains the content "Arguments", and returns the arguments
+			passed to the Kaeon FUSION script in the form of a list of generic objects.
+		-

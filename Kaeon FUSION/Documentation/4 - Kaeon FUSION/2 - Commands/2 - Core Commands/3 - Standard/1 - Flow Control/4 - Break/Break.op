@@ -1,0 +1,11 @@
+Break
+	
+	Overview
+		
+		-
+			The break command contains the content "Break".
+			
+			The break command may optionally have a child that returns a boolean value. If the
+			value returned is true, or if the command has no children, it will shift the Kaeon
+			FUSION script to the element next in line for execution after its parent.
+		-

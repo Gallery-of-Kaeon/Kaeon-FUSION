@@ -1,0 +1,112 @@
+Page Definitions
+	
+	Overview
+		
+		-
+			When Kaeon FUSION code is cross compiled to HTML, the user must take into account how
+			the code will take effect once cross compiled.
+		-
+	
+	Commands
+		
+		-
+			All commands nested within the page definition will be cross compiled, as tags,
+			attributes, styles, scripts, processes, queries, or literals depending on their
+			content.
+		-
+	
+	Literals
+		
+		-
+			If the content of a tag does not fit any of the other categories, or is nested within
+			quotation marks, it will be cross compiled as a literal.
+		-
+	
+	Tags
+		
+		-
+			If the content of a command matches the name of a tag, it will be cross compiled to the
+			corresponding HTML tag.
+			
+			For example:
+				
+				Text: Hello world!
+			
+			will be cross compiled to:
+				
+				<p>Hello world!</p>
+			
+			and:
+				
+				Text
+					Italic: Hello world!
+					break
+					Bold: Foo Bar Baz
+			
+			will be cross compiled to:
+				
+				<p>
+					<i>Hello world!</i>
+					<br/>
+					<b>Foo Bar Baz</b>
+				</p>
+			
+			It is not necessary to nest any tag within a head or body tag. The cross compiler will
+			handle that automatically.
+			
+			For example, if the entire document consisted of:
+				
+				Title: My Webpage
+				
+				Text
+					Italic: Hello world!
+					break
+					Bold: Foo Bar Baz
+			
+			it would be cross compiled to:
+			
+				<!DOCTYPE HTML>
+				<html>
+					<head>
+						<title>My Webpage</title>
+					</head>
+					<body>
+						<p>
+							<i>Hello world!</i>
+							<br/>
+							<b>Foo Bar Baz</b>
+						</p>
+					</body>
+				</html>
+		-
+	
+	Attributes
+		
+		-
+			If the content of a command matches the name of a attribute and is nested within a tag,
+			it will be cross compiled to the corresponding HTML attribute and assigned to its
+			parent tag.
+			
+			For example:
+				
+				Text
+					ID: words
+					Hello world!
+			
+			will be cross compiled to:
+				
+				<p id="words">Hello world!</p>
+		-
+	
+	Resources
+		
+		-
+			If the content of a command is "Style", the children of the command will be cross
+			compiled to CSS and nested within a "style" tag.
+			
+			If the content of a command is "Script", the children of the command will be cross
+			compiled to Javascript and nested within a "script" tag.
+			
+			If the content of a command is "Process", the children of the command will be cross
+			compiled to PHP and nested within a php tag.
+		-

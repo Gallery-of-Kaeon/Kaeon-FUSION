@@ -1,0 +1,87 @@
+-
+	ONE
+-
+	-
+		Overview
+	-
+		-
+			ONE is a system for encoding and organizing data.
+		-
+	-
+		System
+	-
+		-
+			A ONE Document is composed of ONE Elements.
+			
+			Each Element contains a string of characters. Elements may be arranged in any order,
+			and act as a parent to an indefinite number of other Elements, which themselves may be
+			arranged in any order.
+		-
+	-
+		Language
+	-
+		-
+			Elements
+		-
+			-
+				An Element is declared with a lone '-' on a line, and terminated with a lone '-' on
+				a lower line. Both '-'s must be indented the same amount.
+				
+				There must be at least one line in between the declaring and terminating lines.
+				Each line in between must be indented one space further than the declaring and
+				terminating lines. Every character following the first indent will be encoded as
+				literal text within the Element.
+				
+				Example 1:
+					
+					-
+						
+					-
+				
+				Example 2:
+					
+					-
+						Data
+					-
+					
+				Example 3:
+					
+					-
+						Data
+						More Data
+					-
+			-
+		-
+			Sibling Elements
+		-
+			-
+				Elements may be placed next to each other as siblings. No whitespace is permitted
+				between them.
+				
+				Example:
+					
+					-
+						Element 1
+					-
+					-
+						Element 2
+					-
+			-
+		-
+			Child Elements
+		-
+			-
+				Elements may be nested within one another. To nest one Element within another,
+				place it beneath the intended parent and indent it one space further.
+				
+				Elements that are not nested inside of other Elements must not be indented.
+				
+				Example:
+					
+					-
+						Parent Element
+					-
+						-
+							Child Element
+						-
+			-

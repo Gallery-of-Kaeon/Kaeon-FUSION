@@ -1,0 +1,18 @@
+a: 0
+b: 1
+
+i: 1
+limit: Input: "Enter a number: "
+
+Scope
+	
+	Log Line: a
+	
+	temp: a
+	
+	a: b
+	b: Add: temp, b
+	
+	i: Add: i, 1
+	
+	Loop: Less: i, limit

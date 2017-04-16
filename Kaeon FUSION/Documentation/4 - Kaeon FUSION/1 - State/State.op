@@ -1,0 +1,12 @@
+State
+	
+	Overview
+		
+		-
+			Kaeon FUSION uses a state system to store and maintain information at runtime. A new
+			is created every time the program trickles down, and the same state is removed every
+			time the program bubbles up.
+			
+			The most recently created state is referred to as the "current state". Collectively,
+			all of the states are together referred to as "the state".
+		-

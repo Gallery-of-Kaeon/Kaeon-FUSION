@@ -1,0 +1,9 @@
+Open
+	
+	Overview
+		
+		-
+			The open command contains the content "Open", and a child that returns a string value.
+			The command will return the content of the file located at the path specified by the
+			returned string.
+		-

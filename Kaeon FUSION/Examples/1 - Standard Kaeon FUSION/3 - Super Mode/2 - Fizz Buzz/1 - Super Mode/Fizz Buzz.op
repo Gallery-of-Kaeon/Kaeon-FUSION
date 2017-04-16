@@ -1,0 +1,20 @@
+[SUPER]
+
+i = 0
+limit = Input: "Enter a number: "
+
+While { i < limit }
+	
+	If { i % 3 == 0 and i % 5 == 0 }
+		Log Line: fizz buzz
+	
+	Else: If { i % 3 == 0 }
+		Log Line: fizz
+	
+	Else: If { i % 5 == 0 }
+		Log Line: buzz
+	
+	Else
+		Log Line: i
+	
+	i = i + 1

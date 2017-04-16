@@ -1,0 +1,14 @@
+Binary Command
+	
+	-
+		The Kaeon FUSION Machine Interface provides a command for converting strings of binary code
+		to a sequence of ASCII characters.
+		
+		For example:
+			
+			Binary: 1000001, 1000010, 1000011
+		
+		will return:
+			
+			ABC
+	-

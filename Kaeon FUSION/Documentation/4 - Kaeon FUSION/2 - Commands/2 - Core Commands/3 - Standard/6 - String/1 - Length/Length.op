@@ -1,0 +1,8 @@
+Length
+	
+	Overview
+		
+		-
+			The length command contains the content "Length", and has a child that returns a
+			string. It returns the length of the string.
+		-

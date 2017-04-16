@@ -1,0 +1,9 @@
+Greater
+	
+	Overview
+		
+		-
+			The greater command contains the content "Greater", and has two children, both of which
+			return numbers. The command will return true if the first number is greater than the
+			second number, and return false otherwise.
+		-

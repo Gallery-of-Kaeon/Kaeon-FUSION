@@ -1,0 +1,17 @@
+Return
+	
+	Overview
+		
+		-
+			The return command contains the content "Return". It stops the Kaeon FUSION script and
+			returns the object returned by its child to the program that ran the script.
+		-
+	
+	Example
+		
+		-
+			Command: foo
+			
+			Function: foo
+				Return: value
+		-

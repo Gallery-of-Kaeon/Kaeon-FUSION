@@ -1,0 +1,10 @@
+Native
+	
+	Overview
+		
+		-
+			The native command contains the content "Native", has a child that returns a string,
+			and optionally a child that returns a list of objects. It will call a function written
+			in compiled machine code using the returned string as the path, with the list of
+			objects as arguments if present, and return what the function returns.
+		-

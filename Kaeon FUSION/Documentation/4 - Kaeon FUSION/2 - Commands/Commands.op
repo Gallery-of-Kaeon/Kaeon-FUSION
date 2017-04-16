@@ -1,0 +1,12 @@
+Commands
+	
+	-
+		All elements of a Kaeon FUSION document are referred to as "commands". The operation that
+		takes place when a command is called depends on its content. The letter case of said
+		content is irrelevant, unless the command is a literal.
+		
+		If the command is not programmed to return anything, null will be return by default.
+		
+		If a command throws an exception during the it's On Process function, all subsequent
+		commands will not trickle down or run their processes until the exception is caught.
+	-

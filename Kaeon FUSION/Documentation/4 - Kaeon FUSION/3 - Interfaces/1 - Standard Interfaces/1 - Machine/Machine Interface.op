@@ -1,0 +1,12 @@
+Kaeon FUSION Machine Interface
+	
+	Overview
+		
+		-
+			The Kaeon FUSION Machine Interface allows users to write native applications using
+			Kaeon FUSION.
+			
+			The interface can be enabled with the following command:
+			
+				Use: Machine
+		-

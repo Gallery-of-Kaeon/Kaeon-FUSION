@@ -1,0 +1,22 @@
+Query Development
+	
+	Overview
+		
+		-
+			The Kaeon FUSION Web Interface allows for Kaeon FUSION code placed inside definitions
+			to be cross compiled to SQL.
+		-
+	
+	Building
+	
+		-
+			The definition containing the desired code may be cross compiled to SQL using the
+			following command:
+				
+				Build Query: Definition Name
+			
+			To specify a specific folder for the code to be saved to, the following command may
+			also be used:
+				
+				Build Query: Definition Name, Folder Name/
+		-

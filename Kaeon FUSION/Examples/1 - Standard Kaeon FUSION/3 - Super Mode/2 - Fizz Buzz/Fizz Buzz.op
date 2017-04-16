@@ -1,0 +1,20 @@
+i: 0
+limit: Input: "Enter a number: "
+
+Scope
+	
+	Break { And: Equal { Modulus { 3, 0 }, 0 }, Equal { Modulus { 5, 0 }, 0 } }
+		Log Line: fizz buzz
+	
+	Else: Break { Equal: Modulus { 3, 0 }, 0 }
+		Log Line: fizz
+	
+	Else: Break { Equal: Modulus { 5, 0 }, 0 }
+		Log Line: buzz
+	
+	Else
+		Log Line: i
+	
+	i: Add: i, 1
+	
+	Loop: Less: i, limit

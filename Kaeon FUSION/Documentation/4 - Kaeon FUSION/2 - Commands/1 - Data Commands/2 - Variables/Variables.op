@@ -1,0 +1,31 @@
+Variables
+	
+	Overview
+		
+		-
+			The variable command activates if the content of the command matches the name of an
+			existing variable within the state, or if it doesn't but has children.
+			
+			It the command matches the name of an existing variable but does not have children, it
+			will return the value of said variable. If the command matches the name of an existing
+			variable and does have children, it will set the value of the variable to the value
+			returned by its first child.
+			
+			If the command does not match the name of any existing variable and does have children,
+			it will create a new variable in the state, set the variable's name to the content of
+			the command, and set the value of the variable to the value returned by its first
+			child.
+		-
+	
+	Examples
+		
+		-
+			# Declare a new variable
+			my variable: my value
+			
+			# Reset existing variable
+			my variable: new value
+			
+			# Get value of existing variable
+			my variable
+		-

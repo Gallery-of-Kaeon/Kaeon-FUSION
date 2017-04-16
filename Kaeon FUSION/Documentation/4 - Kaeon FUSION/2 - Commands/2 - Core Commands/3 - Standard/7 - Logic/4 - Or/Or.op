@@ -1,0 +1,9 @@
+Or
+	
+	Overview
+		
+		-
+			The or command contains the content "Or", and has two children, both of which return
+			booleans. The command will return true if either boolean is true, and return false
+			otherwise.
+		-

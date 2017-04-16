@@ -1,0 +1,21 @@
+Global
+	
+	Overview
+	
+		-
+			The global command contains the content global and a literal command as its only child.
+			
+			If the string returned by its child matches the name of an existing variable, the
+			variable will be made globally accessible. If not, a globally accessible variable with
+			the name return by the literal command will be created.
+		-
+	
+	Example
+		
+		-
+			Global: i
+			i: 1
+			
+			Function: foo
+				Log Line: i
+		-

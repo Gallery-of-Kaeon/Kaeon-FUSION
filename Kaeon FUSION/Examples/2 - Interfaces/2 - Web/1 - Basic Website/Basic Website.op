@@ -1,0 +1,69 @@
+#[
+
+	This code use's Kaeon FUSION's Web Interface to cross compile a Kaeon FUSION definition to
+	html.
+	
+	Running this code will produce a file called "My Page.html", which will contain the following
+	html:
+	
+	<!DOCTYPE HTML>
+	<html>
+		<head>
+			<style>
+				p {
+					color: blue;
+				}
+				button {
+					height: 100px;
+					width: 100px;
+				}
+			</style>
+			<title>
+				My Page
+			</title>
+		</head>
+		<body>
+			<ul>
+				<button id="my button">
+					<p>
+						Press Me
+					</p>
+				</button>
+				<button id="my button 2">
+					<p>
+						No, Press Me!
+					</p>
+				</button>
+			</ul>
+		</body>
+	</html>
+	
+ ]#
+
+Use: Web
+
+Define
+	
+	My Page
+		
+		Style
+
+			Text: color: blue
+
+			Button
+				height: 50px
+				width: 100px
+		
+		Title: My Page
+		
+		List
+			
+			Button
+				ID: my button
+				Text: Press Me
+			
+			Button
+				ID: my button 2
+				Text: "No, Press Me!"
+				
+Build Website: My Page

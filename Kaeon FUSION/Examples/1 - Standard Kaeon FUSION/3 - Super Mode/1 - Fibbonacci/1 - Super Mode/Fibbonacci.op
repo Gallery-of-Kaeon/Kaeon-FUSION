@@ -1,0 +1,18 @@
+[SUPER]
+
+a = 0
+b = 1
+
+i = 1
+limit = Input: "Enter a number: "
+
+While { i < limit }
+	
+	Log Line: a
+	
+	temp = a
+	
+	a = b
+	b = b + temp
+	
+	i = i + 1

@@ -1,0 +1,6 @@
+List
+	
+	-
+		The list command contains the content "List", and has an indefinite number of children. It
+		will return a list containing all of the values returned by its children.
+	-

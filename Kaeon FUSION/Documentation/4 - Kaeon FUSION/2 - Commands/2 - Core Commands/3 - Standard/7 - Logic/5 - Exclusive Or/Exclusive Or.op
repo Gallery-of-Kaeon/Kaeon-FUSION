@@ -1,0 +1,9 @@
+Exclusive Or
+	
+	Overview
+		
+		-
+			The exclusive or command contains the content "Exclusive Or", and has two children,
+			both of which return booleans. The command will return true if one and only one of the
+			booleans are true, and return false otherwise.
+		-

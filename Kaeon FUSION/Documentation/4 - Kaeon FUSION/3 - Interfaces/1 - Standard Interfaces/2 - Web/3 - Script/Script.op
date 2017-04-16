@@ -1,0 +1,22 @@
+Front End Web Script Development
+	
+	Overview
+		
+		-
+			The Kaeon FUSION Web Interface allows for Kaeon FUSION code placed inside definitions
+			to be cross compiled to Javascript.
+		-
+	
+	Building
+	
+		-
+			The definition containing the desired code may be cross compiled to Javascript using
+			the following command:
+				
+				Build Script: Definition Name
+			
+			To specify a specific folder for the code to be saved to, the following command may
+			also be used:
+				
+				Build Script: Definition Name, Folder Name/
+		-

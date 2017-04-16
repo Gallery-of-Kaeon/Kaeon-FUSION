@@ -1,0 +1,12 @@
+Set
+	
+	Overview
+		
+		-
+			The Set command contains the content "Set", and has three children. The first child
+			returns a list of objects, the second child returns an integer, and the third child
+			returns an object. If the integer is greater than the size of the list, a value of null
+			will be appended to the end of the list until the size of the list and the integer are
+			equal. The command will set the value in the list at the index specified by the integer
+			to the returned object. The indexes start at one.
+		-

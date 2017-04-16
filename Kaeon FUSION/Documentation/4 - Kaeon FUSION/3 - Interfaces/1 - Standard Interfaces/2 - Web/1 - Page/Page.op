@@ -1,0 +1,22 @@
+Web Page Development
+	
+	Overview
+		
+		-
+			The Kaeon FUSION Web Interface allows for Kaeon FUSION code placed inside definitions
+			to be cross compiled to HTML.
+		-
+	
+	Building
+	
+		-
+			The definition containing the desired code may be cross compiled to HTML using the
+			following command:
+				
+				Build Website: Definition Name
+			
+			To specify a specific folder for the code to be saved to, the following command may
+			also be used:
+				
+				Build Website: Definition Name, Folder Name/
+		-

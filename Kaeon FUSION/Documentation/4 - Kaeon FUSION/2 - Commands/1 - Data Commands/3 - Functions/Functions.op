@@ -1,0 +1,37 @@
+Functions
+	
+	Overview
+		
+		-
+			The function command contains the content "Function", and all of its children are
+			function definitions.
+			
+			The function command will be removed from an element before it trickles down, and all
+			function definitions nested within it will be added to the current state.
+			
+			If a command contains the name of a defined function as its content, the function will
+			be executed with the object returned by the command's children as its arguments, and an
+			instance of the function will be returned which can be assigned to a variable.
+		-
+	
+	Example
+		
+		-
+			Function
+				
+				foo
+					
+					command: sub-command
+					bar
+				
+				bar
+					
+					command: sub-command
+			
+			# Calling foo twice
+			foo
+			foo
+			
+			# Calling bar
+			bar
+		-

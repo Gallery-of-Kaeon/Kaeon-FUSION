@@ -1,0 +1,22 @@
+Web Page Style Development
+	
+	Overview
+		
+		-
+			The Kaeon FUSION Web Interface allows for Kaeon FUSION code placed inside definitions
+			to be cross compiled to CSS.
+		-
+	
+	Building
+	
+		-
+			The definition containing the desired code may be cross compiled to CSS using the
+			following command:
+				
+				Build Style: Definition Name
+			
+			To specify a specific folder for the code to be saved to, the following command may
+			also be used:
+				
+				Build Style: Definition Name, Folder Name/
+		-

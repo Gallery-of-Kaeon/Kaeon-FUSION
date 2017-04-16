@@ -1,0 +1,11 @@
+Substring
+	
+	Overview
+		
+		-
+			The substring command contains the content "Substring", and has two or three children.
+			The first child returns a string and the second child, as well as the third child if it
+			is present, return an integer. The command returns the substring of the string either
+			from the first integer if the second integer is not present, or from the first integer
+			to the second integer if the second integer is present. The indexes start at one.
+		-

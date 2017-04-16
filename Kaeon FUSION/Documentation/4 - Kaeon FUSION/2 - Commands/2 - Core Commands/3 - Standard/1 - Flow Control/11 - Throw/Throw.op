@@ -1,0 +1,8 @@
+Throw
+	
+	Overview
+		
+		-
+			The throw command contains the content "Throw". It will not trickle down and it causes
+			the Kaeon FUSION script to throw an exception.
+		-
