@@ -303,7 +303,7 @@ Native Definitions
 				
 				struct foo x;
 			
-			To access the content of a structure, an in command with the name of the structure as
+			To call functions within a structure, an in command with the name of the structure as
 			its first child nested in a scope command may be used.
 			
 			To return content from within a scope, the return command may be used.
@@ -311,11 +311,11 @@ Native Definitions
 			For example, if the code in the last two examples had already been written, then:
 				
 				Scope { In: x }
-					z: 50
+					foo: 50
 			
 			will cross compile to:
 				
-				x.z = 50;
+				x.foo(50);
 				
 			and:
 			

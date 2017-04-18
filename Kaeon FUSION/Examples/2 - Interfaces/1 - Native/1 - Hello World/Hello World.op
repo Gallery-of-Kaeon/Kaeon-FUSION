@@ -8,19 +8,21 @@
 	#include "stdio.h"
 
 	int main() {
-		printf("Hello, world")
+		printf("Hello, world");
 		return 0;
 	}
 
  ]#
 
-Define: Meta { Used } printf
+Use: Machine
 
 Define: Meta { Integer } main
 	
 	Use: stdio.h
 	
-	printf: "Hello, world!"
+	Scope { In: Default }
+		printf: "Hello, world!"
+
 	Return: 0
 
 Build Native Code: main
