@@ -158,13 +158,26 @@ Native Definitions
 			
 			will be cross compiled to:
 			
-				#include <stdio.h>
+				#include "stdio.h"
 				
 				void foo() {
 					printf("ABC");
 					printf("XYZ");
 					printf("123");
 				}
+			
+			As an alternative, the user may nest the command "In: Default" within a scope.
+			
+			For example:
+				
+				Scope { In: Default }
+					printf: Hello world!
+			
+			will be cross compiled to:
+				
+				printf("Hello world!");
+			
+			even if the printf function was not defined within the FUSION code.
 		-
 	
 	Functions
