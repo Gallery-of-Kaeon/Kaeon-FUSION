@@ -343,8 +343,8 @@ ONE+
 								one: two | three
 							-
 						
-						Double quotes may be used in the same way, but the won't disappear after the
-						escape sequence has been processed.
+						Double quotes may be used in the same way, but they won't disappear after
+						the escape sequence has been processed.
 						
 						For example:
 						
