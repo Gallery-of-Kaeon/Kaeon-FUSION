@@ -9,31 +9,42 @@
 	<!DOCTYPE HTML>
 	<html>
 		<head>
+			<title>
+				My Page
+			</title>
 			<style>
 				p {
 					color: blue;
 				}
-				button {
-					height: 100px;
-					width: 100px;
-				}
 			</style>
-			<title>
-				My Page
-			</title>
 		</head>
 		<body>
+			<script>
+				x = 5;
+				console.log((x + 10));
+				do {
+					var y = 0;
+					console.log(y);
+					console.log(x);
+					x = (x + 1);
+					if((x < 10))
+						continue;
+				} while(false);
+				console.log(y);
+			</script>
 			<ul>
-				<button id="my button">
-					<p>
-						Press Me
-					</p>
-				</button>
-				<button id="my button 2">
-					<p>
-						No, Press Me!
-					</p>
-				</button>
+				<li>
+					<button id="my button">
+						<p>
+							Press Me
+						</p>
+					</button>
+				</li>
+				<li>
+					<button id="my button 2">
+						<p>No, Press Me!</p>
+					</button>
+				</li>
 			</ul>
 		</body>
 	</html>
@@ -43,26 +54,43 @@
 Use: Web
 
 Define
+
+	My Style
+		
+		Text: color: blue
+
+	My Script
+	
+		Global: x: 5
+		
+		Scope: In { console } log: Add: x, 10
+		
+		Scope
+			
+			y: 0
+			Scope: In { console } log: y
+			
+			Scope: In { console } log: x
+			x: Add: x, 1
+			
+			Loop: Less: x, 10
+		
+		Scope: In { console } log: y
 	
 	My Page
 		
-		Style
-
-			Text: color: blue
-
-			Button
-				height: 50px
-				width: 100px
-		
 		Title: My Page
+		
+		Style: My Style
+		Script: My Script
 		
 		List
 			
-			Button
+			Item: Button
 				ID: my button
 				Text: Press Me
 			
-			Button
+			Item: Button
 				ID: my button 2
 				Text: "No, Press Me!"
 				
