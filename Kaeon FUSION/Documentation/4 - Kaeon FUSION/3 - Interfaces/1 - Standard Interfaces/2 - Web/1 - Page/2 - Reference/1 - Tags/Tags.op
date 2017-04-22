@@ -16,6 +16,7 @@ Tags
 		Article: article
 		Aside: aside
 		Audio: audio
+		Base: base
 		Bi Directional Isolation: bdi
 		Bi Directional Override: bdo
 		Block Quote: blockquote
@@ -47,10 +48,12 @@ Tags
 		Figure Caption: figcaption
 		Footer: footer
 		Form: form
+		Head: head
 		Header: header
 		Header Cell: th
 		Heading: h1
 		Image: img
+		Import: link
 		Inline Frame: iframe
 		Input: input
 		Insert: ins
@@ -67,6 +70,7 @@ Tags
 		Mark: mark
 		Menu: menu
 		Menu Item: menuitem
+		Metadata: meta
 		Meter: meter
 		Navigation: nav
 		No Ruby: rp
