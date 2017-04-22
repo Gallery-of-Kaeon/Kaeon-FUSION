@@ -79,10 +79,12 @@ Define
 	
 	My Page
 		
-		Title: My Page
-		
-		Style: My Style
-		Script: My Script
+		Head
+
+			Title: My Page
+			
+			Style: My Style
+			Script: My Script
 		
 		List
 			

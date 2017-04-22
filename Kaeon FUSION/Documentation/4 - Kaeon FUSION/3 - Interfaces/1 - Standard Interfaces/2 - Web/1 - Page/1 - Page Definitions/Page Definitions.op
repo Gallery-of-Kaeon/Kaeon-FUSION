@@ -51,12 +51,12 @@ Page Definitions
 					<b>Foo Bar Baz</b>
 				</p>
 			
-			It is not necessary to nest any tag within a head or body tag. The cross compiler will
-			handle that automatically.
+			Any tag not nested inside the head tag will be automatically placed within the body tag
+			by the cross compiler.
 			
 			For example, if the entire document consisted of:
 				
-				Title: My Webpage
+				Head: Title: My Webpage
 				
 				Text
 					Italic: Hello world!
