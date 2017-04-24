@@ -27,7 +27,6 @@ Attributes
 		Columns: cols
 		Column Span: colspan
 		Content: content
-		Editable: contenteditable
 		Context Menu: contextmenu
 		Controls: controls
 		Coordinates: coords
@@ -42,6 +41,7 @@ Attributes
 		Download: download
 		Draggable: draggable
 		Drop Zone: dropzone
+		Editable: contenteditable
 		Encode Type: enctype
 		For: for
 		Form: form
@@ -51,7 +51,6 @@ Attributes
 		Hidden: hidden
 		High: high
 		HTTP Equivalent: http-equiv
-		Reference Language: hreflang
 		ID: id
 		Image Server Map: ismap
 		Key Type: keytype
@@ -150,6 +149,7 @@ Attributes
 		Preload: preload
 		Read Only: readonly
 		Reference: href
+		Reference Language: hreflang
 		Relationship: rel
 		Required: required
 		Reversed: reversed
