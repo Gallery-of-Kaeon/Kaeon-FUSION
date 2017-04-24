@@ -19,7 +19,7 @@ Attributes
 		Autofocus: autofocus
 		Autoplay: autoplay
 		Challenge: challenge
-		Charset: charset
+		Character Set: charset
 		Challenge: challenge
 		Checked: checked
 		Cite: cite
@@ -50,6 +50,7 @@ Attributes
 		Height: height
 		Hidden: hidden
 		High: high
+		HTTP Equivalent: http-equiv
 		Reference Language: hreflang
 		ID: id
 		Image Server Map: ismap
