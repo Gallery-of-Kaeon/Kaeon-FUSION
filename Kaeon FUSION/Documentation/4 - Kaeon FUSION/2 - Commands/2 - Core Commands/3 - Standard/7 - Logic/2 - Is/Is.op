@@ -1,0 +1,9 @@
+Is
+	
+	Overview
+		
+		-
+			The is command contains the content "Is", and has two children. The command will return
+			true if the objects returned by both of its children are the same object, and false
+			otherwise.
+		-
