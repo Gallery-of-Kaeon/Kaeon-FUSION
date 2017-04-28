@@ -78,6 +78,31 @@ Page Definitions
 						</p>
 					</body>
 				</html>
+			
+			When using a heading tag, nest a "Level" element inside it to dictate the size. If no
+			level is specified, a size of one will be the default.
+			
+			For example:
+				
+				Heading
+					Hello
+				
+				Heading { Level: 2 }
+					World
+			
+			it would be cross compiled to:
+			
+				<!DOCTYPE HTML>
+				<html>
+					<body>
+						<h1>
+							Hello
+						</h1>
+						<h2>
+							World
+						</h2>
+					</body>
+				</html>
 		-
 	
 	Attributes
