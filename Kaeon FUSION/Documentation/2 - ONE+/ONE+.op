@@ -365,12 +365,12 @@ ONE+
 					
 					For example:
 						
-						# this will not be read
-						this will be read # but not this
-						this will be read #[ but this will not ]# but this will
-						this will be read #[ this will not be
-						neither will this ]# but this will be
-						and so will this
+						# do not read
+						read # do not read
+						read #[ do not read ]# read
+						read #[ do not read
+						do not read ]# read
+						read
 				-
 			
 			Directives
