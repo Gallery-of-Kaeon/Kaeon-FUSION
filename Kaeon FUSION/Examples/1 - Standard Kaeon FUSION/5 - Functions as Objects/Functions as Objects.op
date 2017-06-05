@@ -1,3 +1,5 @@
+Use: Standard
+
 Define: dog
 	
 	# Set name to the first argument passed in
