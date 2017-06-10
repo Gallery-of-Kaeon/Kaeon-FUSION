@@ -1,7 +1,11 @@
 # Kaeon FUSION: One programming language for all developement needs
 
+## What it is
+
 Kaeon FUSION is an entirely modular programming language modeled after LISP and featuring the elegant, modern syntax of ONE+. It has
 sucessfully been used for general purspose programming, scripting, low level programming, and web development.
+
+## Contents of this repository
 
 This repository contains documentation, literature, APIs, an IDE, and example code for Kaeon FUSION.
 
