@@ -9,8 +9,8 @@ sucessfully been used for general purspose programming, scripting, low level pro
 
 This repository contains documentation, literature, APIs, an IDE, and example code for Kaeon FUSION.
 
-For any questions or comments, please email the following address:
-
 ## Contact info
+
+For any questions or comments, please email the following address:
 
 kaeon.ace@gmail.com
