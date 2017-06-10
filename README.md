@@ -11,4 +11,6 @@ This repository contains documentation, literature, APIs, an IDE, and example co
 
 For any questions or comments, please email the following address:
 
+# Contact info
+
 kaeon.ace@gmail.com
