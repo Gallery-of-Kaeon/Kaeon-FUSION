@@ -1,0 +1,128 @@
+Define: Akada
+	
+	Style: Akada Style
+	
+	Title: Akada
+	
+	Division { ID: content }
+
+		Image { ID: background; Source: res/background.jpg }
+
+	Division { ID: blurb }
+
+		Text: Italic: Akada
+
+	Division { ID: navigation }
+
+		List
+
+			Item: Link: Reference { ../About/About.html } About
+			Item: Link: Reference { ../Contact/Contact.html } Contact
+			Item: Link: Reference { ../Press/Press.html } Press
+
+	Division { ID: description }
+		
+		Text
+		
+			Welcome to Akada!, Break, Break
+			We aim to help you attain, Break
+			"your eductational goals, and", Break
+			launch you into an exciting, Break
+			and fulfilling career.
+
+	Division { ID: start }
+
+		Link { Reference: ../Test/Test.html }
+			Text: Get Started
+
+Define: Akada Style
+
+	On: content
+		
+		margin: 0
+		padding: 0
+
+		top: 0%
+		left: 0%
+
+		height: 100vh
+		
+		position: fixed
+		background: black
+
+	On: background
+
+		width: 100%
+
+	On: blurb
+
+		top: 15%
+		left: 14%
+
+		position: absolute
+
+		font-size: 7vw
+		font-family: "Georgia"
+
+		color: white
+
+		text-shadow: 1px 1px 2px black
+
+	On: navigation
+
+		top: 5%
+		left: 45%
+
+		position: absolute
+
+		font-size: 4vw
+		font-family: "Georgia"
+
+		color: white
+
+		text-shadow: 4px 4px 8px black
+
+	On: start
+
+		top: 60%
+		left: 17%
+
+		position: absolute
+
+		font-size: 3vw
+		font-family: "Georgia"
+
+		color: white
+
+		text-shadow: 4px 4px 8px black
+
+	On: description
+
+		top: 25%
+		left: 52%
+
+		position: absolute
+
+		font-size: 3vw
+		font-family: "Georgia"
+
+		color: white
+
+		text-shadow: 8px 8px 16px black
+
+	List
+
+		display: inline
+
+	Item
+
+		margin-right: 12%
+
+		display: inline
+
+		text-shadow: 4px 4px 8px black
+	
+	Link
+		
+		text-decoration: none
+		color: white

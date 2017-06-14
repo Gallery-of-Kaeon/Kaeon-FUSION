@@ -1,0 +1,78 @@
+Define: About
+	
+	Style: About Style
+	
+	Title: Akada - About
+	
+	Division { ID: content }
+
+		Image { ID: background; Source: res/background.jpg }
+
+	Division { ID: blurb }
+
+		Text: Link: Reference { ../Akada/Akada.html } Italic: Akada
+
+	Division { ID: about }
+		
+		Text
+		
+			Akada provides a service through which users can test, Break
+			their skills in various academic subjects. Passing these, Break
+			tests implies a skill level similar to someone holding a, Break
+			bachelors degree in the subject from a top tier university., Break
+			Break
+			The service can therefore be used as proof of ability, Break
+			in place of a degree or certification.
+
+
+Define: About Style
+
+	On: content
+		
+		margin: 0
+		padding: 0
+
+		top: 0%
+		left: 0%
+
+		height: 100vh
+		
+		position: fixed
+		background: black
+
+	On: background
+
+		width: 100%
+
+	On: blurb
+
+		top: 0%
+		left: 40%
+
+		position: absolute
+
+		font-size: 7vw
+		font-family: "Georgia"
+
+		color: white
+
+		text-shadow: 1px 1px 2px black
+
+	On: about
+
+		top: 30%
+		left: 15%
+
+		position: absolute
+
+		font-size: 3vw
+		font-family: "Georgia"
+
+		color: white
+
+		text-shadow: 4px 4px 8px black
+	
+	Link
+		
+		text-decoration: none
+		color: white
