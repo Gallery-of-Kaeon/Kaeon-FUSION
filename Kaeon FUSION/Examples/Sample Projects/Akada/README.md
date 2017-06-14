@@ -1,4 +1,4 @@
-#Akada
+# Akada
 
 Akada is a website written using Kaeon FUSION. It was written as a project for a Hackathon at the University of Maryland, College Park.
 
