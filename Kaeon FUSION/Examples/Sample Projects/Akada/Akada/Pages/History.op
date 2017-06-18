@@ -1,9 +1,11 @@
 Define: History
 	
-	Style: History Style
-	Script: History Script
+	Head
 
-	Title: Akada - History Test
+		Style: History Style
+		Script: History Script
+
+		Title: Akada - History Test
 
 	Division { ID: content }
 		Image { ID: background; Source: res/background.jpg }

@@ -1,8 +1,10 @@
 Define: Press
 	
-	Style: About Style
+	Head
+
+		Style: About Style
 	
-	Title: Akada - About
+		Title: Akada - About
 	
 	Division { ID: content }
 

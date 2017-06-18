@@ -1,8 +1,10 @@
 Define: Akada
 	
-	Style: Akada Style
+	Head
+
+		Style: Akada Style
 	
-	Title: Akada
+		Title: Akada
 	
 	Division { ID: content }
 

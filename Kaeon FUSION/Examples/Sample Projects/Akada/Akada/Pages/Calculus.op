@@ -1,9 +1,11 @@
 Define: Calculus
 	
-	Style: Calculus Style
-	Script: Calculus Script
+	Head
 
-	Title: Akada - Calculus Test
+		Style: Calculus Style
+		Script: Calculus Script
+
+		Title: Akada - Calculus Test
 
 	Division { ID: content }
 		Image { ID: background; Source: res/background.jpg }

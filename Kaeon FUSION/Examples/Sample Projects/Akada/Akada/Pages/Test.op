@@ -1,8 +1,10 @@
 Define: Test
 	
-	Style: Test Style
+	Head
+
+		Style: Test Style
 	
-	Title: Akada - Tests
+		Title: Akada - Tests
 	
 	Division { ID: content }
 		Image { ID: background; Source: res/background.jpg }

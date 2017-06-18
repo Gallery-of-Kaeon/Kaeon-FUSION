@@ -1,9 +1,11 @@
 Define: Biology
 	
-	Style: Biology Style
-	Script: Biology Script
+	Head
 
-	Title: Akada - Biology Test
+		Style: Biology Style
+		Script: Biology Script
+
+		Title: Akada - Biology Test
 
 	Division { ID: content }
 		Image { ID: background; Source: res/background.jpg }

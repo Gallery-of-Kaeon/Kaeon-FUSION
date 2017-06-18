@@ -1,9 +1,11 @@
 Define: CompSci
 	
-	Style: Computer Science Style
-	Script: Computer Science Script
+	Head
 
-	Title: Akada - Computer Science Test
+		Style: Computer Science Style
+		Script: Computer Science Script
+
+		Title: Akada - Computer Science Test
 
 	Division { ID: content }
 		Image { ID: background; Source: res/background.jpg }

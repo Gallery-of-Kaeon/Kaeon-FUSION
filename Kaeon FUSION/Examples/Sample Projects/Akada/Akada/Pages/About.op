@@ -1,8 +1,10 @@
 Define: About
 	
-	Style: About Style
-	
-	Title: Akada - About
+	Head
+		
+		Style: About Style
+		
+		Title: Akada - About
 	
 	Division { ID: content }
 

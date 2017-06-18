@@ -1,9 +1,11 @@
 Define: English
 	
-	Style: English Style
-	Script: English Script
+	Head
 
-	Title: Akada - English Test
+		Style: English Style
+		Script: English Script
+
+		Title: Akada - English Test
 
 	Division { ID: content }
 		Image { ID: background; Source: res/background.jpg }
