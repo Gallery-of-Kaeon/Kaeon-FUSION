@@ -51,7 +51,7 @@ Due to the modular nature of the Kaeon FUSION,
 there is no limit to what sort functionality can be implemented through interfaces.
 What's available now is only the tip of the iceberg.
 
-### The documentation decribes four different things: ONE, ONE+, FUSION, and Kaeon FUSION. What's that about?
+### The documentation describes four different things: ONE, ONE+, FUSION, and Kaeon FUSION. What's that about?
 
 Unlike most other languages,
 Kaeon FUSION actually borrows its syntax from a language called ONE.
