@@ -68,7 +68,7 @@ You can use ONE to create custom file and metadata formats for your engine,
 and use Kaeon FUSION with the standard interface as a scripting langauge.
 You can automate builds and manage assets using scripts written with the standard interface.
 And you can even build a website to market your game using an interface that generates HTML and CSS.
-Never once would you have to use more than ONE syntax or environment,
+Never once would you have to use more than one syntax or environment,
 and the skillsets of your entire team would be transferable.
 
 ### The documentation describes four different things: ONE, ONE+, FUSION, and Kaeon FUSION. What's that about?
