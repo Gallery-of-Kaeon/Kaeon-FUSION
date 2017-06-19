@@ -18,6 +18,15 @@ This repository contains documentation, APIs, an IDE, and example code for Kaeon
 
 ## FAQs
 
+### The documentation describes four different things: ONE, ONE+, FUSION, and Kaeon FUSION. What's that about?
+
+Unlike most other languages,
+Kaeon FUSION actually borrows its syntax from a language called ONE.
+ONE is a very simple markup language that allows the user to define a tree of strings.
+ONE+ is a superset of ONE that makes it easier to write large amounts of ONE markup by hand.
+FUSION is a system that allows a ONE document to be interpreted as code,
+and Kaeon FUSION is the de facto standard dialect of FUSION.
+
 ### How can I try it out?
 
 The current implementation of Kaeon FUSION runs on Java,
@@ -70,15 +79,6 @@ You can automate builds and manage assets using scripts written with the standar
 And you can even build a website to market your game using an interface that generates HTML and CSS.
 Never once would you have to use more than one syntax or environment,
 and the skillsets of your entire team would be transferable.
-
-### The documentation describes four different things: ONE, ONE+, FUSION, and Kaeon FUSION. What's that about?
-
-Unlike most other languages,
-Kaeon FUSION actually borrows its syntax from a language called ONE.
-ONE is a very simple markup language that allows the user to define a tree of strings.
-ONE+ is a superset of ONE that makes it easier to write large amounts of ONE markup by hand.
-FUSION is a system that allows a ONE document to be interpreted as code,
-and Kaeon FUSION is the de facto standard dialect of FUSION.
 
 ### How can a language be inspired by LISP without being LISP?
 
