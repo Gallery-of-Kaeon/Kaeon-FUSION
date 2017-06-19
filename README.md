@@ -14,7 +14,7 @@ and is particularly useful for metaprogramming.
 
 ## Contents of this repository
 
-This repository contains documentation, literature, APIs, an IDE, and example code for Kaeon FUSION.
+This repository contains documentation, APIs, an IDE, and example code for Kaeon FUSION.
 
 ## FAQs
 
@@ -103,6 +103,18 @@ For all intents and purposes,
 the contents of this repository are basically public domain,
 and you are free to do as you please with it,
 no strings attached.
+
+## Disclaimer
+
+Kaeon FUSION is more than usable in its present form.
+However,
+we are still working on improving the documentation,
+on ironing out bugs in the interpreter,
+and on new features.
+Therefore,
+one should consider the project to be in open beta.
+If you you have an issue with any of the provided resources,
+please let us know.
 
 ## Contact info
 
