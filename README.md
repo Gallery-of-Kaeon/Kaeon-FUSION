@@ -2,7 +2,15 @@
 
 ## What it is
 
-Kaeon FUSION is an entirely modular programming language inspired by LISP and featuring the elegant, modern syntax of ONE+. It has sucessfully been used for general purspose programming, scripting, low level programming, and web development. In theory, it can be extended to work with any domain, and is particularly useful for metaprogramming.
+Kaeon FUSION is an entirely modular programming language inspired by LISP and featuring the elegant,
+modern syntax of ONE+.
+It has sucessfully been used for general purspose programming,
+scripting,
+low level programming,
+and web development.
+In theory,
+it can be extended to work with any domain,
+and is particularly useful for metaprogramming.
 
 ## Contents of this repository
 
@@ -26,6 +34,22 @@ simply open it from the file explorer or open it from the command line without a
 To run Kaeon FUSION code in the command line,
 execute Kaeon Dev through Java and give the name of the file containing the code as a second argument.
 Any other arguments will be passed to the script.
+
+### You say this language can theoretically do anything?
+
+Kaeon FUSION can expand its functionality at runtime through modular interfaces.
+Interfaces can add new commands and provide access to back end systems.
+Some interfaces allow you to cross compile ONE markup nested within function definitions into other languages,
+allowing for any sort of software development using one syntax and one environment.
+At the moment, the available interfaces allow for the generation of C,
+HTML,
+CSS,
+JavaScript,
+PHP,
+and SQL source code.
+Due to the modular nature of the Kaeon FUSION,
+there is no limit to what sort functionality can be implemented through interfaces.
+What's available now is only the tip of the iceberg.
 
 ### The documentation decribes four different things: ONE, ONE+, FUSION, and Kaeon FUSION. What's that about?
 
