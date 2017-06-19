@@ -82,8 +82,8 @@ and Kaeon FUSION is the de facto standard dialect of FUSION.
 
 ### How can a language be inspired by LISP without being LISP?
 
-The main differences between FUSION and LISP are that FUSION is tree based instead of list based,
-and that FUSION boasts a nicer syntax.
+The main differences between FUSION and LISP are that FUSION uses doubly linked trees instead of singly linked lists,
+and that FUSION boasts a far nicer syntax.
 While FUSION may not be too far a cry from pure LISP,
 Kaeon FUSION is very different from popular LISP dialects like Common LISP,
 Scheme,
