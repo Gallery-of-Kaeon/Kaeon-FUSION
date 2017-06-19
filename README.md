@@ -80,6 +80,15 @@ ONE+ is a superset of ONE that makes it easier to write large amounts of ONE mar
 FUSION is a system that allows a ONE document to be interpreted as code,
 and Kaeon FUSION is the de facto standard dialect of FUSION.
 
+### How can a language be inspired by LISP without being LISP?
+
+The main differences between FUSION and LISP are that FUSION is tree based instead of list based,
+and that FUSION boasts a nicer syntax.
+While FUSION may not be too far a cry from pure LISP,
+Kaeon FUSION is very different from popular LISP dialects like Common LISP,
+Scheme,
+or Clojure.
+
 ### The documentation says I can do something but I can't make it work, what gives?
 
 Kaeon FUSION as a language is defined by it's specification.
