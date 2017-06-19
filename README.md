@@ -45,6 +45,15 @@ ONE+ is a superset of ONE that makes it easier to write large amounts of ONE mar
 FUSION is a system that allows a ONE document to be interpreted as code,
 and Kaeon FUSION is the de facto standard dialect of FUSION.
 
+### How can a language be inspired by LISP without being LISP?
+
+The main differences between FUSION and LISP are that FUSION uses doubly linked trees instead of singly linked lists,
+and that FUSION boasts a far nicer syntax.
+While FUSION may not be too far a cry from pure LISP,
+Kaeon FUSION is very different from popular LISP dialects like Common LISP,
+Scheme,
+or Clojure.
+
 ### How can I try it out?
 
 The current implementation of Kaeon FUSION runs on Java,
@@ -97,15 +106,6 @@ You can automate builds and manage assets using scripts written with the standar
 And you can even build a website to market your game using an interface that generates HTML and CSS.
 Never once would you have to use more than one syntax or environment,
 and the skillsets of your entire team would be transferable.
-
-### How can a language be inspired by LISP without being LISP?
-
-The main differences between FUSION and LISP are that FUSION uses doubly linked trees instead of singly linked lists,
-and that FUSION boasts a far nicer syntax.
-While FUSION may not be too far a cry from pure LISP,
-Kaeon FUSION is very different from popular LISP dialects like Common LISP,
-Scheme,
-or Clojure.
 
 ### The documentation says I can do something but I can't make it work, what gives?
 
