@@ -2,7 +2,11 @@
 
 ## What it is
 
-Kaeon FUSION is an entirely modular programming language inspired by LISP and featuring the elegant,
+Kaeon FUSION is the very first programming language created soley to replace all other programming and markup languages by efficiently and elegantly amalgamating their functionality into a single language with a single syntax.
+
+The language itself is entirely modular,
+inspired by LISP,
+and features the elegant,
 modern syntax of ONE+.
 It has sucessfully been used for general purspose programming,
 scripting,
