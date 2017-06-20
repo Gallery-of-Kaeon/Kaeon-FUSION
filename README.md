@@ -75,6 +75,12 @@ To run Kaeon FUSION code in the command line,
 execute Kaeon Dev through Java and give the name of the file containing the code as a second argument.
 Any other arguments will be passed to the script.
 
+We suggest getting started with the "Hello world" example below:
+
+    Use: Standard
+    
+    Log Line: "Hello, world!"
+
 ### You say this language can theoretically do anything?
 
 Kaeon FUSION can expand its functionality at runtime through modular interfaces.
