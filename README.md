@@ -20,6 +20,24 @@ and is particularly useful for metaprogramming.
 
 This repository contains documentation, APIs, an IDE, and example code for Kaeon FUSION.
 
+### Direct Links
+
+#### Documentation
+
+https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation
+
+#### Examples
+
+https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Examples
+
+#### IDE
+
+https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/IDE
+
+#### API
+
+https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/API
+
 ## Disclaimer
 
 Kaeon FUSION is more than usable in its present form.
