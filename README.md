@@ -58,24 +58,6 @@ kaeon.ace@gmail.com
 
 ## FAQs
 
-### The documentation describes four different things: ONE, ONE+, FUSION, and Kaeon FUSION. What's that about?
-
-Unlike most other languages,
-Kaeon FUSION actually borrows its syntax from a language called ONE.
-ONE is a very simple markup language that allows the user to define a tree of strings.
-ONE+ is a superset of ONE that makes it easier to write large amounts of ONE markup by hand.
-FUSION is a system that allows a ONE document to be interpreted as code,
-and Kaeon FUSION is the de facto standard dialect of FUSION.
-
-### How can a language be inspired by LISP without being LISP?
-
-The main differences between FUSION and LISP are that FUSION uses doubly linked trees instead of singly linked lists,
-and that FUSION boasts a far nicer syntax.
-While FUSION may not be too far a cry from pure LISP,
-Kaeon FUSION is very different from popular LISP dialects like Common LISP,
-Scheme,
-or Clojure.
-
 ### How can I try it out?
 
 The current implementation of Kaeon FUSION runs on Java,
@@ -98,6 +80,32 @@ We suggest getting started with the "Hello world" example below:
     Use: Standard
     
     Log Line: "Hello, world!"
+
+### The documentation describes four different things: ONE, ONE+, FUSION, and Kaeon FUSION. What's that about?
+
+Unlike most other languages,
+Kaeon FUSION actually borrows its syntax from a language called ONE.
+ONE is a very simple markup language that allows the user to define a tree of strings.
+ONE+ is a superset of ONE that makes it easier to write large amounts of ONE markup by hand.
+FUSION is a system that allows a ONE document to be interpreted as code,
+and Kaeon FUSION is the de facto standard dialect of FUSION.
+
+### What's the difference between an interface and a library?
+
+In the context of Kaeon FUSION,
+a library is a set of functions written in Kaeon FUSION that can be shared across Kaeon FUSION files.
+An interface is a set of Kaeon FUSION commands not present in the defualt Kaeon FUSION language, but can be added in at runtime.
+They are written in the same language as the interpreter,
+and therefore for our implementation they are written in Java.
+
+### How can a language be inspired by LISP without being LISP?
+
+The main differences between FUSION and LISP are that FUSION uses doubly linked trees instead of singly linked lists,
+and that FUSION boasts a far nicer syntax.
+While FUSION may not be too far a cry from pure LISP,
+Kaeon FUSION is very different from popular LISP dialects like Common LISP,
+Scheme,
+or Clojure.
 
 ### You say this language can theoretically do anything?
 
