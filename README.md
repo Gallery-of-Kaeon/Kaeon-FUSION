@@ -47,7 +47,7 @@ on ironing out bugs in the interpreter,
 and on new features.
 Therefore,
 one should consider the project to be in open beta.
-If you you have an issue with any of the provided resources,
+If you have an issue with any of the provided resources,
 please let us know.
 
 ## Contact info
