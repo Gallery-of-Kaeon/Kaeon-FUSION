@@ -2,7 +2,7 @@
 
 ## What it is
 
-Kaeon FUSION is the very first programming language created soley to replace all other programming and markup languages by efficiently and elegantly amalgamating their functionality into a single language with a single syntax.
+Kaeon FUSION is the very first programming language created soley to work in place of any other programming or markup language by efficiently and elegantly amalgamating the functionality of said languages into a single language with a single syntax.
 
 The language itself is entirely modular,
 inspired by LISP,
