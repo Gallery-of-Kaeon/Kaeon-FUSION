@@ -158,7 +158,7 @@ and was built upon things that were in development for about 1 year before the p
 You should expect to see several minor updates per month,
 with major updates occuring between once per month and once every three months.
 
-### What should we expect to see in the next major updates?
+### What should I expect to see in the next major updates?
 
 At the time of writing,
 our main focus is on optomizing the perfomance of scripts written using the standard interface and on polishing the web development and machine code interfaces.
