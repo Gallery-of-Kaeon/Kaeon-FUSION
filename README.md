@@ -153,8 +153,8 @@ We'll dispatch a team of highly trained rubber duckys to deal with with it immed
 ### How often will Kaeon FUSION be updated?
 
 At the time of writing,
-Kaeon FUSION has officially been in development for about 5 months,
-and was built upon things that were in development for about 1 year before the project began.
+Kaeon FUSION has officially been in development for about five months,
+and was built upon things that were in development for about one year before the project began.
 You should expect to see several minor updates per month,
 with major updates occuring between once per month and once every three months.
 
