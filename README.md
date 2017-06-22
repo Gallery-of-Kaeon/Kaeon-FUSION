@@ -150,6 +150,20 @@ As such, the documentation may be updated before the implementation is.
 If you encounter an inconsistency or any other problem, please let us know.
 We'll dispatch a team of highly trained rubber duckys to deal with with it immediately.
 
+### How often will Kaeon FUSION be updated?
+
+At the time of writing,
+Kaeon FUSION has officially been in development for about 5 months,
+and was built upon things that were in development for about 1 year before the project began.
+You should expect to see several minor updates per month,
+with major updates occuring between once per month and once every three months.
+
+### What should we expect to see in the next major updates?
+
+At the time of writing,
+our main focus is on optomizing the perfomance of scripts written using the standard interface and on polishing the web development and machine code interfaces.
+We also intend to redevelop our IDE with a far more sophisticated UI.
+
 ### I would like to use Kaeon FUSION in a commercial project. Who do I make the check out to?
 
 Kaeon FUSION is licensed under the Apache License 2.0.
