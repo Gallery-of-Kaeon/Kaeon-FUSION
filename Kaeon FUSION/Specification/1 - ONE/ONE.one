@@ -29,7 +29,8 @@
 				
 				There must be at least one line in between the declaring and terminating lines.
 				Each line in between must be indented one space further than the declaring and
-				terminating lines. Every character following the first indent will be encoded as
+				terminating lines. Every character following the first indent, with the exception
+				of the new line character at the end of the last indented line, will be encoded as
 				literal text within the Element.
 				
 				Example 1:
