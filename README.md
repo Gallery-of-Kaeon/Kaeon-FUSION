@@ -19,7 +19,7 @@ and is particularly useful for metaprogramming.
 
 ## Contents of this repository
 
-This repository contains documentation, specification, APIs, an IDE, and example code for Kaeon FUSION.
+This repository contains documentation, the specification, APIs, an IDE, and example code for Kaeon FUSION.
 
 ### Direct Links
 
