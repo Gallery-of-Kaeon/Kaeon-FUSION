@@ -50,7 +50,7 @@ will be converted to:
 ## Multiple Element Definitons
 
 It is also possible to encode multiple elements into a single line.
-Such a line is called a "multiple element definition"
+Such a line is called a "multiple element definition".
 Various token characters may be used to separate the elements.
 The token character used determines how the nest level is affected.
 
