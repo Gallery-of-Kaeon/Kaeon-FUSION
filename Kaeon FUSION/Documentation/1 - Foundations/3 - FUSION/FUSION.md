@@ -46,3 +46,8 @@ FUSION will shift focus to the element's parent and decrement the depth value by
 
 If the depth value is less than or equal to zero or if the element does not have a parent,
 FUSION will terminate.
+
+## Error Handling
+
+If an error occurs during at any step,
+FUSION will skip over the step and procede as if nothing happened.
