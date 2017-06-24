@@ -54,6 +54,9 @@ Such a line is called a "multiple element definition".
 Various token characters may be used to separate the elements.
 The token character used determines how the nest level is affected.
 
+When nesting a child element beneath a multiple element line,
+the element that will become the parent is the most recent element at the nest level of the end of the line.
+
 The token characters used in multiple element definitions are as follows:
 
 , - Does not affect nest level  
@@ -150,3 +153,173 @@ Becomes:
     -
     	d
     -
+
+### Example 6
+
+    a: b
+	c
+
+Becomes:
+
+    -
+    	a
+    -
+    	-
+    		b
+    	-
+    		-
+    			c
+    		-
+
+### Example 7
+
+    a { b: c }
+	d
+
+Becomes:
+
+    -
+    	a
+    -
+    	-
+    		b
+    	-
+    		-
+    			c
+    		-
+    	-
+    		d
+    	-
+
+## Escape Sequences
+
+The effect of any token character can be negated by preceding it with a tilda.
+Likewise,
+the negating effect of a tilda can itself be negated with a preceding tilda.
+The negating tilda will not be encoded into the element.
+
+If the letter n is preceded by a tilda,
+it will be encoded as a new line.
+If the letter t is preceded by a tilda,
+it will be encoded as a tab.
+
+If a string is placed between two single quotes,
+the effects of all token characters between them will be negated.
+The single quotes will not be encoded into the string.
+
+Double quotes have the same negating effect as single quotes,
+but double quotes will be encoded into the string.
+
+In addition,
+no token character will take effect if placed inside an element block.
+
+### Example 1
+
+    a~: b
+
+Becomes:
+
+    -
+    	a: b
+    -
+
+### Example 2
+
+    a~~: b
+
+Becomes:
+
+    -
+    	a~
+    -
+    	-
+    		b
+    	-
+
+### Example 3
+
+    'a: b'
+
+Becomes:
+
+    -
+    	a: b
+    -
+
+### Example 4
+
+    "a: b"
+
+Becomes:
+
+    -
+    	"a: b"
+    -
+
+### Example 5
+
+    hello~n~tworld
+
+Becomes:
+
+    -
+    	hello
+    		world
+    -
+
+### Example 6
+
+    -
+    	a: hello~n~tworld
+    -
+
+Becomes:
+
+    -
+    	a: hello~n~tworld
+    -
+
+## Comments
+
+Any part of a line preceded by a pound sign will be commented out.
+A pound sign followed by an open square bracket dictates the start of a comment block.
+A comment block is closed with a closed square bracket followed by a pound sign.
+
+### Example 1
+
+    hello # world
+
+Becomes:
+
+    -
+    	hello
+    -
+
+### Example 1
+
+    hello #[
+    abc
+    123
+    xyz ]#
+    world
+
+Becomes:
+
+    -
+    	hello
+    -
+    -
+    	world
+    -
+
+## Directives
+
+Directives are preprocessor scripts for ONE+.
+
+Directives are written as multiple element lines encased in square brackets.
+
+For example:
+
+    [DIRECTIVE NAME: DIRECTIVE ARGUMENT 1, DIRECTIVE ARGUMENT 2]
+
+The directives available depend on the implementation of the ONE+ parser.
