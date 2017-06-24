@@ -174,7 +174,7 @@ Becomes:
 ### Example 7
 
     a { b: c }
-	d
+    	d
 
 Becomes:
 
