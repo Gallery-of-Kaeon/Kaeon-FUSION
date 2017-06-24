@@ -1,6 +1,6 @@
 # ONE
 
-ONE is an extremely minmalistic markup language that allows the user to define a tree of string literals.
+ONE is an extremely minimalistic markup language that allows the user to define a tree of string literals.
 
 String literals may only be encoded in elements.
 Elements may be nested within one another.
