@@ -56,20 +56,20 @@ The token character used determines how the nest level is affected.
 
 The token characters used in multiple element definitions are as follows:
 
-, - Does not affect nest level
-| - Same as ','
-: - Increments nest level
-; - Decrements nest level
-( - Stores but does not affect nest level
-) - Restores nest level to that stored by corresponding '('
-{ - Stores and increments nest level
-} - Restores nest level to that stored by corresponding '{'
+, - Does not affect nest level  
+| - Same as ','  
+: - Increments nest level  
+; - Decrements nest level  
+( - Stores but does not affect nest level  
+) - Restores nest level to that stored by corresponding '('  
+{ - Stores and increments nest level  
+} - Restores nest level to that stored by corresponding '{'  
 
 ### Example 1
 
     a, b, c
 
-becomes
+Becomes:
 
     -
     	a
@@ -85,7 +85,7 @@ becomes
 
     a: b, c
 
-becomes
+Becomes:
 
     -
     	a
@@ -101,7 +101,7 @@ becomes
 
     a: b; c
 
-becomes
+Becomes:
 
     -
     	a
@@ -117,7 +117,7 @@ becomes
 
     a ( b: c ) d
 
-becomes
+Becomes:
 
     -
     	a
@@ -136,7 +136,7 @@ becomes
 
     a { b: c } d
 
-becomes
+Becomes:
 
     -
     	a
