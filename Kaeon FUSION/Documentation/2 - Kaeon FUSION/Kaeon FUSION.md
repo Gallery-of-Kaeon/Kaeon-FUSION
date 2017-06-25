@@ -64,3 +64,74 @@ For example:
         Command 2: Command Argument 1, Command Argument 2
     
     foo: Function Argument
+
+### Core Commands
+
+#### The Use Command
+
+The Use command allows the user to add new commands to Kaeon FUSION's functionality by specifying the name of an interface.
+
+For example:
+
+    Use: Standard
+
+will allow access to all of the commands in the standard interface,
+such as commands for arithmetic, logic, and file IO, and more.
+
+#### The Catch Command
+
+The catch command will allow the program to instantly recover from a thrown exception.
+If at any point an exception is thrown,
+all subsequent commands will fail to activate until a catch command is reached.
+The children of a catch command will be activated if and only if it catches an exception.
+
+For example:
+
+    Faulty Command: Bad Argument
+    Normal Command 1
+    Catch: Recover Command 1
+    Normal Command 2
+    Catch: Recover Command 2
+
+Let's say that "Faulty Command" throws an exception due to "Bad Argument".
+"Normal Command 1" will then be passed over,
+and "Catch" will activate.
+As a result,
+both "Recover Command 1" and "Normal Command 1" will run.
+However, "Recover Command 2" will not run as the exception has already been caught.
+
+#### The Arguments Command
+
+It is possible to execute a Kaeon FUSION script or a Kaeon FUSION function with arguments.
+The "Arguments" command returns a list containing the arguments that were passed to the script or function.
+
+For example:
+
+    Use: Standard
+    
+    Define: foo
+        
+        #[ The "Log Line" command comes from the standard interface,
+           and prints the values returned by its children to the console. ]#
+
+        Log Line: Arguments
+    
+    foo: 1, 2, 3
+
+will print to the console:
+
+    [1, 2, 3]
+
+#### The Return Command
+
+It is possible for a Kaeon FUSION script or a Kaeon FUSION function to be called externally.
+The "Return" command will terminate the currently executing function or script and return the value returned by its first child to the caller.
+
+For example:
+    
+    Define: foo
+        Return: y
+    
+    x: foo
+
+will assign the value "y" to the variable "x".
