@@ -94,6 +94,9 @@ all scopes not shared by both the jumping and landing commands will be erased.
 
 ## Core Commands
 
+The following commands are the only commands available without the use of an interface.
+This is because the following commands require special accomodation from the interpreter.
+
 ### The Use Command
 
 The Use command allows the user to add new commands to Kaeon FUSION's functionality by specifying the name of an interface.
