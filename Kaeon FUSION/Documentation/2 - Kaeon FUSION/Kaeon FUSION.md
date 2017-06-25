@@ -65,9 +65,26 @@ For example:
     
     foo: Function Argument
 
-### Core Commands
+will run "foo" with "Function Argument".
 
-#### The Use Command
+A unique feature of Kaeon FUSION is that after executing a function,
+its namespace can be stored within a variable.
+
+For example:
+
+    Define: foo
+        
+        Command 1: Command Argument 1
+        Command 2: Command Argument 1, Command Argument 2
+    
+    x: foo: Function Argument
+
+will run "foo" with "Function Argument",
+and then store the state of the function in "x".
+
+## Core Commands
+
+### The Use Command
 
 The Use command allows the user to add new commands to Kaeon FUSION's functionality by specifying the name of an interface.
 
@@ -78,7 +95,7 @@ For example:
 will allow access to all of the commands in the standard interface,
 such as commands for arithmetic, logic, and file IO, and more.
 
-#### The Catch Command
+### The Catch Command
 
 The catch command will allow the program to instantly recover from a thrown exception.
 If at any point an exception is thrown,
@@ -100,7 +117,7 @@ As a result,
 both "Recover Command 1" and "Normal Command 1" will run.
 However, "Recover Command 2" will not run as the exception has already been caught.
 
-#### The Arguments Command
+### The Arguments Command
 
 It is possible to execute a Kaeon FUSION script or a Kaeon FUSION function with arguments.
 The "Arguments" command returns a list containing the arguments that were passed to the script or function.
@@ -122,7 +139,7 @@ will print to the console:
 
     [1, 2, 3]
 
-#### The Return Command
+### The Return Command
 
 It is possible for a Kaeon FUSION script or a Kaeon FUSION function to be called externally.
 The "Return" command will terminate the currently executing function or script and return the value returned by its first child to the caller.
