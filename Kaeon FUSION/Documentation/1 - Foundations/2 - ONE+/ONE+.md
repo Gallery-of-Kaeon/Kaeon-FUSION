@@ -157,7 +157,7 @@ Becomes:
 ### Example 6
 
     a: b
-	c
+    	c
 
 Becomes:
 
