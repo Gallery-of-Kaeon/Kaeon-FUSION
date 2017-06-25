@@ -16,6 +16,8 @@ any text that is valid in ONE is valid in ONE+.
 However, unlike ONE,
 ONE+ does make use of token characters and thus requires escape sequences in certain situations.
 
+The proper file extension for a ONE+ file is ".op".
+
 ## Indentation
 
 While ONE only allows the use of tabs for indentation,

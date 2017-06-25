@@ -18,6 +18,8 @@ No whitespace is permitted between elements.
 
 A ONE file is referred to as a "document".
 
+The proper file extension for a ONE file is ".one".
+
 ## Example ONE documents
 
 ### Document with one element with no content
