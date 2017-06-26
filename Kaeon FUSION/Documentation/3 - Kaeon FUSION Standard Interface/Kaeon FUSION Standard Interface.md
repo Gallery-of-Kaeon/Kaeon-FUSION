@@ -18,10 +18,6 @@ The interface is activated using the following command:
 
 Certain types of string literals can function as primitives for certain standard interface commands.
 
-## Indexes
-
-Indexes for list and string operations in the Kaeon FUSION Standard Interface start at 1.
-
 ### Numbers
 
 A number string must consist entirely of digits and no more than one period.
@@ -31,6 +27,10 @@ If the period is present, it must not be the last character in the string.
 
 A boolean string may either take the form of "True" or "False".
 Case is irrelevant.
+
+## Indexes
+
+Indexes for list and string operations in the Kaeon FUSION Standard Interface start at 1.
 
 ## Commands
 
@@ -475,14 +475,14 @@ If the boolean value is "False" the Break command will not take effect.
 For example in:
     
     Scope { Break }
-        Log Line: Success
+    	Log Line: Success
 
 or:
 
     x: hello
     
     Scope { Break: Equal: x, hello }
-        Log Line: Success
+    	Log Line: Success
 
 nothing will print to the console.
 
@@ -495,7 +495,7 @@ For example:
     x: hello
     
     Scope { Break: Not: Equal: x, hello }
-        Log Line: Success
+    	Log Line: Success
     
     Else
     	Log Line: Failure
@@ -505,7 +505,7 @@ will log "Success" to the console, and:
     x: hello
     
     Scope { Break: Equal: x, hello }
-        Log Line: Success
+    	Log Line: Success
     
     Else
     	Log Line: Failure
