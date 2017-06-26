@@ -271,3 +271,110 @@ will return "True", and:
     Less or Equal: 2, 1
 
 will return "False".
+
+### List Operations
+
+Indexes for list operations in the Kaeon FUSION Standard Interface start at 1.
+
+#### List
+
+The List command places all of the values returned by its children into a list and returns it.
+
+For example:
+
+    List: 1, 2, 3
+
+will return the list [1, 2, 3].
+
+#### Size
+
+The Size command takes a list and returns the size of it.
+
+For example:
+
+    Size: List: 1, 2, 3
+
+will return "3".
+
+#### At
+
+The At command takes a list and an integer and returns the value in the list at the given integer.
+
+For example:
+
+    At: List { 4, 5, 6 } 2
+
+will return "5".
+
+#### Append
+
+The Append command takes a list and a value and appends the value to the list.
+
+For example:
+
+    my list: List: 1, 2, 3
+    Append: my list, 4
+
+will append "4" to my list, resulting in my list's content being [1, 2, 3, 4].
+
+#### Set
+
+The Set command takes a list,
+an integer,
+and a value.
+It sets the value of the list at the index specified my the integer to the given value.
+If the index is greater than the langht of the list,
+null values will be appended to the list until it reaches the rquired size.
+
+For example:
+
+    my list: List: 1, 2, 3
+    Set: my list, 2, 4
+
+will replace "2" with "4" in my list,
+resulting in my list's content being [1, 4, 3],
+and:
+
+    my list: List: 1, 2, 3
+    Set: my list, 5, 4
+
+will place a null value at position 4 and append "4" to my list,
+resulting in my list's content being [1, 2, 3, null, 4].
+
+#### Insert
+
+The Insert command takes a list,
+an integer,
+and a value.
+It appends the given value to the list at the index specified my the integer.
+If the index is greater than the langht of the list,
+null values will be appended to the list until it reaches the rquired size.
+
+For example:
+
+    my list: List: 1, 2, 3
+    Insert: my list, 2, 4
+
+will insert "4" at index 2 in my list,
+resulting in my list's content being [1, 4, 2, 3],
+and:
+
+    my list: List: 1, 2, 3
+    Insert: my list, 5, 4
+
+will place a null value at position 4 and append "4" to my list,
+resulting in my list's content being [1, 2, 3, null, 4].
+
+#### Remove
+
+The Remove command takes a list and an integer.
+It removes the value in the list at the specified integer and returns the value.
+
+For example:
+
+    my list: List: 1, 2, 3
+    x: Remove: my list, 2
+
+will remove "2" from my list,
+resulting in my list's content being [1, 3],
+and assign "2" to x.
