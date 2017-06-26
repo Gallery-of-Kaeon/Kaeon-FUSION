@@ -609,3 +609,27 @@ to the console.
 ### Wait
 
 The wait command will take a number a pause the current thread for that many seconds.
+
+## Metaprogramming Commands
+
+### Execute
+
+The Execute command takes a string and executes it as Kaeon FUSION code.
+
+For example, if we have a file called "My Code.op" with the content:
+
+    Log Line: Hello
+
+then:
+
+    Execute: Open: My Code.op
+
+will print "Hello" to the console.
+
+### Run
+
+The Run command takes a string and passes it to the command line.
+
+On windows, you can open up notepad with the following Kaeon FUSION code:
+
+    Run: Notepad
