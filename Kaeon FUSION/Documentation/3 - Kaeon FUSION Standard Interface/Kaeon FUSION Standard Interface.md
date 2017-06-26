@@ -452,3 +452,92 @@ For example:
     Save: hello, My File.txt
 
 will create a file called "My File.txt" with the content "hello".
+
+### Flow Control
+
+#### Scope
+
+The Scope command perfoms no operations.
+It merely serves to establish an isolated scope in which its child commands proceed to execute.
+
+For example:
+
+    Scope
+    
+    	# Code
+
+#### Break
+
+The Break command stops the execution of all commands in its scope and causes FUSION to bubble up.
+It has the option of take a boolean as an argument.
+If the boolean value is "False" the Break command will not take effect.
+
+For example in:
+    
+    Scope { Break }
+        Log Line: Success
+
+or:
+
+    x: hello
+    
+    Scope { Break: Equal: x, hello }
+        Log Line: Success
+
+nothing will print to the console.
+
+#### Else
+
+An Else command will only allow its child commands to execute if the most recently used Break command used since the most recently used Else command activated.
+
+For example:
+
+    x: hello
+    
+    Scope { Break: Not: Equal: x, hello }
+        Log Line: Success
+    
+    Else
+    	Log Line: Failure
+
+will log "Success" to the console, and:
+
+    x: hello
+    
+    Scope { Break: Equal: x, hello }
+        Log Line: Success
+    
+    Else
+    	Log Line: Failure
+
+will log "Failure" to the console.
+
+#### Loop
+
+The Loop command jumps to the first child command of its parent command.
+It has the option of take a boolean as an argument.
+If the boolean value is "False" the Break command will not take effect.
+
+For example:
+
+    i { 0 } Scope
+    
+    	Log Line: i
+    
+    	i: Add: i, 1
+    	Loop: Less: i, 10
+
+will print:
+
+    0
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+
+to the console.
