@@ -19,6 +19,10 @@ The interface is activated using the following command:
 
 Certain types of string literals can function as primitives for certain standard interface commands.
 
+## Indexes
+
+Indexes for list and string operations in the Kaeon FUSION Standard Interface start at 1.
+
 ### Numbers
 
 A number string must consist entirely of digits and no more than one period.
@@ -274,8 +278,6 @@ will return "False".
 
 ### List Operations
 
-Indexes for list operations in the Kaeon FUSION Standard Interface start at 1.
-
 #### List
 
 The List command places all of the values returned by its children into a list and returns it.
@@ -378,3 +380,47 @@ For example:
 will remove "2" from my list,
 resulting in my list's content being [1, 3],
 and assign "2" to x.
+
+### String Operations
+
+#### Length
+
+The Length command takes a string and returns its length.
+
+For example:
+
+    Length: hello
+
+will return "5".
+
+#### Concatenate
+
+The Concatenate command takes multiple strings,
+concatenates them,
+and returns the concatenated string. 
+
+For example:
+
+    Length: abc, xyz, 123
+
+will return "abcxyz123".
+
+#### Character
+
+The Character command takes a string and an integer and returns the character in the string at the index specified by the integer.
+
+For example:
+
+    Character: abc, 2
+
+will return "b".
+
+#### Character
+
+The Character command takes a string and two integers and returns the sequence of characters in the string from the index specified by the first integer to the index specified by the second integer.
+
+For example:
+
+    Character: hello, 3, 5
+
+will return "llo".
