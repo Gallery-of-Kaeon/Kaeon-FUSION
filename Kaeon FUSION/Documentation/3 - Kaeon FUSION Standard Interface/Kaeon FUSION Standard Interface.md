@@ -35,11 +35,9 @@ Case is irrelevant.
 
 Indexes for list and string operations in the Kaeon FUSION Standard Interface start at 1.
 
-## Commands
+## Console IO Commands
 
-### Console IO
-
-#### Log
+### Log
 
 The Log command will print every value returned by its children to the console in order.
 
@@ -54,7 +52,7 @@ will log:
 
 to the console.
 
-#### Log Line
+### Log Line
 
 The Log Line command will print every value returned by its children to the console in order,
 plus a new line character.
@@ -72,7 +70,7 @@ will log:
 
 to the console.
 
-#### Input
+### Input
 
 The Input command will print every value returned by its children to the console in order,
 prompt the user for string input,
@@ -85,9 +83,9 @@ For example:
 if the user types in "5" at the prompt,
 the value "5" will be assigned to the variable x.
 
-### Arithmetic
+## Arithmetic Commands
 
-#### Add
+### Add
 
 The Add command takes two string values in the form of numbers.
 It returns the sum of the two numbers as a string.
@@ -98,7 +96,7 @@ For example:
 
 will return the value "3".
 
-#### Subtract
+### Subtract
 
 The Subtract command takes two string values in the form of numbers.
 It returns the difference of the two numbers as a string.
@@ -109,7 +107,7 @@ For example:
 
 will return the value "1".
 
-#### Multiply
+### Multiply
 
 The Multiply command takes two string values in the form of numbers.
 It returns the product of the two numbers as a string.
@@ -120,7 +118,7 @@ For example:
 
 will return the value "10".
 
-#### Divide
+### Divide
 
 The Divide command takes two string values in the form of numbers.
 It returns the quotient of the two numbers as a string.
@@ -131,7 +129,7 @@ For example:
 
 will return the value "5".
 
-#### Modulus
+### Modulus
 
 The Modulus command takes two string values in the form of numbers.
 It returns the remainder of the two numbers as a string.
@@ -142,9 +140,9 @@ For example:
 
 will return the value "1".
 
-### Logic
+## Logic Commands
 
-#### And
+### And
 
 The And command takes two boolean strings and returns "True" if they are both "True",
 and returns "False" otherwise.
@@ -159,7 +157,7 @@ will return "True", and:
 
 will return "False".
 
-#### Or
+### Or
 
 The Or command takes two boolean strings and returns "True" if either of them are "True",
 and returns "False" otherwise.
@@ -174,7 +172,7 @@ will return "True", and:
 
 will return "False".
 
-#### Exclusive Or
+### Exclusive Or
 
 The Exclusive Or command takes two boolean strings and returns "True" if only one of them is "True",
 and returns "False" otherwise.
@@ -189,7 +187,7 @@ will return "True", and:
 
 will return "False".
 
-#### Not
+### Not
 
 The Not command takes one boolean string and returns the opposite of its input.
 
@@ -203,7 +201,7 @@ will return "True", and:
 
 will return "False".
 
-#### Equal
+### Equal
 
 The Equal command takes two strings and returns "True" if they are both the same,
 and returns "False" otherwise.
@@ -218,7 +216,7 @@ will return "True", and:
 
 will return "False".
 
-#### Greater
+### Greater
 
 The Greater command takes two number strings and returns "True" if the first number is greater than the second,
 and returns "False" otherwise.
@@ -233,7 +231,7 @@ will return "True", and:
 
 will return "False".
 
-#### Greater or Equal
+### Greater or Equal
 
 The Greater command takes two number strings and returns "True" if the first number is greater than or equal to the second,
 and returns "False" otherwise.
@@ -248,7 +246,7 @@ will return "True", and:
 
 will return "False".
 
-#### Less
+### Less
 
 The Less command takes two number strings and returns "True" if the first number is less than the second,
 and returns "False" otherwise.
@@ -263,7 +261,7 @@ will return "True", and:
 
 will return "False".
 
-#### Less or Equal
+### Less or Equal
 
 The Less command takes two number strings and returns "True" if the first number is less than or equal to the second,
 and returns "False" otherwise.
@@ -278,9 +276,9 @@ will return "True", and:
 
 will return "False".
 
-### List Operations
+## List Operation Commands
 
-#### List
+### List
 
 The List command places all of the values returned by its children into a list and returns it.
 
@@ -290,7 +288,7 @@ For example:
 
 will return the list [1, 2, 3].
 
-#### Size
+### Size
 
 The Size command takes a list and returns the size of it.
 
@@ -300,7 +298,7 @@ For example:
 
 will return "3".
 
-#### At
+### At
 
 The At command takes a list and an integer and returns the value in the list at the given integer.
 
@@ -310,7 +308,7 @@ For example:
 
 will return "5".
 
-#### Append
+### Append
 
 The Append command takes a list and a value and appends the value to the list.
 
@@ -321,7 +319,7 @@ For example:
 
 will append "4" to my list, resulting in my list's content being [1, 2, 3, 4].
 
-#### Set
+### Set
 
 The Set command takes a list,
 an integer,
@@ -345,7 +343,7 @@ and:
 will place a null value at position 4 and append "4" to my list,
 resulting in my list's content being [1, 2, 3, null, 4].
 
-#### Insert
+### Insert
 
 The Insert command takes a list,
 an integer,
@@ -369,7 +367,7 @@ and:
 will place a null value at position 4 and append "4" to my list,
 resulting in my list's content being [1, 2, 3, null, 4].
 
-#### Remove
+### Remove
 
 The Remove command takes a list and an integer.
 It removes the value in the list at the specified integer and returns the value.
@@ -383,9 +381,9 @@ will remove "2" from my list,
 resulting in my list's content being [1, 3],
 and assign "2" to x.
 
-### String Operations
+## String Operation Commands
 
-#### Length
+### Length
 
 The Length command takes a string and returns its length.
 
@@ -395,7 +393,7 @@ For example:
 
 will return "5".
 
-#### Concatenate
+### Concatenate
 
 The Concatenate command takes multiple strings,
 concatenates them,
@@ -407,7 +405,7 @@ For example:
 
 will return "abcxyz123".
 
-#### Character
+### Character
 
 The Character command takes a string and an integer and returns the character in the string at the index specified by the integer.
 
@@ -417,7 +415,7 @@ For example:
 
 will return "b".
 
-#### Character
+### Character
 
 The Character command takes a string and two integers and returns the sequence of characters in the string from the index specified by the first integer to the index specified by the second integer.
 
@@ -427,9 +425,9 @@ For example:
 
 will return "llo".
 
-### File IO
+## File IO Commands
 
-#### Open
+### Open
 
 The Open command takes a string and returns the contents of the file located at the path specified by the string.
 
@@ -445,7 +443,7 @@ then:
 
 will return "abc\nxyz\n123".
 
-#### Save
+### Save
 
 The Save command takes two string arguments.
 It writes the contents of the first dtring to the file at the path specified by the second string.
@@ -456,9 +454,9 @@ For example:
 
 will create a file called "My File.txt" with the content "hello".
 
-### Flow Control
+## Flow Control Commands
 
-#### Scope
+### Scope
 
 The Scope command perfoms no operations.
 It merely serves to establish an isolated scope in which its child commands proceed to execute.
@@ -469,7 +467,7 @@ For example:
     
     	# Code
 
-#### Break
+### Break
 
 The Break command stops the execution of all commands in its scope and causes FUSION to bubble up.
 It has the option of take a boolean as an argument.
@@ -489,7 +487,7 @@ or:
 
 nothing will print to the console.
 
-#### Else
+### Else
 
 An Else command will only allow its child commands to execute if the most recently used Break command used since the most recently used Else command activated.
 
@@ -515,7 +513,7 @@ will log "Success" to the console, and:
 
 will log "Failure" to the console.
 
-#### Loop
+### Loop
 
 The Loop command jumps to the first child command of its parent command.
 It has the option of take a boolean as an argument.
@@ -545,7 +543,7 @@ will print:
 
 to the console.
 
-#### Throw
+### Throw
 
 The Throw command will automaticalliy throw an exception.
 
@@ -565,13 +563,13 @@ will print:
 
 to the console.
 
-#### Exit
+### Exit
 
 The Exit command will immediately stop the execution of Kaeon FUSION.
 
-### Threading
+## Threading Commands
 
-#### Split
+### Split
 
 The Split command will create execute its children on a new thread.
 
@@ -608,6 +606,6 @@ will print:
 
 to the console.
 
-#### Wait
+### Wait
 
 The wait command will take a number a pause the current thread for that many seconds.
