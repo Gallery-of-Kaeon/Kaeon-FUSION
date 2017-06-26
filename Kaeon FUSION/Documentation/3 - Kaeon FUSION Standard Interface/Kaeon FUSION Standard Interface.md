@@ -6,7 +6,10 @@ logic,
 list operations,
 string operations,
 file IO,
-and flow control.
+flow control,
+threading,
+metaprogramming,
+and object orientation.
 
 As such, one might consider the functionality it provides to be the flagship functionality of Kaeon FUSION.
 
@@ -541,3 +544,70 @@ will print:
     9
 
 to the console.
+
+#### Throw
+
+The Throw command will automaticalliy throw an exception.
+
+For example:
+
+    Log Line: abc
+    Throw
+    Log Line: xyz
+    Catch: Log Line: Oops
+    Log Line: 123
+
+will print:
+
+    abc
+    Oops
+    123
+
+to the console.
+
+#### Exit
+
+The Exit command will immediately stop the execution of Kaeon FUSION.
+
+### Threading
+
+#### Split
+
+The Split command will create execute its children on a new thread.
+
+For example:
+
+    Split
+    
+    	i { 0 } Scope
+
+    		Log Line: i
+
+    		i: Add: i, 1
+    		Loop: Less: i, 5
+    
+    i { 5 } Scope
+
+    	Log Line: i
+
+    	i: Add: i, 1
+    	Loop: Less: i, 10
+
+will print:
+
+    0
+    5
+    1
+    6
+    2
+    7
+    2
+    8
+    4
+    9
+
+to the console.
+
+#### Wait
+
+The wait command will take a number a pause the current thread for that many seconds.
