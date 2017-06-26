@@ -1,9 +1,0 @@
-Import
-	
-	Overview
-		
-		-
-			The import command contains the content "Import" and has one child that returns a
-			string. It will open the file at the path specified by the returned string and add all
-			functions declared in the root element of the file it opened to the state.
-		-

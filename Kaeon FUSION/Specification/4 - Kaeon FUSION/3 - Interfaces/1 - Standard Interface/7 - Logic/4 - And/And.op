@@ -1,9 +1,0 @@
-And
-	
-	Overview
-		
-		-
-			The and command contains the content "And", and has two children, both of which return
-			booleans. The command will return true if both booleans are true, and return false
-			otherwise.
-		-

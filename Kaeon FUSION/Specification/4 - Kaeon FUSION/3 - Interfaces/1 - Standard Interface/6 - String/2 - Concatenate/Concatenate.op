@@ -1,9 +1,0 @@
-Concatenate
-	
-	Overview
-		
-		-
-			The concatenate command contains the content "Concatenate", and has an indefinite
-			number of children. It will convert each object returned by its children to a string,
-			concatenate them, and return the concatenated string.
-		-

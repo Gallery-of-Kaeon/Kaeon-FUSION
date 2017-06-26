@@ -1,9 +1,0 @@
-Modulus
-	
-	Overview
-		
-		-
-			The modulus command contains the content "Modulus", and has two children, both of which
-			return numbers. The command divides the second number by the first and returns the
-			remainder.
-		-

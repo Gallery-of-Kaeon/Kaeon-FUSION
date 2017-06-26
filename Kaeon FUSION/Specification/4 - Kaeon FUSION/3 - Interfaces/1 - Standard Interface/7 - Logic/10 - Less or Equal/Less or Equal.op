@@ -1,9 +1,0 @@
-Less or Equal
-	
-	Overview
-		
-		-
-			The less or equal command contains the content "Less or Equal", and has two children,
-			both of which return numbers. The command will return true if the first number is less
-			than or equal to the second number, and return false otherwise.
-		-

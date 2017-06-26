@@ -1,8 +1,0 @@
-Wait
-	
-	Overview
-		
-		-
-			The wait command contains the content "Wait", and has a child that returns a number. It
-			will pause the Kaeon FUSION script for the number of second defined by the number.
-		-

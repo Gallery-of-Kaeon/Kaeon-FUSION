@@ -1,8 +1,0 @@
-Else
-	
-	Overview
-		
-		-
-			The else command contains the content "Else", and will only trickle down if the most
-			recently called break command did not have a child that returned false.
-		-

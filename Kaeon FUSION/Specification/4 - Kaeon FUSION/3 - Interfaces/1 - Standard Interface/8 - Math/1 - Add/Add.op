@@ -1,8 +1,0 @@
-Add
-	
-	Overview
-		
-		-
-			The add command contains the content "Add", and has two children, both of which return
-			numbers. The command returns the sum of the two numbers.
-		-

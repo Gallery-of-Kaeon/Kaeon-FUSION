@@ -1,9 +1,0 @@
-Equal
-	
-	Overview
-		
-		-
-			The equal command contains the content "Equal", and has two children. The command will
-			return true if the objects returned by both of its children are equal, and return false
-			otherwise.
-		-

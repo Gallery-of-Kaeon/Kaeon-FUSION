@@ -1,9 +1,0 @@
-Save
-	
-	Overview
-		
-		-
-			The save command contains the content "Save", and has two children, each of which
-			return a string. It will save a file containing the first string at the path specified
-			by the second string.
-		-

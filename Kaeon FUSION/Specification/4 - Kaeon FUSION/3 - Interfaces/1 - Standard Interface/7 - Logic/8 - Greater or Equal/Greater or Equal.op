@@ -1,9 +1,0 @@
-Greater or Equal
-	
-	Overview
-		
-		-
-			The greater or equal command contains the content "Greater or Equal", and has two
-			children, both of which return numbers. The command will return true if the first
-			number is greater than or equal to the second number, and return false otherwise.
-		-

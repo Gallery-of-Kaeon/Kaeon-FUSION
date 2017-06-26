@@ -1,9 +1,0 @@
-This
-	
-	Overview
-		
-		-
-			The Scope command is a command with the content "This".
-			
-			When called, it returns a reference to the current namespace.
-		-

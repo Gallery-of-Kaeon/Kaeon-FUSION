@@ -1,9 +1,0 @@
-Append
-	
-	Overview
-		
-		-
-			The append command contains the content "Append", and has two children. The first child
-			returns a list of objects, and the second child returns an object. The command will
-			append the object to the end of the list.
-		-

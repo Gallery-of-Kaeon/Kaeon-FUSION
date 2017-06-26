@@ -1,9 +1,0 @@
-Not
-	
-	Overview
-		
-		-
-			The not command contains the content "Not", and has one child that returns a boolean.
-			If the boolean has a value of true, the command will return false. If the boolean has a
-			value of false, the command will return true.
-		-

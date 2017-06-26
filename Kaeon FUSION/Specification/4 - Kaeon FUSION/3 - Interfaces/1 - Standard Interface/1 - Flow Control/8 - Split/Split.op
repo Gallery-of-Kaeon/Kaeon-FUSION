@@ -1,8 +1,0 @@
-Split
-	
-	Overview
-		
-		-
-			The split command contains the content "Split". It does not trickle down and executes
-			all of its children in a new Kaeon FUSION script on a new thread.
-		-

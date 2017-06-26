@@ -1,8 +1,0 @@
-Run
-	
-	Overview
-		
-		-
-			The run command contains the content "Run" and has a child that returns a string. It
-			makes a call to the command line using the returned string.
-		-

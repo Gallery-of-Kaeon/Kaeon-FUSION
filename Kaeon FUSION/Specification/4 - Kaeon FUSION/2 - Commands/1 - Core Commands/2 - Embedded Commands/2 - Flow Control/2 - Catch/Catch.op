@@ -1,8 +1,0 @@
-Catch
-	
-	Overview
-		
-		-
-			The catch command contains the content "Catch", and will catch an exception if one was
-			thrown. If no exception was throw, it will not trickle down.
-		-

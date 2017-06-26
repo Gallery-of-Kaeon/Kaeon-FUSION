@@ -1,9 +1,0 @@
-Less
-	
-	Overview
-		
-		-
-			The less command contains the content "Less", and has two children, both of which
-			return numbers. The command will return true if the first number is less than the
-			second number, and return false otherwise.
-		-

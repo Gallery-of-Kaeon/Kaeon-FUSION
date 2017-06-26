@@ -1,9 +1,0 @@
-Subtract
-	
-	Overview
-		
-		-
-			The subtract command contains the content "Subtract", and has two children, both of
-			which return numbers. The command subtracts the second number from the first and
-			returns the result.
-		-

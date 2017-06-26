@@ -1,8 +1,0 @@
-Variables
-	
-	Overview
-		
-		-
-			Variables are name-value pairs stored within the state. Variables are by default
-			non-global, however they may be made global.
-		-

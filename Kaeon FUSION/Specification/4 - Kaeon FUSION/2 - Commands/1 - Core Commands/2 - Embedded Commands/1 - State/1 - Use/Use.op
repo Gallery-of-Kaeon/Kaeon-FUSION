@@ -1,9 +1,0 @@
-Use
-	
-	Overview
-		
-		-
-			The use command contains the content "Use", and has one child that returns a string
-			value. The command will integrate the interface specified by the string if the
-			interpreter supports it.
-		-
