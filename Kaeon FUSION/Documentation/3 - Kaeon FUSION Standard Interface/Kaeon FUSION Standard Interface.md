@@ -5,9 +5,8 @@ arithmetic,
 logic,
 list operations,
 string operations,
-control flow,
 file IO,
-and multithreadhing.
+and flow control.
 
 As such, one might consider the functionality it provides to be the flagship functionality of Kaeon FUSION.
 
@@ -424,3 +423,32 @@ For example:
     Character: hello, 3, 5
 
 will return "llo".
+
+### File IO
+
+#### Open
+
+The Open command takes a string and returns the contents of the file located at the path specified by the string.
+
+For example, if you have a file called "My File.txt" and it contains the following content:
+
+    abc
+    xyz
+    123
+
+then:
+
+    Open: My File.txt
+
+will return "abc\nxyz\n123".
+
+#### Save
+
+The Save command takes two string arguments.
+It writes the contents of the first dtring to the file at the path specified by the second string.
+
+For example:
+
+    Save: hello, My File.txt
+
+will create a file called "My File.txt" with the content "hello".
