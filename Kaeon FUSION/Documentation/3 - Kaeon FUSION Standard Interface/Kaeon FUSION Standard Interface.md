@@ -31,6 +31,10 @@ If the period is present, it must not be the last character in the string.
 A boolean string may either take the form of "True" or "False".
 Case is irrelevant.
 
+### Null
+
+Running the command "Null" returns a null value.
+
 ## Indexes
 
 Indexes for list and string operations in the Kaeon FUSION Standard Interface start at 1.
@@ -630,6 +634,35 @@ will print "Hello" to the console.
 
 The Run command takes a string and passes it to the command line.
 
-On windows, you can open up notepad with the following Kaeon FUSION code:
+On windows,
+you can open up notepad with the following Kaeon FUSION code:
 
     Run: Notepad
+
+## Object Orientation
+
+Kaeon FUSION does not support classes,
+but object orientation can be achieved by using functions as objects.
+
+The state of the function can be stored within a function and reused using the In command.
+
+The In command will take the stored state of a function and execute all of the commands following it within the stored state.
+For this reason,
+the In command should always be nested inside another command.
+The In command will also return a value if the Return command is used within it.
+
+For example:
+
+    Define: foo
+        
+    	x: At: Arguments, 1
+    	y: 10
+
+    my foo: foo: 5
+
+    Scope { In: my foo }
+    	z: Add: x, y
+
+    Log Line: In { my foo } Return: z
+
+will print "15" to the console.
