@@ -1,4 +1,8 @@
 # Kaeon FUSION Machine Interface
 
-The Kaeon FUSION Machine Interface establishes a specialized dialect of ONE for native code generation,
-as well as commands for cross compiling the customs dialect into the C source code.
+The Kaeon FUSION Machine Interface provides the Native Code dialect,
+which can be cross compiled to C using Kaeon FUSION's Build command.
+
+The interface can be activated with the following command:
+
+    Use: Machine
