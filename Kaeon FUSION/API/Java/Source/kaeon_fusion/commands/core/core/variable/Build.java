@@ -8,6 +8,10 @@ import one_plus.element.Element;
 
 public class Build extends Command {
 	
+	public boolean onVerify(Element element) {
+		return element.getContent().equalsIgnoreCase("Build");
+	}
+	
 	public boolean onDescend(Element element) {
 		return false;
 	}
