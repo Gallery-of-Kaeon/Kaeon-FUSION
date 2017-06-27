@@ -25,7 +25,7 @@ This repository contains documentation, APIs, an IDE, and example code for Kaeon
 
 #### Documentation
 
-https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Specification
+https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation
 
 #### Examples
 
