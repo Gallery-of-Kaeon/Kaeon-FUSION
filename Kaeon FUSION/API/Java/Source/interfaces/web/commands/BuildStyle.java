@@ -4,35 +4,21 @@ import java.util.ArrayList;
 
 import interfaces.web.utilities.style.Style;
 import io.IO;
-import kaeon_fusion.commands.Command;
-import kaeon_fusion.state.function_stone.FunctionStone;
+import kaeon_fusion.interface_module.build_stone.BuildStone;
 import one_plus.element.Element;
-import philosophers_stone_plus.PhilosophersStonePlus;
 
-public class BuildStyle extends Command {
+public class BuildStyle extends BuildStone {
 	
-	public boolean onVerify(Element element) {
-		return element.getContent().equalsIgnoreCase("Build Style");
+	public BuildStyle() {
+		tag("Style");
 	}
 	
-	public boolean onDescend(Element element) {
-		return false;
-	}
-	
-	public Object onCommand(Element element, ArrayList<Object> processed) {
+	public Object onBuild(ArrayList<Element> functions, ArrayList<Element> arguments) {
 		
 		ArrayList<String> tags = new ArrayList<String>();
 		tags.add("Function");
 		
-		ArrayList<PhilosophersStonePlus> definitions = get(tags);
-		
-		Element source = null;
-		
-		for(int i = 0; i < definitions.size() && source == null; i++) {
-			
-			if(definitions.get(i).isTagged(element.getElement(0).getContent()))
-				source = ((FunctionStone) definitions.get(i)).getFunction();
-		}
+		Element source = functions.get(0);
 		
 		source = copyElement(source);
 		source.setContent("Style");
@@ -40,10 +26,10 @@ public class BuildStyle extends Command {
 		String output = "" + new Style().process(source);
 		output = output.substring(7, output.length() - 8);
 
-		if(element.getNumElements() >= 2)
-			IO.save(output, element.getElement(1).getContent() + source.getContent() + ".css");
+		if(arguments.size() >= 1)
+			IO.save(output, arguments.get(0).getContent() + source.getContent() + ".css");
 
-		if(element.getNumElements() >= 2)
+		else
 			IO.save(output, source.getContent() + ".css");
 		
 		return null;

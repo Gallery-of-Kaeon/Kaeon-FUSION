@@ -4,45 +4,31 @@ import java.util.ArrayList;
 
 import interfaces.web.utilities.query.Query;
 import io.IO;
-import kaeon_fusion.commands.Command;
-import kaeon_fusion.state.function_stone.FunctionStone;
+import kaeon_fusion.interface_module.build_stone.BuildStone;
 import one_plus.element.Element;
-import philosophers_stone_plus.PhilosophersStonePlus;
 
-public class BuildQuery extends Command {
+public class BuildQuery extends BuildStone {
 	
-	public boolean onVerify(Element element) {
-		return element.getContent().equalsIgnoreCase("Build Query");
+	public BuildQuery() {
+		tag("Query");
 	}
 	
-	public boolean onDescend(Element element) {
-		return false;
-	}
-	
-	public Object onCommand(Element element, ArrayList<Object> processed) {
+	public Object onBuild(ArrayList<Element> functions, ArrayList<Element> arguments) {
 		
 		ArrayList<String> tags = new ArrayList<String>();
 		tags.add("Function");
 		
-		ArrayList<PhilosophersStonePlus> definitions = get(tags);
-		
-		Element source = null;
-		
-		for(int i = 0; i < definitions.size() && source == null; i++) {
-			
-			if(definitions.get(i).isTagged(element.getElement(0).getContent()))
-				source = ((FunctionStone) definitions.get(i)).getFunction();
-		}
+		Element source = functions.get(0);
 		
 		source = copyElement(source);
 		source.setContent("Query");
 		
 		String output = "" + new Query().process(source);
 
-		if(element.getNumElements() >= 2)
-			IO.save(output, element.getElement(1).getContent() + source.getContent() + ".sql");
+		if(arguments.size() >= 1)
+			IO.save(output, arguments.get(0).getContent() + source.getContent() + ".sql");
 
-		if(element.getNumElements() >= 2)
+		else
 			IO.save(output, source.getContent() + ".sql");
 		
 		return null;

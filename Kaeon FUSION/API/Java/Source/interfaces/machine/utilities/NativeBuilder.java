@@ -119,8 +119,12 @@ public class NativeBuilder extends FUSIONStone {
 		
 		if(!element.getContent().equalsIgnoreCase("Define")) {
 			
+			String code = generateCode(element, new ArrayList<String>());
+			
+			System.out.println(code);
+			
 			IO.save(
-					generateCode(element, new ArrayList<String>()),
+					code,
 					directory + element.getContent() + ".c");
 		}
 		

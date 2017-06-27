@@ -4,7 +4,7 @@ import interfaces.web.commands.BuildProcess;
 import interfaces.web.commands.BuildQuery;
 import interfaces.web.commands.BuildScript;
 import interfaces.web.commands.BuildStyle;
-import interfaces.web.commands.BuildWebsite;
+import interfaces.web.commands.BuildPage;
 import kaeon_fusion.interface_module.Interface;
 
 public class Web extends Interface {
@@ -14,7 +14,7 @@ public class Web extends Interface {
 	}
 	
 	public void onStart() {
-		publiclyConnectMutually(new BuildWebsite());
+		publiclyConnectMutually(new BuildPage());
 		publiclyConnectMutually(new BuildStyle());
 		publiclyConnectMutually(new BuildScript());
 		publiclyConnectMutually(new BuildProcess());
@@ -25,7 +25,7 @@ public class Web extends Interface {
 		
 		Web web = new Web();
 		
-		web.publiclyConnectMutually(new BuildWebsite());
+		web.publiclyConnectMutually(new BuildPage());
 		web.publiclyConnectMutually(new BuildStyle());
 		web.publiclyConnectMutually(new BuildScript());
 		web.publiclyConnectMutually(new BuildProcess());

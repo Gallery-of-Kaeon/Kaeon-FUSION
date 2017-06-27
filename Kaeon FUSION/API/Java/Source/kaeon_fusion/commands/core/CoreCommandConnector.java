@@ -14,6 +14,7 @@ import kaeon_fusion.commands.core.core.flow_control.Split;
 import kaeon_fusion.commands.core.core.flow_control.Throw;
 import kaeon_fusion.commands.core.core.flow_control.Wait;
 import kaeon_fusion.commands.core.core.variable.Arguments;
+import kaeon_fusion.commands.core.core.variable.Build;
 import kaeon_fusion.commands.core.core.variable.Execute;
 import kaeon_fusion.commands.core.core.variable.Function;
 import kaeon_fusion.commands.core.core.variable.Global;
@@ -80,6 +81,7 @@ public class CoreCommandConnector {
 		fusion.publiclyConnectMutually(new Wait());
 		
 		fusion.publiclyConnectMutually(new Arguments());
+		fusion.publiclyConnectMutually(new Build());
 		fusion.publiclyConnectMutually(new Execute());
 		fusion.publiclyConnectMutually(new Function());
 		fusion.publiclyConnectMutually(new Global());

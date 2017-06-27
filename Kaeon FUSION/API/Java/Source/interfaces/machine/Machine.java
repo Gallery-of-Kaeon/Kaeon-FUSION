@@ -1,7 +1,6 @@
 package interfaces.machine;
 
 import interfaces.machine.commands.BinaryCommand;
-import interfaces.machine.commands.BuildNativeApplication;
 import interfaces.machine.commands.BuildNativeCode;
 import kaeon_fusion.interface_module.Interface;
 
@@ -15,7 +14,6 @@ public class Machine extends Interface {
 		
 		publiclyConnectMutually(new BinaryCommand());
 		
-		publiclyConnectMutually(new BuildNativeApplication());
 		publiclyConnectMutually(new BuildNativeCode());
 	}
 	
@@ -25,7 +23,6 @@ public class Machine extends Interface {
 		
 		machine.publiclyConnectMutually(new BinaryCommand());
 		
-		machine.publiclyConnectMutually(new BuildNativeApplication());
 		publiclyConnectMutually(new BuildNativeCode());
 		
 		return machine;
