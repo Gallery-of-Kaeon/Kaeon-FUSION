@@ -211,7 +211,7 @@ The Build command may also take an indefinite number fo other children as additi
 For example:
     
     Define: Code
-        # Code written in custom ONE Dialect
+        # Code written in custom ONE dialect
     
     Build: Name of Dialect { Code } Argument 1, Argument 2
 
