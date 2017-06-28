@@ -16,7 +16,7 @@ For example:
     
     Text: Hello
 
-is analogous to the following HTML |
+is analogous to the following HTML:
 
     <!DOCTYPE html>
     <html>
@@ -172,8 +172,8 @@ Content | content
 Context Menu | contextmenu
 Controls | controls
 Coordinates | coords
-Data | data
 Custom Data | data-*
+Data | data
 Date and Time | datatime
 Default | default
 Defer | defer
