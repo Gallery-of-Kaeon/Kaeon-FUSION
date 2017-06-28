@@ -23,21 +23,13 @@ This repository contains documentation, APIs, an IDE, and example code for Kaeon
 
 ### Direct Links
 
-#### Documentation
+[Documentation](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation)
 
-https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation
+[Examples](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Examples)
 
-#### Examples
+[IDE](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/IDE)
 
-https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Examples
-
-#### IDE
-
-https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/IDE
-
-#### API
-
-https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/API
+[API](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/API)
 
 ## Disclaimer
 
@@ -65,9 +57,12 @@ The current implementation of Kaeon FUSION runs on Java,
 so make sure you have Java installed.
 If not,
 you can install it here:
-https://www.java.com/en/download/
 
-To begin, download the file "Kaeon Dev.jar" from https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/IDE
+[Java Download](https://www.java.com/en/download/)
+
+To begin, download "Kaeon Dev":
+
+[Kaeon Dev](/Gallery-of-Kaeon/Kaeon-FUSION/raw/master/Kaeon%20FUSION/IDE/Kaeon%20Dev.jar)
 
 Kaeon Dev is an IDE for Kaeon FUSION.
 To run the IDE in GUI mode,
