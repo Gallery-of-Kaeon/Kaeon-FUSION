@@ -1,7 +1,5 @@
 # Kaeon FUSION
 
-## What it is
-
 Kaeon FUSION is the very first programming language created soley to work in place of any other programming language.
 It allows this by efficiently and elegantly amalgamating the functionality of said languages into a single language with a single syntax.
 
@@ -60,22 +58,15 @@ you can install it here:
 
 [Java Download](https://www.java.com/en/download/)
 
-To begin, download "Kaeon Dev":
+To begin, download our IDE: Kaeon Dev:
 
 [Kaeon Dev](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/raw/master/Kaeon%20FUSION/IDE/Kaeon%20Dev.jar)
 
-Kaeon Dev is an IDE for Kaeon FUSION.
-To run the IDE in GUI mode,
-simply open it from the file explorer or open it from the command line without any arguments.
-To run Kaeon FUSION code in the command line,
-execute Kaeon Dev through Java and give the name of the file containing the code as a second argument.
-Any other arguments will be passed to the script.
+After you have downloaded Kaeon Dev, read the following indtructions:
 
-We suggest getting started with the "Hello world" example below:
+[Kaeon Dev Instructions](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/IDE/Instructions/README.md)
 
-    Use: Standard
-    
-    Log Line: "Hello, world!"
+Now get coding!
 
 ### The documentation describes four different things: ONE, ONE+, FUSION, and Kaeon FUSION. What's that about?
 
