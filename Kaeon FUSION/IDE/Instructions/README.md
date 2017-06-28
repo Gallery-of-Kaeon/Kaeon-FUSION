@@ -4,13 +4,13 @@ Kaeon Dev is a simple IDE for Kaeon FUSION Development.
 
 ## Installation
 
-To begin, download the "Kaeon Dev.jar" file from:
+To begin, download Kaeon Dev:
 
-https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/IDE
+[Kaeon Dev](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/raw/master/Kaeon%20FUSION/IDE/Kaeon%20Dev.jar)
 
 Be sure to have Java installed before you begin. You can install Java at:
 
-https://www.java.com/en/download/
+[Java Download](https://www.java.com/en/download/)
 
 After installing Java and downloading the "Kaeon Dev.jar" file,
 place the "Kaeon Dev.jar" file in the root directory of your project.
