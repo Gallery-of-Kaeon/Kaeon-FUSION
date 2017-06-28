@@ -202,7 +202,7 @@ will assign the value "y" to the variable "x".
 ### The Build Command
 
 Kaeon FUSION interfaces can provide the ability to code for various domains by specifying custom ONE dialects that meet the needs of those domains.
-Code written in these custom dialects ca be nested within function definitions and cross compiled to other languages using the Build command.
+Code written in these custom dialects can be nested within function definitions and cross compiled to other languages using the Build command.
 
 The Build command takes one child that specifies the name of the custom ONE dialect.
 The children of this element specify functions contianing code written in this dialect.
@@ -216,3 +216,24 @@ For example:
     Build: Name of Dialect { Code } Argument 1, Argument 2
 
 Will cross compile the ONE markup nested within the Code function to another language.
+
+### The Meta Command
+
+The Meta command can have an indefinite number of children,
+does not trickle down,
+and performs no operation.
+Its children can act as localized arguments when cross compiling a custom ONE dialect using the build command.
+
+For example:
+    
+    Define: Code
+    	
+    	Meta { #[ Arguments for custom ONE dialect ]# }
+        # Code written in custom ONE dialect
+    	
+    	Meta { #[ Different arguments for custom ONE dialect ]# }
+        # Code written in custom ONE dialect
+    
+    Build: Name of Dialect { Code } Argument 1, Argument 2
+
+the Build command will take the arguments nested within the Meta commands when cross compiling.
