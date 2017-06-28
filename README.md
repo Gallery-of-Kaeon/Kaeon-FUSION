@@ -62,7 +62,7 @@ you can install it here:
 
 To begin, download "Kaeon Dev":
 
-[Kaeon Dev](/Gallery-of-Kaeon/Kaeon-FUSION/raw/master/Kaeon%20FUSION/IDE/Kaeon%20Dev.jar)
+[Kaeon Dev](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/raw/master/Kaeon%20FUSION/IDE/Kaeon%20Dev.jar)
 
 Kaeon Dev is an IDE for Kaeon FUSION.
 To run the IDE in GUI mode,
