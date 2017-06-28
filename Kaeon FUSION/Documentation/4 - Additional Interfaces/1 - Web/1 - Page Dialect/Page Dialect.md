@@ -21,8 +21,8 @@ is analogous to the following HTML:
     <!DOCTYPE html>
     <html>
     	<head>
-		<title>My Website</title>
-	</head>
+    		<title>My Website</title>
+    	</head>
     	<body>
     		<p>Hello</p>
     	</body>
