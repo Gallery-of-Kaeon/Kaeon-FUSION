@@ -25,4 +25,4 @@ Define: Meta { Integer } main
 
 	Return: 0
 
-Build Native Code: main
+Build: Native Code: main
