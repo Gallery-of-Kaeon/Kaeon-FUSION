@@ -93,6 +93,18 @@ which is anaolgous to the following JavaScript:
 
     foo({"arg1", "arg2", "etc"});
 
+To call a function defined by the host environment,
+nest an element with the value "Scope" within an in command which itself is nested within a scope command.
+
+For example:
+
+    Scope { In: Default }
+    	alert: Hello
+
+is analogous to the following JavaScript:
+
+    alert("Hello");
+
 ## Flow Control
 
 Flow control works the same way in the Script dialect as it does in Kaeon FUSION.
@@ -136,3 +148,24 @@ is analogous to the following JavaScript:
     	if(true)
     		break;
     } while(false);
+
+## Objects
+
+To work within the scope of an object,
+nest the name of the object within an in command which itself is nested within a scope command.
+
+Once in the scope of an object,
+you can call a function using an element with the name of the function,
+or return a value using the return command.
+
+For example:
+
+    Scope { In: console }
+    	log: Hello
+
+    x: Scope { In: obj } Return: val
+
+is analogous to the following JavaScript:
+
+    console.log("Hello");
+    var x = obj.val;
