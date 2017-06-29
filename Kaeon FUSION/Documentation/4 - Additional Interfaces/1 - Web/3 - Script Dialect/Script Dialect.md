@@ -48,3 +48,31 @@ is analogous to the following JavaScript:
     (1 + 2);
     (1 + (10 / 2));
     (2 > 1);
+
+## Functions
+
+If an element references another element contianing Script dialect code,
+the reference element will be converted to a function that takes a list of objects as its only argument.
+
+The return command may be used withing such a function the same way it is used in Kaeon FUSION.
+
+For example:
+
+    foo: Return: Add
+    	At: Arguments, 1
+    	At: Arguments, 2
+
+is analogous to the following JavaScript:
+
+    function foo(arguments) {
+    	return arguments[1] + arguments[2];
+    }
+
+If the foo function from the previous example is visible,
+it can be called using the following command:
+
+    foo: arg1, arg2, etc
+
+which is anaolgous to the following JavaScript:
+
+    foo(["arg1", "arg2", "etc"]);
