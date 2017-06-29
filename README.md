@@ -17,13 +17,13 @@ and is particularly useful for metaprogramming.
 
 ## Contents of this repository
 
-This repository contains documentation, APIs, an IDE, and example code for Kaeon FUSION.
+This repository contains documentation, APIs, an IDE, and sample code for Kaeon FUSION.
 
 ### Direct Links
 
 [Documentation](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation)
 
-[Examples](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Examples)
+[Samples](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Samples)
 
 [IDE](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/IDE)
 
