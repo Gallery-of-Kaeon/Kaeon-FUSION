@@ -49,6 +49,22 @@ is analogous to the following JavaScript:
     (1 + (10 / 2));
     (2 > 1);
 
+## Lists
+
+List operations work the same way they do in Kaeon FUSION.
+
+For example:
+
+    x: List: abc, 123, true
+    y: At: x, 1
+    Set: List, 1, xyz
+
+is analogous to the following JavaScript:
+
+    var x = {"abc", 123, true};
+    var y = x[(1) - 1]
+    x[(1) - 1] = "xyz";
+
 ## Functions
 
 If an element references another element contianing Script dialect code,
@@ -75,4 +91,4 @@ it can be called using the following command:
 
 which is anaolgous to the following JavaScript:
 
-    foo(["arg1", "arg2", "etc"]);
+    foo({"arg1", "arg2", "etc"});
