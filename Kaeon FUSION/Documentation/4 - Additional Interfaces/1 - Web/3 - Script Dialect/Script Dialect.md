@@ -25,13 +25,13 @@ Variables can be declared the same way they are declared in Kaeon FUSION.
 
 For example:
 
-x: 0
-Global: y: abc
+    x: 0
+    Global: y: abc
 
 is analogous to the following JavaScript:
 
-var x = 0;
-y = "abc";
+    var x = 0;
+    y = "abc";
 
 ## Math and Logic Operations
 
