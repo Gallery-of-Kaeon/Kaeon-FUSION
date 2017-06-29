@@ -92,3 +92,47 @@ it can be called using the following command:
 which is anaolgous to the following JavaScript:
 
     foo({"arg1", "arg2", "etc"});
+
+## Flow Control
+
+Flow control works the same way in the Script dialect as it does in Kaeon FUSION.
+
+However,
+else commands will only work if the corresponding break command is the first child of its scope,
+and break and loop commands will only work inside of scope commands.
+
+For example:
+
+    Scope { Break: true }
+    	# code
+
+    Else:
+    	# code
+
+    Scope
+
+    	# code
+
+    	Loop: false
+    	Break: true
+
+is analogous to the following JavaScript:
+
+    if(true) {
+    	// code
+    }
+
+    else {
+    	// code
+    }
+
+    do {
+
+    	// code
+
+    	if(false)
+    		continue;
+
+    	if(true)
+    		break;
+    } while(false);
