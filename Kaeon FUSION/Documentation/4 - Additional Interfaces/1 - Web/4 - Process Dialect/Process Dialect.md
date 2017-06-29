@@ -44,7 +44,7 @@ For example:
     Add: 1, Divide: 10, 2
     Greater: 2, 1
 			
-is analogous to the following JavaScript:
+is analogous to the following PHP:
 				
     (1 + 2);
     (1 + (10 / 2));
@@ -79,7 +79,7 @@ For example:
     	At: Arguments, 1
     	At: Arguments, 2
 
-is analogous to the following JavaScript:
+is analogous to the following PHP:
 
     function foo($arguments) {
     	return $arguments[1] + $arguments[2];
@@ -90,7 +90,7 @@ it can be called using the following command:
 
     foo: arg1, arg2, etc
 
-which is anaolgous to the following JavaScript:
+which is anaolgous to the following PHP:
 
     foo(array("arg1", "arg2", "etc"));
 
@@ -102,7 +102,7 @@ For example:
     Scope { In: Default }
     	echo: Hello
 
-is analogous to the following JavaScript:
+is analogous to the following PHP:
 
     echo("Hello");
 
@@ -129,7 +129,7 @@ For example:
     	Loop: false
     	Break: true
 
-is analogous to the following JavaScript:
+is analogous to the following PHP:
 
     if(true) {
     	// code
