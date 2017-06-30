@@ -70,16 +70,28 @@ For example:
 
     Meta: Integer
 
-    x: 0
-    y: 5
+    b: 0
+    c: 5
 
     Meta: Double
 
-    z: 1.5
+    d: 1.5
+
+    Meta: Integer, Pointer
+    e: Default
+
+    Meta: Integer, List: 1, 2, 3
+    f: Default
 
 is analogous to the following C:
 
     void* a = "hello";
-    int x = 0;
-    int y = 5;
-    double z = 1.5;
+
+    int b = 0;
+    int c = 5;
+
+    double d = 1.5;
+
+    int* e;
+
+    int f[1][2][3];
