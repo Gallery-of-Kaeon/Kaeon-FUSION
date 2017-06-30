@@ -21,6 +21,8 @@ At present, Kaeon Dev supports the standard interface,
 the web interface,
 and the machine interface.
 
+Kaeon Dev will automatically include the standard interface when executing Kaeon FUSION code.
+
 ## How to Use
 
 You can open the IDE in GUI mode either by opening the "Kaeon Dev.jar" file in the file explorer or by running it from the command line with no arguments.
