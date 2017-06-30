@@ -60,3 +60,26 @@ Static|static
 Automatic|auto
 External|extern
 Volatile|volatile
+Pointer|*
+Address|&
+List: num_1, num_n|[num_1][num_n]
+
+For example:
+
+    a: "hello"
+
+    Meta: Integer
+
+    x: 0
+    y: 5
+
+    Meta: Double
+
+    z: 1.5
+
+is analogous to the following C:
+
+    void* a = "hello";
+    int x = 0;
+    int y = 5;
+    double z = 1.5;
