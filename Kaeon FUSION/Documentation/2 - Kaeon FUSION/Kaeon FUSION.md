@@ -53,8 +53,8 @@ For example:
 
     Define: foo
         
-        Command 1: Command Argument 1
-        Command 2: Command Argument 1, Command Argument 2
+    	Command 1: Command Argument 1
+    	Command 2: Command Argument 1, Command Argument 2
 
 ### Function Calls
 
@@ -64,8 +64,8 @@ For example:
 
     Define: foo
         
-        Command 1: Command Argument 1
-        Command 2: Command Argument 1, Command Argument 2
+    	Command 1: Command Argument 1
+    	Command 2: Command Argument 1, Command Argument 2
     
     foo: Function Argument
 
@@ -80,8 +80,8 @@ For example:
 
     Define: foo
         
-        Command 1: Command Argument 1
-        Command 2: Command Argument 1, Command Argument 2
+    	Command 1: Command Argument 1
+    	Command 2: Command Argument 1, Command Argument 2
     
     x: foo: Function Argument
 
@@ -174,10 +174,10 @@ For example:
     
     Define: foo
         
-        #[ The "Log Line" command comes from the standard interface,
-           and prints the values returned by its children to the console. ]#
+    	#[ The "Log Line" command comes from the standard interface,
+    	   and prints the values returned by its children to the console. ]#
 
-        Log Line: Arguments
+    	Log Line: Arguments
     
     foo: 1, 2, 3
 
@@ -193,7 +193,7 @@ The Return command will terminate the currently executing function or script and
 For example:
     
     Define: foo
-        Return: y
+    	Return: y
     
     x: foo
 
@@ -211,7 +211,7 @@ The Build command may also take an indefinite number fo other children as additi
 For example:
     
     Define: Code
-        # Code written in custom ONE dialect
+    	# Code written in custom ONE dialect
     
     Build: Name of Dialect { Code } Argument 1, Argument 2
 
@@ -229,10 +229,10 @@ For example:
     Define: Code
     	
     	Meta { #[ Arguments for custom ONE dialect ]# }
-        # Code written in custom ONE dialect
+    	# Code written in custom ONE dialect
     	
     	Meta { #[ Different arguments for custom ONE dialect ]# }
-        # Code written in custom ONE dialect
+    	# Code written in custom ONE dialect
     
     Build: Name of Dialect { Code } Argument 1, Argument 2
 
