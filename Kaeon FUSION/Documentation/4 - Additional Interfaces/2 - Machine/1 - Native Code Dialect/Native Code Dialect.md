@@ -2,6 +2,24 @@
 
 The Native Code Dialect is a dialect of ONE analogous to C.
 
+## Native Code in Kaeon FUSION Definitions
+
+Each Kaeon FUSION Definition containing code written in the Native Code dialect corresponds to a C function.
+
+For example:
+
+    Define: main
+
+    	# Code
+
+is analogous to the following C:
+
+    #include "stdio.h"
+
+    int main() {
+    	// Code
+    }
+
 ## Literals
 
 An element that has no children and whose content does does match any predifined alias or keyword will be interpreted as a literal.
@@ -95,3 +113,30 @@ is analogous to the following C:
     int* e;
 
     int f[1][2][3];
+
+## Header Files
+
+Header files can be included with the Use command.
+Their contents may be accessed using an In command containing the element "Default" nested within a Scope command.
+
+For example:
+
+    Define: Meta { Integer } main
+
+    	Use: stdio.h
+
+    	Scope { In: Default }
+    		printf: "Hello, world"
+
+    	Return: 0
+
+is analogous to the following C:
+
+    #include "stdio.h"
+
+    int main() {
+
+    	printf("Hello, world");
+
+        return 0;
+    }
