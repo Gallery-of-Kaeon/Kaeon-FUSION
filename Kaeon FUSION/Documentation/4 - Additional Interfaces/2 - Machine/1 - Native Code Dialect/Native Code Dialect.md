@@ -222,7 +222,8 @@ is analogous to the following C:
 
 ## Size
 
-To retrieve the size of a variable or data type, the size command may be used.
+To retrieve the size of a variable or data type,
+the size command may be used.
 
 For example:
 
@@ -238,3 +239,21 @@ is analogous to the following C:
 
     sizeof(int)
     sizeof(x)
+
+## Casting
+
+To cast a variable from one data type to another,
+a Cast command following a Meta command may be used.
+
+For example:
+
+    Meta: Double
+    x: 1.5
+
+    Meta: Integer
+    y: Meta { Integer } Cast: x
+
+is analogous to the following C:
+
+    double x = 1.5;
+    int y = ((double) x);
