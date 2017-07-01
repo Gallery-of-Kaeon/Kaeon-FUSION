@@ -313,7 +313,7 @@ For example:
     	Meta: foo
     	x: Default
 
-	Scope { In: x }
+    	Scope { In: x }
     		Return: z
 
     	Return: 0
