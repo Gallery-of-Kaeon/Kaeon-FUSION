@@ -256,7 +256,7 @@ is analogous to the following C:
     double x = 1.5;
     int y = ((double) x);
 
-## List
+## Lists
 
 The list,
 at,
