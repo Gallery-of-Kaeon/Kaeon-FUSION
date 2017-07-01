@@ -14,7 +14,7 @@ For example:
 
     Head: Title: My Website
     
-    Text: Hello
+    Text: Height { 10px }Hello
 
 is analogous to the following HTML:
 
@@ -24,7 +24,7 @@ is analogous to the following HTML:
     		<title>My Website</title>
     	</head>
     	<body>
-    		<p>Hello</p>
+    		<p height="10px">Hello</p>
     	</body>
     </html>
 
