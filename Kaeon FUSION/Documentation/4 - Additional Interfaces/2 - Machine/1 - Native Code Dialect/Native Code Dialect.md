@@ -287,7 +287,7 @@ is analogous to the following C:
     int main() {
 
     	x = foo(5);
-
+    
     	return 0;
     }
 
@@ -315,5 +315,5 @@ is analogous to the following C:
 
     	printf("Hello, world");
 
-        return 0;
+    	return 0;
     }
