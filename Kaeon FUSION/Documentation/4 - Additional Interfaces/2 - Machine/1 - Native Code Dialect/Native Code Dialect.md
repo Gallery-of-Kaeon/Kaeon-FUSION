@@ -53,6 +53,29 @@ is analogous to the following C:
     void* x = 0;
     void* y;
 
+## Global Variables
+
+Any variables declared within a global command will be registered as global.
+
+For example:
+
+    Define: foo
+    
+    	Global { Meta: Integer, External }
+    		x: Default
+    		y: Default
+    
+    	return: Add: x, y
+
+is analogous to the following C:
+
+    extern int x;
+    extern int y;
+
+    void foo() {
+    	return x + y;
+    }
+
 ## Data Types
 
 The Native Code dialect requires that data members be strongly typed.
