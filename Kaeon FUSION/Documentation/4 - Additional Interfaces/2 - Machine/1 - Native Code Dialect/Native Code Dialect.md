@@ -259,20 +259,34 @@ is analogous to the following C:
 Each Kaeon FUSION Definition containing code written in the Native Code dialect corresponds to a C function.
 A function can be typed by preceding the element containing the function with a Meta command.
 The Return command can be used to terminate the function and return a value.
+Parameters for functions can be specified by nesting a takes command within a Meta command.
+
+If a function is defined in another definition,
+it can be called using an element that contains its name.
+Any children nested within such an element would be registered as arguments.
+
+The arguments of a functions may be accessed as a list using the arguments command.
 
 For example:
 
+    Define: foo { Integer, Takes: Integer } foo
+    	Return: Multiply: At { Arguments, 1 }, 2
+
     Define: Meta { Integer } main
 
-    	# Code
+    	x: foo: 5
     	
     	Return: 0
 
 is analogous to the following C:
 
+    int foo(int arg1) {
+    	return arg1 * 2;
+    }
+
     int main() {
 
-    	// Code
+    	x = foo(5);
 
     	return 0;
     }
