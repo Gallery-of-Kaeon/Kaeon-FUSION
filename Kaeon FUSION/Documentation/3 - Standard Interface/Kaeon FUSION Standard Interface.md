@@ -132,8 +132,7 @@ Indexes for list and string operations in the Kaeon FUSION Standard Interface st
 
 ## Core Commands
 
-The following commands are the only commands available without the use of an interface.
-This is because the following commands require special accomodation from the interpreter.
+The following commands require special accomodation from the interface.
 
 ### The Import Command
 
