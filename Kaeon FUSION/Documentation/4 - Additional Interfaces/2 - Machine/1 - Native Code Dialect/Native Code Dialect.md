@@ -2,22 +2,6 @@
 
 The Native Code Dialect is a dialect of ONE analogous to C.
 
-## Native Code in Kaeon FUSION Definitions
-
-Each Kaeon FUSION Definition containing code written in the Native Code dialect corresponds to a C function.
-
-For example:
-
-    Define: main
-
-    	# Code
-
-is analogous to the following C:
-
-    int main() {
-    	// Code
-    }
-
 ## Literals
 
 An element that has no children and whose content does does match any predifined alias or keyword will be interpreted as a literal.
@@ -151,75 +135,6 @@ is analogous to the following C:
     (1 + (10 / 2));
     (2 > 1);
 
-Flow Control
-
-Flow control works the same way in the Script dialect as it does in Kaeon FUSION.
-
-However, else commands will only work if the corresponding break command is the first child of its scope, and break and loop commands will only work inside of scope commands.
-
-For example:
-
-    Scope { Break: true }
-    	# code
-    
-    Else:
-    	# code
-    
-    Scope
-    
-    	# code
-    
-    	Loop: false
-    	Break: true
-
-is analogous to the following C:
-
-    if(1) {
-    	// code
-    }
-    
-    else {
-    	// code
-    }
-    
-    do {
-
-    	// code
-
-    	if(0)
-    		continue;
-    
-    	if(1)
-    		break;
-    } while(0);
-
-## Header Files
-
-Header files can be included with the Use command.
-Their contents may be accessed using an In command containing the element "Default" nested within a Scope command.
-
-For example:
-
-    Define: Meta { Integer } main
-
-    	Use: stdio.h
-
-    	Scope { In: Default }
-    		printf: "Hello, world"
-
-    	Return: 0
-
-is analogous to the following C:
-
-    #include "stdio.h"
-
-    int main() {
-
-    	printf("Hello, world");
-
-        return 0;
-    }
-
 ## Addresses and Pointers
 
 Addresses and pointers to variables may be obtained by using the address or pointer commands respectively.
@@ -296,3 +211,95 @@ is analogous to the following C:
     {1, 2, 3};
     foo[(1) - 1];
     foo[(1) - 1] = 5;
+
+## Flow Control
+
+Flow control works the same way in the Script dialect as it does in Kaeon FUSION.
+
+However, else commands will only work if the corresponding break command is the first child of its scope, and break and loop commands will only work inside of scope commands.
+
+For example:
+
+    Scope { Break: true }
+    	# code
+    
+    Else:
+    	# code
+    
+    Scope
+    
+    	# code
+    
+    	Loop: false
+    	Break: true
+
+is analogous to the following C:
+
+    if(1) {
+    	// code
+    }
+    
+    else {
+    	// code
+    }
+    
+    do {
+
+    	// code
+
+    	if(0)
+    		continue;
+    
+    	if(1)
+    		break;
+    } while(0);
+
+## Functions
+
+Each Kaeon FUSION Definition containing code written in the Native Code dialect corresponds to a C function.
+A function can be typed by preceding the element containing the function with a Meta command.
+The Return command can be used to terminate the function and return a value.
+
+For example:
+
+    Define: Meta { Integer } main
+
+    	# Code
+    	
+    	Return: 0
+
+is analogous to the following C:
+
+    int main() {
+
+    	// Code
+
+    	return 0;
+    }
+
+## Header Files
+
+Header files can be included with the Use command.
+Their contents may be accessed using an In command containing the element "Default" nested within a Scope command.
+
+For example:
+
+    Define: Meta { Integer } main
+
+    	Use: stdio.h
+
+    	Scope { In: Default }
+    		printf: "Hello, world"
+
+    	Return: 0
+
+is analogous to the following C:
+
+    #include "stdio.h"
+
+    int main() {
+
+    	printf("Hello, world");
+
+        return 0;
+    }
