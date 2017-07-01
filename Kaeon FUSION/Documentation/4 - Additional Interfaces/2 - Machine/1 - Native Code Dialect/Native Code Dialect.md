@@ -291,6 +291,49 @@ is analogous to the following C:
     	return 0;
     }
 
+## Structures
+
+Structures may be defined by placing "Structure" in the meta command before a function definition.
+Once defined, structures may be used as varaible types.
+
+To return content from within a scope, the return command may be used.
+
+For example:
+
+    Define: Meta { Structure } foo
+    
+    	Meta: Integer
+
+    	x: Default
+    	y: Default
+    	z: Default
+
+    Define: Meta { Integer } main
+
+    	Meta: foo
+    	x: Default
+
+	Scope { In: x }
+    		Return: z
+
+    	Return: 0
+
+is analogous to the following C:
+
+    struct foo {
+    	int x;
+    	int y;
+    	int z;
+    }
+
+    int main {
+	
+    	struct foo x;
+    	x.z;
+
+    	return 0;
+    }
+
 ## Header Files
 
 Header files can be included with the Use command.
