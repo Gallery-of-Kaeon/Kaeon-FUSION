@@ -124,7 +124,7 @@ For example:
     Add: 1, Divide: 10, 2
     Greater: 2, 1
 
-is analogous to the following JavaScript:
+is analogous to the following C:
 
     (1 + 2);
     (1 + (10 / 2));
@@ -151,7 +151,7 @@ For example:
     	Loop: false
     	Break: true
 
-is analogous to the following JavaScript:
+is analogous to the following C:
 
     if(1) {
     	// code
