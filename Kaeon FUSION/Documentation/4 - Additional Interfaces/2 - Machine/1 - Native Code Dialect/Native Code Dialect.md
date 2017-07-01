@@ -255,3 +255,21 @@ is analogous to the following C:
 
     double x = 1.5;
     int y = ((double) x);
+
+## List
+
+The list,
+at,
+and set commands work the same way they do in the Kaeon FUSION Standard Interface.
+
+For example:
+
+    List: 1, 2, 3
+    At: foo, 1
+    Set: foo, 1, 5
+
+is analogous to the following C:
+
+    {1, 2, 3};
+    foo[(1) - 1];
+    foo[(1) - 1] = 5;
