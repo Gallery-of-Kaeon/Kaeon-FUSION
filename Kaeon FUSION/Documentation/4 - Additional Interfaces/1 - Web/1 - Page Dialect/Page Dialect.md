@@ -14,7 +14,7 @@ For example:
 
     Head: Title: My Website
     
-    Text: Height { 10px }Hello
+    Text: Height { 10px } Hello
 
 is analogous to the following HTML:
 
