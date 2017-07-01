@@ -198,3 +198,43 @@ is analogous to the following C:
 
         return 0;
     }
+
+## Addresses and Pointers
+
+Addresses and pointers to variables may be obtained by using the address or pointer commands respectively.
+
+For example:
+
+    Meta: Integer
+    x: 0
+    
+    Meta: Integer, Address
+    y: Address: x
+    
+    Meta: Integer, Pointer
+    z: Pointer: x
+
+is analogous to the following C:
+
+    int x = 0;
+    int& y = (&(x));
+    int* y = (*(x));
+
+## Size
+
+To retrieve the size of a variable or data type, the size command may be used.
+
+For example:
+
+    Meta: Integer
+    x: 0
+
+    Size: Integer
+    Size: x
+
+is analogous to the following C:
+
+    int x = 0;
+
+    sizeof(int)
+    sizeof(x)
