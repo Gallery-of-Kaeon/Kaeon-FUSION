@@ -114,6 +114,64 @@ is analogous to the following C:
 
     int f[1][2][3];
 
+## Math and Logic Operations
+
+Math and logic operations work the same way they do in Kaeon FUSION.
+
+For example:
+
+    Add: 1, 2
+    Add: 1, Divide: 10, 2
+    Greater: 2, 1
+
+is analogous to the following JavaScript:
+
+    (1 + 2);
+    (1 + (10 / 2));
+    (2 > 1);
+
+Flow Control
+
+Flow control works the same way in the Script dialect as it does in Kaeon FUSION.
+
+However, else commands will only work if the corresponding break command is the first child of its scope, and break and loop commands will only work inside of scope commands.
+
+For example:
+
+    Scope { Break: true }
+    	# code
+    
+    Else:
+    	# code
+    
+    Scope
+    
+    	# code
+    
+    	Loop: false
+    	Break: true
+
+is analogous to the following JavaScript:
+
+    if(1) {
+    	// code
+    }
+    
+    else {
+    	// code
+    }
+    
+    do {
+
+    	// code
+
+    	if(0)
+    		continue;
+    
+    	if(1)
+    		break;
+    } while(0);
+
 ## Header Files
 
 Header files can be included with the Use command.
