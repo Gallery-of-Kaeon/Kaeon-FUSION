@@ -14,8 +14,6 @@ For example:
 
 is analogous to the following C:
 
-    #include "stdio.h"
-
     int main() {
     	// Code
     }
