@@ -135,7 +135,7 @@ and the skillsets of your entire team would be transferable.
 Kaeon FUSION as a language is defined by it's specification.
 As such, the documentation may be updated before the implementation is.
 If you encounter an inconsistency or any other problem, please let us know.
-We'll dispatch a team of highly trained rubber duckys to deal with with it immediately.
+We'll dispatch a team of highly trained rubber duckies to deal with with it immediately.
 
 ### How often will Kaeon FUSION be updated?
 
