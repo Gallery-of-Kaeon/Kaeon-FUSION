@@ -37,7 +37,7 @@ we are still working on improving the documentation,
 on ironing out bugs in the interpreter,
 and on new features.
 Therefore,
-one should consider the project to be in open beta.
+one should consider the project to be in open alpha.
 If you have an issue with any of the provided resources,
 please let us know.
 
