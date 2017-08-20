@@ -3,13 +3,12 @@ package dev;
 import java.util.ArrayList;
 
 import dev.ide.IDE;
-import fusion_interface.ACEInterface;
 import interfaces.StandardInterfacePack;
 import io.IO;
-import kaeon_fusion.KaeonFUSION;
-import kaeon_fusion.interface_module.Interface;
-import kaeon_fusion.super_mode.SuperMode;
-import one_plus.ONEPlus;
+import kaeon_fusion_legacy.KaeonFUSION;
+import kaeon_fusion_legacy.interface_module.Interface;
+import kaeon_fusion_legacy.super_mode.SuperMode;
+import legacy.one_plus.ONEPlus;
 
 public class KaeonDev {
 	
@@ -26,8 +25,6 @@ public class KaeonDev {
 			
 			for(int i = 0; i < standard.size(); i++)
 				fusion.publiclyConnectMutually(standard.get(i));
-			
-			fusion.publiclyConnectMutually(new ACEInterface());
 			
 			try {
 				

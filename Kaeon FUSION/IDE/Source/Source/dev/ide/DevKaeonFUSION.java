@@ -2,8 +2,8 @@ package dev.ide;
 
 import java.util.ArrayList;
 
-import kaeon_fusion.KaeonFUSION;
-import kaeon_fusion.console.Console;
+import kaeon_fusion_legacy.KaeonFUSION;
+import kaeon_fusion_legacy.console.Console;
 
 public class DevKaeonFUSION extends KaeonFUSION {
 	

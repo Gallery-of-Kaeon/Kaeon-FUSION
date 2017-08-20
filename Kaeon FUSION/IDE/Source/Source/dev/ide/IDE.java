@@ -1,6 +1,7 @@
 package dev.ide;
 
 import java.awt.BorderLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,12 +13,11 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-import fusion_interface.ACEInterface;
 import interfaces.StandardInterfacePack;
 import io.IO;
-import kaeon_fusion.interface_module.Interface;
-import kaeon_fusion.super_mode.SuperMode;
-import one_plus.ONEPlus;
+import kaeon_fusion_legacy.interface_module.Interface;
+import kaeon_fusion_legacy.super_mode.SuperMode;
+import legacy.one_plus.ONEPlus;
 
 public class IDE implements ActionListener {
 	
@@ -25,6 +25,7 @@ public class IDE implements ActionListener {
 	JTextArea output;
 	
 	JButton run;
+	JButton showONE;
 	
 	public IDE() {
 		
@@ -56,20 +57,36 @@ public class IDE implements ActionListener {
 		control.add(io, BorderLayout.NORTH);
 		
 		input = new JTextArea();
-		input.setTabSize(2);
+		input.setTabSize(4);
 		
 		control.add(new JScrollPane(input), BorderLayout.CENTER);
+		
+		JPanel command = new JPanel();
+		command.setLayout(new GridLayout(1, 2));
 		
 		run = new JButton("Run");
 		run.setActionCommand("Run");
 		run.addActionListener(this);
 		
-		control.add(run, BorderLayout.SOUTH);
+		showONE = new JButton("Show ONE");
+		showONE.setActionCommand("Show ONE");
+		showONE.addActionListener(this);
+		
+		command.add(run);
+		command.add(showONE);
+		
+		control.add(command, BorderLayout.SOUTH);
 		
 		frame.add(control);
 		
 		output = new JTextArea();
 		output.setEditable(false);
+		output.setTabSize(4);
+		
+		Font font = new Font("monospaced", Font.BOLD, 14);
+		
+		input.setFont(font);
+		output.setFont(font);
 		
 		frame.add(new JScrollPane(output));
 		
@@ -98,6 +115,8 @@ public class IDE implements ActionListener {
 		if(command.equals("Run")) {
 			
 			run.setEnabled(false);
+			showONE.setEnabled(false);
+			
 			output.setText("");
 			
 			DevKaeonFUSION fusion = new DevKaeonFUSION();
@@ -106,8 +125,6 @@ public class IDE implements ActionListener {
 			
 			for(int i = 0; i < standard.size(); i++)
 				fusion.publiclyConnectMutually(standard.get(i));
-			
-			fusion.publiclyConnectMutually(new ACEInterface());
 			
 			try {
 				
@@ -125,6 +142,18 @@ public class IDE implements ActionListener {
 			}
 			
 			run.setEnabled(true);
+			showONE.setEnabled(true);
+		}
+		
+		if(command.equals("Show ONE")) {
+			
+			String text = input.getText();
+			ONEPlus code = new ONEPlus(text);
+			
+			if(text.indexOf("[SUPER]") != -1)
+				SuperMode.superMode(code);
+			
+			output.setText("" + code);
 		}
 	}
 }

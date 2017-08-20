@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
-import kaeon_fusion.console.Console;
+import kaeon_fusion_legacy.console.Console;
 
 public class DevConsole extends Console {
 	
