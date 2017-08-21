@@ -21,7 +21,7 @@ This repository contains documentation, APIs, an IDE, and sample code for Kaeon 
 
 ### Direct Links
 
-[Documentation](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation)
+[Documentation](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/README.md)
 
 [Samples](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Samples)
 
