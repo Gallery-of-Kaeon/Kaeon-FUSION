@@ -77,7 +77,7 @@ For example:
 					
     [SUPER]
 			
-    	not True
+    not True
 				
 is analogous to:
 					
