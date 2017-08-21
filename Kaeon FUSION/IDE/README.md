@@ -1,4 +1,4 @@
-[Home](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/README.md)
+[Kaeon FUSION Home](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/README.md)
 
 # Instructions for Using Kaeon Dev
 
