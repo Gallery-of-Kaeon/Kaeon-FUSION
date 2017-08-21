@@ -1,3 +1,8 @@
+[Home](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation) /
+[Back](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation) /
+[Previous](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/2%20-%20Interfaces%20and%20the%20Use%20Command) /
+[Next](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/1%20-%20Super%20Mode)
+
 # Kaeon FUSION Standard Interface
 
 The Kaeon FUSION Standard Interface establishes the basic functionality for writing turing complete scripts and for integrating the features of other interfaces.
@@ -20,6 +25,10 @@ one might consider the functionality it provides to be the flagship functionalit
 The interface is activated using the following command:
 
     Use: Standard
+
+## Contents
+
+[1 - Super Mode](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/1%20-%20Super%20Mode)
 
 ## Basics
 
