@@ -30,7 +30,33 @@ The interface is activated using the following command:
 
 [1 - Super Mode](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/1%20-%20Super%20Mode/README.md)
 
-## Basics
+## Directory
+
+[1 - Basics](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#basics)
+
+[2 - Core Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#core-commands)
+
+[3 - Console IO Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#console-io-commands)
+
+[4 - Arithmetic Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#arithmetic-commands)
+
+[5 - Logic Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#logic-commands)
+
+[6 - List Operation Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#list-operation-commands)
+
+[7 - String Operation Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#string-operation-commands)
+
+[8 - File IO Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#file-io-commands)
+
+[9 - Flow Control Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#flow-control-commands)
+
+[10 - Threading Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#threading-commands)
+
+[11 - Metaprogramming Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#metaprogramming-commands)
+
+[12 - Object Orientation](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#object-orientation)
+
+## 1 - Basics
 
 ### Data Types
 
@@ -139,7 +165,7 @@ all scopes not shared by both the jumping and landing commands will be erased.
 
 Indexes for list and string operations in the Kaeon FUSION Standard Interface start at 1.
 
-## Core Commands
+## 2 - Core Commands
 
 The following commands require special accomodation from the interface.
 
@@ -269,7 +295,7 @@ For example:
 
 the Build command will take the arguments nested within the Meta commands when cross compiling.
 
-## Console IO Commands
+## 3 - Console IO Commands
 
 ### Log
 
@@ -317,7 +343,7 @@ For example:
 if the user types in "5" at the prompt,
 the value "5" will be assigned to the variable x.
 
-## Arithmetic Commands
+## 4 - Arithmetic Commands
 
 ### Add
 
@@ -374,7 +400,7 @@ For example:
 
 will return the value "1".
 
-## Logic Commands
+## 5 - Logic Commands
 
 ### And
 
@@ -510,7 +536,7 @@ will return "True", and:
 
 will return "False".
 
-## List Operation Commands
+## 6 - List Operation Commands
 
 ### List
 
@@ -615,7 +641,7 @@ will remove "2" from my list,
 resulting in my list's content being [1, 3],
 and assign "2" to x.
 
-## String Operation Commands
+## 7 - String Operation Commands
 
 ### Length
 
@@ -659,7 +685,7 @@ For example:
 
 will return "llo".
 
-## File IO Commands
+## 8 - File IO Commands
 
 ### Open
 
@@ -688,7 +714,7 @@ For example:
 
 will create a file called "My File.txt" with the content "hello".
 
-## Flow Control Commands
+## 9 - Flow Control Commands
 
 ### Scope
 
@@ -801,7 +827,7 @@ to the console.
 
 The Exit command will immediately stop the execution of Kaeon FUSION.
 
-## Threading Commands
+## 10 - Threading Commands
 
 ### Split
 
@@ -844,7 +870,7 @@ to the console.
 
 The wait command will take a number a pause the current thread for that many seconds.
 
-## Metaprogramming Commands
+## 11 - Metaprogramming Commands
 
 ### Execute
 
@@ -869,7 +895,7 @@ you can open up notepad with the following Kaeon FUSION code:
 
     Run: Notepad
 
-## Object Orientation
+## 12 - Object Orientation
 
 Kaeon FUSION does not support classes,
 but object orientation can be achieved by using functions as objects.
