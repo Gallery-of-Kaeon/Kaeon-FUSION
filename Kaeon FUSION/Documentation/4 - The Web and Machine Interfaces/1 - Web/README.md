@@ -12,3 +12,15 @@ which can be cross compiled into the following languages with Kaeon FUSION's Bui
 The web interface can be activated with the following command:
 
     Use: Web
+
+## Contents
+
+[1 - Page Dialect](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/4%20-%20The%20Web%20and%20Machine%20Interfaces/1%20-%20Web/1%20-%20Page%20Dialect)
+
+[2 - Style Dialect](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/4%20-%20The%20Web%20and%20Machine%20Interfaces/1%20-%20Web/2%20-%20Style%20Dialect)
+
+[3 - Script Dialect](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/4%20-%20The%20Web%20and%20Machine%20Interfaces/1%20-%20Web/3%20-%20Script%20Dialect)
+
+[4 - Process Dialect](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/4%20-%20The%20Web%20and%20Machine%20Interfaces/1%20-%20Web/4%20-%20Process%20Dialect)
+
+[5 - Query Dialect](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/4%20-%20The%20Web%20and%20Machine%20Interfaces/1%20-%20Web/5%20-%20Query%20Dialect)
