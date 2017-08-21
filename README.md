@@ -51,20 +51,9 @@ kaeon.ace@gmail.com
 
 ### How can I try it out?
 
-The current implementation of Kaeon FUSION runs on Java,
-so make sure you have Java installed.
-If not,
-you can install it here:
+Implement it yourself.
 
-[Java Download](https://www.java.com/en/download/)
-
-To begin, download our IDE: Kaeon Dev:
-
-[Kaeon Dev](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/raw/master/Kaeon%20FUSION/IDE/Kaeon%20Dev.jar)
-
-After you have downloaded Kaeon Dev, read the following indtructions:
-
-[Kaeon Dev Instructions](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/IDE/Instructions/README.md)
+Just kidding, we've provided a simple IDE called [Kaeon Dev](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/IDE/README.md) to get you started.
 
 Now get coding!
 
