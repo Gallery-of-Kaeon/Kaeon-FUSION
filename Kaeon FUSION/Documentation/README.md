@@ -1,3 +1,5 @@
+[Next](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations)
+
 # Documentation
 
 The provided documentation serves to explain the Kaeon FUSION Language and its standard interface,
