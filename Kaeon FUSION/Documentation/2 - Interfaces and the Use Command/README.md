@@ -1,11 +1,10 @@
-# Kaeon FUSION
+# Interfaces and the Use Command
 
-Kaeon FUSION is the de-facto standard dialect of the FUSION system.
+Kaeon FUSION only has one command at runtime:
+the use command.
+The sole purpose of this command is to allow additional functionality to be added to the language at runtime through interfaces.
 
-## Functionality
-
-Kaeon FUSION has no inherent functionality save for the ability to expand its functionality at runtime.
-Functionality for Kaeon FUSION is programmed into units called interfaces.
+## Using the Use Command
 
 If an interface is availiable within the environment Kaeon FUSION is running in,
 it can be incorporated with an element whose content matches the name of the interface nested within an element containing the content "Use".
