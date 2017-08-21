@@ -25,7 +25,7 @@ The proper file extension for a ONE+ file is ".op".
 
 ## Contents
 
-[1 - Standard ONE+ Directives](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/1%20-%20Standard%20ONE%2B%20Directives)
+[1 - Standard ONE+ Directives](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/1%20-%20Standard%20ONE%2B%20Directives/README.md)
 
 ## Indentation
 

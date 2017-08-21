@@ -28,7 +28,7 @@ The interface is activated using the following command:
 
 ## Contents
 
-[1 - Super Mode](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/1%20-%20Super%20Mode)
+[1 - Super Mode](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/1%20-%20Super%20Mode/README.md)
 
 ## Basics
 
