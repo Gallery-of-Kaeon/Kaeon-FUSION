@@ -1,13 +1,9 @@
-# FUSION
-
-## Navigation
-
 [Home](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation) /
 [Back](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations) /
 [Previous](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/1%20-%20Standard%20ONE%2B%20Directives) /
 [Next](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/2%20-%20Interfaces%20and%20the%20Use%20Command)
 
-## Overview
+# FUSION
 
 FUSION is a system that allows any ONE document,
 and by extension any ONE+ document to serve as code.

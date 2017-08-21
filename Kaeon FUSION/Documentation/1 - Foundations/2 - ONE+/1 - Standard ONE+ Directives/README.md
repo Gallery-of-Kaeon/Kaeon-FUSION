@@ -1,13 +1,9 @@
-# Standard ONE+ Directives
-
-## Navigation
-
 [Home](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation) /
 [Back](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B) /
 [Previous](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B) /
 [Next](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/3%20-%20FUSION)
 
-## Overview
+# Standard ONE+ Directives
 
 The directives usable when writing ONE+ vary by parser implementation,
 but the directives described in the document should be available in the majority of implementations.
