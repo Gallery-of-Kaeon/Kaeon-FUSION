@@ -189,11 +189,6 @@ public class Command extends FUSIONStone {
 		Element currentElement = element;
 		ArrayList<Integer> indexStack = new ArrayList<Integer>();
 		
-//		while(currentElement.getParent() != null) {
-//			indexStack.add(getElementIndex(currentElement));
-//			currentElement = currentElement.getParent();
-//		}
-		
 		one.Element newElement = translateElementChildren(currentElement);
 		
 		for(int i : indexStack)
