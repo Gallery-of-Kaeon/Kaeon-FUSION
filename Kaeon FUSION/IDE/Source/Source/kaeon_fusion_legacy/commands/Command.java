@@ -16,6 +16,7 @@ import legacy.fusion.FUSIONStone;
 import legacy.one_plus.ONEPlus;
 import legacy.one_plus.element.Element;
 import legacy.philosophers_stone_plus.PhilosophersStonePlus;
+import one.ElementUtilities;
 import philosophers_stone.PhilosophersStone;
 import philosophers_stone.PhilosophersStoneUtilities;
 
@@ -156,22 +157,104 @@ public class Command extends FUSIONStone {
 				
 				public boolean onVerify(Element element) {
 					
-					one.Element newElement = new one.Element();
-					newElement.content = element.getContent();
+					one.Element newElement = translateElement(element);
+					Object object = command.onCommandVerify(newElement);
 					
-					return command.onCommandVerify(newElement);
+					return (boolean) object;
+				}
+				
+				public boolean onDescend(Element element) {
+					
+					one.Element newElement = translateElement(element);
+					Object object = command.onCommandTrickleDown(newElement);
+					
+					return (boolean) object;
 				}
 				
 				public Object onCommand(Element element, ArrayList<Object> processed) {
 					
-					one.Element newElement = new one.Element();
+					one.Element newElement = translateElement(element);
+					Object object = command.onCommandProcess(newElement, processed);
 					
-					return command.onCommandProcess(newElement, processed);
+					return object;
 				}
 			};
 			
 			getKaeonFUSION().publiclyConnectMutually(newCommand);
 		}
+	}
+	
+	public one.Element translateElement(Element element) {
+		
+		Element currentElement = element;
+		ArrayList<Integer> indexStack = new ArrayList<Integer>();
+		
+//		while(currentElement.getParent() != null) {
+//			indexStack.add(getElementIndex(currentElement));
+//			currentElement = currentElement.getParent();
+//		}
+		
+		one.Element newElement = translateElementChildren(currentElement);
+		
+		for(int i : indexStack)
+			newElement = newElement.children.get(i);
+		
+		return newElement;
+	}
+	
+	public one.Element translateElementChildren(Element element) {
+		
+		one.Element newElement = new one.Element();
+		
+		newElement.content = element.getContent();
+		
+		for(Element child : element.getElements())
+			newElement.children.add(translateElementChildren(child));
+		
+		return newElement;
+	}
+	
+	public int getElementIndex(Element element) {
+		
+		Element parent = element.getParent();
+		
+		for(int i = 0; i < parent.getNumElements(); i++) {
+			
+			if(parent.getElement(i) == element)
+				return i;
+		}
+		
+		return -1;
+	}
+	
+	public Element translateElementLegacy(one.Element element) {
+		
+		one.Element currentElement = element;
+		ArrayList<Integer> indexStack = new ArrayList<Integer>();
+		
+		while(currentElement.parent != null) {
+			indexStack.add(ElementUtilities.getIndex(currentElement));
+			currentElement = currentElement.parent;
+		}
+		
+		Element newElement = translateElementChildrenLegacy(currentElement);
+		
+		for(int i : indexStack)
+			newElement = newElement.getElement(i);
+		
+		return newElement;
+	}
+	
+	public Element translateElementChildrenLegacy(one.Element element) {
+		
+		Element newElement = new Element();
+		
+		newElement.setContent(element.content);
+		
+		for(one.Element child : element.children)
+			newElement.addElement(translateElementChildrenLegacy(child));
+		
+		return newElement;
 	}
 	
 	public boolean onDescend(Element element) {
