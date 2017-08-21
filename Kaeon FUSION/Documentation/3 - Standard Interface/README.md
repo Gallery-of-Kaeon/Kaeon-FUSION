@@ -900,7 +900,8 @@ you can open up notepad with the following Kaeon FUSION code:
 Kaeon FUSION does not support classes,
 but object orientation can be achieved by using functions as objects.
 
-The state of the function can be stored within a function and reused using the In command.
+The state of the function can be stored within a veriable after the function returns by nesting the function call beneath a "New" command,
+and assigning the value returned by the new command to a variable.
 
 The In command will take the stored state of a function and execute all of the commands following it within the stored state.
 For this reason,
@@ -914,7 +915,7 @@ For example:
     	x: At: Arguments, 1
     	y: 10
 
-    my foo: foo: 5
+    my foo: New: foo: 5
 
     Scope { In: my foo }
     	z: Add: x, y
