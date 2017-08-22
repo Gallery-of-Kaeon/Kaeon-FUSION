@@ -71,6 +71,10 @@ An interface is a set of Kaeon FUSION commands not present in the defualt Kaeon 
 They are written in the same language as the interpreter,
 and therefore for our implementation they are written in Java.
 
+### Can I write my own interfaces?
+
+Yes, third parties can write their own Kaeon FUSION interfaces using out [Kaeon FUSION Interface Development Framework](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/API/Interface%20Development%20Framework/README.md).
+
 ### Isn't the control flow of Kaeon FUSION similar to LISP? How is Kaeon FUSION different from LISP?
 
 The main differences between Kaeon FUSION and LISP are that Kaeon FUSION uses doubly linked trees instead of singly linked lists,
