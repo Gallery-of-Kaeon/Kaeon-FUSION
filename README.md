@@ -1,13 +1,10 @@
 # Kaeon FUSION
 
 Kaeon FUSION is the very first programming language created soley to work in place of any other programming language.
-It allows this by efficiently and elegantly amalgamating the functionality of said languages into a single language with a single syntax.
+It allows this by using a syntax called ONE+ that can generate any abstract syntax tree and by allowing the functionality of the language to be encoded into interchangable modules which can be incorporated at runtime,
+thereby making the functionality of the language indefinitely extensible.
 
-The language itself is entirely modular,
-inspired by LISP,
-and features the elegant,
-modern syntax of ONE+.
-It has sucessfully been used for general purspose programming,
+Kaeon FUSION has sucessfully been used for general purspose programming,
 scripting,
 low level programming,
 and web development.
@@ -74,14 +71,11 @@ An interface is a set of Kaeon FUSION commands not present in the defualt Kaeon 
 They are written in the same language as the interpreter,
 and therefore for our implementation they are written in Java.
 
-### How can a language be inspired by LISP without being LISP?
+### Isn't the control flow of Kaeon FUSION similar to LISP? How is Kaeon FUSION different from LISP?
 
-The main differences between FUSION and LISP are that FUSION uses doubly linked trees instead of singly linked lists,
-and that FUSION boasts a far nicer syntax.
-While FUSION may not be too far a cry from pure LISP,
-Kaeon FUSION is very different from popular LISP dialects like Common LISP,
-Scheme,
-or Clojure.
+The main differences between Kaeon FUSION and LISP are that Kaeon FUSION uses doubly linked trees instead of singly linked lists,
+boasts a far nicer syntax,
+and has its functionality distributed across interchangable modules instead of being inherent to a specific dialect.
 
 ### You say this language can theoretically do anything?
 
