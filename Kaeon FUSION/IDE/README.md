@@ -69,3 +69,7 @@ into the upper text area and then click "Run", then:
 will be logged to the lower text area.
 
 Clicking the "Show ONE" button will translate any ONE+ written in the upper text area to ONE and show said ONE in the lower text area.
+
+## Source Code
+
+The source code and references to the dependecies of Kaeon Dev can be found [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/IDE/Source).
