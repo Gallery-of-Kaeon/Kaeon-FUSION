@@ -39,13 +39,13 @@ download our development app, or IDE (Integrated Development Environment) called
 Computer programming means giving a computer a set of instructions to perform.
 To write these instructions you need a programming language,
 which is sort of a comprimise between something a person can understand and something a machine can understand.
+If you are indeed a newcommer to the world of programming,
+the good news is the options for your first language are vast.
 
 ## Why Kaeon FUSION?
 
-If you are indeed a newcommer to the world of programming,
-the good news is the options for your first language are vast.
 The bad news,
-is that the options for you first language are vast.
+is that the options for your first language are vast.
 Software development encompasses a vast array of domains,
 like web development,
 game programming,
