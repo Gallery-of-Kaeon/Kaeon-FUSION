@@ -47,12 +47,16 @@ public class IDE implements ActionListener {
 			
 		}
 		
+		int size =
+				(int) (Toolkit.getDefaultToolkit().getScreenSize().getWidth()) +
+				(int) (Toolkit.getDefaultToolkit().getScreenSize().getHeight());
+		
 		JFrame frame;
 		
 		frame = new JFrame();
 		frame.setTitle("Kaeon Dev");
 		
-		frame.setSize(500, 500);
+		frame.setSize((int) (size / 4.25), (int) (size / 4.25));
 		frame.setLayout(new GridLayout(2, 1));
 		
 		JPanel control = new JPanel();
@@ -100,10 +104,6 @@ public class IDE implements ActionListener {
 		output = new JTextArea();
 		output.setEditable(false);
 		output.setTabSize(4);
-		
-		int size =
-				(int) (Toolkit.getDefaultToolkit().getScreenSize().getWidth()) +
-				(int) (Toolkit.getDefaultToolkit().getScreenSize().getHeight());
 		
 		int fontSize = size / 150;
 		
