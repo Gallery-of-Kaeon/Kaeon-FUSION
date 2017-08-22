@@ -1,8 +1,6 @@
 # Kaeon FUSION
 
-Kaeon FUSION is the very first programming language created soley to work in place of any other programming language.
-It allows this by using a syntax called ONE+ that can generate any abstract syntax tree and by allowing the functionality of the language to be encoded into interchangable modules which can be incorporated at runtime,
-thereby making the functionality of the language indefinitely extensible.
+Kaeon FUSION is the very first programming language created to work in place of any other programming language.
 
 Kaeon FUSION has sucessfully been used for general purspose programming,
 scripting,
@@ -11,6 +9,9 @@ and web development.
 In theory,
 it can be extended to work with any domain,
 and is particularly useful for metaprogramming.
+
+Kaeon FUSION allows this vast array of coverage by using a syntax called ONE+ that can generate any abstract syntax tree and by allowing the functionality of the language to be encoded into interchangable modules which can be incorporated at runtime,
+thereby making the functionality of the language indefinitely extensible.
 
 ## Contents of this repository
 
@@ -130,7 +131,7 @@ We'll dispatch a team of highly trained rubber duckies to deal with with it imme
 ### How often will Kaeon FUSION be updated?
 
 At the time of writing,
-Kaeon FUSION has officially been in development for about five months,
+Kaeon FUSION has officially been in development for about seven months,
 and was built upon things that were in development for about one year before the project began.
 You should expect to see several minor updates per month,
 with major updates occuring between once per month and once every three months.
