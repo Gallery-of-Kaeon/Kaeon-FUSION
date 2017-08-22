@@ -3,6 +3,7 @@ package dev.ide;
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -12,6 +13,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
 
 import interfaces.StandardInterfacePack;
 import io.IO;
@@ -28,6 +31,21 @@ public class IDE implements ActionListener {
 	JButton showONE;
 	
 	public IDE() {
+		
+		try {
+			
+		    for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+		    	
+		        if ("Nimbus".equals(info.getName())) {
+		            UIManager.setLookAndFeel(info.getClassName());
+		            break;
+		        }
+		    }
+		}
+		
+		catch (Exception e) {
+			
+		}
 		
 		JFrame frame;
 		
@@ -83,10 +101,23 @@ public class IDE implements ActionListener {
 		output.setEditable(false);
 		output.setTabSize(4);
 		
-		Font font = new Font("monospaced", Font.BOLD, 14);
+		int size =
+				(int) (Toolkit.getDefaultToolkit().getScreenSize().getWidth()) +
+				(int) (Toolkit.getDefaultToolkit().getScreenSize().getHeight());
+		
+		int fontSize = size / 150;
+		
+		Font font = new Font("monospaced", Font.BOLD, fontSize);
 		
 		input.setFont(font);
 		output.setFont(font);
+		
+		font = new Font("Arial", Font.PLAIN, fontSize);
+		
+		open.setFont(font);
+		save.setFont(font);
+		run.setFont(font);
+		showONE.setFont(font);
 		
 		frame.add(new JScrollPane(output));
 		
