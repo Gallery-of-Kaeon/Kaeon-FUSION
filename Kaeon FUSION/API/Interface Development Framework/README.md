@@ -10,4 +10,4 @@ A Kaeon FUSION interface must be written as a java project that includes the uti
 
 The project must have a class called "KaeonFUSIONInterfaceModule" in a package called "kaeon_fusion_interface".
 This class must have a method called "getInterface" with one parameter of type KaeonFUSION and returns an object of type KaeonFUSIONInterface.
-both the KaeonFUSION class and the KaeonFUSIONInterface class are provided by the aforementioned utilities.
+Both the KaeonFUSION class and the KaeonFUSIONInterface class are provided by the aforementioned utilities.
