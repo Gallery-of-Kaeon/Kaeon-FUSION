@@ -7,6 +7,8 @@ the framework is based in Java.
 ## Framework Structure
 
 A Kaeon FUSION interface must be written as a java project that includes the utilities listed [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/API/Interface%20Development%20Framework/Dependencies) and packaged as a non-runnable jar.
+For your convenience,
+we've provided a sample interface and its source code [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/API/Interface%20Development%20Framework/Sample%20Interface/README.md).
 
 The project must have a class called "KaeonFUSIONInterfaceModule" in a package called "kaeon_fusion_interface".
 This class must have a method called "getInterface" with one parameter of type KaeonFUSION and returns an object of type KaeonFUSIONInterface.
