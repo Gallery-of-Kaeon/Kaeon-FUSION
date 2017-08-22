@@ -57,3 +57,14 @@ Start with HTML and you'll feel helpless when you want to write code for the bro
 This problem results from the fact that most languages have only so many things they allow you to do,
 and as a programmer you must work within these constraints.
 Most langauges, except for Kaeon FUSION.
+
+Instead of having a fixed set of rules built into the language,
+Kaeon FUSION allows functionality to be added to it while its running using modules called interfaces.
+And instead of using a syntax which limits which symbols can do which things,
+Kaeon FUSION uses a syntax called ONE+,
+which allows any symbols to be arranged into a tree structure.
+This system not only makes Kaeon FUSION simple to learn,
+but allows it to encompass the needs of any software development task.
+Therefore,
+if you start with Kaeon FUSION,
+you may never need to touch another programminglanguage.
