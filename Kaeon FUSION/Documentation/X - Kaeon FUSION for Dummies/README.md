@@ -23,6 +23,17 @@ we reccommend you check out the web series [crash course computer science](https
 We're not sponsored by them,
 we just think they're good at what they do.
 
+To follow along with these tutorials,
+you'll need to have Kaeon FUSION on your computer.
+
+The Kaeon FUSION utilities we've provided run on Java,
+so be sure you have it installed.
+If not,
+you can install it [here](https://www.java.com/en/download/).
+
+Once you have Java installed,
+download our development app, or IDE (Integrated Development Environment) called Kaeon Dev [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/raw/master/Kaeon%20FUSION/IDE/Application/Kaeon%20Dev.jar).
+
 ## What is a program?
 
 Computer programming means giving a computer a set of instructions to perform.
