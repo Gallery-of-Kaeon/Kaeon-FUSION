@@ -143,7 +143,7 @@ We also intend to redevelop our IDE with a far more sophisticated UI.
 
 ### I would like to use Kaeon FUSION in a commercial project. Who do I make the check out to?
 
-Kaeon FUSION is licensed under the Apache License 2.0.
+Kaeon FUSION is licensed under the [Apache License 2.0](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/LICENSE.md).
 For all intents and purposes,
 the contents of this repository are basically public domain,
 and you are free to do as you please with it,
