@@ -56,12 +56,15 @@ Now get coding!
 
 ### The documentation describes four different things: ONE, ONE+, FUSION, and Kaeon FUSION. What's that about?
 
-Unlike most other languages,
-Kaeon FUSION actually borrows its syntax from a language called ONE.
-ONE is a very simple markup language that allows the user to define a tree of strings.
-ONE+ is a superset of ONE that makes it easier to write large amounts of ONE markup by hand.
-FUSION is a system that allows a ONE document to be interpreted as code,
-and Kaeon FUSION is the de facto standard dialect of FUSION.
+Kaeon FUSION is not a monolithic system.
+
+Kaeon FUSION code is encoded into documents using the [ONE](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/1%20-%20ONE/README.md) format,
+which allows any tree of strings to be defined.
+
+[ONE+](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/README.md) is a system of mneumonics that make it easier to write ONE documents by hand.
+
+The control flow of Kaeon FUSION is managed by the [FUSION](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/3%20-%20FUSION/README.md) system,
+which allows any ONE document to serve as code.
 
 ### What's the difference between an interface and a library?
 
