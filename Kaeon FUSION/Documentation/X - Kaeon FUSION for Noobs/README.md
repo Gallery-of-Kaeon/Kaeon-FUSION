@@ -1,3 +1,6 @@
+[Kaeon FUSION Home](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/README.md) /
+[Next](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Noobs/README.md)
+
 # Kaeon FUSION for Noobs
 
 Hello friend!
@@ -68,3 +71,7 @@ but allows it to encompass the needs of any software development task.
 Therefore,
 if you start with Kaeon FUSION,
 you may never need to touch another programming language.
+
+## Okay, I'm ready to start!
+
+[Let's get going then!](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Noobs/1%20-%20Your%20First%20Program/README.md)
