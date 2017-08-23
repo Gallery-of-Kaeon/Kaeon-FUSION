@@ -1,4 +1,4 @@
-# Kaeon FUSION for Dummies
+# Kaeon FUSION for Noobs
 
 Hello friend!
 Since you're here,
