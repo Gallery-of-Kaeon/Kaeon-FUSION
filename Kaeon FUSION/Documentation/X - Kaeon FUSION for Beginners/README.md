@@ -1,7 +1,7 @@
 [Kaeon FUSION Home](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/README.md) /
 [Next](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Noobs/README.md)
 
-# Kaeon FUSION for Noobs
+# Kaeon FUSION for Beginners
 
 Hello friend!
 Since you're here,
