@@ -14,6 +14,19 @@ we've got you covered.
 
 ## Before you start
 
+To follow along with these tutorials,
+you'll need to have Kaeon FUSION on your computer.
+
+The Kaeon FUSION utilities we've provided run on Java,
+so be sure you have it installed.
+If not,
+you can install it [here](https://www.java.com/en/download/).
+
+Once you have Java installed,
+download our development app, or IDE (Integrated Development Environment) called Kaeon Dev [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/raw/master/Kaeon%20FUSION/IDE/Application/Kaeon%20Dev.jar).
+
+## A quick shout out
+
 We cannot emphasize enough how important the art of computer programming is in the modern world,
 and how much you can benefit from having the ability to code.
 
@@ -25,17 +38,6 @@ Though it is not required,
 we reccommend you check out the web series [crash course computer science](https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo) if you are new to the field.
 We're not sponsored by them,
 we just think they're good at what they do.
-
-To follow along with these tutorials,
-you'll need to have Kaeon FUSION on your computer.
-
-The Kaeon FUSION utilities we've provided run on Java,
-so be sure you have it installed.
-If not,
-you can install it [here](https://www.java.com/en/download/).
-
-Once you have Java installed,
-download our development app, or IDE (Integrated Development Environment) called Kaeon Dev [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/raw/master/Kaeon%20FUSION/IDE/Application/Kaeon%20Dev.jar).
 
 ## What is a program?
 
