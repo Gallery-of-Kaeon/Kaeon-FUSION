@@ -59,7 +59,7 @@ and as a programmer you must work within these constraints.
 Most langauges, except for Kaeon FUSION.
 
 Instead of having a fixed set of rules built into the language,
-Kaeon FUSION allows functionality to be added to it while its running using modules called interfaces.
+Kaeon FUSION allows functionality to be added to it while it's running using modules called interfaces.
 And instead of using a syntax which limits which symbols can do which things,
 Kaeon FUSION uses a syntax called ONE+,
 which allows any symbols to be arranged into a tree structure.
