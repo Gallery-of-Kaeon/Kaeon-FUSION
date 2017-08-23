@@ -67,4 +67,4 @@ This system not only makes Kaeon FUSION simple to learn,
 but allows it to encompass the needs of any software development task.
 Therefore,
 if you start with Kaeon FUSION,
-you may never need to touch another programminglanguage.
+you may never need to touch another programming language.
