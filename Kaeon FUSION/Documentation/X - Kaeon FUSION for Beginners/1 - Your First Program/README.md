@@ -229,7 +229,7 @@ and then moves on to D.
 After perfomring an operation and generating a value with D,
 it performs and operation with A and the value generated with B and D.
 
-It of course then move to JUMP,
+It of course then moves to JUMP,
 but after it performs an operationa and generates a value,
 it jumps to LAND instead of moving to E.
 
