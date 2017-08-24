@@ -186,9 +186,7 @@ It will then clear the list.
 Every time FUSION performs an operation,
 it may choose to jump to an element elsewhere in the document instead of proceeding to the nest sibling or parent.
 
-The flow of the following program according to the rules of FUSION will be as follows:
-
-C -> B -> D -> A -> JUMP -> LAND -> H -> F
+Let's use this program as an example:
 
     -
     	A
@@ -220,3 +218,7 @@ C -> B -> D -> A -> JUMP -> LAND -> H -> F
     		-
     			H
     		-
+
+The flow of the above program according to the rules of FUSION will be as follows:
+
+C -> B(C) -> D -> A(B, D) -> JUMP -> H -> LAND(H) -> F(LAND)
