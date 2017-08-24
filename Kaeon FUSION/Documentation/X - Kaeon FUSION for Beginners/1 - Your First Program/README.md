@@ -69,8 +69,17 @@ if any of our connections formed a loop,
 our we would no longer have a tree,
 just a graph.
 
+Another thing to note is that the order in which the connections are stored within a node matters.
+For instance,
+if we assume A stores its connection to B before its connection to C,
+we could say that B is the older sibling of C,
+thereby making C the younger sibling of B.
+
 Using this structure,
 we can interpret whatever data is stored in these nodes as a hierarchy.
+
+In ONE+,
+every string created after tokenization is stored in a node called an element.
 
 #### What's special about ONE+?
 
@@ -148,3 +157,66 @@ and instead of displaying:
 it would have displayed:
 
     Helloworld!
+
+### FUSION
+
+After our document has been cut up and arranged into a tree,
+we want our program to do something based on the information the tree contains.
+
+Every language has its own way of doing this.
+Kaeon FUSION governs how the tree is interpreted using a ruleset called the FUSION system.
+
+FUSION will start at the first element in the document that has no parent.
+So for our example it starts at Use.
+
+If the element FUSION is currently at has children,
+FUSION will shift focus to them.
+If not,
+FUSION will perform an operation based on the string inside the element.
+If the performed operation generates a value,
+FUSION will store this value in a list.
+
+After performing an operation on an element,
+if the element has any younger siblings FUSION will shift focus to the next youngest sibling,
+and to the parent of the element if not.
+After shifting to a parent of an element it has already performed an operation on,
+it will perform an operation on the parent based on the string inside the parent and the values in its list.
+It will then clear the list.
+
+Every time FUSION performs an operation,
+it may choose to jump to an element elsewhere in the document instead of proceeding to the nest sibling or parent.
+
+The flow of the following program according to the rules of FUSION will be as follows:
+
+C -> B -> D -> A -> JUMP -> LAND -> H -> F
+
+    -
+    	A
+    -
+    	-
+    		B
+    	-
+    		-
+    			C
+    		-
+    	-
+   	 	D
+    	-
+    -
+    	JUMP
+    -
+    -
+    	E
+    -
+    -
+    	F
+    -
+    	-
+    		G
+    	-
+    	-
+    		LAND
+    	-
+    		-
+    			H
+    		-
