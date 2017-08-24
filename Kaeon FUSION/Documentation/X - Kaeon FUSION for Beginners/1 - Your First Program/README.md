@@ -47,23 +47,23 @@ A graph is a tree if none of the connections loop.
 
 For example,
 we could have a tree with seven different nodes:
-a,
-b,
-c,
-d,
-e,
-f,
-and g.
-We'll have a be connected to b and c,
-we'll have b be connected to d and e,
-and we'll have c be connected to f and g.
-In this example we could say that a is the parent of b and c,
-that b is the parent of d and e,
-and that c is the parent of f and g.
+A,
+B,
+C,
+D,
+E,
+F,
+and G.
+We'll have A be connected to B and C,
+we'll have B be connected to D and E,
+and we'll have C be connected to F and G.
+In this example we could say that A is the parent of B and C,
+that B is the parent of D and E,
+and that C is the parent of F and G.
 Therefore,
-d and e would be the children of b,
-f and g would be the children of c,
-and b and c would be the children of a.
+D and E would be the children of B,
+F and G would be the children of C,
+and B and C would be the children of A.
 However,
 if any of our connections formed a loop,
 our we would no longer have a tree,
