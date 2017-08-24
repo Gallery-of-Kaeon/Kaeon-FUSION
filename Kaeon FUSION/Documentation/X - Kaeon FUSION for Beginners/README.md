@@ -23,7 +23,8 @@ If not,
 you can install it [here](https://www.java.com/en/download/).
 
 Once you have Java installed,
-download our development app, or IDE (Integrated Development Environment) called Kaeon Dev [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/raw/master/Kaeon%20FUSION/IDE/Application/Kaeon%20Dev.jar).
+download our development app,
+or IDE (Integrated Development Environment) called Kaeon Dev [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/raw/master/Kaeon%20FUSION/IDE/Application/Kaeon%20Dev.jar).
 
 ## A quick shout out
 
