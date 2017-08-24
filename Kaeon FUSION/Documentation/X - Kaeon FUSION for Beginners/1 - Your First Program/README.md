@@ -85,7 +85,7 @@ commas in ONE+ normally cut text into separate siblings.
 If we had written our ONE+ like this:
 
     Use: Standard
-    Log Line: "Hello, world!"
+    Log Line: Hello, world!
 
 our ONE document would have looked like this:
 
