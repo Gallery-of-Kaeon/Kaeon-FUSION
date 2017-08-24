@@ -221,4 +221,25 @@ Let's use this program as an example:
 
 The flow of the above program according to the rules of FUSION will be as follows:
 
+After starting at A the process trickles down to B and then to C.
+After perfomring an operation with C and generating a value,
+it returns that value to B.
+It then performs an operation with B and the value generated with C,
+and then moves on to D.
+After perfomring an operation and generating a value with D,
+it performs and operation with A and the value generated with B and D.
+
+It of course then move to JUMP,
+but after it performs an operationa and generates a value,
+it jumps to LAND instead of moving to E.
+
+After jumping to LAND,
+it trickles down to H,
+where it performs an operation and generates a value.
+It then goes back to LAND where it performs an operation and generates a value using the value generated with H.
+Finally,
+it performs an operation and generates a value with F using the value generated with LAND.
+
+Here's a nice way to visualize it:
+
 C -> B(C) -> D -> A(B, D) -> JUMP -> H -> LAND(H) -> F(LAND)
