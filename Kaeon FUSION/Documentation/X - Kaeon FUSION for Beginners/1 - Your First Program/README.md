@@ -33,12 +33,48 @@ you were writing in a syntax called ONE+.
 
 Syntax refers to the system that governs how all of the symbols and words in a text document relate to each other.
 The first thing any programming language does when running a program is a process called tokenization,
-which means it uses special sybmols in the document to cut the document into small chunks of text.
-It then rearranges these chunks into a tree,
+which means it uses special sybmols in the document to cut the document into small chunks of text called strings.
+It then rearranges these strings into a tree,
 which is usually called an "abstract syntax tree".
 
+#### A tree? Like an apple tree?
+
+In the context of computer science,
+the term "tree" refers to a certain type of graph.
+A graph is data structure made of little nodes.
+Each node stores miscellaneous data and connections to other nodes.
+A graph is a tree if none of the connections loop.
+
+For example,
+we could have a tree with seven different nodes:
+a,
+b,
+c,
+d,
+e,
+f,
+and g.
+We'll have a be connected to b and c,
+we'll have b be connected to d and e,
+and we'll have c be connected to f and g.
+In this example we could say that a is the parent of b and c,
+that b is the parent of d and e,
+and that c is the parent of f and g.
+Therefore,
+d and e would be the children of b,
+f and g would be the children of c,
+and b and c would be the children of a.
 However,
-most languages have a very strict syntax that governs which chunks of text can be placed in certain spots on the abstract syntax tree.
+if any of our connections formed a loop,
+our we would no longer have a tree,
+just a graph.
+
+Using this structure,
+we can interpret whatever data is stored in these nodes as a hierarchy.
+
+#### What's special about ONE+?
+
+Most languages have a very strict syntax that governs which chunks of text can be placed in certain spots on the abstract syntax tree.
 ONE+, on the other hand, allows you to define the tree however you want to.
 
 In the case of our previous example,
