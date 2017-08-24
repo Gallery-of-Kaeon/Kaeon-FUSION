@@ -243,3 +243,18 @@ it performs an operation and generates a value with F using the value generated 
 Here's a nice way to visualize it:
 
 C -> B(C) -> D -> A(B, D) -> JUMP -> H -> LAND(H) -> F(LAND)
+
+### The Use Command
+
+The only word that Kaeon FUSION knows what to do with when it starts is "Use",
+which is why we placed it first in our program.
+
+The Use command looks at the string in each of its children,
+and searches the computer for an interface that matches them.
+
+A Kaeon FUSION interface is code written in a language that only machines can understand: either machine code or byte code,
+that teaches Kaeon FUSION what to do with certain words.
+
+For example,
+the standard interface teaches Kaeon FUSION that "Log Line" means to display any value returned to it on the screen,
+and that any word it doesn't know should just be returned as a value minus any leading or trailing quotation marks.
