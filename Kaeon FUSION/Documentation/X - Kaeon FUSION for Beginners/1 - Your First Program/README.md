@@ -258,3 +258,49 @@ that teaches Kaeon FUSION what to do with certain words.
 For example,
 the standard interface teaches Kaeon FUSION that "Log Line" means to display any value returned to it on the screen,
 and that any word it doesn't know should just be returned as a value minus any leading or trailing quotation marks.
+Such a value is called a literal.
+
+### Recap
+
+So our code:
+
+    Use: Standard
+    Log Line: "Hello, world!"
+
+which is written in ONE+,
+gets turned into a tree,
+represented by the simpler ONE syntax:
+
+    -
+    	Use
+    -
+    	-
+    		Standard
+    	-
+    -
+    	Log Line
+    -
+    	-
+    		"Hello, world!"
+    	-
+
+Then,
+according to the rules of FUSION,
+the program flows like this:
+
+Standard -> Use -> "Hello, world" -> Log Line
+
+Standard does not return a value,
+as Kaeon FUSION does not yet know what to do with anything other than Use.
+
+Use detects that its child contains the string "Standard",
+so it activates the standard interface,
+which teaches Kaeon FUSION how to use Log Line and several other commands,
+and to treat any string it does not recognize as a literal.
+
+The "Hello, world!" command,
+as a literal,
+returns its own string without the quotation marks.
+
+Finally,
+Log Line takes the returned string and displays it on the screen.
