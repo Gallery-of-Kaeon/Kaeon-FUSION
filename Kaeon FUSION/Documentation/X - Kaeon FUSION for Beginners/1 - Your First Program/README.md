@@ -304,3 +304,12 @@ returns its own string without the quotation marks.
 
 Finally,
 Log Line takes the returned string and displays it on the screen.
+
+## Before you go
+
+Understanding ONE+ is crucial to using Kaeon FUSION effectively.
+So unless you're a masochist who would prefer to write all of your Kaeon FUSION code in ONE,
+we recommend you read the [ONE+ documentation](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/README.md).
+
+You may notice that Kaeon Dev has a "Show ONE" button next to the run button.
+Click it at any time to see how any ONE+ you've written in the upper text area translates to ONE.
