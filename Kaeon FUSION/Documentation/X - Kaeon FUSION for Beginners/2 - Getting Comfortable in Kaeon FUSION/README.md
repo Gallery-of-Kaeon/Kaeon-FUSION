@@ -120,3 +120,136 @@ then the program will display:
     x
     5
     10
+
+## Scope
+
+Information stored withing a variable can only be accessed by its sibling and children of said siblings.
+There is a command in the standard interface called "Scope".
+Scope performs no operations.
+It simply serves to establish a block of code isolated from the rest of the document.
+Any variable declaration nested within the scope command would have no effect on the rest of the document.
+
+For example, if you ran the following code:
+
+    Use: Standard
+
+    x: 5
+
+    Scope
+
+    	y: 10
+
+    	Scope
+
+    		z: 15
+
+    		Log Line: x
+    		Log Line: y
+    		Log Line: z
+
+    	Log Line: x
+    	Log Line: y
+    	Log Line: z
+
+    Log Line: x
+    Log Line: y
+    Log Line: z
+
+which in ONE is:
+
+    -
+    	Use
+    -
+    	-
+    		Standard
+    	-
+    -
+    	x
+    -
+    	-
+    		5
+    	-
+    -
+    	Scope
+    -
+    	-
+    		y
+    	-
+    		-
+    			10
+    		-
+    	-
+    		Scope
+    	-
+    		-
+    			z
+    		-
+    			-
+    				15
+    			-
+    		-
+    			Log Line
+    		-
+    			-
+    				x
+    			-
+    		-
+    			Log Line
+    		-
+    			-
+    				y
+    			-
+    		-
+    			Log Line
+    		-
+    			-
+    				z
+    			-
+    	-
+    		Log Line
+    	-
+    		-
+    			x
+    		-
+    	-
+    		Log Line
+    	-
+    		-
+    			y
+    		-
+    	-
+    		Log Line
+    	-
+    		-
+    			z
+    		-
+    -
+    	Log Line
+    -
+    	-
+    		x
+    	-
+    -
+    	Log Line
+    -
+    	-
+    		y
+    	-
+    -
+    	Log Line
+    -
+    	-
+    		z
+    	-
+
+the program will display:
+
+    5
+    10
+    15
+    5
+    10
+    z
+    5
+    y
+    z
