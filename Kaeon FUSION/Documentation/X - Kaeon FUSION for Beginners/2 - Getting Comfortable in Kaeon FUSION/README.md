@@ -282,7 +282,7 @@ the program will display:
     y
     z
 
-## 3 - Strings
+## 3 - Strings and Data Types
 
 As discussed earlier,
 a command that does not match a command known by Kaeon FUSION will returns its own string as a value.
