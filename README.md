@@ -2,6 +2,10 @@
 
 Kaeon FUSION is the very first programming language created to work in place of any other programming language.
 
+It layman's terms,
+it's a programming language that can do anything.
+And it's easy to learn too, even if you've never programmed before!
+
 Kaeon FUSION has sucessfully been used for general purspose programming,
 scripting,
 low level programming,
