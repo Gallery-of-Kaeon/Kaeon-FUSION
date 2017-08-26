@@ -314,3 +314,6 @@ we recommend you read the [ONE+ documentation](https://github.com/Gallery-of-Kae
 
 You may notice that Kaeon Dev has a "Show ONE" button next to the run button.
 Click it at any time to see how any ONE+ you've written in the upper text area translates to ONE.
+
+If you're ready to proceed,
+click [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md) to move on.

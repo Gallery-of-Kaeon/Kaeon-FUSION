@@ -23,11 +23,37 @@ we recommend that you experiment with the subject the section covered before mov
 
 Now let's get going!
 
-## Variables
+## Contents
 
-A variable is an object that stores data for use later in the program.
+[1 - Variables](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#1---variables)
+
+[2 - Scope](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#2---scope)
+
+<!--
+
+[3 - Strings and Data types](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#3---strings-and-data-types)
+
+[4 - Math](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#math)
+
+[5 - Logic](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#logic)
+
+[6 - Input and Output](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#input-and-output)
+
+[7 - Flow Control](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#flow-control)
+
+[8 - Lists](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#lists)
+
+[9 - Functions](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#functions)
+
+[10 - Objects](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#objects)
+
+-->
+
+## 1 - Variables
+
+A variable stores data for use later in the program.
 A variable has an alias,
-which is a string value that it can be referenced by,
+which is a string that it can be referenced by,
 and a value,
 which is a reference to data somewhere in the computer's memory.
 
@@ -121,7 +147,7 @@ then the program will display:
     5
     10
 
-## Scope
+## 2 - Scope
 
 Information stored withing a variable can only be accessed by its sibling and children of said siblings.
 There is a command in the standard interface called "Scope".
@@ -253,3 +279,45 @@ the program will display:
     5
     y
     z
+
+<!--
+
+## 3 - Strings and Data Types
+
+
+
+## 4 - Math
+
+
+
+## 5 - Logic
+
+
+
+## 6 - Flow Control
+
+
+
+## 7 - Input and Output
+
+
+
+### Files
+
+
+
+## 8 - Lists
+
+
+
+## 9 - Functions
+
+
+
+## 10 - Objects
+
+
+
+### Shallow Copy vs Deep Copy
+
+-->
