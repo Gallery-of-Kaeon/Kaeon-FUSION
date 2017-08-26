@@ -137,6 +137,13 @@ As such, the documentation may be updated before the implementation is.
 If you encounter an inconsistency or any other problem, please let us know.
 We'll dispatch a team of highly trained rubber duckies to deal with with it immediately.
 
+### Is Kaeon FUSION bound to the JVM?
+
+We wrote our implementation of Kaeon FUSION in Java because we saw java as the most effective way to quickly and efficiently get it off the ground.
+However,
+an implementation of Kaeon FUSION can be written in any language and for any platform,
+as long as it conforms to the rules laid out in the documentation.
+
 ### How often will Kaeon FUSION be updated?
 
 At the time of writing,
