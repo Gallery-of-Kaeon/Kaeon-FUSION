@@ -1,6 +1,7 @@
 package dev.ide;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
@@ -15,6 +16,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
+import javax.swing.undo.UndoManager;
 
 import interfaces.StandardInterfacePack;
 import io.IO;
@@ -57,6 +59,11 @@ public class IDE implements ActionListener {
 		frame.setTitle("Kaeon Dev");
 		
 		frame.setSize((int) (size / 4.25), (int) (size / 4.25));
+		
+		frame.setLocation(
+				(int) (Toolkit.getDefaultToolkit().getScreenSize().getWidth() / 2) - (frame.getWidth() / 2),
+				(int) (Toolkit.getDefaultToolkit().getScreenSize().getHeight() / 2) - (frame.getHeight() / 2));
+		
 		frame.setLayout(new GridLayout(2, 1));
 		
 		JPanel control = new JPanel();
@@ -80,6 +87,9 @@ public class IDE implements ActionListener {
 		
 		input = new JTextArea();
 		input.setTabSize(4);
+		
+		UndoManager manager = new UndoManager();
+		input.getDocument().addUndoableEditListener(manager);
 		
 		control.add(new JScrollPane(input), BorderLayout.CENTER);
 		
@@ -112,12 +122,29 @@ public class IDE implements ActionListener {
 		input.setFont(font);
 		output.setFont(font);
 		
-		font = new Font("Arial", Font.PLAIN, fontSize);
+		font = new Font("None", Font.BOLD, fontSize);
 		
 		open.setFont(font);
 		save.setFont(font);
 		run.setFont(font);
 		showONE.setFont(font);
+		
+		Color bgCol = new Color(100, 150, 255);
+		Color fgCol = new Color(255, 255, 255);
+		
+		open.setBackground(bgCol);
+		open.setForeground(fgCol);
+		
+		save.setBackground(bgCol);
+		save.setForeground(fgCol);
+		
+		run.setBackground(bgCol);
+		run.setForeground(fgCol);
+		
+		showONE.setBackground(bgCol);
+		showONE.setForeground(fgCol);
+		
+		input.setBackground(new Color(200, 220, 255));
 		
 		frame.add(new JScrollPane(output));
 		
