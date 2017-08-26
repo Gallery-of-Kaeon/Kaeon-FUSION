@@ -29,23 +29,25 @@ Now let's get going!
 
 [2 - Scope](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#2---scope)
 
-<!--
-
 [3 - Strings and Data types](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#3---strings-and-data-types)
 
-[4 - Math](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#math)
+<!--
 
-[5 - Logic](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#logic)
+[4 - Math](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#4---math)
 
-[6 - Input and Output](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#input-and-output)
+[5 - Logic](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#5---logic)
 
-[7 - Flow Control](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#flow-control)
+[6 - Input and Output](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#6---input-and-output)
 
-[8 - Lists](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#lists)
+[7 - Flow Control](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#7---flow-control)
 
-[9 - Functions](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#functions)
+[8 - Lists](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#8---lists)
 
-[10 - Objects](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#objects)
+[9 - Functions](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#9---functions)
+
+[10 - Objects](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#10---objects)
+
+[11 - Errors](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#11---errors)
 
 -->
 
@@ -280,11 +282,65 @@ the program will display:
     y
     z
 
+## 3 - Strings
+
+As discussed earlier,
+a command that does not match a command known by Kaeon FUSION will returns its own string as a value.
+Such a command is called a literal.
+
+However,
+some characters have special effects if used in literals.
+
+For example,
+as prevously shown,
+quotation marks in literals block characters between them from have any effect on ONE+,
+but the quotation marks themselves disappear after that.
+In addition to being useful when your string contains commas or colons,
+it is also useful if you want to display something that would normally be identified as a command.
+Like if you wanted to display Log Line without running it as a command.
+
+For example, running:
+
+    Log Line: "Log Line"
+
+would display:
+
+    Log Line
+
+Backslashes also allow certain characters to be placed into strings.
+A backslash followed by the letter 'n' will be interpreted as a new line,
+a backslash followed by the letter 't' will be interpreted as a tab,
+and a backslash followed by another backslash will be interpreted as a literal backslash.
+
+For example: running:
+
+    Log Line: abc\n\t\\
+
+will display:
+
+    abc
+    	\
+
+### String Types
+
+Certain commands in Kaeon FUSION that take string values expect said values to be in certain formats.
+
+For example,
+math commands expect the strings given to them to be in the form of numbers.
+A number string must consist entirely of digits and optionally one period,
+and the last character in the string must be a digit.
+
+Logic commands on the other hand,
+expect the strings given to them to be either the word "true",
+or "false".
+Letter case is irrelevant.
+
+### Null
+
+The null value is a value used to sigify the absence of a value where there would otherwise be one.
+The null value can be returned using a command containing the string null.
+
 <!--
-
-## 3 - Strings and Data Types
-
-
 
 ## 4 - Math
 
@@ -319,5 +375,11 @@ the program will display:
 
 
 ### Shallow Copy vs Deep Copy
+
+
+
+## 11 - Errors
+
+
 
 -->
