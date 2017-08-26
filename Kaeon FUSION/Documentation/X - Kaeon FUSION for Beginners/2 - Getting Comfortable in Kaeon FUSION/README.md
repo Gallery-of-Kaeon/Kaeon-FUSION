@@ -15,8 +15,8 @@ this section will cover the how to effectively write code using the standard int
 We will also delve into programming topics that apply regardless of what language you use.
 
 Our examples will be written in ONE+,
-but to ensure there is no confusion,
-we will also show all examples in ONE as well.
+but to minimize confusion,
+we will also show many of our examples in ONE as well.
 
 After each section,
 we recommend that you experiment with the subject the section covered before moving onto the next section.
