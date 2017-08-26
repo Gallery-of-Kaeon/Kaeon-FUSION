@@ -163,3 +163,21 @@ no strings attached.
 
 The Kaeon FUSION language is one of many projects under the Kaeon name.
 The Kaeon projects are at the time of writing primarily developed and managed by [Jesse Dinkin](https://www.linkedin.com/in/jesse-dinkin-6b9135100/).
+
+### Can I join you?
+
+Short answer:
+No.
+
+Long answer:
+You're free to write third party interfaces for Kaeon FUSION,
+write your own implementaion of Kaeon FUSION,
+publish your own resources for Kaeon FUSION,
+develop successor products to Kaeon FUSION,
+etc.
+So if you think you can Kaeon FUSION better than we Kaeon FUSION,
+you've got our blessings.
+However,
+we have a very specific vision for what we want Kaeon FUSION to be.
+If we feel you'd make a good addition to our team,
+we'll come to you.
