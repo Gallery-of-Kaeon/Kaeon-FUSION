@@ -61,7 +61,7 @@ which is a reference to data somewhere in the computer's memory.
 
 The process of creating a new variable is called declaration.
 To declare a new variable,
-use an element containing a string that Kaeon FUSION does not recognize to serve as the alias (so you could your a variable x, but not Log Line),
+use an element containing a string that Kaeon FUSION does not recognize to serve as the alias (so you could name your variable x, but not Log Line),
 and nest within it a command that returns the value you want you variable to store.
 
 _Note: To nest an element means to make it a child of another element._
