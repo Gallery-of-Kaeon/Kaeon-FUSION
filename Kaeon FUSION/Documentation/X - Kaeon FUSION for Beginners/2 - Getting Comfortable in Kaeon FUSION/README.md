@@ -284,6 +284,14 @@ the program will display:
     y
     z
 
+<!--
+
+### Global Variables
+
+
+
+-->
+
 ## 3 - Strings and Data Types
 
 As discussed earlier,
