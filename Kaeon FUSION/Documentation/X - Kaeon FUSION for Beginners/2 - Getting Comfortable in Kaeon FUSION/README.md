@@ -37,9 +37,9 @@ Now let's get going!
 
 [6 - Flow Control](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#6---flow-control)
 
-<!--
-
 [7 - Input and Output](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#7---input-and-output)
+
+<!--
 
 [8 - Lists](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#8---lists)
 
@@ -575,8 +575,6 @@ will display:
 
     The variable x is less than 10.
 
-<!--
-
 ## 7 - Input and Output
 
 A typical program operates in a cycle of processing information and relaying said information to the user.
@@ -626,7 +624,57 @@ the program will display:
 
 ### Files
 
+The Kaeon FUSION Standard Interface can read from and write to files using the open and save commands.
+For the sake of the following examples we'll assume you're running Kaeon FUSION from Kaeon Dev.
 
+The open command has a child that returns a string.
+It will search the folder surrounding the environment Kaeon FUSION is running in for a file that matches the string.
+If it finds such a file it will return the contents of the file as a string.
+If it does not find the file in the local folder,
+it will check to see if the string is a URL.
+If it is,
+it will search the internet for the file.
+
+For example,
+if you had a file called "My File.txt" next to Kaeon Dev.jar,
+which had the content:
+
+    abc
+    123
+
+then running:
+
+    Use: Standard
+    
+    Log Line: Open: My File.txt
+
+would display:
+
+    abc
+    123
+
+The save command will have two children that each return strings.
+It will create a file with the name of the second string and write the first string to it.
+
+For example, running:
+
+    Use: Standard
+
+    Save
+    
+    	-
+    		abc
+    		123
+    	-
+
+    	My File.txt
+
+will create a file next to Kaeon Dev.jar called My File.txt with the content:
+
+    abc
+    123
+
+<!--
 
 ## 8 - Lists
 
