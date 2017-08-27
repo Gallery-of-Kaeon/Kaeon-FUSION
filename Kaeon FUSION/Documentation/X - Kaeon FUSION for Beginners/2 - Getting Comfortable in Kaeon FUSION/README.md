@@ -33,9 +33,9 @@ Now let's get going!
 
 [4 - Math](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#4---math)
 
-<!--
-
 [5 - Logic](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#5---logic)
+
+<!--
 
 [6 - Input and Output](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#6---input-and-output)
 
@@ -404,11 +404,104 @@ we can just add in a modulus command:
 
 _Note: While writing out math operations like this can be tedious, there is a ONE+ directive called Super Mode, which allows these operations to be written like normal math operations. You can read about it [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/1%20-%20Super%20Mode/README.md)._
 
-<!--
-
 ## 5 - Logic
 
+In programming,
+logic operations deal with values of true and false.
+These true or false values are called booleans.
 
+Booleans are named after british mathematician [George Boole](https://en.wikipedia.org/wiki/George_Boole),
+who created a system of processing true and false values called boolean algebra.
+This system laid the mathematical foundation for how computer circuitry works.
+
+In boolean logic,
+which derives from boolean algebra,
+there are four primary functions:
+and,
+or,
+not,
+and exclusive or.
+
+The and operation takes two boolean values and returns true if both of the boolean values it was given are true,
+and returns false otherwise.
+
+The or operation takes two boolean values and returns true if at least one of the boolean values it was given are true,
+and returns false otherwise.
+
+The not operation takes one boolean values and returns true if the boolean value it was given is false,
+and returns false if the boolean value it was given is true.
+
+The exclusive or operation takes two boolean values and returns true if one but not both of the boolean values it was given are true,
+and returns false otherwise.
+
+The Kaeon FUSION Standard Interface provides these four operations as commands.
+
+For example, running:
+
+    Use: Standard
+
+    Log Line: And: True, True
+    Log Line: And: True, False
+
+    Log Line: Or: True, False
+    Log Line: Or: False, False
+
+    Log Line: Not: False
+    Log Line: Not: True
+
+    Log Line: Exclusive Or: True, False
+    Log Line: Exclusive Or: True, True
+
+will display:
+
+    True
+    False
+    True
+    False
+    True
+    False
+    True
+    False
+
+_Note: When calculating boolean logic, many computer scientists use charts called truth tables. You can read about them [in this article](http://www.butte.edu/resources/interim/wmwu//iLogic/3.2/iLogic_3_2.html), authored by Wu Wei-Ming in his blog "iLogic".
+
+### Comparison
+
+In computer science it is also important to have operations for comparison.
+Such operations take two values and return either a true or false boolean value depending on how the two values compare to one another.
+
+Kaeon FUSION provides an equal command,
+which determines if two values are eqivilent,
+as well the following inequality operations,
+which only work with numbers:
+Greater,
+Less,
+Greater or Equal,
+and Less or Equal.
+
+For example, running:
+
+    Use: Standard
+    
+    Equal: 10, Add: 5, 5
+
+    Greater: 10, 10
+    Less: 5, 10
+
+    Greater or Equal: 10, 10
+    Less or Equal: 15, 10
+
+will display:
+
+    True
+    False
+    True
+    True
+    False
+
+_Note: As mentioned in the math section, there is a ONE+ directive called Super Mode, which allows these operations to be written in a far less verbose manner. You can read about it [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/1%20-%20Super%20Mode/README.md)._
+
+<!--
 
 ## 6 - Flow Control
 
