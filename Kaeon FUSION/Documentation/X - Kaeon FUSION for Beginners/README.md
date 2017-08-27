@@ -1,4 +1,5 @@
 [Kaeon FUSION Home](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/README.md) /
+[Back](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/README.md) /
 [Next](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/1%20-%20Your%20First%20Program/README.md)
 
 # Kaeon FUSION for Beginners
@@ -44,6 +45,9 @@ Though it is not required,
 we reccommend you check out the web series [crash course computer science](https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo) if you are new to the field.
 We're not sponsored by them,
 we just think they're good at what they do.
+The series was created by the green brothers and sponsored by PBS.
+It is hosted by [Carrie-Anne Philbin](https://about.me/carrieannephilbin),
+director of the eductation mission for the [Raspberry Pi Foundation](https://www.raspberrypi.org/).
 
 ## What is a program?
 

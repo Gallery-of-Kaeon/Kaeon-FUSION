@@ -39,9 +39,9 @@ Now let's get going!
 
 [7 - Input and Output](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#7---input-and-output)
 
-<!--
-
 [8 - Lists](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#8---lists)
+
+<!--
 
 [9 - Functions](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#9---functions)
 
@@ -336,6 +336,15 @@ Logic commands on the other hand,
 expect the strings given to them to be either the word "true",
 or "false".
 Letter case is irrelevant.
+
+<!--
+
+### String Operations
+
+
+
+
+-->
 
 ### Null
 
@@ -674,11 +683,134 @@ will create a file next to Kaeon Dev.jar called My File.txt with the content:
     abc
     123
 
-<!--
-
 ## 8 - Lists
 
+So we know that we can use variables to store data,
+but what if we wanted to store multiple values in the same place?
+For that we can use lists.
 
+A list is a value that can store other values.
+The Kaeon FUSION Standard Interface provides command both for creating lists and for manipulating values in them.
+
+When displayed,
+a list will be presented as having all of the values inside of it placed between square brackets ans separated by commas.
+
+The list command can be used for creating a list.
+It can have an indefinite number of children.
+When run it assembles all of the values returned to it into a list and returns the list.
+
+For example, running:
+
+    Use: Standard
+    
+    my list: List: a, b, c
+    Log Line: my list
+
+will display:
+
+    [a, b, c]
+
+You can even place lists inside other lists.
+
+For example, running:
+
+    Use: Standard
+    
+    my list: List: a, b, c, List: 1, 2, 3
+    Log Line: my list
+
+will display:
+
+    [a, b, c, [1, 2, 3]]
+
+### List Operations
+
+You can use the at command to retrieve a specific value from within a list.
+The at command takes both a list and a number specifying the position,
+or the index,
+of the value you want to retrieve.
+
+For example, running:
+
+    Use: Standard
+    
+    my list: List: a, b, c
+
+    Log Line: At: my list, 1
+    Log Line: At: my list, 2
+    Log Line: At: my list, 3
+
+will display:
+
+    1
+    2
+    3
+
+You can use the set command to replace a value in a list.
+The set command takes a list, a number specifying the position,
+or the index,
+of the value you want to change,
+and a value to place at that location.
+
+For example, running:
+
+    Use: Standard
+    
+    my list: List: a, b, c
+
+    Log Line: my list
+    Set: my list, 2, d
+    Log Line: my list
+
+will display:
+
+    [a, b, c]
+    [a, d, c]
+
+You can use the insert command to place a value in a list without overriding anything.
+The set command takes a list, a number specifying the position,
+or the index,
+of where you want to insert your value,
+and a value to insert at that location.
+
+For example, running:
+
+    Use: Standard
+    
+    my list: List: a, b, c
+
+    Log Line: my list
+    Insert: my list, 2, d
+    Log Line: my list
+
+will display:
+
+    [a, b, c]
+    [a, d, b, c]
+
+You can use the remove command to remove a value from a list.
+The remove command takes a list and a number specifying the position,
+or the index,
+of of the value you want to remove.
+
+For example, running:
+
+    Use: Standard
+    
+    my list: List: a, b, c
+
+    Log Line: my list
+    Remove: my list, 2
+    Log Line: my list
+
+will display:
+
+    [a, b, c]
+    [a, c]
+
+_Note: In Kaeon FUSION, list indexes start at one. However, in most other languages, they start at zero._
+
+<!--
 
 ## 9 - Functions
 
