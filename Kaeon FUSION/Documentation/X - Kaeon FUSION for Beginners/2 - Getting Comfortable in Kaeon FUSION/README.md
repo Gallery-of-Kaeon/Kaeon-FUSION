@@ -35,9 +35,9 @@ Now let's get going!
 
 [5 - Logic](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#5---logic)
 
-<!--
-
 [6 - Input and Output](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#6---input-and-output)
+
+<!--
 
 [7 - Flow Control](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#7---flow-control)
 
@@ -501,11 +501,81 @@ will display:
 
 _Note: As mentioned in the math section, there is a ONE+ directive called Super Mode, which allows these operations to be written in a far less verbose manner. You can read about it [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/1%20-%20Super%20Mode/README.md)._
 
-<!--
-
 ## 6 - Flow Control
 
+In all of our programs written thus far,
+every command we place in our program will execute,
+and after they execute,
+they will not execute again.
 
+You may recall that in the previous section:
+your first program,
+we discussed how certain commands could force the program to jump to another part of the program.
+
+The Kaeon FUSION Standard Interface provides two such commands:
+loop and break,
+each of which have the option of having a child that returns a boolean value.
+In practice,
+they should almost always have such a child.
+If they have no child,
+they will perform their respective jump operation.
+If they do have a child,
+they will only jump if the child returns a true value.
+
+The loop command jumps to the first child of its parent,
+and the break command jumps to the first sibling after its parent.
+
+It is best practice to nest them within a Scope command.
+
+For example, running:
+
+    Use: Standard
+
+    x: 5
+
+    Scope { Break: Less: x, 10 }
+    	Log Line: The variable x is less than 10.
+
+    Scope { Break: Greater or Equal: x, 10 }
+    	Log Line: The variable x is greater than or equal to 10.
+
+    i { 0 } Scope
+
+    	Log Line: i, " alligator"
+
+    	i: Add: i, 1
+    	Loop: Less: i, x
+
+will display:
+
+    The variable x is less than 10.
+    0 alligator
+    1 alligator
+    2 alligator
+    3 alligator
+    4 alligator
+
+In addition,
+Kaeon FUSION also has a else command,
+which will only allow its children to execute if the most recently used break command had a child that returned false.
+
+For example, running:
+
+    Use: Standard
+
+    x: 5
+
+    Scope { Break: Greater or Equal: x, 10 }
+    	Log Line: The variable x is greater than or equal to 10.
+
+    Else
+    	Log Line: The variable x is less than 10.
+
+will display:
+
+    The variable x is less than 10.
+
+<!--
 
 ## 7 - Input and Output
 
