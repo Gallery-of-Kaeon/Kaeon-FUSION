@@ -45,7 +45,7 @@ Though it is not required,
 we reccommend you check out the web series [crash course computer science](https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo) if you are new to the field.
 We're not sponsored by them,
 we just think they're good at what they do.
-The series was created by the green brothers and sponsored by PBS.
+The series was created by the green brothers and is sponsored by PBS.
 It is hosted by [Carrie-Anne Philbin](https://about.me/carrieannephilbin),
 director of the eductation mission for the [Raspberry Pi Foundation](https://www.raspberrypi.org/).
 
