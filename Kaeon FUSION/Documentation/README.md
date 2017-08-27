@@ -18,7 +18,7 @@ allows functionality to be incorporated at runtime through interfaces.
 The third section explains the functionality provided by the standard interface,
 and the fourth section explains the functionality provided by the web and machine interfaces.
 
-_This documentation is aimed at those was a solid background in computer science. If you are new to programming, we recommend you check out our [Kaeon FUSION for Beginners](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/README.md) resource._
+_This documentation is aimed at those with a solid background in computer science. If you are new to programming, we recommend you check out our [Kaeon FUSION for Beginners](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/README.md) resource._
 
 ## Contents
 
