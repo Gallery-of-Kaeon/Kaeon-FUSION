@@ -182,7 +182,7 @@ write your own implementaion of Kaeon FUSION,
 publish your own resources for Kaeon FUSION,
 develop successor products to Kaeon FUSION,
 etc.
-So if you think you can Kaeon FUSION better than we Kaeon FUSION,
+So if you think you can do our job better than we can,
 you've got our blessings.
 However,
 we have a very specific vision for what we want Kaeon FUSION to be.
