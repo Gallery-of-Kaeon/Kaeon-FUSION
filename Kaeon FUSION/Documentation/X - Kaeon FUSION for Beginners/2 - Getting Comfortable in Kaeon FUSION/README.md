@@ -579,7 +579,50 @@ will display:
 
 ## 7 - Input and Output
 
+A typical program operates in a cycle of processing information and relaying said information to the user.
+A program is pointless if the user has no way to communicate with it.
 
+For all of our examples thus far,
+we've been using the Log Line command to display information.
+The Kaeon FUSION Standard Interface provides another command called Log.
+The difference between Log and Log Line is that Log Line creates a new line after it displays the information given to it,
+whereas Log does not.
+
+For example, running:
+
+    Use: Standard
+
+    Log: a
+    Log Line: b
+    Log Line: c
+    Log: d
+    Log: e
+
+will display:
+
+    ab
+    c
+    de
+
+Of course,
+it is a given that some programs must take information from the user as well.
+The input command allows for this.
+It works like the log command,
+except after displaying the data it is given it will prompt the user to enter a string.
+It will return whatever the user enters.
+
+For example, running:
+
+    Use: Standard
+    
+    user input: Input: "Enter a word or phrase: "
+    Log Line: user input
+
+will prompt the user with the prompt "Enter a word or phrase: ".
+If the user enters "I love Kaeon FUSION." at the prompt,
+the program will display:
+
+    I love Kaeon FUSION.
 
 ### Files
 
