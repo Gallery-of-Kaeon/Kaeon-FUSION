@@ -149,6 +149,8 @@ then the program will display:
     5
     10
 
+_Note: Kaeon FUSION allows you to assign any value to any variable. However, there are some languages that force you to give each variable a type, meaning that they can only store values that match that type._
+
 ## 2 - Scope
 
 Information stored withing a variable can only be accessed by its sibling and children of said siblings.
@@ -813,6 +815,10 @@ _Note: In Kaeon FUSION, list indexes start at one. However, in most other langua
 <!--
 
 ## 9 - Functions
+
+
+
+### Recursion
 
 
 
