@@ -463,7 +463,7 @@ will display:
     True
     False
 
-_Note: When calculating boolean logic, many computer scientists use charts called truth tables. You can read about them [in this article](http://www.butte.edu/resources/interim/wmwu//iLogic/3.2/iLogic_3_2.html), authored by Wu Wei-Ming in his blog "iLogic".
+_Note: When calculating boolean logic, many computer scientists use charts called truth tables. You can read about them [in this article](http://www.butte.edu/resources/interim/wmwu//iLogic/3.2/iLogic_3_2.html), authored by Wu Wei-Ming in his blog "iLogic"._
 
 ### Comparison
 
