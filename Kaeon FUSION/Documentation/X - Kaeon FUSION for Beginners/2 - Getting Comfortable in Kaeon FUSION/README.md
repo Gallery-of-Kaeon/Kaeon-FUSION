@@ -43,9 +43,9 @@ Now let's get going!
 
 [9 - Functions](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#9---functions)
 
-<!--
-
 [10 - Objects](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#10---objects)
+
+<!--
 
 [11 - Errors](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#11---errors)
 
@@ -938,15 +938,71 @@ would display:
 
 -->
 
-<!--
-
 ## 10 - Objects
 
+After running a function,
+the variable and other functions declared within it may be stored and reused.
+The stored state of the function is called an object.
 
+Objects are a useful way of abstracting data.
+For example,
+we could have a function called "Dog" that declares variables analogous to the attributes of a dog,
+like name,
+age,
+weight,
+etc,
+and it could have functions within it that relect things that dogs do,
+like eat,
+bark,
+etc that can be affected by the variables.
+
+If a function is called from within a new command,
+the new command will return its state which can be stored inside a variable.
+Its state can be brought into the local scope by nesting it within an in command.
+This should always be done within a scope command.
+The return command can be used after an in command to return something from within an object to the scope outside the object.
+
+For example, running:
+
+    Use: Standard
+
+    Define: dog
+
+    	name: At: Arguments, 1
+    	age: 1
+    	weight: 5
+    
+    	Define: eat
+    
+    		weight: Add: weight, At: Arguments, 1
+    	
+    	Define: bark
+    
+    		Log Line: woof woof
+    
+    my dog: New: dog: Fiddo
+    my other dog: New: dog: Fluffy
+    food: 1
+
+    Scope: In { my Dog } Log Line: name, " goes ", bark, .
+    Scope: In { my Dog } eat: food
+    Scope: In { my dog } Log Line: name, " weighs ", weight, " pounds."
+    Scope: In { my dog } Log: name; Log: " is friends with "; In { my other dog } Log: name;
+
+would display:
+
+    Fiddo goes woof woof.
+    Fiddo weighs 6 pounds.
+
+_Note: Most programming languages don't allow you to make objects out of functions. They have an entirely seperate conventions called classes that allow you to define objects._
+
+<!--
 
 ### Shallow Copy vs Deep Copy
 
+-->
 
+<!--
 
 ## 11 - Errors
 
