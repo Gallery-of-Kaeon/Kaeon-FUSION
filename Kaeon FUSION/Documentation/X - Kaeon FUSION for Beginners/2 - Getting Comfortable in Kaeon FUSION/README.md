@@ -284,13 +284,15 @@ the program will display:
     y
     z
 
-<!--
-
 ### Global Variables
 
+Declaring a variable within a global command, like this:
 
+    Global: my variable: my value
 
--->
+will prevent the variable from disappearing if the flow of the program moves outside the script,
+like iwhen using a function,
+which we'll get to later.
 
 ## 3 - Strings and Data Types
 
@@ -961,6 +963,8 @@ the new command will return its state which can be stored inside a variable.
 Its state can be brought into the local scope by nesting it within an in command.
 This should always be done within a scope command.
 The return command can be used after an in command to return something from within an object to the scope outside the object.
+If being used as an object,
+all variables in the function should be marked as global.
 
 For example, running:
 
@@ -968,9 +972,9 @@ For example, running:
 
     Define: dog
 
-    	name: At: Arguments, 1
-    	age: 1
-    	weight: 5
+    	Global: name: At: Arguments, 1
+    	Global: age: 1
+    	Global: weight: 5
     
     	Define: eat
     
@@ -978,21 +982,23 @@ For example, running:
     	
     	Define: bark
     
-    		Log Line: woof woof
+    		Return: woof woof
     
     my dog: New: dog: Fiddo
     my other dog: New: dog: Fluffy
+
     food: 1
 
     Scope: In { my Dog } Log Line: name, " goes ", bark, .
     Scope: In { my Dog } eat: food
     Scope: In { my dog } Log Line: name, " weighs ", weight, " pounds."
-    Scope: In { my dog } Log: name; Log: " is friends with "; In { my other dog } Log: name;
+    Scope: In { my dog } Log: name; Log: " is friends with "; In { my other dog } Log: name, .;
 
 would display:
 
     Fiddo goes woof woof.
     Fiddo weighs 6 pounds.
+    Fiddo is friends with Fluffy.
 
 _Note: Most programming languages don't allow you to make objects out of functions. They have an entirely seperate conventions called classes that allow you to define objects._
 
