@@ -174,7 +174,7 @@ The Kaeon projects are at the time of writing primarily developed and managed by
 ### Can I join you?
 
 Short answer:
-No.
+Sorry, but unfortunately not.
 
 Long answer:
 You're free to write third party interfaces for Kaeon FUSION,
