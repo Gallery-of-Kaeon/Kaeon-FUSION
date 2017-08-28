@@ -45,11 +45,7 @@ Now let's get going!
 
 [10 - Objects](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#10---objects)
 
-<!--
-
 [11 - Errors](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#11---errors)
-
--->
 
 ## 1 - Variables
 
@@ -1008,10 +1004,29 @@ _Note: Most programming languages don't allow you to make objects out of functio
 
 -->
 
-<!--
-
 ## 11 - Errors
 
+If you give a command data is isn't programmed to handle,
+something that would cause most other programming languages to crash,
+the Kaeon FUSION Standard Interface will stop running any commands after that,
+unless you use a catch command,
+which will allow the program to keep moving normally.
+Any commands nested within a catch command will only execute if the respective catch command was triggered.
 
+For example, running:
 
--->
+    Use: Standard
+
+    Log Line: Add: bad input
+    Log Line: abc
+
+    Catch: Log Line: Something went wrong.
+
+    Log Line: 123
+
+    Catch: Log Line: Something went wrong.
+
+will display:
+
+    Something went wrong.
+    123
