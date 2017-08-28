@@ -55,4 +55,4 @@ FUSION will terminate.
 ## Error Handling
 
 If an error occurs during at any step,
-FUSION will skip over the step and procede as if nothing happened.
+FUSION will skip over the step and proceed as if nothing happened.
