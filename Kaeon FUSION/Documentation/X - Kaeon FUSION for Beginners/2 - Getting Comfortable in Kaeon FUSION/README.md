@@ -41,9 +41,9 @@ Now let's get going!
 
 [8 - Lists](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#8---lists)
 
-<!--
-
 [9 - Functions](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#9---functions)
+
+<!--
 
 [10 - Objects](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md#10---objects)
 
@@ -820,15 +820,129 @@ will display:
 
 _Note: In Kaeon FUSION, list indexes start at one. However, in most other languages, they start at zero._
 
-<!--
-
 ## 9 - Functions
 
+A function is a chunk of code that can be stored and reused throught the program.
+Every time you run a function,
+you can give it information called arguments,
+and after it finishes running the function can return a value.
+In other words,
+a making a function is like making a command out of other commands.
 
+Functions are like variables,
+in that they have an alias to identify them.
+In addition,
+the same scope rules that apply to variables apply to functions.
+
+The Kaeon FUSION Standard Interface allows you to create functions using the define command.
+Every child of the define command will be made into a function within the local scope,
+with said child being the alias of the function and the children of the child making up the function itself.
+
+For example:
+
+    Use: Standard
+    
+    Define
+
+    	foo
+
+    		Log Line: abc
+    		Log Line: 123
+
+    	bar
+
+    		#[ Because what we're printing it the same as the name of our function,
+    		   we surround it in quotation marks. Otherwise, we'd be running the
+    		   function from within itself, which would create an infinite loop. ]#
+
+    		Log Line: "bar"
+
+_Note: When demonstrating functions to newcomers, it is tradition to name the functions "foo", "bar", and "baz"._
+
+Once a function is defined,
+it may be used by using its alias as a command.
+
+For example, running:
+
+    Use: Standard
+    
+    Define
+
+    	foo
+
+    		Log Line: abc
+    		Log Line: 123
+
+    	bar
+
+    		#[ Because what we're printing it the same as the name of our function,
+    		   we surround it in quotation marks. Otherwise, we'd be running the
+    		   function from within itself, which would create an infinite loop. ]#
+
+    		Log Line: "bar"
+
+    foo
+    foo
+    bar
+
+would display:
+
+    abc
+    123
+    abc
+    123
+    bar
+
+Any values returned to the alias by its children will be passed as arguments to the function.
+Said arguments may be accessed from within the function as a list using the arguments command.
+
+For example, running:
+
+    Use: Standard
+    
+    Define
+
+    	foo
+
+    		Log Line: At { Arguments, 2 }, At { Arguments, 1 }
+
+    foo: abc, 123
+
+would display:
+
+    123abc
+
+You can make a function return a value by using the return command within it,
+and nesting any value you want to return beneath the return command.
+Once a return command is used within a function,
+the function will stop.
+
+For example, running:
+
+    Use: Standard
+    
+    Define
+
+    	foo
+
+    		Log Line: At { Arguments, 2 }, At { Arguments, 1 }
+
+    	bar
+    		Return: foobar
+
+    foo: abc, bar
+
+would display:
+
+    foobarabc
+
+<!--
 
 ### Recursion
 
+-->
 
+<!--
 
 ## 10 - Objects
 
