@@ -1000,7 +1000,7 @@ would display:
     Fiddo weighs 6 pounds.
     Fiddo is friends with Fluffy.
 
-_Note: Most programming languages don't allow you to make objects out of functions. They have an entirely seperate conventions called classes that allow you to define objects._
+_Note: Most programming languages don't allow you to make objects out of functions. They have an entirely seperate convention called classes that allow you to define objects._
 
 <!--
 
