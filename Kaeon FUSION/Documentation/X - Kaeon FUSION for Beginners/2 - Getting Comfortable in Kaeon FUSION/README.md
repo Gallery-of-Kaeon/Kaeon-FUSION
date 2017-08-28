@@ -851,7 +851,7 @@ For example:
 
     	bar
 
-    		#[ Because what we're printing it the same as the name of our function,
+    		#[ Because what we're printing is the same as the name of our function,
     		   we surround it in quotation marks. Otherwise, we'd be running the
     		   function from within itself, which would create an infinite loop. ]#
 
