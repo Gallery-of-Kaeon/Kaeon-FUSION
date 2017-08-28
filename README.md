@@ -185,6 +185,7 @@ etc.
 So if you think you can do our job better than we can,
 you've got our blessings.
 However,
-we have a very specific vision for what we want Kaeon FUSION to be.
+we have a very specific vision for what we want Kaeon FUSION to be,
+and therefore can't afford to take on anyone who we don't know extremely well.
 If we feel you'd make a good addition to our team,
 we'll come to you.
