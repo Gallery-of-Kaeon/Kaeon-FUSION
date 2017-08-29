@@ -192,15 +192,21 @@ public class IDE implements ActionListener {
 				if(text.indexOf("[SUPER]") != -1)
 					SuperMode.superMode(code);
 				
-				fusion.process(code);
+				new Thread() {
+					
+					public void run() {
+						
+						fusion.process(code);
+						
+						run.setEnabled(true);
+						showONE.setEnabled(true);
+					}
+				}.start();
 			}
 			
 			catch(Exception exception) {
 				
 			}
-			
-			run.setEnabled(true);
-			showONE.setEnabled(true);
 		}
 		
 		if(command.equals("Show ONE")) {

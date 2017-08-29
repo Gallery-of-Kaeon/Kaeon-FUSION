@@ -7,17 +7,17 @@ Dependencies
 		Source
 			
 			-
-				https://github.com/Library-of-Kaeon/Library-of-Kaeon/tree/master/Library%20of%20Kaeon/3%20-%20Collection/1%20-%20Computation/1%20-%20Utilities/1%20-%20Plus%20Series/1%20-%20ONE%2B/1%20-%20Java/1%20-%20Library
+				https://github.com/Library-of-Kaeon/Library-of-Kaeon/tree/master/Library%20of%20Kaeon/3%20-%20Collection/1%20-%20Computation/3%20-%20APIs/1%20-%20ONE/3%20-%20ONE%2B/1%20-%20Java/1%20-%20Library
 			-
 	
-	Philosopher's Stone+
+	Philosopher's Stone
 		
-		File: Philosopher's Stone+ for Java.jar
+		File: Philosopher's Stone for Java.jar
 		
 		Source
 			
 			-
-				https://github.com/Library-of-Kaeon/Library-of-Kaeon/tree/master/Library%20of%20Kaeon/3%20-%20Collection/1%20-%20Computation/1%20-%20Utilities/1%20-%20Plus%20Series/2%20-%20Philosopher's%20Stone%2B/1%20-%20Java/1%20-%20Library
+				https://github.com/Library-of-Kaeon/Library-of-Kaeon/tree/master/Library%20of%20Kaeon/3%20-%20Collection/1%20-%20Computation/3%20-%20APIs/2%20-%20Philosopher's%20Stone/1%20-%20Java/1%20-%20Library
 			-
 	
 	FUSION
@@ -27,17 +27,7 @@ Dependencies
 		Source
 			
 			-
-				https://github.com/Library-of-Kaeon/Library-of-Kaeon/tree/master/Library%20of%20Kaeon/3%20-%20Collection/1%20-%20Computation/1%20-%20Utilities/2%20-%20Philosopher's%20Series/1%20-%20FUSION/1%20-%20Java/1%20-%20Library
-			-
-	
-	ACE
-		
-		File: ACE for Java.jar
-		
-		Source
-			
-			-
-				https://github.com/Library-of-Kaeon/Library-of-Kaeon/tree/master/Library%20of%20Kaeon/3%20-%20Collection/1%20-%20Computation/1%20-%20Utilities/2%20-%20Philosopher's%20Series/2%20-%20ACE/1%20-%20Java/1%20-%20Library
+				https://github.com/Library-of-Kaeon/Library-of-Kaeon/tree/master/Library%20of%20Kaeon/3%20-%20Collection/1%20-%20Computation/3%20-%20APIs/1%20-%20ONE/1%20-%20FUSION/1%20-%20Java/1%20-%20Library
 			-
 	
 	Kaeon FUSION
@@ -47,27 +37,7 @@ Dependencies
 		Source
 			
 			-
-				https://github.com/Library-of-Kaeon/Library-of-Kaeon/tree/master/Library%20of%20Kaeon/3%20-%20Collection/1%20-%20Computation/1%20-%20Utilities/3%20-%20Kaeon%20Series/1%20-%20Kaeon%20FUSION/1%20-%20Java/1%20-%20Library
-			-
-	
-	Kaeon FUSION Interface Pack
-		
-		File: Kaeon FUSION Interface Pack for Java.jar
-		
-		Source
-			
-			-
-				https://github.com/Library-of-Kaeon/Library-of-Kaeon/tree/master/Library%20of%20Kaeon/3%20-%20Collection/1%20-%20Computation/1%20-%20Utilities/3%20-%20Kaeon%20Series/1%20-%20Kaeon%20FUSION/1%20-%20Java/1%20-%20Library
-			-
-	
-	Kaeon ACE FUSION Interface
-		
-		File: Kaeon ACE FUSION Interface for Java.jar
-		
-		Source
-			
-			-
-				https://github.com/Library-of-Kaeon/Library-of-Kaeon/tree/master/Library%20of%20Kaeon/3%20-%20Collection/1%20-%20Computation/1%20-%20Utilities/3%20-%20Kaeon%20Series/2%20-%20Kaeon%20ACE/1%20-%20Java/1%20-%20Library
+				https://github.com/Library-of-Kaeon/Library-of-Kaeon/tree/master/Library%20of%20Kaeon/3%20-%20Collection/1%20-%20Computation/3%20-%20APIs/1%20-%20ONE/2%20-%20Kaeon%20FUSION/1%20-%20Java/1%20-%20Library
 			-
 	
 	IO
@@ -77,7 +47,7 @@ Dependencies
 		Source
 			
 			-
-				https://github.com/Library-of-Kaeon/Library-of-Kaeon/tree/master/Library%20of%20Kaeon/3%20-%20Collection/1%20-%20Computation/1%20-%20Utilities/4%20-%20Miscellaneous%20Utilities/1%20-%20IO/1%20-%20Java/1%20-%20Library
+				https://github.com/Library-of-Kaeon/Library-of-Kaeon/tree/master/Library%20of%20Kaeon/3%20-%20Collection/1%20-%20Computation/3%20-%20APIs/5%20-%20Utilities/1%20-%20IO/1%20-%20Java/1%20-%20Library
 			-
 	
 	JavaZOOM
@@ -88,64 +58,4 @@ Dependencies
 			
 			-
 				http://www.javazoom.net/javalayer/sources.html
-			-
-	
-	LWJGL
-		
-		File: lwjgl.jar
-		
-		Source
-			
-			-
-				https://www.lwjgl.org/download
-			-
-	
-	LWJGL Windows Natives
-		
-		File: lwjgl-natives-windows.jar
-		
-		Source
-			
-			-
-				https://www.lwjgl.org/download
-			-
-	
-	LWJGL OpenGL
-		
-		File: lwjgl-opengl.jar
-		
-		Source
-			
-			-
-				https://www.lwjgl.org/download
-			-
-	
-	LWJGL OpenGL Windows Natives
-		
-		File: lwjgl-opengl-natives-windows.jar
-		
-		Source
-			
-			-
-				https://www.lwjgl.org/download
-			-
-	
-	LWJGL GLFW
-		
-		File: lwjgl-glfw.jar
-		
-		Source
-			
-			-
-				https://www.lwjgl.org/download
-			-
-	
-	LWJGL GLFW Windows Natives
-		
-		File: lwjgl-glfw-natives-windows.jar
-		
-		Source
-			
-			-
-				https://www.lwjgl.org/download
 			-
