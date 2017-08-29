@@ -46,7 +46,7 @@ please let us know.
 Also,
 it is important to note that the contents of this repository are aimed at those who have a strong background in computer science.
 If you're a newcommer to programming in general,
-we reccommend you check out our [Kaeon FUSION for Beginners](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/README.md) resource.
+we recommend you check out our [Kaeon FUSION for Beginners](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/README.md) resource.
 
 ## Contact info
 

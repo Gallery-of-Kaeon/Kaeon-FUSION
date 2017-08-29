@@ -42,7 +42,7 @@ not the modern academic sense,
 in that it encompasses philosophy that transcends its application and that undertanding it helps one grow as a person regardless of how they apply it.
 
 Though it is not required,
-we reccommend you check out the web series [crash course computer science](https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo) if you are new to the field.
+we recommend you check out the web series [crash course computer science](https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo) if you are new to the field.
 We're not sponsored by them,
 we just think they're good at what they do.
 The series was created by the green brothers and is sponsored by PBS.
