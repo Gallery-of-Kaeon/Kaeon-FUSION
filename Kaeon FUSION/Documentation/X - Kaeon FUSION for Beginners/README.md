@@ -54,7 +54,7 @@ director of the eductation mission for the [Raspberry Pi Foundation](https://www
 Computer programming means giving a computer a set of instructions to perform.
 To write these instructions you need a programming language,
 which is sort of a comprimise between something a person can understand and something a machine can understand.
-If you are indeed a newcommer to the world of programming,
+If you are indeed a newcomer to the world of programming,
 the good news is the options for your first language are vast.
 
 ## Why Kaeon FUSION?
