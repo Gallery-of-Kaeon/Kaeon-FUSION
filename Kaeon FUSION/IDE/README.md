@@ -1,6 +1,6 @@
 [Kaeon FUSION Home](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/README.md)
 
-# Instructions for Using Kaeon Dev
+# Kaeon Dev
 
 Kaeon Dev is a simple IDE for Kaeon FUSION Development.
 
