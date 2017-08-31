@@ -166,6 +166,10 @@ the contents of this repository are basically public domain,
 and you are free to do as you please with it,
 no strings attached.
 
+### How do you pronounce "Kaeon"?
+
+"KAI-on".
+
 ### Who are you?
 
 The Kaeon FUSION language is one of many projects under the Kaeon name.
