@@ -14,7 +14,7 @@ In theory,
 it can be extended to work with any domain,
 and is particularly useful for metaprogramming.
 
-Kaeon FUSION allows this vast array of coverage by using a syntax called ONE+ that can generate any abstract syntax tree and by allowing the functionality of the language to be encoded into interchangable modules which can be incorporated at runtime,
+Kaeon FUSION allows this vast array of coverage by using a syntax called ONE+ that can generate any abstract syntax tree and by allowing the functionality of the language to be encoded into interchangeable modules which can be incorporated at runtime,
 thereby making the functionality of the language indefinitely extensible.
 
 ## Contents of this repository
@@ -92,7 +92,7 @@ Yes, third parties can write their own Kaeon FUSION interfaces using our [Kaeon 
 
 The main differences between Kaeon FUSION and LISP are that Kaeon FUSION uses doubly linked trees instead of singly linked lists,
 boasts a far nicer syntax,
-and has its functionality distributed across interchangable modules instead of being inherent to a specific dialect.
+and has its functionality distributed across interchangeable modules instead of being inherent to a specific dialect.
 
 ### You say this language can theoretically do anything?
 
