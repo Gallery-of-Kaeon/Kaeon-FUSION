@@ -54,10 +54,10 @@ is analogous to the following ONE:
 
 ## IMPORT
 
-The import directive allows serveral series of elements defined in a ONE+ document using the define directive to be used in another document.
+The import directive allows several series of elements defined in a ONE+ document using the define directive to be used in another document.
 
 The define directive begins with the element "IMPORT".
-Nested within this element is the filepath of the referrence ONE+ document.
+Nested within this element is the filepath of the referenced ONE+ document.
 
 For example, if the file "My Code.op" contained the following code:
 

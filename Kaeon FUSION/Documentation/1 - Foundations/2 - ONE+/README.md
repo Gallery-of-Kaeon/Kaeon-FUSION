@@ -36,7 +36,7 @@ However, the use of indentation must be consistent throughout the file.
 ## Element Definitions
 
 ONE+ allows elements to be defined outside of element blocks.
-A non-blank line contianing no token characters written will be converted into an element block.
+A non-blank line containing no token characters written will be converted into an element block.
 Any leading or trailing whitespace will be removed.
 
 For example:
@@ -204,14 +204,14 @@ Becomes:
 
 ## Escape Sequences
 
-The effect of any token character can be negated by preceding it with a tilda.
+The effect of any token character can be negated by preceding it with a tilde.
 Likewise,
-the negating effect of a tilda can itself be negated with a preceding tilda.
-The negating tilda will not be encoded into the element.
+the negating effect of a tilde can itself be negated with a preceding tilde.
+The negating tilde will not be encoded into the element.
 
-If the letter n is preceded by a tilda,
+If the letter n is preceded by a tilde,
 it will be encoded as a new line.
-If the letter t is preceded by a tilda,
+If the letter t is preceded by a tilde,
 it will be encoded as a tab.
 
 If a string is placed between two single quotes,
