@@ -85,7 +85,7 @@ the program will display:
     a
     b
 
-It is also useful to use the time command to get the number of seconds on the computer'c clock.
+It is also useful to use the time command to get the number of seconds on the computer's clock.
 
 For example, running:
 
