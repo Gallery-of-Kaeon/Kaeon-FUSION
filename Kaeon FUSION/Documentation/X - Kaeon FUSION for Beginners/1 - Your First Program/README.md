@@ -34,7 +34,7 @@ you were writing in a syntax called ONE+.
 
 Syntax refers to the system that governs how all of the symbols and words in a text document relate to each other.
 The first thing any programming language does when running a program is a process called tokenization,
-which means it uses special sybmols in the document to cut the document into small chunks of text called strings.
+which means it uses special symbols in the document to cut the document into small chunks of text called strings.
 It then rearranges these strings into a tree,
 which is usually called an "abstract syntax tree".
 
