@@ -223,11 +223,11 @@ Let's use this program as an example:
 The flow of the above program according to the rules of FUSION will be as follows:
 
 After starting at A the process trickles down to B and then to C.
-After perfomring an operation with C and generating a value,
+After performing an operation with C and generating a value,
 it returns that value to B.
 It then performs an operation with B and the value generated with C,
 and then moves on to D.
-After perfomring an operation and generating a value with D,
+After performing an operation and generating a value with D,
 it performs and operation with A and the value generated with B and D.
 
 It of course then moves to JUMP,
