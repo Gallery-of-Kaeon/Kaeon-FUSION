@@ -37,7 +37,7 @@ It's so much more than how to make a cool video game or run a social media site.
 It's a liberal art that allows us to both offset the mental burden of our work onto inanimate objects and to bend said inanimate objects to our will.
 
 In calling computer science a liberal art,
-we use the term liberal art in the classical greek sense,
+we use the term liberal art in the classical Greek sense,
 not the modern academic sense,
 in that it encompasses philosophy that transcends its application and that undertanding it helps one grow as a person regardless of how they apply it.
 
