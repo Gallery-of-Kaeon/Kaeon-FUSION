@@ -800,7 +800,7 @@ will display:
 You can use the remove command to remove a value from a list.
 The remove command takes a list and a number specifying the position,
 or the index,
-of of the value you want to remove.
+of the value you want to remove.
 
 For example, running:
 
