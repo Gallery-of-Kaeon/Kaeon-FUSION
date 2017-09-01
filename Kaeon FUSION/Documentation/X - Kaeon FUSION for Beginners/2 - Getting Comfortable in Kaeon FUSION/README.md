@@ -501,13 +501,13 @@ For example, running:
 
     Use: Standard
     
-    Equal: 10, Add: 5, 5
+    Log Line: Equal: 10, Add: 5, 5
 
-    Greater: 10, 10
-    Less: 5, 10
+    Log Line: Greater: 10, 10
+    Log Line: Less: 5, 10
 
-    Greater or Equal: 10, 10
-    Less or Equal: 15, 10
+    Log Line: Greater or Equal: 10, 10
+    Log Line: Less or Equal: 15, 10
 
 will display:
 
