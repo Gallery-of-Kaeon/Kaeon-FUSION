@@ -288,7 +288,7 @@ Declaring a variable within a global command, like this:
     Global: my variable: my value
 
 will prevent the variable from disappearing if the flow of the program moves outside the script,
-like iwhen using a function,
+like when using a function,
 which we'll get to later.
 
 ## 3 - Strings and Data Types
