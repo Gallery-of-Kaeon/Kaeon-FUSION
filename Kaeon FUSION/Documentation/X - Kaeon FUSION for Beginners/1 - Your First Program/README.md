@@ -67,7 +67,7 @@ F and G would be the children of C,
 and B and C would be the children of A.
 However,
 if any of our connections formed a loop,
-our we would no longer have a tree,
+we would no longer have a tree,
 just a graph.
 
 Another thing to note is that the order in which the connections are stored within a node matters.
