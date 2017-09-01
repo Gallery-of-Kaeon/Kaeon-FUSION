@@ -146,7 +146,7 @@ then the program will display:
     5
     10
 
-_Note: Kaeon FUSION allows you to assign any value to any variable. However, there are some languages that force you to give each variable a type, meaning that they can only store values that match that type. If a language does do this, it is called a staticly typed language. If, like Kaeon FUSION, it does not, it is called a dynamically typed language._
+_Note: Kaeon FUSION allows you to assign any value to any variable. However, there are some languages that force you to give each variable a type, meaning that they can only store values that match that type. If a language does do this, it is called a statically typed language. If, like Kaeon FUSION, it does not, it is called a dynamically typed language._
 
 ## 2 - Scope
 
