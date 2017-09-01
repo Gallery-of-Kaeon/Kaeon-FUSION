@@ -150,7 +150,7 @@ _Note: Kaeon FUSION allows you to assign any value to any variable. However, the
 
 ## 2 - Scope
 
-Information stored within a variable can only be accessed by its sibling and children of said siblings.
+Information stored within a variable can only be accessed by its siblings and children of said siblings.
 There is a command in the standard interface called "Scope".
 Scope performs no operations.
 It simply serves to establish a block of code isolated from the rest of the document.
