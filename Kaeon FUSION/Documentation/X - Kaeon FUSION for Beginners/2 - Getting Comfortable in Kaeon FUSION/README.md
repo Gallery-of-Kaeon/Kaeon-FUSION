@@ -301,7 +301,7 @@ However,
 some characters have special effects if used in literals.
 
 For example,
-as prevously shown,
+as previously shown,
 quotation marks in literals block characters between them from have any effect on ONE+,
 but the quotation marks themselves disappear after that.
 In addition to being useful when your string contains commas or colons,
