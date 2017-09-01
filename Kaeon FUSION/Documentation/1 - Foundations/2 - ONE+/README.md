@@ -58,7 +58,7 @@ will be converted to:
     	123
     -
 
-## Multiple Element Definitons
+## Multiple Element Definitions
 
 It is also possible to encode multiple elements into a single line.
 Such a line is called a "multiple element definition".

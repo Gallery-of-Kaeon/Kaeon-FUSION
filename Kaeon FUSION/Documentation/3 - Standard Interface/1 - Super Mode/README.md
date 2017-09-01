@@ -5,9 +5,9 @@
 
 # Super Mode
 
-Super Mode is a ONE+ directive that allows the syntax code written using the Kaeon FUSION Standard Interface to resemble the syntax of a more C-like language like python.
+Super Mode is a ONE+ directive that allows the syntax code written using the Kaeon FUSION Standard Interface to resemble the syntax of a more C-like language like Python.
 
-Super Mode can be activaed by placing the following line anywhere in the document:
+Super Mode can be activated by placing the following line anywhere in the document:
 
     [SUPER]
 
@@ -31,7 +31,7 @@ is analogous to:
 
 ## Infix Notation
 
-The Super Mode directive will allow for the use of infix notation for artithmetic and logic operations
+The Super Mode directive will allow for the use of infix notation for arithmetic and logic operations
 
 For example:
 

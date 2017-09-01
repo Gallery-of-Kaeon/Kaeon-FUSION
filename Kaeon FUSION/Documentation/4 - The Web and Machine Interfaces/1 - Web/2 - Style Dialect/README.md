@@ -49,7 +49,7 @@ is analogous to the following CSS:
 ## ID Styling
 
 To style an ID,
-use an element with the content "On" with a child containing the ID, and nest within ithe child the items to be styled.
+use an element with the content "On" with a child containing the ID, and nest within the child the items to be styled.
 
 For example:
 

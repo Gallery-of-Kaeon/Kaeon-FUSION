@@ -5,11 +5,11 @@
 
 # Process Dialect
 
-The Process dialect is a dialect of ONE ananlogous to PHP.
+The Process dialect is a dialect of ONE analogous to PHP.
 
 ## Literals
 
-An element that has no children and whose content does does match any predifined alias or keyword will be interpreted as a literal.
+An element that has no children and whose content does does match any predefined alias or keyword will be interpreted as a literal.
 Any literal that is not in the form of a number or a boolean will be automatically assumed to be a string literal.
 
 For example:
@@ -73,10 +73,10 @@ is analogous to the following PHP:
 
 ## Functions
 
-If an element references another element contianing Script dialect code,
+If an element references another element containing Script dialect code,
 the reference element will be converted to a function that takes a list of objects as its only argument.
 
-The return command may be used withing such a function the same way it is used in Kaeon FUSION.
+The return command may be used within such a function the same way it is used in Kaeon FUSION.
 
 For example:
 
@@ -95,7 +95,7 @@ it can be called using the following command:
 
     foo: arg1, arg2, etc
 
-which is anaolgous to the following PHP:
+which is analogous to the following PHP:
 
     foo(array("arg1", "arg2", "etc"));
 

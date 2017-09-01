@@ -14,7 +14,7 @@ so ONE+,
 which is a syntactic abstraction of ONE,
 may be used when writing Kaeon FUSION code by hand.
 
-The functionality of Kaeon FUSION is dervived from the FUSION system,
+The functionality of Kaeon FUSION is derived from the FUSION system,
 which allows any ONE or ONE+ document to act as code.
 
 ## Contents

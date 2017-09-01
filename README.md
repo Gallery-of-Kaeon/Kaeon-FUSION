@@ -71,7 +71,7 @@ Kaeon FUSION is not a monolithic system.
 Kaeon FUSION code is encoded into documents using the [ONE](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/1%20-%20ONE/README.md) format,
 which allows any tree of strings to be defined.
 
-[ONE+](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/README.md) is a system of mneumonics that make it easier to write ONE documents by hand.
+[ONE+](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/README.md) is a system of mnemonics that make it easier to write ONE documents by hand.
 
 The control flow of Kaeon FUSION is managed by the [FUSION](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/3%20-%20FUSION/README.md) system,
 which allows any ONE document to serve as code.
@@ -80,7 +80,7 @@ which allows any ONE document to serve as code.
 
 In the context of Kaeon FUSION,
 a library is a set of functions written in Kaeon FUSION that can be shared across Kaeon FUSION files.
-An interface is a set of Kaeon FUSION commands not present in the defualt Kaeon FUSION language, but can be added in at runtime.
+An interface is a set of Kaeon FUSION commands not present in the default Kaeon FUSION language, but can be added in at runtime.
 They are written in the same language as the interpreter,
 and therefore for our implementation they are written in Java.
 
@@ -124,7 +124,7 @@ You would never have to learn a new syntax or environment.
 Let's say you're managing a video game studio.
 You can write your game engine in Kaeon FUSION by using an interface that generates C.
 You can use ONE to create custom file and metadata formats for your engine,
-and use Kaeon FUSION with the standard interface as a scripting langauge.
+and use Kaeon FUSION with the standard interface as a scripting language.
 You can automate builds and manage assets using scripts written with the standard interface.
 And you can even build a website to market your game using an interface that generates HTML and CSS.
 Never once would you have to use more than one syntax or environment,
@@ -150,12 +150,12 @@ At the time of writing,
 Kaeon FUSION has officially been in development for about seven months,
 and was built upon things that were in development for about one year before the project began.
 You should expect to see several minor updates per month,
-with major updates occuring between once per month and once every three months.
+with major updates occurring between once per month and once every three months.
 
 ### What should I expect to see in the next major updates?
 
 At the time of writing,
-our main focus is on optomizing the perfomance of scripts written using the standard interface and on polishing the web development and machine code interfaces.
+our main focus is on optimizing the performance of scripts written using the standard interface and on polishing the web development and machine code interfaces.
 We also intend to redevelop our IDE with a far more sophisticated UI.
 
 ### I would like to use Kaeon FUSION in a commercial project. Who do I make the check out to?
@@ -182,7 +182,7 @@ Sorry, but unfortunately not.
 
 Long answer:
 You're free to write third party interfaces for Kaeon FUSION,
-write your own implementaion of Kaeon FUSION,
+write your own implementation of Kaeon FUSION,
 publish your own resources for Kaeon FUSION,
 develop successor products to Kaeon FUSION,
 etc.

@@ -8,7 +8,7 @@ The Native Code Dialect is a dialect of ONE analogous to C.
 
 ## Literals
 
-An element that has no children and whose content does does match any predifined alias or keyword will be interpreted as a literal.
+An element that has no children and whose content does does match any predefined alias or keyword will be interpreted as a literal.
 Any literal that is not in the form of a number or a boolean will be automatically assumed to be a string literal.
 
 The literals true and false correspond to 1 and 0 in C respectively.
@@ -70,7 +70,7 @@ The Native Code dialect requires that data members be strongly typed.
 The typing of elements is allowed through the use of the Meta command.
 The children of a Meta command will specify the type of all subsequent items,
 until another Meta command is used.
-If a preceding Mta command is absent,
+If a preceding Meta command is absent,
 the Native Code dialect will assume the type is a void pointer.
 
 The elements that can be used within a Meta command for strong typing in the Native Code dialect are as follows:
@@ -298,7 +298,7 @@ is analogous to the following C:
 ## Structures
 
 Structures may be defined by placing "Structure" in the meta command before a function definition.
-Once defined, structures may be used as varaible types.
+Once defined, structures may be used as variable types.
 
 To return content from within a scope, the return command may be used.
 
