@@ -138,8 +138,8 @@ will run "foo" with "Function Argument".
 
 ### Stored Function Calls
 
-A unique feature of Kaeon FUSION is that after executing a function,
-its namespace can be stored within a variable.
+If a function call is nested within a “New” command,
+the “New” command will return the state of the function after it executes. 
 
 For example:
 
@@ -148,7 +148,7 @@ For example:
     	Command 1: Command Argument 1
     	Command 2: Command Argument 1, Command Argument 2
     
-    x: foo: Function Argument
+    x: New: foo: Function Argument
 
 will run "foo" with "Function Argument",
 and then store the state of the function in "x".
