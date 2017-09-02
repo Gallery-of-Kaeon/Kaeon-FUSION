@@ -868,7 +868,7 @@ to the console.
 
 ### Wait
 
-The wait command will take a number a pause the current thread for that many seconds.
+The wait command will take a number and pause the current thread for that many seconds.
 
 ## 11 - Metaprogramming Commands
 
