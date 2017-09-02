@@ -584,7 +584,7 @@ will append "4" to my list, resulting in my list's content being [1, 2, 3, 4].
 The Set command takes a list,
 an integer,
 and a value.
-It sets the value of the list at the index specified my the integer to the given value.
+It sets the value of the list at the index specified by the integer to the given value.
 If the index is greater than the length of the list,
 null values will be appended to the list until it reaches the required size.
 
@@ -608,7 +608,7 @@ resulting in my list's content being [1, 2, 3, null, 4].
 The Insert command takes a list,
 an integer,
 and a value.
-It appends the given value to the list at the index specified my the integer.
+It appends the given value to the list at the index specified by the integer.
 If the index is greater than the length of the list,
 null values will be appended to the list until it reaches the required size.
 
