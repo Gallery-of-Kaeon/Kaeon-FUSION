@@ -675,7 +675,7 @@ For example:
 
 will return "b".
 
-### Character
+### Substring
 
 The Character command takes a string and two integers and returns the sequence of characters in the string from the index specified by the first integer to the index specified by the second integer.
 
