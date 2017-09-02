@@ -904,7 +904,7 @@ you can open up notepad with the following Kaeon FUSION code:
 Kaeon FUSION does not support classes,
 but object orientation can be achieved by using functions as objects.
 
-The state of the function can be stored within a veriable after the function returns by nesting the function call beneath a "New" command,
+The state of the function can be stored within a variable after the function returns by nesting the function call beneath a "New" command,
 and assigning the value returned by the new command to a variable.
 
 The In command will take the stored state of a function and execute all of the commands following it within the stored state.
