@@ -870,6 +870,10 @@ to the console.
 
 The wait command will take a number and pause the current thread for that many seconds.
 
+### Time
+
+The time command will return the value on the computer's clock in seconds.
+
 ## 11 - Metaprogramming Commands
 
 ### Execute
