@@ -30,20 +30,6 @@ and made available to Kaeon Dev by placing the jar containing the interface next
 
 You can open the IDE in GUI mode either by opening the "Kaeon Dev.jar" file in the file explorer or by running it from the command line with no arguments.
 
-The following commands work on both UNIX based systems and on Windows:
-
-To open Kaeon Dev in GUI mode:
-
-    java -jar "Kaeon Dev.jar"
-
-To run a Kaeon FUSION script in the command line:
-
-    java -jar "Kaeon Dev.jar" "My Kaeon FUSION.op"
-
-To run a Kaeon FUSION script in the command line with arguments:
-
-    java -jar "Kaeon Dev.jar" "My Kaeon FUSION.op" "Argument 1" "Argument 2" "etc"
-
 ### GUI Mode
 
 After opening Kaeon Dev in GUI mode, you will see open and save options at the top.
@@ -69,6 +55,22 @@ into the upper text area and then click "Run", then:
 will be logged to the lower text area.
 
 Clicking the "Show ONE" button will translate any ONE+ written in the upper text area to ONE and show said ONE in the lower text area.
+
+### Command Line Mode
+
+The following commands work on both UNIX based systems and on Windows:
+
+To open Kaeon Dev in GUI mode:
+
+    java -jar "Kaeon Dev.jar"
+
+To run a Kaeon FUSION script in the command line:
+
+    java -jar "Kaeon Dev.jar" "My Kaeon FUSION.op"
+
+To run a Kaeon FUSION script in the command line with arguments:
+
+    java -jar "Kaeon Dev.jar" "My Kaeon FUSION.op" "Argument 1" "Argument 2" "etc"
 
 ## Source Code
 
