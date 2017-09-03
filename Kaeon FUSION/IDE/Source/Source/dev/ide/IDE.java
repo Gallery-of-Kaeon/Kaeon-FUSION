@@ -45,7 +45,7 @@ public class IDE implements ActionListener {
 		    }
 		}
 		
-		catch (Exception e) {
+		catch (Exception exception) {
 			
 		}
 		
@@ -56,8 +56,8 @@ public class IDE implements ActionListener {
 		JFrame frame;
 		
 		frame = new JFrame();
-		frame.setTitle("Kaeon Dev");
 		
+		frame.setTitle("Kaeon Dev");		
 		frame.setSize((int) (size / 4.25), (int) (size / 4.25));
 		
 		frame.setLocation(
@@ -172,6 +172,8 @@ public class IDE implements ActionListener {
 		
 		if(command.equals("Run")) {
 			
+			output.setForeground(Color.BLACK);
+			
 			run.setEnabled(false);
 			showONE.setEnabled(false);
 			
@@ -206,18 +208,36 @@ public class IDE implements ActionListener {
 			
 			catch(Exception exception) {
 				
+				output.setForeground(Color.RED);
+				
+				output.setText("An Error Occurred");
+				
+				run.setEnabled(true);
+				showONE.setEnabled(true);
 			}
 		}
 		
 		if(command.equals("Show ONE")) {
 			
-			String text = input.getText();
-			ONEPlus code = new ONEPlus(text);
+			try {
+				
+				output.setForeground(Color.BLACK);
+				
+				String text = input.getText();
+				ONEPlus code = new ONEPlus(text);
+				
+				if(text.indexOf("[SUPER]") != -1)
+					SuperMode.superMode(code);
+				
+				output.setText("" + code);
+			}
 			
-			if(text.indexOf("[SUPER]") != -1)
-				SuperMode.superMode(code);
-			
-			output.setText("" + code);
+			catch(Exception exception) {
+				
+				output.setForeground(Color.RED);
+				
+				output.setText("Invalid ONE+");
+			}
 		}
 	}
 }

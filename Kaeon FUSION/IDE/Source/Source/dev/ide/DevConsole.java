@@ -19,6 +19,8 @@ public class DevConsole extends Console {
 	
 	public void consoleOut(ArrayList<Object> data) {
 		
+		
+		
 		String log = console.getText();
 		
 		for(int i = 0; i < data.size(); i++) {
@@ -27,7 +29,8 @@ public class DevConsole extends Console {
 				log += data.get(i);
 		}
 		
-		console.setText(log);
+		if(console != null)
+			console.setText(log);
 	}
 	
 	public String consoleIn(ArrayList<Object> data) {
@@ -40,6 +43,9 @@ public class DevConsole extends Console {
 				log += data.get(i);
 		}
 		
-		return JOptionPane.showInputDialog(console, log);
+		if(console != null)
+			return JOptionPane.showInputDialog(console, log);
+		
+		return JOptionPane.showInputDialog(null, log);
 	}
 }

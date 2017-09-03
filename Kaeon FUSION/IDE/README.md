@@ -72,6 +72,14 @@ To run a Kaeon FUSION script in the command line with arguments:
 
     java -jar "Kaeon Dev.jar" "My Kaeon FUSION.op" "Argument 1" "Argument 2" "etc"
 
+### Exporting
+
+To run your Kaeon FUSION code as a stand-alone application without launching the IDE,
+place a ONE+ file called "Manifest.op" along with all the code files and resources for your application next to Kaeon Dev.
+The "Manifest.op" file should have one element containing the name of the main file of your application.
+Then,
+launch Kaeon Dev by opening it either from the file explorer or from the command line with no arguments.
+
 ## Source Code
 
 The source code and references to the dependecies of Kaeon Dev can be found [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/IDE/Source).
