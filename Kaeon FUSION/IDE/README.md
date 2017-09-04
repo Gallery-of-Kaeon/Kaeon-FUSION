@@ -37,9 +37,16 @@ After opening Kaeon Dev in GUI mode, you will see open and save options at the t
 Beneath the two buttons is a blank text area which can be typed into.
 This is where you will write your Kaeon FUSION code.
 
-Beneath the text area is a "Run" button,
+Beneath the text area is a "Set Arguments" button,
+a "Run" button,
 a "Show ONE" button,
 and another blank text area which cannot be edited.
+
+Clicking the "Set Arguments" button will allow you to give arguments to your program similar to how you would if running it from the command line.
+Once entered,
+the arguments will be stored until overridden.
+If clicked after already setting the arguments, the pre-existing arguments will be shown.
+
 Clicking the "Run" option will execute the Kaeon FUSION script written into the upper text area and log the results to the lower text area.
 
 For example, if you type:
@@ -79,6 +86,12 @@ place a ONE+ file called "Manifest.op" along with all the code files and resourc
 The "Manifest.op" file should have one element containing the name of the main file of your application.
 Then,
 launch Kaeon Dev by opening it either from the file explorer or from the command line with no arguments.
+
+The manifest file may have a second element in the manifest file.
+If the second element contains the string "Prompt" and has no children,
+the user will be prompted to enter arguments before the program runs.
+If it contains the string "Arguments" and has one child,
+the content of the child will be used as the arguments for the program.
 
 ## Source Code
 

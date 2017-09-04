@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -30,7 +31,10 @@ public class IDE implements ActionListener {
 	JTextArea output;
 	
 	JButton run;
+	JButton setArguments;
 	JButton showONE;
+	
+	String arguments;
 	
 	public IDE() {
 		
@@ -57,7 +61,8 @@ public class IDE implements ActionListener {
 		
 		frame = new JFrame();
 		
-		frame.setTitle("Kaeon Dev");		
+		frame.setTitle("Kaeon Dev");
+		
 		frame.setSize((int) (size / 4.25), (int) (size / 4.25));
 		
 		frame.setLocation(
@@ -94,16 +99,21 @@ public class IDE implements ActionListener {
 		control.add(new JScrollPane(input), BorderLayout.CENTER);
 		
 		JPanel command = new JPanel();
-		command.setLayout(new GridLayout(1, 2));
+		command.setLayout(new GridLayout(1, 3));
 		
 		run = new JButton("Run");
 		run.setActionCommand("Run");
 		run.addActionListener(this);
 		
+		setArguments = new JButton("Set Arguments");
+		setArguments.setActionCommand("Set Arguments");
+		setArguments.addActionListener(this);
+		
 		showONE = new JButton("Show ONE");
 		showONE.setActionCommand("Show ONE");
 		showONE.addActionListener(this);
 		
+		command.add(setArguments);
 		command.add(run);
 		command.add(showONE);
 		
@@ -127,6 +137,7 @@ public class IDE implements ActionListener {
 		open.setFont(font);
 		save.setFont(font);
 		run.setFont(font);
+		setArguments.setFont(font);
 		showONE.setFont(font);
 		
 		Color bgCol = new Color(100, 150, 255);
@@ -141,6 +152,9 @@ public class IDE implements ActionListener {
 		run.setBackground(bgCol);
 		run.setForeground(fgCol);
 		
+		setArguments.setBackground(bgCol);
+		setArguments.setForeground(fgCol);
+		
 		showONE.setBackground(bgCol);
 		showONE.setForeground(fgCol);
 		
@@ -152,6 +166,8 @@ public class IDE implements ActionListener {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		DevConsole.setConsole(output);
+		
+		arguments = "";
 	}
 	
 	public void actionPerformed(ActionEvent event) {
@@ -170,11 +186,25 @@ public class IDE implements ActionListener {
 			IO.saveAs(input.getText());
 		}
 		
+		if(command.equals("Set Arguments")) {
+			
+			String input = JOptionPane.showInputDialog(
+					output,
+					(arguments.length() > 0 ?
+							("Current arguments are:\n\n" + arguments) :
+									"No current arguments.") +
+					"\n\nSet the program arguments:");
+			
+			if(input != null)
+				arguments = input;
+		}
+		
 		if(command.equals("Run")) {
 			
 			output.setForeground(Color.BLACK);
 			
 			run.setEnabled(false);
+			setArguments.setEnabled(false);
 			showONE.setEnabled(false);
 			
 			output.setText("");
@@ -198,9 +228,10 @@ public class IDE implements ActionListener {
 					
 					public void run() {
 						
-						fusion.process(code);
+						fusion.process(code, getArguments(arguments));
 						
 						run.setEnabled(true);
+						setArguments.setEnabled(true);
 						showONE.setEnabled(true);
 					}
 				}.start();
@@ -213,6 +244,7 @@ public class IDE implements ActionListener {
 				output.setText("An Error Occurred");
 				
 				run.setEnabled(true);
+				setArguments.setEnabled(true);
 				showONE.setEnabled(true);
 			}
 		}
@@ -239,5 +271,50 @@ public class IDE implements ActionListener {
 				output.setText("Invalid ONE+");
 			}
 		}
+	}
+	
+	public static ArrayList<Object> getArguments(String string) {
+		
+		ArrayList<Object> arguments = new ArrayList<Object>();
+		
+		if(string == null)
+			return arguments;
+		
+		String argument = "";
+		boolean inQuote = false;
+		
+		for(int i = 0; i < string.length(); i++) {
+			
+			if(string.charAt(i) == '\"') {
+			
+				inQuote = !inQuote;
+				
+				continue;
+			}
+			
+			if(string.charAt(i) == '\\' && i < string.length() - 1) {
+				
+				argument += string.charAt(i + 1);
+				i++;
+				
+				continue;
+			}
+				
+			
+			if(!inQuote && Character.isWhitespace(string.charAt(i)) && argument.length() > 0) {
+				
+				arguments.add(argument);
+				argument = "";
+				
+				continue;
+			}
+			
+			argument += string.charAt(i);
+		}
+		
+		if(argument.length() > 0)
+			arguments.add(argument);
+		
+		return arguments;
 	}
 }

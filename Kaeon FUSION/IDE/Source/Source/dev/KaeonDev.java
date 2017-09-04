@@ -2,6 +2,10 @@ package dev;
 
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
+
 import dev.ide.DevKaeonFUSION;
 import dev.ide.IDE;
 import interfaces.StandardInterfacePack;
@@ -10,6 +14,7 @@ import kaeon_fusion_legacy.KaeonFUSION;
 import kaeon_fusion_legacy.interface_module.Interface;
 import kaeon_fusion_legacy.super_mode.SuperMode;
 import legacy.one_plus.ONEPlus;
+import one.Element;
 
 public class KaeonDev {
 
@@ -41,7 +46,9 @@ public class KaeonDev {
 						
 					}
 					
-					String main = IO.openAsString(one_plus.ONEPlus.parseONEPlus(manifest).children.get(0).content);
+					Element manifestElement = one_plus.ONEPlus.parseONEPlus(manifest);
+					
+					String main = IO.openAsString(manifestElement.children.get(0).content);
 					ONEPlus code = new ONEPlus(main);
 					
 					if(main.indexOf("[SUPER]") != -1)
@@ -54,7 +61,23 @@ public class KaeonDev {
 					for(int i = 0; i < standard.size(); i++)
 						fusion.publiclyConnectMutually(standard.get(i));
 					
-					fusion.process(code);
+					if(manifestElement.children.size() == 1)
+						fusion.process(code);
+					
+					else if(manifestElement.children.get(1).children.size() == 0) {
+						
+						String input = JOptionPane.showInputDialog("Enter the program arguments:");
+						
+						fusion.process(code, IDE.getArguments(input));
+					}
+					
+					else {
+						
+						fusion.process(
+								code,
+								IDE.getArguments(
+										manifestElement.children.get(1).children.get(0).content));
+					}
 				}
 				
 				catch(Exception exception) {
