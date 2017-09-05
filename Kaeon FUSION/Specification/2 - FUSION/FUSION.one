@@ -81,3 +81,9 @@
 			If an error occurs during at any step, FUSION will skip over the step and proceed as if
 			nothing happened.
 		-
+	-
+		Commands
+	-
+		-
+			An element within a ONE document upon which FUSION is running is called a command.
+		-

@@ -10,6 +10,6 @@
 			matches the name of an interface or return the name of an interface in the form of a
 			string. It will execute before its siblings.
 			
-			The command will integrate the interfaces specified by the children if the host
-			environment supports them.
+			The command will integrate the interfaces specified by the children if said interfaces
+			are available.
 		-
