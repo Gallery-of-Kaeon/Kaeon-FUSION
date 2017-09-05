@@ -346,14 +346,40 @@ expect the strings given to them to be either the word "true",
 or "false".
 Letter case is irrelevant.
 
-<!--
-
 ### String Operations
 
+Reading and manipulate the content in strings,
+or string parsing,
+is a core part of software development.
 
+Using the Kaeon FUSION Standard Interface,
+you can get a specific character from within a string using the character command,
+which takes a string and the number of the character to retrieve.
+You can crop a sequence of characters from a string using the substring command,
+which takes a string,
+a number that specifies where to start,
+and a number that specifies where to end.
+You can attach strings together using the concatenate command,
+which takes two strings.
+And you can find the length of a string using the length command,
+which takes a string.
 
+For example, running:
 
--->
+    string 1: hello
+    string 2: goodbye
+
+    Log Line: Character: string 1, 3
+    Log Line: Substring: string 1, 3, 5
+    Log Line: Concatenate: string 1, string 2
+    Log Line: Length: string 1
+
+will display:
+
+    l
+    llo
+    hellogoodbye
+    5
 
 ### Null
 
