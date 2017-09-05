@@ -370,7 +370,7 @@ For example, running:
     string 2: goodbye
 
     Log Line: Character: string 1, 3
-    Log Line: Substring: string 1, 3, 5
+    Log Line: Substring: string 1, 3, 6
     Log Line: Concatenate: string 1, string 2
     Log Line: Length: string 1
 
