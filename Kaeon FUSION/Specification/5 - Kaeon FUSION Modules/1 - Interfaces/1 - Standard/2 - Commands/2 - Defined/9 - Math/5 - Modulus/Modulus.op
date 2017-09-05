@@ -1,0 +1,10 @@
+Modulus
+	
+	Philosophy
+		
+		-
+			The modulus command contains the content "Modulus". It has two children, both of which
+			return a number.
+			
+			It returns the remainder of the first number divided by the second number.
+		-

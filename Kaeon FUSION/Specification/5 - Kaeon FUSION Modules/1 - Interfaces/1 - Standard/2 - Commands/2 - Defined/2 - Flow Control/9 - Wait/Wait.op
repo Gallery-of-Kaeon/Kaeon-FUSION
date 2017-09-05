@@ -1,0 +1,10 @@
+Wait
+	
+	Philosophy
+		
+		-
+			The wait command contains the content "Wait", and has one child that returns a number.
+			
+			It will pause the execution of the script or function from which it was called for the
+			number of seconds specified by the number returned by its child.
+		-

@@ -1,0 +1,11 @@
+Call
+	
+	Philosophy
+		
+		-
+			The call command contains the content "Call".
+			
+			It sends the host environment of Kaeon FUSION a packet containing all of the objects
+			returned by its children. What then happens is dependent on the implementation of the
+			host environment.
+		-

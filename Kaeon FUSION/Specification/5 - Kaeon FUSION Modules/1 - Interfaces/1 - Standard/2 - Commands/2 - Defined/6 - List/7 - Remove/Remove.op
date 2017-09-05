@@ -1,0 +1,11 @@
+Remove
+	
+	Philosophy
+		
+		-
+			The remove command contains the content "Remove". It has two children, the first of
+			which returns a list, and the second of which returns an integer.
+			
+			It will remove and return the object in the list returned by the first child at the
+			index specified by the integer returned by the second child.
+		-

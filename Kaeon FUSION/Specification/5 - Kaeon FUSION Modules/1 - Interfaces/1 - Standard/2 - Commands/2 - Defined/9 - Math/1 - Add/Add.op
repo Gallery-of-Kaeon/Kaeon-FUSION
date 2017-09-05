@@ -1,0 +1,10 @@
+Add
+	
+	Philosophy
+		
+		-
+			The add command contains the content "Add". It has two children, both of which return
+			a number.
+			
+			It returns the sum of the two numbers.
+		-

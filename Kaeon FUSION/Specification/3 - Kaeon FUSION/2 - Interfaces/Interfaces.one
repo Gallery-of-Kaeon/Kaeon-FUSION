@@ -1,0 +1,10 @@
+-
+	Interfaces
+-
+	-
+		Philosophy
+	-
+		-
+			Interfaces are modules that can expand Kaeon FUSION's functionality at runtime. They
+			can provide new commands and background processes.
+		-

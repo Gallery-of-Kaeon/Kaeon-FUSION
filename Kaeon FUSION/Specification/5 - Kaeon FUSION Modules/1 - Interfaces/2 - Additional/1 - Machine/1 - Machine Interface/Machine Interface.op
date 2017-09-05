@@ -1,0 +1,25 @@
+Kaeon FUSION Machine Interface
+	
+	Philosophy
+		
+		-
+			The Kaeon FUSION Machine Interface allows users to write native applications with Kaeon
+			FUSION.
+		-
+	
+	Activation
+		
+		-
+			The interface, if available, can be enabled with the following command:
+			
+				Use: Machine
+		-
+	
+	Added Effects
+		
+		Native Dialect
+			
+			-
+				The web interface provides access to a cross compiler for the Native dialect, a
+				dialect of ONE that emulates the functionality of C.
+			-

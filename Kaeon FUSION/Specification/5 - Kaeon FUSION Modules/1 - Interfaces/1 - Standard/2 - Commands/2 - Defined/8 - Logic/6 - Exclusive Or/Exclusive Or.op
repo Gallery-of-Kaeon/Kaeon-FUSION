@@ -1,0 +1,11 @@
+And
+	
+	Philosophy
+		
+		-
+			The exclusive or command contains the content "Exclusive Or". It has two children, both
+			of which return a boolean.
+			
+			It will return true if only one of the returned booleans is true, and return false
+			otherwise.
+		-

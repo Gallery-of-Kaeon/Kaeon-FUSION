@@ -19,7 +19,11 @@ thereby making the functionality of the language indefinitely extensible.
 
 ## Contents of this repository
 
-This repository contains documentation, APIs, an IDE, and sample code for Kaeon FUSION.
+This repository contains the specification,
+documentation,
+APIs,
+an IDE,
+and sample code for Kaeon FUSION.
 
 ### Direct Links
 
@@ -30,6 +34,8 @@ This repository contains documentation, APIs, an IDE, and sample code for Kaeon 
 [IDE](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/IDE/README.md)
 
 [API](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/API)
+
+[Specification](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Specification)
 
 ## Disclaimer
 

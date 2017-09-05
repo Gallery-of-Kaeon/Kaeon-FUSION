@@ -1,0 +1,11 @@
+Loop
+	
+	Philosophy
+		
+		-
+			The loop command contains the content "Loop". It may have one child that returns a
+			boolean.
+			
+			If it has a child that returns a boolean value of true, or if it has no children, it
+			will jump to the first child of its parent.
+		-

@@ -1,0 +1,11 @@
+Break
+	
+	Philosophy
+		
+		-
+			The break command contains the content "Break", and may have one child that returns a
+			boolean.
+			
+			If it has a child that returns a boolean value of true, or if it has no children, it
+			will prevent its siblings from executing.
+		-

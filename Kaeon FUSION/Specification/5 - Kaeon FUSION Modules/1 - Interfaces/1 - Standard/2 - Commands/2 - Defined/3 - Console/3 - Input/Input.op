@@ -1,0 +1,11 @@
+Input
+	
+	Philosophy
+		
+		-
+			The input command contains the content "Input". It may have an indefinite number of
+			children.
+			
+			It will print the values returned by each of its children to the console and then
+			prompt the user for input. It will return whatever string was entered by the user.
+		-

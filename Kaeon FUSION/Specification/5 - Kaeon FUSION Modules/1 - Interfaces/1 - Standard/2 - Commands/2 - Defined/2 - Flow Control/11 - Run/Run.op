@@ -1,0 +1,9 @@
+Run
+	
+	Philosophy
+		
+		-
+			The run command contains the content "Run" and has a child that returns a string.
+			
+			It runs the returned string as a command line call.
+		-

@@ -1,0 +1,11 @@
+Character
+	
+	Philosophy
+		
+		-
+			The character command contains the content "Character". It has two children. The first
+			of which returns a string, and the second of which returns an integer.
+			
+			It returns the character in the string returned by the first child at the
+			index specified by the integer returned by the second child.
+		-

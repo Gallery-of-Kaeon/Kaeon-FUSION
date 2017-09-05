@@ -1,0 +1,15 @@
+-
+	Use
+-
+	-
+		Philosophy
+	-
+		-
+			The use command contains the content "Use". The letter case of the content is
+			irrelevant. It may have an indefinite number of children which either have content that
+			matches the name of an interface or return the name of an interface in the form of a
+			string. It will execute before its siblings.
+			
+			The command will integrate the interfaces specified by the children if the host
+			environment supports them.
+		-

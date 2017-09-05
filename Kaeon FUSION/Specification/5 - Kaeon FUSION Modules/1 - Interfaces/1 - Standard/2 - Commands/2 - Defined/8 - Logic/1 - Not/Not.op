@@ -1,0 +1,10 @@
+Not
+	
+	Philosophy
+		
+		-
+			The not command contains the content "Not". It has one child that returns a boolean.
+			
+			It will return true if the returned boolean has a value of false, and return false if
+			the returned boolean has a value of true.
+		-

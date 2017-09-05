@@ -1,0 +1,10 @@
+Length
+	
+	Philosophy
+		
+		-
+			The length command contains the content "Length". It has one child that returns a
+			string.
+			
+			It returns the length of the string.
+		-

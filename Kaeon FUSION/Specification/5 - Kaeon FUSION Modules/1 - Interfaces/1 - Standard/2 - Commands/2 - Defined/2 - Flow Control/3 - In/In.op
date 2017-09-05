@@ -1,0 +1,17 @@
+In
+	
+	Philosophy
+		
+		-
+			The Scope command is a command with the content "In". It has one child that returns the
+			namespace of a script or function.
+			
+			It will take all items stored in the state of the namespace returned to it and place
+			them into the state of the script or function from which it was called. If any names of
+			the items within the current namespace and new namespace conflict, the items in the new
+			namespace will take priority.
+			
+			If a return command is subsequently called before another in command, any items placed
+			into the state will be removed and it will return any value returned by the return
+			command.
+		-

@@ -1,0 +1,135 @@
+Standard ONE+ Language
+
+	Philosophy
+	
+		-
+			The standard variant of the ONE+ Language defines specific sequences of characters as
+			the required sequences of the ONE+ language.
+			
+			The standard variant of the ONE+ language also uses the same sequences of characters as
+			the standard variant of the ONE language for the terminating, breaking, and nesting
+			sequences.
+		-
+	
+	Standard Sequences
+	
+		Segregating Sequence
+		
+			-
+				In the standard variant of the ONE+ Language, the segregating sequence is a comma.
+			-
+			
+		Nested Sequence
+			
+			-
+				In the standard variant of the ONE+ Language, the nested sequence is a colon.
+			-
+			
+		Denested Sequence
+			
+			-
+				In the standard variant of the ONE+ Language, the denested sequence is a semicolon.
+			-
+		
+		Open Scope Sequence
+			
+			-
+				In the standard variant of the ONE+ Language, the open scope sequence is an open
+				parenthesis.
+			-
+		
+		Close Scope Sequence
+			
+			-
+				In the standard variant of the ONE+ Language, the close scope sequence is a closed
+				parenthesis.
+			-
+		
+		Open Domain Sequence
+			
+			-
+				In the standard variant of the ONE+ Language, the open domain sequence is an open
+				curly bracket.
+			-
+		
+		Close Domain Sequence
+			
+			-
+				In the standard variant of the ONE+ Language, the close domain sequence is a closed
+				curly bracket.
+			-
+		
+		Open Directive Sequence
+			
+			-
+				In the standard variant of the ONE+ Language, the open directive sequence is an
+				open square bracket.
+			-
+		
+		Close Directive Sequence
+			
+			-
+				In the standard variant of the ONE+ Language, the close directive sequence is a
+				closed square bracket.
+			-
+		
+		Escape Sequence
+			
+			-
+				In the standard variant of the ONE+ Language, the escape sequence is a tilde.
+			-
+		
+		Escape Scope Sequence
+			
+			-
+				In the standard variant of the ONE+ Language, the escape scope sequence is a single
+				quote.
+			-
+		
+		Encoded Escape Scope Sequence
+			
+			-
+				In the standard variant of the ONE+ Language, the encoded escape scope sequence is
+				a double quote.
+			-
+		
+		Alternate Breaking Sequence
+			
+			-
+				In the standard variant of the ONE+ Language, the alternate breaking sequence is an
+				'n'.
+			-
+		
+		Alternate Nesting Sequence
+			
+			-
+				In the standard variant of the ONE+ Language, the alternate nesting sequence is a
+				't'.
+			-
+		
+		Comment Sequence
+			
+			-
+				In the standard variant of the ONE+ Language, the comment sequence is a pound sign.
+			-
+		
+		Open Comment Sequence
+			
+			-
+				In the standard variant of the ONE+ Language, the open comment sequence is a pound
+				sign followed by an open square bracket.
+			-
+		
+		Close Comment Sequence
+			
+			-
+				In the standard variant of the ONE+ Language, the close comment sequence is a
+				closed square bracket followed by a pound sign.
+			-
+		
+		Blank Sequence
+			
+			-
+				In the standard variant of the ONE+ Language, the blank sequence is either a space
+				or a tab.
+			-

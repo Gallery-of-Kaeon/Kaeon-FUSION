@@ -1,0 +1,53 @@
+Kaeon FUSION Web Interface
+	
+	Philosophy
+		
+		-
+			The Kaeon FUSION Web Interface allows users to do full stack web development using only
+			Kaeon FUSION.
+		-
+	
+	Activation
+		
+		-
+			The interface, if available, can be enabled with the following command:
+			
+				Use: Web
+		-
+	
+	Added Effects
+		
+		Page Dialect
+			
+			-
+				The web interface provides access to a cross compiler for the Page dialect, a
+				dialect of ONE that emulates the functionality of HTML.
+			-
+		
+		Style Dialect
+			
+			-
+				The web interface provides access to a cross compiler for the Style dialect, a
+				dialect of ONE that emulates the functionality of CSS.
+			-
+		
+		Script Dialect
+			
+			-
+				The web interface provides access to a cross compiler for the Script dialect, a
+				dialect of ONE that emulates the functionality of JavaScript.
+			-
+		
+		Process Dialect
+			
+			-
+				The web interface provides access to a cross compiler for the Process dialect, a
+				dialect of ONE that emulates the functionality of PHP.
+			-
+		
+		Query Dialect
+			
+			-
+				The web interface provides access to a cross compiler for the Query dialect, a
+				dialect of ONE that emulates the functionality of SQL.
+			-

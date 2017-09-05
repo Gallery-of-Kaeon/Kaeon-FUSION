@@ -1,0 +1,10 @@
+New
+	
+	Philosophy
+		
+		-
+			The new command contains the content "New".
+			
+			It has one child that executes a function or script. It returns a reference to the
+			namespace of the function or script executed by its child.
+		-

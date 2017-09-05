@@ -1,0 +1,10 @@
+Divide
+	
+	Philosophy
+		
+		-
+			The divide command contains the content "Divide". It has two children, both of which
+			return a number.
+			
+			It returns the quotient of the first number divided by the second number.
+		-

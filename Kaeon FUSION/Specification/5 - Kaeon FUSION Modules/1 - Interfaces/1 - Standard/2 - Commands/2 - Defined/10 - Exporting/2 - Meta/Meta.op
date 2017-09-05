@@ -1,0 +1,11 @@
+Meta
+
+	Philosophy
+		
+		-
+			The meta command contains the content "Meta". It may have an indefinite number of
+			children. It does not trickle down.
+			
+			It performs no operation, but its children may act to specify information regarding any
+			siblings following it to the build command.
+		-

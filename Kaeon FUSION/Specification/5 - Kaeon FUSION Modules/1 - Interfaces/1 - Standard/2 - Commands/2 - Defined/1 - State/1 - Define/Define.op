@@ -1,0 +1,12 @@
+Define
+	
+	Philosophy
+	
+		-
+			The define command contains the content "Define" and may have an indefinite number of
+			children. It does not trickle down, and will execute before its siblings.
+			
+			It will create function definition in the state for each of it's children, where the
+			content of the child will be the alias and the children of the child will be the
+			definition itself.
+		-

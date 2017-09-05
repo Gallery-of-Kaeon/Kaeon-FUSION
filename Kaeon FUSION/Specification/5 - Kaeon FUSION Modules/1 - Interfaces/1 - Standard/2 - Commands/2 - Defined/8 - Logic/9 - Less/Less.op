@@ -1,0 +1,11 @@
+Less
+	
+	Philosophy
+		
+		-
+			The less command contains the content "Less". It has two children, both of which return
+			a number.
+			
+			It will return true if the number returned by the first child is less than the number
+			returned by the second child, and return false otherwise.
+		-

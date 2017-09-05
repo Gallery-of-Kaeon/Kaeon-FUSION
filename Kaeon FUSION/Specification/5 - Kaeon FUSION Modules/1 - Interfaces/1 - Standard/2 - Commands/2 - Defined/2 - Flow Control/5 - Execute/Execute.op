@@ -1,0 +1,11 @@
+Execute
+	
+	Philosophy
+		
+		-
+			The execute command contains the content "Execute", has one child returns a
+			string.
+			
+			It interprets the string as Kaeon FUSION code and executes said code within the
+			namespace of the script or function it was called from.
+		-

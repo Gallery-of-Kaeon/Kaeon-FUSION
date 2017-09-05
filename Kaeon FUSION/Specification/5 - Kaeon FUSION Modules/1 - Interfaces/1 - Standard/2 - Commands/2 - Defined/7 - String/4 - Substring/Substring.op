@@ -1,0 +1,14 @@
+Substring
+	
+	Philosophy
+		
+		-
+			The substring command contains the content "Substring". It may have either two or three
+			children, The first of which returns a string, and the second of which, as well as the
+			third child if it is present, return an integer.
+			
+			It returns the substring of the string returned by the first child either from the
+			integer returned by the second child to the end of the string if the third child is not
+			present, or from the integer returned by the second child to the integer returned by
+			the third child if the the third child is present.
+		-

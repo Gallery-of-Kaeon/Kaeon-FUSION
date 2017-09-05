@@ -1,0 +1,9 @@
+List
+	
+	Philosophy
+	
+		-
+			The list command contains the content "List"
+			
+			It returns a list containing all of the values returned by its children.
+		-
