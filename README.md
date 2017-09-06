@@ -138,8 +138,9 @@ and the skillsets of your entire team would be transferable.
 
 ### The documentation says I can do something but I can't make it work, what gives?
 
-Kaeon FUSION as a language is defined by it's specification.
-As such, the documentation may be updated before the implementation is.
+Kaeon FUSION as a language is defined by its specification.
+As such,
+the specification and documentation may be updated before the implementation is.
 If you encounter an inconsistency or any other problem, please let us know.
 We'll dispatch a team of highly trained rubber duckies to deal with with it immediately.
 
@@ -148,7 +149,7 @@ We'll dispatch a team of highly trained rubber duckies to deal with with it imme
 We wrote our implementation of Kaeon FUSION in Java because we saw java as the most effective way to quickly and efficiently get it off the ground.
 However,
 an implementation of Kaeon FUSION can be written in any language and for any platform,
-as long as it conforms to the rules laid out in the documentation.
+as long as it conforms to the rules laid out in the specification.
 
 ### How often will Kaeon FUSION be updated?
 
