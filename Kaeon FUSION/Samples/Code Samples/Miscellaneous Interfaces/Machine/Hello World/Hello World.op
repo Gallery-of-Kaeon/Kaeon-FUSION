@@ -14,8 +14,7 @@
 
  ]#
 
-Use: Standard
-Use: Machine
+Use: Standard, Machine
 
 Define: Meta { Integer } main
 	
