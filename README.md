@@ -41,15 +41,22 @@ and sample code for Kaeon FUSION.
 
 Kaeon FUSION is more than usable in its present form.
 However,
-we are still working on improving the documentation,
-on ironing out bugs in the interpreter,
-and on new features.
+the reality is the our implementation is lagging behind the documentation.
 Therefore,
-one should consider the project to be in open alpha.
-If you have an issue with any of the provided resources,
-please let us know.
+one should consider this project to be in open alpha.
 
+For the time being,
+we recommend that you only use tabs for indentation,
+only use the page and style dialects of the web interface,
+avoid using the machine interface,
+and avoid using the ONE+ directives,
+including Super Mode, until further notice.
+Using Kaeon FUSION without these constraints may work,
+but may have unpredictable effects.
 Also,
+please note that loops in the standard interface are rather slow at the moment.
+
+Furthermore,
 it is important to note that the contents of this repository are aimed at those who have a strong background in computer science.
 If you're a newcomer to programming in general,
 we recommend you check out our [Kaeon FUSION for Beginners](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/README.md) resource.
