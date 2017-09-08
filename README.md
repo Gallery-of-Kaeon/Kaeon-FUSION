@@ -39,8 +39,12 @@ and sample code for Kaeon FUSION.
 
 ## Disclaimer
 
-Kaeon FUSION is more than usable in its present form.
-However,
+It is important to note that the contents of this repository are aimed at those who have a strong background in computer science.
+If you're a newcomer to programming in general,
+we recommend you check out our [Kaeon FUSION for Beginners](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/README.md) resource.
+
+That aside,
+though Kaeon FUSION is more than usable in its present form,
 the reality is the our implementation is lagging behind the documentation.
 Therefore,
 one should consider this project to be in open alpha.
@@ -55,11 +59,6 @@ Using Kaeon FUSION without these constraints may work,
 but may have unpredictable effects.
 Also,
 please note that loops in the standard interface are rather slow at the moment.
-
-Furthermore,
-it is important to note that the contents of this repository are aimed at those who have a strong background in computer science.
-If you're a newcomer to programming in general,
-we recommend you check out our [Kaeon FUSION for Beginners](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/README.md) resource.
 
 ## Contact info
 
