@@ -45,7 +45,7 @@ we recommend you check out our [Kaeon FUSION for Beginners](https://github.com/G
 
 That aside,
 though Kaeon FUSION is more than usable in its present form,
-the reality is the our implementation is lagging behind the documentation.
+the reality is that our implementation is lagging behind the documentation.
 Therefore,
 one should consider this project to be in open alpha.
 
