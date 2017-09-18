@@ -1,21 +1,18 @@
 # Kaeon FUSION
 
-Kaeon FUSION is the very first programming language created to work in place of any other programming language.
+    Use: Standard; Log Line: Open: Pitch.txt
 
-In layman's terms,
-it's a programming language that can do anything.
-And it's easy to learn too, even if you've never programmed before!
+In computer programming,
+it is common wisdom that multiple tools are required to cover the vast array of tasks a large project entails.
+However,
+we disagree with this sentiment.
 
-Kaeon FUSION has successfully been used for general purpose programming,
-scripting,
-low level programming,
-and web development.
-In theory,
-it can be extended to work with any domain,
-and is particularly useful for metaprogramming.
+With Kaeon FUSION,
+we have created programming language that works effectively for all software development tasks.
 
-Kaeon FUSION allows this vast array of coverage by using a syntax called ONE+ that can generate any abstract syntax tree and by allowing the functionality of the language to be encoded into interchangeable modules which can be incorporated at runtime,
-thereby making the functionality of the language indefinitely extensible.
+Kaeon FUSION achieves this through its syntax which allows any hierachy of data to act as code and through its unique ability to expand its functionality as it runs.
+At the same time,
+its elegant minimalism ensure that both newcomers and veterans can easily adapt to it.
 
 ## Contents of this repository
 
