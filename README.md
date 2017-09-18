@@ -12,7 +12,7 @@ we have created programming language that works effectively for all software dev
 
 Kaeon FUSION achieves this through its syntax which allows any hierachy of data to act as code and through its unique ability to expand its functionality as it runs.
 At the same time,
-its elegant minimalism ensure that both newcomers and veterans can easily adapt to it.
+its minimalist design ensures that both newcomers and veterans can easily learn to use it.
 
 ## Contents of this repository
 
