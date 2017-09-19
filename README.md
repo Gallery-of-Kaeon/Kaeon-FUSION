@@ -3,7 +3,7 @@
     Use: Standard; Log Line: Open: Pitch.txt
 
 In computer programming,
-it is common wisdom that multiple tools are required to cover the vast array of tasks a large project entails.
+it is a commonly held belief that it is inherently necessary to use multiple tools to cover the vast array of tasks a large project entails.
 However,
 we disagree with this sentiment.
 
