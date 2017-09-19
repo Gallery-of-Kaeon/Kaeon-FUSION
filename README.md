@@ -13,7 +13,7 @@ To free developers from the bondage of incomplete tools,
 we have created Kaeon FUSION:
 a programming language that works effectively for all software development tasks.
 
-Kaeon FUSION achieves its claim through its syntax which allows any hierachy of data to function as code and through its unique ability to increase what it's capable of as it runs.
+Kaeon FUSION achieves its claim through its syntax which allows any hierarchy of data to function as code and through its unique ability to increase what it's capable of as it runs.
 At the same time,
 its minimalist design ensures that both newcomers and veterans can easily learn to use it.
 
