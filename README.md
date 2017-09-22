@@ -11,7 +11,8 @@ The sheer,
 ever-growing scale of the toolset required by software developers is a burden that should have been dealt with long ago.
 To free developers from the bondage of incomplete tools,
 we have created Kaeon FUSION:
-a programming language that works effectively for all software development tasks.
+the first ever universal programming language,
+which is to say that it works effectively for all software development tasks.
 
 Kaeon FUSION achieves its claim through its syntax which allows any hierarchy of data to function as code and through its unique ability to increase what it's capable of as it runs.
 At the same time,
