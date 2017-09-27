@@ -8,7 +8,7 @@ Kaeon Origin is a simple IDE for Kaeon FUSION Development.
 
 To begin, download Kaeon Origin:
 
-[Kaeon Dev](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/raw/master/Kaeon%20FUSION/IDE/Application/Kaeon%20Dev.jar)
+[Kaeon Origin](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/raw/master/Kaeon%20FUSION/IDE/Application/Kaeon%20Origin.jar)
 
 Be sure to have Java installed before you begin. You can install Java at:
 
