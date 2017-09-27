@@ -29,7 +29,7 @@ and sample code for Kaeon FUSION.
 ### Direct Links
 
 Documentation: [Online](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/README.md) /
-[PDF](https://drive.google.com/open?id=0B7qYhFZP1C70RlEzQi1aUDZhV1U)
+[PDF](https://drive.google.com/open?id=0B7qYhFZP1C70RjBGNWZhbkV3Z3c)
 
 [Samples](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Samples)
 
@@ -74,7 +74,7 @@ kaeon.ace@gmail.com
 
 Implement it yourself.
 
-Just kidding, we've provided a simple IDE called [Kaeon Dev](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/IDE/README.md) to get you started.
+Just kidding, we've provided a simple IDE called [Kaeon Origin](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/IDE/README.md) to get you started.
 
 Now get coding!
 

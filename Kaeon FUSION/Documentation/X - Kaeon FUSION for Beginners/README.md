@@ -13,7 +13,7 @@ Either that or you just have a low tolerance for tech jargon.
 Don't worry,
 we've got you covered.
 
-_For both the documentation and the beginners resource in PDF form, click [here](https://drive.google.com/open?id=0B7qYhFZP1C70RlEzQi1aUDZhV1U)._
+_For both the documentation and the beginners resource in PDF form, click [here](https://drive.google.com/open?id=0B7qYhFZP1C70RjBGNWZhbkV3Z3c)._
 
 ## Before you start
 
@@ -27,7 +27,7 @@ you can install it [here](https://www.java.com/en/download/).
 
 Once you have Java installed,
 download our development app,
-or IDE (Integrated Development Environment) called Kaeon Dev [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/raw/master/Kaeon%20FUSION/IDE/Application/Kaeon%20Dev.jar).
+or IDE (Integrated Development Environment) called Kaeon Origin [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/raw/master/Kaeon%20FUSION/IDE/Application/Kaeon%20Dev.jar).
 
 ## A quick shout out
 

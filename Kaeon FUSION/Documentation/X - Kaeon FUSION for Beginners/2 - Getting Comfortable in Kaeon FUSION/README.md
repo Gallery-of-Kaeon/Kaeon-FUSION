@@ -669,7 +669,7 @@ the program will display:
 ### Files
 
 The Kaeon FUSION Standard Interface can read from and write to files using the open and save commands.
-For the sake of the following examples we'll assume you're running Kaeon FUSION from Kaeon Dev.
+For the sake of the following examples we'll assume you're running Kaeon FUSION from Kaeon Origin.
 
 The open command has a child that returns a string.
 It will search the folder surrounding the environment Kaeon FUSION is running in for a file that matches the string.
@@ -680,7 +680,7 @@ If it is,
 it will search the internet for the file.
 
 For example,
-if you had a file called "My File.txt" next to Kaeon Dev.jar,
+if you had a file called "My File.txt" next to Kaeon Origin.jar,
 which had the content:
 
     abc
@@ -713,7 +713,7 @@ For example, running:
 
     	My File.txt
 
-will create a file next to Kaeon Dev.jar called My File.txt with the content:
+will create a file next to Kaeon Origin.jar called My File.txt with the content:
 
     abc
     123

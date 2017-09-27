@@ -67,7 +67,7 @@ public class IDE implements ActionListener {
 
 		frame = new JFrame();
 
-		frame.setTitle("Kaeon Dev");
+		frame.setTitle("Kaeon Origin");
 
 		frame.setSize((int) (size / 4.25), (int) (size / 4.25));
 

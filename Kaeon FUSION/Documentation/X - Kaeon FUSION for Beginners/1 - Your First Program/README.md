@@ -9,7 +9,7 @@ they write a program called "Hello World" which displays the text "Hello, world!
 
 ## Writing Hello World
 
-Boot up the Kaeon Dev application and type the following into the upper text area:
+Boot up the Kaeon Origin application and type the following into the upper text area:
 
     Use: Standard
     Log Line: "Hello, world!"
@@ -312,7 +312,7 @@ Understanding ONE+ is crucial to using Kaeon FUSION effectively.
 So unless you're a masochist who would prefer to write all of your Kaeon FUSION code in ONE,
 we recommend you read the [ONE+ documentation](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/README.md).
 
-You may notice that Kaeon Dev has a "Show ONE" button next to the run button.
+You may notice that Kaeon Origin has a "Show ONE" button next to the run button.
 Click it at any time to see how any ONE+ you've written in the upper text area translates to ONE.
 
 If you're ready to proceed,
