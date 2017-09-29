@@ -20,7 +20,7 @@ and the fourth section explains the functionality provided by the web and machin
 
 _This documentation is aimed at those with a solid background in computer science. If you are new to programming, we recommend you check out our [Kaeon FUSION for Beginners](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/README.md) resource._
 
-_For both the documentation and the beginners resource in PDF form, click [here](https://drive.google.com/open?id=0B7qYhFZP1C70R0p4YlhZOTVDVUU)._
+_For both the documentation and the beginners resource in PDF form, click [here](https://drive.google.com/open?id=0B7qYhFZP1C70QWgwYmxnNHY0WDg)._
 
 ## Contents
 
