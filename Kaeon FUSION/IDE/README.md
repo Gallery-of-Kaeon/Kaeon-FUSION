@@ -93,6 +93,12 @@ the user will be prompted to enter arguments before the program runs.
 If it contains the string "Arguments" and has one child,
 the content of the child will be used as the arguments for the program.
 
+## Use as an API
+
+Because Kaeon Origin is a jar file,
+it can be used as an API in other Java projects,
+allowing third parties to build custom applications using the Kaeon FUSION interpreter built into it.
+
 ## Source Code
 
 The source code and references to the dependecies of Kaeon Origin can be found [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/IDE/Source).
