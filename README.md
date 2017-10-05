@@ -51,6 +51,7 @@ though Kaeon FUSION is more than usable in its present form,
 the reality is that our implementation is lagging behind the documentation.
 Therefore,
 one should consider this project to be in open alpha.
+We expect the project to finish between 2018 and 2019.
 
 For the time being,
 we recommend that you only use tabs for indentation,
