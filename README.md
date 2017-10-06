@@ -126,33 +126,17 @@ Due to the modular nature of the Kaeon FUSION,
 there is no limit to what sort functionality can be implemented through interfaces.
 What's available now is only the tip of the iceberg.
 
-### I'm already comfortable with a certain set of tools. Why should I learn Kaeon FUSION?
+### I'm already comfortable with a certain set of tools. Why should I learn Kaeon FUSION? What is its niche?
 
-Whatever domain you're already working in,
-Kaeon FUSION either does or will in the near future have support for it.
-If you suddenly decide to branch out into a new domain or your employer demands you to work in an unfamiliar domain,
-Kaeon FUSION would make the switch easier.
-All you would have to do is find the right interface or library for it.
-You would never have to learn a new syntax or environment.
+The best way to summarize Kaeon FUSION's niche is that if one suddenly finds themselves requiring functionality their current tools don't support,
+they can integrate Kaeon FUSION into their toolset to provide whatever they lack.
 
-### Give me a use case
-
-Let's say you're managing a video game studio.
-You can write your game engine in Kaeon FUSION by using an interface that generates C.
-You can use ONE to create custom file and metadata formats for your engine,
-and use Kaeon FUSION with the standard interface as a scripting language.
-You can automate builds and manage assets using scripts written with the standard interface.
-And you can even build a website to market your game using an interface that generates HTML and CSS.
-Never once would you have to use more than one syntax or environment,
-and the skillsets of your entire team would be transferable.
-
-### The documentation says I can do something but I can't make it work, what gives?
-
-Kaeon FUSION as a language is defined by its specification.
-As such,
-the specification and documentation may be updated before the implementation is.
-If you encounter an inconsistency or any other problem, please let us know.
-We'll dispatch a team of highly trained rubber duckies to deal with with it immediately.
+In addition,
+Kaeon FUSION serves as a solid foundation for creating domain specific languages,
+and its systax works well as a base for custom file formats.
+While LISP already works well for creating DSLs,
+Kaeon FUSION's ability to have them implemented as interfaces allows multiple DSLs to be used in the same environment,
+whereas LISP DSLs must be used separately.
 
 ### Is Kaeon FUSION bound to the JVM?
 
