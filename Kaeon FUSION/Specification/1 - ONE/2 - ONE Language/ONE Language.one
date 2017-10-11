@@ -8,36 +8,39 @@
 			The ONE Language is a syntax for encoding ONE documents.
 		-
 	-
-		Syntax
+		Principles
 	-
 		-
-			The ONE language requires three unique sequences of characters to be defined: the
-			terminating sequence, the breaking sequence, and the nesting sequence.
-			
-			The ONE language is composed entirely of ONE element definitions. No characters are
-			permitted outside of element definitions.
-			
-			An element definition begins with the terminating sequence, followed by the breaking
-			sequence, followed by the nesting sequence. The nesting sequence may be followed by any
-			sequence of characters as long as the breaking sequence does not occur within it. This
-			sequence is referred to as the encoded sequence. The encoded sequence is followed by
-			the breaking sequence, which must be followed either with the nesting sequence which
-			continues the element definition, or by the terminating sequence which ends the element
-			definition.
-			
-			Element definitions may be nested within one another. If an element definition is
-			nested within another element definition, the child element definition must be placed
-			directly after its parent. For every terminating sequence and for every nesting
-			sequence which immediately precedes an encoded sequence within the element definition,
-			one instance of the nesting sequence must be placed between the breaking sequence that
-			precedes said sequence and said sequence for every level the element definition is
-			nested.
-			
-			Every element with no parent will encode an element into the document. Every element
-			with a parent will encode an element into its parent element. The content encoded into
-			said elements will consist of the content of each encoded sequence within the
-			respective element definition, each with the exception of the content last occurring
-			encoded sequence within the respective element definition followed by an instance of
-			the breaking sequence, concatenated in the order in which the respective encoded
-			sequences occur within the respective element definition.
+			Syntax
 		-
+			-
+				The ONE language requires three unique sequences of characters to be defined: the
+				terminating sequence, the breaking sequence, and the nesting sequence.
+				
+				The ONE language is composed entirely of ONE element definitions. No characters are
+				permitted outside of element definitions.
+				
+				An element definition begins with the terminating sequence, followed by the
+				breaking sequence, followed by the nesting sequence. The nesting sequence may be
+				followed by any sequence of characters as long as the breaking sequence does not
+				occur within it. This sequence is referred to as the encoded sequence. The encoded
+				sequence is followed by the breaking sequence, which must be followed either with
+				the nesting sequence which continues the element definition, or by the terminating
+				sequence which ends the element definition.
+				
+				Element definitions may be nested within one another. If an element definition is
+				nested within another element definition, the child element definition must be
+				placed directly after its parent. For every terminating sequence and for every
+				nesting sequence which immediately precedes an encoded sequence within the element
+				definition, one instance of the nesting sequence must be placed between the
+				breaking sequence that precedes said sequence and said sequence for every level the
+				element definition is nested.
+				
+				Every element with no parent will encode an element into the document. Every
+				element with a parent will encode an element into its parent element. The content
+				encoded into said elements will consist of the content of each encoded sequence
+				within the respective element definition, each with the exception of the content
+				last occurring encoded sequence within the respective element definition followed
+				by an instance of the breaking sequence, concatenated in the order in which the
+				respective encoded sequences occur within the respective element definition.
+			-

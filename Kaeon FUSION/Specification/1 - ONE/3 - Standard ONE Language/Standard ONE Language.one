@@ -9,23 +9,28 @@
 			the three required sequences of the ONE language.
 		-
 	-
-		Standard Sequences
+		Principles
 	-
 		-
-			Terminating Sequence
+			Standard Sequences
 		-
 			-
-				In the standard variant of the ONE Language, the terminating sequence is a dash.
+				Terminating Sequence
 			-
-		-
-			Breaking Sequence
-		-
+				-
+					In the standard variant of the ONE Language, the terminating sequence is a
+					dash.
+				-
 			-
-				In the standard variant of the ONE Language, the breaking sequence is a new line.
+				Breaking Sequence
 			-
-		-
-			Nesting Sequence
-		-
+				-
+					In the standard variant of the ONE Language, the breaking sequence is a new
+					line.
+				-
 			-
-				In the standard variant of the ONE Language, the nesting sequence is a tab.
+				Nesting Sequence
 			-
+				-
+					In the standard variant of the ONE Language, the nesting sequence is a tab.
+				-

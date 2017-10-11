@@ -8,12 +8,15 @@
 			ONE is a system for organizing data.
 		-
 	-
-		System
+		Principles
 	-
 		-
-			ONE stores data in ONE documents. A ONE document is composed of ONE elements.
-			
-			Each element contains a string of characters referred to as the content, and may act as
-			a parent to an indefinite number of other elements. Elements must be arranged in a
-			specific order within their respective document or parent element.
+			System
 		-
+			-
+				ONE stores data in ONE documents. A ONE document is composed of ONE elements.
+				
+				Each element contains a string of characters referred to as the content, and may
+				act as a parent to an indefinite number of other elements. Elements must be
+				arranged in a specific order within their respective document or parent element.
+			-

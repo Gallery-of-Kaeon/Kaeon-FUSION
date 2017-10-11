@@ -1,0 +1,94 @@
+Style Dialect
+	
+	Philosophy
+		
+		-
+			When Kaeon FUSION code is cross compiled to CSS, the user must take into account how
+			the code will take effect once cross compiled.
+		-
+	
+	Principles
+		
+		Style Blocks
+			
+			-
+				Every command nested at the lowest level defines style data. The parents of these
+				commands define style elements. Every command nested at a higher level defines the
+				domain of a style block.
+				
+				To define a tag block:
+					
+					Tag
+						Element: Data
+						Element: Data
+				
+				For example:
+					
+					Text
+						height: 50px
+						width: 50px
+				
+				will be cross compiled to:
+					
+					p {
+						height: 50px;
+						width: 50px;
+					}
+				
+				To define an ID block:
+					
+					On: ID
+						Element: Data
+						Element: Data
+				
+				For example:
+					
+					On: word
+						height: 50px
+						width: 50px
+				
+				will be cross compiled to:
+					
+					#word {
+						height: 50px;
+						width: 50px;
+					}
+				
+				To define an class block:
+					
+					For: Class
+						Element: Data
+						Element: Data
+				
+				For example:
+					
+					For: icon
+						height: 50px
+						width: 50px
+				
+				will be cross compiled to:
+					
+					.icon {
+						height: 50px;
+						width: 50px;
+					}
+				
+				To define an multiple class block:
+					
+					Tag: Class 1: Class 2
+						Element: Data
+						Element: Data
+				
+				For example:
+					
+					text: banner: icon
+						height: 50px
+						width: 50px
+				
+				will be cross compiled to:
+					
+					p.banner.icon {
+						height: 50px;
+						width: 50px;
+					}
+			-
