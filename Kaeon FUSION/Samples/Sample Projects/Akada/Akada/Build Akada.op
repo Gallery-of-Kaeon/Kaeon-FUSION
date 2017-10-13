@@ -1,6 +1,4 @@
-
-Use: Standard
-Use: Web
+Use: Standard, Web
 
 Import: pages/Akada.op
 Build: Page { Akada } Akada/Akada/
