@@ -23,10 +23,12 @@ its minimalist design ensures that both newcomers and veterans can easily learn 
 
 This repository contains the specification,
 documentation,
+sample code,
 APIs,
 an IDE,
 a plugin development framework for said IDE,
-and sample code for Kaeon FUSION.
+interfaces,
+and the specification for Kaeon FUSION.
 
 ### Direct Links
 
@@ -40,6 +42,8 @@ Documentation: [Online](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/ma
 [IDE](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/IDE/README.md)
 
 [Interface Deveopment Framework](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Interface%20Development%20Framework/README.md)
+
+[Interfaces](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Interfaces)
 
 [Specification](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Specification)
 
