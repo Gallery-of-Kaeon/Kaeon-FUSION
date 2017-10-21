@@ -23,7 +23,7 @@ Define: dog
 			Loop: Less: i, At: Arguments, 1
 
 # Assign a new instance of dog with the argument doggo to my dog
-my dog: dog: doggo
+my dog: New: dog: doggo
 
 # Run the code "height: 7" within my dog to set my dog's height to 7
 Scope { In: my dog }

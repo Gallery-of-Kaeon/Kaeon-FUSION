@@ -54,7 +54,23 @@ public class Literal extends FUSIONUnit {
 			
 			if(string.charAt(i) == '\\') {
 				
-				string = string.substring(0, i) + string.substring(i + 1);
+				if(i < string.length() - 1) {
+					
+					if(string.charAt(i + 1) == 'n')
+						string = string.substring(0, i) + '\n' + string.substring(i + 2);
+					
+					else if(string.charAt(i + 1) == 't')
+						string = string.substring(0, i) + '\t' + string.substring(i + 2);
+					
+					else if(string.charAt(i + 1) == '\\')
+						i++;
+					
+					else
+						string = string.substring(0, i) + string.substring(i + 1);
+				}
+				
+				else
+					string = string.substring(0, i) + string.substring(i + 1);
 				
 				continue;
 			}

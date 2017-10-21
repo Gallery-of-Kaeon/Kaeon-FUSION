@@ -35,9 +35,9 @@ public class Break extends FUSIONUnit {
 		if(processed.size() > 0)
 			condition = Boolean.parseBoolean("" + processed.get(0));
 		
+		broke = condition;
+		
 		if(condition) {
-			
-			broke = true;
 			
 			Element current = element;
 			

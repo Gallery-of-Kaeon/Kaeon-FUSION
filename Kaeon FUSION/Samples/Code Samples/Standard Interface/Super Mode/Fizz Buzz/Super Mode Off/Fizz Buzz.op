@@ -1,17 +1,22 @@
 Use: Standard
 
-i: 0
+i: 1
 limit: Input: "Enter a number: "
 
 Scope
 	
-	Break { And: Equal { Modulus { 3, 0 }, 0 }, Equal { Modulus { 5, 0 }, 0 } }
+	Scope
+		
+		Break: Not: And
+			Equal: Modulus { i, 3 }, 0
+			Equal: Modulus { i, 5 }, 0
+
 		Log Line: fizz buzz
 	
-	Else: Break { Equal: Modulus { 3, 0 }, 0 }
+	Else { Break: Not: Equal: Modulus { i, 3 }, 0 }
 		Log Line: fizz
 	
-	Else: Break { Equal: Modulus { 5, 0 }, 0 }
+	Else { Break: Not: Equal: Modulus { i, 5 }, 0 }
 		Log Line: buzz
 	
 	Else
