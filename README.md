@@ -52,7 +52,7 @@ we recommend you check out our [Kaeon FUSION for Beginners](https://github.com/G
 As of October 21, 2017. Kaeon FUSION is in Beta.
 
 Our beta implementation does not currently include implementations for any ONE+ directives or for any interfaces other than the standard interface.
-In addition. due to a glitch in the ONE+ parser, we recommend that only tabs be used for indentation in Kaeon FUSION code.
+In addition, due to a glitch in the ONE+ parser, we recommend that only tabs be used for indentation in Kaeon FUSION code.
 Additionally,
 documentation for the standard interface regarding list and string related commands is not up to date with the specification.
 The aforementioned issues should be resolved by mid December, 2017.
