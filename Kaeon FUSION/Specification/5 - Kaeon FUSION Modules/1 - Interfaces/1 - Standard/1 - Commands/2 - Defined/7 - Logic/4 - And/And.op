@@ -1,0 +1,11 @@
+And
+	
+	Philosophy
+		
+		-
+			The and command contains the content "And". It may have an indefinite number of
+			children, each of which return a boolean.
+			
+			It will return true if all of the returned booleans are true, and return false
+			otherwise.
+		-

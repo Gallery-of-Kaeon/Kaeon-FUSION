@@ -3,7 +3,8 @@ Run
 	Philosophy
 		
 		-
-			The run command contains the content "Run" and has a child that returns a string.
+			The run command contains the content "Run" and may have an indefinite number of
+			children, each of which return a string.
 			
-			It runs the returned string as a command line call.
+			It runs each returned string as a command line call.
 		-

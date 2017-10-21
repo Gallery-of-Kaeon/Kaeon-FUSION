@@ -3,9 +3,9 @@ Append
 	Philosophy
 		
 		-
-			The append command contains the content "Append". It has two children. The first of
-			which returns a list, and the second of which returns an object.
+			The append command contains the content "Append". It may have two or more children. Its
+			first child will return a list, and every subsequent child will return an object.
 			
-			It will append the object returned by the second child to the end of the list returned
-			by the first child.
+			Each returned object will, in the order it was returned, be appended to the list
+			returned by the first child.
 		-

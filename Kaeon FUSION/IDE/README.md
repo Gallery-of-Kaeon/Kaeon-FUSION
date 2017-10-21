@@ -8,7 +8,7 @@ Kaeon Origin is a simple IDE for Kaeon FUSION Development.
 
 To begin, download Kaeon Origin:
 
-[Kaeon Origin](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/raw/master/Kaeon%20FUSION/IDE/Application/Kaeon%20Origin.jar)
+[Kaeon Origin](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/raw/master/Kaeon%20FUSION/IDE/Application/Kaeon%20Origin.zip)
 
 Be sure to have Java installed before you begin. You can install Java at:
 
@@ -19,12 +19,9 @@ place the "Kaeon Origin.jar" file in the root directory of your project.
 
 ## Interfaces
 
-Kaeon Origin has the [standard](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md),
-[web](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/4%20-%20The%20Web%20and%20Machine%20Interfaces/1%20-%20Web/README.md),
-and [machine](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/4%20-%20The%20Web%20and%20Machine%20Interfaces/2%20-%20Machine/README.md) interfaces built into it,
-and will automatically include the standard interface when running Kaeon FUSION code.
-Additional interface may be packaged as jars,
-and made available to Kaeon Origin by placing the jar containing the interface next to the Kaeon Origin jar.
+The Kaeon Origin Download comes with the standard interface.
+Each interface comes in a JAR (Java ARchive) file,
+which must be place in the same directory as Kaeon Origin in order for Kaeon Origin to use them.
 
 ## How to Use
 
@@ -92,12 +89,6 @@ If the second element contains the string "Prompt" and has no children,
 the user will be prompted to enter arguments before the program runs.
 If it contains the string "Arguments" and has one child,
 the content of the child will be used as the arguments for the program.
-
-## Use as an API
-
-Because Kaeon Origin is a jar file,
-it can be used as an API in other Java projects,
-allowing third parties to build custom applications using the Kaeon FUSION interpreter built into it.
 
 ## Source Code
 

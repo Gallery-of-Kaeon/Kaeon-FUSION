@@ -1,0 +1,10 @@
+String to List
+	
+	Philosophy
+		
+		-
+			The string to list command contains the content "String to List". It will one child
+			that returns a list.
+			
+			It will append each character in the string in order to a list and return the list.
+		-

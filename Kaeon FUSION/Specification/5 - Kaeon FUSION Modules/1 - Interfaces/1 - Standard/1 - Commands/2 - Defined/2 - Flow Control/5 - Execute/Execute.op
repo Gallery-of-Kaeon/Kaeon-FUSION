@@ -3,9 +3,9 @@ Execute
 	Philosophy
 		
 		-
-			The execute command contains the content "Execute", has one child returns a
-			string.
+			The execute command contains the content "Execute", and may have an indefinite number
+			of children, each of which return a string.
 			
-			It interprets the string as Kaeon FUSION code and executes said code within the
-			namespace of the script or function it was called from.
+			It interprets each string in the order they were returned as Kaeon FUSION code and
+			executes said code within the namespace of the script or function it was called from.
 		-

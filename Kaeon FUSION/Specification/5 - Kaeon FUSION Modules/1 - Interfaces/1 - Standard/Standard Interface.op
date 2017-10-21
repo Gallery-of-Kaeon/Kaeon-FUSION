@@ -65,3 +65,10 @@ Kaeon FUSION Standard Interface
 					at one. If a command attempts to access or modify an index of a list that does
 					not exist, the list will be resized to accommodate the index.
 				-
+			
+			Strings in List Operations
+				
+				-
+					Strings will be interpreted as lists where each character is an element when
+					used as arguments in list operations.
+				-

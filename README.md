@@ -23,6 +23,7 @@ its minimalist design ensures that both newcomers and veterans can easily learn 
 
 This repository contains the specification,
 documentation,
+APIs,
 an IDE,
 a plugin development framework for said IDE,
 and sample code for Kaeon FUSION.
@@ -33,6 +34,8 @@ Documentation: [Online](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/ma
 [PDF](https://drive.google.com/open?id=0B7qYhFZP1C70OVZnQm5JM3ZYLVE)
 
 [Samples](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Samples)
+
+[APIs](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/APIs)
 
 [IDE](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/IDE/README.md)
 
@@ -46,23 +49,16 @@ It is important to note that the contents of this repository are aimed at those 
 If you're a newcomer to programming in general,
 we recommend you check out our [Kaeon FUSION for Beginners](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/README.md) resource.
 
-That aside,
-though Kaeon FUSION is more than usable in its present form,
-the reality is that our implementation is lagging behind the documentation.
-Therefore,
-one should consider this project to be in open alpha.
-We expect the project to finish between 2018 and 2019.
+As of October 21, 2017. Kaeon FUSION is in Beta.
 
-For the time being,
-we recommend that you only use tabs for indentation,
-only use the page and style dialects of the web interface,
-avoid using the machine interface,
-and avoid using the ONE+ directives,
-including Super Mode, until further notice.
-Using Kaeon FUSION without these constraints may work,
-but may have unpredictable effects.
-Also,
-please note that loops in the standard interface are rather slow at the moment.
+Our beta implementation does not currently include implementations for any ONE+ directives or for any interfaces other than the standard interface.
+In addition. due to a glitch in the ONE+ parser, we recommend that only tabs be used for indentation in Kaeon FUSION code.
+Additionally,
+documentation for the standard interface regarding list and string related commands is not up to date with the specification.
+The aforementioned issues should be resolved by mid December, 2017.
+
+We plan on releasing a more advanced version of our IDE in early 2018.
+When the newer IDE is realeased, Kaeon FUSION will be out of Beta.
 
 ## Contact info
 

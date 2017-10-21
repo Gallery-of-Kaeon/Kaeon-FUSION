@@ -1,0 +1,13 @@
+Concatenate
+	
+	Philosophy
+		
+		-
+			The concatenate command contains the content "Concatenate". It may have an indefinite
+			number of children, each of which returns a list.
+			
+			It will concatenate the content of each list into a single list, according to the order
+			of the children that returned them, and return the list. If the first returned list was
+			in the form of a string, the list will be returned in the form of a string, and
+			returned in the form of a list otherwise.
+		-
