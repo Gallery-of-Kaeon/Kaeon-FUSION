@@ -76,6 +76,9 @@ public class Aether {
 		
 		PhilosophersStone stone = (PhilosophersStone) object;
 		
+		if(PhilosophersStoneUtilities.has(stone, "Standard Interface"))
+			return null;
+		
 		if(!PhilosophersStoneUtilities.has(stone, "Console"))
 			PhilosophersStoneUtilities.publiclyConnect(stone, new Console());
 		
@@ -151,6 +154,11 @@ public class Aether {
 		
 		new Alias();
 		new FUSIONUtilities();
+		
+		PhilosophersStone tag = new PhilosophersStone();
+		tag.tags.add("Standard Interface");
+		
+		PhilosophersStoneUtilities.publiclyConnect(stone, tag);
 		
 		return null;
 	}

@@ -2,6 +2,7 @@ package standard.commands.core;
 
 import fusion.FUSIONUnit;
 import one.Element;
+import one.ElementUtilities;
 
 public class Catch extends FUSIONUnit {
 	
@@ -16,6 +17,13 @@ public class Catch extends FUSIONUnit {
 	}
 	
 	public boolean verify(Element element) {
+		
+		for(int i = ElementUtilities.getIndex(element) - 1; i >= 0; i--) {
+			
+			if(element.parent.children.get(i).content.equalsIgnoreCase("In"))
+				return false;
+		}
+		
 		return element.content.equalsIgnoreCase("Catch");
 	}
 	

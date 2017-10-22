@@ -17,8 +17,21 @@ public class In extends FUSIONUnit {
 	public FUSION fusion;
 	public State state;
 	
+	Element marked;
+	
 	public In() {
 		tags.add("Standard");
+	}
+	
+	public boolean deny(Element element) {
+		
+		if(element == marked)
+			marked = null;
+		
+		if(marked != null)
+			return element.parent == marked;
+		
+		return false;
 	}
 	
 	public boolean verify(Element element) {
@@ -32,6 +45,8 @@ public class In extends FUSIONUnit {
 		
 		if(state == null)
 			state = (State) PhilosophersStoneUtilities.get(this, "State").get(0);
+		
+		marked = element.parent;
 		
 		FUSION functionFUSION = FUSIONUtilities.copy(fusion);
 		
@@ -66,20 +81,9 @@ public class In extends FUSIONUnit {
 			newState.state.add(new ArrayList<Alias>(aliases));
 		
 		for(ArrayList<Alias> aliases : ((State) processed.get(0)).state)
-			newState.state.add(new ArrayList<Alias>(aliases));
+			newState.state.add(aliases);
 		
 		PhilosophersStoneUtilities.publiclyConnect(functionFUSION, newState);
-		
-		PhilosophersStone argumentStone = new PhilosophersStone() {
-			
-			public Object onCall(ArrayList<Object> packet) {
-				return ((String) packet.get(0)).equalsIgnoreCase("Arguments") ? processed : null;
-			}
-		};
-		
-		PhilosophersStoneUtilities.publiclyConnect(functionFUSION, argumentStone);
-		
-		argumentStone.tags.add("Arguments");
 		
 		Element code = ElementUtilities.copyElement(element.parent);
 		int index = ElementUtilities.getIndex(element);
@@ -102,50 +106,5 @@ public class In extends FUSIONUnit {
 		PhilosophersStoneUtilities.destroy(functionFUSION);
 		
 		return toReturn;
-	}
-	
-	public Element jump(Element element, ArrayList<Object> processed) {
-		
-		if(element.parent.parent == null)
-			return null;
-		
-		Element current = element;
-		
-		while(current.parent.parent != null) {
-			
-			state.pop();
-			
-			int parentIndex = ElementUtilities.getIndex(current.parent);
-			
-			if(parentIndex < current.parent.parent.children.size())
-				return current.parent.parent.children.get(parentIndex + 1);
-			
-			current = current.parent;
-		}
-		
-		return null;
-	}
-	
-	public int changeDepth(Element element, ArrayList<Object> processed, int currentDepth) {
-		
-		if(element.parent.parent == null)
-			return -1;
-		
-		Element current = element;
-		int depth = currentDepth;
-		
-		while(current.parent.parent != null) {
-			
-			depth--;
-			
-			int parentIndex = ElementUtilities.getIndex(current.parent);
-			
-			if(parentIndex < current.parent.parent.children.size())
-				return depth;
-			
-			current = current.parent;
-		}
-		
-		return -1;
 	}
 }

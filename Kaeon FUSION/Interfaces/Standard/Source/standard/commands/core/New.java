@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import fusion.FUSION;
 import fusion.FUSIONUnit;
 import one.Element;
+import one.ElementUtilities;
 import philosophers_stone.PhilosophersStone;
 import philosophers_stone.PhilosophersStoneUtilities;
 import standard.utilities.FUSIONUtilities;
@@ -64,10 +65,18 @@ public class New extends FUSIONUnit {
 		
 		PhilosophersStoneUtilities.publiclyConnect(functionFUSION, newState);
 		
+		FUSION clone = FUSIONUtilities.clone(fusion);
+		
+		Element copy = ElementUtilities.copyElement(element.children.get(0));
+		copy.content = "List";
+		
+		@SuppressWarnings({ "unchecked", "rawtypes" })
+		ArrayList<Object> list = (ArrayList) clone.process(copy);
+		
 		PhilosophersStone argumentStone = new PhilosophersStone() {
 			
 			public Object onCall(ArrayList<Object> packet) {
-				return ((String) packet.get(0)).equalsIgnoreCase("Arguments") ? processed : null;
+				return ((String) packet.get(0)).equalsIgnoreCase("Arguments") ? list : null;
 			}
 		};
 		
