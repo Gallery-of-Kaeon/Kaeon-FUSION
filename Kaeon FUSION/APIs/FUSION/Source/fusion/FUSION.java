@@ -47,8 +47,12 @@ public class FUSION extends PhilosophersStone {
 		
 		while(depth >= 0 & running) {
 			
+			boolean denied = isDenied(currentElement);
+			
 			ArrayList<FUSIONUnit> verifiedFUSIONUnits =
-					getVerifiedFUSIONUnits(currentElement);
+					!denied ?
+							getVerifiedFUSIONUnits(currentElement) :
+							new ArrayList<FUSIONUnit>();
 			
 			if(!bubbleUp) {
 				
@@ -74,7 +78,9 @@ public class FUSION extends PhilosophersStone {
 			Element jumpElement = jump(verifiedFUSIONUnits, currentElement, arguments);
 			depth = changeDepth(verifiedFUSIONUnits, currentElement, arguments, depth);
 			
-			processedArguments.add(object);
+			if(!denied)
+				processedArguments.add(object);
+			
 			processed.set(processed.size() - 1, new ArrayList<Object>());
 			
 			if(depth < 0) {
@@ -261,6 +267,29 @@ public class FUSION extends PhilosophersStone {
 		return 0;
 	}
 	
+	public boolean isDenied(Element element) {
+		
+		if(element.content == null)
+			return false;
+		
+		boolean denied = false;
+		
+		for(FUSIONUnit unit : fusionUnits) {
+			
+			try {
+				
+				if(unit.deny(element))
+					denied = true;
+			}
+			
+			catch(Exception exception) {
+				handleError(element);
+			}
+		}
+		
+		return denied;
+	}
+	
 	public ArrayList<FUSIONUnit> getVerifiedFUSIONUnits(Element element) {
 		
 		if(element.content == null)
@@ -269,16 +298,6 @@ public class FUSION extends PhilosophersStone {
 		ArrayList<FUSIONUnit> verifiedFUSIONUnits = new ArrayList<FUSIONUnit>();
 		
 		for(FUSIONUnit unit : fusionUnits) {
-			
-			try {
-				
-				if(unit.deny(element))
-					return new ArrayList<FUSIONUnit>();
-			}
-			
-			catch(Exception exception) {
-				handleError(element);
-			}
 			
 			try {
 				
