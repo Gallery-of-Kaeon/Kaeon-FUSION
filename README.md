@@ -53,7 +53,7 @@ It is important to note that the contents of this repository are aimed at those 
 If you're a newcomer to programming in general,
 we recommend you check out our [Kaeon FUSION for Beginners](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/README.md) resource.
 
-As of October 21, 2017. Kaeon FUSION is in Beta.
+As of October 21, 2017, Kaeon FUSION is in Beta.
 
 Our beta implementation does not currently include implementations for any ONE+ directives or for any interfaces other than the standard interface.
 In addition, due to a glitch in the ONE+ parser, we recommend that only tabs be used for indentation in Kaeon FUSION code.
