@@ -3,10 +3,9 @@ Use: Standard
 a: 0
 b: 1
 
-i: 1
 limit: Input: "Enter a number: "
 
-Scope
+i { 1 } Scope
 	
 	Log Line: a
 	

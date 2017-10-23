@@ -2,19 +2,19 @@ Use: Standard
 
 Define: dog
 	
+	# Object fields should be global
+
 	# Set name to the first argument passed in
-	name: At: Arguments, 1
+	Global: name: At: Arguments, 1
 	
-	height: 5
-	weight: 10
+	Global: height: 5
+	Global: weight: 10
 	
 	# Define the function bork within dog
 	# Prints bork from zero to the number passed in
 	Define: bork
 		
-		i: 0
-
-		Scope
+		i { 0 } Scope
 			
 			# Surround bork in quotation marks to avoid recursive call
 			Log Line: "bork"
@@ -28,15 +28,6 @@ my dog: New: dog: doggo
 # Run the code "height: 7" within my dog to set my dog's height to 7
 Scope { In: my dog }
 	height: 7
-
-# Run the code "my name: name" within my dog to set my name to my dog's name, then prints my name
-
-my name: none
-
-Scope { In: my dog }
-	my name: name
-
-Log Line: my name
 
 # Run code within my dog to return data to the Log Line command
 
