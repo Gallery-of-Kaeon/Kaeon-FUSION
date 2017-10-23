@@ -84,7 +84,12 @@ public class New extends FUSIONUnit {
 		
 		argumentStone.tags.add("Arguments");
 		
-		functionFUSION.process((Element) state.getByAliasAndType(element.children.get(0).content, "FUNCTION"));
+		Element function = (Element) state.getByAliasAndType(element.children.get(0).content, "FUNCTION");
+		
+		function = ElementUtilities.copyElement(function);
+		function.content = null;
+		
+		functionFUSION.process(function);
 		
 		State toReturn = (State) PhilosophersStoneUtilities.get(functionFUSION, "State").get(0);
 		

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import fusion.FUSION;
 import fusion.FUSIONUnit;
 import one.Element;
+import one.ElementUtilities;
 import philosophers_stone.PhilosophersStone;
 import philosophers_stone.PhilosophersStoneUtilities;
 import standard.commands.core.Return;
@@ -85,7 +86,12 @@ public class Function extends FUSIONUnit {
 		
 		argumentStone.tags.add("Arguments");
 		
-		functionFUSION.process((Element) state.getByAliasAndType(element.content, "FUNCTION"));
+		Element function = (Element) state.getByAliasAndType(element.content, "FUNCTION");
+		
+		function = ElementUtilities.copyElement(function);
+		function.content = null;
+		
+		functionFUSION.process(function);
 		
 		Object toReturn = null;
 		

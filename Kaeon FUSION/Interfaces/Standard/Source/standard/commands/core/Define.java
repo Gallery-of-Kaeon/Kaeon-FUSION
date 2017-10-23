@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import fusion.FUSIONUnit;
 import one.Element;
-import one.ElementUtilities;
 import philosophers_stone.PhilosophersStoneUtilities;
 import standard.utilities.state.Alias;
 import standard.utilities.state.State;
@@ -44,12 +43,14 @@ public class Define extends FUSIONUnit {
 		
 		for(Element child : element.children) {
 			
+			if(child.content.equalsIgnoreCase("Meta"))
+				continue;
+			
 			try {
 
 				String alias = child.content;
 				
-				Element function = ElementUtilities.copyElement(child);
-				function.content = null;
+				Element function = child;
 				
 				Alias functionAlias = new Alias();
 				
