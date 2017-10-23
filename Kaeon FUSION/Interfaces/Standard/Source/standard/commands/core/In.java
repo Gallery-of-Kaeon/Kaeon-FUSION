@@ -83,6 +83,8 @@ public class In extends FUSIONUnit {
 		for(ArrayList<Alias> aliases : ((State) processed.get(0)).state)
 			newState.state.add(aliases);
 		
+		newState.state.add(((State) processed.get(0)).global);
+		
 		PhilosophersStoneUtilities.publiclyConnect(functionFUSION, newState);
 		
 		Element code = ElementUtilities.copyElement(element.parent);
