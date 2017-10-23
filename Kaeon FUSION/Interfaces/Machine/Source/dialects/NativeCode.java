@@ -39,10 +39,14 @@ public class NativeCode extends PhilosophersStone {
 		@SuppressWarnings("unchecked")
 		ArrayList<ArrayList<Object>> functions = (ArrayList<ArrayList<Object>>) packet.get(3);
 		
-		Element element  = new Element((one.Element) functions.get(0).get(1));
-		element.setContent("" + functions.get(0).get(0));
-		element.setParent(new Element("Define"));
-		element.getParent().setParent(new Element());
+		Element element = new Element((one.Element) functions.get(0).get(1));
+		
+		Element parent = element;
+		
+		while(parent.getParent() != null)
+			parent = parent.getParent();
+		
+		parent.setParent(new Element());
 		
 		builder.process(element);
 		

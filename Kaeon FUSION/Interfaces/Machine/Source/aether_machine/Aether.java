@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import dialects.NativeCode;
 import legacy.machine.NativeBuilder;
 import legacy.utilities.one_plus.element.Element;
+import legacy.utilities.one_plus.write.ONEPlusWriter;
 import philosophers_stone.PhilosophersStone;
 import philosophers_stone.PhilosophersStoneUtilities;
 
@@ -25,6 +26,7 @@ public class Aether {
 		
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new NativeCode());
 		
+		new ONEPlusWriter();
 		new NativeBuilder("");
 		new Element();
 		
