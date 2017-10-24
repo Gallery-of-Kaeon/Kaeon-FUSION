@@ -5,10 +5,9 @@ Use: Standard
 a = 0
 b = 1
 
-i = 1
 limit = Input: "Enter a number: "
 
-While { i < limit }
+i = 1; While { i < limit }
 	
 	Log Line: a
 	

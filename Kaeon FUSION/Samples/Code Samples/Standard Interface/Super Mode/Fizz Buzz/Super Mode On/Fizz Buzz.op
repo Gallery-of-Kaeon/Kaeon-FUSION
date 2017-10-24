@@ -2,10 +2,9 @@
 
 Use: Standard
 
-i = 0
 limit = Input: "Enter a number: "
 
-While { i < limit }
+i = 0; While { i < limit }
 	
 	If { i % 3 == 0 and i % 5 == 0 }
 		Log Line: fizz buzz
