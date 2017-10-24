@@ -819,7 +819,7 @@ For example, running:
     Use: Standard
     
     Log Line: Concatenate: List { a, b, c }, List { 1, 2, 3 }
-    Log Line: Concatenate: List: abc, 123
+    Log Line: Concatenate: abc, 123
 
 will display:
 
