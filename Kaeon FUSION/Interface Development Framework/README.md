@@ -85,16 +85,16 @@ It returns zero by default.
 If this function returns false,
 the children of the passed in Element will be bypassed.
 
-### public Object process(Element element, ArrayList<Object> processed)
+### public Object process(Element element, ArrayList<Object> processed)  
 
 Whatever this function returns will be used as an argument when processing the parent of the given element.
 
-### public Element jump(Element element, ArrayList<Object> processed)
+### public Element jump(Element element, ArrayList<Object> processed)  
 
 If this function does not return null,
 the FUSION interpreter will jump to the returned element.
 
-### public int changeDepth(Element element, ArrayList<Object> processed, int currentDepth)
+### public int changeDepth(Element element, ArrayList<Object> processed, int currentDepth)  
 
 This function may modify the depth value used by the FUSION interpreter.
 It will return the currentDepth value by default.
