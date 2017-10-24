@@ -726,9 +726,12 @@ For that we can use lists.
 
 A list is a value that can store other values.
 The Kaeon FUSION Standard Interface provides command both for creating lists and for manipulating values in them.
+In a way,
+strings are lists of characters,
+which is why Strings can be used like lists in Kaeon FUSION's list commands.
 
 When displayed,
-a list will be presented as having all of the values inside of it placed between square brackets ans separated by commas.
+a list will be presented as having all of the values inside of it placed between square brackets and separated by commas.
 
 The list command can be used for creating a list.
 It can have an indefinite number of children.
@@ -842,6 +845,52 @@ will display:
 
     [a, b, c]
     [a, c]
+
+You can use the concatenate command to combine multiple list into a single list.
+The concatentate command takes an indefinite number of lists and returns them as a single list.
+
+For example, running:
+
+    Use: Standard
+    
+    Log Line: Concatenate: List { a, b, c }, List { 1, 2, 3 }
+    Log Line: Concatenate: List: abc, 123
+
+will display:
+
+    [a, b, c, 1, 2, 3]
+    abc123
+
+You can use the crop command to cut a smaller list out of a larger one.
+The crop command take a list and two numbers,
+and returns the segment of the list from the first number to the second number.
+
+For example, running:
+
+    Use: Standard
+    
+    Log Line: Crop: List { 1, 2, 3, 4, 5 }, 2, 4
+    Log Line: Crop: List { 1, 2, 3, 4, 5 }, 5, 3
+
+will display:
+
+    [2, 3]
+    [5, 4]
+
+Because strings and lists are more or less interchangable in Kaeon FUSION,
+the standard interface provides the String to List command and the List to String command for converting between lists and strings.
+
+For example, running:
+
+    Use: Standard
+    
+    Log Line: List to String: List { 1, 2, 3 }
+    Log Line: String to List: 123
+
+will display:
+
+    123
+    [1, 2, 3]
 
 _Note: In Kaeon FUSION, list indexes start at one. However, in most other languages, they start at zero._
 
