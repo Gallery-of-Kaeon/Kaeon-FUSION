@@ -99,7 +99,9 @@ the children of the passed in Element will be bypassed.
 
 Whatever this function returns will be used as an argument when processing the parent of the given element.
 
-### public Element jump(Element element, ArrayList<Object> processed)  
+### Jump
+
+    public Element jump(Element element, ArrayList<Object> processed)  
 
 If this function does not return null,
 the FUSION interpreter will jump to the returned element.
