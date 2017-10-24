@@ -64,28 +64,38 @@ Place the jar file next to the Kaeon Origin.jar file and Kaeon Origin will autom
 
 ## The FUSIONUnit Class Functions
 
-### public boolean deny(Element element)
+### Deny
+
+    public boolean deny(Element element)
 
 If this function returns true,
 the command will be bypassed entirely by all FUSION units.
 
-### public boolean verify(Element element)
+### Verify
+
+    public boolean verify(Element element)
 
 If this command returns true,
 this fusion will act on the element passed in.
 
-### public int getPriority(Element element)
+### Get Priority
+
+    public int getPriority(Element element)
 
 The position of the element passed in may change based on the integer returned by this function.
 The lower the number, the higher the priority.
 It returns zero by default.
 
-### public boolean trickleDown(Element element)
+### Trickle Down
+
+    public boolean trickleDown(Element element)
 
 If this function returns false,
 the children of the passed in Element will be bypassed.
 
-### public Object process(Element element, ArrayList<Object> processed)  
+### Process
+
+    public Object process(Element element, ArrayList<Object> processed)  
 
 Whatever this function returns will be used as an argument when processing the parent of the given element.
 
@@ -94,11 +104,15 @@ Whatever this function returns will be used as an argument when processing the p
 If this function does not return null,
 the FUSION interpreter will jump to the returned element.
 
-### public int changeDepth(Element element, ArrayList<Object> processed, int currentDepth)  
+### Change Depth
+
+    public int changeDepth(Element element, ArrayList<Object> processed, int currentDepth)  
 
 This function may modify the depth value used by the FUSION interpreter.
 It will return the currentDepth value by default.
 
-### public void handleError(Element element)
+### Handle Error
+
+    public void handleError(Element element)
 
 This function is called whenever any FUSION unit throws an exception.
