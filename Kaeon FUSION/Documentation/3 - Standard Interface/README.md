@@ -44,17 +44,15 @@ The interface is activated using the following command:
 
 [6 - List Operation Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#6---list-operation-commands)
 
-[7 - String Operation Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#7---string-operation-commands)
+[7 - File IO Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#8---file-io-commands)
 
-[8 - File IO Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#8---file-io-commands)
+[8 - Flow Control Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#9---flow-control-commands)
 
-[9 - Flow Control Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#9---flow-control-commands)
+[9 - Threading Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#10---threading-commands)
 
-[10 - Threading Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#10---threading-commands)
+[10 - Metaprogramming Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#11---metaprogramming-commands)
 
-[11 - Metaprogramming Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#11---metaprogramming-commands)
-
-[12 - Object Orientation](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#12---object-orientation)
+[11 - Object Orientation](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#12---object-orientation)
 
 ## 1 - Basics
 
@@ -641,51 +639,7 @@ will remove "2" from my list,
 resulting in my list's content being [1, 3],
 and assign "2" to x.
 
-## 7 - String Operation Commands
-
-### Length
-
-The Length command takes a string and returns its length.
-
-For example:
-
-    Length: hello
-
-will return "5".
-
-### Concatenate
-
-The Concatenate command takes multiple strings,
-concatenates them,
-and returns the concatenated string. 
-
-For example:
-
-    Length: abc, xyz, 123
-
-will return "abcxyz123".
-
-### Character
-
-The Character command takes a string and an integer and returns the character in the string at the index specified by the integer.
-
-For example:
-
-    Character: abc, 2
-
-will return "b".
-
-### Substring
-
-The Character command takes a string and two integers and returns the sequence of characters in the string from the index specified by the first integer to the index specified by the second integer.
-
-For example:
-
-    Character: hello, 3, 5
-
-will return "llo".
-
-## 8 - File IO Commands
+## 7 - File IO Commands
 
 ### Open
 
@@ -714,7 +668,7 @@ For example:
 
 will create a file called "My File.txt" with the content "hello".
 
-## 9 - Flow Control Commands
+## 8 - Flow Control Commands
 
 ### Scope
 
@@ -827,7 +781,7 @@ to the console.
 
 The Exit command will immediately stop the execution of Kaeon FUSION.
 
-## 10 - Threading Commands
+## 9 - Threading Commands
 
 ### Split
 
@@ -874,7 +828,7 @@ The wait command will take a number and pause the current thread for that many s
 
 The time command will return the value on the computer's clock in seconds.
 
-## 11 - Metaprogramming Commands
+## 10 - Metaprogramming Commands
 
 ### Execute
 
@@ -899,7 +853,7 @@ you can open up notepad with the following Kaeon FUSION code:
 
     Run: Notepad
 
-## 12 - Object Orientation
+## 11 - Object Orientation
 
 Kaeon FUSION does not support classes,
 but object orientation can be achieved by using functions as objects.
