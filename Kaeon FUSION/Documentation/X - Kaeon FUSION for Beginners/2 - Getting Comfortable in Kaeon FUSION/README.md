@@ -842,7 +842,7 @@ will display:
     [2, 3]
     [5, 4]
 
-Because strings and lists are more or less interchangable in Kaeon FUSION,
+Because strings and lists are more or less interchangeable in Kaeon FUSION,
 the standard interface provides the String to List command and the List to String command for converting between lists and strings.
 
 For example, running:
