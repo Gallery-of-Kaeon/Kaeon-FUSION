@@ -163,6 +163,11 @@ all scopes not shared by both the jumping and landing commands will be erased.
 
 Indexes for list and string operations in the Kaeon FUSION Standard Interface start at 1.
 
+### Strings as Lists
+
+Strings may be passed to List related commands,
+where they will be interpreted as lists for which each character is an element.
+
 ## 2 - Core Commands
 
 The following commands require special accommodations from the interface.
@@ -638,6 +643,47 @@ For example:
 will remove "2" from my list,
 resulting in my list's content being [1, 3],
 and assign "2" to x.
+
+### Concatenate
+
+The Concatenate command takes an indefinite number of lists and returns a single list containing each element from each list it was passed.
+If the first list it was passed was a string,
+it will return the list in the form of a string.
+
+For example:
+	
+    Log Line: Concatenate: List { a, b, c }, List { 1, 2, 3 }
+    Log Line: Concatenate: "abc", "123"
+
+will display:
+
+    [a, b, c, 1, 2, 3]
+    abc123
+
+### Crop
+
+The crop command takes a list and two numbers.
+It returns a list containing the elements in the list from the first number to the second number.
+
+For example:
+	
+    Log Line: Crop: List { 1, 2, 3, 4, 5 }, 2, 4
+    Log Line: Crop: List { 1, 2, 3, 4, 5 }, 5, 3
+
+will display:
+
+    [2, 3, 4]
+    [5, 4, 3]
+
+### List to String
+
+The List to String command takes a list and concatenates each element in the list to a string,
+which it returns.
+
+### String to List
+
+The String to List command takes a string and places each character in the string into a list,
+which it returns.
 
 ## 7 - File IO Commands
 
