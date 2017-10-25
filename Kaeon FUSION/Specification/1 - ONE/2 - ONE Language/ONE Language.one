@@ -16,8 +16,10 @@
 			-
 				The ONE language requires three unique sequences of characters to be defined: the
 				terminating sequence, the breaking sequence, and the nesting sequence. No sequence
-				may consist of an instance of one of the other sequences followed by a sequence of
-				miscellaneous characters. 
+				may be in the form of any subsequence of any sequence consisting solely of
+				instances of the other sequences placed end to end. If a given sequence is in the
+				form of another sequence followed by a miscellaneous sequence of characters, the
+				larger sequence will take priority over the smaller one.
 				
 				The ONE language is composed entirely of ONE element definitions. No characters are
 				permitted outside of element definitions.
