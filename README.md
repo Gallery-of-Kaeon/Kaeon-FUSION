@@ -33,7 +33,7 @@ and the specification for Kaeon FUSION.
 ### Direct Links
 
 Documentation: [Online](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/README.md) /
-[PDF](https://drive.google.com/open?id=0B7qYhFZP1C70OVZnQm5JM3ZYLVE)
+[PDF](https://drive.google.com/open?id=0B7qYhFZP1C70dGVfR3Iwd2ZNUGs)
 
 [Samples](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Samples)
 
@@ -57,12 +57,10 @@ As of October 21, 2017, Kaeon FUSION is in beta.
 
 Our beta implementation does not currently include implementations for any ONE+ directives.
 In addition, due to a glitch in the ONE+ parser, we recommend that only tabs be used for indentation in Kaeon FUSION code.
-Furthermore,
-documentation for the standard interface regarding list and string related commands is not up to date with the specification.
 The aforementioned issues should be resolved by mid December, 2017.
 
-We plan on releasing a more advanced version of our IDE in early 2018.
-When the newer IDE is realeased, Kaeon FUSION will be out of Beta.
+Finally,
+we plan on releasing a more advanced version of our IDE in early 2018 to make up for the current version's shortcomings.
 
 ## Contact info
 
