@@ -1,0 +1,30 @@
+#[
+
+	Use the Import command in Kaeon FUSION
+	code using the standard interface to
+	import the following function.
+
+ ]#
+
+Define: Bubble Sort
+	
+	my list: At: Arguments, 1
+
+	i { 1 } Scope
+
+		j { Add: i, 1 } Scope
+
+			a: At: my list, i
+			b: At: my list, j
+
+			Scope { Break: Less or Equal: a, b }
+				Set: my list, i, b
+				Set: my list, j, a
+			
+			j: Add: j, 1
+			Loop: Less or Equal: j, Size: my list
+
+		i: Add: i, 1
+		Loop: Less: i, Size: my list
+
+	Return: my list
