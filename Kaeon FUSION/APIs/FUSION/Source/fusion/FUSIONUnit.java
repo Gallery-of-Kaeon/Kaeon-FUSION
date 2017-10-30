@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import one.Element;
 import philosophers_stone.PhilosophersStone;
 
-public abstract class FUSIONUnit extends PhilosophersStone {
+public class FUSIONUnit extends PhilosophersStone {
 	
 	public FUSIONUnit() {
 		tags.add("FUSION Command");
