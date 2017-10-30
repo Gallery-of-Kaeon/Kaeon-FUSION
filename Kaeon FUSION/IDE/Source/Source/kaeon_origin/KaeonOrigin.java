@@ -30,6 +30,16 @@ public class KaeonOrigin {
 		else
 			originData = ONEPlus.parseONEPlus(data);
 		
+		if(ElementUtilities.hasChild(originData, "reset")) {
+			
+			ElementUtilities.removeChild(originData, "Source");
+			ElementUtilities.removeChild(originData, "Arguments");
+			ElementUtilities.removeChild(originData, "Prompt");
+			ElementUtilities.removeChild(originData, "reset");
+			
+			IO.save("" + originData, "Origin.op");
+		}
+		
 		if(args.length == 0) {
 			
 			if(ElementUtilities.hasChild(originData, "Source")) {
