@@ -769,6 +769,7 @@ public class IDE implements ActionListener {
 				if(file != null) {
 
 					String name = file.getAbsolutePath();
+					input.path = name;
 					
 					int start = name.indexOf('\\') != -1 ? name.lastIndexOf('\\') + 1 : 0;
 					int end = name.indexOf('.') != -1 ? name.lastIndexOf('.') : name.length();
