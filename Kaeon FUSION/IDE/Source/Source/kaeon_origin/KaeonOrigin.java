@@ -3,108 +3,96 @@ package kaeon_origin;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
-import javax.swing.UIManager;
-import javax.swing.UIManager.LookAndFeelInfo;
 
 import io.IO;
 import kaeon_fusion.KaeonFUSION;
 import kaeon_origin.ide.IDE;
+import kaeon_origin.utilties.Utilities;
 import one.Element;
+import one.ElementUtilities;
 import one_plus.ONEPlus;
-import philosophers_stone.PhilosophersStone;
 import philosophers_stone.PhilosophersStoneUtilities;
 
 public class KaeonOrigin {
-
+	
 	public static void main(String[] args) {
+		
+		Element originData = null;
+		String data = IO.openAsString("Origin.op");
+		
+		if(data == null) {
+			
+			originData = new Element();
+			
+			IO.save("", "Origin.op");
+		}
+		
+		else
+			originData = ONEPlus.parseONEPlus(data);
 		
 		if(args.length == 0) {
 			
-			String manifest = IO.openAsString("Manifest.op");
-			
-			if(manifest == null)
-				new IDE();
-			
-			else {
+			if(ElementUtilities.hasChild(originData, "Source")) {
+				
+				IDE.initializeLookAndFeel();
 				
 				try {
 					
-					try {
-						
-					    for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-					    	
-					        if ("Nimbus".equals(info.getName())) {
-					            UIManager.setLookAndFeel(info.getClassName());
-					            break;
-					        }
-					    }
-					}
+					String arguments = null;
 					
-					catch (Exception exception) {
-						
-					}
+					if(ElementUtilities.hasChild(originData, "Arguments"))
+						arguments = ElementUtilities.getChild(originData, "Source").children.get(0).content;
 					
-					Element manifestElement = one_plus.ONEPlus.parseONEPlus(manifest);
-					
-					Element code = ONEPlus.parseONEPlus(
-							IO.openAsString(manifestElement.children.get(0).content));
+					else if(ElementUtilities.hasChild(originData, "Prompt"))
+						arguments = JOptionPane.showInputDialog("Enter the program arguments:");
 					
 					KaeonFUSION fusion = new KaeonFUSION();
 					
-					if(manifestElement.children.size() == 1) {
-						
-						ArrayList<Object> arguments =
-								IDE.getArguments(
-										manifestElement.children.get(1).children.get(0).content);
-						
-						PhilosophersStone argumentStone = IDE.getArgumentStone(arguments);
-						PhilosophersStoneUtilities.publiclyConnect(fusion, argumentStone);
-						
-						fusion.process(code);
-					}
+					PhilosophersStoneUtilities.publiclyConnect(
+							fusion,
+							Utilities.getArgumentStone(IDE.getArguments(arguments)));
 					
-					else if(manifestElement.children.get(1).children.size() == 0) {
-						
-						ArrayList<Object> arguments =
-								IDE.getArguments(
-										JOptionPane.showInputDialog("Enter the program arguments:"));
-						
-						PhilosophersStone argumentStone = IDE.getArgumentStone(arguments);
-						PhilosophersStoneUtilities.publiclyConnect(fusion, argumentStone);
-						
-						fusion.process(code);
-					}
-					
-					else
-						fusion.process(code);
+					fusion.process(ONEPlus.parseONEPlus(
+							IO.openAsString(
+									ElementUtilities.getChild(
+											originData,
+											"Source").children.get(0).content)));
 				}
 				
 				catch(Exception exception) {
 					
 				}
 			}
+			
+			else
+				new IDE(originData);
+			
+			return;
 		}
-
-		else {
+		
+		if(args[0].equalsIgnoreCase("-reset")) {
 			
-			KaeonFUSION fusion = new KaeonFUSION();
+			ElementUtilities.removeChild(originData, "Source");
+			ElementUtilities.removeChild(originData, "Arguments");
+			ElementUtilities.removeChild(originData, "Prompt");
 			
-			try {
-				
-				ArrayList<Object> arguments = new ArrayList<Object>();
-				
-				for(int i = 1; i < args.length; i++)
-					arguments.add(args[i]);
-				
-				PhilosophersStone argumentStone = IDE.getArgumentStone(arguments);
-				PhilosophersStoneUtilities.publiclyConnect(fusion, argumentStone);
-				
-				fusion.process(ONEPlus.parseONEPlus(IO.openAsString(args[0])));
-			}
+			IO.save("" + originData, "Origin.op");
+		}
+		
+		ArrayList<Object> arguments = new ArrayList<Object>();
+		
+		for(int i = 1; i < args.length; i++)
+			arguments.add(args[i]);
+		
+		KaeonFUSION fusion = new KaeonFUSION();
+		PhilosophersStoneUtilities.publiclyConnect(fusion, Utilities.getArgumentStone(arguments));
+		
+		try {
+			fusion.process(ONEPlus.parseONEPlus(IO.openAsString(args[0])));
+		}
+		
+		catch(Exception exception) {
 			
-			catch(Exception exception) {
-				
-			}
 		}
 	}
 }
