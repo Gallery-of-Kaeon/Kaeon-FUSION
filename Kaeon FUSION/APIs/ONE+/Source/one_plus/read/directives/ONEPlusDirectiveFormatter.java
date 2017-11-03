@@ -9,10 +9,18 @@ import one_plus.read.ONEPlusElement;
 public class ONEPlusDirectiveFormatter {
 	
 	@SuppressWarnings("unchecked")
-	public static void formatDirectives(ONEPlusElement element) {
+	public static void formatDirectives(
+			ONEPlusElement element,
+			ArrayList<Directive> directives,
+			ArrayList<Element> directiveElements) {
 		
-		ArrayList<Directive> directives = new ArrayList<Directive>();
-		ArrayList<Element> directiveElements = getDirectiveElements(element);
+		ArrayList<Directive> localDirectives = new ArrayList<Directive>();
+		
+		if(directives != null)
+			localDirectives.addAll(directives);
+		
+		if(directiveElements == null)
+			directiveElements = getDirectiveElements(element);
 		
 		for(int i = 0; i < element.children.size(); i++) {
 			
@@ -44,7 +52,7 @@ public class ONEPlusDirectiveFormatter {
 						for(Object object : module) {
 							
 							if(object instanceof Directive)
-								directives.add((Directive) object);
+								localDirectives.add((Directive) object);
 						}
 					}
 				}
@@ -53,21 +61,25 @@ public class ONEPlusDirectiveFormatter {
 		
 		for(int i = 0; i < element.children.size(); i++) {
 			
-			formatDirectives(((ONEPlusElement) element.getElement(i)));
+			ONEPlusElement directiveElement = (ONEPlusElement) element.children.get(i);
 			
-			String definition =
-					((ONEPlusElement) element.getElement(i)).getDefinition();
+			String definition = directiveElement.getDefinition();
+			String content = directiveElement.content;
+			
+			if(definition.equals("DIRECTIVE") && content.equalsIgnoreCase("USE")) {
+				
+				element.children.remove(i);
+				i--;
+				
+				continue;
+			}
+			
+			formatDirectives(directiveElement, localDirectives, directiveElements);
 			
 			if(definition.equals("DIRECTIVE")) {
 				
-				ONEPlusElement directiveElement = (ONEPlusElement) element.children.get(i);
-				String content = directiveElement.content;
-				
-				if(!content.equalsIgnoreCase("USE")) {
-					
-					for(Directive directive : directives)
-						directive.apply(directiveElements, directiveElement);
-				}
+				for(Directive directive : localDirectives)
+					directive.apply(directiveElements, directiveElement);
 				
 				element.children.remove(i);
 				i--;

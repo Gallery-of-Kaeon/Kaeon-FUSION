@@ -34,7 +34,7 @@ public class ONEPlus {
 		ONEPlusElement element = new ONEPlusElement();
 		
 		ONEPlusReader.readONEPlus(element, format(onePlus));
-		ONEPlusDirectiveFormatter.formatDirectives(element);
+		ONEPlusDirectiveFormatter.formatDirectives(element, null, null);
 		
 		return element;
 	}
