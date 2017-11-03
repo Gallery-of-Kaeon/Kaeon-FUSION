@@ -2,7 +2,7 @@ package one_plus.read.directives;
 
 import java.util.ArrayList;
 
-import aether_ONE_Plus.Aether;
+import aether_one_plus.Aether;
 import one.Element;
 import one_plus.read.ONEPlusElement;
 
@@ -12,6 +12,7 @@ public class ONEPlusDirectiveFormatter {
 	public static void formatDirectives(ONEPlusElement element) {
 		
 		ArrayList<Directive> directives = new ArrayList<Directive>();
+		ArrayList<Element> directiveElements = getDirectiveElements(element);
 		
 		for(int i = 0; i < element.children.size(); i++) {
 			
@@ -47,19 +48,48 @@ public class ONEPlusDirectiveFormatter {
 						}
 					}
 				}
+			}
+		}
+		
+		for(int i = 0; i < element.children.size(); i++) {
+			
+			formatDirectives(((ONEPlusElement) element.getElement(i)));
+			
+			String definition =
+					((ONEPlusElement) element.getElement(i)).getDefinition();
+			
+			if(definition.equals("DIRECTIVE")) {
 				
-				else {
+				ONEPlusElement directiveElement = (ONEPlusElement) element.children.get(i);
+				String content = directiveElement.content;
+				
+				if(!content.equalsIgnoreCase("USE")) {
 					
 					for(Directive directive : directives)
-						directive.apply(directiveElement);
+						directive.apply(directiveElements, directiveElement);
 				}
 				
 				element.children.remove(i);
 				i--;
 			}
-			
-			else
-				formatDirectives(((ONEPlusElement) element.getElement(i)));
 		}
+	}
+	
+	public static ArrayList<Element> getDirectiveElements(ONEPlusElement element) {
+		
+		ArrayList<Element> directiveElements = new ArrayList<Element>();
+		
+		for(Element child : element.children) {
+			
+			String definition = ((ONEPlusElement) child).getDefinition();
+			
+			if(definition.equalsIgnoreCase("DIRECTIVE"))
+				directiveElements.add(child);
+		}
+		
+		for(Element child : element.children)
+			directiveElements.addAll(getDirectiveElements((ONEPlusElement) child));
+		
+		return directiveElements;
 	}
 }

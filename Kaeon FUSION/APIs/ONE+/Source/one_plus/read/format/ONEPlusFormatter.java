@@ -110,7 +110,7 @@ public class ONEPlusFormatter {
 				continue;
 			
 			if(
-					character == ':' || character == '|' || character == ',' || character == ';' ||
+					character == ':' || character == ',' || character == ';' ||
 					character == '{' || character == '}' ||
 					character == '(' || character == ')' ||
 					character == '[' || character == ']') {

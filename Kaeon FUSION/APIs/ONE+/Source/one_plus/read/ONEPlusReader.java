@@ -23,10 +23,10 @@ public class ONEPlusReader {
 		
 		if(!definition.equals("-")) {
 			
-			element.setLineNumber(Integer.parseInt(definition.substring(0, definition.indexOf(' '))));
+			element.setLineNumber(Integer.parseInt(definition.trim().substring(0, definition.indexOf(' '))));
 			definition = definition.substring(definition.indexOf(' ') + 1);
 			
-			element.setElementNumber(Integer.parseInt(definition.substring(0, definition.indexOf(' '))));
+			element.setElementNumber(Integer.parseInt(definition.trim().substring(0, definition.indexOf(' '))));
 			definition = definition.substring(definition.indexOf(' ') + 1);
 			
 			element.setDefinition(definition);

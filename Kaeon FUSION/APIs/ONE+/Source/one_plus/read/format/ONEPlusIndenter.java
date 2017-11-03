@@ -36,6 +36,9 @@ public class ONEPlusIndenter {
 		int indents = 0;
 		int index = 0;
 		
+		if(line.length() < indent.length())
+			return 0;
+		
 		while(line.substring(index, index + indent.length()).equals(indent)) {
 			
 			indents++;
