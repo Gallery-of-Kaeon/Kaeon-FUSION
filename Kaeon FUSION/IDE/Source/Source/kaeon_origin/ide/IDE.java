@@ -146,7 +146,7 @@ public class IDE implements ActionListener {
 
 		JPanel io = new JPanel();
 		JPanel file = new JPanel();
-
+		
 		manage.add(io);
 		manage.add(file);
 
@@ -205,7 +205,7 @@ public class IDE implements ActionListener {
 
 		this.output = output;
 	}
-
+	
 	public void initializeWorkPanel(JPanel workPanel) {
 
 		workPanel.setLayout(new GridLayout(2, 1));
@@ -455,21 +455,24 @@ public class IDE implements ActionListener {
 
 			new Thread(
 
-					new Runnable() {
+				new Runnable() {
 
-						public void run() {
+					public void run() {
 
-							try {
-								fusion.process(ONEPlus.parseONEPlus(currentInput.text.getText()));
-							}
+						try {
+							fusion.process(ONEPlus.parseONEPlus(currentInput.text.getText()));
+						}
 
-							catch(Exception exception) {
-								output.text.setForeground(Color.RED);
-								output.text.setText("There was an error.");
-							}
+						catch(Exception exception) {
+							
+							output.text.setForeground(Color.RED);
+							output.text.setText("There was an error.");
+							
+							exception.printStackTrace();
 						}
 					}
-					).start();
+				}
+			).start();
 		}
 
 		if(command.equals("Clear")) {
@@ -747,6 +750,10 @@ public class IDE implements ActionListener {
 				
 				System.exit(0);
 			}
+		}
+
+		if(command.equals("Update")) {
+			// STUB
 		}
 
 		frame.repaint();
