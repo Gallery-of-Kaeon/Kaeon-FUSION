@@ -57,9 +57,9 @@ As of October 21, 2017,
 Kaeon FUSION is in beta.
 
 As of November 5, 2017,
-the Kaeon Origin IDE automatically notifies the user when updates are available and offers them the option to have them installed automatically.
+the Kaeon Origin IDE automatically notifies the user when updates are available and offers them the option to have the updates installed automatically.
 If you downloaded Kaeon Origin prior to November 5, 2017,
-it is recommended that you re-download it.
+we recommended that you re-download it.
 
 Our beta implementation does not currently include implementations for any ONE+ directives.
 In addition, due to a glitch in the ONE+ parser, we recommend that only tabs be used for indentation in Kaeon FUSION code.
