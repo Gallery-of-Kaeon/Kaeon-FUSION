@@ -53,7 +53,13 @@ It is important to note that the contents of this repository are aimed at those 
 If you're a newcomer to programming in general,
 we recommend you check out our [Kaeon FUSION for Beginners](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/README.md) resource.
 
-As of October 21, 2017, Kaeon FUSION is in beta.
+As of October 21, 2017,
+Kaeon FUSION is in beta.
+
+As of November 5, 2017,
+the Kaeon Origin IDE automatically notifies the user when updates are available and offers them the option to have them installed automatically.
+If you downloaded Kaeon Origin prior to November 5, 2017,
+it is recommended that you re-download it.
 
 Our beta implementation does not currently include implementations for any ONE+ directives.
 In addition, due to a glitch in the ONE+ parser, we recommend that only tabs be used for indentation in Kaeon FUSION code.
