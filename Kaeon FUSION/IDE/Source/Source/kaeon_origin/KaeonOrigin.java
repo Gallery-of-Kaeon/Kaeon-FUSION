@@ -138,7 +138,7 @@ public class KaeonOrigin {
 							"java -jar " +
 							"\"Updater.jar\" " +
 							"\"" + updatePath + "\" " +
-							"-c \"java -jar \"\"Kaeon Origin.jar\"\"\"");
+							"command \"java -jar \"\"Kaeon Origin.jar\"\"\"");
 					
 					System.exit(0);
 				}

@@ -21,14 +21,14 @@ public class Updater {
 		
 		for(int i = 1; i < args.length; i++) {
 			
-			if(args[i].equalsIgnoreCase("-p")) {
+			if(args[i].equalsIgnoreCase("path")) {
 				
 				mode = 1;
 				
 				continue;
 			}
 			
-			if(args[i].equalsIgnoreCase("-c")) {
+			if(args[i].equalsIgnoreCase("command")) {
 				
 				mode = 2;
 				
