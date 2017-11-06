@@ -134,7 +134,11 @@ public class KaeonOrigin {
 				
 				try {
 					
-					Runtime.getRuntime().exec("java -jar \"Updater.jar\" \"" + updatePath + "\"");
+					Runtime.getRuntime().exec(
+							"java -jar " +
+							"\"Updater.jar\" " +
+							"\"" + updatePath + "\" " +
+							"-c \"java -jar \"\"Kaeon Origin.jar\"\"\"");
 					
 					System.exit(0);
 				}

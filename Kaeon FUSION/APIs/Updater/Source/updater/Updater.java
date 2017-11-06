@@ -15,13 +15,47 @@ public class Updater {
 		Element update = ONEPlus.parseONEPlus(IO.openAsString(args[0]));
 		
 		ArrayList<String> paths = new ArrayList<String>();
+		ArrayList<String> commands = new ArrayList<String>();
 		
-		for(int i = 1; i < args.length; i++)
-			paths.add(args[i]);
+		int mode = 0;
+		
+		for(int i = 1; i < args.length; i++) {
+			
+			if(args[i].equalsIgnoreCase("-p")) {
+				
+				mode = 1;
+				
+				continue;
+			}
+			
+			if(args[i].equalsIgnoreCase("-c")) {
+				
+				mode = 2;
+				
+				continue;
+			}
+			
+			if(mode == 1)
+				paths.add(args[i]);
+			
+			if(mode == 2)
+				commands.add(args[i]);
+		}
 		
 		Element previousUpdates = Updater.getPreviousUpdates();
 		
 		update(update, paths, previousUpdates);
+		
+		for(String command : commands) {
+			
+			try {
+				Runtime.getRuntime().exec(command);
+			}
+			
+			catch(Exception exception) {
+				
+			}
+		}
 	}
 	
 	public static Element getPreviousUpdates() {
