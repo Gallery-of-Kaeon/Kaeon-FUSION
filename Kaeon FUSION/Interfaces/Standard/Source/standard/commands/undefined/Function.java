@@ -48,20 +48,9 @@ public class Function extends FUSIONUnit {
 		
 		FUSION functionFUSION = FUSIONUtilities.copy(fusion);
 		
-		for(int i = 0; i < functionFUSION.publicConnections.size(); i++) {
-			
-			PhilosophersStone stone = functionFUSION.publicConnections.get(i);
-			
-			if(PhilosophersStoneUtilities.isTagged(stone, "State") ||
-					PhilosophersStoneUtilities.isTagged(stone, "Arguments")) {
-				
-				PhilosophersStoneUtilities.disconnectMutually(functionFUSION, stone);
-			}
-		}
+		ArrayList<PhilosophersStone> atlas = PhilosophersStoneUtilities.getAtlas(functionFUSION);
 		
-		for(int i = 0; i < functionFUSION.privateConnections.size(); i++) {
-			
-			PhilosophersStone stone = functionFUSION.privateConnections.get(i);
+		for(PhilosophersStone stone : atlas) {
 			
 			if(PhilosophersStoneUtilities.isTagged(stone, "State") ||
 					PhilosophersStoneUtilities.isTagged(stone, "Arguments")) {
