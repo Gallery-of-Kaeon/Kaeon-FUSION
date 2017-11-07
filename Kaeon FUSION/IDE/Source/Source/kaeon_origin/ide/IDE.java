@@ -392,6 +392,7 @@ public class IDE implements ActionListener {
 			output.text = new JTextArea();
 			output.text.setEditable(false);
 			output.text.setFont(new Font(Font.MONOSPACED, Font.BOLD, scale(14)));
+			output.text.setTabSize(4);
 
 			output.pane = new JScrollPane(output.text);
 
@@ -544,6 +545,7 @@ public class IDE implements ActionListener {
 			text.setBackground(new Color(200, 220, 255));
 			text.setFont(new Font(Font.MONOSPACED, Font.BOLD, scale(14)));
 			text.setEditable(false);
+			text.setTabSize(4);
 
 			try {
 				text.setText("" + ONEPlus.parseONEPlus(currentInput.text.getText()));
@@ -750,10 +752,6 @@ public class IDE implements ActionListener {
 				
 				System.exit(0);
 			}
-		}
-
-		if(command.equals("Update")) {
-			// STUB
 		}
 
 		frame.repaint();
