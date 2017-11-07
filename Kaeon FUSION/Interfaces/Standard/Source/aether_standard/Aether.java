@@ -51,6 +51,7 @@ import standard.commands.logic.Equal;
 import standard.commands.logic.ExclusiveOr;
 import standard.commands.logic.Greater;
 import standard.commands.logic.GreaterOrEqual;
+import standard.commands.logic.Is;
 import standard.commands.logic.Less;
 import standard.commands.logic.LessOrEqual;
 import standard.commands.logic.Not;
@@ -61,6 +62,8 @@ import standard.commands.math.Modulus;
 import standard.commands.math.Multiply;
 import standard.commands.math.Random;
 import standard.commands.math.Subtract;
+import standard.commands.string.CharacterToNumber;
+import standard.commands.string.NumberToCharacter;
 import standard.commands.system.Time;
 import standard.commands.undefined.Function;
 import standard.commands.undefined.Literal;
@@ -138,6 +141,7 @@ public class Aether {
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new ExclusiveOr());
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Greater());
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new GreaterOrEqual());
+		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Is());
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Less());
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new LessOrEqual());
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Not());
@@ -149,6 +153,10 @@ public class Aether {
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Multiply());
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Random());
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Subtract());
+		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Greater());
+
+		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new CharacterToNumber());
+		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new NumberToCharacter());
 		
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Time());
 		

@@ -17,7 +17,7 @@ public class In extends FUSIONUnit {
 	public FUSION fusion;
 	public State state;
 	
-	Element marked;
+	public Element marked;
 	
 	public In() {
 		tags.add("Standard");

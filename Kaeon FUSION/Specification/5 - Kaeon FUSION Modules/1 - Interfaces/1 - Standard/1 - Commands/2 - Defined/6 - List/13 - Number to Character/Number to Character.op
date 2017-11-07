@@ -1,0 +1,10 @@
+Number to Character
+	
+	Philosophy
+		
+		-
+			The number to character command contains the content "Number to Character". It has one
+			child that returns a positive integer number.
+			
+			It will return the character that corresponds to the ASCII value of the number.
+		-

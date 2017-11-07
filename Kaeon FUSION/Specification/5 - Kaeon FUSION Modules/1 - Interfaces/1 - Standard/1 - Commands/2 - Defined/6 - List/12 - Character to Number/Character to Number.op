@@ -1,0 +1,10 @@
+Character to Number
+	
+	Philosophy
+		
+		-
+			The character to number command contains the content "Character to Number". It has one
+			child that returns a string.
+			
+			It will return the ASCII value of the first character in the string.
+		-

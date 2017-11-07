@@ -5,6 +5,6 @@ Is
 		-
 			The is command contains the content "Is". It has two children.
 			
-			It will true if the objects returned by both of its children are the same object, and
+			It will true if the objects returned by all of its children are the same object, and
 			false otherwise.
 		-
