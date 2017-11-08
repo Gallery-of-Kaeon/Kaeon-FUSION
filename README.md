@@ -91,7 +91,7 @@ We've provided a simple IDE called [Kaeon Origin](https://github.com/Gallery-of-
 Kaeon FUSION is not a monolithic system.
 
 Kaeon FUSION code is encoded into documents using the [ONE](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/1%20-%20ONE/README.md) format,
-which allows any tree of strings to be defined.
+which allows any abstract syntax tree to be defined.
 
 [ONE+](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/README.md) is a system of mnemonics that make it easier to write ONE documents by hand.
 
@@ -100,11 +100,11 @@ which allows any ONE document to serve as code.
 
 ### What's the difference between an interface and a library?
 
+An interface is a module for the Kaeon FUSION interpreter that alters the properties of the language at runtime,
+doing anything from adding new commands to adding new back end properties.
+
 In the context of Kaeon FUSION,
-a library is a set of functions written in Kaeon FUSION that can be shared across Kaeon FUSION files.
-An interface is a set of Kaeon FUSION commands not present in the default Kaeon FUSION language, but can be added in at runtime.
-They are written in the same language as the interpreter,
-and therefore for our implementation they are written in Java.
+a library is a set of functions written for the Kaeon FUSION standard interface that can be shared across Kaeon FUSION files.
 
 ### Can I write my own interfaces?
 
@@ -113,7 +113,6 @@ Yes, third parties can write their own Kaeon FUSION interfaces using our [Kaeon 
 ### Isn't the control flow of Kaeon FUSION similar to LISP? How is Kaeon FUSION different from LISP?
 
 The main differences between Kaeon FUSION and LISP are that Kaeon FUSION uses doubly linked trees instead of singly linked lists,
-boasts a far nicer syntax,
 and has its functionality distributed across interchangeable modules instead of being inherent to a specific dialect.
 
 ### Why would you create a language that does everything? Normal developers get by fine without such a thing.
@@ -124,7 +123,7 @@ is a worthy goal in and of itself.
 
 ### I'm already comfortable with a certain set of tools. Why should I learn Kaeon FUSION? What is its niche?
 
-Because Kaeon FUSION can incorporate any functionality,
+Because Kaeon FUSION can incorporate new functionality as needed,
 it can be relied on when other toolsets fall short.
 
 These properties make Kaeon FUSION extremely useful for rapid prototyping,
