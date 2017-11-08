@@ -3,7 +3,7 @@
     Use: Standard; Log Line: Open: Pitch.txt
 
 In computer programming,
-it is a commonly held belief that it is inherently necessary to use multiple tools to cover the vast array of tasks a large project entails.
+it is a commonly held belief that it is inherently necessary to use multiple tools to cover the vast array of tasks that software engineering entails.
 However,
 we disagree with this sentiment.
 
@@ -12,8 +12,8 @@ ever-growing scale of the toolset required by software developers is a burden th
 To free developers from the bondage of incomplete tools,
 we have created Kaeon FUSION:
 the first ever universal programming language.
-In other words,
-it works effectively for all software development tasks.
+What this means,
+is that any software project can be done entirely in Kaeon FUSION.
 
 Kaeon FUSION achieves its claim through its syntax which allows any hierarchy of data to function as code and through its unique ability to increase what it's capable of as it runs.
 At the same time,
@@ -72,7 +72,7 @@ Some features of the IDE may malfunction on Unix based operating systems includi
 We will resolve these issues as soon as we can.
 
 Finally,
-we plan on releasing a more advanced version of our IDE in early 2018 to make up for the current version's shortcomings.
+we plan on releasing a more advanced version of our IDE by early 2018 to make up for the current version's shortcomings.
 
 ## Contact info
 
@@ -84,11 +84,7 @@ kaeon.ace@gmail.com
 
 ### How can I try it out?
 
-Implement it yourself.
-
-Just kidding, we've provided a simple IDE called [Kaeon Origin](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/IDE/README.md) to get you started.
-
-Now get coding!
+We've provided a simple IDE called [Kaeon Origin](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/IDE/README.md) to get you started.
 
 ### The documentation describes four different things: ONE, ONE+, FUSION, and Kaeon FUSION. What's that about?
 
@@ -120,26 +116,19 @@ The main differences between Kaeon FUSION and LISP are that Kaeon FUSION uses do
 boasts a far nicer syntax,
 and has its functionality distributed across interchangeable modules instead of being inherent to a specific dialect.
 
-### You say this language can theoretically do anything?
+### Why would you create a language that does everything? Normal developers get by fine without such a thing.
 
-Kaeon FUSION can expand its functionality at runtime through modular interfaces.
-Interfaces can add new commands and provide access to back end systems.
-Some interfaces allow you to cross compile ONE markup nested within function definitions into other languages,
-allowing for any sort of software development using one syntax and one environment.
-At the moment, the available interfaces allow for the generation of C,
-HTML,
-CSS,
-JavaScript,
-PHP,
-and SQL source code.
-Due to the modular nature of the Kaeon FUSION,
-there is no limit to what sort functionality can be implemented through interfaces.
-What's available now is only the tip of the iceberg.
+We would like to think that the prospect of a language that can do anything,
+the proverbial "golden hammer",
+is a worthy goal in and of itself.
 
 ### I'm already comfortable with a certain set of tools. Why should I learn Kaeon FUSION? What is its niche?
 
-The best way to summarize Kaeon FUSION's niche is that if one suddenly finds themselves requiring functionality their current tools don't support,
-they can integrate Kaeon FUSION into their toolset to provide whatever they lack.
+Because Kaeon FUSION can incorporate any functionality,
+it can be relied on when other toolsets fall short.
+
+These properties make Kaeon FUSION extremely useful for rapid prototyping,
+and for projects with constantly changing specifications or constantly increasing scope.
 
 In addition,
 Kaeon FUSION serves as a solid foundation for creating domain specific languages,
@@ -150,7 +139,7 @@ whereas LISP DSLs must be used separately.
 
 ### Is Kaeon FUSION bound to the JVM?
 
-We wrote our implementation of Kaeon FUSION in Java because we saw java as the most effective way to quickly and efficiently get it off the ground.
+We wrote our implementation of Kaeon FUSION in Java because we saw Java as the most effective way to quickly and efficiently get it off the ground.
 However,
 an implementation of Kaeon FUSION can be written in any language and for any platform,
 as long as it conforms to the rules laid out in the specification.
