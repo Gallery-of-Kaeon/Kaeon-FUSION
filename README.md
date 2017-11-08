@@ -1,9 +1,11 @@
 # Kaeon FUSION
 
+## The First Ever Universal Programming Language
+
     Use: Standard; Log Line: Open: Pitch.txt
 
-In computer programming,
-it is a commonly held belief that it is inherently necessary to use multiple tools to cover the vast array of tasks that software engineering entails.
+In software engineering,
+it is a commonly held belief that it is inherently necessary to use multiple tools to cover the vast array of tasks that the discipline entails.
 However,
 we disagree with this sentiment.
 
