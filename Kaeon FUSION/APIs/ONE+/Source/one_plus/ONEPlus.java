@@ -3,43 +3,20 @@ package one_plus;
 import java.util.ArrayList;
 
 import one.Element;
-import one_plus.read.ONEPlusElement;
-import one_plus.read.ONEPlusReader;
-import one_plus.read.directives.ONEPlusDirectiveFormatter;
-import one_plus.read.format.ONEPlusFormatter;
+import one_plus.parse.Preprocessor;
+import one_plus.parse.Processor;
+import one_plus.parse.TokenGenerator;
+import one_plus.parse.Tokenizer;
 
 public class ONEPlus {
 	
-	public static Element parseONEPlus(String onePlus) {
+	public static Element parseONEPlus(String string) {
 		
-		ArrayList<String> onePlusList = new ArrayList<String>();
-		String currentString = "";
+		ArrayList<String> tokens = TokenGenerator.getTokens(string);
+		ArrayList<String> tokenize = Tokenizer.tokenize(tokens, string);
 		
-		for(int i = 0; i < onePlus.length(); i++) {
-			
-			if(onePlus.charAt(i) != '\n')
-				currentString += onePlus.charAt(i);
-			
-			if(onePlus.charAt(i) == '\n' || i == onePlus.length() - 1) {
-				onePlusList.add(currentString);
-				currentString = "";
-			}
-		}
+		String nestToken = TokenGenerator.getIndentToken(string);
 		
-		return parseONEPlus(onePlusList);
-	}
-	
-	public static Element parseONEPlus(ArrayList<String> onePlus) {
-		
-		ONEPlusElement element = new ONEPlusElement();
-		
-		ONEPlusReader.readONEPlus(element, format(onePlus));
-		ONEPlusDirectiveFormatter.formatDirectives(element, null, null);
-		
-		return element;
-	}
-	
-	private static ArrayList<String> format(ArrayList<String> file) {
-		return ONEPlusFormatter.formatONEPlus(file);
+		return Processor.process(tokens, Preprocessor.preprocess(tokens, tokenize, nestToken), nestToken);
 	}
 }
