@@ -64,9 +64,6 @@ If you downloaded Kaeon Origin prior to November 5, 2017,
 we recommend that you re-download it.
 
 Our beta implementation does not currently include implementations for any ONE+ directives.
-In addition, due to a glitch in the ONE+ parser, we recommend that only tabs be used for indentation in Kaeon FUSION code.
-The aforementioned issues should be resolved by mid December, 2017.
-
 It should also be noted that the Kaeon Origin IDE was developed and tested on a windows computer.
 To be specific:
 a Lenovo IdeaPad P500 laptop.
