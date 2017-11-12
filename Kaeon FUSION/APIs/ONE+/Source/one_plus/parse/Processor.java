@@ -315,6 +315,17 @@ public class Processor {
 			}
 		}
 		
+		for(int i = 0; i < newLine.size() - 1; i++) {
+			
+			if(!Tokenizer.isToken(tokens, newLine.get(i)) &&
+					!Tokenizer.isToken(tokens, newLine.get(i + 1))) {
+				
+				newLine.set(i, newLine.get(i) + newLine.remove(i + 1));
+				
+				i--;
+			}
+		}
+		
 		return newLine;
 	}
 }
