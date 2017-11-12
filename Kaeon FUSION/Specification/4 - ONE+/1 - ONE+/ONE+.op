@@ -18,7 +18,9 @@ ONE+
 				the close directive sequence, the escape sequence, the escape scope sequence, the
 				encoded escape scope sequence, the alternate breaking sequence, the alternate
 				nesting sequence, the comment sequence, the open comment sequence, the close
-				comment sequence, and the blank sequence.
+				comment sequence, and the blank sequence. It is not permitted for the sequences to
+				be defined such that there may be any instances where two or more sequences
+				conflict at a given location.
 				
 				In ONE+, it is possible to have more than one character sequence for each defined
 				sequence.

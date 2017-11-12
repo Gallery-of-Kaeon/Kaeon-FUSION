@@ -7,13 +7,30 @@ Standard ONE+ Language
 			the required sequences of the ONE+ language.
 			
 			The standard variant of the ONE+ language also uses the same sequences of characters as
-			the standard variant of the ONE language for the terminating, breaking, and nesting
-			sequences.
+			the standard variant of the ONE language for the terminating and breaking sequences.
 		-
 	
 	Principles
 		
 		Standard Sequences
+			
+			Nesting Sequence
+				
+				-
+					The nesting sequence will be defined by the nest definition line. The nest
+					definition line is the first line in the document to have a length greater than
+					zero and to begin with either a tab or a space but not to consist solely of
+					tabs and spaces.
+					
+					If no line in the document satisfies the requirements of the nest definition
+					line, the nesting sequence will be a tab.
+					
+					If the nest definition line exists, the nesting sequence will be defined as a
+					string containing the first character in the nest definition line. For every
+					character nest definition line from the second character, inclusive, to the
+					first character that does not match the first character in the nest definition
+					line, exclusive, said character will be appended to the nesting sequence.
+				-
 		
 			Segregating Sequence
 			
