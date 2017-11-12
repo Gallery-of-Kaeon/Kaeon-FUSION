@@ -27,7 +27,7 @@ public class Preprocessor {
 					inLiteralBlock = -1;
 			}
 			
-			else if(isBlankLine(line)) {
+			else if(isBlankLine(line) && inLiteralBlock == -1) {
 				
 				i += shift;
 				
