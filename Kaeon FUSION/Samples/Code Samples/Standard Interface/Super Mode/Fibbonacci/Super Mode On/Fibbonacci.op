@@ -1,6 +1,4 @@
-[SUPER]
-
-Use: Standard
+[USE: SUPER] [SUPER]
 
 a = 0
 b = 1

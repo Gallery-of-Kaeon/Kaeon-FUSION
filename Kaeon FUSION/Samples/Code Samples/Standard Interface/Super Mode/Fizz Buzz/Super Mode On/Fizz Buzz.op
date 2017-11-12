@@ -1,6 +1,4 @@
-[SUPER]
-
-Use: Standard
+[USE: SUPER] [SUPER]
 
 limit = Input: "Enter a number: "
 
