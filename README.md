@@ -56,7 +56,7 @@ If you're a newcomer to programming in general,
 we recommend you check out our [Kaeon FUSION for Beginners](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/README.md) resource.
 
 As of Novemeber 13, 2017,
-Kaeon FUSION's implementation is stable.
+the implementations for Kaeon FUSION and its standard interface are stable.
 However,
 the Kaeon Origin IDE,
 several directives,
