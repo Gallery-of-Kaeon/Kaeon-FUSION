@@ -63,9 +63,6 @@ public class Break extends FUSIONUnit {
 	
 	public int changeDepth(Element element, ArrayList<Object> processed, int currentDepth) {
 		
-		if(element.parent.parent == null)
-			return -1;
-		
 		boolean condition = true;
 		
 		if(processed.size() > 0)
@@ -91,6 +88,8 @@ public class Break extends FUSIONUnit {
 				
 				return depth;
 			}
+			
+			return -1;
 		}
 		
 		return currentDepth;
