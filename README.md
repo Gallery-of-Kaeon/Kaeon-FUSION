@@ -55,8 +55,12 @@ It is important to note that the contents of this repository are aimed at those 
 If you're a newcomer to programming in general,
 we recommend you check out our [Kaeon FUSION for Beginners](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/README.md) resource.
 
-As of October 21, 2017,
-Kaeon FUSION is in beta.
+As of Novemeber 13, 2017,
+Kaeon FUSION's implementation is stable.
+However,
+the Kaeon Origin IDE,
+several directives,
+as well as the web and machine interfaces are still in beta.
 
 As of November 5, 2017,
 the Kaeon Origin IDE automatically notifies the user when updates are available and offers them the option to have the updates installed automatically.
@@ -137,7 +141,7 @@ whereas LISP DSLs must be used separately.
 
 ### Is Kaeon FUSION bound to the JVM?
 
-We wrote our implementation of Kaeon FUSION in Java because we saw Java as the most effective way to quickly and efficiently get it off the ground.
+We wrote our implementation of Kaeon FUSION in Java because we saw Java as the most effective way to quickly and efficiently get the project off the ground.
 However,
 an implementation of Kaeon FUSION can be written in any language and for any platform,
 as long as it conforms to the rules laid out in the specification.
@@ -145,24 +149,23 @@ as long as it conforms to the rules laid out in the specification.
 ### How often will Kaeon FUSION be updated?
 
 At the time of writing,
-Kaeon FUSION has officially been in development for about seven months,
-and was built upon things that were in development for about one year before the project began.
+Kaeon FUSION has officially been in development for about ten months,
+and was built upon things that were in development for around one year before the project began.
 You should expect to see several minor updates per month,
 with major updates occurring between once per month and once every three months.
 
 ### What should I expect to see in the next major updates?
 
 At the time of writing,
-our main focus is on optimizing the performance of scripts written using the standard interface and on polishing the web development and machine code interfaces.
-We also intend to redevelop our IDE with a far more sophisticated UI.
+our main focus is on stabilizing the specification and our implementations for the standard ONE+ directives,
+super mode, and the web and machine interfaces,
+as well as improving the quality of the Kaeon FUSION IDE.
 
 ### I would like to use Kaeon FUSION in a commercial project. Who do I make the check out to?
 
 Kaeon FUSION is licensed under the [Apache License 2.0](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/LICENSE.md).
-For all intents and purposes,
-the contents of this repository are basically public domain,
-and you are free to do as you please with it,
-no strings attached.
+Therefore,
+the contents of this repository are free for everyone to use and make modifications to.
 
 ### How do you pronounce "Kaeon"?
 
