@@ -17,10 +17,13 @@ public class Multiply extends FUSIONUnit {
 	
 	public Object process(Element element, ArrayList<Object> processed) {
 		
-		double result = 0;
+		if(processed.size() == 0)
+			return 0;
 		
-		for(Object object : processed)
-			result *= Double.parseDouble("" + object);
+		double result = Double.parseDouble("" + processed.get(0));
+		
+		for(int i = 1; i < processed.size(); i++)
+			result *= Double.parseDouble("" + processed.get(i));
 		
 		return result % 1 != 0 ? result : "" + (int) result;
 	}
