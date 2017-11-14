@@ -39,22 +39,22 @@ public class Break extends FUSIONUnit {
 		
 		if(condition) {
 			
-			Element current = element;
+			Element current = element.parent;
 			
-			while(current.parent.parent != null) {
+			while(current.parent != null) {
 				
 				state.pop();
 				
-				int parentIndex = ElementUtilities.getIndex(current.parent);
+				int parentIndex = ElementUtilities.getIndex(current);
 				
-				if(parentIndex == current.parent.parent.children.size() - 1) {
+				if(parentIndex == current.parent.children.size() - 1) {
 					
 					current = current.parent;
 					
 					continue;
 				}
 				
-				return element.parent.parent.children.get(parentIndex + 1);
+				return current.parent.children.get(parentIndex + 1);
 			}
 		}
 		
@@ -70,16 +70,16 @@ public class Break extends FUSIONUnit {
 		
 		if(condition) {
 			
-			Element current = element;
+			Element current = element.parent;
 			int depth = currentDepth;
 			
-			while(current.parent.parent != null) {
+			while(current.parent != null) {
 				
 				depth--;
 				
-				int parentIndex = ElementUtilities.getIndex(current.parent);
+				int parentIndex = ElementUtilities.getIndex(current);
 				
-				if(parentIndex == current.parent.parent.children.size() - 1) {
+				if(parentIndex == current.parent.children.size() - 1) {
 					
 					current = current.parent;
 					
