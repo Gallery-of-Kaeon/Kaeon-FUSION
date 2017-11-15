@@ -130,7 +130,7 @@ However,
 software must do more than compute data.
 It is often the case that specialty languages are required for templating content as is the case with HTML and CSS,
 and in certain cases developers require languages to support certain paradigms and frameworks in order to produce content for certain platforms.
-Due to Kaeon FUSION's ability to take on new functionality through interfaces and to support ONE based DSLs,
+Due to Kaeon FUSION's ability to take on new functionality through interfaces and to support ONE based DSLs that can be cross complied to other languages,
 it is able to meet these requirements in addition to being turing complete.
 
 ### I'm already comfortable with a certain set of tools. Why should I learn Kaeon FUSION? What is its niche?
