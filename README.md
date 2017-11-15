@@ -118,11 +118,20 @@ Yes, third parties can write their own Kaeon FUSION interfaces using our [Kaeon 
 The main differences between Kaeon FUSION and LISP are that Kaeon FUSION uses doubly linked trees instead of singly linked lists,
 and has its functionality distributed across interchangeable modules instead of being inherent to a specific dialect.
 
-### Why would you create a language that does everything? Normal developers get by fine without such a thing.
+### Why would you create a language that does everything? Normal developers get by fine without such a thing. And how is the concept of a "language that does everything" different from any turing complete language?
 
 We would like to think that the prospect of a language that can do anything,
 the proverbial "golden hammer",
 is a worthy goal in and of itself.
+
+The term "turing complete" means the language has the ability to solve any problem that can be be solved through computation.
+Kaeon FUSION is turing complete when using the standard interface.
+However,
+software must do more than compute data.
+It is often the case that specialty languages are required for templating content as is the case with HTML and CSS,
+and in certain cases developers require languages to support certain paradigms and frameworks in order to produce content for certain platforms.
+Due to Kaeon FUSION's ability to take on new functionality through interfaces and to support ONE based DSLs,
+it is able to meet these requirements in addition to being turing complete.
 
 ### I'm already comfortable with a certain set of tools. Why should I learn Kaeon FUSION? What is its niche?
 
