@@ -38,7 +38,7 @@ public class Variable extends FUSIONUnit {
 		}
 		
 		if(element.children.size() == 0)
-			return state.getByAlias(element.content) != null;
+			return state.hasAlias(element.content);
 		
 		return true;
 	}

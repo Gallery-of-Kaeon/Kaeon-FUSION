@@ -46,13 +46,23 @@ public class State extends FUSIONUnit {
 	
 	public void setAlias(Alias alias) {
 		
+		for(int i = global.size() - 1; i >= 0; i--) {
+			
+			if(global.get(i).alias.equalsIgnoreCase(alias.alias)) {
+				
+				global.get(i).object = alias.object;
+				
+				return;
+			}
+		}
+		
 		for(int i = state.size() - 1; i >= 0; i--) {
 			
 			for(int j = state.get(i).size() - 1; j >= 0; j--) {
 				
 				if(state.get(i).get(j).alias.equalsIgnoreCase(alias.alias)) {
 					
-					state.get(i).set(j, alias);
+					state.get(i).get(j).object = alias.object;
 					
 					return;
 				}
@@ -83,7 +93,7 @@ public class State extends FUSIONUnit {
 			
 			if(global.get(i).alias.equalsIgnoreCase(alias.alias)) {
 				
-				global.set(i, alias);
+				global.get(i).object = alias.object;
 				
 				return;
 			}
@@ -158,6 +168,26 @@ public class State extends FUSIONUnit {
 		}
 		
 		return aliases;
+	}
+	
+	public boolean hasAlias(String alias) {
+		
+		for(int i = global.size() - 1; i >= 0; i--) {
+			
+			if(global.get(i).alias.equalsIgnoreCase(alias))
+				return true;
+		}
+		
+		for(int i = state.size() - 1; i >= 0; i--) {
+			
+			for(int j = state.get(i).size() - 1; j >= 0; j--) {
+				
+				if(state.get(i).get(j).alias.equalsIgnoreCase(alias))
+					return true;
+			}
+		}
+		
+		return false;
 	}
 	
 	public void push() {
