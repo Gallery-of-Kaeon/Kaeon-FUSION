@@ -15,12 +15,17 @@ public class Split extends FUSIONUnit implements Runnable {
 	
 	public FUSION fusion;
 	public Element element;
+	public State state;
 	
 	public Split() {
 		tags.add("Standard");
 	}
 	
 	public boolean verify(Element element) {
+		
+		if(state == null)
+			state = (State) PhilosophersStoneUtilities.get(this, "State").get(0);
+		
 		return element.content.equalsIgnoreCase("Split");
 	}
 	
@@ -36,29 +41,15 @@ public class Split extends FUSIONUnit implements Runnable {
 				FUSIONUtilities.copy(
 						(FUSION) PhilosophersStoneUtilities.get(this, "FUSION").get(0));
 		
-		for(int i = 0; i < functionFUSION.publicConnections.size(); i++) {
+		ArrayList<PhilosophersStone> atlas = PhilosophersStoneUtilities.getAtlas(functionFUSION);
+		
+		for(PhilosophersStone stone : atlas) {
 			
-			PhilosophersStone stone = functionFUSION.publicConnections.get(i);
-			
-			if(PhilosophersStoneUtilities.isTagged(stone, "State")) {
-				
-				PhilosophersStoneUtilities.publiclyConnect(functionFUSION, ((State) stone).copy());
-				
+			if(PhilosophersStoneUtilities.isTagged(stone, "State"))
 				PhilosophersStoneUtilities.disconnectMutually(functionFUSION, stone);
-			}
 		}
 		
-		for(int i = 0; i < functionFUSION.privateConnections.size(); i++) {
-			
-			PhilosophersStone stone = functionFUSION.privateConnections.get(i);
-			
-			if(PhilosophersStoneUtilities.isTagged(stone, "State")) {
-				
-				PhilosophersStoneUtilities.publiclyConnect(functionFUSION, ((State) stone).copy());
-				
-				PhilosophersStoneUtilities.disconnectMutually(functionFUSION, stone);
-			}
-		}
+		PhilosophersStoneUtilities.publiclyConnect(functionFUSION, state.copy());
 		
 		split.fusion = functionFUSION;
 		
