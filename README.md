@@ -1,6 +1,7 @@
+<h1 align="center">Kaeon FUSION</h1>
+<h2 align="center">The First Ever Universal Programming Language</h2>
+
 <p align="center">
-	<h1>Kaeon FUSION</h1>
-	<h2>The First Ever Universal Programming Language</h2>
 	<img src="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/raw/master/Kaeon%20FUSION/Logo/Kaeon%20FUSION%20Logo.png" width="300px" height="300px"/>
 </p>
 
