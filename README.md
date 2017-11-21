@@ -1,8 +1,11 @@
-<p align="center"><img src="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/raw/master/Kaeon%20FUSION/Logo/Kaeon%20FUSION%20Logo.png" width="300px" height="300px"/></p>
+<p align="center">
 
-# Kaeon FUSION
+	# Kaeon FUSION
 
-## The First Ever Universal Programming Language
+	## The First Ever Universal Programming Language
+
+	<img src="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/raw/master/Kaeon%20FUSION/Logo/Kaeon%20FUSION%20Logo.png" width="300px" height="300px"/>
+</p>
 
     Use: Standard; Log Line: Open: Pitch.txt
 
