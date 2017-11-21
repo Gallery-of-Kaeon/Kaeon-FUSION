@@ -28,7 +28,9 @@
 				occur within it. This sequence is referred to as the encoded sequence. The encoded
 				sequence is followed by the breaking sequence, which must be followed either with
 				the nesting sequence which continues the element definition, or by the terminating
-				sequence which ends the element definition.
+				sequence which ends the element definition. If an element definition precedes
+				another element definition, the final terminating sequence of the preceding element
+				definition must be followed by the breaking sequence.
 				
 				Element definitions may be nested within one another. If an element definition is
 				nested within another element definition, the child element definition must be
