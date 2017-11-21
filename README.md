@@ -1,5 +1,7 @@
 # Kaeon FUSION
 
+![logo](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/raw/master/Kaeon%20FUSION/Logo/Kaeon%20FUSION%20Logo.png)
+
 ## The First Ever Universal Programming Language
 
     Use: Standard; Log Line: Open: Pitch.txt
@@ -184,6 +186,11 @@ the contents of this repository are free for everyone to use and make modificati
 
 The Kaeon FUSION language is one of many projects under the Kaeon name.
 The Kaeon projects are at the time of writing primarily developed and managed by [Jesse Dinkin](https://www.linkedin.com/in/jesse-dinkin-6b9135100/).
+
+### Does Kaeon FUSION have a mascot?
+
+The mascot of all projects under the Kaeon name is the ACE.
+The female version of the character is shown on the profile picture of the Gallery-of-Kaeon github account.
 
 ### Can I join you?
 
