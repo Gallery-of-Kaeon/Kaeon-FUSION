@@ -1,6 +1,6 @@
 # Kaeon FUSION
 
-![logo](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/raw/master/Kaeon%20FUSION/Logo/Kaeon%20FUSION%20Logo.png)
+![logo](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/raw/master/Kaeon%20FUSION/Logo/Kaeon%20FUSION%20Logo.png){:height="200px" width="200px"}
 
 ## The First Ever Universal Programming Language
 
