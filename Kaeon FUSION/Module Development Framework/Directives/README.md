@@ -73,7 +73,7 @@ The following ONE would be generated:
 
 ## How to use
 
-First, download the ONE+ directive development framework [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Module%20Development%20Framework/Directives/Test%20Interface.zip?raw=true).
+First, download the ONE+ directive development framework [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Module%20Development%20Framework/Directives/Test%20Directive.zip?raw=true).
 
 The first thing to do is to name your directive module.
 For the sake of this example,
