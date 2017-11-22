@@ -33,7 +33,7 @@ The program's console would display:
 
 ## How to use
 
-First, download the Kaeon FUSION interface development framework [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Interface%20Development%20Framework/Test%20Interface.zip?raw=true).
+First, download the Kaeon FUSION interface development framework [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Module%20Development%20Framework/Interfaces/Test%20Interface.zip?raw=true).
 
 The first thing to do is to name your interface.
 For the sake of this example,
