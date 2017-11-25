@@ -37,8 +37,7 @@ and the specification for Kaeon FUSION.
 
 ### Direct Links
 
-Documentation: [Online](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/README.md) /
-[PDF](https://drive.google.com/open?id=1S4wWCpNN6BLdFOssHsFn9EQ-xUlqJoan)
+[Online](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/README.md) and [PDF](https://drive.google.com/open?id=1S4wWCpNN6BLdFOssHsFn9EQ-xUlqJoan) Documentation
 
 [Samples](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Samples)
 
