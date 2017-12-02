@@ -122,6 +122,13 @@ Third parties may also write their own ONE+ directives using our [ONE+ Directive
 The main differences between Kaeon FUSION and LISP are that Kaeon FUSION uses doubly linked trees instead of singly linked lists,
 and has its functionality distributed across interchangeable modules instead of being inherent to a specific dialect.
 
+Think of it this way: people can alter both LISP and Kaeon FUSION to suit completely different purposes,
+but if two people have two different ideas about what to do with LISP,
+you have to pick one or the other for a given program.
+If two people have two different ideas about what to do with Kaeon FUSION,
+you can use both at once,
+and you may even change your mind at runtime.
+
 ### Why would you create a language that does everything? Normal developers get by fine without such a thing. And how is the concept of a "language that does everything" different from any turing complete language?
 
 We would like to think that the prospect of a language that can do anything,
