@@ -32,7 +32,7 @@ ONE+
 				ONE+ permits sequences of characters to exist in between ONE elements. Such
 				sequences are referred to as plus sequences.
 				
-				plus sequences of characters that exist between the beginning of the file, a
+				Plus sequences of characters that exist between the beginning of the file, a
 				nesting sequence, or a breaking sequence, and a breaking sequence are referred to
 				as definitions. Definitions can be nested just like elements depending on how many
 				nesting sequences immediately precede them.
