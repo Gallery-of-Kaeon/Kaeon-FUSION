@@ -154,7 +154,7 @@ and for projects with constantly changing specifications or constantly increasin
 
 In addition,
 Kaeon FUSION serves as a solid foundation for creating domain specific languages,
-and its systax works well as a base for custom file formats.
+and its syntax works well as a base for custom file formats.
 While LISP already works well for creating DSLs,
 Kaeon FUSION's ability to have them implemented as interfaces allows multiple DSLs to be used in the same environment,
 whereas LISP DSLs must be used separately.
