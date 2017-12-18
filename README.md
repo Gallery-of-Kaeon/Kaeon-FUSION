@@ -200,6 +200,7 @@ The Kaeon projects are at the time of writing primarily developed and managed by
 
 The mascot of all projects under the Kaeon name is the ACE.
 The female version of the character is shown on the profile picture of the Gallery-of-Kaeon github account.
+The male version of the character is shown [here](https://drive.google.com/open?id=0B7qYhFZP1C70Q3cxQjREYUdETHM).
 
 ### Can I join you?
 
