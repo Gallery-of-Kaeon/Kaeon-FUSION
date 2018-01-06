@@ -63,6 +63,7 @@ public class IDE implements ActionListener {
 	public Font font;
 
 	public int newFiles;
+	public int newConsoles;
 
 	public Element originData;
 
@@ -401,9 +402,11 @@ public class IDE implements ActionListener {
 			output.panel.setBackground(Color.WHITE);
 
 			output.radioButton = new JRadioButton();
-
-			output.button = createButton(currentInput.button.getText() + " - " + outputs.size());
-			output.button.setActionCommand("Output " + outputs.size());
+			
+			newConsoles++;
+			
+			output.button = createButton(currentInput.button.getText() + " - " + newConsoles);
+			output.button.setActionCommand("Output " + newConsoles);
 
 			output.panel.add(output.radioButton);
 			output.panel.add(output.button);
