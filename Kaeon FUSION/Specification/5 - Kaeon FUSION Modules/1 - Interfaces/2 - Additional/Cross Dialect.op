@@ -1,0 +1,13 @@
+Cross Dialect
+
+	Philosophy
+	
+		-
+			A cross dialect is a ONE dialect that allows code written in the Kaeon FUSION Standard
+			interface to be translated to another language.
+			
+			Given that there are certain details some languages may require that would not be
+			included in native Standard interface code, Meta commands may be used to specify the
+			necessary information. As such, each cross dialect specifies various uses for Meta
+			commands.
+		-
