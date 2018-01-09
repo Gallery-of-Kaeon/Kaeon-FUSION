@@ -166,11 +166,14 @@ However,
 an implementation of Kaeon FUSION can be written in any language and for any platform,
 as long as it conforms to the rules laid out in the specification.
 
-### How often will Kaeon FUSION be updated?
+### How long has Kaeon FUSION been in development?
 
 At the time of writing,
-Kaeon FUSION has officially been in development for about ten months,
-and was built upon things that were in development for around one year before the project began.
+Kaeon FUSION has officially been in development for about eleven months,
+and was built upon things that were in development for around one and a half years before the project began.
+
+### How often will Kaeon FUSION be updated?
+
 You should expect to see several minor updates per month,
 with major updates occurring between once per month and once every three months.
 
@@ -179,7 +182,7 @@ with major updates occurring between once per month and once every three months.
 At the time of writing,
 our main focus is on stabilizing the specification and our implementations for the standard ONE+ directives,
 super mode, and the web and machine interfaces,
-as well as improving the quality of the Kaeon FUSION IDE.
+as well as improving the quality of the Kaeon Origin IDE.
 
 ### I would like to use Kaeon FUSION in a commercial project. Who do I make the check out to?
 
