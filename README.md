@@ -141,7 +141,7 @@ So that begs the question,
 why didn't we build Kaeon FUSION on LISP syntax?
 Because in our humble opinion,
 a doubly linked tree structure makes more sense than a singly linked list structure.
-Also LISP is ugly.
+Also, (L(I(S(P)))) is ugly.
 
 ### Is Kaeon FUSION bound to the JVM?
 
