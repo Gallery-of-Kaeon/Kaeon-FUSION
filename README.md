@@ -91,18 +91,6 @@ kaeon.ace@gmail.com
 
 We've provided a simple IDE called [Kaeon Origin](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/IDE/README.md) to get you started.
 
-### The documentation describes four different things: ONE, ONE+, FUSION, and Kaeon FUSION. What's that about?
-
-Kaeon FUSION is not a monolithic system.
-
-Kaeon FUSION code is encoded into documents using the [ONE](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/1%20-%20ONE/README.md) format,
-which allows any abstract syntax tree to be defined.
-
-[ONE+](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/README.md) is a system of mnemonics that make it easier to write ONE documents by hand.
-
-The control flow of Kaeon FUSION is managed by the [FUSION](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/3%20-%20FUSION/README.md) system,
-which allows any ONE document to serve as code.
-
 ### What's the difference between an interface and a library?
 
 An interface is a module for the Kaeon FUSION interpreter that alters the properties of the language at runtime,
@@ -117,47 +105,43 @@ Yes, third parties can write their own Kaeon FUSION interfaces using our [Kaeon 
 
 Third parties may also write their own ONE+ directives using our [ONE+ Directive Development Framework](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Module%20Development%20Framework/Directives/README.md).
 
-### Isn't the control flow of Kaeon FUSION similar to LISP? How is Kaeon FUSION different from LISP?
+### The first ever univeral programming language? Really?
 
-The main differences between Kaeon FUSION and LISP are that Kaeon FUSION uses doubly linked trees instead of singly linked lists,
-and has its functionality distributed across interchangeable modules instead of being inherent to a specific dialect.
+Okay, skeptic.
+You saw through the marketing jargon and you want a more down to earth explanation.
+Very well.
 
-Think of it this way: people can alter both LISP and Kaeon FUSION to suit completely different purposes,
-but if two people have two different ideas about what to do with LISP,
-you have to pick one or the other for a given program.
-If two people have two different ideas about what to do with Kaeon FUSION,
-you can use both at once,
-and you may even change your mind at runtime.
+Kaeon FUSION does aim to be universal,
+and it does this by being what LISP should have been.
+What do we mean by this?
 
-### Why would you create a language that does everything? Normal developers get by fine without such a thing. And how is the concept of a "language that does everything" different from any turing complete language?
-
-We would like to think that the prospect of a language that can do anything,
-the proverbial "golden hammer",
-is a worthy goal in and of itself.
-
-The term "turing complete" means the language has the ability to solve any problem that can be be solved through computation.
-Kaeon FUSION is turing complete when using the standard interface.
+LISP provides an environment upon which any sort of language can be defined to suit just about any purpose,
+thus making it a popular platform for domain specific languages,
+or DSLs.
 However,
-software must do more than compute data.
-It is often the case that specialty languages are required for templating content as is the case with HTML and CSS,
-and in certain cases developers require languages to support certain paradigms and frameworks in order to produce content for certain platforms.
-Due to Kaeon FUSION's ability to take on new functionality through interfaces and to support ONE based DSLs that can be cross complied to other languages,
-it is able to meet these requirements in addition to being turing complete.
+you can't necessarily have two LISP DSLs coexist in the same environment.
+For example,
+you can't have Common LISP code,
+Scheme code,
+and Clojure code interwoven between each other without some sort of crazy hack.
 
-### I'm already comfortable with a certain set of tools. Why should I learn Kaeon FUSION? What is its niche?
+In Kaeon FUSION,
+every DSL comes packaged as an interface,
+which instead of defining the rules at the start of runtime,
+alters the rules mid runtime.
+There is also no prohibition on using mutiple interfaces at once.
 
-Because Kaeon FUSION can incorporate new functionality as needed,
-it can be relied on when other toolsets fall short.
+To summarize:
+in LISP,
+DSLs become seperate languages that are not necessarily compatible with one another,
+but in Kaeon FUSION,
+they become plugins for a single langauge and are always compatible with one another.
 
-These properties make Kaeon FUSION extremely useful for rapid prototyping,
-and for projects with constantly changing specifications or constantly increasing scope.
-
-In addition,
-Kaeon FUSION serves as a solid foundation for creating domain specific languages,
-and its syntax works well as a base for custom file formats.
-While LISP already works well for creating DSLs,
-Kaeon FUSION's ability to have them implemented as interfaces allows multiple DSLs to be used in the same environment,
-whereas LISP DSLs must be used separately.
+So that begs the question,
+why didn't we build Kaeon FUSION on LISP syntax?
+Because in our humble opinion,
+a doubly linked tree structure makes more sense than a singly linked list structure.
+Also LISP is ugly.
 
 ### Is Kaeon FUSION bound to the JVM?
 
