@@ -1,10 +1,9 @@
-Query Dialect
+SQL Dialect
 	
 	Philosophy
 		
 		-
-			When Kaeon FUSION code is cross compiled to SQL, the user must take into account how
-			the code will take effect once cross compiled.
+			The SQL dialect is a ONE dialect analogous to SQL.
 		-
 	
 	Principles

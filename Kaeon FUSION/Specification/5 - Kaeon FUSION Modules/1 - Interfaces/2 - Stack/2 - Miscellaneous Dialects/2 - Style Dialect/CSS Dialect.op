@@ -1,10 +1,9 @@
-Style Dialect
+CSS Dialect
 	
 	Philosophy
 		
 		-
-			When Kaeon FUSION code is cross compiled to CSS, the user must take into account how
-			the code will take effect once cross compiled.
+			The CSS dialect is a ONE dialect analogous to CSS.
 		-
 	
 	Principles

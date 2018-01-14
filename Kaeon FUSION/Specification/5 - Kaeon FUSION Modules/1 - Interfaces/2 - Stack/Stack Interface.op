@@ -1,0 +1,26 @@
+Stack Interface
+
+	Philosophy
+	
+		-
+			The Kaeon FUSION Stack Interface allows users to cross compile Kaeon FUSION code into
+			several mainstream languages
+		-
+		
+	Principles
+	
+		Dialects
+		
+			Standard Cross Dialects
+			
+				-
+					The Kaeon FUSION Stack Interface provides standard cross dialects analogous to
+					C, C++, JavaScript, PHP, Java, Python, C#, and Swift.
+				-
+			
+			Miscellaneous Dialects
+			
+				-
+					The Kaeon FUSION Stack Interface provides ONE dialects analogous to HTML, CSS,
+					and SQL.
+				-
