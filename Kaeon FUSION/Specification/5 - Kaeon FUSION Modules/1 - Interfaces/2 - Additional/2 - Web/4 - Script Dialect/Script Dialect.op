@@ -1,9 +1,9 @@
-Native Dialect
+Script Dialect
 	
 	Philosophy
 		
 		-
-			The Native dialect is a standard cross dialect that builds to C.
+			The Script dialect is a standard cross dialect that builds to JavaScript.
 		-
 	
 	Principles

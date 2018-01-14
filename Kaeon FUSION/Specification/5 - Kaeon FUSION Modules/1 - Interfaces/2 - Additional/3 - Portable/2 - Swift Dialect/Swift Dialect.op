@@ -1,15 +1,15 @@
-Native Dialect
+Swift Dialect
 	
 	Philosophy
 		
 		-
-			The Native dialect is a standard cross dialect that builds to C.
+			The Swift dialect is a standard cross dialect that builds to Swift.
 		-
 	
 	Principles
-	
-		Operators
 		
+		Operators
+			
 			-
 				
 			-
@@ -17,7 +17,7 @@ Native Dialect
 			# STUB
 		
 		Notations
-		
+			
 			-
 				
 			-
@@ -25,7 +25,7 @@ Native Dialect
 			# STUB
 		
 		Types
-		
+			
 			-
 				
 			-

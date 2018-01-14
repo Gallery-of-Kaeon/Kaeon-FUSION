@@ -9,5 +9,6 @@ Cross Dialect
 			Given that there are certain details some languages may require that would not be
 			included in native Standard interface code, Meta commands may be used to specify the
 			necessary information. As such, each cross dialect specifies various uses for Meta
-			commands.
+			commands. Additional commands may be added to cover for operators specific to certain
+			languages.
 		-

@@ -22,6 +22,6 @@ Kaeon FUSION Machine Interface
 			Native Dialect
 				
 				-
-					The web interface provides access to a cross compiler for the Native dialect, a
-					dialect of ONE that emulates the functionality of C.
+					The machine interface provides access to a cross compiler for the Native
+					dialect, a dialect of ONE that emulates the functionality of C.
 				-

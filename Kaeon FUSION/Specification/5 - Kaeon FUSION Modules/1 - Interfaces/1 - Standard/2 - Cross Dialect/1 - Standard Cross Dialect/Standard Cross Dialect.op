@@ -1,0 +1,127 @@
+Standard Cross Dialect
+	
+	Philosophy
+		
+		-
+			The standard cross dialect is a set of Meta command use cases for the cross dialect
+			that are generalizable across the majority of Turing complete programming languages.
+			
+			Any effect specified by a meta command in the standard cross dialect will take effect
+			on commands that follow said meta command. An effect of a Meta command may be said to
+			have extended scope if said effect trickles down to elements within the scope of the
+			affected elements. If two Meta command specify effects that contradict one another, the
+			effects of the more recent meta command will take effect.
+		-
+	
+	Principles
+		
+		Structure
+			
+			Strong Typing
+				
+				-
+					A Meta command may have a child with the content "Type". The children of the
+					type element will determine the type of any variable declared within the Meta
+					command's scope.
+				-
+				
+				Casting
+					
+					-
+						A Meta command may have a child with the content "Cast". The children of
+						the cast element will determine the type that the value returned by the
+						command that follows the Meta command will be cast to.
+					-
+			
+			Arrays
+			
+				-
+					A Meta command may have a child with the content "Arrays".
+				-
+			
+				Size
+				
+					-
+						If a Meta element has a child with the content "Arrays", said child may
+						have a child with the content "Size". The size element may either have a
+						child with the content "Fixed", in which case all lists within the Meta
+						command's scope will be treated as fixed length arrays, or it may have a
+						child with the content "Variable", in which case all lists within the Meta
+						command's scope will be treated as variable length vectors.
+					-
+				
+				Index
+				
+					-
+						If a Meta element has a child with the content "Arrays", said child may
+						have a child with the content "Index". The index element will have a child
+						containing an integer number as its content, dictating the starting index
+						of all lists in the Meta command's scope.
+					-
+			
+			Functions
+				
+				Function Definitions
+					
+					-
+						A Meta command may have a child with the content "Function". If the Meta
+						command immediately precedes a Define command, the function element's
+						children will determine the properties of all of the functions defined by
+						said Define command.
+					-
+				
+					Type
+					
+						-
+							If a Meta element has a child with the content "Function", said child
+							may have a child with the content "Type". The children of the type
+							element determine the return type of the function.
+						-
+				
+					Parameters
+					
+						-
+							If a Meta element has a child with the content "Function", said child
+							may have a child with the content "Parameters". Each child of the
+							parameters element defines a parameter. The content of said child
+							defines the parameter's alias, and its children define its type.
+						-
+				
+					Class
+					
+						-
+							If a Meta element has a child with the content "Function", said child
+							may have a child with the content "Class". If this is the case, the
+							function definition will become a class definition. The class element
+							may have a single child with content specifying the name of a class to
+							extend from. If the class element is present the type element may not
+							be present.
+						-
+				
+				Host Functions
+					
+					-
+						A Meta command may have a child with the content "Host". Any command within
+						the Meta command's scope with content that matches the content of one of
+						the host element's children. This effect will have extended scope.
+					-
+			
+			Notations
+				
+				-
+					Notations consist of information that may be placed inside Meta commands to
+					specify miscellaneous information about the following commands.
+					
+					To specify notations, a Meta command may have a child with the content
+					"Notation". Every child of said child will constitute a notation, and may have
+					any content and any children.
+				-
+			
+			Injections
+				
+				-
+					A Meta command may have a child with the content "Injection". Said child will
+					have a child with content consisting of code written in the language the
+					implementation of the standard cross dialect builds to. Said code will be
+					inserted in place of the Meta command at build time.
+				-

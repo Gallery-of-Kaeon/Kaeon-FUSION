@@ -1,9 +1,9 @@
-Native Dialect
+Java Dialect
 	
 	Philosophy
 		
 		-
-			The Native dialect is a standard cross dialect that builds to C.
+			The Java dialect is a standard cross dialect that builds to Java.
 		-
 	
 	Principles
