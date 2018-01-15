@@ -145,6 +145,9 @@ DSLs become seperate languages that are not necessarily compatible with one anot
 but in Kaeon FUSION,
 they become plugins for a single langauge and are always compatible with one another.
 
+And thus Kaeon FUSION can unite all development tasks under a single domain and a single syntax,
+becoming a "universal" language.
+
 So that begs the question,
 why didn't we build Kaeon FUSION on LISP syntax?
 Because in our humble opinion,
