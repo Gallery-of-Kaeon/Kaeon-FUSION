@@ -131,8 +131,8 @@ HTML Dialect
 				compiled to CSS and nested within a "style" tag.
 				
 				If the content of a command is "Script", the children of the command will be cross
-				compiled to Javascript and nested within a "script" tag.
+				compiled to JavaScript and nested within a "script" tag.
 				
-				If the content of a command is "Process", the children of the command will be cross
+				If the content of a command is "PHP", the children of the command will be cross
 				compiled to PHP and nested within a php tag.
 			-
