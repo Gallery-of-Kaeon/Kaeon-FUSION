@@ -131,6 +131,14 @@ which instead of defining the rules at the start of runtime,
 alters the rules mid runtime.
 There is also no prohibition on using mutiple interfaces at once.
 
+In this sense,
+one could think of Kaeon FUSION as the smart phone of languages,
+a blank slate whose functionality is defined by the apps,
+or interfaces,
+that are installed on it.
+In this analogy,
+LISP would be like a smart phone that could only have one app installed at a time.
+
 To summarize:
 in LISP,
 DSLs become seperate languages that are not necessarily compatible with one another,
