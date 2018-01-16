@@ -3,197 +3,114 @@ Super Mode
 	Philosophy
 		
 		-
-			Kaeon FUSION implements a directive called Super Mode into the ONE+ parser, allowing
-			for more syntactic sugar when coding. The directive is written as follows:
-			
-			[SUPER]
+			Super Mode is a ONE+ directive that works with the Kaeon FUSION Standard Interface to
+			allow for infix notation and to reduce verbosity.
 		-
 	
 	Principles
 		
+		Activation
+			
+			-
+				Super Mode comes packaged in a directive module with the alias "SUPER". Once the
+				module has been imported with a use directive, a directive with the content "SUPER"
+				may be used to activate super mode.
+			-
+		
 		Effects
+			
+			Standard Interface
+				
+				-
+					Super Mode will cause the Kaeon FUSION code it is used on to automatically use
+					the standard interface.
+				-
+			
+			Implicit Prefix Notation
+				
+				-
+					Super Mode will allow certain tokens to be used as prefix operators within a
+					ONE+ element. Such a token must be placed at the beginning of the element's
+					content, and will separate the content of the element following itself if said
+					following content does not consist entirely of whitespace, into a new element
+					which will be nested within the original element as its first child, moving the
+					index of any pre-existing children up by one. The content of the original
+					element will be replaced with the respective token in the cases of the tokens
+					"Not", "Return", and "New". In the case of the token "Print", the original
+					content will be replaced with "Log Line", and in the case of the token "Def",
+					the original content will be replaced with "Define".
+				-
 			
 			Infix Notation
 				
 				-
-					The Super Mode directive will allow for the use of infix notation when coding.
 					
-					For example:
-						
-						[SUPER]
-						
-						1 + 2
-						1 - 2
-						1 * 2
-						1 / 2
-						1 % 2
-						1 > 2
-						1 < 2
-						1 >= 2
-						1 <= 2
-						1 == 2
-						1 != 2
-						True and False
-						True or False
-						True xor False
-						
-					will be pre-processed to:
-						
-						Add: 1, 2
-						Subtract: 1, 2
-						Multiply: 1, 2
-						Divide: 1, 2
-						Modulus: 1, 2
-						Greater: 1, 2
-						Less: 1, 2
-						Greater or Equal: 1, 2
-						Less or Equal: 1, 2
-						Equal: 1, 2
-						Not: Equal: 1, 2
-						And: True, False
-						Or: True, False
-						Exclusive Or: True, False
-					
-					before being executed, unless the content containing the infix operator is
-					surrounded by quotation marks.
 				-
+				
+				# +, Add
+				# -, Subtract
+				# *, Multiply
+				# /, Divide
+				# %, Modulus
+				# >, Greater
+				# >=, Greater or Equal
+				# <, Less
+				# <=, Less or Equal
+				# ==, Equal
+				# !=, Not: Equal
+				# And, And
+				# Or, Or
+				# Xor, Exclusive Or
+				# @, At
+				# &, Concatenate [*]
+				# =, [Variable]
+				# ->, [Object Function]
+				# =>, [Object Field]
+				# |, [Postfix Function Call]
+				
+				# STUB
 			
-			Not
+			Function Arguments
 				
 				-
-					The Super Mode directive will allow for the use of the not command without a
-					colon.
-					
-					For example:
-						
-						[SUPER]
-						
-						not True
-					
-					will be pre-processed to:
-						
-						Not: True
-					
-					before being executed, unless the content containing the "not" is surrounded by
-					quotation marks.
-				-
-			
-			Assignment
-				
-				-
-					The Super Mode directive will allow for the use of the equals character when
-					assigning a value to a variable.
-					
-					For example:
-						
-						[SUPER]
-						
-						i = 1
-					
-					will be pre-processed to:
-						
-						i: 1
-					
-					before being executed, unless the content containing the equals character is
-					surrounded by quotation marks.
-				-
-			
-			Index
-				
-				-
-					The Super Mode directive will allow for the use of "@" to access an element in
-					a list.
-					
-					For example:
-						
-						[SUPER]
-						
-						Arguments @ 1
-					
-					will be pre-processed to:
-						
-						At: Arguments, 1
-					
-					before being executed, unless the content containing the "@" is surrounded by
-					quotation marks.
-				-
-			
-			Scope
-				
-				-
-					The Super Mode directive will allow for the use of "->" to dictate operations
-					within objects.
-					
-					For example:
-						
-						[SUPER]
-						
-						Define: foo
-							Define: bar
-								Log Line: Arguments @ 1
-						
-						var = foo
-						var -> bar: foobar
-					
-					will be pre-processed to:
-						
-						Define: foo
-							Define: bar
-								Log Line: At: Arguments, 1
-						
-						var: foo
-						
-						Scope
-							In: foo
-							bar: foobar
-					
-					before being executed, unless the content containing the "->" is surrounded by
-					quotation marks.
+					If the first child of a child of a define command is a command with the content
+					"Params", then every child of the params command specifies the alias of the
+					parameter of the function corresponding to its index.
 				-
 			
 			If
 				
 				-
-					The Super Mode directive will allow for the use of "If" to substitute for a
-					scope command with a break command.
-					
-					For example:
-						
-						[SUPER]
-						
-						If { my boolean }
-							# Operations
-					
-					will be pre-processed to:
-						
-						Scope { Break: Not: my boolean }
-							# Operations
-					
-					before being executed, unless the content containing the "if" is surrounded by
-					quotation marks.
+					The Super Mode directive will allow for the use of a command with the content
+					"If" whose first child returns a boolean to substitute for a scope command
+					whose first child is a break command.
+				-
+			
+			Elif
+				
+				-
+					The Super Mode directive will allow for the use of a command with the content
+					"Elif" whose first child returns a boolean to substitute for an else command
+					whose first child is a scope command whose first child is a break command.
 				-
 			
 			While
 				
 				-
-					The Super Mode directive will allow for the use of "While" to substitute for a
-					scope command with a loop command.
-					
-					For example:
-						
-						[SUPER]
-						
-						While { my boolean }
-							# Operations
-					
-					will be pre-processed to:
-						
-						Scope
-						
-							# Operations
-							
-							Loop: my boolean
-					
-					before being executed, unless the content containing the "while" is surrounded
-					by quotation marks.
+					The Super Mode directive will allow for the use of a command with the content
+					"While" whose first child returns a boolean to substitute for a scope command
+					whose last child is a loop command.
 				-
+			
+			For
+				
+				-
+					
+				-
+				
+				# For [number]
+				# For [number a] to [number b]
+				# For [i] from [number a] to [number b]
+				# For [item] in [list]
+				
+				# STUB
