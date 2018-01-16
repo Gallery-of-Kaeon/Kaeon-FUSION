@@ -1,19 +1,15 @@
 [USE: SUPER] [SUPER]
 
-limit = Input: "Enter a number: "
-
-i = 0; While { i < limit }
+for i from 0 to input: "Enter a number: "
 	
-	If { i % 3 == 0 and i % 5 == 0 }
-		Log Line: fizz buzz
+	if { i % 3 == 0 and i % 5 == 0 }
+		print fizz buzz
 	
-	Else: If { i % 3 == 0 }
-		Log Line: fizz
+	elif { i % 3 == 0 }
+		print fizz
 	
-	Else: If { i % 5 == 0 }
-		Log Line: buzz
+	elif { i % 5 == 0 }
+		print buzz
 	
-	Else
-		Log Line: i
-	
-	i = i + 1
+	else
+		print i

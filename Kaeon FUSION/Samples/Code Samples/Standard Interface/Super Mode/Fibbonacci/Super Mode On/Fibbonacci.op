@@ -3,15 +3,11 @@
 a = 0
 b = 1
 
-limit = Input: "Enter a number: "
-
-i = 1; While { i < limit }
+for input: "Enter a number: "
 	
-	Log Line: a
+	print a
 	
 	temp = a
 	
 	a = b
 	b = b + temp
-	
-	i = i + 1
