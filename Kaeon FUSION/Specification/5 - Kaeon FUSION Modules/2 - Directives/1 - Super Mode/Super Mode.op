@@ -41,8 +41,8 @@ Super Mode
 					element containing the token, will serve as the left hand value depending on
 					the token. If the resulting right hand value has a length of zero, the element
 					following the element containing the token, or the children of the element
-					containing the token, will serve as the right hand value depending on the
-					token.
+					containing the token, in which case there will be multiple right hand values,
+					will serve as the right hand value depending on the token.
 					
 					Once processed into a left hand value, a token, and a right hand value, an
 					effect will be applied depending on the token.
@@ -55,11 +55,11 @@ Super Mode
 						priority to the lowest priority:
 						
 						Params
+						Print
 						Not
 						Return
 						New
 						Def
-						Print
 						If
 						Elif
 						While
@@ -90,5 +90,31 @@ Super Mode
 					-
 				
 				Effects
+					
+					Function Parameters
+					
+						-
+							The token "params" may be used to specify function parameters if it is
+							nested within the child of a define command.
+							
+							This token will use the children of the command it occurs in as
+							alternative right hand values.
+							
+							The content of each of the token's right hand values shall become an
+							alias of a parameter for the function corresponding to the order of
+							said right hand values.
+						-
+					
+					Printing
+					
+						-
+							The token "print" may be used in place of log line.
+							
+							This token will use the children of the command it occurs in as
+							alternative right hand values.
+							
+							This token shall serve as a substitute for the Log Line command where
+							each right hand value is an argument.
+						-
 					
 					# STUB
