@@ -26,91 +26,70 @@ Super Mode
 					the standard interface.
 				-
 			
-			Implicit Prefix Notation
+			Super Tokens
 				
 				-
-					Super Mode will allow certain tokens to be used as prefix operators within a
-					ONE+ element. Such a token must be placed at the beginning of the element's
-					content, and will separate the content of the element following itself if said
-					following content does not consist entirely of whitespace, into a new element
-					which will be nested within the original element as its first child, moving the
-					index of any pre-existing children up by one. The content of the original
-					element will be replaced with the respective token in the cases of the tokens
-					"Not", "Return", and "New". In the case of the token "Print", the original
-					content will be replaced with "Log Line", and in the case of the token "Def",
-					the original content will be replaced with "Define".
-				-
-			
-			Infix Notation
-				
-				-
+					Super tokens are tokens that may be placed within the content of elements. If
+					such a token is not surrounded by double quotes, it will be processed. Certain
+					tokens will take priority in the order they are processed.
 					
-				-
-				
-				# +, Add
-				# -, Subtract
-				# *, Multiply
-				# /, Divide
-				# %, Modulus
-				# >, Greater
-				# >=, Greater or Equal
-				# <, Less
-				# <=, Less or Equal
-				# ==, Equal
-				# !=, Not: Equal
-				# And, And
-				# Or, Or
-				# Xor, Exclusive Or
-				# @, At
-				# &, Concatenate [*]
-				# =, [Variable]
-				# ->, [Object Function]
-				# =>, [Object Field]
-				# |, [Postfix Function Call]
-				
-				# STUB
-			
-			Function Arguments
-				
-				-
-					If the first child of a child of a define command is a command with the content
-					"Params", then every child of the params command specifies the alias of the
-					parameter of the function corresponding to its index.
-				-
-			
-			If
-				
-				-
-					The Super Mode directive will allow for the use of a command with the content
-					"If" whose first child returns a boolean to substitute for a scope command
-					whose first child is a break command.
-				-
-			
-			Elif
-				
-				-
-					The Super Mode directive will allow for the use of a command with the content
-					"Elif" whose first child returns a boolean to substitute for an else command
-					whose first child is a scope command whose first child is a break command.
-				-
-			
-			While
-				
-				-
-					The Super Mode directive will allow for the use of a command with the content
-					"While" whose first child returns a boolean to substitute for a scope command
-					whose last child is a loop command.
-				-
-			
-			For
-				
-				-
+					Upon being processed, a token will separate the content that precedes it into a
+					left hand value and the content that follows it into a right hand value. Both
+					the left hand value and the right hand value will be trimmed of any leading or
+					trailing whitespace. If the resulting left hand value has a length of zero, the
+					element preceding the element containing the token will serve as the left hand
+					value. If the resulting right hand value has a length of zero, the element
+					following the element containing the token will serve as the right hand value.
 					
+					Once processed into a left hand value, a token, and a right hand value, an
+					effect will be applied depending on the token.
 				-
 				
-				# For [number]
-				# For [number a] to [number b]
-				# For [i] from [number a] to [number b]
-				# For [item] in [list]
+				Tokens
+					
+					-
+						The tokens recognized by Super Mode are listed below from highest priority
+						to lowest priority:
+						
+						Params
+						Not
+						Return
+						New
+						Def
+						Print
+						If
+						Elif
+						While
+						For
+						From
+						To
+						In
+						=
+						@
+						&
+						->
+						=>
+						|
+						And
+						Or
+						Xor
+						>
+						>=
+						<
+						<=
+						==
+						!=
+						*
+						/
+						%
+						+
+						-
+					-
 				
-				# STUB
+				Effects
+					
+					-
+						
+					-
+					
+					# STUB
