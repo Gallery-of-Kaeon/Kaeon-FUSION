@@ -37,9 +37,12 @@ Super Mode
 					left hand value and the content that follows it into a right hand value. Both
 					the left hand value and the right hand value will be trimmed of any leading or
 					trailing whitespace. If the resulting left hand value has a length of zero, the
-					element preceding the element containing the token will serve as the left hand
-					value. If the resulting right hand value has a length of zero, the element
-					following the element containing the token will serve as the right hand value.
+					element preceding the element containing the token, or the parent of the
+					element containing the token, will serve as the left hand value depending on
+					the token. If the resulting right hand value has a length of zero, the element
+					following the element containing the token, or the children of the element
+					containing the token, will serve as the right hand value depending on the
+					token.
 					
 					Once processed into a left hand value, a token, and a right hand value, an
 					effect will be applied depending on the token.
@@ -48,8 +51,8 @@ Super Mode
 				Tokens
 					
 					-
-						The tokens recognized by Super Mode are listed below from highest priority
-						to lowest priority:
+						The tokens recognized by Super Mode are listed below from the highest
+						priority to the lowest priority:
 						
 						Params
 						Not
@@ -65,11 +68,11 @@ Super Mode
 						To
 						In
 						=
-						@
 						&
 						->
 						=>
 						|
+						@
 						And
 						Or
 						Xor
@@ -88,8 +91,6 @@ Super Mode
 				
 				Effects
 					
-					-
-						
-					-
+					
 					
 					# STUB
