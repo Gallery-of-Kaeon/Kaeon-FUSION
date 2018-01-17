@@ -30,8 +30,10 @@ Super Mode
 				
 				-
 					Super tokens are tokens that may be placed within the content of elements. If
-					such a token is not surrounded by double quotes, it will be processed. Certain
-					tokens will take priority in the order they are processed.
+					such a token is not surrounded by double quotes, it will be processed.
+					
+					Certain tokens will take priority in the order they are processed if they occur
+					within the same element.
 					
 					Upon being processed, a token will separate the content that precedes it into a
 					left hand value and the content that follows it into a right hand value. Both
@@ -118,10 +120,69 @@ Super Mode
 							Certain tokens may be used in place of certain commands where their
 							right hand values will serve as arguments.
 							
+							These tokens will use the children of the command they occur in as
+							alternative right hand values.
+							
 							The log, log line, define, not, new, and return commands may all be
 							used in the form of such a token as opposed to a command. The token
 							"print" may be used in place of "log line", and the token "def" may be
 							used in place of "define".
 						-
-				
-				# STUB
+					
+					Conditionals and Loops
+						
+						-
+							
+						-
+						
+						# STUB
+					
+					Infix Operators
+						
+						-
+							An infix operator token will take its left hand value and its right
+							hand values, and make them the children of the command containing it,
+							with the left hand value preceding the right hand values. The token
+							will then be replaced with a standard interface command.
+							
+							These tokens will use the siblings of the command they occur in as
+							alternative left hand values and right hand values.
+							
+							The tokens recognized as infix operators are listed below along with
+							their respective standard interface commands:
+							
+							&: Concatenate
+							@: At
+							And: And
+							Or: Or
+							Xor: Exclusive Or
+							>: Greater
+							>=: Greater or Equal
+							<: Less
+							<=: Less or Equal
+							==: Equal
+							!=: Not: Equal
+							*: Multiply
+							/: Divide
+							%: Modulus
+							+: Add
+							-: Subtract
+						-
+						
+						# STUB
+					
+					Postfix Operators
+						
+						-
+							
+						-
+						
+						# STUB
+					
+					Special Operators
+					
+						-
+							
+						-
+						
+						# STUB
