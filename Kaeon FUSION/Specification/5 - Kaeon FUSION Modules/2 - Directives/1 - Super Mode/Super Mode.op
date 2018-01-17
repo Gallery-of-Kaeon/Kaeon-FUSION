@@ -56,9 +56,12 @@ Super Mode
 						
 						Params
 						Print
+						Log
+						Log Line
 						Not
 						Return
 						New
+						Define
 						Def
 						If
 						Elif
@@ -109,16 +112,16 @@ Super Mode
 							said right hand values.
 						-
 					
-					Printing
+					Implicit Prefix Notation
 					
 						-
-							The token "print" may be used in place of log line.
+							Certain tokens may be used in place of certain commands where their
+							right hand values will serve as arguments.
 							
-							This token will use the children of the command it occurs in as
-							alternative right hand values.
-							
-							This token shall serve as a substitute for the Log Line command where
-							each right hand value is an argument.
+							The log, log line, define, not, new, and return commands may all be
+							used in the form of such a token as opposed to a command. The token
+							"print" may be used in place of "log line", and the token "def" may be
+							used in place of "define".
 						-
 				
 				# STUB
