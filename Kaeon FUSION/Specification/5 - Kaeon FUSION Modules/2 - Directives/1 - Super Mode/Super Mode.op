@@ -132,10 +132,36 @@ Super Mode
 					Conditionals and Loops
 						
 						-
+							The following tokens will use the children of the command they occur in
+							as alternative right hand values.
 							
+							The token "If" with a right hand value that returns a boolean
+							translates to a conditional where its children, not including said
+							boolean, are processed if said boolean is true.
+							
+							The token "While" with a right hand value that returns a boolean
+							translates to a loop where its children, not including said boolean,
+							are processed until said boolean is false.
+							
+							The token "For" with a right hand value that returns a number
+							translates to a loop where its children, not including said boolean,
+							are processed for the number of times returned by said number.
+							
+							The token "For" with a right hand value in the form of a miscellaneous
+							string followed by the token "In" followed by a value that returns a
+							list translates to a loop where its children, not including said right
+							hand value, are processed once for every element in the returned list
+							and the miscellaneous string serves as the alias for the element in the
+							list at the index corresponding to the current iteration.
+							
+							The token "For" with a right hand value in the form of a miscellaneous
+							string followed by the token "From" followed by a value that returns a
+							number followed by the token "To" followed by another value that
+							returns a number translates to a loop where its children, not including
+							said right hand value, are processed once for every number between the
+							two returned numbers, inclusive, and the miscellaneous string serves as
+							the alias for the number corresponding to the current iteration.
 						-
-						
-						# STUB
 					
 					Infix Operators
 						
@@ -172,10 +198,18 @@ Super Mode
 					Postfix Operators
 						
 						-
+							The token "--" indicates the presence of a command that deprecates its
+							left hand value by one.
 							
+							The token "++" indicates the presence of a command that increments its
+							left hand value by one.
+							
+							The token "-=" indicates the presence of a command that deprecates its
+							left hand value by its right hand value.
+							
+							The token "++" indicates the presence of a command that increments its
+							left hand value by its right hand value.
 						-
-						
-						# STUB
 					
 					Special Operators
 					
