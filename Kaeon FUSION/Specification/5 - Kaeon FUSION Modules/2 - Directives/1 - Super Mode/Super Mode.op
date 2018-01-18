@@ -66,6 +66,7 @@ Super Mode
 						Define
 						Def
 						If
+						Else
 						Elif
 						While
 						For
@@ -123,8 +124,8 @@ Super Mode
 							These tokens will use the children of the command they occur in as
 							alternative right hand values.
 							
-							The log, log line, define, not, new, and return commands may all be
-							used in the form of such a token as opposed to a command. The token
+							The log, log line, define, else, not, new, and return commands may all
+							be used in the form of such a token as opposed to a command. The token
 							"print" may be used in place of "log line", and the token "def" may be
 							used in place of "define".
 						-
@@ -138,6 +139,11 @@ Super Mode
 							The token "If" with a right hand value that returns a boolean
 							translates to a conditional where its children, not including said
 							boolean, are processed if said boolean is true.
+							
+							The token "Elif" with a right hand value that returns a boolean
+							translates to a conditional where its children, not including said
+							boolean, are processed if said boolean is true and the previous
+							conditional failed to activate.
 							
 							The token "While" with a right hand value that returns a boolean
 							translates to a loop where its children, not including said boolean,
