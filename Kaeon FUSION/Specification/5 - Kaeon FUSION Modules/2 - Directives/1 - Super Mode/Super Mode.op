@@ -40,11 +40,11 @@ Super Mode
 					the left hand value and the right hand value will be trimmed of any leading or
 					trailing whitespace. If the resulting left hand value has a length of zero, the
 					element preceding the element containing the token, or the parent of the
-					element containing the token, will serve as the left hand value depending on
-					the token. If the resulting right hand value has a length of zero, the element
+					element containing the token, may serve as the left hand value depending on the
+					token. If the resulting right hand value has a length of zero, the element
 					following the element containing the token, or the children of the element
 					containing the token, in which case there will be multiple right hand values,
-					will serve as the right hand value depending on the token.
+					may serve as the right hand value depending on the token.
 					
 					Once processed into a left hand value, a token, and a right hand value, an
 					effect will be applied depending on the token.
@@ -214,7 +214,18 @@ Super Mode
 					Special Operators
 					
 						-
+							The token "=" translates to a command that assigns the right hand value
+							to a variable with an alias match its left hand value.
 							
+							The token "->" translates to a command that performs the function
+							specified by its right hand value within the object specified by its
+							left hand value.
+							
+							The token "=>" translates to a command that returns the variable
+							specified by its right hand value from within the object specified by
+							its left hand value.
+							
+							The token "|" translates to performing the command specified by its
+							left hand value with its right hand value as its first argument and the
+							children of the command containing it as additional arguments.
 						-
-						
-						# STUB
