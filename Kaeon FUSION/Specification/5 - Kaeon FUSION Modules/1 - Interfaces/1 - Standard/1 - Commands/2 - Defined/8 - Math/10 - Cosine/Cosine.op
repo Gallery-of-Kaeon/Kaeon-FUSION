@@ -1,0 +1,10 @@
+Cosine
+	
+	Philosophy
+		
+		-
+			The cosine command contains the content "Cosine". It must have a single child which
+			returns a number.
+			
+			It returns the cosine value of the returned number in radians.
+		-

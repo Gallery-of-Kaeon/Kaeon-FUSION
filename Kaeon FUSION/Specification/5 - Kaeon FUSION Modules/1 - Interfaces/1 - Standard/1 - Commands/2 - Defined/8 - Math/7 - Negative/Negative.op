@@ -1,0 +1,10 @@
+Negative
+	
+	Philosophy
+		
+		-
+			The negative command contains the content "Negative". It must have a single child which
+			returns a number.
+			
+			It returns the product of the returned number and negative one.
+		-

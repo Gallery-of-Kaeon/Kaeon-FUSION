@@ -1,0 +1,11 @@
+To Radians
+	
+	Philosophy
+		
+		-
+			The to radians command contains the content "To Radians". It must have a single child
+			which returns a number.
+			
+			It converts the returned number from a degrees value to a radians value and returns the
+			resulting value.
+		-

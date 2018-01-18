@@ -1,0 +1,10 @@
+Tangent
+	
+	Philosophy
+		
+		-
+			The tangent command contains the content "Tangent". It must have a single child which
+			returns a number.
+			
+			It returns the tangent value of the returned number in radians.
+		-

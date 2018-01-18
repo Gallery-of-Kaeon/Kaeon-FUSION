@@ -1,0 +1,10 @@
+Sine
+	
+	Philosophy
+		
+		-
+			The sine command contains the content "Sine". It must have a single child which returns
+			a number.
+			
+			It returns the sine value of the returned number in radians.
+		-
