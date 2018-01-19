@@ -63,6 +63,7 @@ Super Mode
 						Not
 						Return
 						New
+						Global
 						Define
 						Def
 						If
@@ -157,10 +158,10 @@ Super Mode
 							These tokens will use the children of the command they occur in as
 							alternative right hand values.
 							
-							The log, log line, define, else, not, new, and return commands may all
-							be used in the form of such a token as opposed to a command. The token
-							"print" may be used in place of "log line", and the token "def" may be
-							used in place of "define".
+							The log, log line, define, else, not, new, global, and return commands
+							may all be used in the form of such a token as opposed to a command.
+							The token "print" may be used in place of "log line", and the token
+							"def" may be used in place of "define".
 						-
 					
 					Conditionals and Loops

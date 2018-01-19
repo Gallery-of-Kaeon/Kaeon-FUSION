@@ -5,10 +5,10 @@ def dog { Params: arg0 }
 	# Object fields should be global
 
 	# Set name to the first argument passed in
-	Global: name = arg0
+	global name = arg0
 	
-	Global: height = 5
-	Global: weight = 10
+	global height = 5
+	global weight = 10
 	
 	# Define the function bork within dog
 	# Prints bork from zero to the number passed in
