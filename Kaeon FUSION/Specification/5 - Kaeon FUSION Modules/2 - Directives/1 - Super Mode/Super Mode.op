@@ -33,7 +33,9 @@ Super Mode
 					such a token is not surrounded by double quotes, it will be processed.
 					
 					Certain tokens will take priority in the order they are processed if they occur
-					within the same element.
+					within the same element. If multiple tokens have equivalent priority, they will
+					be processed from left to right. If a token requires a value it cannot locate,
+					it will not be processed.
 					
 					Upon being processed, a token will separate the content that precedes it into a
 					left hand value and the content that follows it into a right hand value. Both
@@ -51,11 +53,9 @@ Super Mode
 				-
 				
 				Tokens
+				
+					First Priority
 					
-					-
-						The tokens recognized by Super Mode are listed below from the highest
-						priority to the lowest priority:
-						
 						Params
 						Print
 						Log
@@ -70,35 +70,67 @@ Super Mode
 						Elif
 						While
 						For
+						
+					Second Priority
+						
 						From
-						To
 						In
+						To
+						
+					Third Priority
+					
 						Do
+						
+					Fourth Priority
+					
 						=
+						+=
+						-=
 						&
 						->
 						=>
 						|
 						@
+						
+					Fifth Priority
+					
 						And
 						Or
 						Xor
+					
+					Sixth Priority
+					
 						>
 						>=
 						<
 						<=
 						==
 						!=
+						
+					Seventh Priority
+					
 						++
-						+=
 						--
-						-=
+					
+					Eighth Priority
+					
 						*
+					
+					Ninth Priority
+					
 						/
+					
+					Tenth Priority
+					
 						%
+					
+					Eleventh Priority
+					
 						+
+					
+					Twelfth Priority
+					
 						-
-					-
 				
 				Effects
 					
