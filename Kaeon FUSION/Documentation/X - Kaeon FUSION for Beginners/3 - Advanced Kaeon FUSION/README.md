@@ -139,7 +139,7 @@ will open the Notepad application.
 Perhaps the most important thing you can do using the Kaeon FUSION Standard Interface is generate code in other languages without actually having to write any code in other languages.
 
 Different dialects of ONE that correspond to different development domains can be provided by other interfaces,
-like the [web](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/4%20-%20The%20Web%20and%20Machine%20Interfaces/1%20-%20Web/README.md) interface.
+like the [stack interface](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/4%20-%20Stack%20Interface/README.md).
 Using these dialects,
 you can write ONE+ code that doesn't do anything in Kaeon FUSION but can work with Kaeon FUSION to build something like a website.
 
@@ -151,14 +151,14 @@ and this child should have children specifying the names of functions containing
 
 For example, running:
 
-    Use: Standard, Web
+    Use: Standard, Stack
 
     Define: My Website
 
     	Head: Title: My Website
     	Text: 'Hello, world!'
 
-    Build: Page: My Website
+    Build: HTML: My Website
 
 will generate an html file in the local directory containing the following html code:
 

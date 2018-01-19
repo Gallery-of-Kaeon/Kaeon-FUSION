@@ -69,7 +69,7 @@ the Kaeon Origin IDE automatically notifies the user when updates are available 
 If you downloaded Kaeon Origin prior to November 5, 2017,
 we recommend that you re-download it.
 
-Our beta implementation does not currently include implementations for any ONE+ directives.
+Our beta implementation does not currently include implementations for any ONE+ directives or the stack interface.
 It should also be noted that the Kaeon Origin IDE was developed and tested on a windows computer.
 To be specific:
 a Lenovo IdeaPad P500 laptop.
@@ -176,7 +176,7 @@ with major updates occurring between once per month and once every three months.
 
 At the time of writing,
 our main focus is on stabilizing the specification and our implementations for the standard ONE+ directives,
-super mode, and the web and machine interfaces,
+super mode, and the stack interface,
 as well as improving the quality of the Kaeon Origin IDE.
 
 ### I would like to use Kaeon FUSION in a commercial project. Who do I make the check out to?
