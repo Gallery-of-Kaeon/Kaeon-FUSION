@@ -3,7 +3,7 @@
 a = 0
 b = 1
 
-for input: "Enter a number: "
+for input: "Enter a number: " do
 	
 	print a
 	

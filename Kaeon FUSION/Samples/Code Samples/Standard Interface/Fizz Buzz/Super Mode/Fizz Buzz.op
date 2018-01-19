@@ -1,6 +1,6 @@
 [USE: SUPER] [SUPER]
 
-for i from 0 to input: "Enter a number: "
+for i from 0 to input: "Enter a number: " do
 	
 	if { i % 3 == 0 and i % 5 == 0 }
 		print fizz buzz

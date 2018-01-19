@@ -5,7 +5,7 @@ print Welcome to Battle!
 player = 100
 foe = 100
 
-while player > 0 and foe > 0
+while player > 0 and foe > 0 do
 	
 	print: "You: ", player, " Opponent: ", foe
 	
@@ -15,7 +15,7 @@ while player > 0 and foe > 0
 		1. Tackle\n
 		2. Scratch\n
 	
-	if answer == 1
+	if answer == 1 do
 		foe -= 20
 		print Opponent took 20 damage.
 	
@@ -23,11 +23,11 @@ while player > 0 and foe > 0
 		foe -= 10
 		print Opponent took 10 damage.
 		
-	if foe > 0
+	if foe > 0 do
 		player -= 15
 		print Opponent used bite. You took 15 damage.
 
-if player > foe
+if player > foe do
 	print: Opponent fainted., \n, You Win!
 
 else

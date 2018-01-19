@@ -5,9 +5,9 @@ b = 1
 
 sum = 0
 
-while a < 4000000
+while a < 4000000 do
 	
-	if a % 2 == 0
+	if a % 2 == 0 do
 		sum += a
 
 	temp = b

@@ -10,14 +10,14 @@
 
 def Bubble Sort { Params: my list }
 
-	for i from 1 to Size: my list
+	for i from 1 to Size: my list do
 
-		for j from 1 to Size: my list
+		for j from 1 to Size: my list do
 
 			a = my list @ i
 			b = my list @ j
 
-			if a > b
+			if a > b do
 				my list | set: i, b
 				my list | set: j, a
 

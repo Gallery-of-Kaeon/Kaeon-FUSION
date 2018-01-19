@@ -2,9 +2,9 @@
 
 sum = 0
 
-for i from 3 to 999
+for i from 3 to 999 do
 	
-	if i % 3 == 0 or i % 5 == 0
+	if i % 3 == 0 or i % 5 == 0 do
 		sum += i
 
 print sum

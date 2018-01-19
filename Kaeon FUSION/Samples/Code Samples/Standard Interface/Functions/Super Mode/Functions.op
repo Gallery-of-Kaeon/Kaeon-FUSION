@@ -7,5 +7,5 @@ def foo
 
 def baz { Params: num }
 	
-	for num
+	for num do
 		foo
