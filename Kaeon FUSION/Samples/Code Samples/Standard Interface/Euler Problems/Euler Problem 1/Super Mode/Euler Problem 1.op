@@ -1,0 +1,10 @@
+[USE: SUPER] [SUPER]
+
+sum = 0
+
+for i from 3 to 999
+	
+	if i % 3 == 0 or i % 5 == 0
+		sum += i
+
+print sum

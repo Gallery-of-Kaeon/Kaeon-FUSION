@@ -1,0 +1,11 @@
+[USE: SUPER] [SUPER]
+
+baz: 5
+
+def foo
+	print bar
+
+def baz { Params: num }
+	
+	for num
+		foo

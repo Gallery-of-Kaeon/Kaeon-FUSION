@@ -1,0 +1,24 @@
+#[
+
+	Use the Import command in Kaeon FUSION
+	code using the standard interface to
+	import the following function.
+
+ ]#
+
+[USE: SUPER] [SUPER]
+
+def Bubble Sort { Params: my list }
+
+	for i from 1 to Size: my list
+
+		for j from 1 to Size: my list
+
+			a = my list @ i
+			b = my list @ j
+
+			if a > b
+				my list | set: i, b
+				my list | set: j, a
+
+	return my list

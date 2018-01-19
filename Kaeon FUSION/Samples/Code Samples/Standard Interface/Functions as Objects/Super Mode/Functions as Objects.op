@@ -1,0 +1,34 @@
+[USE: SUPER] [SUPER]
+
+def dog { Params: arg0 }
+	
+	# Object fields should be global
+
+	# Set name to the first argument passed in
+	Global: name = arg0
+	
+	Global: height = 5
+	Global: weight = 10
+	
+	# Define the function bork within dog
+	# Prints bork from zero to the number passed in
+	def bork { Params: borks }
+		
+		for borks
+			
+			# Surround bork in quotation marks to avoid recursive call
+			print "bork"
+
+# Assign a new instance of dog with the argument doggo to my dog
+my dog = new dog: doggo
+
+# Run the code "height: 7" within my dog to set my dog's height to 7
+my dog -> height = 7
+
+# Run code within my dog to return data to the Log Line command
+
+print my dog => height
+print my dog => weight
+
+# Run the function bork within my dog
+my dog -> bork: 3
