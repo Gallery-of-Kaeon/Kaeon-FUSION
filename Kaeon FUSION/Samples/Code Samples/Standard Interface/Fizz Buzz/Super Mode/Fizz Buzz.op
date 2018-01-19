@@ -2,13 +2,13 @@
 
 for i from 0 to input: "Enter a number: " do
 	
-	if { i % 3 == 0 and i % 5 == 0 }
+	if i % 3 == 0 and i % 5 == 0 do
 		print fizz buzz
 	
-	elif { i % 3 == 0 }
+	elif i % 3 == 0 do
 		print fizz
 	
-	elif { i % 5 == 0 }
+	elif i % 5 == 0 do
 		print buzz
 	
 	else
