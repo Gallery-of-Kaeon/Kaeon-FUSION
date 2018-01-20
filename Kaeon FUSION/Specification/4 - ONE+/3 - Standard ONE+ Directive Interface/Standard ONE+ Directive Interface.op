@@ -162,25 +162,24 @@ Standard ONE+ Directive Interface
 					integer of its first child to the index specified by the integer of its second
 					child if it has two children.
 				-
+			
+			Index
 				
-				Index
+				-
+					An index directive may only be nested beneath a for directive. Its
+					directive definition contains only one element which contains the content
+					"index".
 					
-					-
-						An index directive may only be nested beneath a for directive. Its
-						directive definition contains only one element which contains the content
-						"index".
-						
-						The index directive will paste an element containing either the content of
-						the element or the number that corresponds to the current iteration of the
-						loop.
-					-
+					The index directive will paste an element containing either the content of
+					the element or the number that corresponds to the current iteration of the
+					loop.
+				-
 			
 			Info
 				
 				-
 					The info directive contains only one element within its directive definition.
-					This
-					element contains the content "Info". This element may have any number of
+					This element contains the content "Info". This element may have any number of
 					children.
 					
 					The content of the "Info" element's children and the children of the directive

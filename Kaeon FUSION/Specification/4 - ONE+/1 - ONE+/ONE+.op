@@ -18,9 +18,9 @@ ONE+
 				the close directive sequence, the escape sequence, the escape scope sequence, the
 				encoded escape scope sequence, the alternate breaking sequence, the alternate
 				nesting sequence, the comment sequence, the open comment sequence, the close
-				comment sequence, and the blank sequence. It is not permitted for the sequences to
-				be defined such that there may be any instances where two or more sequences
-				conflict at a given location.
+				comment sequence, the zero sequence, and the blank sequence. It is not permitted
+				for the sequences to be defined such that there may be any instances where two or
+				more sequences conflict at a given location.
 				
 				In ONE+, it is possible to have more than one character sequence for each defined
 				sequence.
@@ -176,3 +176,10 @@ ONE+
 						this 	element should contain the name of the interface. If the interface
 						is available, the directives implemented within it will be usable.
 					-
+			
+			Zero Documents
+			
+				-
+					If the document begins with the zero sequence, the remainder of the document
+					will constitute a zero document and will be parsed as such.
+				-

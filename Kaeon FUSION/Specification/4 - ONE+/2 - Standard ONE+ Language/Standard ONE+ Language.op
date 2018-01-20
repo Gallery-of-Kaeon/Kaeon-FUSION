@@ -149,6 +149,13 @@ Standard ONE+ Language
 					closed square bracket followed by a pound sign.
 				-
 			
+			Zero Sequence
+				
+				-
+					In the standard variant of the ONE+ Language, the zero sequence is an open
+					square bracket, followed by a zero, followed by a closed square bracket.
+				-
+			
 			Blank Sequence
 				
 				-
