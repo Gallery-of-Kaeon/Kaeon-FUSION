@@ -1,0 +1,10 @@
+Absolute Value
+	
+	Philosophy
+		
+		-
+			The absolute value command contains the content "Absolute Value". It must have a single
+			child which returns a number.
+			
+			It returns the absolute value of the returned number.
+		-
