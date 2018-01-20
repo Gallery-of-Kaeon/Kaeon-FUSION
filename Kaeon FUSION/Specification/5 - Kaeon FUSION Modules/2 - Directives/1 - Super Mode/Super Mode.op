@@ -88,6 +88,7 @@ Super Mode
 						+=
 						-=
 						&
+						&=
 						->
 						=>
 						|
@@ -253,8 +254,11 @@ Super Mode
 							The token "-=" indicates the presence of a command that deprecates its
 							left hand value by its right hand value.
 							
-							The token "++" indicates the presence of a command that increments its
+							The token "+=" indicates the presence of a command that increments its
 							left hand value by its right hand value.
+							
+							The token "&=" indicates the presence of a command that concatenates
+							its right hand value to its left hand value.
 						-
 					
 					Special Operators
