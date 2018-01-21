@@ -157,7 +157,7 @@ public class Processor {
 		
 		for(String token : newLine) {
 			
-			if(!Tokenizer.isToken(tokens, token) && token.trim().length() > 0) {
+			if((!Tokenizer.isToken(tokens, token) || token.equals("-")) && token.trim().length() > 0) {
 				
 				Element newElement = cropElement(getElement(processContent(token)), false);
 				
@@ -254,7 +254,8 @@ public class Processor {
 					(newLine.get(0).equals("~") ||
 							newLine.get(0).equals("\"") ||
 							newLine.get(0).equals("\'") ||
-							newLine.get(0).equals("["))) {
+							newLine.get(0).equals("[")) ||
+							newLine.get(0).equals("-")) {
 				
 				break;
 			}
@@ -317,8 +318,8 @@ public class Processor {
 		
 		for(int i = 0; i < newLine.size() - 1; i++) {
 			
-			if(!Tokenizer.isToken(tokens, newLine.get(i)) &&
-					!Tokenizer.isToken(tokens, newLine.get(i + 1))) {
+			if((!Tokenizer.isToken(tokens, newLine.get(i)) || newLine.get(i).equals("-")) &&
+					(!Tokenizer.isToken(tokens, newLine.get(i + 1)) || newLine.get(i + 1).equals("-"))) {
 				
 				newLine.set(i, newLine.get(i) + newLine.remove(i + 1));
 				
