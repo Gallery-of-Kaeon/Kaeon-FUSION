@@ -33,41 +33,40 @@ Standard ONE+ Directive Interface
 					children of elements that have content that matches the content of the child of
 					the "properties" element.
 				-
+				
+				Infix
 					
-					Infix
+					-
+						An element with the content "Infix" may be nested beneath a properties
+						directive. The element will have one child, which will specify a sequence
+						of characters that may act as an infix operator on the content of elements
+						that the parent properties directive takes effect on.
 						
-						-
-							An element with the content "Infix" may be nested beneath a properties
-							directive. The element will have one child, which will specify a
-							sequence of characters that may act as an infix operator on the content
-							of elements that the parent properties directive takes effect on.
-							
-							When the infix effect occurs, any instance of the sequence of
-							characters will be removed from the element's content. The content on
-							either side of the sequence of characters will be split into two
-							elements. An element with the infix sequence as its content will take
-							the place of the original element and the split elements will become
-							its children.
-							
-							If multiple infix operators are defined, the order in which they are
-							defined will determine the order in which the effects are applied.
-						-
+						When the infix effect occurs, any instance of the sequence of characters
+						will be removed from the element's content. The content on either side of
+						the sequence of characters will be split into two elements. An element with
+						the infix sequence as its content will take the place of the original
+						element and the split elements will become its children.
+						
+						If multiple infix operators are defined, the order in which they are
+						defined will determine the order in which the effects are applied.
+					-
+				
+				Escape
 					
-					Escape
+					-
+						An element with the content "Escape" may be nested beneath a properties
+						directive. The element will have either one or two children, which will
+						specify sequences of characters that may act as an escape sequences for the
+						infix operators specified using infix elements within the properties
+						directive.
 						
-						-
-							An element with the content "Escape" may be nested beneath a properties
-							directive. The element will have either one or two children, which will
-							specify sequences of characters that may act as an escape sequences for
-							the infix operators specified using infix elements within the
-							properties directive.
-							
-							If the "Escape" element has one child, any infix sequence occurring
-							directly after the sequence specified by the child will be nullified.
-							If the "Escape" element has two children, any infix sequence occurring
-							between the sequence specified by the first child the sequence
-							specified by the second child will be nullified.
-						-
+						If the "Escape" element has one child, any infix sequence occurring
+						directly after the sequence specified by the child will be nullified. If
+						the "Escape" element has two children, any infix sequence occurring between
+						the sequence specified by the first child the sequence specified by the
+						second child will be nullified.
+					-
 			
 			Define
 			
