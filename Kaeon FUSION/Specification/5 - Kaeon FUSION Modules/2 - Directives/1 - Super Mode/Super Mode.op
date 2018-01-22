@@ -63,6 +63,13 @@ Super Mode
 						Not
 						Return
 						New
+						Sin
+						Cos
+						Tan
+						Abs
+						Sqrt
+						LogN
+						New
 						Global
 						Define
 						Def
@@ -116,22 +123,14 @@ Super Mode
 					
 					Eighth Priority
 					
+						**
 						*
+						/
+						%
 					
 					Ninth Priority
 					
-						/
-					
-					Tenth Priority
-					
-						%
-					
-					Eleventh Priority
-					
 						+
-					
-					Twelfth Priority
-					
 						-
 				
 				Effects
@@ -161,8 +160,13 @@ Super Mode
 							
 							The log, log line, define, else, not, new, global, and return commands
 							may all be used in the form of such a token as opposed to a command.
-							The token "print" may be used in place of "log line", and the token
-							"def" may be used in place of "define".
+							The token "print" may be used in place of "log line", the token "def"
+							may be used in place of "define", the token "Sin" may be used in place
+							of "Sine", the token "Cos" may be used in place of "Cosine", the token
+							"Tan" may be used in place of "Tangent", the token "Abs" may be used in
+							place of "Absolute Value", the token "Sqrt" may be used in place of
+							"Square Root", and the token "LogN" may be used in place of "Natural
+							Logarithm".
 						-
 					
 					Conditionals and Loops
@@ -235,6 +239,7 @@ Super Mode
 							<=: Less or Equal
 							==: Equal
 							!=: Not: Equal
+							**: Power
 							*: Multiply
 							/: Divide
 							%: Modulus
