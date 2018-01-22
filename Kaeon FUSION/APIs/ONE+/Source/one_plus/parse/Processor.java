@@ -295,7 +295,7 @@ public class Processor {
 					literal += token;
 				}
 				
-				newLine.set(i, literal + (literal.length() > 1 ? '\"' : ""));
+				newLine.set(i, literal + '\"');
 			}
 			
 			if(newLine.get(i).equals("\'")) {
