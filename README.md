@@ -73,8 +73,6 @@ Our beta implementation does not currently include implementations for any ONE+ 
 It should also be noted that the Kaeon Origin IDE was developed and tested on a windows computer.
 To be specific:
 a Lenovo IdeaPad P500 laptop.
-Some features of the IDE may malfunction on Unix based operating systems including Mac and Linux.
-We will resolve these issues as soon as we can.
 
 Finally,
 we plan on releasing a more advanced version of our IDE by early 2018 to make up for the current version's shortcomings.

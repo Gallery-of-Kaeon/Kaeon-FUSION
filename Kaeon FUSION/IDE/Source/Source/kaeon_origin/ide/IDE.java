@@ -280,7 +280,7 @@ public class IDE implements ActionListener {
 
 			Input input = getInput();
 
-			int start = file.content.indexOf('\\') != -1 ? file.content.lastIndexOf('\\') + 1: 0;
+			int start = file.content.indexOf(File.separator) != -1 ? file.content.lastIndexOf(File.separator) + 1: 0;
 			int end = file.content.indexOf('.') != -1 ? file.content.lastIndexOf('.') : file.content.length();
 
 			input.button.setText(file.content.substring(start, end));
@@ -635,7 +635,7 @@ public class IDE implements ActionListener {
 			}
 
 			String name = file.getAbsolutePath().substring(
-					file.getAbsolutePath().lastIndexOf('\\') + 1,
+					file.getAbsolutePath().lastIndexOf(File.separator) + 1,
 					file.getAbsolutePath().lastIndexOf('.'));
 
 			Input input = getInput();
