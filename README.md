@@ -62,7 +62,7 @@ the implementations for Kaeon FUSION and its standard interface are stable.
 However,
 the Kaeon Origin IDE,
 several directives,
-as well as the web and machine interfaces are still in beta.
+and the stack interface are still in beta.
 
 As of November 5, 2017,
 the Kaeon Origin IDE automatically notifies the user when updates are available and offers them the option to have the updates installed automatically.

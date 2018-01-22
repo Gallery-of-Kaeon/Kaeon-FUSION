@@ -1,3 +1,5 @@
+[Kaeon FUSION Home](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/README.md)
+
 # Why use Kaeon FUSION?
 
 ## Why is Kaeon FUSION called "the first universal programming language"?
