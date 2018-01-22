@@ -78,7 +78,7 @@ That said,
 in order to push such a platform,
 it's ideal to ship it with some sort of "killer app".
 At the moment,
-We are in the process of developing an interface called the Stack interface that will allow Kaeon FUSION code from the standard interface to be cross compiled into C,
+we are in the process of developing an interface called the Stack interface that will allow Kaeon FUSION code from the standard interface to be cross compiled into C,
 C++,
 Java,
 C#,
