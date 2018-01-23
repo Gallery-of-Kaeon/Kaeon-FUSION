@@ -1,7 +1,7 @@
 #[
 
-	This code use's Kaeon FUSION's Machine Interface to cross compile a Kaeon FUSION definition to
-	C code.
+	This code use's Kaeon FUSION's Stack Interface to cross compile a Kaeon FUSION definition to C
+	code.
 	
 	Running this code will produce a file called "main.c", which will contain the following C code:
 
@@ -13,6 +13,9 @@
 	}
 
  ]#
+
+# The Stack interface has not been implemented yet.
+# Use the following code with the currently available machine interface.
 
 Use: Standard, Machine
 

@@ -1,6 +1,6 @@
 #[
 
-	This code use's Kaeon FUSION's Web Interface to cross compile a Kaeon FUSION definition to
+	This code use's Kaeon FUSION's Stack Interface to cross compile a Kaeon FUSION definition to
 	html.
 	
 	Running this code will produce a file called "My Page.html", which will contain the following
@@ -51,6 +51,9 @@
 	
  ]#
 
+# The Stack interface has not been implemented yet.
+# Use the following code with the currently available web interface.
+
 Use: Standard, Web
 
 Define
@@ -95,5 +98,5 @@ Define
 			Item: Button
 				ID: my button 2
 				Text: "No, Press Me!"
-				
-Build: Page: My Page
+
+Build: Web: My Page
