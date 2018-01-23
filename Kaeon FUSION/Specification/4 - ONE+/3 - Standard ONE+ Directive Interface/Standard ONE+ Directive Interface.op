@@ -29,9 +29,9 @@ Standard ONE+ Directive Interface
 					The directive modifies the content of its sibling elements and their children.
 					The nature of these effects depends on the elements nested beneath it.
 					
-					If the "properties" element has a child, it will only modify elements and the
+					If the "Properties" element has a child, it will only modify elements and the
 					children of elements that have content that matches the content of the child of
-					the "properties" element.
+					the "Properties" element.
 				-
 				
 				Infix
@@ -73,21 +73,11 @@ Standard ONE+ Directive Interface
 				-
 					The define directive contains only one element within its directive definition.
 					This element contains the content "Define". This element has one child, which
-					contains an alias to reference the elements nested within it.
+					contains an alias to reference the elements nested within it, and may not have
+					the content "Arguments", or content matching that of another directive.
 					
 					The directive stores its children in a list that can be referenced within the
 					scope of its parent by the content of the alias element.
-				-
-			
-			Arguments
-				
-				-
-					The arguments directive contains only one element within its directive
-					definition. This element contains the content "Arguments".
-					
-					When referencing a list of elements defined in a define directive through a
-					call directive, the arguments directive will paste the arguments passed in by
-					the call directive.
 				-
 		
 			Import
@@ -110,8 +100,10 @@ Standard ONE+ Directive Interface
 					contains the name of a list of elements specified by a define directive. The
 					child element may have an indefinite number of children.
 					
-					The call directive will pass the grandchildren of the "Call" element to the
-					referenced elements, and paste the referenced elements where it is located.
+					The call directive will pass the grand children of the "Call" element as
+					arguments to the referenced elements, allowing a list of elements to be
+					referenced within the referenced elements with the alias "Arguments", and paste
+					the referenced elements where it is located.
 				-
 			
 			If
@@ -121,26 +113,16 @@ Standard ONE+ Directive Interface
 					This element contains the content "If". This element has an indefinite number
 					of children, but must have at least one.
 					
-					If the first child of the "If" element matches any of its siblings, the if
-					directive will paste the referenced elements where it is located.
-				-
-			
-			Size
-				
-				-
-					The size directive contains only one element within its directive definition.
-					This element contains the content "Size". This element has one child, which
-					contains the alias of a list of elements specified by a define directive.
-					
-					The size directive will and paste the size of the list of referenced elements
-					where it is located.
+					If the first child of the "If" element matches any of its siblings within its
+					directive definition, the if directive will paste its children following its
+					directive definition where it is located.
 				-
 			
 			For
 				
 				-
 					The for directive contains only one element within its directive definition.
-					This element contains the content "for". This element may either have between
+					This element contains the content "For". This element may either have between
 					one and three children where the first child contains an alias of a list of
 					objects specified in a define directive and the other two, if present, contain
 					integers, or between one and two children where both contain integers.
@@ -162,12 +144,23 @@ Standard ONE+ Directive Interface
 					child if it has two children.
 				-
 			
+			Size
+				
+				-
+					The size directive contains only one element within its directive definition.
+					This element contains the content "Size". This element has one child, which
+					contains the alias of a list of elements specified by a define directive.
+					
+					The size directive will and paste the size of the list of referenced elements
+					where it is located.
+				-
+			
 			Index
 				
 				-
 					An index directive may only be nested beneath a for directive. Its
 					directive definition contains only one element which contains the content
-					"index".
+					"Index".
 					
 					The index directive will paste an element containing either the content of
 					the element or the number that corresponds to the current iteration of the
