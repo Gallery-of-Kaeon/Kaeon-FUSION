@@ -70,7 +70,7 @@ If you downloaded Kaeon Origin prior to November 5, 2017,
 we recommend that you re-download it.
 
 Our beta implementation does not currently include implementations for any ONE+ directives or the stack interface.
-It should also be noted that the Kaeon Origin IDE was developed and tested on a windows computer.
+It should also be noted that all of our implementations were developed and tested on a windows computer.
 To be specific:
 a Lenovo IdeaPad P500 laptop.
 
@@ -114,6 +114,26 @@ We wrote our implementation of Kaeon FUSION in Java because we saw Java as the m
 However,
 an implementation of Kaeon FUSION can be written in any language and for any platform,
 as long as it conforms to the rules laid out in the specification.
+
+### Can the Java implementation of the Kaeon FUSION interpreter be embedded into a larger Java project?
+
+Yes,
+this is possible.
+Refer to the (APIs)[https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/APIs] section for the necessary JAR files.
+All of them except for the updater API will be necessary.
+
+Here's an example of how one would start the interpreter from Java:
+
+    new KaeonFUSION().process(
+    		ONEPlus.parseONEPlus(
+    				IO.openAsString("My Code.op")));
+
+The Java implementation of the Kaeon FUSION interpreter is built on Philosopher's Stones,
+and the KaeonFUSION object,
+which serves as the core of the interpreter,
+is an extension of the Philosopher's Stone.
+You can read about Philosopher's Stones [here](https://github.com/Gallery-of-Kaeon/Philosophers-Stone/blob/master/README.md).
+It is important to understand Philosopher's Stones in order to take full advantage of the APIs.
 
 ### How long has Kaeon FUSION been in development?
 
