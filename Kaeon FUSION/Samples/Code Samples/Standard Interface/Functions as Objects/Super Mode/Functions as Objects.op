@@ -1,3 +1,5 @@
+# Super Mode has not been implemented yet.
+
 [USE: SUPER] [SUPER]
 
 def dog { Params: arg0 }

@@ -80,7 +80,7 @@ That said,
 in order to push such a platform,
 it's ideal to ship it with some sort of "killer app".
 At the moment,
-we are in the process of developing an interface called the Stack interface that will allow Kaeon FUSION code from the standard interface to be cross compiled into C,
+we are in the process of developing an interface called the Stack interface that will allow Kaeon FUSION code to be cross compiled into C,
 C++,
 Java,
 C#,
@@ -90,8 +90,14 @@ Python,
 Swift,
 HTML,
 CSS,
-and SQL,
-making it possible to develop almost anything with Kaeon FUSION alone.
+and SQL.
+The HTML,
+CSS,
+and SQL cross compilation will require code to be written using unique dialects,
+code for the rest of the available languages may be written as if it were being written for the standard interface,
+and flags in the form of meta commands may be used to activate features specific to certain languages such as strong typing.
+Thus,
+the stack interface will make it possible to develop almost anything with Kaeon FUSION alone.
 We are also in the process of designing a ONE based file format called [Kaeon ACE](https://github.com/Gallery-of-Kaeon/Kaeon-ACE/blob/master/README.md) that will serve as an interchange format for game engines,
 a Kaeon FUSION interface for building the format to various game engines,
 and on a custom game engine desined to handle the format natively.
