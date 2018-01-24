@@ -119,7 +119,7 @@ as long as it conforms to the rules laid out in the specification.
 
 Yes,
 this is possible.
-Refer to the (APIs)[https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/APIs] section for the necessary JAR files.
+Refer to the [APIs](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/APIs) section for the necessary JAR files.
 All of them except for the updater API will be necessary.
 
 Here's an example of how one would start the interpreter from Java:
