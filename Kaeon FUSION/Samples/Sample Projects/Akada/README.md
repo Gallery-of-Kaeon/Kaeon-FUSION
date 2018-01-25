@@ -9,4 +9,4 @@ and can be cross compiled to HTML by running the "Build Akada" script in the roo
 Running this script outputs HTML code to the "Akada" folder.
 
 Akada was developed with an early version of the Web interface.
-We are currently in the process of replacing the Web interface with the Stack interface.
+The Web interface has since been replaced with the stack interface.

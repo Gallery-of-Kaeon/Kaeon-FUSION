@@ -19,19 +19,6 @@
 			</style>
 		</head>
 		<body>
-			<script>
-				x = 5;
-				console.log((x + 10));
-				do {
-					var y = 0;
-					console.log(y);
-					console.log(x);
-					x = (x + 1);
-					if((x < 10))
-						continue;
-				} while(false);
-				console.log(y);
-			</script>
 			<ul>
 				<li>
 					<button id="my button">
@@ -51,43 +38,20 @@
 	
  ]#
 
-# The Stack interface has not been implemented yet.
-# Use the following code with the currently available web interface.
-
-Use: Standard, Web
+Use: Standard, Stack
 
 Define
 
-	My Style
-		
-		Text: color: blue
-
-	My Script
-	
-		Global: x: 5
-		
-		Scope: In { console } log: Add: x, 10
-		
-		Scope
-			
-			y: 0
-			Scope: In { console } log: y
-			
-			Scope: In { console } log: x
-			x: Add: x, 1
-			
-			Loop: Less: x, 10
-		
-		Scope: In { console } log: y
-	
 	My Page
 		
 		Head
 
 			Title: My Page
 			
-			Style: My Style
-			Script: My Script
+			Style
+
+				Style: Domain { Text } Data
+					color: blue	
 		
 		List
 			
@@ -99,4 +63,4 @@ Define
 				ID: my button 2
 				Text: "No, Press Me!"
 
-Build: Page: My Page
+Build: HTML: My Page
