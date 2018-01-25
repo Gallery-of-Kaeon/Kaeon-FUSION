@@ -58,13 +58,13 @@ public class HTML extends Dialect {
 			Element element,
 			Element tags,
 			Element attributes) {
-		try {
+		
 		if(element.content.equalsIgnoreCase("Style"))
 			return processResource(element, new CSS(), "<style>", "</style>");
 		
 		if(element.content.equalsIgnoreCase("PHP"))
 			return processResource(element, new PHP(), "", "");
-		}catch(Exception e){e.printStackTrace();}
+		
 		if(ElementUtilities.hasChild(tags, element.content))
 			return processTag(element, tags, attributes);
 		
