@@ -68,7 +68,7 @@ it establishes a platform upon which the features of all currently existing lang
 and upon which novel functionality can be implemented in the future,
 foregoing the need to engineer a whole new language from scratch to support said functionality.
 
-Other languages run into roadblocks when attemping to continually integrate new functionality as they attempt to stay relavent,
+Other languages run into roadblocks when attemping to continually integrate new functionality as they attempt to stay relevant,
 leading to their eventual replacement.
 Kaeon FUSION,
 by design,
