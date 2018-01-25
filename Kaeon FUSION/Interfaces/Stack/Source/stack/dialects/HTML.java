@@ -78,13 +78,26 @@ public class HTML extends Dialect {
 			Element element,
 			Element tags,
 			Element attributes) {
+
+		boolean heading = element.content.equalsIgnoreCase("Heading");
 		
-		String tag = "<" + ElementUtilities.getChild(tags, element.content).children.get(0).content;
+		String tagName = "";
+		
+		if(heading)
+			tagName = "h" + ElementUtilities.getChild(element, "Level").children.get(0).content;
+		
+		else
+			tagName = ElementUtilities.getChild(tags, element.content).children.get(0).content;
+		
+		String tag = "<" + tagName;
 		
 		ArrayList<String> tagAttributes = new ArrayList<String>();
 		ArrayList<String> tagItems = new ArrayList<String>();
 		
 		for(int i = 0; i < element.children.size(); i++) {
+			
+			if(heading && element.children.get(i).content.equalsIgnoreCase("Level"))
+				continue;
 			
 			String item = processItem(element.children.get(i), tags, attributes);
 			
@@ -103,7 +116,7 @@ public class HTML extends Dialect {
 		for(int i = 0; i < tagItems.size(); i++)
 			tag += tagItems.get(i);
 		
-		return tag + "</" + ElementUtilities.getChild(tags, element.content).children.get(0).content + ">";
+		return tag + "</" + tagName + ">";
 	}
 	
 	public String processResource(Element element, Dialect dialect, String prefix, String postfix) {
