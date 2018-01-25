@@ -26,32 +26,18 @@ Standard.jar
 			2018/1/19/23/29/0
 		-
 
-Machine.jar
+Stack.jar
 
 	Source
 
 		-
-			https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/raw/master/Kaeon%20FUSION/Interfaces/Machine/Interface/Machine.jar
+			https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/raw/master/Kaeon%20FUSION/Interfaces/Stack/Interface/Stack.jar
 		-
 	
 	Date
 		
 		-
-			2017/11/5/16/0/0
-		-
-
-Web.jar
-
-	Source
-
-		-
-			https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/raw/master/Kaeon%20FUSION/Interfaces/Web/Interface/Web.jar
-		-
-	
-	Date
-		
-		-
-			2017/11/5/16/0/0
+			2018/1/24/21/42/0
 		-
 
 Attributes.op
@@ -59,13 +45,13 @@ Attributes.op
 	Source
 
 		-
-			https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/raw/master/Kaeon%20FUSION/Interfaces/Web/Interface/Attributes.op
+			https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/raw/master/Kaeon%20FUSION/Interfaces/Stack/Interface/Attributes.op
 		-
 	
 	Date
 		
 		-
-			2017/11/5/16/0/0
+			2018/1/24/21/42/0
 		-
 
 Tags.op
@@ -73,11 +59,11 @@ Tags.op
 	Source
 
 		-
-			https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/raw/master/Kaeon%20FUSION/Interfaces/Web/Interface/Tags.op
+			https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/raw/master/Kaeon%20FUSION/Interfaces/Stack/Interface/Tags.op
 		-
 	
 	Date
 		
 		-
-			2017/11/5/16/0/0
+			2018/1/24/21/42/0
 		-
