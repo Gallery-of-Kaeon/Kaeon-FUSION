@@ -108,6 +108,16 @@ Yes, third parties can write their own Kaeon FUSION interfaces using our [Kaeon 
 
 Third parties may also write their own ONE+ directives using our [ONE+ Directive Development Framework](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Module%20Development%20Framework/Directives/README.md).
 
+### Is Kaeon FUSION a LISP?
+
+Desite the similarites Kaeon FUSION is not in the LISP family,
+as even though it uses a code as data paradigm,
+said data is represented in a doubly linked tree structure as opposed to a singly linked list structure.
+This was done both for philosophical and practical reasons.
+Philosophical because we felt that a tree better represented the relationship between operators and their arguments,
+as the separation between them is explicit rather than implicit as is the case with LISP,
+and practical because having the nodes doubly linked makes it easier to implement commands that are aware of their surrounding commands.
+
 ### Is Kaeon FUSION bound to the JVM?
 
 We wrote our implementation of Kaeon FUSION in Java because we saw Java as the most effective way to quickly and efficiently get the project off the ground.

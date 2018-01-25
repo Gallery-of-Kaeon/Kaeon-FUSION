@@ -47,9 +47,7 @@ becoming a "universal" language.
 
 So that begs the question,
 why didn't we build Kaeon FUSION on LISP syntax?
-Because in our humble opinion,
-a doubly linked tree structure makes more sense than a singly linked list structure.
-Also, (L(I(S(P)))) is ugly.
+Because (L(I(S(P)))) is ugly.
 
 ## What can Kaeon FUSION do that other languages cannot?
 
