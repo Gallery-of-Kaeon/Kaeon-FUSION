@@ -69,6 +69,15 @@ It should also be noted that all of our implementations were developed and teste
 To be specific:
 a Lenovo IdeaPad P500 laptop.
 
+Kaeon FUSION,
+being a purely interpreted language,
+is not very fast.
+However,
+we do intend to optomize our interpreter in the near future to be much faster than it currently is.
+In addition,
+the Stack interface will allow Kaeon FUSION to be cross compiled into much faster languages,
+allowing Kaeon FUSION to be used even where speed is an issue.
+
 As of November 5, 2017,
 the Kaeon Origin IDE automatically notifies the user when updates are available and offers them the option to have the updates installed automatically.
 If you downloaded Kaeon Origin prior to November 5, 2017,
