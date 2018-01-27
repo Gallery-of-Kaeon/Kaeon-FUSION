@@ -60,19 +60,19 @@ we recommend you check out our [Kaeon FUSION for Beginners](https://github.com/G
 As of Novemeber 13, 2017,
 the implementations for Kaeon FUSION and its standard interface are stable.
 However,
-the Kaeon Origin IDE,
-several directives,
-and the stack interface are still in beta.
+the Kaeon Origin IDE and the stack interface are still in beta.
+No directives,
+including Super Mode,
+have implemantations yet,
+and the current implementation of the stack interface only provides the HTML and CSS dialects.
+It should also be noted that all of our implementations were developed and tested on a windows computer.
+To be specific:
+a Lenovo IdeaPad P500 laptop.
 
 As of November 5, 2017,
 the Kaeon Origin IDE automatically notifies the user when updates are available and offers them the option to have the updates installed automatically.
 If you downloaded Kaeon Origin prior to November 5, 2017,
 we recommend that you re-download it.
-
-Our beta implementation does not currently include implementations for any ONE+ directives or the stack interface.
-It should also be noted that all of our implementations were developed and tested on a windows computer.
-To be specific:
-a Lenovo IdeaPad P500 laptop.
 
 Finally,
 we plan on releasing a more advanced version of our IDE by early 2018 to make up for the current version's shortcomings.
