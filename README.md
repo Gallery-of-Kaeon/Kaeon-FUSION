@@ -65,9 +65,7 @@ No directives,
 including Super Mode,
 have implemantations yet,
 and the current implementation of the stack interface only provides the HTML and CSS dialects.
-It should also be noted that all of our implementations were developed and tested on a windows computer.
-To be specific:
-a Lenovo IdeaPad P500 laptop.
+It should also be noted that all of our implementations were developed and tested on an unmodified Lenovo IdeaPad P500 laptop running Windows 10.
 
 Kaeon FUSION,
 being a purely interpreted language,
