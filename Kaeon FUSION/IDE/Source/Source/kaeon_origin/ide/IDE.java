@@ -34,6 +34,7 @@ import javax.swing.undo.UndoManager;
 import io.IO;
 import kaeon_fusion.KaeonFUSION;
 import kaeon_origin.ide.utilities.Input;
+import kaeon_origin.ide.utilities.OptionsPane;
 import kaeon_origin.ide.utilities.Output;
 import kaeon_origin.utilties.Utilities;
 import one.Element;
@@ -59,6 +60,7 @@ public class IDE implements ActionListener {
 	public JPanel out;
 
 	public JButton one;
+	public JButton sup;
 
 	public Font font;
 
@@ -143,11 +145,12 @@ public class IDE implements ActionListener {
 		inputPanel.add(manage, BorderLayout.NORTH);
 		inputPanel.add(select, BorderLayout.SOUTH);
 
-		manage.setLayout(new GridLayout(2, 1));
+		manage.setLayout(new GridLayout( /*3*/ 2, 1));
 
 		JPanel io = new JPanel();
 		JPanel file = new JPanel();
-		
+
+//		manage.add(createButton("Options"));
 		manage.add(io);
 		manage.add(file);
 
@@ -236,13 +239,16 @@ public class IDE implements ActionListener {
 		build.add(createButton("Run"));
 		build.add(createButton("Stop"));
 
-		settings.setLayout(new GridLayout(1, 2));
+		settings.setLayout(new GridLayout(1, /*3*/ 2));
 		settings.setBackground(Color.WHITE);
 
 		settings.add(createButton("Set Arguments"));
 
 		one = createButton("Show ONE");
 		settings.add(one);
+
+		sup = createButton("Enable Super");
+//		settings.add(sup);
 
 		out.setLayout(new BorderLayout());
 		out.setBackground(Color.WHITE);
@@ -334,6 +340,10 @@ public class IDE implements ActionListener {
 
 		String command = actionEvent.getActionCommand();
 
+		if(command.equals("Options")) {
+			new OptionsPane(this);
+		}
+		
 		if(command.equals("New")) {
 
 			Input input = getInput();
@@ -384,6 +394,16 @@ public class IDE implements ActionListener {
 
 			one.setText("Show ONE");
 			one.setActionCommand("Show ONE");
+		}
+
+		if(command.equals("Enable Super")) {
+			sup.setText("Disable Super");
+			sup.setActionCommand("Disable Super");
+		}
+
+		if(command.equals("Disable Super")) {
+			sup.setText("Enable Super");
+			sup.setActionCommand("Enable Super");
 		}
 
 		if(command.equals("Run") && currentInput != null) {
@@ -464,7 +484,11 @@ public class IDE implements ActionListener {
 					public void run() {
 
 						try {
-							fusion.process(ONEPlus.parseONEPlus(currentInput.text.getText()));
+							
+							fusion.process(
+									ONEPlus.parseONEPlus(
+											(sup.getText().equals("Disable Super") ? "[USE: SUPER] [SUPER]\n" : "") +
+											currentInput.text.getText()));
 						}
 
 						catch(Exception exception) {
@@ -551,7 +575,11 @@ public class IDE implements ActionListener {
 			text.setTabSize(4);
 
 			try {
-				text.setText("" + ONEPlus.parseONEPlus(currentInput.text.getText()));
+				
+				text.setText(
+						"" + ONEPlus.parseONEPlus(
+								(sup.getText().equals("Disable Super") ? "[USE: SUPER] [SUPER]\n" : "") +
+								currentInput.text.getText()));
 			}
 
 			catch(Exception exception) {
@@ -779,7 +807,7 @@ public class IDE implements ActionListener {
 					String name = file.getAbsolutePath();
 					input.path = name;
 					
-					int start = name.indexOf('\\') != -1 ? name.lastIndexOf('\\') + 1 : 0;
+					int start = name.indexOf(File.separator) != -1 ? name.lastIndexOf(File.separator) + 1 : 0;
 					int end = name.indexOf('.') != -1 ? name.lastIndexOf('.') : name.length();
 					
 					input.button.setText(name.substring(start, end));
