@@ -1,0 +1,17 @@
+Derive
+
+	Philosophy
+	
+		-
+			The derive command contains the content "Derive". It has at least one child. The first
+			child may have an indefinite number of children. It does not trickle down.
+			
+			The content of the first child of the derive command specifies a ONE dialect that is
+			analogous to another language. The content of the children of the child return strings
+			containing code written in the language that said dialect is analogous to. The content
+			and children of any children following the first child will act as additional
+			arguments. The derive command will take the code returned by the strings and cross
+			compile it to ONE based on the dialect specified and the arguments given. The derive
+			command will then export the cross compiled code to the file system at a location
+			dependent on the given arguments.
+		-

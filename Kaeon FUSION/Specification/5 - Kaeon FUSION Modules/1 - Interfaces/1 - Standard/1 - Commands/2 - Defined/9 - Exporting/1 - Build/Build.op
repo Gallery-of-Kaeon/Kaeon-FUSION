@@ -6,11 +6,12 @@ Build
 			The build command contains the content "Build". It has at least one child. The first
 			child may have an indefinite number of children. It does not trickle down.
 			
-			The content of the first child of the build command specifies a custom ONE dialect
-			provided by an interface used to interpret ONE elements stored within function
-			definitions. The content of the children of the child specify functions that contain
-			code written in the custom ONE dialect. The content and children of any children
-			following the first child will act as additional arguments. What the build command
-			proceeds to do is dependent on the specified ONE dialect, the content of the referenced
-			functions, and the additional arguments.
+			The content of the first child of the build command specifies a ONE dialect that is
+			analogous to another language. The content of the children of the child specify
+			functions that contain code written in said dialect. The content and children of any
+			children following the first child will act as additional arguments. The build command
+			will take the ONE code from the specified functions and cross compile it to another
+			language based on the dialect specified and the arguments given. The build command will
+			then export the cross compiled code to the file system at a location dependent on the
+			given arguments.
 		-
