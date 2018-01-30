@@ -14,7 +14,7 @@ public class HTML extends Dialect {
 	public String build(
 			ArrayList<ArrayList<Object>> functionDefintions,
 			ArrayList<ArrayList<Object>> functions,
-			ArrayList<String> arguments) {
+			ArrayList<Element> arguments) {
 		
 		Element element = (Element) functions.get(0).get(1);
 		
@@ -138,7 +138,7 @@ public class HTML extends Dialect {
 				dialect.build(
 						new ArrayList<ArrayList<Object>>(),
 						functions,
-						new ArrayList<String>()) +
+						new ArrayList<Element>()) +
 				postfix;
 	}
 	

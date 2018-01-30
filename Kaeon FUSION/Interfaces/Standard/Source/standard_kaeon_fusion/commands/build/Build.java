@@ -17,7 +17,7 @@ public class Build extends FUSIONUnit {
 	}
 	
 	public boolean verify(Element element) {
-		return element.content.equals("Build");
+		return element.content.equalsIgnoreCase("Build");
 	}
 	
 	public boolean trickleDown(Element element) {
@@ -58,10 +58,10 @@ public class Build extends FUSIONUnit {
 			functions.add(function);
 		}
 		
-		ArrayList<String> arguments = new ArrayList<String>();
+		ArrayList<Element> arguments = new ArrayList<Element>();
 		
 		for(int i = 1; i < element.children.size(); i++)
-			arguments.add(element.children.get(i).content);
+			arguments.add(element.children.get(i));
 		
 		PhilosophersStoneUtilities.call(
 				this,

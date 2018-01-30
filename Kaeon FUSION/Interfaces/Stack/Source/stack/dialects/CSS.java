@@ -13,7 +13,7 @@ public class CSS extends Dialect {
 	public String build(
 			ArrayList<ArrayList<Object>> functionDefintions,
 			ArrayList<ArrayList<Object>> functions,
-			ArrayList<String> arguments) {
+			ArrayList<Element> arguments) {
 		
 		Element element = (Element) functions.get(0).get(1);
 		

@@ -201,6 +201,17 @@ public class Aether {
 		
 		ArrayList<Directive> directives = new ArrayList<Directive>();
 		
+		directives.add(new standard_one_plus.directives.Arguments());
+		directives.add(new standard_one_plus.directives.Call());
+		directives.add(new standard_one_plus.directives.Define());
+		directives.add(new standard_one_plus.directives.For());
+		directives.add(new standard_one_plus.directives.If());
+		directives.add(new standard_one_plus.directives.Import());
+		directives.add(new standard_one_plus.directives.Index());
+		directives.add(new standard_one_plus.directives.Info());
+		directives.add(new standard_one_plus.directives.Properties());
+		directives.add(new standard_one_plus.directives.Size());
+		
 		return directives;
 	}
 	
