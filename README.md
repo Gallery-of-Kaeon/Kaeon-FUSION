@@ -20,10 +20,6 @@ the first ever universal programming language.
 What this means,
 is that any software project can be done entirely in Kaeon FUSION.
 
-Kaeon FUSION achieves its claim through its syntax which allows any hierarchy of data to function as code and through its unique ability to increase what it's capable of as it runs.
-At the same time,
-its minimalist design ensures that both newcomers and veterans can easily learn to use it.
-
 ## Contents of this repository
 
 This repository contains the specification,
