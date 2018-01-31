@@ -11,7 +11,8 @@ import stack.utilities.Dialect;
 
 public class HTML extends Dialect {
 	
-	public String build(
+	public void build(
+			ArrayList<ArrayList<String>> files,
 			ArrayList<ArrayList<Object>> functionDefintions,
 			ArrayList<ArrayList<Object>> functions,
 			ArrayList<Element> arguments) {
@@ -33,12 +34,19 @@ public class HTML extends Dialect {
 				body += processItem(element.children.get(i), tags, attributes);
 		}
 		
-		return
+		String html =
 				"<!DOCTYPE HTML><html><head>" +
 				head +
 				"</head><body>" +
 				body +
 				"</body></html>";
+		
+		ArrayList<String> file = new ArrayList<String>();
+		
+		file.add((String) functions.get(0).get(0) + ".html");
+		file.add(html);
+		
+		files.add(file);
 	}
 	
 	public String processHead(
@@ -60,10 +68,10 @@ public class HTML extends Dialect {
 			Element attributes) {
 		
 		if(element.content.equalsIgnoreCase("Style"))
-			return processResource(element, new CSS(), "<style>", "</style>");
+			return "<style>" + processResource(element, new CSS()) + "</style>";
 		
 		if(element.content.equalsIgnoreCase("PHP"))
-			return processResource(element, new PHP(), "", "");
+			return processResource(element, new PHP());
 		
 		if(ElementUtilities.hasChild(tags, element.content))
 			return processTag(element, tags, attributes);
@@ -119,7 +127,7 @@ public class HTML extends Dialect {
 		return tag + "</" + tagName + ">";
 	}
 	
-	public String processResource(Element element, Dialect dialect, String prefix, String postfix) {
+	public String processResource(Element element, Dialect dialect) {
 		
 		Element resource = ElementUtilities.copyElement(element);
 		resource.content = null;
@@ -133,13 +141,15 @@ public class HTML extends Dialect {
 		
 		functions.add(function);
 		
-		return
-				prefix +
-				dialect.build(
-						new ArrayList<ArrayList<Object>>(),
-						functions,
-						new ArrayList<Element>()) +
-				postfix;
+		ArrayList<ArrayList<String>> files = new ArrayList<ArrayList<String>>();
+		
+		dialect.build(
+				files,
+				new ArrayList<ArrayList<Object>>(),
+				functions,
+				new ArrayList<Element>());
+		
+		return files.get(0).get(1);
 	}
 	
 	public String processAttribute(

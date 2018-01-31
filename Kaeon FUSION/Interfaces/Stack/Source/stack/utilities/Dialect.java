@@ -18,30 +18,32 @@ public class Dialect extends PhilosophersStone {
 			return null;
 		}
 		
+		ArrayList<Element> arguments = null;
+		ArrayList<ArrayList<String>> files = new ArrayList<ArrayList<String>>();
+		
 		if(((String) packet.get(0)).equalsIgnoreCase("Build")) {
-			
+				
 			ArrayList<ArrayList<Object>> functionDefinitions = (ArrayList<ArrayList<Object>>) packet.get(2);
 			ArrayList<ArrayList<Object>> functions = (ArrayList<ArrayList<Object>>) packet.get(3);
-			ArrayList<Element> arguments = (ArrayList<Element>) packet.get(4);
+			arguments = (ArrayList<Element>) packet.get(4);
 			
-			IO.save(
-					build(functionDefinitions, functions, arguments),
-					(arguments.size() > 0 ? arguments.get(0).content + "/" : "") +
-							((Element) functions.get(0).get(1)).content +
-							'.' +
-							getExtension());
+			build(files, functionDefinitions, functions, arguments);
 		}
 		
 		if(((String) packet.get(0)).equalsIgnoreCase("Derive")) {
 			
 			ArrayList<String> code = (ArrayList<String>) packet.get(2);
-			ArrayList<Element> arguments = (ArrayList<Element>) packet.get(3);
+			arguments = (ArrayList<Element>) packet.get(3);
+			
+			derive(files, code, arguments);
+		}
+		
+		for(int i = 0; i < files.size(); i++) {
 			
 			IO.save(
-					"" + derive(code, arguments),
-					(arguments.size() > 1 ? arguments.get(1).content + "/" : "") +
-						(arguments.size() > 0 ? arguments.get(0).content : "code") +
-						".op");
+					files.get(i).get(1),
+					(arguments.size() > 0 ? arguments.get(0).content + "/" : "") +
+							files.get(i).get(0));
 		}
 		
 		return null;
@@ -51,22 +53,18 @@ public class Dialect extends PhilosophersStone {
 		return getClass().getName().substring(getClass().getName().lastIndexOf('.') + 1);
 	}
 	
-	public String getExtension() {
-		return getClass().getName().substring(getClass().getName().lastIndexOf('.') + 1).toLowerCase();
-	}
-	
-	public String build(
+	public void build(
+			ArrayList<ArrayList<String>> files,
 			ArrayList<ArrayList<Object>> functionDefintions,
 			ArrayList<ArrayList<Object>> functions,
 			ArrayList<Element> arguments) {
 		
-		return "";
 	}
 	
-	public Element derive(
+	public void derive(
+			ArrayList<ArrayList<String>> files,
 			ArrayList<String> code,
 			ArrayList<Element> arguments) {
 		
-		return new Element();
 	}
 }

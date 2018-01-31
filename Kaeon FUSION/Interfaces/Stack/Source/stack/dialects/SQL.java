@@ -7,11 +7,12 @@ import stack.utilities.Dialect;
 
 public class SQL extends Dialect {
 	
-	public String build(
+	public void build(
+			ArrayList<ArrayList<String>> files,
 			ArrayList<ArrayList<Object>> functionDefintions,
 			ArrayList<ArrayList<Object>> functions,
 			ArrayList<Element> arguments) {
 		
-		return "";
+		// STUB
 	}
 }

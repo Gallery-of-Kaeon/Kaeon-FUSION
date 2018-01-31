@@ -10,7 +10,8 @@ import stack.utilities.Dialect;
 
 public class CSS extends Dialect {
 	
-	public String build(
+	public void build(
+			ArrayList<ArrayList<String>> files,
 			ArrayList<ArrayList<Object>> functionDefintions,
 			ArrayList<ArrayList<Object>> functions,
 			ArrayList<Element> arguments) {
@@ -24,7 +25,12 @@ public class CSS extends Dialect {
 		for(int i = 0; i < element.children.size(); i++)
 			css += buildElement(element.children.get(i), tags);
 		
-		return css;
+		ArrayList<String> file = new ArrayList<String>();
+		
+		file.add((String) functions.get(0).get(0) + ".css");
+		file.add(css);
+		
+		files.add(file);
 	}
 	
 	public String buildElement(Element element, Element tags) {
@@ -49,7 +55,7 @@ public class CSS extends Dialect {
 				domain += "." + element.children.get(i).children.get(0).content;
 			
 			else
-				domain += ElementUtilities.getChild(tags, element.content).children.get(0).content;
+				domain += ElementUtilities.getChild(tags, element.children.get(i).content).children.get(0).content;
 		}
 		
 		return domain;

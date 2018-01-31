@@ -8,7 +8,8 @@ import stack.utilities.Dialect;
 
 public class CrossDialect extends Dialect {
 	
-	public String build(
+	public void build(
+			ArrayList<ArrayList<String>> files,
 			ArrayList<ArrayList<Object>> functionDefintions,
 			ArrayList<ArrayList<Object>> functions,
 			ArrayList<Element> arguments) {
@@ -18,15 +19,14 @@ public class CrossDialect extends Dialect {
 		
 		ArrayList<Category> categories = new ArrayList<Category>();
 		
-		return
-				buildCategories(
+		buildCategories(
+				name,
+				main,
+				buildMain(
 						name,
 						main,
-						buildMain(
-								name,
-								main,
-								categories),
-						categories);
+						categories),
+				categories);
 	}
 	
 	public String buildMain(
