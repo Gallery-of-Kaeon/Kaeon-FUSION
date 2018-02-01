@@ -4,13 +4,12 @@
 
 ## Why is Kaeon FUSION called "the first universal programming language"?
 
-Okay, skeptic.
-You saw through the marketing jargon and you want a more down to earth explanation.
-Very well.
+We call Kaeon FUSION a universal programming language because the interpreter can alter itself at runtime to take on new functionality,
+and because the tree based structure of Kaeon FUSION allows it to be cross compiled into any other language.
 
-Kaeon FUSION does aim to be universal,
-and it does this by being what LISP should have been.
-What do we mean by this?
+Kaeon FUSION is,
+in essence,
+what LISP should have been.
 
 LISP provides an environment upon which any sort of language can be defined to suit just about any purpose,
 thus making it a popular platform for domain specific languages,
