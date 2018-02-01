@@ -70,8 +70,7 @@ the element that will become the parent is the most recent element at the nest l
 
 The token characters used in multiple element definitions are as follows:
 
-, - Does not affect nest level  
-| - Same as ','  
+, - Does not affect nest level
 : - Increments nest level  
 ; - Decrements nest level  
 ( - Stores but does not affect nest level  

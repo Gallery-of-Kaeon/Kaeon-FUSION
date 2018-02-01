@@ -43,7 +43,7 @@ For example:
     [USE: List]
     [USE: List]
 
-is analogous to the following ONE:
+is analogous to the following ONE+:
 
     abc
     xyz
@@ -74,7 +74,7 @@ then:
     [USE: List]
     [USE: List]
 
-is analogous to the following ONE:
+is analogous to the following ONE+:
 
     abc
     xyz
