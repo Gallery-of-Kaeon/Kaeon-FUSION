@@ -17,8 +17,6 @@ ever-growing scale of the toolset required by software developers is a burden th
 To free developers from the bondage of incomplete tools,
 we have created Kaeon FUSION:
 the first ever universal programming language.
-What this means,
-is that any software project can be done entirely in Kaeon FUSION.
 
 ## Contents of this repository
 
