@@ -84,25 +84,32 @@ public class VerticalLayout implements LayoutManager {
 						// positioned in an overlarge space
 	
 	/*
-	 *  The following line was commented out by the developers of Kaeon Origin as it
-	 *  triggers a warning.
+	 *  The following line was commented out by the developers of Kaeon Origin
+	 *  as it triggers a warning.
 	 */
 	
 	// private Hashtable comps;
 
 	// Constructors
+	
+	/* 
+	 * The first two constructors were modified by the developers of Kaeon
+	 * Origin to change the default horizontal alignment from the center to the
+	 * left.
+	 */
+	
 	/**
 	 * Constructs an instance of VerticalLayout with a vertical vgap of 5
-	 * pixels, horizontal centering and anchored to the top of the display area.
+	 * pixels, aligned to the left and anchored to the top of the display area.
 	 */
 	
 	public VerticalLayout() {
-		this(5, CENTER, TOP);
+		this(5, LEFT, TOP);
 	}
 
 	/**
-	 * Constructs a VerticalLayout instance with horizontal centering, anchored
-	 * to the top with the specified vgap
+	 * Constructs a VerticalLayout instance aligned to the left, anchored to
+	 * the top with the specified vgap
 	 *
 	 * @param vgap
 	 *            An int value indicating the vertical seperation of the
@@ -110,7 +117,7 @@ public class VerticalLayout implements LayoutManager {
 	 */
 	
 	public VerticalLayout(int vgap) {
-		this(vgap, CENTER, TOP);
+		this(vgap, LEFT, TOP);
 	}
 
 	/**
