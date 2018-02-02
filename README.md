@@ -47,9 +47,7 @@ and the specification for Kaeon FUSION.
 
 ## Contact info
 
-For any questions or comments, please email the following address:
-
-kaeon.ace@gmail.com
+For any questions or comments, please email the following address: kaeon.ace@gmail.com
 
 ## FAQs
 
