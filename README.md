@@ -45,39 +45,6 @@ and the specification for Kaeon FUSION.
 
 [Specification](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Specification)
 
-## Disclaimer
-
-It is important to note that the contents of this repository are aimed at those who have a strong background in computer science.
-If you're a newcomer to programming in general,
-we recommend you check out our [Kaeon FUSION for Beginners](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/README.md) resource.
-
-As of Novemeber 13, 2017,
-the implementations for Kaeon FUSION and its standard interface are stable.
-However,
-the Kaeon Origin IDE and the stack interface are still in beta.
-No directives,
-including Super Mode,
-have implemantations yet,
-and the current implementation of the stack interface only provides the HTML and CSS dialects.
-It should also be noted that all of our implementations were developed and tested on an unmodified Lenovo IdeaPad P500 laptop running Windows 10.
-
-Kaeon FUSION,
-being a purely interpreted language,
-is not very fast.
-However,
-we do intend to optomize our interpreter in the near future to be much faster than it currently is.
-In addition,
-the Stack interface will allow Kaeon FUSION to be cross compiled into much faster languages,
-allowing Kaeon FUSION to be used even where speed is an issue.
-
-As of November 5, 2017,
-the Kaeon Origin IDE automatically notifies the user when updates are available and offers them the option to have the updates installed automatically.
-If you downloaded Kaeon Origin prior to November 5, 2017,
-we recommend that you re-download it.
-
-Finally,
-we plan on releasing a more advanced version of our IDE by early 2018 to make up for the current version's shortcomings.
-
 ## Contact info
 
 For any questions or comments, please email the following address:
@@ -204,3 +171,36 @@ we'll come to you.
 However,
 if you have something you feel that we need to know,
 we'll hear you out.
+
+## Disclaimer
+
+It is important to note that the contents of this repository are aimed at those who have a strong background in computer science.
+If you're a newcomer to programming in general,
+we recommend you check out our [Kaeon FUSION for Beginners](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/README.md) resource.
+
+As of Novemeber 13, 2017,
+the implementations for Kaeon FUSION and its standard interface are stable.
+However,
+the Kaeon Origin IDE and the stack interface are still in beta.
+No directives,
+including Super Mode,
+have implemantations yet,
+and the current implementation of the stack interface only provides the HTML and CSS dialects.
+It should also be noted that all of our implementations were developed and tested on an unmodified Lenovo IdeaPad P500 laptop running Windows 10.
+
+Kaeon FUSION,
+being a purely interpreted language,
+is not very fast.
+However,
+we do intend to optomize our interpreter in the near future to be much faster than it currently is.
+In addition,
+the Stack interface will allow Kaeon FUSION to be cross compiled into much faster languages,
+allowing Kaeon FUSION to be used even where speed is an issue.
+
+As of November 5, 2017,
+the Kaeon Origin IDE automatically notifies the user when updates are available and offers them the option to have the updates installed automatically.
+If you downloaded Kaeon Origin prior to November 5, 2017,
+we recommend that you re-download it.
+
+Finally,
+we plan on releasing a more advanced version of our IDE by early 2018 to make up for the current version's shortcomings.
