@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import javax.swing.AbstractAction;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -36,6 +35,7 @@ import kaeon_fusion.KaeonFUSION;
 import kaeon_origin.ide.utilities.Input;
 import kaeon_origin.ide.utilities.OptionsPane;
 import kaeon_origin.ide.utilities.Output;
+import kaeon_origin.ide.utilities.web.VerticalLayout;
 import kaeon_origin.utilties.Utilities;
 import one.Element;
 import one.ElementUtilities;
@@ -139,7 +139,7 @@ public class IDE implements ActionListener {
 		select.setLayout(new GridLayout(1, 2));
 
 		input.setBackground(Color.WHITE);
-		input.setLayout(new BoxLayout(input, BoxLayout.Y_AXIS));
+		input.setLayout(new VerticalLayout());
 
 		inputPanel.add(new JScrollPane(input), BorderLayout.CENTER);
 		inputPanel.add(manage, BorderLayout.NORTH);
@@ -193,7 +193,7 @@ public class IDE implements ActionListener {
 		outputPanel.add(select, BorderLayout.SOUTH);
 
 		output.setBackground(Color.WHITE);
-		output.setLayout(new BoxLayout(output, BoxLayout.Y_AXIS));
+		output.setLayout(new VerticalLayout());
 
 		select.setBackground(Color.WHITE);
 		select.setLayout(new GridLayout(1, 2));
@@ -440,6 +440,9 @@ public class IDE implements ActionListener {
 			outputs.add(output);
 
 			setCurrentOutput(output);
+
+			for(int i = 0; i < outputs.size(); i++)
+				outputs.get(i).button.setActionCommand("Output " + i);
 
 			PhilosophersStone console = new PhilosophersStone() {
 
