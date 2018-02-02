@@ -78,7 +78,7 @@ Third parties may also write their own ONE+ directives using our [ONE+ Directive
 
 ### Is Kaeon FUSION a LISP?
 
-Desite the similarites Kaeon FUSION is not in the LISP family,
+Despite the similarites Kaeon FUSION is not in the LISP family,
 as even though it uses a code as data paradigm,
 said data is represented in a doubly linked tree structure as opposed to a singly linked list structure.
 This was done both for philosophical and practical reasons.
