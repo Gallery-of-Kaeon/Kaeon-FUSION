@@ -68,6 +68,8 @@ public class IDE implements ActionListener {
 	public int newConsoles;
 
 	public Element originData;
+	
+	public String folder;
 
 	public IDE(Element originData) {
 		initializeFrame();
@@ -640,10 +642,61 @@ public class IDE implements ActionListener {
 
 		if(command.equals("Open")) {
 
-			File file = IO.open();
+			File file = null;
+			
+			JFileChooser chooser = new JFileChooser();
+			
+			if(folder != null)
+				chooser.setCurrentDirectory(new File(folder, ""));
+			
+			int returnVal = chooser.showOpenDialog(null);
+
+			if(returnVal == JFileChooser.APPROVE_OPTION)
+				file = chooser.getSelectedFile();
 			
 			if(file == null)
 				return;
+
+			folder = file.getAbsolutePath().substring(0,
+					file.getAbsolutePath().lastIndexOf(File.separator));
+
+			String name = file.getAbsolutePath().substring(
+					file.getAbsolutePath().lastIndexOf(File.separator) + 1,
+					file.getAbsolutePath().lastIndexOf('.'));
+			
+			for(int i = 0; i < inputs.size(); i++) {
+				
+				if(inputs.get(i).button.getText().equals(name)) {
+					
+					int option = JOptionPane.showConfirmDialog(
+							frame,
+							"The selected file already exists in the workspace.\nDo you want to overwrite the file in the workspace?",
+							"Kaeon Origin",
+							JOptionPane.YES_NO_OPTION);
+					
+					if(option == JOptionPane.YES_OPTION) {
+
+						if(inputs.get(i) == currentInput) {
+
+							currentInput = null;
+
+							in.remove(2);
+							in.add(new JPanel(), BorderLayout.CENTER);
+
+							one.setText("Show ONE");
+							one.setActionCommand("Show ONE");
+						}
+
+						input.remove(inputs.get(i).panel);
+
+						inputs.remove(i);
+						
+						break;
+					}
+					
+					return;
+				}
+			}
 			
 			String content = "";
 
@@ -664,10 +717,6 @@ public class IDE implements ActionListener {
 				if(scanner.hasNextLine())
 					content += '\n';
 			}
-
-			String name = file.getAbsolutePath().substring(
-					file.getAbsolutePath().lastIndexOf(File.separator) + 1,
-					file.getAbsolutePath().lastIndexOf('.'));
 
 			Input input = getInput();
 
@@ -1030,7 +1079,7 @@ public class IDE implements ActionListener {
 		IO.save("" + originData, "Origin.op");
 	}
 
-	public static File saveAs(String file) {
+	public File saveAs(String file) {
 
 		ArrayList<String> lines = new ArrayList<String>();
 		lines.add(file);
@@ -1038,9 +1087,13 @@ public class IDE implements ActionListener {
 		return saveAs(lines, "op");
 	}
 
-	public static File saveAs(ArrayList<String> lines, String fileExtension) {
+	public File saveAs(ArrayList<String> lines, String fileExtension) {
 
 		JFileChooser fc = new JFileChooser();
+		
+		if(folder != null)
+			fc.setCurrentDirectory(new File(folder, ""));
+		
 		PrintWriter outputStream = null;
 
 		int rval = fc.showSaveDialog(fc);
@@ -1050,6 +1103,9 @@ public class IDE implements ActionListener {
 		if(rval == JFileChooser.APPROVE_OPTION) {
 
 			file = fc.getSelectedFile();
+
+			folder = file.getAbsolutePath().substring(0,
+					file.getAbsolutePath().lastIndexOf(File.separator));
 
 			try {
 
