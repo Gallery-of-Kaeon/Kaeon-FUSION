@@ -102,4 +102,4 @@ Thus,
 the stack interface will make it possible to develop almost anything with Kaeon FUSION alone.
 We are also in the process of designing a ONE based file format called [Kaeon ACE](https://github.com/Gallery-of-Kaeon/Kaeon-ACE/blob/master/README.md) that will serve as an interchange format for game engines,
 a Kaeon FUSION interface for building the format to various game engines,
-and a custom game engine desined to handle the format natively.
+and a custom game engine designed to handle the format natively.
