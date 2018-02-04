@@ -46,7 +46,12 @@ becoming a "universal" language.
 
 So that begs the question,
 why didn't we build Kaeon FUSION on LISP syntax?
-Because (L(I(S(P)))) is ugly.
+As we mentioned [in our FAQ section](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/README.md#is-kaeon-fusion-a-lisp),
+Kaeon FUSION is not a LISP because it stores data as a doubly linked tree instead of a singly linked list,
+and so we required a syntax suited to trees rather than lists.
+Additionally,
+and this might be subjective,
+we found the syntax of (L(I(S(P)))) to be rather... unaesthetic.
 
 ## What can Kaeon FUSION do that other languages cannot?
 
