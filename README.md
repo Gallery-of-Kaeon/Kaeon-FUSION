@@ -51,6 +51,37 @@ For any questions or comments, please email the following address: kaeon.ace@gma
 
 ## FAQs
 
+### Can I see an example?
+
+Here's hello world:
+
+    Use: Standard
+
+    Log Line: "Hello, world!"
+
+and here's the solution to [Euler problem #1]():
+
+    Use: Standard
+
+    sum: 0
+
+    i { 3 } Scope
+	
+    	Scope
+		
+    		Break: Not: Or
+    			Equal: 0, Modulus: i, 3
+    			Equal: 0, Modulus: i, 5
+		
+    		sum: Add: sum, i
+
+    	i: Add: i, 1
+    	Loop: Less: i, 1000
+
+    Log Line: sum
+
+Click [here]() for all of our available sample code.
+
 ### How can I try it out?
 
 We've provided a simple IDE called [Kaeon Origin](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/IDE/README.md) to get you started.
