@@ -59,7 +59,7 @@ Here's hello world:
 
     Log Line: "Hello, world!"
 
-and here's the solution to [Euler problem #1]():
+and here's the solution to [Euler problem #1](https://projecteuler.net/problem=1):
 
     Use: Standard
 
@@ -80,7 +80,7 @@ and here's the solution to [Euler problem #1]():
 
     Log Line: sum
 
-Click [here]() for all of our available sample code.
+Click [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Samples) for all of our available sample code.
 
 ### How can I try it out?
 
