@@ -47,13 +47,25 @@ and the specification for Kaeon FUSION.
 
 ## Kaeon FUSION Example
 
-Here's hello world:
+Here's hello world,
+written using [ONE](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/1%20-%20ONE/README.md):
 
-    Use: Standard
+    -
+    	Use
+    -
+    	-
+    		Standard
+    	-
+    -
+    	Log Line
+    -
+    	-
+    		Hello, world!
+    	-
 
-    Log Line: "Hello, world!"
 
-and here's the solution to [Euler problem #1](https://projecteuler.net/problem=1):
+and here's the solution to [Euler problem #1](https://projecteuler.net/problem=1),
+written using [ONE+](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/README.md):
 
     Use: Standard
 
@@ -86,6 +98,8 @@ and here's the same code as above with the Super Mode preprocessor:
 			sum += i
 
 	print sum
+
+_Super Mode has not been implemented yet._
 
 Click [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Samples) for all of our available sample code.
 
