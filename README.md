@@ -45,13 +45,7 @@ and the specification for Kaeon FUSION.
 
 [Specification](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Specification)
 
-## Contact info
-
-For any questions or comments, please email the following address: kaeon.ace@gmail.com
-
-## FAQs
-
-### Can I see an example?
+## Kaeon FUSION Example
 
 Here's hello world:
 
@@ -81,6 +75,12 @@ and here's the solution to [Euler problem #1](https://projecteuler.net/problem=1
     Log Line: sum
 
 Click [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Samples) for all of our available sample code.
+
+## Contact info
+
+For any questions or comments, please email the following address: kaeon.ace@gmail.com
+
+## FAQs
 
 ### How can I try it out?
 
