@@ -74,6 +74,19 @@ and here's the solution to [Euler problem #1](https://projecteuler.net/problem=1
 
     Log Line: sum
 
+and here's the same code as above with the Super Mode preprocessor:
+
+	[USE: SUPER] [SUPER]
+
+	sum = 0
+
+	for i from 3 to 999 do
+	
+		if i % 3 == 0 or i % 5 == 0 do
+			sum += i
+
+	print sum
+
 Click [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Samples) for all of our available sample code.
 
 ## Contact info
