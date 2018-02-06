@@ -43,10 +43,10 @@ public class DirectiveProcessor {
 		
 		ArrayList<Directive> newUnits = new ArrayList<Directive>(directiveUnits);
 		
-		for(Element child : element.children) {
+		for(int i = 0; i < element.children.size(); i++) {
 			
 			processDirectives(
-					child,
+					element.children.get(i),
 					directives,
 					newUnits);
 		}
