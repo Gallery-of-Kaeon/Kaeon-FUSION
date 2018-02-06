@@ -241,7 +241,7 @@ public class IDE implements ActionListener {
 		build.add(createButton("Run"));
 		build.add(createButton("Stop"));
 
-		settings.setLayout(new GridLayout(1, /*3*/ 2));
+		settings.setLayout(new GridLayout(1, 3));
 		settings.setBackground(Color.WHITE);
 
 		settings.add(createButton("Set Arguments"));
@@ -250,7 +250,7 @@ public class IDE implements ActionListener {
 		settings.add(one);
 
 		sup = createButton("Enable Super");
-//		settings.add(sup);
+		settings.add(sup);
 
 		out.setLayout(new BorderLayout());
 		out.setBackground(Color.WHITE);
@@ -394,16 +394,19 @@ public class IDE implements ActionListener {
 
 			setCurrentInput(inputs.get(index));
 
+			one.setBackground(new Color(100, 150, 255));
 			one.setText("Show ONE");
 			one.setActionCommand("Show ONE");
 		}
 
 		if(command.equals("Enable Super")) {
+			sup.setBackground(new Color(150, 125, 25));
 			sup.setText("Disable Super");
 			sup.setActionCommand("Disable Super");
 		}
 
 		if(command.equals("Disable Super")) {
+			sup.setBackground(new Color(100, 150, 255));
 			sup.setText("Enable Super");
 			sup.setActionCommand("Enable Super");
 		}
@@ -594,6 +597,7 @@ public class IDE implements ActionListener {
 
 			in.add(new JScrollPane(text), BorderLayout.CENTER);
 
+			one.setBackground(new Color(150, 125, 25));
 			one.setText("Show ONE+");
 			one.setActionCommand("Show ONE+");
 		}
@@ -603,6 +607,7 @@ public class IDE implements ActionListener {
 			in.remove(2);
 			in.add(currentInput.pane, BorderLayout.CENTER);
 
+			one.setBackground(new Color(100, 150, 255));
 			one.setText("Show ONE");
 			one.setActionCommand("Show ONE");
 		}
@@ -683,6 +688,7 @@ public class IDE implements ActionListener {
 							in.remove(2);
 							in.add(new JPanel(), BorderLayout.CENTER);
 
+							one.setBackground(new Color(100, 150, 255));
 							one.setText("Show ONE");
 							one.setActionCommand("Show ONE");
 						}

@@ -16,4 +16,5 @@ public class Input {
 	public JScrollPane pane;
 	public JTextArea text;
 	public boolean saved;
+	public boolean superMode;
 }
