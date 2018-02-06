@@ -2,10 +2,17 @@
 
 # Why use Kaeon FUSION?
 
-## Why is Kaeon FUSION called "the first universal programming language"?
+## Why is Kaeon FUSION called "the first ever universal programming language"?
+
+Admittedly,
+our slogan: "the first ever universal programming language",
+is more a marketting strategy than a technical descriptor,
+but we do indeed stand behind it.
 
 We call Kaeon FUSION a universal programming language because the interpreter can alter itself at runtime to take on new functionality,
 and because the tree based structure of Kaeon FUSION allows it to be cross compiled into any other language.
+We call it the "first ever",
+because to our knowledge no other language posseses these features to the degree that Kaeon FUSION does.
 
 Kaeon FUSION is,
 in essence,
