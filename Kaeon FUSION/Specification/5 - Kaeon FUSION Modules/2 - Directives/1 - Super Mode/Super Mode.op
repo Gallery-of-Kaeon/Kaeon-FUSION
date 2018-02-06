@@ -41,12 +41,11 @@ Super Mode
 					left hand value and the content that follows it into a right hand value. Both
 					the left hand value and the right hand value will be trimmed of any leading or
 					trailing whitespace. If the resulting left hand value has a length of zero, the
-					element preceding the element containing the token, or the parent of the
-					element containing the token, may serve as the left hand value depending on the
-					token. If the resulting right hand value has a length of zero, the element
-					following the element containing the token, or the children of the element
-					containing the token, in which case there will be multiple right hand values,
-					may serve as the right hand value depending on the token.
+					element preceding the element containing the token may serve as the left hand
+					value for certain tokens. If the resulting right hand value has a length of
+					zero, the element following the element containing the token, or the children
+					of the element containing the token, in which case there will be multiple right
+					hand values, may serve as the right hand value depending on the token.
 					
 					Once processed into a left hand value, a token, and a right hand value, an
 					effect will be applied depending on the token.
