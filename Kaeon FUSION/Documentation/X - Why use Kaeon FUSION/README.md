@@ -14,7 +14,8 @@ and because the tree based structure of Kaeon FUSION allows it to be cross compi
 We call it the "first ever",
 because to our knowledge no other language posseses these features to the degree that Kaeon FUSION does.
 
-Kaeon FUSION is,
+To put it another way,
+one might say that Kaeon FUSION is,
 in essence,
 what LISP should have been.
 
