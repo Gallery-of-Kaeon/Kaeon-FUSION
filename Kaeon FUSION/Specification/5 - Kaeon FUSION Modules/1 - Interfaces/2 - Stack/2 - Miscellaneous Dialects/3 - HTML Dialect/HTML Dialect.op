@@ -32,8 +32,10 @@ HTML Dialect
 					Any tag not nested inside the head tag will be automatically placed within the
 					body tag by the cross compiler.
 					
-					When using a heading tag, nest a "Level" element inside it to dictate the size.
-					If no level is specified, a size of one will be the default.
+					A heading tag must have nested within it an element containing the content
+					"Level". The level element must have exactly one child containing an integer
+					between one and six as its content. This number will dictate the size of the
+					heading.
 				-
 			
 			Attributes

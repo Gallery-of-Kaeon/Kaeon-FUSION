@@ -173,7 +173,7 @@ Attributes
 			Step: step
 			Tab Index: tabindex
 			Target: target
-			Title: title
+			Tool Tip: title
 			Translate: translate
 			Type: type
 			Use Map: usemap
