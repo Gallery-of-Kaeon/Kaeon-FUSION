@@ -19,11 +19,12 @@ Super Mode
 		
 		Effects
 			
-			Standard Interface and Stack Interface
+			Directives and Interfaces
 				
 				-
-					Super Mode will cause the Kaeon FUSION code it is used on to automatically use
-					the standard interface and the stack interface.
+					Super Mode will enable the use of the standard ONE+ directives, and will cause
+					the Kaeon FUSION code it is used on to automatically use the Standard interface
+					and the Stack interface.
 				-
 			
 			Super Tokens
