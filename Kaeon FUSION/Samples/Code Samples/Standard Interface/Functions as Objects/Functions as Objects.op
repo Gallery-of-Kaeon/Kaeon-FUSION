@@ -3,12 +3,13 @@ Use: Standard
 Define: dog
 	
 	# Object fields should be global
+	Global
 
-	# Set name to the first argument passed in
-	Global: name: At: Arguments, 1
+		# Set name to the first argument passed in
+		name: At: Arguments, 1
 	
-	Global: height: 5
-	Global: weight: 10
+		height: 5
+		weight: 10
 	
 	# Define the function bork within dog
 	# Prints bork from zero to the number passed in

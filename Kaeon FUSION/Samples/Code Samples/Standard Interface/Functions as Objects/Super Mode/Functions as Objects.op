@@ -2,15 +2,16 @@
 
 [USE: SUPER] [SUPER]
 
-def dog { Params: arg0 }
+def dog { Params: name }
 	
 	# Object fields should be global
+	global
 
-	# Set name to the first argument passed in
-	global name = arg0
-	
-	global height = 5
-	global weight = 10
+		# Makes the passed in name value a field of the class
+		name
+		
+		height = 5
+		weight = 10
 	
 	# Define the function bork within dog
 	# Prints bork from zero to the number passed in
