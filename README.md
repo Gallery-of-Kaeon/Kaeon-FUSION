@@ -99,7 +99,7 @@ and here's the same code as above with the Super Mode preprocessor:
 
 	print sum
 
-_Super Mode has not been implemented yet._
+_Super Mode is in beta, and cannot support the above example at this time._
 
 Click [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Samples) for all of our available sample code.
 
