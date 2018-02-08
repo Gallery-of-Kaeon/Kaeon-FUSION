@@ -34,9 +34,11 @@ Super Mode
 					
 					If a token is not surrounded by double quotes, it will be processed. Certain
 					tokens will take priority in the order they are processed if they occur within
-					the same element. If multiple tokens have equivalent priority, they will be
-					processed from left to right. If a token requires a value it cannot locate, it
-					will not be processed. The letter case of a token is irrelevant.
+					the same element. Certain tokens will only be processed as a result of another
+					token being processed, and such tokens are said to have null priority. If
+					multiple tokens have equivalent priority, they will be processed from left to
+					right. If a token requires a value it cannot locate, it will not be processed.
+					The letter case of a token is irrelevant.
 					
 					Upon being processed, a token will separate the content that precedes it into a
 					left hand value and the content that follows it into a right hand value. Both
@@ -91,58 +93,49 @@ Super Mode
 						For
 						
 					Second Priority
-						
-						From
-						In
-						To
-						
-					Third Priority
-					
-						Do
-						
-					Fourth Priority
 					
 						=
 						+=
 						-=
-						&
 						&=
+						
+					Third Priority
+					
 						->
 						=>
 						|
 						@
-						
-					Fifth Priority
-					
 						And
 						Or
 						Xor
-					
-					Sixth Priority
-					
 						>
 						>=
 						<
 						<=
 						==
 						!=
-						
-					Seventh Priority
-					
 						++
 						--
 					
-					Eighth Priority
+					Fourth Priority
 					
+						&
 						+
 						-
 					
-					Ninth Priority
+					Fifth Priority
 					
 						**
 						*
 						/
 						%
+						
+					Null Priority
+						
+						From
+						In
+						To
+						Do
 				
 				Effects
 					
