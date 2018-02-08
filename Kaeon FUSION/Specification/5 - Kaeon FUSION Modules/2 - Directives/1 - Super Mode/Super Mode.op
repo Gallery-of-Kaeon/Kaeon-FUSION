@@ -51,6 +51,18 @@ Super Mode
 					effect will be applied depending on the token.
 				-
 				
+				Token Conflicts
+				
+					-
+						If one token consists of another token followed by an additional sequence
+						of characters, the larger token will take priority.
+						
+						Certain tokens referred to as isolated tokens will only be recognized if
+						they are preceded by either the beginning of their element's content or by
+						whitespace, and followed by the end of their element's content or by
+						whitespace.
+					-
+				
 				Tokens
 				
 					First Priority
@@ -137,7 +149,7 @@ Super Mode
 					
 						-
 							The token "params" may be used to specify function parameters if it is
-							nested within the child of a define command.
+							nested within the child of a define command. It is an isolated token.
 							
 							This token will use the children of the command it occurs in as
 							alternative right hand values.
@@ -151,7 +163,8 @@ Super Mode
 					
 						-
 							Certain tokens may be used in place of certain commands where their
-							right hand values will serve as arguments.
+							right hand values will serve as arguments. They are all isolated
+							tokens.
 							
 							These tokens will use the children of the command they occur in as
 							alternative right hand values.
@@ -171,7 +184,7 @@ Super Mode
 						
 						-
 							The following tokens will use the children of the command they occur in
-							as alternative right hand values.
+							as alternative right hand values. They are all isolated tokens.
 							
 							The token "If" with a right hand value in the form of a value that
 							returns a boolean followed by the token "Do" translates to a
