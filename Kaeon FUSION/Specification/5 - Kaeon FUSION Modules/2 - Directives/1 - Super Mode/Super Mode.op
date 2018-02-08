@@ -59,7 +59,7 @@ Super Mode
 						
 						Certain tokens referred to as isolated tokens will only be recognized if
 						they are preceded by either the beginning of their element's content or by
-						whitespace, and followed by the end of their element's content or by
+						whitespace, and followed either by the end of their element's content or by
 						whitespace.
 					-
 				
