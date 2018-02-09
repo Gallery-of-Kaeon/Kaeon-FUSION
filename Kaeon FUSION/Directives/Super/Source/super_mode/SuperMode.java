@@ -64,11 +64,11 @@ public class SuperMode extends Directive {
 		if(isDirective(directives, element))
 			return;
 		
-		if(element.content != null)
-			applySuperMode(element);
-		
 		for(int i = 0; i < element.children.size(); i++)
 			superMode(directives, element.children.get(i));
+		
+		if(element.content != null)
+			applySuperMode(element);
 	}
 	
 	public boolean isDirective(
@@ -142,7 +142,9 @@ public class SuperMode extends Directive {
 			values.add(getElement(right));
 		
 		if(values.size() > 1) {
-			values.get(values.size() - 1).children = element.children;
+			
+			ElementUtilities.addChildren(values.get(values.size() - 1), element.children);
+			
 			element.children = new ArrayList<Element>();
 		}
 		
@@ -243,6 +245,9 @@ public class SuperMode extends Directive {
 				"=",
 				"+=",
 				"-=",
+				"*=",
+				"/=",
+				"%=",
 				"&=",
 				"->",
 				"=>",
@@ -298,6 +303,9 @@ public class SuperMode extends Directive {
 						"=",
 						"+=",
 						"-=",
+						"*=",
+						"/=",
+						"%=",
 						"&=")),
 				new ArrayList<String>(Arrays.asList(
 						"->",
@@ -326,12 +334,12 @@ public class SuperMode extends Directive {
 						"%"))));
 	}
 	
-	public void applySuperMode(Element element) {
+	public boolean applySuperMode(Element element) {
 		
 		String token = getFirstToken(element.content);
 		
 		if(token == null)
-			return;
+			return false;
 		
 		if(token.equals("params")) {
 			
@@ -339,7 +347,7 @@ public class SuperMode extends Directive {
 					element,
 					getValues(
 							element,
-							"Params",
+							"params",
 							ALTERNATE_NONE,
 							ALTERNATE_CHILDREN));
 		}
@@ -392,6 +400,24 @@ public class SuperMode extends Directive {
 		if(token.equals("="))
 			processEquals(element);
 		
+		if(token.equals("+="))
+			processIncrementEquals(element, "+=", "Add");
+		
+		if(token.equals("-="))
+			processIncrementEquals(element, "-=", "Subtract");
+		
+		if(token.equals("*="))
+			processIncrementEquals(element, "*=", "Multiply");
+		
+		if(token.equals("/="))
+			processIncrementEquals(element, "/=", "Divide");
+		
+		if(token.equals("%="))
+			processIncrementEquals(element, "%=", "Modulus");
+		
+		if(token.equals("&="))
+			processIncrementEquals(element, "&=", "Concatenate");
+		
 		if(token.equals("&"))
 			processInfix(element, "&", "Concatenate");
 		
@@ -410,6 +436,12 @@ public class SuperMode extends Directive {
 		if(token.equals("<="))
 			processInfix(element, "<=", "Less or Equal");
 		
+		if(token.equals("++"))
+			processIncrement(element, "++", "Add");
+		
+		if(token.equals("--"))
+			processIncrement(element, "--", "Subtract");
+		
 		if(token.equals("+"))
 			processInfix(element, "+", "Add");
 		
@@ -427,10 +459,28 @@ public class SuperMode extends Directive {
 		
 		if(token.equals("%"))
 			processInfix(element, "%", "Modulus");
+		
+		return true;
 	}
 	
 	public void processParams(Element element, ArrayList<Element> values) {
 		
+		Element parent = element.parent;
+		element.content = "";
+		
+		for(int i = 1; i < values.size(); i++) {
+			
+			Element parameter = getElement(values.get(i).content);
+			
+			Element at = getElement("At");
+			
+			ElementUtilities.addChild(at, getElement("Arguments"));
+			ElementUtilities.addChild(at, getElement("" + i));
+			
+			ElementUtilities.addChild(parameter, at);
+			
+			ElementUtilities.addChild(parent, parameter, i - 1);
+		}
 	}
 	
 	public void processPrefix(Element element, String token, String operator) {
@@ -476,5 +526,43 @@ public class SuperMode extends Directive {
 		
 		for(int i = 1; i < values.size(); i++)
 			ElementUtilities.addChild(element, values.get(i));
+	}
+	
+	public void processIncrementEquals(Element element, String infix, String operator) {
+		
+		ArrayList<Element> values =
+				getValues(
+						element,
+						infix,
+						ALTERNATE_NONE,
+						ALTERNATE_NONE);
+		
+		element.content = values.get(0).content;
+		
+		Element operation = getElement(operator);
+		
+		ElementUtilities.addChild(operation, getElement(element.content));
+		ElementUtilities.addChild(element, operation);
+		
+		for(int i = 1; i < values.size(); i++)
+			ElementUtilities.addChild(operation, values.get(i));
+	}
+	
+	public void processIncrement(Element element, String infix, String operator) {
+		
+		ArrayList<Element> values =
+				getValues(
+						element,
+						infix,
+						ALTERNATE_NONE,
+						ALTERNATE_NONE);
+		
+		element.content = values.get(0).content;
+		
+		Element operation = getElement(operator);
+		
+		ElementUtilities.addChild(operation, getElement(element.content));
+		ElementUtilities.addChild(operation, getElement("1"));
+		ElementUtilities.addChild(element, operation);
 	}
 }
