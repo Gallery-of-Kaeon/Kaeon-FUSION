@@ -253,16 +253,6 @@ Super Mode
 							%: Modulus
 							+: Add
 							-: Subtract
-						-
-					
-					Postfix Operators
-						
-						-
-							The token "--" indicates the presence of a command that deprecates its
-							left hand value by one.
-							
-							The token "++" indicates the presence of a command that increments its
-							left hand value by one.
 							
 							The token "-=" indicates the presence of a command that deprecates its
 							left hand value by its right hand value.
@@ -281,6 +271,16 @@ Super Mode
 							
 							The token "&=" indicates the presence of a command that concatenates
 							its right hand value to its left hand value.
+						-
+					
+					Postfix Operators
+						
+						-
+							The token "--" indicates the presence of a command that deprecates its
+							left hand value by one.
+							
+							The token "++" indicates the presence of a command that increments its
+							left hand value by one.
 						-
 					
 					Special Operators
