@@ -97,6 +97,9 @@ Super Mode
 						=
 						+=
 						-=
+						*=
+						/=
+						%=
 						&=
 						
 					Third Priority
@@ -265,6 +268,15 @@ Super Mode
 							left hand value by its right hand value.
 							
 							The token "+=" indicates the presence of a command that increments its
+							left hand value by its right hand value.
+							
+							The token "*=" indicates the presence of a command that multiplies its
+							left hand value by its right hand value.
+							
+							The token "/=" indicates the presence of a command that divides its
+							left hand value by its right hand value.
+							
+							The token "%=" indicates the presence of a command that modulos its
 							left hand value by its right hand value.
 							
 							The token "&=" indicates the presence of a command that concatenates
