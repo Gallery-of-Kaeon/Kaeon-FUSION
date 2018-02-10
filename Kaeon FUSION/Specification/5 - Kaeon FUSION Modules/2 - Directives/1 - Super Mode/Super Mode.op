@@ -289,15 +289,18 @@ Super Mode
 							The token "=" translates to a command that assigns the right hand value
 							to a variable with an alias match its left hand value.
 							
-							The token "->" translates to a command that performs the function
-							specified by its right hand value within the object specified by its
-							left hand value.
+							The token "->" translates to a command that performs the functions
+							specified by its right hand values within the object specified by its
+							left hand value. It will use the children of the element it occurs in
+							as alternative right hand values.
 							
 							The token "=>" translates to a command that returns the variable
 							specified by its right hand value from within the object specified by
 							its left hand value.
 							
-							The token "|" translates to performing the command specified by its
-							left hand value with its right hand value as its first argument and the
-							children of the command containing it as additional arguments.
+							The token "|" translates to performing the commands specified by its
+							left hand value with its right hand values as its first argument and
+							the children of the command containing it as additional arguments. It
+							will use the children of the element it occurs in as alternative right
+							hand values.
 						-
