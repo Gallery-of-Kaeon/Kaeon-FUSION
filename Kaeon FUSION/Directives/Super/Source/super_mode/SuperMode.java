@@ -339,20 +339,22 @@ public class SuperMode extends Directive {
 						"%=",
 						"&=")),
 				new ArrayList<String>(Arrays.asList(
-						"->",
-						"=>",
-						"|",
-						"@",
 						"not",
 						"and",
 						"or",
-						"xor",
+						"xor")),
+				new ArrayList<String>(Arrays.asList(
 						">",
 						">=",
 						"<",
 						"<=",
 						"==",
-						"!=",
+						"!=")),
+				new ArrayList<String>(Arrays.asList(
+						"->",
+						"=>",
+						"|",
+						"@",
 						"++",
 						"--")),
 				new ArrayList<String>(Arrays.asList(
@@ -420,6 +422,21 @@ public class SuperMode extends Directive {
 		
 		if(token.equals("def"))
 			processPrefix(element, "def", "Define");
+		
+		if(token.equals("if"))
+			processIf(element);
+		
+		if(token.equals("elif"))
+			processElif(element);
+		
+		if(token.equals("else"))
+			processPrefix(element, "else", "Else");
+		
+		if(token.equals("while"))
+			processWhile(element);
+		
+		if(token.equals("for"))
+			processFor(element);
 		
 		if(token.equals("="))
 			processEquals(element);
@@ -722,17 +739,69 @@ public class SuperMode extends Directive {
 	
 	public void processIf(Element element) {
 		
+		ArrayList<Element> values =
+				getValues(
+						element,
+						"if",
+						ALTERNATE_NONE,
+						ALTERNATE_CHILDREN);
+		
+		element.content = "Scope";
+		
+		Element condition = getElement("Break");
+		Element not = getElement("Not");
+		
+		ElementUtilities.addChild(not, values.get(1));
+		ElementUtilities.addChild(condition, not);
+		ElementUtilities.addChild(element, condition);
+		
+		for(int i = 2; i < values.size(); i++)
+			ElementUtilities.addChild(element, values.get(i));
 	}
 	
-	public void processElse(Element element) {
+	public void processElif(Element element) {
 		
+		ArrayList<Element> values =
+				getValues(
+						element,
+						"elif",
+						ALTERNATE_NONE,
+						ALTERNATE_CHILDREN);
+		
+		element.content = "Else";
+		
+		Element condition = getElement("Break");
+		Element not = getElement("Not");
+		
+		ElementUtilities.addChild(not, values.get(1));
+		ElementUtilities.addChild(condition, not);
+		ElementUtilities.addChild(element, condition);
+		
+		for(int i = 2; i < values.size(); i++)
+			ElementUtilities.addChild(element, values.get(i));
 	}
 	
 	public void processWhile(Element element) {
 		
+		ArrayList<Element> values =
+				getValues(
+						element,
+						"while",
+						ALTERNATE_NONE,
+						ALTERNATE_CHILDREN);
+		
+		element.content = "Scope";
+		
+		for(int i = 2; i < values.size(); i++)
+			ElementUtilities.addChild(element, values.get(i));
+		
+		Element condition = getElement("Loop");
+		
+		ElementUtilities.addChild(condition, values.get(1));
+		ElementUtilities.addChild(element, condition);
 	}
 	
-	public void processIFor(Element element) {
+	public void processFor(Element element) {
 		
 	}
 }
