@@ -103,30 +103,36 @@ Super Mode
 						
 					Third Priority
 					
-						->
-						=>
-						|
-						@
 						Not
 						And
 						Or
 						Xor
+						
+					Fourth Priority
+					
 						>
 						>=
 						<
 						<=
 						==
 						!=
+						
+					Fifth Priority
+					
+						->
+						=>
+						|
+						@
 						++
 						--
 					
-					Fourth Priority
+					Sixth Priority
 					
 						&
 						+
 						-
 					
-					Fifth Priority
+					Seventh Priority
 					
 						**
 						*
