@@ -77,7 +77,7 @@ public class SuperMode extends Directive {
 		}
 		
 		catch(Exception exception) {
-			
+			exception.printStackTrace();
 		}
 		
 		for(int i = 0; i < element.children.size(); i++)
@@ -445,6 +445,15 @@ public class SuperMode extends Directive {
 		if(token.equals("&"))
 			processInfix(element, "&", "Concatenate");
 		
+		if(token.equals("|"))
+			processSwap(element);
+		
+		if(token.equals("->"))
+			processIn(element);
+		
+		if(token.equals("=>"))
+			processField(element);
+		
 		if(token.equals("@"))
 			processInfix(element, "@", "At");
 		
@@ -637,14 +646,78 @@ public class SuperMode extends Directive {
 	
 	public void processSwap(Element element) {
 		
+		ArrayList<Element> values =
+				getValues(
+						element,
+						"|",
+						ALTERNATE_NONE,
+						ALTERNATE_CHILDREN);
+		
+		int index = ElementUtilities.getIndex(element);
+		element.parent.children.remove(index);
+		
+		for(int i = 1; i < values.size(); i++) {
+			
+			Element swap = getElement(values.get(i).content);
+			
+			ElementUtilities.addChild(swap, getElement(values.get(0).content));
+			
+			for(int j = 0; j < values.get(i).children.size(); j++)
+				ElementUtilities.addChild(swap, ElementUtilities.copyElement(values.get(i).children.get(j)));
+
+			ElementUtilities.addChild(element.parent, swap, index + i - 1);
+		}
 	}
 	
 	public void processIn(Element element) {
 		
+		ArrayList<Element> values =
+				getValues(
+						element,
+						"->",
+						ALTERNATE_NONE,
+						ALTERNATE_CHILDREN);
+		
+		element.content = "Scope";
+		
+		Element in = getElement("In");
+
+		ElementUtilities.addChild(in, getElement(values.get(0).content));
+		ElementUtilities.addChild(element, in);
+		
+		values.remove(0);
+		
+		ElementUtilities.addChildren(element, values);
 	}
 	
 	public void processField(Element element) {
 		
+		ArrayList<Element> values =
+				getValues(
+						element,
+						"=>",
+						ALTERNATE_NONE,
+						ALTERNATE_CHILDREN);
+		
+		int index = ElementUtilities.getIndex(element);
+		element.parent.children.remove(index);
+		
+		for(int i = 1; i < values.size(); i++) {
+			
+			Element scope = getElement("Scope");
+			
+			Element in = getElement("In");
+	
+			ElementUtilities.addChild(in, getElement(values.get(0).content));
+			ElementUtilities.addChild(scope, in);
+			
+			Element field = getElement("Return");
+			
+			ElementUtilities.addChild(field, values.get(i));
+			ElementUtilities.addChild(scope, field);
+			
+			ElementUtilities.addChild(element.parent, scope, index + i - 1);
+		}
 	}
 	
 	public void processIf(Element element) {
