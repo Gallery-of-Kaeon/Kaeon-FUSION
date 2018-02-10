@@ -67,8 +67,21 @@ public class SuperMode extends Directive {
 		for(int i = 0; i < element.children.size(); i++)
 			superMode(directives, element.children.get(i));
 		
-		if(element.content != null)
-			applySuperMode(element);
+		try {
+			
+			if(element.content != null) {
+				
+				if(element.content.length() > 0)
+					applySuperMode(element);
+			}
+		}
+		
+		catch(Exception exception) {
+			// exception.printStackTrace();
+		}
+		
+		for(int i = 0; i < element.children.size(); i++)
+			superMode(directives, element.children.get(i));
 	}
 	
 	public boolean isDirective(
@@ -341,16 +354,8 @@ public class SuperMode extends Directive {
 		if(token == null)
 			return false;
 		
-		if(token.equals("params")) {
-			
-			processParams(
-					element,
-					getValues(
-							element,
-							"params",
-							ALTERNATE_NONE,
-							ALTERNATE_CHILDREN));
-		}
+		if(token.equals("params"))
+			processParams(element);
 		
 		if(token.equals("print"))
 			processPrefix(element, "print", "Log Line");
@@ -463,10 +468,21 @@ public class SuperMode extends Directive {
 		return true;
 	}
 	
-	public void processParams(Element element, ArrayList<Element> values) {
+	public void processParams(Element element) {
+		
+		ArrayList<Element> values =
+				getValues(
+						element,
+						"params",
+						ALTERNATE_NONE,
+						ALTERNATE_CHILDREN);
 		
 		Element parent = element.parent;
+		int index = ElementUtilities.getIndex(element);
+		
 		element.content = "";
+		
+		parent.children.remove(index);
 		
 		for(int i = 1; i < values.size(); i++) {
 			
@@ -479,7 +495,7 @@ public class SuperMode extends Directive {
 			
 			ElementUtilities.addChild(parameter, at);
 			
-			ElementUtilities.addChild(parent, parameter, i - 1);
+			ElementUtilities.addChild(parent, parameter, index + i - 1);
 		}
 	}
 	
