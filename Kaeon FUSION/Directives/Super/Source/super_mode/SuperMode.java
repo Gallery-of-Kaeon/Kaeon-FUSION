@@ -77,7 +77,7 @@ public class SuperMode extends Directive {
 		}
 		
 		catch(Exception exception) {
-			// exception.printStackTrace();
+			
 		}
 		
 		for(int i = 0; i < element.children.size(); i++)
@@ -139,7 +139,7 @@ public class SuperMode extends Directive {
 				
 				values.add(getElement(
 						element.parent.children.remove(
-								ElementUtilities.getIndex(element) - 1).
+								ElementUtilities.getIndex(element) + 1).
 						content));
 			}
 			
@@ -201,7 +201,13 @@ public class SuperMode extends Directive {
 				
 				if(tokenPriority.get(i).contains(tokenize.get(j))) {
 					
-					if(i == 0 && tokenize.size() > 1) {
+					if(
+							(i == 0 || (
+									tokenize.get(j).equalsIgnoreCase("not") ||
+									tokenize.get(j).equalsIgnoreCase("and") ||
+									tokenize.get(j).equalsIgnoreCase("or") ||
+									tokenize.get(j).equalsIgnoreCase("xor"))) &&
+							tokenize.size() > 1) {
 						
 						if(j == 0) {
 							
@@ -223,12 +229,25 @@ public class SuperMode extends Directive {
 						}
 					}
 					
-					return tokenize.get(j);
+					return cropToken(content, tokenize.get(j));
 				}
 			}
 		}
 		
 		return null;
+	}
+	
+	public String cropToken(String content, String token) {
+		
+		while(token.length() > 0) {
+			
+			if(content.contains(token))
+				break;
+			
+			token = token.substring(0, token.length() - 1);
+		}
+		
+		return token;
 	}
 	
 	public void initializeTokens() {
@@ -266,9 +285,9 @@ public class SuperMode extends Directive {
 				"=>",
 				"|",
 				"@",
-				"And",
-				"Or",
-				"Xor",
+				"and",
+				"or",
+				"xor",
 				">",
 				">=",
 				"<",
@@ -295,7 +314,6 @@ public class SuperMode extends Directive {
 						"print",
 						"log",
 						"log line",
-						"not",
 						"return",
 						"new",
 						"sin",
@@ -325,9 +343,10 @@ public class SuperMode extends Directive {
 						"=>",
 						"|",
 						"@",
-						"And",
-						"Or",
-						"Xor",
+						"not",
+						"and",
+						"or",
+						"xor",
 						">",
 						">=",
 						"<",
@@ -428,6 +447,21 @@ public class SuperMode extends Directive {
 		
 		if(token.equals("@"))
 			processInfix(element, "@", "At");
+		
+		if(token.equals("=="))
+			processInfix(element, "==", "Equal");
+		
+		if(token.equals("!="))
+			processNotEqual(element);
+		
+		if(token.equals("and"))
+			processInfix(element, "and", "And");
+		
+		if(token.equals("or"))
+			processInfix(element, "or", "Or");
+		
+		if(token.equals("xor"))
+			processInfix(element, "xor", "Xor");
 		
 		if(token.equals(">"))
 			processInfix(element, ">", "Greater");
@@ -580,5 +614,52 @@ public class SuperMode extends Directive {
 		ElementUtilities.addChild(operation, getElement(element.content));
 		ElementUtilities.addChild(operation, getElement("1"));
 		ElementUtilities.addChild(element, operation);
+	}
+	
+	public void processNotEqual(Element element) {
+		
+		ArrayList<Element> values =
+				getValues(
+						element,
+						"!=",
+						ALTERNATE_SIBLING,
+						ALTERNATE_SIBLING);
+		
+		element.content = "Not";
+		
+		Element equal = getElement("Equal");
+		
+		for(int i = 0; i < values.size(); i++)
+			ElementUtilities.addChild(equal, values.get(i));
+		
+		ElementUtilities.addChild(element, equal);
+	}
+	
+	public void processSwap(Element element) {
+		
+	}
+	
+	public void processIn(Element element) {
+		
+	}
+	
+	public void processField(Element element) {
+		
+	}
+	
+	public void processIf(Element element) {
+		
+	}
+	
+	public void processElse(Element element) {
+		
+	}
+	
+	public void processWhile(Element element) {
+		
+	}
+	
+	public void processIFor(Element element) {
+		
 	}
 }
