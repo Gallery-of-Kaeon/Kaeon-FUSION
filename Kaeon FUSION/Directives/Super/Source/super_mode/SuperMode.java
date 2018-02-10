@@ -18,6 +18,8 @@ public class SuperMode extends Directive {
 	public static ArrayList<String> tokens = null;
 	public static ArrayList<ArrayList<String>> tokenPriority = null;
 	
+	public int numFor;
+	
 	public void apply(
 			ArrayList<Directive> directiveUnits,
 			ArrayList<Element> directives,
@@ -77,7 +79,7 @@ public class SuperMode extends Directive {
 		}
 		
 		catch(Exception exception) {
-			exception.printStackTrace();
+			
 		}
 		
 		for(int i = 0; i < element.children.size(); i++)
@@ -274,6 +276,8 @@ public class SuperMode extends Directive {
 				"elif",
 				"while",
 				"for",
+				"for each",
+				"for range",
 				"=",
 				"+=",
 				"-=",
@@ -329,7 +333,9 @@ public class SuperMode extends Directive {
 						"else",
 						"elif",
 						"while",
-						"for")),
+						"for",
+						"for each",
+						"for range")),
 				new ArrayList<String>(Arrays.asList(
 						"=",
 						"+=",
@@ -369,6 +375,12 @@ public class SuperMode extends Directive {
 	}
 	
 	public boolean applySuperMode(Element element) {
+		
+		if(element.content.equalsIgnoreCase("Less or Equal") ||
+				element.content.equalsIgnoreCase("Greater or Equal")) {
+			
+			return false;
+		}
 		
 		String token = getFirstToken(element.content);
 		
@@ -437,6 +449,12 @@ public class SuperMode extends Directive {
 		
 		if(token.equals("for"))
 			processFor(element);
+		
+		if(token.equals("for each"))
+			processForEach(element);
+		
+		if(token.equals("for range"))
+			processForRange(element);
 		
 		if(token.equals("="))
 			processEquals(element);
@@ -803,5 +821,130 @@ public class SuperMode extends Directive {
 	
 	public void processFor(Element element) {
 		
+		ArrayList<Element> values =
+				getValues(
+						element,
+						"for",
+						ALTERNATE_NONE,
+						ALTERNATE_CHILDREN);
+		
+		Element varDec = getElement("For" + numFor);
+		ElementUtilities.addChild(varDec, getElement("0"));
+		
+		ElementUtilities.addChild(element.parent, varDec, ElementUtilities.getIndex(element));
+		
+		element.content = "Scope";
+		
+		for(int i = 2; i < values.size(); i++)
+			ElementUtilities.addChild(element, values.get(i));
+		
+		Element increment = getElement("For" + numFor);
+		Element add = getElement("Add");
+
+		ElementUtilities.addChild(add, getElement("For" + numFor));
+		ElementUtilities.addChild(add, getElement("1"));
+		ElementUtilities.addChild(increment, add);
+		ElementUtilities.addChild(element, increment);
+		
+		Element condition = getElement("Loop");
+		Element less = getElement("Less");
+		
+		ElementUtilities.addChild(less, getElement("For" + numFor));
+		ElementUtilities.addChild(less, values.get(1));
+		ElementUtilities.addChild(condition, less);
+		ElementUtilities.addChild(element, condition);
+		
+		numFor++;
+	}
+	
+	public void processForEach(Element element) {
+		
+		ArrayList<Element> values =
+				getValues(
+						element,
+						"for each",
+						ALTERNATE_NONE,
+						ALTERNATE_CHILDREN);
+		
+		Element varDec = getElement("For" + numFor);
+		ElementUtilities.addChild(varDec, getElement("1"));
+		
+		ElementUtilities.addChild(element.parent, varDec, ElementUtilities.getIndex(element));
+		
+		element.content = "Scope";
+		
+		Element var = getElement(values.get(1).content);
+		Element at = getElement("At");
+
+		ElementUtilities.addChild(at, ElementUtilities.copyElement(values.get(2)));
+		ElementUtilities.addChild(at, getElement("For" + numFor));
+		ElementUtilities.addChild(var, at);
+		ElementUtilities.addChild(element, var);
+		
+		for(int i = 3; i < values.size(); i++)
+			ElementUtilities.addChild(element, values.get(i));
+		
+		Element increment = getElement("For" + numFor);
+		Element add = getElement("Add");
+
+		ElementUtilities.addChild(add, getElement("For" + numFor));
+		ElementUtilities.addChild(add, getElement("1"));
+		ElementUtilities.addChild(increment, add);
+		ElementUtilities.addChild(element, increment);
+		
+		Element condition = getElement("Loop");
+		Element less = getElement("Less or Equal");
+		Element size = getElement("Size");
+
+		ElementUtilities.addChild(size, ElementUtilities.copyElement(values.get(2)));
+		ElementUtilities.addChild(less, getElement("For" + numFor));
+		ElementUtilities.addChild(less, size);
+		ElementUtilities.addChild(condition, less);
+		ElementUtilities.addChild(element, condition);
+		
+		numFor++;
+	}
+	
+	public void processForRange(Element element) {
+		
+		ArrayList<Element> values =
+				getValues(
+						element,
+						"for range",
+						ALTERNATE_NONE,
+						ALTERNATE_CHILDREN);
+		
+		Element varDec = getElement("For" + numFor);
+		ElementUtilities.addChild(varDec, values.get(2));
+		
+		ElementUtilities.addChild(element.parent, varDec, ElementUtilities.getIndex(element));
+		
+		element.content = "Scope";
+		
+		Element var = getElement(values.get(1).content);
+		
+		ElementUtilities.addChild(var, getElement("For" + numFor));
+		ElementUtilities.addChild(element, var);
+		
+		for(int i = 4; i < values.size(); i++)
+			ElementUtilities.addChild(element, values.get(i));
+		
+		Element increment = getElement("For" + numFor);
+		Element add = getElement("Add");
+
+		ElementUtilities.addChild(add, getElement("For" + numFor));
+		ElementUtilities.addChild(add, getElement("1"));
+		ElementUtilities.addChild(increment, add);
+		ElementUtilities.addChild(element, increment);
+		
+		Element condition = getElement("Loop");
+		Element less = getElement("Less or Equal");
+		
+		ElementUtilities.addChild(less, getElement("For" + numFor));
+		ElementUtilities.addChild(less, values.get(3));
+		ElementUtilities.addChild(condition, less);
+		ElementUtilities.addChild(element, condition);
+		
+		numFor++;
 	}
 }
