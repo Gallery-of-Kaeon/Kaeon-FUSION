@@ -26,6 +26,17 @@ Super Mode
 					the Kaeon FUSION code it is used on to automatically use the Standard interface
 					and the Stack interface.
 				-
+				
+				Sub
+				
+					-
+						The sub directive is a directive with the content "SUB". If Super Mode is
+						processing elements nested within the sub directive's parent, said sub
+						directive will prevent Super Mode from processing any elements following it
+						or any elements nested within them, with the exception of elements
+						following or nested within those following a Super Mode directive that
+						follows or is nested within an element that follows the sub directive.
+					-
 			
 			Super Tokens
 				
