@@ -142,7 +142,9 @@ and practical because having the nodes doubly linked makes it easier to implemen
 
 ### Is Kaeon FUSION bound to the JVM?
 
-We wrote our implementation of Kaeon FUSION in Java because we saw Java as the most effective way to quickly and efficiently get the project off the ground.
+We wrote our implementation of Kaeon FUSION in Java because it was the language our team had the most experience in at the beginning of the project,
+and because the JVM's dynamic class loader made developing the interface's ability to dynamically load at runtime far easier than it would have been in a language that compiles to native code.
+
 However,
 an implementation of Kaeon FUSION can be written in any language and for any platform,
 as long as it conforms to the rules laid out in the specification.
