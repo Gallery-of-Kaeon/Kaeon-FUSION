@@ -604,12 +604,34 @@ public class SuperMode extends Directive {
 	
 	public void processInfix(Element element, String token, String operator) {
 		
+		ArrayList<Element> children = new ArrayList<Element>(element.children);
+		element.children = new ArrayList<Element>();
+		
 		ArrayList<Element> values =
 				getValues(
 						element,
 						token,
 						ALTERNATE_SIBLING,
 						ALTERNATE_SIBLING);
+		
+		if(values.size() < 2) {
+			
+			for(int i = 0; i < children.size(); i++)
+				ElementUtilities.addChild(element, children.get(i));
+			
+			return;
+		}
+		
+		for(int i = 0; i < values.size(); i++) {
+			
+			if(values.get(i).content.length() == 0) {
+				
+				for(int j = 0; j < children.size(); j++)
+					ElementUtilities.addChild(element, children.get(j));
+				
+				return;
+			}
+		}
 		
 		element.content = operator;
 		
