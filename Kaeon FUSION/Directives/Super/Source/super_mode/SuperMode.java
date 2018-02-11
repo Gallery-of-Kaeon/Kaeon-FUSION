@@ -177,6 +177,8 @@ public class SuperMode extends Directive {
 	@SuppressWarnings({ "static-access" })
 	public String getFirstToken(String content) {
 		
+		content = content.toLowerCase();
+		
 		ArrayList<String> tokens = new ArrayList<String>(this.tokens);
 		
 		tokens.add("\"");
@@ -233,8 +235,8 @@ public class SuperMode extends Directive {
 						}
 					}
 					
-					if(content.indexOf(token) > -1)
-						return token;
+					if(content.toLowerCase().indexOf(token.toLowerCase()) > -1)
+						return token.toLowerCase();
 				}
 			}
 		}
@@ -376,6 +378,13 @@ public class SuperMode extends Directive {
 	}
 	
 	public boolean applySuperMode(Element element) {
+		
+		if(element.content.equalsIgnoreCase("for")) {
+			
+			processFor(element);
+			
+			return true;
+		}
 		
 		if(element.content.equalsIgnoreCase("Less or Equal") ||
 				element.content.equalsIgnoreCase("Greater or Equal")) {
@@ -855,7 +864,7 @@ public class SuperMode extends Directive {
 		Element less = getElement("Less");
 		
 		ElementUtilities.addChild(less, getElement("For" + numFor));
-		ElementUtilities.addChild(less, getElement("ForLim"));
+		ElementUtilities.addChild(less, getElement("ForLim" + numFor));
 		ElementUtilities.addChild(condition, less);
 		ElementUtilities.addChild(element, condition);
 		
