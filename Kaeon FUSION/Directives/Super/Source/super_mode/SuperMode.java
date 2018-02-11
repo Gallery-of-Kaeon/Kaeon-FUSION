@@ -201,7 +201,9 @@ public class SuperMode extends Directive {
 				if(quote)
 					continue;
 				
-				if(tokenPriority.get(i).contains(tokenize.get(j))) {
+				String token = contains(tokenPriority.get(i), tokenize.get(j));
+				
+				if(token != null) {
 					
 					if(
 							(i == 0 || (
@@ -231,7 +233,8 @@ public class SuperMode extends Directive {
 						}
 					}
 					
-					return cropToken(content, tokenize.get(j));
+					if(content.indexOf(token) > -1)
+						return token;
 				}
 			}
 		}
@@ -239,17 +242,15 @@ public class SuperMode extends Directive {
 		return null;
 	}
 	
-	public String cropToken(String content, String token) {
+	public String contains(ArrayList<String> list, String token) {
 		
-		while(token.length() > 0) {
+		for(int i = 0; i < list.size(); i++) {
 			
-			if(content.contains(token))
-				break;
-			
-			token = token.substring(0, token.length() - 1);
+			if(list.get(i).equalsIgnoreCase(token))
+				return token;
 		}
 		
-		return token;
+		return null;
 	}
 	
 	public void initializeTokens() {
