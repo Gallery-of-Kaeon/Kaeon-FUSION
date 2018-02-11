@@ -92,9 +92,9 @@ and here's the same code as above with the Super Mode preprocessor:
 
 	sum = 0
 
-	for i from 3 to 999 do
+	for range { i, 3, 999 }
 	
-		if i % 3 == 0 or i % 5 == 0 do
+		if { i % 3 == 0 or i % 5 == 0 }
 			sum += i
 
 	print sum
