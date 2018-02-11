@@ -99,8 +99,6 @@ and here's the same code as above with the Super Mode preprocessor:
 
 	print sum
 
-_Super Mode is in beta, and cannot support the above example at this time._
-
 Click [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Samples) for all of our available sample code.
 
 ## Contact info
@@ -239,8 +237,9 @@ the implementations for Kaeon FUSION and its standard interface are stable.
 However,
 the Kaeon Origin IDE and the stack interface are still in beta.
 None of the standard ONE+ have implemantations yet,
-the current implementation of the stack interface only provides the HTML and CSS dialects,
-and Super Mode is in beta.
+and the current implementation of the stack interface only provides the HTML and CSS dialects.
+In addition,
+there are some minor bugs with the standard interface and super mode at this time.
 It should also be noted that all of our implementations were developed and tested on an unmodified Lenovo IdeaPad P500 laptop running Windows 10.
 
 Kaeon FUSION,
