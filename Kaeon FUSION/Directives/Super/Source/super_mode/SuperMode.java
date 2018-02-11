@@ -66,8 +66,16 @@ public class SuperMode extends Directive {
 		if(isDirective(directives, element))
 			return;
 		
-		for(int i = 0; i < element.children.size(); i++)
+		for(int i = 0; i < element.children.size(); i++) {
+			
+			if(isDirective(directives, element.children.get(i))) {
+				
+				if(element.children.get(i).content.equalsIgnoreCase("SUB"))
+					break;
+			}
+			
 			superMode(directives, element.children.get(i));
+		}
 		
 		try {
 			
@@ -82,8 +90,16 @@ public class SuperMode extends Directive {
 			
 		}
 		
-		for(int i = 0; i < element.children.size(); i++)
+		for(int i = 0; i < element.children.size(); i++) {
+			
+			if(isDirective(directives, element.children.get(i))) {
+				
+				if(element.children.get(i).content.equalsIgnoreCase("SUB"))
+					break;
+			}
+			
 			superMode(directives, element.children.get(i));
+		}
 	}
 	
 	public boolean isDirective(
