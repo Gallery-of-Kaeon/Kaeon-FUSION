@@ -1,5 +1,3 @@
-# Super Mode has not been implemented yet.
-
 [USE: SUPER] [SUPER]
 
 print "Hello, world!"

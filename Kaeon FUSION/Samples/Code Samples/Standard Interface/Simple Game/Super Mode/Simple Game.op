@@ -1,5 +1,3 @@
-# Super Mode has not been implemented yet.
-
 [USE: SUPER] [SUPER]
 
 print Welcome to Battle!
@@ -7,7 +5,7 @@ print Welcome to Battle!
 player = 100
 foe = 100
 
-while player > 0 and foe > 0 do
+while { player > 0 and foe > 0 }
 	
 	print: "You: ", player, " Opponent: ", foe
 	
@@ -17,7 +15,7 @@ while player > 0 and foe > 0 do
 		1. Tackle\n
 		2. Scratch\n
 	
-	if answer == 1 do
+	if { answer == 1 }
 		foe -= 20
 		print Opponent took 20 damage.
 	
@@ -25,11 +23,11 @@ while player > 0 and foe > 0 do
 		foe -= 10
 		print Opponent took 10 damage.
 		
-	if foe > 0 do
+	if { foe > 0 }
 		player -= 15
 		print Opponent used bite. You took 15 damage.
 
-if player > foe do
+if { player > foe }
 	print: Opponent fainted., \n, You Win!
 
 else

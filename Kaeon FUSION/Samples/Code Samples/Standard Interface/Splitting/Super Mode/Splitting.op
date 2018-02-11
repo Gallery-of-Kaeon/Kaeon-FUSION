@@ -16,14 +16,12 @@
 	10
  ]#
 
-# Super Mode has not been implemented yet.
-
 [USE: SUPER] [SUPER]
 
 Split
 	
-	for i from 1 to 5 do
+	for range { i, 1, 5 }
 		print i
 
-for i from 6 to 10 do
+for range { i, 6, 10 }
 	print i

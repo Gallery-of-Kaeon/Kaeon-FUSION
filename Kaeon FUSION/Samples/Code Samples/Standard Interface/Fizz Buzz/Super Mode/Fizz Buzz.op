@@ -1,16 +1,14 @@
-# Super Mode has not been implemented yet.
-
 [USE: SUPER] [SUPER]
 
-for i from 0 to input: "Enter a number: " do
+for range { i, 0, input: "Enter a number: " }
 	
-	if i % 3 == 0 and i % 5 == 0 do
+	if { i % 3 == 0 and i % 5 == 0 }
 		print fizz buzz
 	
-	elif i % 3 == 0 do
+	elif { i % 3 == 0 }
 		print fizz
 	
-	elif i % 5 == 0 do
+	elif { i % 5 == 0 }
 		print buzz
 	
 	else

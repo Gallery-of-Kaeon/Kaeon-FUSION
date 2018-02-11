@@ -17,7 +17,7 @@ def dog { Params: name }
 	# Prints bork from zero to the number passed in
 	def bork { Params: borks }
 		
-		for borks do
+		for { borks }
 			
 			# Surround bork in quotation marks to avoid recursive call
 			print "bork"

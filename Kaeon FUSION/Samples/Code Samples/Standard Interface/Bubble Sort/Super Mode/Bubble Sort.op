@@ -6,21 +6,21 @@
 
  ]#
 
-# Super Mode has not been implemented yet.
-
 [USE: SUPER] [SUPER]
 
 def Bubble Sort { Params: my list }
 
-	for i from 1 to Size: my list do
+	for range { i, 1, Size: my list }
 
-		for j from 1 to Size: my list do
+		for range { j, 1, Size: my list }
 
 			a = my list @ i
 			b = my list @ j
 
-			if a > b do
-				my list | set: i, b
-				my list | set: j, a
+			if { a > b }
+
+				my list |
+					set: i, b
+					set: j, a
 
 	return my list
