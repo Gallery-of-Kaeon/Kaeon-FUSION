@@ -55,6 +55,10 @@ Super Mode
 				Token Conflicts
 				
 					-
+						If the content of an element matches the name of a command in the standard
+						interface or stack interface, or if an element is a directive, any tokens
+						within said element will not be processed.
+						
 						If one token consists of another token followed by an additional sequence
 						of characters, the larger token will take priority.
 						
