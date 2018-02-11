@@ -832,6 +832,10 @@ public class SuperMode extends Directive {
 		Element varDec = getElement("For" + numFor);
 		ElementUtilities.addChild(varDec, getElement("0"));
 		
+		Element varLim = getElement("ForLim" + numFor);
+		ElementUtilities.addChild(varLim, values.get(1));
+
+		ElementUtilities.addChild(element.parent, varLim, ElementUtilities.getIndex(element));
 		ElementUtilities.addChild(element.parent, varDec, ElementUtilities.getIndex(element));
 		
 		element.content = "Scope";
@@ -851,7 +855,7 @@ public class SuperMode extends Directive {
 		Element less = getElement("Less");
 		
 		ElementUtilities.addChild(less, getElement("For" + numFor));
-		ElementUtilities.addChild(less, values.get(1));
+		ElementUtilities.addChild(less, getElement("ForLim"));
 		ElementUtilities.addChild(condition, less);
 		ElementUtilities.addChild(element, condition);
 		
@@ -918,6 +922,10 @@ public class SuperMode extends Directive {
 		Element varDec = getElement("For" + numFor);
 		ElementUtilities.addChild(varDec, values.get(2));
 		
+		Element varLim = getElement("ForLim" + numFor);
+		ElementUtilities.addChild(varLim, values.get(3));
+
+		ElementUtilities.addChild(element.parent, varLim, ElementUtilities.getIndex(element));
 		ElementUtilities.addChild(element.parent, varDec, ElementUtilities.getIndex(element));
 		
 		element.content = "Scope";
@@ -942,7 +950,7 @@ public class SuperMode extends Directive {
 		Element less = getElement("Less or Equal");
 		
 		ElementUtilities.addChild(less, getElement("For" + numFor));
-		ElementUtilities.addChild(less, values.get(3));
+		ElementUtilities.addChild(less, getElement("ForLim" + numFor));
 		ElementUtilities.addChild(condition, less);
 		ElementUtilities.addChild(element, condition);
 		
