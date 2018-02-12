@@ -5,7 +5,9 @@
 		Philosophy
 	-	
 		-
-			FUSION is a system that allows any ONE document to serve as code.
+			FUSION is a system that allows any ONE element to serve as code.
+			
+			An element being operated on by FUSION is referred to as a command.
 		-
 	-
 		Principles
@@ -17,7 +19,7 @@
 				Step One
 			-
 				-
-					FUSION will be given a ONE Element to start at and an integer to serve as a
+					FUSION will be given a ONE element to start at and an integer to serve as a
 					depth value.
 				-
 			-
@@ -72,8 +74,8 @@
 					next sibling and loop back to step one.
 					
 					Otherwise, if the element has a parent and if the depth value is greater than
-					zero, FUSION will shift focus to the element's parent and decrement the depth
-					value by one.
+					zero, FUSION will shift focus to the element's parent, decrement the depth
+					value by one, and loop back to step four.
 					
 					If the depth value is less than or equal to zero or if the element does not
 					have a parent, FUSION will terminate.
@@ -84,10 +86,4 @@
 			-
 				If an error occurs during at any step, FUSION will skip over the step and proceed
 				as if nothing happened.
-			-
-		-
-			Commands
-		-
-			-
-				An element within a ONE document upon which FUSION is running is called a command.
 			-

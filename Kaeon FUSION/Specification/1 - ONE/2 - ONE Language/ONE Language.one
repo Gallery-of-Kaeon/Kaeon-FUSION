@@ -5,7 +5,9 @@
 		Philosophy
 	-
 		-
-			The ONE Language is a syntax for encoding ONE documents.
+			The ONE language is a syntax for encoding ONE elements.
+			
+			A unit of text written in the ONE language is referred to as a ONE document.
 		-
 	-
 		Principles
@@ -40,11 +42,16 @@
 				breaking sequence that precedes said sequence and said sequence for every level the
 				element definition is nested.
 				
-				Every element with no parent will encode an element into the document. Every
-				element with a parent will encode an element into its parent element. The content
-				encoded into said elements will consist of the content of each encoded sequence
-				within the respective element definition, each with the exception of the content
-				last occurring encoded sequence within the respective element definition followed
-				by an instance of the breaking sequence, concatenated in the order in which the
-				respective encoded sequences occur within the respective element definition.
+				The encoded data will begin as an element with no parent and no content referred to
+				as the document element. Every element definition with no parent will encode an
+				element as a child of the document element. Every element definition with a parent
+				will encode an element as a child of the element defined by its parent element
+				definition. The content encoded into elements defined by element definitions will
+				consist of the content of each encoded sequence within the respective element
+				definition, each with the exception of the content last occurring encoded sequence
+				within the respective element definition followed by an instance of the breaking
+				sequence, concatenated in the order in which the respective encoded sequences occur
+				within the respective element definition. The order in which elements defined by
+				element definitions are arranged within their parent element shall correspond to
+				the order in which the definitions that defined them occur.
 			-

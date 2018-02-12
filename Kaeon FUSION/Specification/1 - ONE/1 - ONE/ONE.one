@@ -11,12 +11,13 @@
 		Principles
 	-
 		-
-			System
+			Elements
 		-
 			-
-				ONE stores data in ONE documents. A ONE document is composed of ONE elements.
+				ONE stores data in elements.
 				
-				Each element contains a string of characters referred to as the content, and may
-				act as a parent to an indefinite number of other elements. Elements must be
-				arranged in a specific order within their respective document or parent element.
+				An element may contain string of characters referred to as the content, and may act
+				as a parent to an indefinite number of other elements. The children of an element
+				must be arranged in a specific order relative to each other. All elements with a
+				parent must contain content.
 			-
