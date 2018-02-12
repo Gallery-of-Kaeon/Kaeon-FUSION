@@ -197,11 +197,6 @@ the contents of this repository are free for everyone to use and make modificati
 
 "KAI-on".
 
-### Who are you?
-
-The Kaeon FUSION language is one of many projects under the Kaeon name.
-The Kaeon projects are at the time of writing primarily developed and managed by [Jesse Dinkin](https://www.linkedin.com/in/jesse-dinkin-6b9135100/).
-
 ### Does Kaeon FUSION have a mascot?
 
 The mascot of all projects under the Kaeon name is the ACE.
