@@ -356,6 +356,10 @@ public class IDE implements ActionListener {
 			this.input.add(input.panel);
 
 			setCurrentInput(input);
+
+			one.setBackground(new Color(100, 150, 255));
+			one.setText("Show ONE");
+			one.setActionCommand("Show ONE");
 		}
 
 		if(command.equals("Remove")) {
@@ -734,6 +738,10 @@ public class IDE implements ActionListener {
 			input.path = file.getAbsolutePath();
 
 			setCurrentInput(input);
+
+			one.setBackground(new Color(100, 150, 255));
+			one.setText("Show ONE");
+			one.setActionCommand("Show ONE");
 
 			saveState();
 		}
