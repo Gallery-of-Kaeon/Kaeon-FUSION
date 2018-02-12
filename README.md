@@ -64,7 +64,7 @@ written using [ONE](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master
     	-
 
 
-and here's the solution to [Euler problem #1](https://projecteuler.net/problem=1),
+Here's the solution to [Euler problem #1](https://projecteuler.net/problem=1),
 written using [ONE+](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/README.md):
 
     Use: Standard
@@ -86,8 +86,9 @@ written using [ONE+](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/maste
 
     Log Line: sum
 
-and here's the same code as above,
-also written in [ONE+](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/README.md) but with the Super Mode directive acting as a preprocessor:
+Here's the same code as above,
+also written in [ONE+](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/README.md),
+but with the Super Mode directive acting as a preprocessor:
 
 	[USE: SUPER] [SUPER]
 
