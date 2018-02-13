@@ -10,9 +10,9 @@
 
 def bubble sort { params: my list }
 
-	for range { i, 1, size: my list }
+	for range { i, 1, my list | size }
 
-		for range { j, 1, size: my list }
+		for range { j, 1, my list | size }
 
 			a = my list @ i
 			b = my list @ j
