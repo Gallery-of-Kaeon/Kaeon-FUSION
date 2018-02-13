@@ -8,11 +8,11 @@
 
 [USE: SUPER] [SUPER]
 
-def Bubble Sort { Params: my list }
+def bubble sort { params: my list }
 
-	for range { i, 1, Size: my list }
+	for range { i, 1, size: my list }
 
-		for range { j, 1, Size: my list }
+		for range { j, 1, size: my list }
 
 			a = my list @ i
 			b = my list @ j

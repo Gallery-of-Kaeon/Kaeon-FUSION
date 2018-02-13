@@ -2,7 +2,7 @@
 
 [USE: SUPER] [SUPER]
 
-def dog { Params: name }
+def dog { params: name }
 	
 	# Object fields should be global
 	global
@@ -15,7 +15,7 @@ def dog { Params: name }
 	
 	# Define the function bork within dog
 	# Prints bork from zero to the number passed in
-	def bork { Params: borks }
+	def bork { params: borks }
 		
 		for { borks }
 			
@@ -23,7 +23,7 @@ def dog { Params: name }
 			print "bork"
 
 # Assign a new instance of dog with the argument doggo to my dog
-my dog = new dog: doggo
+my dog = new dog { doggo }
 
 # Run the code "height: 7" within my dog to set my dog's height to 7
 my dog -> height = 7
@@ -34,4 +34,4 @@ print my dog => height
 print my dog => weight
 
 # Run the function bork within my dog
-my dog -> bork: 3
+my dog -> bork { 3 }
