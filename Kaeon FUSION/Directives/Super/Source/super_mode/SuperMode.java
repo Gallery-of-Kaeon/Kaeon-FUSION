@@ -32,16 +32,18 @@ public class SuperMode extends Directive {
 			
 			useStandardDirectives(directiveUnits);
 			
-			element.parent.children.remove(ElementUtilities.getIndex(element));
+			int index = ElementUtilities.getIndex(element);
+			
+			element.parent.children.remove(index);
 			
 			Element use = getElement("Use");
 			
 			ElementUtilities.addChild(use, getElement("Standard"));
 			ElementUtilities.addChild(use, getElement("Stack"));
 			
-			ElementUtilities.addChild(element.parent, use, 0);
+			ElementUtilities.addChild(element.parent, use, index);
 			
-			superMode(directives, element.parent);
+			superMode(directives, element.parent, index);
 		}
 	}
 	
@@ -61,12 +63,13 @@ public class SuperMode extends Directive {
 	
 	public void superMode(
 			ArrayList<Element> directives,
-			Element element) {
+			Element element,
+			int index) {
 		
 		if(isDirective(directives, element))
 			return;
 		
-		for(int i = 0; i < element.children.size(); i++) {
+		for(int i = index; i < element.children.size(); i++) {
 			
 			if(isDirective(directives, element.children.get(i))) {
 				
@@ -74,7 +77,7 @@ public class SuperMode extends Directive {
 					break;
 			}
 			
-			superMode(directives, element.children.get(i));
+			superMode(directives, element.children.get(i), 0);
 		}
 		
 		try {
@@ -90,7 +93,7 @@ public class SuperMode extends Directive {
 			
 		}
 		
-		for(int i = 0; i < element.children.size(); i++) {
+		for(int i = index; i < element.children.size(); i++) {
 			
 			if(isDirective(directives, element.children.get(i))) {
 				
@@ -98,7 +101,7 @@ public class SuperMode extends Directive {
 					break;
 			}
 			
-			superMode(directives, element.children.get(i));
+			superMode(directives, element.children.get(i), 0);
 		}
 	}
 	
