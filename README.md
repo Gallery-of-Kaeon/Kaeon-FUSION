@@ -14,7 +14,7 @@ we disagree with this sentiment.
 
 The sheer,
 ever-growing scale of the toolset required by software developers is a burden that should have been dealt with long ago.
-To free developers from the bondage of incomplete tools,
+To liberate developers from the bondage of incomplete tools,
 we have created Kaeon FUSION:
 the first ever universal programming language.
 
