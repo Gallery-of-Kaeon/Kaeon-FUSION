@@ -231,6 +231,13 @@ It is important to note that the contents of this repository are aimed at those 
 If you're a newcomer to programming in general,
 we recommend you check out our [Kaeon FUSION for Beginners](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/README.md) resource.
 
+Whenever a change is made to Kaeon FUSION,
+the specification is always updated first.
+The implementation is then updated to conform to the updated specification.
+As a consequence,
+many parts of the documentation are often out of date,
+and may take a while to catch up.
+
 As of Novemeber 13, 2017,
 the implementations for Kaeon FUSION and its standard interface are stable.
 However,

@@ -4,14 +4,16 @@ Build
 		
 		-
 			The build command contains the content "Build". It has at least one child. The first
-			child may have an indefinite number of children. It does not trickle down.
+			child may have an indefinite number of children. The build command's first child will
+			be modified so that it returns a list of the values returned to it by its children
+			before the build command trickles down.
 			
 			The content of the first child of the build command specifies a ONE dialect that is
-			analogous to another language. The content of the children of the child specify
-			functions that contain code written in said dialect. The content and children of any
-			children following the first child will act as additional arguments. The build command
-			will take the ONE code from the specified functions and cross compile it to another
-			language based on the dialect specified and the arguments given. The build command will
-			then export the cross compiled code to the file system at a location dependent on the
+			analogous to another language. The elements in the list returned by the first child
+			contain strings consisting of code written in the specified dialect. The values
+			returned by any children following the first child specify arguments to be used during
+			the cross compilation. The code returned by the first child will then be cross compiled
+			to the specified dialect using the arguments given. The cross compiled code will be
+			exported to the file system at a location dependent on the specified dialect and the
 			given arguments.
 		-
