@@ -11,13 +11,13 @@ import stack.utilities.Dialect;
 
 public class HTML extends Dialect {
 	
+	@SuppressWarnings("unchecked")
 	public void build(
 			ArrayList<ArrayList<String>> files,
-			ArrayList<ArrayList<Object>> functionDefintions,
-			ArrayList<ArrayList<Object>> functions,
-			ArrayList<Element> arguments) {
+			ArrayList<Element> code,
+			ArrayList<Object> arguments) {
 		
-		Element element = (Element) functions.get(0).get(1);
+		Element element = code.get(0);
 		
 		Element tags = ONEPlus.parseONEPlus(IO.openAsString("Tags.op"));
 		Element attributes = ONEPlus.parseONEPlus(IO.openAsString("Attributes.op"));
@@ -43,7 +43,20 @@ public class HTML extends Dialect {
 		
 		ArrayList<String> file = new ArrayList<String>();
 		
-		file.add((String) functions.get(0).get(0) + ".html");
+		String name = "index";
+		
+		if(arguments.size() >= 1) {
+			
+			ArrayList<Object> fileNames = (ArrayList<Object>) arguments.get(1);
+			
+			if(fileNames.size() > 0) {
+				
+				if(fileNames.get(0) != null)
+					name = "" + fileNames.get(0);
+			}
+		}
+		
+		file.add(name + ".html");
 		file.add(html);
 		
 		files.add(file);
@@ -129,25 +142,19 @@ public class HTML extends Dialect {
 	
 	public String processResource(Element element, Dialect dialect) {
 		
+		ArrayList<Element> code = new ArrayList<Element>();
+		
 		Element resource = ElementUtilities.copyElement(element);
 		resource.content = null;
 		
-		ArrayList<ArrayList<Object>> functions = new ArrayList<ArrayList<Object>>();
-		
-		ArrayList<Object> function = new ArrayList<Object>();
-		
-		function.add("");
-		function.add(resource);
-		
-		functions.add(function);
+		code.add(resource);
 		
 		ArrayList<ArrayList<String>> files = new ArrayList<ArrayList<String>>();
 		
 		dialect.build(
 				files,
-				new ArrayList<ArrayList<Object>>(),
-				functions,
-				new ArrayList<Element>());
+				code,
+				new ArrayList<Object>());
 		
 		return files.get(0).get(1);
 	}

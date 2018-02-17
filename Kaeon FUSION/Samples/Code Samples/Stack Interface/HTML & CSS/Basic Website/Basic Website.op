@@ -40,10 +40,9 @@
 
 Use: Standard, Stack
 
-Define
+My Page
 
-	My Page
-		
+	-
 		Head
 
 			Title: My Page
@@ -62,5 +61,6 @@ Define
 			Item: Button
 				ID: my button 2
 				Text: "No, Press Me!"
+	-
 
 Build: HTML: My Page

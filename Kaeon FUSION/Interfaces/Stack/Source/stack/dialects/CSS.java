@@ -9,14 +9,14 @@ import one_plus.ONEPlus;
 import stack.utilities.Dialect;
 
 public class CSS extends Dialect {
-	
+
+	@SuppressWarnings("unchecked")
 	public void build(
 			ArrayList<ArrayList<String>> files,
-			ArrayList<ArrayList<Object>> functionDefintions,
-			ArrayList<ArrayList<Object>> functions,
-			ArrayList<Element> arguments) {
+			ArrayList<Element> code,
+			ArrayList<Object> arguments) {
 		
-		Element element = (Element) functions.get(0).get(1);
+		Element element = code.get(0);
 		
 		Element tags = ONEPlus.parseONEPlus(IO.openAsString("Tags.op"));
 		
@@ -27,7 +27,20 @@ public class CSS extends Dialect {
 		
 		ArrayList<String> file = new ArrayList<String>();
 		
-		file.add((String) functions.get(0).get(0) + ".css");
+		String name = "style";
+		
+		if(arguments.size() >= 1) {
+			
+			ArrayList<Object> fileNames = (ArrayList<Object>) arguments.get(1);
+			
+			if(fileNames.size() > 0) {
+				
+				if(fileNames.get(0) != null)
+					name = "" + fileNames.get(0);
+			}
+		}
+		
+		file.add(name + ".css");
 		file.add(css);
 		
 		files.add(file);

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import io.IO;
 import one.Element;
+import one_plus.ONEPlus;
 import philosophers_stone.PhilosophersStone;
 
 public class Dialect extends PhilosophersStone {
@@ -18,31 +19,36 @@ public class Dialect extends PhilosophersStone {
 			return null;
 		}
 		
-		ArrayList<Element> arguments = null;
 		ArrayList<ArrayList<String>> files = new ArrayList<ArrayList<String>>();
 		
+		ArrayList<Object> code = (ArrayList<Object>) packet.get(2);
+		ArrayList<Object> arguments = (ArrayList<Object>) packet.get(3);
+		
 		if(((String) packet.get(0)).equalsIgnoreCase("Build")) {
-				
-			ArrayList<ArrayList<Object>> functionDefinitions = (ArrayList<ArrayList<Object>>) packet.get(2);
-			ArrayList<ArrayList<Object>> functions = (ArrayList<ArrayList<Object>>) packet.get(3);
-			arguments = (ArrayList<Element>) packet.get(4);
 			
-			build(files, functionDefinitions, functions, arguments);
+			ArrayList<Element> codeElements = new ArrayList<Element>();
+			
+			for(int i = 0; i < code.size(); i++)
+				codeElements.add(ONEPlus.parseONEPlus("" + code.get(i)));
+			
+			build(files, codeElements, arguments);
 		}
 		
 		if(((String) packet.get(0)).equalsIgnoreCase("Derive")) {
 			
-			ArrayList<String> code = (ArrayList<String>) packet.get(2);
-			arguments = (ArrayList<Element>) packet.get(3);
+			ArrayList<String> codeStrings = new ArrayList<String>();
 			
-			derive(files, code, arguments);
+			for(int i = 0; i < code.size(); i++)
+				codeStrings.add("" + code.get(i));
+			
+			derive(files, codeStrings, arguments);
 		}
 		
 		for(int i = 0; i < files.size(); i++) {
 			
 			IO.save(
 					files.get(i).get(1),
-					(arguments.size() > 0 ? arguments.get(0).content + "/" : "") +
+					(arguments.size() > 0 ? arguments.get(0) + "/" : "") +
 							files.get(i).get(0));
 		}
 		
@@ -55,16 +61,15 @@ public class Dialect extends PhilosophersStone {
 	
 	public void build(
 			ArrayList<ArrayList<String>> files,
-			ArrayList<ArrayList<Object>> functionDefintions,
-			ArrayList<ArrayList<Object>> functions,
-			ArrayList<Element> arguments) {
+			ArrayList<Element> code,
+			ArrayList<Object> arguments) {
 		
 	}
 	
 	public void derive(
 			ArrayList<ArrayList<String>> files,
 			ArrayList<String> code,
-			ArrayList<Element> arguments) {
+			ArrayList<Object> arguments) {
 		
 	}
 }

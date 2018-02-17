@@ -5,11 +5,19 @@ import java.util.ArrayList;
 import fusion.FUSIONUnit;
 import one.Element;
 import philosophers_stone.PhilosophersStoneUtilities;
+import standard_kaeon_fusion.utilities.state.State;
 
 public class Derive extends FUSIONUnit {
 	
+	public State state;
+	public ArrayList<Element> dialects;
+	
 	public Derive() {
+		
 		tags.add("Standard");
+		tags.add("Derive");
+		
+		dialects = new ArrayList<Element>();
 	}
 	
 	public boolean verify(Element element) {
@@ -17,26 +25,22 @@ public class Derive extends FUSIONUnit {
 	}
 	
 	public boolean trickleDown(Element element) {
-		return false;
+		
+		dialects.add(element.children.get(0));
+		
+		return true;
 	}
 	
 	public Object process(Element element, ArrayList<Object> processed) {
 		
-		ArrayList<String> code = new ArrayList<String>();
-		
-		for(Element codeElement : element.children.get(0).children)
-			code.add(codeElement.content);
-		
-		ArrayList<Element> arguments = new ArrayList<Element>();
-		
-		for(int i = 1; i < element.children.size(); i++)
-			arguments.add(element.children.get(i));
+		ArrayList<Object> arguments = new ArrayList<Object>(processed);
+		arguments.remove(0);
 		
 		PhilosophersStoneUtilities.call(
 				this,
 				"Derive",
 				element.children.get(0).content,
-				code,
+				processed.get(0),
 				arguments);
 		
 		return null;

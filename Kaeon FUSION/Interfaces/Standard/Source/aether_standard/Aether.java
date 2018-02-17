@@ -9,6 +9,7 @@ import one_plus.directive.Directive;
 import philosophers_stone.PhilosophersStone;
 import philosophers_stone.PhilosophersStoneUtilities;
 import standard_kaeon_fusion.commands.build.Build;
+import standard_kaeon_fusion.commands.build.Derive;
 import standard_kaeon_fusion.commands.build.Meta;
 import standard_kaeon_fusion.commands.console.Input;
 import standard_kaeon_fusion.commands.console.Log;
@@ -129,6 +130,7 @@ public class Aether {
 			
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Build());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Meta());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Derive());
 			
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Break());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Else());
