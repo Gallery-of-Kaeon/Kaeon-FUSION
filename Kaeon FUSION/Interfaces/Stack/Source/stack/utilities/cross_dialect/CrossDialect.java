@@ -8,50 +8,35 @@ import stack.utilities.Dialect;
 
 public class CrossDialect extends Dialect {
 	
-	@SuppressWarnings("unchecked")
 	public void build(
 			ArrayList<ArrayList<String>> files,
 			ArrayList<Element> code,
 			ArrayList<Object> arguments) {
-
-		String name = "" + ((ArrayList<Object>) arguments.get(1)).get(0);
+		
+		String name = "main";
 		Element main = code.get(0);
 		
 		ArrayList<Category> categories = new ArrayList<Category>();
 		
-		String mainBody = buildBody(name, main, categories);
-		String mainBuild = buildMain(name, main, categories, mainBody);
+		String mainBuild =
+				buildMain(
+						name,
+						main,
+						categories, 
+						buildElement(
+								name,
+								main,
+								categories,
+								new ArrayList<String>(),
+								new Element(),
+								0));
 		
-		buildCategories(files, name, main, mainBuild, categories);
-	}
-	
-	public String buildBody(
-			String name,
-			Element main,
-			ArrayList<Category> categories) {
-		
-		String body = "";
-		
-		Element meta = new Element();
-		
-		ArrayList<String> variables = new ArrayList<String>();
-		
-		for(int i = 0; i < main.children.size(); i++) {
-			
-			String content =
-					buildElement(
-							name,
-							main.children.get(i),
-							categories,
-							variables,
-							meta,
-							0);
-			
-			if(content != null)
-				body += content + buildBodyElementSeparator();
-		}
-		
-		return body;
+		buildCategories(
+				files,
+				name,
+				main,
+				mainBuild,
+				categories);
 	}
 	
 	public String buildElement(
@@ -62,18 +47,52 @@ public class CrossDialect extends Dialect {
 			Element meta,
 			int nest) {
 		
-		if(element.content.equalsIgnoreCase("Meta")) {
+		if(element.content != null) {
 			
-			ammendMeta(meta, element);
-			
-			return null;
+			if(element.content.equalsIgnoreCase("Meta")) {
+				
+				ammendMeta(meta, element);
+				
+				return null;
+			}
 		}
+		
+		addFunctions(element, categories);
 		
 		ArrayList<String> arguments = new ArrayList<String>();
 		
 		Element metaCopy = ElementUtilities.copyElement(meta);
 		
 		for(int i = 0; i < element.children.size(); i++) {
+			
+			if(element.children.get(i).content.equalsIgnoreCase("In")) {
+				
+				String operator = 
+						buildElement(
+								name,
+								element.children.get(i).children.get(0),
+								categories,
+								new ArrayList<String>(variables),
+								metaCopy,
+								nest + 1);
+				
+				for(int j = i + 1; j < element.children.size(); j++) {
+
+					String operation =
+							buildElement(
+									name,
+									element.children.get(j),
+									categories,
+									new ArrayList<String>(variables),
+									metaCopy,
+									nest + 1);
+					
+					if(operation != null)
+						arguments.add(buildOperation(operator, operation, metaCopy));
+				}
+				
+				break;
+			}
 			
 			String argument =
 					buildElement(
@@ -88,20 +107,30 @@ public class CrossDialect extends Dialect {
 				arguments.add(argument);
 		}
 		
-		// BEGIN STUB
+		if(element.content == null && element.parent == null) {
+			
+			String string = "";
+			
+			for(int i = 0; i < arguments.size(); i++)
+				string += arguments.get(i);
+			
+			return string;
+		}
 		
-		/*
-		 * DEFINE
-		 * IMPORT
-		 * GLOBAL
-		 * CATCH
-		 * THROW
-		 * IN
-		 * EXECUTE
-		 * CALL
-		 */
+		if(element.content.equalsIgnoreCase("Define"))
+			return buildDefine(element, arguments, meta, categories);
 		
-		// END STUB
+		if(element.content.equalsIgnoreCase("Import"))
+			return buildImport(element, arguments, meta, categories);
+		
+		if(element.content.equalsIgnoreCase("Global"))
+			return buildGlobal(element, arguments, meta, categories);
+		
+		if(element.content.equalsIgnoreCase("Execute"))
+			return buildExecute(element, arguments, meta);
+		
+		if(element.content.equalsIgnoreCase("Call"))
+			return buildCall(element, arguments, meta);
 		
 		if(element.content.equalsIgnoreCase("This"))
 			return buildThis(element, arguments, meta);
@@ -277,6 +306,9 @@ public class CrossDialect extends Dialect {
 		if(element.content.equalsIgnoreCase("Absolute Value"))
 			return buildAbsoluteValue(element, arguments, meta);
 		
+		if(getCategory(categories, "Function Names").objects.contains(element.content.toLowerCase()))
+			return buildFunctionCall(element, arguments, meta);
+		
 		boolean isElementAlias = variables.contains(element.content.toLowerCase());
 		
 		if(isElementAlias) {
@@ -296,6 +328,33 @@ public class CrossDialect extends Dialect {
 		}
 		
 		return buildLiteral(element, arguments, meta);
+	}
+	
+	public void addFunctions(Element element, ArrayList<Category> categories) {
+
+		Category functions = getCategory(categories, "Function Names");
+		
+		if(functions == null) {
+			
+			functions = new Category();
+			functions.name = "Function Names";
+			
+			categories.add(functions);
+		}
+		
+		for(int i = 0; i < element.children.size(); i++) {
+			
+			if(element.children.get(i).content.equalsIgnoreCase("Define")) {
+				
+				Element define = element.children.get(i);
+				
+				for(int j = 0; j < define.children.size(); j++) {
+					
+					if(!functions.objects.contains(define.children.get(i).content.toLowerCase()))
+						functions.objects.add(define.children.get(i).content.toLowerCase());
+				}
+			}
+		}
 	}
 	
 	public Category getCategory(ArrayList<Category> categories, String name) {
@@ -356,6 +415,14 @@ public class CrossDialect extends Dialect {
 		return "";
 	}
 	
+	public String buildOperation(
+			String operator,
+			String operation,
+			Element meta) {
+		
+		return "";
+	}
+	
 	public String buildLiteral(Element element, ArrayList<String> arguments, Element meta) {
 		
 		try {
@@ -405,19 +472,29 @@ public class CrossDialect extends Dialect {
 		return "";
 	}
 	
-	// BEGIN STUB
+	public String buildIn(Element element, ArrayList<String> arguments, Element meta) {
+		return "";
+	}
 	
-	/*
-	 * DEFINE
-	 * GLOBAL
-	 * CATCH
-	 * THROW
-	 * IN
-	 * EXECUTE
-	 * CALL
-	 */
+	public String buildDefine(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
 	
-	// END STUB
+	public String buildGlobal(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildImport(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildCall(Element element, ArrayList<String> arguments, Element meta) {
+		return "";
+	}
+	
+	public String buildExecute(Element element, ArrayList<String> arguments, Element meta) {
+		return "";
+	}
 	
 	public String buildThis(Element element, ArrayList<String> arguments, Element meta) {
 		return "";

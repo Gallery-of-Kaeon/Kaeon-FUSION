@@ -9,6 +9,8 @@ import stack.utilities.cross_dialect.CrossDialect;
 
 public class Java extends CrossDialect {
 	
+	/*
+	
 	public String buildBody(
 			String name,
 			Element main,
@@ -16,6 +18,8 @@ public class Java extends CrossDialect {
 		
 		return "boolean scope=false;" + super.buildBody(name, main, categories);
 	}
+	
+	*/
 	
 	public String formatIdentifier(String identifier) {
 		return identifier.replaceAll(" ", "").toLowerCase();

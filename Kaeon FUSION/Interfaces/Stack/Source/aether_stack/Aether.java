@@ -9,7 +9,9 @@ import philosophers_stone.PhilosophersStone;
 import philosophers_stone.PhilosophersStoneUtilities;
 import stack.dialects.CSS;
 import stack.dialects.HTML;
+import stack.dialects.JSON;
 import stack.dialects.SQL;
+import stack.dialects.XML;
 import stack.dialects.cross.C;
 import stack.dialects.cross.CPP;
 import stack.dialects.cross.CS;
@@ -43,6 +45,8 @@ public class Aether {
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Python());
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Swift());
 
+		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new XML());
+		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new JSON());
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new HTML());
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new CSS());
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new SQL());
