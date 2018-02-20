@@ -25,6 +25,15 @@ Kaeon FUSION Stack Interface
 					HTML, CSS, and SQL.
 				-
 		
+		Code Groups
+			
+			-
+				The strings provided as code to be cross compiled will be arranged into groups
+				prior to cross compilation, and each group will be assigned a unique index. Unless
+				otherwise specified, each provided string will be placed by itself into its own
+				group.
+			-
+		
 		Arguments
 			
 			-
@@ -33,10 +42,10 @@ Kaeon FUSION Stack Interface
 				code should be exported to. If no arguments are present, or if the first argument
 				returns a null value, the code will be exported to the local directory. The second
 				argument, if present, will be a list. The string form of each element in the list,
-				if said element is a non-null value, specifies the name of the cross compiled file
+				if said element is a non-null value, specifies the name of the cross compiled group
 				corresponding to its index. If this argument is absent, an element corresponding to
 				a given file returns a null value, or there is no element in the list corresponding
-				to a given file, the corresponding cross compiled files will be given default names
-				determined by the dialect in use. Any arguments following the second argument will
-				be specific to the dialect in use.
+				to a given group, the corresponding cross compiled groups will be given default
+				names determined by the dialect in use. Any arguments following the second argument
+				will be specific to the dialect in use.
 			-
