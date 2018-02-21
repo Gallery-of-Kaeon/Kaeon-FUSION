@@ -11,10 +11,11 @@ import stack.utilities.Dialect;
 
 public class HTML extends Dialect {
 	
-	@SuppressWarnings("unchecked")
 	public void build(
 			ArrayList<ArrayList<String>> files,
 			ArrayList<Element> code,
+			String name,
+			int index,
 			ArrayList<Object> arguments) {
 		
 		Element element = code.get(0);
@@ -43,17 +44,12 @@ public class HTML extends Dialect {
 		
 		ArrayList<String> file = new ArrayList<String>();
 		
-		String name = "index";
-		
-		if(arguments.size() >= 1) {
+		if(name == null) {
 			
-			ArrayList<Object> fileNames = (ArrayList<Object>) arguments.get(1);
+			name = "index";
 			
-			if(fileNames.size() > 0) {
-				
-				if(fileNames.get(0) != null)
-					name = "" + fileNames.get(0);
-			}
+			if(index > 0)
+				name += "_" + index;
 		}
 		
 		file.add(name + ".html");
@@ -154,6 +150,8 @@ public class HTML extends Dialect {
 		dialect.build(
 				files,
 				code,
+				null,
+				0,
 				new ArrayList<Object>());
 		
 		return files.get(0).get(1);

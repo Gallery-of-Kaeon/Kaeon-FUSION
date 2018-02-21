@@ -11,9 +11,18 @@ public class CrossDialect extends Dialect {
 	public void build(
 			ArrayList<ArrayList<String>> files,
 			ArrayList<Element> code,
+			String name,
+			int index,
 			ArrayList<Object> arguments) {
 		
-		String name = "main";
+		if(name == null) {
+			
+			name = "main";
+			
+			if(index > 0)
+				name += "_" + index;
+		}
+		
 		Element main = code.get(0);
 		
 		ArrayList<Category> categories = new ArrayList<Category>();
@@ -88,7 +97,7 @@ public class CrossDialect extends Dialect {
 									nest + 1);
 					
 					if(operation != null)
-						arguments.add(buildOperation(operator, operation, metaCopy));
+						arguments.add(buildObjectOperation(operator, operation, metaCopy));
 				}
 				
 				break;
@@ -306,6 +315,11 @@ public class CrossDialect extends Dialect {
 		if(element.content.equalsIgnoreCase("Absolute Value"))
 			return buildAbsoluteValue(element, arguments, meta);
 		
+		String operation = buildOperator(element, arguments, meta);
+		
+		if(operation != null)
+			return operation;
+		
 		if(getCategory(categories, "Function Names").objects.contains(element.content.toLowerCase()))
 			return buildFunctionCall(element, arguments, meta);
 		
@@ -407,20 +421,20 @@ public class CrossDialect extends Dialect {
 		}
 	}
 	
-	public String buildDefinition(
-			String name,
-			Element main,
-			ArrayList<Category> categories) {
-		
-		return "";
-	}
-	
-	public String buildOperation(
+	public String buildObjectOperation(
 			String operator,
 			String operation,
 			Element meta) {
 		
 		return "";
+	}
+	
+	public String buildOperator(
+			Element element,
+			ArrayList<String> arguments,
+			Element meta) {
+		
+		return null;
 	}
 	
 	public String buildLiteral(Element element, ArrayList<String> arguments, Element meta) {

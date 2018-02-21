@@ -10,10 +10,11 @@ import stack.utilities.Dialect;
 
 public class CSS extends Dialect {
 
-	@SuppressWarnings("unchecked")
 	public void build(
 			ArrayList<ArrayList<String>> files,
 			ArrayList<Element> code,
+			String name,
+			int index,
 			ArrayList<Object> arguments) {
 		
 		Element element = code.get(0);
@@ -27,17 +28,12 @@ public class CSS extends Dialect {
 		
 		ArrayList<String> file = new ArrayList<String>();
 		
-		String name = "style";
-		
-		if(arguments.size() >= 1) {
+		if(name == null) {
 			
-			ArrayList<Object> fileNames = (ArrayList<Object>) arguments.get(1);
+			name = "style";
 			
-			if(fileNames.size() > 0) {
-				
-				if(fileNames.get(0) != null)
-					name = "" + fileNames.get(0);
-			}
+			if(index > 0)
+				name += "_" + index;
 		}
 		
 		file.add(name + ".css");

@@ -10,6 +10,8 @@ public class SQL extends Dialect {
 	public void build(
 			ArrayList<ArrayList<String>> files,
 			ArrayList<Element> code,
+			String name,
+			int index,
 			ArrayList<Object> arguments) {
 		
 		// STUB
