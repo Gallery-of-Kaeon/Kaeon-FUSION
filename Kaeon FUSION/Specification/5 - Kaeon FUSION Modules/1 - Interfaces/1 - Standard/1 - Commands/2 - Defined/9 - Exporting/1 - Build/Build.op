@@ -3,17 +3,13 @@ Build
 	Philosophy
 		
 		-
-			The build command contains the content "Build". It has at least one child. The first
-			child may have an indefinite number of children. The build command's first child will
-			be modified so that it returns a list of the values returned to it by its children
-			before the build command trickles down.
+			The build command contains the content "Build". It has between two and three children.
+			The first child returns a string specifying the name of a ONE dialect analogous to
+			another language, and the second child returns a list of string containing code written
+			in said dialect. The third child, if present, returns a list of objects which will
+			serve as arguments during cross compilation.
 			
-			The content of the first child of the build command specifies a ONE dialect that is
-			analogous to another language. The elements in the list returned by the first child
-			contain strings consisting of code written in the specified dialect. The values
-			returned by any children following the first child specify arguments to be used during
-			the cross compilation. The code returned by the first child will then be cross compiled
-			to the specified dialect using the arguments given. The cross compiled code will be
-			exported to the file system at a location dependent on the specified dialect and the
-			given arguments.
+			The code will be cross compiled to the language that the specified dialect is analogous
+			to using the arguments given. The cross compiled code will then be exported to the file
+			system at a location dependent on the specified dialect and the given arguments.
 		-
