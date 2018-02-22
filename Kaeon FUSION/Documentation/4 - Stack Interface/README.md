@@ -5,3 +5,5 @@
 # The Stack Interface
 
 The stack interfaces allow Kaeon FUSION to be cross compiled to other languages.
+
+_Further documentation on the stack interface will be coming soon._

@@ -147,18 +147,20 @@ The first step is to define a function and write ONE+ code within the function t
 Then,
 use the build command.
 The build command should have one child specifying the name of the desired dialect,
-and this child should have children specifying the names of functions containing code in the given dialect.
+and a second that returns a list of strings written in said dialect.
 
 For example, running:
 
     Use: Standard, Stack
 
-    Define: My Website
+    My Website
 
-    	Head: Title: My Website
-    	Text: 'Hello, world!'
+    	-
+    		Head: Title: My Website
+    		Text: 'Hello, world!'
+    	-
 
-    Build: HTML: My Website
+    Build: HTML, List { My Website }
 
 will generate an html file in the local directory containing the following html code:
 
@@ -179,3 +181,5 @@ will generate an html file in the local directory containing the following html 
 If opened in a browser,
 the tab the website is open in will have the title "My Website",
 and the page itself will have the text "Hello, world!" in the upper left corner.
+
+_Further documentation on the stack interface will be coming soon._
