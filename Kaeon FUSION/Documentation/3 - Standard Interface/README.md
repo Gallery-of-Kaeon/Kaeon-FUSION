@@ -44,15 +44,15 @@ The interface is activated using the following command:
 
 [6 - List Operation Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#6---list-operation-commands)
 
-[7 - File IO Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#8---file-io-commands)
+[7 - File IO Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#7---file-io-commands)
 
-[8 - Flow Control Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#9---flow-control-commands)
+[8 - Flow Control Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#8---flow-control-commands)
 
-[9 - Threading Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#10---threading-commands)
+[9 - Threading Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#9---threading-commands)
 
-[10 - Metaprogramming Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#11---metaprogramming-commands)
+[10 - Metaprogramming Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#10---metaprogramming-commands)
 
-[11 - Object Orientation](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#12---object-orientation)
+[11 - Object Orientation](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#11---object-orientation)
 
 ## 1 - Basics
 
