@@ -58,6 +58,9 @@ public class CrossDialect extends Dialect {
 		
 		if(element.content != null) {
 			
+			if(element.content.equalsIgnoreCase("Use"))
+				return null;
+			
 			if(element.content.equalsIgnoreCase("Meta")) {
 				
 				ammendMeta(meta, element);
@@ -121,7 +124,7 @@ public class CrossDialect extends Dialect {
 			String string = "";
 			
 			for(int i = 0; i < arguments.size(); i++)
-				string += arguments.get(i);
+				string += arguments.get(i) + buildBodyElementSeparator();
 			
 			return string;
 		}
@@ -412,12 +415,23 @@ public class CrossDialect extends Dialect {
 		
 		for(int i = 0; i < element.children.size(); i++) {
 			
+			boolean found = false;
+			
 			for(int j = 0; j < meta.children.size(); j++) {
 				
 				if(element.children.get(i).content.equalsIgnoreCase(element.children.get(j).content)) {
-					meta.children.set(j, element.children.get(i));
+					
+					ElementUtilities.removeChild(meta, j);
+					ElementUtilities.addChild(meta, element.children.get(i), j);
+					
+					found = true;
+					
+					break;
 				}
 			}
+			
+			if(!found)
+				ElementUtilities.addChild(meta, element.children.get(i));
 		}
 	}
 	
