@@ -121,6 +121,22 @@ public class SuperMode extends Directive {
 		return false;
 	}
 	
+	public int getTokenIndex(String content, String token) {
+		
+		boolean inQuote = false;
+		
+		for(int i = 0; i < content.length(); i++) {
+			
+			if(content.charAt(i) == '\"')
+				inQuote = !inQuote;
+			
+			if(!inQuote && i == content.toLowerCase().indexOf(token.toLowerCase(), i))
+				return i;
+		}
+		
+		return -1;
+	}
+	
 	public ArrayList<Element> getValues(
 			Element element,
 			String token,
@@ -129,17 +145,13 @@ public class SuperMode extends Directive {
 		
 		ArrayList<Element> values = new ArrayList<Element>();
 		
+		int index = getTokenIndex(element.content, token);
+		
 		String left =
-				element.content.substring(
-						0,
-						element.content.toLowerCase().indexOf(
-								token.toLowerCase())).trim();
+				element.content.substring(0, index).trim();
 		
 		String right =
-				element.content.substring(
-						element.content.toLowerCase().indexOf(
-								token.toLowerCase()) +
-								token.length()).trim();
+				element.content.substring(index + token.length()).trim();
 		
 		if(left.length() == 0) {
 			
