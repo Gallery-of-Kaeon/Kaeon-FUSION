@@ -19,6 +19,7 @@ public class SuperMode extends Directive {
 	public static ArrayList<ArrayList<String>> tokenPriority = null;
 	
 	public int numFor;
+	public ArrayList<Element> preProcessed;
 	
 	public void apply(
 			ArrayList<Directive> directiveUnits,
@@ -29,6 +30,8 @@ public class SuperMode extends Directive {
 			initializeTokens();
 		
 		if(element.content.equalsIgnoreCase("SUPER")) {
+			
+			preProcessed = new ArrayList<Element>();
 			
 			useStandardDirectives(directiveUnits);
 			
@@ -397,6 +400,14 @@ public class SuperMode extends Directive {
 	}
 	
 	public boolean applySuperMode(Element element) {
+		
+		for(int i = 0; i < preProcessed.size(); i++) {
+			
+			if(preProcessed.get(i) == element)
+				return false;
+		}
+		
+		preProcessed.add(element);
 		
 		if(element.content.equalsIgnoreCase("for")) {
 			
