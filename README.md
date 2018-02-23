@@ -244,8 +244,6 @@ However,
 the Kaeon Origin IDE and the stack interface are still in beta.
 None of the standard ONE+ have implemantations yet,
 and the current implementation of the stack interface only provides the HTML and CSS dialects.
-In addition,
-there are some minor bugs with super mode at this time.
 It should also be noted that all of our implementations were developed and tested on an unmodified Lenovo IdeaPad P500 laptop running Windows 10.
 
 Kaeon FUSION,
