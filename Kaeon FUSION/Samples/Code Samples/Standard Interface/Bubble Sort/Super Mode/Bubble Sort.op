@@ -17,7 +17,7 @@ def bubble sort { params: my list }
 			a = my list @ i
 			b = my list @ j
 
-			if { a > b }
+			if { a < b }
 
 				my list |
 					set: i, b
