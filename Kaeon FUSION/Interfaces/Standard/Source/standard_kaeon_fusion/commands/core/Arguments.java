@@ -19,7 +19,10 @@ public class Arguments extends FUSIONUnit {
 	public Object process(Element element, ArrayList<Object> processed) {
 		
 		try {
-			return PhilosophersStoneUtilities.call(this, "Arguments").get(0);
+			
+			ArrayList<Object> arguments = PhilosophersStoneUtilities.call(this, "Arguments");
+			
+			return arguments.get(arguments.size() - 1);
 		}
 		
 		catch(Exception exception) {
