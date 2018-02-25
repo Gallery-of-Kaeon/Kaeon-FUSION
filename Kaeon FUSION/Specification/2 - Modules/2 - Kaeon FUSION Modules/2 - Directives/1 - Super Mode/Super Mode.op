@@ -83,54 +83,55 @@ Super Mode
 				
 					First Priority
 					
-						Params
-						Print
-						Log
-						Log Line
-						Return
-						New
-						Sin
-						Cos
-						Tan
 						Abs
-						Sqrt
-						LogN
-						Global
-						Define
+						Cos
 						Def
-						If
-						Else
+						Define
 						Elif
-						While
+						Else
 						For
 						For Each
 						For Range
+						Global
+						If
+						Import
+						Log
+						Log Line
+						LogN
+						New
+						Params
+						Print
+						Return
+						Sin
+						Sqrt
+						Tan
+						While
 						
 					Second Priority
 					
 						=
+						&=
 						+=
 						-=
 						*=
 						/=
 						%=
-						&=
 						
 					Third Priority
 					
-						Not
 						And
+						Not
 						Or
 						Xor
 						
 					Fourth Priority
 					
+						==
+						!=
 						>
 						>=
 						<
 						<=
-						==
-						!=
 						
 					Fifth Priority
 					
