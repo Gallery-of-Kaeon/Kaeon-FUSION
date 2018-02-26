@@ -181,15 +181,15 @@ Super Mode
 							These tokens will use the children of the command they occur in as
 							alternative right hand values.
 							
-							The log, log line, define, else, not, new, global, and return commands
-							may all be used in the form of such a token as opposed to a command.
-							The token "print" may be used in place of "log line", the token "def"
-							may be used in place of "define", the token "Sin" may be used in place
-							of "Sine", the token "Cos" may be used in place of "Cosine", the token
-							"Tan" may be used in place of "Tangent", the token "Abs" may be used in
-							place of "Absolute Value", the token "Sqrt" may be used in place of
-							"Square Root", and the token "LogN" may be used in place of "Natural
-							Logarithm".
+							The log, log line, import, define, else, not, new, global, and return
+							commands may all be used in the form of such a token as opposed to a
+							command. The token "print" may be used in place of "log line", the
+							token "def" may be used in place of "define", the token "Sin" may be
+							used in place of "Sine", the token "Cos" may be used in place of
+							"Cosine", the token "Tan" may be used in place of "Tangent", the token
+							"Abs" may be used in place of "Absolute Value", the token "Sqrt" may be
+							used in place of "Square Root", and the token "LogN" may be used in
+							place of "Natural Logarithm".
 						-
 					
 					Conditionals and Loops
