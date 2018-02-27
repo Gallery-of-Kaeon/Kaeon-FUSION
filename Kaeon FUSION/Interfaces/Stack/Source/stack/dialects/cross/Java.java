@@ -46,6 +46,26 @@ public class Java extends CrossDialect {
 		return ";";
 	}
 	
+	public String buildObjectOperation(
+			String operator,
+			String operation,
+			Element meta) {
+		
+		// STUB
+		
+		return "";
+	}
+	
+	public String buildOperator(
+			Element element,
+			ArrayList<String> arguments,
+			Element meta) {
+		
+		// STUB
+		
+		return null;
+	}
+	
 	public String buildVariableDeclaration(Element element, ArrayList<String> arguments, Element meta) {
 		
 		String declaration = "";
@@ -82,26 +102,6 @@ public class Java extends CrossDialect {
 		}
 		
 		return declaration + element.content + "=" + arguments.get(0);
-	}
-	
-	public String buildObjectOperation(
-			String operator,
-			String operation,
-			Element meta) {
-		
-		// STUB
-		
-		return "";
-	}
-	
-	public String buildOperator(
-			Element element,
-			ArrayList<String> arguments,
-			Element meta) {
-		
-		// STUB
-		
-		return null;
 	}
 	
 	public String buildVariableAssignment(Element element, ArrayList<String> arguments, Element meta) {

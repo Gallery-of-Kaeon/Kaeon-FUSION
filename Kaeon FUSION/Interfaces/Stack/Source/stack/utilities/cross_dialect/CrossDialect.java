@@ -17,7 +17,7 @@ public class CrossDialect extends Dialect {
 		
 		if(name == null) {
 			
-			name = "main";
+			name = "source";
 			
 			if(index > 0)
 				name += "_" + index;
@@ -77,6 +77,9 @@ public class CrossDialect extends Dialect {
 		
 		for(int i = 0; i < element.children.size(); i++) {
 			
+			if(!variables.contains(element.children.get(i).content.toLowerCase()) && element.children.get(i).children.size() > 0)
+				variables.add(element.children.get(i).content.toLowerCase());
+			
 			if(element.children.get(i).content.equalsIgnoreCase("In")) {
 				
 				String operator = 
@@ -131,6 +134,9 @@ public class CrossDialect extends Dialect {
 		
 		if(element.content.equalsIgnoreCase("Define"))
 			return buildDefine(element, arguments, meta, categories);
+		
+		if(element.content.equalsIgnoreCase("Arguments"))
+			return buildArguments(element, arguments, meta);
 		
 		if(element.content.equalsIgnoreCase("Import"))
 			return buildImport(element, arguments, meta, categories);
@@ -326,9 +332,7 @@ public class CrossDialect extends Dialect {
 		if(getCategory(categories, "Function Names").objects.contains(element.content.toLowerCase()))
 			return buildFunctionCall(element, arguments, meta);
 		
-		boolean isElementAlias = variables.contains(element.content.toLowerCase());
-		
-		if(isElementAlias) {
+		if(variables.contains(element.content.toLowerCase())) {
 			
 			if(element.children.size() > 0)
 				return buildVariableAssignment(element, arguments, meta);
@@ -337,12 +341,8 @@ public class CrossDialect extends Dialect {
 				return buildVariableReference(element, arguments, meta);
 		}
 		
-		if(element.children.size() > 0) {
-			
-			variables.add(element.content);
-			
+		if(element.children.size() > 0)
 			return buildVariableDeclaration(element, arguments, meta);
-		}
 		
 		return buildLiteral(element, arguments, meta);
 	}
@@ -350,14 +350,6 @@ public class CrossDialect extends Dialect {
 	public void addFunctions(Element element, ArrayList<Category> categories) {
 
 		Category functions = getCategory(categories, "Function Names");
-		
-		if(functions == null) {
-			
-			functions = new Category();
-			functions.name = "Function Names";
-			
-			categories.add(functions);
-		}
 		
 		for(int i = 0; i < element.children.size(); i++) {
 			
@@ -367,8 +359,22 @@ public class CrossDialect extends Dialect {
 				
 				for(int j = 0; j < define.children.size(); j++) {
 					
-					if(!functions.objects.contains(define.children.get(i).content.toLowerCase()))
-						functions.objects.add(define.children.get(i).content.toLowerCase());
+					if(!functions.objects.contains(define.children.get(j).content.toLowerCase()))
+						functions.objects.add(define.children.get(j).content.toLowerCase());
+				}
+			}
+			
+			if(element.children.get(i).content.equalsIgnoreCase("Meta")) {
+				
+				Element meta = ElementUtilities.getChild(element.children.get(i), "Functions");
+				
+				if(meta != null) {
+					
+					for(int j = 0; j < meta.children.size(); j++) {
+						
+						if(!functions.objects.contains(meta.children.get(j).content.toLowerCase()))
+							functions.objects.add(meta.children.get(j).content.toLowerCase());
+					}
 				}
 			}
 		}
@@ -382,7 +388,12 @@ public class CrossDialect extends Dialect {
 				return categories.get(i);
 		}
 		
-		return null;
+		Category category = new Category();
+		category.name = name;
+		
+		categories.add(category);
+		
+		return category;
 	}
 	
 	public String formatIdentifier(String identifier) {
@@ -419,10 +430,10 @@ public class CrossDialect extends Dialect {
 			
 			for(int j = 0; j < meta.children.size(); j++) {
 				
-				if(element.children.get(i).content.equalsIgnoreCase(element.children.get(j).content)) {
+				if(element.children.get(i).content.equalsIgnoreCase(meta.children.get(j).content)) {
 					
 					ElementUtilities.removeChild(meta, j);
-					ElementUtilities.addChild(meta, element.children.get(i), j);
+					ElementUtilities.addChild(meta, ElementUtilities.copyElement(element.children.get(i)), j);
 					
 					found = true;
 					
@@ -431,7 +442,7 @@ public class CrossDialect extends Dialect {
 			}
 			
 			if(!found)
-				ElementUtilities.addChild(meta, element.children.get(i));
+				ElementUtilities.addChild(meta, ElementUtilities.copyElement(element.children.get(i)));
 		}
 	}
 	
@@ -464,21 +475,16 @@ public class CrossDialect extends Dialect {
 			
 		}
 		
-		try {
-			
-			Boolean.parseBoolean(element.content);
-				
+		if(element.content.equalsIgnoreCase("true") || element.content.equalsIgnoreCase("false"))
 			return element.content;
-		}
-		
-		catch(Exception exception) {
-			
-		}
 		
 		if(element.content.indexOf('\"') == 0 &&
 				element.content.lastIndexOf('\"') == element.content.length() - 1) {
 
-			return element.content;
+			if(element.content.length() > 1)
+				return element.content;
+			
+			return "\"\"";
 		}
 		
 		return "\"" + element.content + "\"";
@@ -505,6 +511,10 @@ public class CrossDialect extends Dialect {
 	}
 	
 	public String buildDefine(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildArguments(Element element, ArrayList<String> arguments, Element meta) {
 		return "";
 	}
 	
