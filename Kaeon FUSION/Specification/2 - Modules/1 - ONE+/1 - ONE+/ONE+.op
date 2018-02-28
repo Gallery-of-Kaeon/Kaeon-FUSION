@@ -159,11 +159,11 @@ ONE+
 				
 				-
 					A directive definition is an element definition preceded by an open directive
-					sequence and followed by a closed directive sequence.
+					sequence and followed by a closed directive sequence. Elements defined in a
+					directive definition are referred to as directive elements.
 					
-					The content of the directive definition will not be encoded into the elements,
-					and no elements nested within it will be encoded into the document, but will
-					affect the document.
+					Directive elements will not be encoded into the document, nor will any elements
+					nested within them, but they will act as preprocessor commands.
 				-
 				
 				Directive Interfaces
@@ -171,10 +171,10 @@ ONE+
 					-
 						Directives are implemented in modules called directive interfaces.
 						
-						A directive interface can be enabled using a directive definition whose
-						first element contains the content "Use". The content of the first child of
-						this 	element should contain the name of the interface. If the interface
-						is available, the directives implemented within it will be usable.
+						A directive interface can be enabled using a directive element that
+						contains the content "Use". The content of each child of this element
+						should contain the name of an interface. If the interfaces are available,
+						the directives implemented within them will be usable.
 					-
 			
 			Zero Documents
