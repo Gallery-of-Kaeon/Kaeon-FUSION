@@ -17,30 +17,37 @@ Standard ONE+ Directive Interface
 				"Standard".
 			-
 		
+		Header Priority
+			
+			-
+				If elements in a directive header themselves trigger a directive, they will be
+				processed before the directive they are nested within.
+			-
+		
 		Directives
 		
 			Properties
 			
 				-
-					The properties directive contains only one element within its directive
-					definition. This element contains the content "Properties". This element may or
-					may not have one child.
+					The properties directive element contains the content "Properties". This
+					element may or may not have one child.
 					
-					The directive modifies the content of its sibling elements and their children.
-					The nature of these effects depends on the elements nested beneath it.
+					The directive modifies the content of the elements in its scope. The nature of
+					these effects depends on the elements nested within it.
 					
-					If the "Properties" element has a child, it will only modify elements and the
-					children of elements that have content that matches the content of the child of
-					the "Properties" element.
+					The header of the properties directive shall not have any elements within it.
+					
+					The properties directive has priority over all other directives in the standard
+					directive interface.
 				-
 				
 				Infix
 					
 					-
-						An element with the content "Infix" may be nested beneath a properties
-						directive. The element will have one child, which will specify a sequence
-						of characters that may act as an infix operator on the content of elements
-						that the parent properties directive takes effect on.
+						An element with the content "Infix" may be placed within a properties
+						directive's body. The element will have one child, which will specify a
+						sequence of characters that may act as an infix operator on the content of
+						elements that the parent properties directive takes effect on.
 						
 						When the infix effect occurs, any instance of the sequence of characters
 						will be removed from the element's content. The content on either side of
@@ -55,11 +62,11 @@ Standard ONE+ Directive Interface
 				Escape
 					
 					-
-						An element with the content "Escape" may be nested beneath a properties
-						directive. The element will have either one or two children, which will
-						specify sequences of characters that may act as an escape sequences for the
-						infix operators specified using infix elements within the properties
-						directive.
+						An element with the content "Escape" may be placed within a properties
+						directive's body. The element will have either one or two children, which
+						will specify sequences of characters that may act as an escape sequences
+						for the infix operators specified using infix elements within the body of a
+						properties directive.
 						
 						If the "Escape" element has one child, any infix sequence occurring
 						directly after the sequence specified by the child will be nullified. If
@@ -67,89 +74,98 @@ Standard ONE+ Directive Interface
 						the sequence specified by the first child the sequence specified by the
 						second child will be nullified.
 					-
+				
+				Alias
+					
+					-
+						An element with the content "Alias" may be placed within a properties
+						directive's body. The element will have two children.
+						
+						Any element in the scope of the properties directive with content matching
+						that of the first child will have its content replaced by that of the
+						second child.
+					-
 			
 			Define
 			
 				-
-					The define directive contains only one element within its directive definition.
-					This element contains the content "Define". This element has one child, which
-					contains an alias to reference the elements nested within it, and may not have
-					the content "Arguments", or content matching that of another directive.
+					The define directive contains the content "Define". Its header contains one
+					element, which contains an alias to reference the elements nested within it,
+					and may not have the content "Arguments", or content matching that of another
+					directive.
 					
-					The directive stores its children in a list that can be referenced within the
-					scope of its parent by the content of the alias element.
+					The directive stores the child elements of the element in its header in a list
+					that can be referenced within the scope of its parent by the content of said
+					header element.
+					
+					The define directive has priority over all other directives in the standard
+					directive interface except for the properties and import directives.
 				-
 		
 			Import
 			
 				-
-					The import directive contains only one element within its directive definition.
-					This element contains the content "Import". This element has one child, which
-					contains the name of a file containing a ONE+ document.
+					The import directive contains the content "Import". Each element in the
+					directive's header will contain the name of a file containing a ONE+ document.
 					
-					Any properties or define directives within the specified document that have no
+					Any properties or define directives within the specified documents that have no
 					parent elements will take effect within the file the import directive was used
 					in.
+					
+					The import directive has priority over all other directives in the standard
+					directive interface except for the properties directive.
 				-
 				
 			Call
 				
 				-
-					The call directive contains only one element within its directive definition.
-					This element contains the content "Call". This element has one child, which
-					contains the name of a list of elements specified by a define directive. The
-					child element may have an indefinite number of children.
+					The call directive contains content "Call". The directive may have between one
+					and three elements in its header. The first of these elements contains the name
+					of a list of elements specified by a define directive, and may have an
+					indefinite number of children. The second and third of these elements, if they
+					are present, contain integer numbers as their content.
 					
-					The call directive will pass the grand children of the "Call" element as
-					arguments to the referenced elements, allowing a list of elements to be
-					referenced within the referenced elements with the alias "Arguments", and paste
-					the referenced elements where it is located.
+					The call directive will pass children of its header element as arguments to the
+					referenced elements, allowing a list of elements to be referenced with a call
+					directive within the referenced elements with the alias "Arguments", and paste
+					the referenced elements where it is located. If the second element is present
+					but not the third, only the element corresponding to the index of the number
+					will be pasted. If the second and third elements are present, the elements
+					corresponding to the range of indexes specified by the numbers will be pasted.
 				-
 			
 			If
 				
 				-
-					The if directive contains only one element within its directive definition.
-					This element contains the content "If". This element has an indefinite number
-					of children, but must have at least one.
+					The if directive contains the content "If". Its header may have an indefinite
+					number of elements, but must have at least one.
 					
-					If the first child of the "If" element matches any of its siblings within its
-					directive definition, the if directive will paste its children following its
-					directive definition where it is located.
+					If the content of all of the elements in its header are equal disregarding
+					letter case, the elements in its body will be pasted in its place.
 				-
 			
 			For
 				
 				-
-					The for directive contains only one element within its directive definition.
-					This element contains the content "For". This element may either have between
-					one and three children where the first child contains an alias of a list of
-					objects specified in a define directive and the other two, if present, contain
-					integers, or between one and two children where both contain integers.
+					The for directive content "For". This element may either have between one and
+					two elements in its header, both of which contain integer numbers as their
+					content.
 					
-					If the for element has a child that references a list of integers, it will
-					paste the elements nested within the directive once for every item in the list.
-					If it has one integer sibling, it will paste the elements nested within the
-					directive once for every item in the list from an index of zero to the index
-					specified by the integer. If it has two integer siblings, it will paste the
-					elements nested within the directive once for every item in the list from an
-					index the index specified by the integer of the first sibling to the index
-					specified by the integer of the second sibling.
+					If the for directive has one element in its header, the content of its body
+					will be pasted for the specified number of times in its place, with the
+					iteration accessible through an index directive.
 					
-					If the for element does not have a child that references a list of integers, it
-					will paste the elements nested within the directive once for every index
-					between an index of zero to the index specified by the integer of its child if
-					it has one child, and once for every index from the index specified by the
-					integer of its first child to the index specified by the integer of its second
-					child if it has two children.
+					If the directive has two elements, the the content of its body will be pasted
+					for the the range between the two numbers in its place, with the iteration in
+					relation to the range accessible through an index directive.
 				-
 			
 			Size
 				
 				-
-					The size directive contains only one element within its directive definition.
-					This element contains the content "Size". This element has one child, which
-					contains the alias of a list of elements specified by a define directive.
+					The size directive contains the content "Size". This directive has one element
+					in its header, which contains the alias of a list of elements specified by a
+					define directive.
 					
 					The size directive will and paste the size of the list of referenced elements
 					where it is located.
@@ -158,21 +174,19 @@ Standard ONE+ Directive Interface
 			Index
 				
 				-
-					An index directive may only be nested beneath a for directive. Its
-					directive definition contains only one element which contains the content
-					"Index".
+					An index directive may only be nested beneath a for directive. It contains the
+					content "Index".
 					
 					The index directive will paste an element containing either the content of
 					the element or the number that corresponds to the current iteration of the
-					loop.
+					loop of the respective for directive.
 				-
 			
 			Info
 				
 				-
-					The info directive contains only one element within its directive definition.
-					This element contains the content "Info". This element may have any number of
-					children.
+					The info directive contains content "Info". This element may have any number of
+					elements within its header and body.
 					
 					The content of the "Info" element's children and the children of the directive
 					can convey information to the host environment of the ONE+ parser.
