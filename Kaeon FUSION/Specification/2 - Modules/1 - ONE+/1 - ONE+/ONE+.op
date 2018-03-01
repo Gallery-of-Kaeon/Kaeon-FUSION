@@ -162,6 +162,10 @@ ONE+
 					sequence and followed by a closed directive sequence. Elements defined in a
 					directive definition are referred to as directive elements.
 					
+					Any children of a directive element that were defined in the same directive
+					definition as itself are referred to as its header. Any other children that a
+					directive element has are referred to as its body.
+					
 					Directive elements will not be encoded into the document, nor will any elements
 					nested within them, but they will act as preprocessor commands. Certain
 					directives may take priority over others regarding the order in which they are
