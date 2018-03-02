@@ -241,9 +241,8 @@ and may take a while to catch up.
 As of Novemeber 13, 2017,
 the implementations for Kaeon FUSION and its standard interface are stable.
 However,
-the Kaeon Origin IDE and the stack interface are still in beta.
-None of the standard ONE+ have implemantations yet,
-and the current implementation of the stack interface only provides the HTML and CSS dialects.
+the Kaeon Origin IDE and the stack interface are still in beta,
+the standard ONE+ directives and the stack interface are in alpha.
 It should also be noted that all of our implementations were developed and tested on an unmodified Lenovo IdeaPad P500 laptop running Windows 10.
 
 Kaeon FUSION,
