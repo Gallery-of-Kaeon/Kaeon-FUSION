@@ -16,13 +16,13 @@ public class Define extends Directive {
 			Element element) {
 		
 		if(element.content.equalsIgnoreCase("DEFINE")) {
+
+			Element define = ElementUtilities.copyElement(element.children.get(0));
 			
-			Element definition = ElementUtilities.copyElement(element);
+			for(int i = 1; i < element.children.size(); i++)
+				ElementUtilities.addChild(define, ElementUtilities.copyElement(element.children.get(i)));
 			
-			definition.content = definition.children.get(0).content;
-			definition.children.remove(0);
-			
-			definitions.add(definition);
+			definitions.add(define);
 		}
 	}
 }

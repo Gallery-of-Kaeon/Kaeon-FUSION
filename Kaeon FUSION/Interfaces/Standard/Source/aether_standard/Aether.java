@@ -86,6 +86,7 @@ import standard_kaeon_fusion.utilities.Console;
 import standard_kaeon_fusion.utilities.FUSIONUtilities;
 import standard_kaeon_fusion.utilities.state.Alias;
 import standard_kaeon_fusion.utilities.state.State;
+import standard_one_plus.utilities.DirectiveUtilities;
 
 public class Aether {
 	
@@ -203,16 +204,16 @@ public class Aether {
 		
 		ArrayList<Directive> directives = new ArrayList<Directive>();
 		
-		directives.add(new standard_one_plus.directives.Arguments());
 		directives.add(new standard_one_plus.directives.Call());
 		directives.add(new standard_one_plus.directives.Define());
 		directives.add(new standard_one_plus.directives.For());
 		directives.add(new standard_one_plus.directives.If());
 		directives.add(new standard_one_plus.directives.Import());
-		directives.add(new standard_one_plus.directives.Index());
 		directives.add(new standard_one_plus.directives.Info());
 		directives.add(new standard_one_plus.directives.Properties());
 		directives.add(new standard_one_plus.directives.Size());
+		
+		new DirectiveUtilities();
 		
 		return directives;
 	}
