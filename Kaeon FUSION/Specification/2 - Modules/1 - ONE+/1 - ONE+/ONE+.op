@@ -168,10 +168,12 @@ ONE+
 					its parent and following itself are referred to as its scope.
 					
 					Directive elements will not be encoded into the document, nor will any elements
-					nested within them, but they will act as preprocessor commands. Certain
-					directives may take priority over others regarding the order in which they are
-					processed. By default, directives are processed first from parent to child, and
-					then from top to bottom.
+					nested within them, but they will act as preprocessor commands.
+					
+					Directives are processed first from parent to child, and then from top to
+					bottom. However, if elements in a directive element's header themselves trigger
+					a directive, they will be processed before the directive element that they are
+					nested within.
 				-
 				
 				Directive Interfaces

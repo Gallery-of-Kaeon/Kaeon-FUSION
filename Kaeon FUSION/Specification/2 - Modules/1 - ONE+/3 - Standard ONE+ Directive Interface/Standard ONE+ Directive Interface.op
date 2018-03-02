@@ -17,13 +17,6 @@ Standard ONE+ Directive Interface
 				"Standard".
 			-
 		
-		Header Priority
-			
-			-
-				If elements in a directive header themselves trigger a directive, they will be
-				processed before the directive they are nested within.
-			-
-		
 		Directives
 		
 			Properties
@@ -36,9 +29,6 @@ Standard ONE+ Directive Interface
 					these effects depends on the elements nested within it.
 					
 					The header of the properties directive shall not have any elements within it.
-					
-					The properties directive has priority over all other directives in the standard
-					directive interface.
 				-
 				
 				Infix
@@ -97,9 +87,6 @@ Standard ONE+ Directive Interface
 					The directive stores the child elements of the element in its header in a list
 					that can be referenced within the scope of its parent by the content of said
 					header element.
-					
-					The define directive has priority over all other directives in the standard
-					directive interface except for the properties and import directives.
 				-
 		
 			Import
@@ -111,9 +98,6 @@ Standard ONE+ Directive Interface
 					Any properties or define directives within the specified documents that have no
 					parent elements will take effect within the file the import directive was used
 					in.
-					
-					The import directive has priority over all other directives in the standard
-					directive interface except for the properties directive.
 				-
 				
 			Call
