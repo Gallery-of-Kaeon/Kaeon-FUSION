@@ -5,3 +5,53 @@ XML Dialect
 		-
 			The XML dialect is a ONE dialect analogous to XML.
 		-
+	
+	Principles
+		
+		Structure
+			
+			-
+				Every element in an XML dialect document takes the form of an XML element.
+			-
+		
+		XML Elements
+		
+			-
+				An XML element may have any content, and it may have an indefinite number of
+				children, each of which will take the form of a category element.
+			-
+		
+		Category Elements
+			
+			-
+				A category element will take the form of an attributes element, a data element, or
+				a children element.
+			-
+		
+		Attributes Element
+		
+			-
+				An attributes element will have the content "Attributes". It may have an indefinite
+				number of children, each of which will be an attribute element.
+			-
+		
+		Attribute Element
+		
+			-
+				An attribute element may have any content, and will have a single child which may
+				have any content.
+			-
+		
+		Data Element
+		
+			-
+				A data element will have the content "Data" and may have an indefinite number of
+				children, each of which may have any content but no children.
+			-
+		
+		Children
+			
+			-
+				A children element will have the content "Children" and may have an indefinite
+				number of children, each of which will be an XML element.
+			-
