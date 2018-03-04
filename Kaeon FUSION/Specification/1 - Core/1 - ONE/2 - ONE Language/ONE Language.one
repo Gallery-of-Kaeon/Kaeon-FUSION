@@ -41,17 +41,35 @@
 				definition, one instance of the nesting sequence must be placed between the
 				breaking sequence that precedes said sequence and said sequence for every level the
 				element definition is nested.
-				
+			-
+		-
+			Semantics
+		-
+			-
 				The encoded data will begin as an element with no parent and no content referred to
-				as the document element. Every element definition with no parent will encode an
-				element as a child of the document element. Every element definition with a parent
-				will encode an element as a child of the element defined by its parent element
-				definition. The content encoded into elements defined by element definitions will
-				consist of the content of each encoded sequence within the respective element
-				definition, each with the exception of the content last occurring encoded sequence
-				within the respective element definition followed by an instance of the breaking
-				sequence, concatenated in the order in which the respective encoded sequences occur
-				within the respective element definition. The order in which elements defined by
-				element definitions are arranged within their parent element shall correspond to
-				the order in which the definitions that defined them occur.
+				as the document element.
+				
+				Every element definition with no parent will encode an element as a child of the
+				document element. Every element definition with a parent will encode an element as
+				a child of the element defined by its parent element definition.
+				
+				The content encoded into elements defined by element definitions will consist of
+				the content of each encoded sequence within the respective element definition, each
+				with the exception of the content last occurring encoded sequence within the
+				respective element definition followed by an instance of the breaking sequence,
+				concatenated in the order in which the respective encoded sequences occur within
+				the respective element definition.
+				
+				The order in which elements defined by element definitions are arranged within
+				their parent element shall correspond to the order in which the definitions that
+				defined them occur.
+			-
+		-
+			Encoding
+		-
+			-
+				Encoding a ONE document begins with a single element. If the element in question
+				has no content, it will become the document element. If the element in question has
+				content, it will be assigned a parent with no content, which will become the
+				document element.
 			-
