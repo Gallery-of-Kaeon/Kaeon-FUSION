@@ -46,8 +46,8 @@ XML Dialect
 			Document Element
 				
 				-
-					The document element has the content "Document". Its child will have content in
-					the form of an XML DTD.
+					The document element has the content "Document". It will have a single child
+					which will have content in the form of an XML DTD.
 				-
 			
 			XML Elements
