@@ -3,7 +3,11 @@ package stack.dialects;
 import java.util.ArrayList;
 
 import one.Element;
+import one.ElementUtilities;
 import stack.utilities.Dialect;
+//import stack.utilities.parse.json.JSONUnit;
+import stack.utilities.parse.json.containers.arrays.JSONArray;
+import stack.utilities.parse.json.containers.objects.JSONObject;
 
 public class JSON extends Dialect {
 	
@@ -142,5 +146,71 @@ public class JSON extends Dialect {
 		literal.replace("\t", "\\t");
 		
 		return "\"" + literal + "\"";
+	}
+	
+	public void derive(
+			ArrayList<ArrayList<String>> files,
+			ArrayList<String> code,
+			String name,
+			int index,
+			ArrayList<Object> arguments) {
+		
+//		Element derive = new Element();
+//		
+//		JSONUnit json = new JSONUnit(code.get(0));
+//		
+//		for(int i = 0; i < json.getContainers().size(); i++)
+//			ElementUtilities.addChild(derive, deriveValue(json.getContainers().get(i)));
+//		
+//		ArrayList<String> file = new ArrayList<String>();
+//		
+//		if(name == null) {
+//			
+//			name = "json";
+//			
+//			if(index > 0)
+//				name += "_" + index;
+//		}
+//		
+//		file.add(name + ".op");
+//		file.add("" + derive);
+//		
+//		files.add(file);
+	}
+	
+	public Element deriveValue(Object value) {
+		
+		Element derive = new Element();
+		
+		if(value instanceof JSONArray) {
+			
+			JSONArray array = (JSONArray) value;
+			
+			derive.content = "List";
+			
+			for(int i = 0; i < array.getValues().size(); i++)
+				ElementUtilities.addChild(derive, deriveValue(array.getValue(i)));
+		}
+		
+		else if(value instanceof JSONObject) {
+			
+			JSONObject object = (JSONObject) value;
+			
+			derive.content = "Object";
+			
+			for(int i = 0; i < object.getFields().size(); i++) {
+				
+				Element field = new Element();
+				field.content = object.getField(i).getID();
+				
+				ElementUtilities.addChild(field, deriveValue(object.getField(i).getValue()));
+				ElementUtilities.addChild(derive, field);
+			}
+		}
+		
+		else
+			derive.content = "" + value;
+		
+		return derive;
 	}
 }

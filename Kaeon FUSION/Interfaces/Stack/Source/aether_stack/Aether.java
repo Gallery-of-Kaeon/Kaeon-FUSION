@@ -21,6 +21,20 @@ import stack.dialects.cross.PHP;
 import stack.dialects.cross.Python;
 import stack.dialects.cross.Swift;
 import stack.utilities.cross_dialect.Category;
+import stack.utilities.parse.json.JSONUnit;
+import stack.utilities.parse.json.containers.JSONContainer;
+import stack.utilities.parse.json.containers.arrays.JSONArray;
+import stack.utilities.parse.json.containers.objects.JSONObject;
+import stack.utilities.parse.json.containers.objects.JSONObjectField;
+import stack.utilities.parse.json.io.read.FileScanner;
+import stack.utilities.parse.json.io.read.JSONReader;
+import stack.utilities.parse.json.io.write.JSONWriter;
+import stack.utilities.parse.json.values.JSONValue;
+import stack.utilities.parse.xml.XMLAttribute;
+import stack.utilities.parse.xml.XMLElement;
+import stack.utilities.parse.xml.XMLUnit;
+import stack.utilities.parse.xml.io.XMLReader;
+import stack.utilities.parse.xml.io.XMLWriter;
 
 public class Aether {
 	
@@ -52,6 +66,22 @@ public class Aether {
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new SQL());
 		
 		new Category();
+		
+		new XMLUnit();
+		new XMLElement();
+		new XMLAttribute();
+		new XMLReader();
+		new XMLWriter();
+
+		new JSONUnit();
+		new JSONValue();
+		new JSONWriter();
+		new JSONReader();
+		new FileScanner();
+		new JSONContainer();
+		new JSONObjectField();
+		new JSONObject();
+		new JSONArray();
 		
 		return null;
 	}
