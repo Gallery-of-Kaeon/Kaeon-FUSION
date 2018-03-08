@@ -1,0 +1,10 @@
+Upper
+	
+	Philosophy
+		
+		-
+			The upper command contains the content "Upper". It has one child that returns a string.
+			
+			It will return a string that matches the returned string where all alphabetic
+			characters have been converted to upper case.
+		-
