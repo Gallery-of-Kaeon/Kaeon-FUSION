@@ -1,0 +1,9 @@
+Exception
+	
+	Philosophy
+		
+		-
+			The exception command contains the string "Exception".
+			
+			It returns the reason for the most recently thrown exception as a string.
+		-
