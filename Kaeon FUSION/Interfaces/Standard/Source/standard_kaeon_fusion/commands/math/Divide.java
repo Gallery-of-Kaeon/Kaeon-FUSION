@@ -22,6 +22,6 @@ public class Divide extends FUSIONUnit {
 		for(int i = 1; i < processed.size(); i++)
 			result /= Double.parseDouble("" + processed.get(i));
 		
-		return result % 1 != 0 ? result : "" + (int) result;
+		return result % 1 != 0 ? result : "" + (long) result;
 	}
 }

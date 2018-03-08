@@ -28,28 +28,23 @@ public class Concatenate extends FUSIONUnit {
 					concatenate.addAll((ArrayList) object);
 				
 				if(object instanceof String)
-					concatenate.addAll(StringToList.stringToList((String) object));
+					concatenate.addAll(ConvertSequence.stringToList((String) object));
 			}
 			
 			return concatenate;
 		}
 		
-		if(processed.get(0) instanceof String) {
+		String concatenate = "";
+		
+		for(Object object : processed) {
 			
-			String concatenate = "";
+			if(object instanceof ArrayList)
+				concatenate += ConvertSequence.listToString((ArrayList) object);
 			
-			for(Object object : processed) {
-				
-				if(object instanceof ArrayList)
-					concatenate += ListToString.listToString((ArrayList) object);
-				
-				if(object instanceof String)
-					concatenate += (String) object;
-			}
-			
-			return concatenate;
+			else
+				concatenate += "" + object;
 		}
 		
-		return null;
+		return concatenate;
 	}
 }

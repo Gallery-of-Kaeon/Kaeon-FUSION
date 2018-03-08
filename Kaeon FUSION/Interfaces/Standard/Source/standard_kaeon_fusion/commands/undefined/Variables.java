@@ -9,12 +9,12 @@ import philosophers_stone.PhilosophersStoneUtilities;
 import standard_kaeon_fusion.utilities.state.Alias;
 import standard_kaeon_fusion.utilities.state.State;
 
-public class Variable extends FUSIONUnit {
+public class Variables extends FUSIONUnit {
 	
 	public FUSION fusion;
 	public State state;
 	
-	public Variable() {
+	public Variables() {
 		tags.add("Standard");
 	}
 	
@@ -30,7 +30,7 @@ public class Variable extends FUSIONUnit {
 			
 			if(command != this &&
 					!(command instanceof State) &&
-					!(command instanceof Literal)) {
+					!(command instanceof Literals)) {
 				
 				if(command.verify(element))
 					return false;

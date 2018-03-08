@@ -28,16 +28,11 @@ public class Remove extends FUSIONUnit {
 			return list.remove(index);
 		}
 		
-		if(processed.get(0) instanceof String) {
-			
-			String string = (String) processed.get(0);
-			
-			char remove = string.charAt(index);
-			string = string.substring(0, index) + string.substring(index + 1);
-			
-			return remove;
-		}
+		String string = "" + processed.get(0);
 		
-		return null;
+		char remove = string.charAt(index);
+		string = string.substring(0, index) + string.substring(index + 1);
+		
+		return remove;
 	}
 }

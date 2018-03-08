@@ -12,12 +12,12 @@ import standard_kaeon_fusion.commands.core.Return;
 import standard_kaeon_fusion.utilities.FUSIONUtilities;
 import standard_kaeon_fusion.utilities.state.State;
 
-public class Function extends FUSIONUnit {
+public class Functions extends FUSIONUnit {
 	
 	public FUSION fusion;
 	public State state;
 	
-	public Function() {
+	public Functions() {
 		tags.add("Standard");
 	}
 	
@@ -33,8 +33,8 @@ public class Function extends FUSIONUnit {
 			
 			if(command != this &&
 					!(command instanceof State) &&
-					!(command instanceof Literal) &&
-					!(command instanceof Variable)) {
+					!(command instanceof Literals) &&
+					!(command instanceof Variables)) {
 				
 				if(command.verify(element))
 					return false;

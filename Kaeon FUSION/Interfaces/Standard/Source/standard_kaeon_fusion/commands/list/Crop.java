@@ -26,35 +26,26 @@ public class Crop extends FUSIONUnit {
 			if(processed.get(0) instanceof ArrayList)
 				return ((ArrayList<Object>) processed.get(0)).subList(from, to);
 			
-			if(processed.get(0) instanceof String)
-				return ((String) processed.get(0)).substring(from, to);
+			return ("" + processed.get(0)).substring(from, to);
 		}
 		
-		else {
+		if(processed.get(0) instanceof ArrayList) {
 			
-			if(processed.get(0) instanceof ArrayList) {
-				
-				ArrayList<Object> list = ((ArrayList<Object>) processed.get(0));
-				ArrayList<Object> crop = new ArrayList<Object>();
-				
-				for(int i = from; i > to; i--)
-					crop.add(list.get(i));
-				
-				return crop;
-			}
+			ArrayList<Object> list = ((ArrayList<Object>) processed.get(0));
+			ArrayList<Object> crop = new ArrayList<Object>();
 			
-			if(processed.get(0) instanceof String) {
-				
-				String string = ((String) processed.get(0));
-				String crop = "";
-				
-				for(int i = from; i > to; i--)
-					crop += string.charAt(i);
-				
-				return crop;
-			}
+			for(int i = from; i > to; i--)
+				crop.add(list.get(i));
+			
+			return crop;
 		}
 		
-		return null;
+		String string = ("" + processed.get(0));
+		String crop = "";
+		
+		for(int i = from; i > to; i--)
+			crop += string.charAt(i);
+		
+		return crop;
 	}
 }

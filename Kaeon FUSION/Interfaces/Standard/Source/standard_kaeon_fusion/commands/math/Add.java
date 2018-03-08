@@ -22,6 +22,6 @@ public class Add extends FUSIONUnit {
 		for(Object object : processed)
 			result += Double.parseDouble("" + object);
 		
-		return result % 1 != 0 ? result : "" + (int) result;
+		return result % 1 != 0 ? result : "" + (long) result;
 	}
 }

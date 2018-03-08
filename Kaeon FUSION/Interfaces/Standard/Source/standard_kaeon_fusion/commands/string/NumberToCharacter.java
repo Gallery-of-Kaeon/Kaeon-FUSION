@@ -7,6 +7,10 @@ import one.Element;
 
 public class NumberToCharacter extends FUSIONUnit {
 	
+	public NumberToCharacter() {
+		tags.add("Standard");
+	}
+	
 	public boolean verify(Element element) {
 		return element.content.equalsIgnoreCase("Number To Character");
 	}

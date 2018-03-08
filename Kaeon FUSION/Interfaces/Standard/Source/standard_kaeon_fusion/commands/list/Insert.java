@@ -32,16 +32,11 @@ public class Insert extends FUSIONUnit {
 			list.add(index, object);
 		}
 		
-		if(processed.get(0) instanceof String) {
-			
-			String string = (String) processed.get(0);
-			
-			while(string.length() < index)
-				string += " ";
-			
-			string = string.substring(0, index) + object + string.substring(index);
-		}
+		String string = "" + processed.get(0);
 		
-		return null;
+		while(string.length() < index)
+			string += " ";
+		
+		return string.substring(0, index) + object + string.substring(index);
 	}
 }

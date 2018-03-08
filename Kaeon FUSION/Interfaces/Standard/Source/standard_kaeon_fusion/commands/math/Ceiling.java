@@ -19,6 +19,6 @@ public class Ceiling extends FUSIONUnit {
 		
 		double result = Math.ceil(Double.parseDouble("" + processed.get(0)));
 		
-		return result % 1 != 0 ? result : "" + (int) result;
+		return result % 1 != 0 ? result : "" + (long) result;
 	}
 }

@@ -22,6 +22,6 @@ public class Power extends FUSIONUnit {
 						Double.parseDouble("" + processed.get(0)),
 						Double.parseDouble("" + processed.get(1)));
 		
-		return result % 1 != 0 ? result : "" + (int) result;
+		return result % 1 != 0 ? result : "" + (long) result;
 	}
 }

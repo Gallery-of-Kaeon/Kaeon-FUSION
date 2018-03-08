@@ -19,6 +19,6 @@ public class Tangent extends FUSIONUnit {
 		
 		double result = Math.tan(Double.parseDouble("" + processed.get(0)));
 		
-		return result % 1 != 0 ? result : "" + (int) result;
+		return result % 1 != 0 ? result : "" + (long) result;
 	}
 }

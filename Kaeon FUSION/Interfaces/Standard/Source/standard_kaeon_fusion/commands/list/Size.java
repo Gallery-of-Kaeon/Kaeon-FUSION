@@ -21,9 +21,6 @@ public class Size extends FUSIONUnit {
 		if(processed.get(0) instanceof ArrayList)
 			return ((ArrayList) processed.get(0)).size();
 		
-		if(processed.get(0) instanceof String)
-			return ((String) processed.get(0)).length();
-		
-		return null;
+		return ("" + processed.get(0)).length();
 	}
 }

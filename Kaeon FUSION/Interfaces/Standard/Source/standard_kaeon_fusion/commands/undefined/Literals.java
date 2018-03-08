@@ -8,11 +8,11 @@ import one.Element;
 import philosophers_stone.PhilosophersStoneUtilities;
 import standard_kaeon_fusion.utilities.state.State;
 
-public class Literal extends FUSIONUnit {
+public class Literals extends FUSIONUnit {
 	
 	FUSION fusion;
 	
-	public Literal() {
+	public Literals() {
 		tags.add("Standard");
 	}
 	

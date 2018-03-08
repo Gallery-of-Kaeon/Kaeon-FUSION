@@ -5,20 +5,17 @@ import java.util.ArrayList;
 import fusion.FUSIONUnit;
 import one.Element;
 
-public class Negative extends FUSIONUnit {
+public class Infinity extends FUSIONUnit {
 	
-	public Negative() {
+	public Infinity() {
 		tags.add("Standard");
 	}
 	
 	public boolean verify(Element element) {
-		return element.content.equalsIgnoreCase("Negative");
+		return element.content.equalsIgnoreCase("Infinity");
 	}
 	
 	public Object process(Element element, ArrayList<Object> processed) {
-		
-		double result = -Double.parseDouble("" + processed.get(0));
-		
-		return result % 1 != 0 ? result : "" + (long) result;
+		return Double.POSITIVE_INFINITY;
 	}
 }

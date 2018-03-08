@@ -32,16 +32,11 @@ public class Set extends FUSIONUnit {
 			list.set(index, object);
 		}
 		
-		if(processed.get(0) instanceof String) {
-			
-			String string = (String) processed.get(0);
-			
-			while(string.length() < index + 1)
-				string += " ";
-			
-			string = string.substring(0, index) + object + string.substring(index + 1);
-		}
+		String string = "" + processed.get(0);
 		
-		return null;
+		while(string.length() < index + 1)
+			string += " ";
+		
+		return string.substring(0, index) + object + string.substring(index + 1);
 	}
 }

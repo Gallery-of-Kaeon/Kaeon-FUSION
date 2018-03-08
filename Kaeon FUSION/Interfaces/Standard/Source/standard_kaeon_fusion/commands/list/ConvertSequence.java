@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import fusion.FUSIONUnit;
 import one.Element;
 
-public class ListToString extends FUSIONUnit {
+public class ConvertSequence extends FUSIONUnit {
 	
-	public ListToString() {
+	public ConvertSequence() {
 		tags.add("Standard");
 	}
 	
@@ -17,7 +17,11 @@ public class ListToString extends FUSIONUnit {
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public Object process(Element element, ArrayList<Object> processed) {
-		return listToString((ArrayList) processed.get(0));
+		
+		if(processed.get(0) instanceof ArrayList)
+			return listToString((ArrayList) processed.get(0));
+		
+		return stringToList("" + processed.get(0));
 	}
 	
 	public static String listToString(ArrayList<Object> list) {
@@ -28,5 +32,15 @@ public class ListToString extends FUSIONUnit {
 			string += object;
 		
 		return string;
+	}
+	
+	public static ArrayList<Object> stringToList(String string) {
+		
+		ArrayList<Object> list = new ArrayList<Object>();
+		
+		for(int i = 0; i < string.length(); i++)
+			list.add(string.charAt(i));
+		
+		return list;
 	}
 }

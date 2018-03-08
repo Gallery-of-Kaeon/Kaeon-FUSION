@@ -19,6 +19,6 @@ public class NaturalLogarithm extends FUSIONUnit {
 		
 		double result = Math.log(Double.parseDouble("" + processed.get(0)));
 		
-		return result % 1 != 0 ? result : "" + (int) result;
+		return result % 1 != 0 ? result : "" + (long) result;
 	}
 }

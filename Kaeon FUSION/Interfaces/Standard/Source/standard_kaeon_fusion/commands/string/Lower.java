@@ -5,17 +5,17 @@ import java.util.ArrayList;
 import fusion.FUSIONUnit;
 import one.Element;
 
-public class CharacterToNumber extends FUSIONUnit {
+public class Lower extends FUSIONUnit {
 	
-	public CharacterToNumber() {
+	public Lower() {
 		tags.add("Standard");
 	}
 	
 	public boolean verify(Element element) {
-		return element.content.equalsIgnoreCase("Character To Number");
+		return element.content.equalsIgnoreCase("Lower");
 	}
 	
 	public Object process(Element element, ArrayList<Object> processed) {
-		return (int) ("" + processed.get(0)).charAt(0);
+		return ("" + processed.get(0)).toLowerCase();
 	}
 }
