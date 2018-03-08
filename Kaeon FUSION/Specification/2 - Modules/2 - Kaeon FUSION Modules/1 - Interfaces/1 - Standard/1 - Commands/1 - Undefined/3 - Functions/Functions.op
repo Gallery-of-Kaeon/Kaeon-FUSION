@@ -3,8 +3,10 @@ Functions
 	Philosophy
 		
 		-
-			A command with content that matches an alias of an item that is a function definition
-			in the state will execute the function defined by said function definition using the
-			objects returned by its children as arguments. If the function returned a value, it
+			A function command is a command with content that matches an alias of a function
+			definition stored in the state.
+			
+			The command will execute the code of the function definition using the objects returned
+			by the command's children as arguments. If the function returns a value, the command
 			will return said value, and return a null value otherwise.
 		-

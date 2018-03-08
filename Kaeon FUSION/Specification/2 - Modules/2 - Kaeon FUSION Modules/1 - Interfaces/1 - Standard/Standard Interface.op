@@ -41,21 +41,45 @@ Kaeon FUSION Standard Interface
 					If an exception is thrown by a command while the standard interface is active,
 					all subsequent commands will fail to activate until the exception is caught.
 				-
+			
+			Host Environment
+				
+				Arguments
+				
+					-
+						The host environment of a script using the standard interface may pass an
+						indefinite number of arguments to the script.
+					-
+				
+				Console
+					
+					-
+						The host environment of a script using the standard interface may provide
+						an alternate console for the script to output to.
+					-
 		
 		Conventions
 		
-			Implicit Data Types
+			Implicit Casting
 				
 				-
-					Commands provided by the standard interface that take numbers and booleans as
-					arguments are able to interpret strings in the forms of numbers and booleans as
-					their respective parameters.
+					Values stored within the state have types, but, if possible, will be implicitly
+					cast when passed as arguments to a command requiring parameters of a different
+					type.
 				-
+				
+				Strings in List Operations
+					
+					-
+						Strings will be interpreted as lists where each character is an element
+						when used as arguments in list operations.
+					-
 			
 			Case Sensitivity
 				
 				-
-					All of the commands provided by the standard interface.
+					All of the commands provided by the standard interface, with the exception of
+					literals, do not take letter case into account.
 				-
 			
 			List Indexes
@@ -64,11 +88,4 @@ Kaeon FUSION Standard Interface
 					Commands in the standard interface that pertain to lists use indexes that start
 					at one. If a command attempts to access or modify an index of a list that does
 					not exist, the list will be resized to accommodate the index.
-				-
-			
-			Strings in List Operations
-				
-				-
-					Strings will be interpreted as lists where each character is an element when
-					used as arguments in list operations.
 				-
