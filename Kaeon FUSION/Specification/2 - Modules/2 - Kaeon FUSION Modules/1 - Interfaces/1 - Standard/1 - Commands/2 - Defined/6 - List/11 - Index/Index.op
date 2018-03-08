@@ -4,7 +4,7 @@ Index
 		
 		-
 			The index command contains the content "Index". It may have between two and three
-			children, the first of which returns a list, the second of which returns of object, and
+			children, the first of which returns a list, the second of which returns an object, and
 			the third of which, if present, returns an integer.
 			
 			It will return the index of the first instance of an object equal to the specified
