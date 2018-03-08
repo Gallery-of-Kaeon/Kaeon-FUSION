@@ -283,7 +283,7 @@ public class FUSION extends PhilosophersStone {
 			}
 			
 			catch(Exception exception) {
-				handleError(element);
+				handleError(element, exception);
 			}
 		}
 		
@@ -306,7 +306,7 @@ public class FUSION extends PhilosophersStone {
 			}
 			
 			catch(Exception exception) {
-				handleError(element);
+				handleError(element, exception);
 			}
 		}
 		
@@ -328,7 +328,7 @@ public class FUSION extends PhilosophersStone {
 			}
 			
 			catch(Exception exception) {
-				handleError(element);
+				handleError(element, exception);
 			}
 			
 			if(!result)
@@ -354,7 +354,7 @@ public class FUSION extends PhilosophersStone {
 			}
 			
 			catch(Exception exception) {
-				handleError(element);
+				handleError(element, exception);
 			}
 			
 			if(newObject != null)
@@ -381,7 +381,7 @@ public class FUSION extends PhilosophersStone {
 			}
 			
 			catch(Exception exception) {
-				handleError(element);
+				handleError(element, exception);
 			}
 			
 			if(defaultElement != newJumpElement)
@@ -409,7 +409,7 @@ public class FUSION extends PhilosophersStone {
 			}
 			
 			catch(Exception exception) {
-				handleError(element);
+				handleError(element, exception);
 			}
 			
 			if(defaultDepth != newChangeDepth)
@@ -419,15 +419,15 @@ public class FUSION extends PhilosophersStone {
 		return changeDepth;
 	}
 	
-	public void handleError(Element element) {
+	public void handleError(Element element, Exception exception) {
 		
 		for(FUSIONUnit unit : fusionUnits) {
 			
 			try {
-				unit.handleError(element);
+				unit.handleError(element, exception);
 			}
 			
-			catch(Exception exception) {
+			catch(Exception innerException) {
 				
 			}
 		}

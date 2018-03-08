@@ -39,7 +39,7 @@ public class FUSIONUnit extends PhilosophersStone {
 		return currentDepth;
 	}
 	
-	public void handleError(Element element) {
+	public void handleError(Element element, Exception exception) {
 		
 	}
 }

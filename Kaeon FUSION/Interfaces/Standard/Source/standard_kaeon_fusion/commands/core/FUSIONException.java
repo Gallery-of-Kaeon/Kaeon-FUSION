@@ -1,11 +1,15 @@
 package standard_kaeon_fusion.commands.core;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.ArrayList;
 
 import fusion.FUSIONUnit;
 import one.Element;
 
 public class FUSIONException extends FUSIONUnit {
+	
+	public Exception exception;
 	
 	public FUSIONException() {
 		tags.add("Standard");
@@ -16,6 +20,17 @@ public class FUSIONException extends FUSIONUnit {
 	}
 	
 	public Object process(Element element, ArrayList<Object> processed) {
-		return null;
+		
+		if(exception == null)
+			return null;
+		
+		StringWriter errors = new StringWriter();
+		exception.printStackTrace(new PrintWriter(errors));
+		
+		return errors.toString();
+	}
+	
+	public void handleError(Element element, Exception exception) {
+		this.exception = exception;
 	}
 }

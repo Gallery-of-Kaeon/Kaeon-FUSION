@@ -35,7 +35,7 @@ public class Catch extends FUSIONUnit {
 		return wasCaught;
 	}
 	
-	public void handleError(Element element) {
+	public void handleError(Element element, Exception exception) {
 		caught = true;
 	}
 }
