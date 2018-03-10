@@ -57,6 +57,13 @@ Kaeon FUSION Standard Interface
 						The host environment of a script using the standard interface may provide
 						an alternate console for the script to output to.
 					-
+				
+				Workspace
+					
+					-
+						The host environment of a script using the standard interface may provide
+						an alternate root directory for file input and output.
+					-
 		
 		Conventions
 		
