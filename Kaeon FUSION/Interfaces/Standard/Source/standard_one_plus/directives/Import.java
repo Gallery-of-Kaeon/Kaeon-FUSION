@@ -6,16 +6,19 @@ import io.IO;
 import one.Element;
 import one.ElementUtilities;
 import one_plus.directive.Directive;
+import one_plus.directive.DirectiveUnit;
 import one_plus.parse.Processor;
 import one_plus.parse.TokenGenerator;
 import one_plus.parse.Tokenizer;
 
-public class Import extends Directive {
+public class Import extends DirectiveUnit {
 	
 	public void apply(
-			ArrayList<Directive> directiveUnits,
-			ArrayList<Element> directives,
-			Element element) {
+			ArrayList<DirectiveUnit> directiveUnits,
+			ArrayList<Directive> directives,
+			Directive directive) {
+		
+		Element element = directive.directive;
 		
 		if(element.content.equalsIgnoreCase("IMPORT")) {
 			
@@ -33,14 +36,14 @@ public class Import extends Directive {
 			
 			for(int i = 0; i < element.children.size(); i++) {
 				
-				ArrayList<Element> directiveElements = getDirectives(IO.openAsString(element.children.get(i).content));
+				ArrayList<Directive> directiveElements = getDirectives(IO.openAsString(element.children.get(i).content));
 				
 				for(int j = 0; j < directiveElements.size(); j++) {
 					
-					if(directiveElements.get(j).content.equalsIgnoreCase("DEFINE")) {
+					if(directiveElements.get(j).directive.content.equalsIgnoreCase("DEFINE")) {
 
-						Element defineElement = directiveElements.get(j);
-						Element definition = ElementUtilities.copyElement(directiveElements.get(j).children.get(0));
+						Element defineElement = directiveElements.get(j).directive;
+						Element definition = ElementUtilities.copyElement(directiveElements.get(j).directive.children.get(0));
 						
 						for(int k = 1; k < defineElement.children.size(); k++)
 							ElementUtilities.addChild(definition, ElementUtilities.copyElement(defineElement.children.get(k)));
@@ -52,14 +55,14 @@ public class Import extends Directive {
 		}
 	}
 	
-	public static ArrayList<Element> getDirectives(String string) {
+	public static ArrayList<Directive> getDirectives(String string) {
 		
 		ArrayList<String> tokens = TokenGenerator.getTokens(string);
 		ArrayList<String> tokenize = Tokenizer.tokenize(tokens, string);
 		
 		String nestToken = TokenGenerator.getIndentToken(string);
 		
-		ArrayList<Element> directives = new ArrayList<Element>();
+		ArrayList<ArrayList<Element>> directives = new ArrayList<ArrayList<Element>>();
 		
 		Element element = new Element();
 		
@@ -131,6 +134,6 @@ public class Import extends Directive {
 			i += line.size() + 1;
 		}
 		
-		return directives;
+		return Processor.generateDirectives(directives);
 	}
 }

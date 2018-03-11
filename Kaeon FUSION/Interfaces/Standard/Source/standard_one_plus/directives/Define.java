@@ -5,15 +5,18 @@ import java.util.ArrayList;
 import one.Element;
 import one.ElementUtilities;
 import one_plus.directive.Directive;
+import one_plus.directive.DirectiveUnit;
 
-public class Define extends Directive {
+public class Define extends DirectiveUnit {
 	
 	public ArrayList<Element> definitions = new ArrayList<Element>();
-	
+			
 	public void apply(
-			ArrayList<Directive> directiveUnits,
-			ArrayList<Element> directives,
-			Element element) {
+			ArrayList<DirectiveUnit> directiveUnits,
+			ArrayList<Directive> directives,
+			Directive directive) {
+		
+		Element element = directive.directive;
 		
 		if(element.content.equalsIgnoreCase("DEFINE")) {
 

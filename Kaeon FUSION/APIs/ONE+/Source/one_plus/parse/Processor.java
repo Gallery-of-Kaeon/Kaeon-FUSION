@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import one.Element;
 import one.ElementUtilities;
+import one_plus.directive.Directive;
 
 public class Processor {
 	
@@ -12,7 +13,7 @@ public class Processor {
 			ArrayList<String> tokenize,
 			String nestToken) {
 		
-		ArrayList<Element> directives = new ArrayList<Element>();
+		ArrayList<ArrayList<Element>> directives = new ArrayList<ArrayList<Element>>();
 		
 		Element element = new Element();
 		
@@ -84,7 +85,7 @@ public class Processor {
 			i += line.size() + 1;
 		}
 		
-		DirectiveProcessor.processDirectives(element, directives);
+		DirectiveProcessor.processDirectives(element, generateDirectives(directives));
 		
 		return element;
 	}
@@ -143,7 +144,7 @@ public class Processor {
 			ArrayList<String> tokens,
 			ArrayList<String> line,
 			Element currentElement,
-			ArrayList<Element> directives) {
+			ArrayList<ArrayList<Element>> directives) {
 		
 		Element baseElement = currentElement;
 		
@@ -164,7 +165,7 @@ public class Processor {
 				ElementUtilities.addChild(currentElement, newElement);
 				
 				if(directive)
-					directives.add(newElement);
+					directives.get(directives.size() - 1).add(newElement);
 			}
 			
 			if(token.equals(":") || token.equals("{")) {
@@ -197,6 +198,7 @@ public class Processor {
 			if(token.equals("[")) {
 				
 				directiveStack.add(currentElement);
+				directives.add(new ArrayList<Element>());
 				
 				directive = true;
 			}
@@ -205,7 +207,7 @@ public class Processor {
 				
 				currentElement = directiveStack.remove(directiveStack.size() - 1);
 				
-				directive = directiveStack.size() == 0;
+				directive = directiveStack.size() != 0;
 			}
 		}
 		
@@ -328,5 +330,45 @@ public class Processor {
 		}
 		
 		return newLine;
+	}
+	
+	public static ArrayList<Directive> generateDirectives(ArrayList<ArrayList<Element>> elements) {
+		
+		ArrayList<Directive> directives = new ArrayList<Directive>();
+		
+		for(int i = 0; i < elements.size(); i++) {
+			
+			for(int j = 0; j < elements.get(i).size(); j++) {
+				
+				Directive directive = new Directive();
+				
+				directive.directive = elements.get(i).get(j);
+				
+				for(int k = 0; k < elements.get(i).get(j).children.size(); k++) {
+					
+					boolean isHeader = false;
+
+					for(int l = 0; l < elements.get(i).size(); l++) {
+						
+						if(elements.get(i).get(j).children.get(k) == elements.get(i).get(l)) {
+							
+							isHeader = true;
+							
+							break;
+						}
+					}
+					
+					if(isHeader)
+						directive.header.add(elements.get(i).get(j).children.get(k));
+					
+					else
+						directive.body.add(elements.get(i).get(j).children.get(k));
+				}
+				
+				directives.add(directive);
+			}
+		}
+		
+		return directives;
 	}
 }

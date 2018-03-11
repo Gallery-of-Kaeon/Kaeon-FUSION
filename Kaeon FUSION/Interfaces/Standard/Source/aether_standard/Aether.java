@@ -5,7 +5,7 @@ import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.ArrayList;
 
-import one_plus.directive.Directive;
+import one_plus.directive.DirectiveUnit;
 import philosophers_stone.PhilosophersStone;
 import philosophers_stone.PhilosophersStoneUtilities;
 import standard_kaeon_fusion.commands.build.Build;
@@ -221,7 +221,7 @@ public class Aether {
 			
 		}
 		
-		ArrayList<Directive> directives = new ArrayList<Directive>();
+		ArrayList<DirectiveUnit> directives = new ArrayList<DirectiveUnit>();
 		
 		directives.add(new standard_one_plus.directives.Call());
 		directives.add(new standard_one_plus.directives.Define());

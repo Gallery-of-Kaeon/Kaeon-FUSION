@@ -60,7 +60,7 @@ public class IDE implements ActionListener {
 	public JPanel out;
 
 	public JButton one;
-	public JButton sup;
+	public JButton options;
 
 	public Font font;
 
@@ -147,12 +147,14 @@ public class IDE implements ActionListener {
 		inputPanel.add(manage, BorderLayout.NORTH);
 		inputPanel.add(select, BorderLayout.SOUTH);
 
-		manage.setLayout(new GridLayout( /*3*/ 2, 1));
+		manage.setLayout(new GridLayout(2, 1));
 
 		JPanel io = new JPanel();
 		JPanel file = new JPanel();
 
-//		manage.add(createButton("Options"));
+		options = createButton("Options");
+		
+//		manage.add(options);
 		manage.add(io);
 		manage.add(file);
 
@@ -241,16 +243,13 @@ public class IDE implements ActionListener {
 		build.add(createButton("Run"));
 		build.add(createButton("Stop"));
 
-		settings.setLayout(new GridLayout(1, 3));
+		settings.setLayout(new GridLayout(1, 2));
 		settings.setBackground(Color.WHITE);
 
 		settings.add(createButton("Set Arguments"));
 
 		one = createButton("Show ONE");
 		settings.add(one);
-
-		sup = createButton("Enable Super");
-		settings.add(sup);
 
 		out.setLayout(new BorderLayout());
 		out.setBackground(Color.WHITE);
@@ -343,6 +342,9 @@ public class IDE implements ActionListener {
 		String command = actionEvent.getActionCommand();
 
 		if(command.equals("Options")) {
+			
+			options.setEnabled(false);
+			
 			new OptionsPane(this);
 		}
 		
@@ -404,15 +406,15 @@ public class IDE implements ActionListener {
 		}
 
 		if(command.equals("Enable Super")) {
-			sup.setBackground(new Color(150, 125, 25));
-			sup.setText("Disable Super");
-			sup.setActionCommand("Disable Super");
+			options.setBackground(new Color(150, 125, 25));
+			options.setText("Disable Super");
+			options.setActionCommand("Disable Super");
 		}
 
 		if(command.equals("Disable Super")) {
-			sup.setBackground(new Color(100, 150, 255));
-			sup.setText("Enable Super");
-			sup.setActionCommand("Enable Super");
+			options.setBackground(new Color(100, 150, 255));
+			options.setText("Enable Super");
+			options.setActionCommand("Enable Super");
 		}
 
 		if(command.equals("Run") && currentInput != null) {
@@ -499,7 +501,7 @@ public class IDE implements ActionListener {
 							
 							fusion.process(
 									ONEPlus.parseONEPlus(
-											(sup.getText().equals("Disable Super") ? "[USE: SUPER] [SUPER]\n" : "") +
+											(options.getText().equals("Disable Super") ? "[USE: SUPER] [SUPER]\n" : "") +
 											currentInput.text.getText()));
 						}
 
@@ -590,13 +592,14 @@ public class IDE implements ActionListener {
 				
 				text.setText(
 						"" + ONEPlus.parseONEPlus(
-								(sup.getText().equals("Disable Super") ? "[USE: SUPER] [SUPER]\n" : "") +
+								(options.getText().equals("Disable Super") ? "[USE: SUPER] [SUPER]\n" : "") +
 								currentInput.text.getText()));
 			}
 
 			catch(Exception exception) {
 				text.setForeground(Color.RED);
 				text.setText("Invalid ONE+.");
+				exception.printStackTrace();
 			}
 
 			in.add(new JScrollPane(text), BorderLayout.CENTER);
@@ -770,7 +773,9 @@ public class IDE implements ActionListener {
 		}
 
 		if(command.equals("Export") && currentInput != null) {
-
+			
+//			JOptionPane.showMessageDialog(frame, "Exported successfully.");
+			
 			int option = JOptionPane.showConfirmDialog(
 					frame,
 					"WARNING.\n\n" +

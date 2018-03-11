@@ -4,33 +4,64 @@ import java.util.ArrayList;
 
 import one.Element;
 import one_plus.directive.Directive;
+import one_plus.directive.DirectiveUnit;
 import one_plus.directive.Use;
 
 public class DirectiveProcessor {
 	
 	public static void processDirectives(
 			Element element,
-			ArrayList<Element> directives) {
+			ArrayList<Directive> directives) {
 		
-		ArrayList<Directive> directiveUnits = new ArrayList<Directive>();
+		ArrayList<DirectiveUnit> directiveUnits = new ArrayList<DirectiveUnit>();
 		directiveUnits.add(new Use());
 		
-		processDirectives(element, directives, directiveUnits);
-		
-		removeDirectives(element, directives);
+		while(hasDirectives(element, directives))
+			processDirectives(element, directiveUnits, directives);
 	}
 	
 	public static void processDirectives(
 			Element element,
-			ArrayList<Element> directives,
-			ArrayList<Directive> directiveUnits) {
+			ArrayList<DirectiveUnit> directiveUnits,
+			ArrayList<Directive> directives) {
 		
 		if(isDirective(element, directives)) {
+			
+			for(int i = 0; i < element.children.size(); i++) {
+				
+				boolean inHeader = false;
+				
+				Directive directive = getDirective(element, directives);
+				
+				for(int j = 0; j < directive.header.size(); j++) {
+					
+					if(directive.header.get(j) == element.children.get(i)) {
+						
+						inHeader = true;
+						
+						break;
+					}
+				}
+				
+				if(inHeader) {
+					
+					processDirectives(
+							element.children.get(i),
+							directiveUnits,
+							directives);
+				}
+			}
 			
 			for(int i = 0; i < directiveUnits.size(); i++) {
 				
 				try {
-					directiveUnits.get(i).apply(directiveUnits, directives, element);
+					
+					directiveUnits.get(i).apply(
+							directiveUnits,
+							directives,
+							getDirective(
+									element,
+									directives));
 				}
 				
 				catch(Exception exception) {
@@ -41,43 +72,63 @@ public class DirectiveProcessor {
 			return;
 		}
 		
-		ArrayList<Directive> newUnits = new ArrayList<Directive>(directiveUnits);
+		ArrayList<DirectiveUnit> newUnits = new ArrayList<DirectiveUnit>(directiveUnits);
 		
 		for(int i = 0; i < element.children.size(); i++) {
 			
 			processDirectives(
 					element.children.get(i),
-					directives,
-					newUnits);
+					newUnits,
+					directives);
+			
+			if(isDirective(element.children.get(i), directives)) {
+				
+				element.children.remove(i);
+				
+				i--;
+			}
 		}
 	}
 	
-	public static boolean isDirective(
+	public static boolean hasDirectives(
 			Element element,
-			ArrayList<Element> directives) {
+			ArrayList<Directive> directives) {
 		
-		for(Element directive : directives) {
+		if(isDirective(element, directives))
+			return true;
+		
+		for(int i = 0; i < element.children.size(); i++) {
 			
-			if(directive == element)
+			if(hasDirectives(element.children.get(i), directives))
 				return true;
 		}
 		
 		return false;
 	}
 	
-	public static void removeDirectives(
+	public static boolean isDirective(
 			Element element,
-			ArrayList<Element> directives) {
+			ArrayList<Directive> directives) {
 		
-		for(int i = 0; i < element.children.size(); i++) {
+		for(Directive directive : directives) {
 			
-			if(isDirective(element.children.get(i), directives)) {
-				element.children.remove(i);
-				i--;
-			}
-			
-			else
-				removeDirectives(element.children.get(i), directives);
+			if(directive.directive == element)
+				return true;
 		}
+		
+		return false;
+	}
+	
+	public static Directive getDirective(
+			Element element,
+			ArrayList<Directive> directives) {
+		
+		for(Directive directive : directives) {
+			
+			if(directive.directive == element)
+				return directive;
+		}
+		
+		return null;
 	}
 }

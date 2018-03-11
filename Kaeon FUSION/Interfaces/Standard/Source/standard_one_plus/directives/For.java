@@ -5,14 +5,17 @@ import java.util.ArrayList;
 import one.Element;
 import one.ElementUtilities;
 import one_plus.directive.Directive;
+import one_plus.directive.DirectiveUnit;
 import standard_one_plus.utilities.DirectiveUtilities;
 
-public class For extends Directive {
+public class For extends DirectiveUnit {
 	
 	public void apply(
-			ArrayList<Directive> directiveUnits,
-			ArrayList<Element> directives,
-			Element element) {
+			ArrayList<DirectiveUnit> directiveUnits,
+			ArrayList<Directive> directives,
+			Directive directive) {
+		
+		Element element = directive.directive;
 		
 		if(element.content.equalsIgnoreCase("FOR")) {
 			
@@ -66,7 +69,7 @@ public class For extends Directive {
 	}
 	
 	public boolean isHeader(
-			ArrayList<Element> directives,
+			ArrayList<Directive> directives,
 			Element element,
 			int index) {
 		
@@ -93,7 +96,7 @@ public class For extends Directive {
 	}
 	
 	public ArrayList<Element> applyIndex(
-			ArrayList<Element> directives,
+			ArrayList<Directive> directives,
 			ArrayList<Element> elements,
 			int index) {
 		
@@ -109,8 +112,13 @@ public class For extends Directive {
 				if(elements.get(i).content.equalsIgnoreCase("INDEX"))
 					copy.content = "" + index;
 				
-				else
-					directives.add(copy);
+				else {
+					
+					Directive directive = new Directive();
+					directive.directive = copy;
+					
+					directives.add(directive);
+				}
 			}
 			
 			ElementUtilities.addChildren(copy, applyIndex(directives, elements.get(i).children, index));

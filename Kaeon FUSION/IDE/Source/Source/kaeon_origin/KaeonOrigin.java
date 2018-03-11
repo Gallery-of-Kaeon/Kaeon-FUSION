@@ -80,6 +80,8 @@ public class KaeonOrigin {
 			else
 				new IDE(originData);
 			
+//			new IDE(originData);
+			
 			return;
 		}
 		

@@ -5,14 +5,14 @@ import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.ArrayList;
 
-import one_plus.directive.Directive;
+import one_plus.directive.DirectiveUnit;
 import super_mode.SuperMode;
 
 public class Aether {
 	
 	public static Object onCall(Object object) {
 		
-		ArrayList<Directive> directives = new ArrayList<Directive>();
+		ArrayList<DirectiveUnit> directives = new ArrayList<DirectiveUnit>();
 		
 		directives.add(new SuperMode());
 		

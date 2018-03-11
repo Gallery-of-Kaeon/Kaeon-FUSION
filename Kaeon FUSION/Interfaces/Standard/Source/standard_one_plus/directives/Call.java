@@ -5,14 +5,17 @@ import java.util.ArrayList;
 import one.Element;
 import one.ElementUtilities;
 import one_plus.directive.Directive;
+import one_plus.directive.DirectiveUnit;
 import standard_one_plus.utilities.DirectiveUtilities;
 
-public class Call extends Directive {
+public class Call extends DirectiveUnit {
 	
 	public void apply(
-			ArrayList<Directive> directiveUnits,
-			ArrayList<Element> directives,
-			Element element) {
+			ArrayList<DirectiveUnit> directiveUnits,
+			ArrayList<Directive> directives,
+			Directive directive) {
+		
+		Element element = directive.directive;
 		
 		if(element.content.equalsIgnoreCase("CALL")) {
 			
@@ -50,7 +53,7 @@ public class Call extends Directive {
 	}
 	
 	public void applyArguments(
-			ArrayList<Element> directives,
+			ArrayList<Directive> directives,
 			Element element,
 			ArrayList<Element> arguments) {
 		

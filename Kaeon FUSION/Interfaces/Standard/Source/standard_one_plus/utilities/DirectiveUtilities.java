@@ -4,15 +4,16 @@ import java.util.ArrayList;
 import one.Element;
 import one.ElementUtilities;
 import one_plus.directive.Directive;
+import one_plus.directive.DirectiveUnit;
 import standard_one_plus.directives.Define;
 
 public class DirectiveUtilities {
 	
-	public static boolean isDirective(ArrayList<Element> directives, Element element) {
+	public static boolean isDirective(ArrayList<Directive> directives, Element element) {
 		
 		for(int i = 0; i < directives.size(); i++) {
 			
-			if(directives.get(i) == element)
+			if(directives.get(i).directive == element)
 				return true;
 		}
 		
@@ -20,7 +21,7 @@ public class DirectiveUtilities {
 	}
 	
 	public static Element getDefinition(
-			ArrayList<Directive> directiveUnits,
+			ArrayList<DirectiveUnit> directiveUnits,
 			String definition) {
 		
 		Define define = new Define();

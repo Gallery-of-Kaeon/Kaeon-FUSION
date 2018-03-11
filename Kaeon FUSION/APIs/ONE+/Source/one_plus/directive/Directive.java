@@ -6,10 +6,8 @@ import one.Element;
 
 public class Directive {
 	
-	public void apply(
-			ArrayList<Directive> directiveUnits,
-			ArrayList<Element> directives,
-			Element directive) {
-		
-	}
+	public Element directive;
+	
+	public ArrayList<Element> header = new ArrayList<Element>();
+	public ArrayList<Element> body = new ArrayList<Element>();
 }

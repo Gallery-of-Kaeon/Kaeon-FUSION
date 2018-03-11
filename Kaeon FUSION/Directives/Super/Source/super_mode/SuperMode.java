@@ -7,9 +7,10 @@ import aether_one_plus.Aether;
 import one.Element;
 import one.ElementUtilities;
 import one_plus.directive.Directive;
+import one_plus.directive.DirectiveUnit;
 import one_plus.parse.Tokenizer;
 
-public class SuperMode extends Directive {
+public class SuperMode extends DirectiveUnit {
 	
 	public static int ALTERNATE_NONE = 0;
 	public static int ALTERNATE_SIBLING = 1;
@@ -22,41 +23,41 @@ public class SuperMode extends Directive {
 	public ArrayList<Element> preProcessed;
 	
 	public void apply(
-			ArrayList<Directive> directiveUnits,
-			ArrayList<Element> directives,
-			Element element) {
+			ArrayList<DirectiveUnit> directiveUnits,
+			ArrayList<Directive> directives,
+			Directive directive) {
 		
 		if(tokens == null)
 			initializeTokens();
 		
-		if(element.content.equalsIgnoreCase("SUPER")) {
+		if(directive.directive.content.equalsIgnoreCase("SUPER")) {
 			
 			preProcessed = new ArrayList<Element>();
 			
 			useStandardDirectives(directiveUnits);
 			
-			int index = ElementUtilities.getIndex(element);
+			int index = ElementUtilities.getIndex(directive.directive);
 			
-			element.parent.children.remove(index);
+			directive.directive.parent.children.remove(index);
 			
 			Element use = getElement("Use");
 			
 			ElementUtilities.addChild(use, getElement("Standard"));
 			ElementUtilities.addChild(use, getElement("Stack"));
 			
-			ElementUtilities.addChild(element.parent, use, index);
+			ElementUtilities.addChild(directive.directive.parent, use, index);
 			
-			superMode(directives, element.parent, index);
+			superMode(directives, directive.directive.parent, index);
 		}
 	}
 	
 	@SuppressWarnings("unchecked")
-	public void useStandardDirectives(ArrayList<Directive> directiveUnits) {
+	public void useStandardDirectives(ArrayList<DirectiveUnit> directiveUnits) {
 		
 		try {
 			
 			directiveUnits.addAll(
-					(ArrayList<Directive>) Aether.call("Standard", 0, null));
+					(ArrayList<DirectiveUnit>) Aether.call("Standard", 0, null));
 		}
 		
 		catch(Exception exception) {
@@ -65,7 +66,7 @@ public class SuperMode extends Directive {
 	}
 	
 	public void superMode(
-			ArrayList<Element> directives,
+			ArrayList<Directive> directives,
 			Element element,
 			int index) {
 		
@@ -109,12 +110,12 @@ public class SuperMode extends Directive {
 	}
 	
 	public boolean isDirective(
-			ArrayList<Element> directives,
+			ArrayList<Directive> directives,
 			Element element) {
 		
 		for(int i = 0; i < directives.size(); i++) {
 			
-			if(directives.get(i) == element)
+			if(directives.get(i).directive == element)
 				return true;
 		}
 		
@@ -297,6 +298,7 @@ public class SuperMode extends Directive {
 				"log",
 				"log line",
 				"not",
+				"import",
 				"return",
 				"new",
 				"sin",
@@ -355,6 +357,7 @@ public class SuperMode extends Directive {
 						"print",
 						"log",
 						"log line",
+						"import",
 						"return",
 						"new",
 						"sin",
@@ -453,6 +456,9 @@ public class SuperMode extends Directive {
 		
 		if(token.equals("not"))
 			processPrefix(element, "not", "Not");
+		
+		if(token.equals("import"))
+			processPrefix(element, "import", "Import");
 		
 		if(token.equals("return"))
 			processPrefix(element, "return", "Return");
