@@ -19,37 +19,23 @@ public class For extends DirectiveUnit {
 		
 		if(element.content.equalsIgnoreCase("FOR")) {
 			
-			ArrayList<Element> body =
-					new ArrayList<Element>(element.children);
+			ArrayList<Element> body = directive.body;
+			
+			if(directive.header.size() == 0)
+				return;
 			
 			int start = 0;
 			int end = 0;
 			
-			if(isHeader(directives, element, 0)) {
-				
-				body.remove(0);
-				
-				start =
-						Integer.parseInt(
-								element.children.get(0).content);
-				
-				if(isHeader(directives, element, 1)) {
-
-					body.remove(0);
-					
-					end =
-							Integer.parseInt(
-									element.children.get(1).content);
-				}
-				
-				else {
-					end = start;
-					start = 1;
-				}
+			if(directive.header.size() == 1) {
+				start = 0;
+				end = Integer.parseInt(directive.header.get(0).content) - 1;
 			}
 			
-			else
-				return;
+			if(directive.header.size() == 2) {
+				start = Integer.parseInt(directive.header.get(0).content) - 1;
+				end = Integer.parseInt(directive.header.get(1).content) - 1;
+			}
 			
 			int index = ElementUtilities.getIndex(element);
 			
@@ -66,33 +52,6 @@ public class For extends DirectiveUnit {
 				}
 			}
 		}
-	}
-	
-	public boolean isHeader(
-			ArrayList<Directive> directives,
-			Element element,
-			int index) {
-		
-		if(element.children.size() <= index)
-			return false;
-		
-		Element header = element.children.get(index);
-		
-		if(DirectiveUtilities.isDirective(directives, header)) {
-			
-			try {
-				
-				Integer.parseInt(header.content);
-				
-				return true;
-			}
-			
-			catch(Exception exception) {
-				return false;
-			}
-		}
-		
-		return false;
 	}
 	
 	public ArrayList<Element> applyIndex(

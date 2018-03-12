@@ -184,7 +184,7 @@ public class ElementUtilities {
 	
 	public static boolean elementsEqual(Element a, Element b) {
 		
-		if(a.content.equals(b.content) || a.children.size() != b.children.size())
+		if(!a.content.equals(b.content) || a.children.size() != b.children.size())
 			return false;
 		
 		for(int i = 0; i < a.children.size(); i++) {

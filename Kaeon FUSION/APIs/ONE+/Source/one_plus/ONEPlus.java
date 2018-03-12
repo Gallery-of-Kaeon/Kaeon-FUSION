@@ -7,8 +7,11 @@ import one_plus.parse.Preprocessor;
 import one_plus.parse.Processor;
 import one_plus.parse.TokenGenerator;
 import one_plus.parse.Tokenizer;
+import philosophers_stone.PhilosophersStone;
 
 public class ONEPlus {
+	
+	public static PhilosophersStone host;
 	
 	public static Element parseONEPlus(String string) {
 		
