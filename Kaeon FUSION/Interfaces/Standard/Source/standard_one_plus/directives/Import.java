@@ -34,23 +34,33 @@ public class Import extends DirectiveUnit {
 				}
 			}
 			
-			for(int i = 0; i < element.children.size(); i++) {
+			importDirectives(define, element);
+		}
+	}
+	
+	public void importDirectives(
+			Define define,
+			Element element) {
+		
+		for(int i = 0; i < element.children.size(); i++) {
+			
+			ArrayList<Directive> directiveElements = getDirectives(IO.openAsString(element.children.get(i).content));
+			
+			for(int j = 0; j < directiveElements.size(); j++) {
 				
-				ArrayList<Directive> directiveElements = getDirectives(IO.openAsString(element.children.get(i).content));
-				
-				for(int j = 0; j < directiveElements.size(); j++) {
-					
-					if(directiveElements.get(j).directive.content.equalsIgnoreCase("DEFINE")) {
+				if(directiveElements.get(j).directive.content.equalsIgnoreCase("DEFINE")) {
 
-						Element defineElement = directiveElements.get(j).directive;
-						Element definition = ElementUtilities.copyElement(directiveElements.get(j).directive.children.get(0));
-						
-						for(int k = 1; k < defineElement.children.size(); k++)
-							ElementUtilities.addChild(definition, ElementUtilities.copyElement(defineElement.children.get(k)));
-						
-						define.definitions.add(definition);
-					}
+					Element defineElement = directiveElements.get(j).directive;
+					Element definition = ElementUtilities.copyElement(directiveElements.get(j).directive.children.get(0));
+					
+					for(int k = 1; k < defineElement.children.size(); k++)
+						ElementUtilities.addChild(definition, ElementUtilities.copyElement(defineElement.children.get(k)));
+					
+					define.definitions.add(definition);
 				}
+				
+				if(directiveElements.get(j).directive.content.equalsIgnoreCase("IMPORT"))
+					importDirectives(define, directiveElements.get(j).directive);
 			}
 		}
 	}
