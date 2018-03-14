@@ -102,7 +102,7 @@ public class IDE implements ActionListener {
 
 		frame.add(outputPanel, BorderLayout.EAST);
 
-		frame.setTitle("Kaeon Origin");
+		frame.setTitle("Kaeon Origin - Kaeon FUSION");
 		frame.setSize(scale(800), scale(500));
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
@@ -243,13 +243,15 @@ public class IDE implements ActionListener {
 		build.add(createButton("Run"));
 		build.add(createButton("Stop"));
 
-		settings.setLayout(new GridLayout(1, 2));
+		settings.setLayout(new GridLayout(1, 1));
 		settings.setBackground(Color.WHITE);
 
-		settings.add(createButton("Set Arguments"));
-
-		one = createButton("Show ONE");
-		settings.add(one);
+//		settings.add(createButton("Set Arguments"));
+		
+		one = createButton("ONE");
+		
+		options = createButton("Options");
+		settings.add(options);
 
 		out.setLayout(new BorderLayout());
 		out.setBackground(Color.WHITE);
@@ -343,7 +345,7 @@ public class IDE implements ActionListener {
 
 		if(command.equals("Options")) {
 			
-			options.setEnabled(false);
+//			options.setEnabled(false);
 			
 			new OptionsPane(this);
 		}
