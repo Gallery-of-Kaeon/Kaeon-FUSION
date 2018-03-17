@@ -1,9 +1,9 @@
-Split
+Cut
 	
 	Philosophy
 		
 		-
-			The split command contains the content "Split". It will have two children, the first of
+			The cut command contains the content "Cut". It will have two children, the first of
 			which returns a list, and the second of which returns an object.
 			
 			It will split the list into several sublists based on the specified object and return
