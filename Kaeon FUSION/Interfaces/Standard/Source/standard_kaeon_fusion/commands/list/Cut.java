@@ -5,14 +5,14 @@ import java.util.ArrayList;
 import fusion.FUSIONUnit;
 import one.Element;
 
-public class Split extends FUSIONUnit {
+public class Cut extends FUSIONUnit {
 	
-	public Split() {
+	public Cut() {
 		tags.add("Standard");
 	}
 	
 	public boolean verify(Element element) {
-		return element.content.equalsIgnoreCase("Split");
+		return element.content.equalsIgnoreCase("Cut");
 	}
 	
 	@SuppressWarnings({ "unchecked" })
@@ -31,6 +31,9 @@ public class Split extends FUSIONUnit {
 					sub.add(current);
 					current = new ArrayList<Object>();
 				}
+				
+				else
+					current.add(list.get(i));
 			}
 			
 			if(current.size() > 0)

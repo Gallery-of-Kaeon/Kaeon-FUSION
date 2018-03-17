@@ -45,6 +45,7 @@ import standard_kaeon_fusion.commands.list.At;
 import standard_kaeon_fusion.commands.list.Concatenate;
 import standard_kaeon_fusion.commands.list.Contains;
 import standard_kaeon_fusion.commands.list.Crop;
+import standard_kaeon_fusion.commands.list.Cut;
 import standard_kaeon_fusion.commands.list.Index;
 import standard_kaeon_fusion.commands.list.Insert;
 import standard_kaeon_fusion.commands.list.List;
@@ -167,6 +168,7 @@ public class Aether {
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new ConvertSequence());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Count());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Crop());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Cut());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Index());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Insert());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new List());
@@ -174,7 +176,6 @@ public class Aether {
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Reverse());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Set());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Size());
-			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Split());
 			
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new And());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Equal());
