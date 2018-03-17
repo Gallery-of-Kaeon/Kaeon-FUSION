@@ -1,6 +1,7 @@
 package standard_kaeon_fusion.commands.list;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import fusion.FUSIONUnit;
 import one.Element;
@@ -42,6 +43,6 @@ public class Cut extends FUSIONUnit {
 			return sub;
 		}
 		
-		return ("" + processed.get(0)).split("" + processed.get(1));
+		return new ArrayList<String>(Arrays.asList(("" + processed.get(0)).split("" + processed.get(1))));
 	}
 }
