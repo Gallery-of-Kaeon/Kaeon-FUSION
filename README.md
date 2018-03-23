@@ -5,7 +5,7 @@
 	<img src="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/raw/master/Kaeon%20FUSION/Logo/Kaeon%20FUSION%20Logo.png" width="300px" height="300px"/>
 </p>
 
-    Use: Standard; Log Line: Open: Pitch.txt
+    Use: Standard; Log Line: "This is Kaeon FUSION!"
 
 In software engineering,
 it is a commonly held belief that it is inherently necessary to use multiple tools to cover the vast array of tasks that the discipline entails.
