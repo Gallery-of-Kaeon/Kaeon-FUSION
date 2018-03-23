@@ -62,8 +62,23 @@ Kaeon FUSION Standard Interface
 					
 					-
 						The host environment of a script using the standard interface may provide
-						an alternate root directory for file input and output.
+						alternate directories for file input and output.
 					-
+					
+					Source Directories
+					
+						-
+							Source directories are alternate directories for file input. There may
+							be an indefinite number of them and they must be arranged in a
+							hierarchy.
+						-
+					
+					Build Directory
+						
+						-
+							The build directory is an alternate directory for file output. There
+							may only be up to one at a time.
+						-
 		
 		Conventions
 		
