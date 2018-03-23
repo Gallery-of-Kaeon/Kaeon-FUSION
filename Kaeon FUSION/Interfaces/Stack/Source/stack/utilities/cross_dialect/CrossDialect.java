@@ -63,7 +63,7 @@ public class CrossDialect extends Dialect {
 			
 			if(element.content.equalsIgnoreCase("Meta")) {
 				
-				ammendMeta(meta, element);
+				ammendMeta(meta, element, categories);
 				
 				return null;
 			}
@@ -75,51 +75,59 @@ public class CrossDialect extends Dialect {
 		
 		Element metaCopy = ElementUtilities.copyElement(meta);
 		
-		for(int i = 0; i < element.children.size(); i++) {
+		boolean trickleDown = true;
+		
+		if(element.content != null)
+			trickleDown = trickleDown(element, meta, categories);
+		
+		if(trickleDown) {
 			
-			if(!variables.contains(element.children.get(i).content.toLowerCase()) && element.children.get(i).children.size() > 0)
-				variables.add(element.children.get(i).content.toLowerCase());
-			
-			if(element.children.get(i).content.equalsIgnoreCase("In")) {
+			for(int i = 0; i < element.children.size(); i++) {
 				
-				String operator = 
-						buildElement(
-								name,
-								element.children.get(i).children.get(0),
-								categories,
-								new ArrayList<String>(variables),
-								metaCopy,
-								nest + 1);
+				if(!variables.contains(element.children.get(i).content.toLowerCase()) && element.children.get(i).children.size() > 0)
+					variables.add(element.children.get(i).content.toLowerCase());
 				
-				for(int j = i + 1; j < element.children.size(); j++) {
-
-					String operation =
+				if(element.children.get(i).content.equalsIgnoreCase("In")) {
+					
+					String operator = 
 							buildElement(
 									name,
-									element.children.get(j),
+									element.children.get(i).children.get(0),
 									categories,
 									new ArrayList<String>(variables),
 									metaCopy,
 									nest + 1);
 					
-					if(operation != null)
-						arguments.add(buildObjectOperation(operator, operation, metaCopy));
+					for(int j = i + 1; j < element.children.size(); j++) {
+	
+						String operation =
+								buildElement(
+										name,
+										element.children.get(j),
+										categories,
+										new ArrayList<String>(variables),
+										metaCopy,
+										nest + 1);
+						
+						if(operation != null)
+							arguments.add(buildObjectOperation(operator, operation, metaCopy));
+					}
+					
+					break;
 				}
 				
-				break;
+				String argument =
+						buildElement(
+								name,
+								element.children.get(i),
+								categories,
+								new ArrayList<String>(variables),
+								metaCopy,
+								nest + 1);
+				
+				if(argument != null)
+					arguments.add(argument);
 			}
-			
-			String argument =
-					buildElement(
-							name,
-							element.children.get(i),
-							categories,
-							new ArrayList<String>(variables),
-							metaCopy,
-							nest + 1);
-			
-			if(argument != null)
-				arguments.add(argument);
 		}
 		
 		if(element.content == null && element.parent == null) {
@@ -154,16 +162,52 @@ public class CrossDialect extends Dialect {
 			return buildThis(element, arguments, meta);
 		
 		if(element.content.equalsIgnoreCase("New"))
-			return buildNew(element, arguments, meta);
+			return buildNew(element, arguments, meta, categories);
 		
 		if(element.content.equalsIgnoreCase("Null"))
 			return buildNull(element, arguments, meta);
 		
+		if(element.content.equalsIgnoreCase("Literal"))
+			return buildLiteralCommand(element, arguments, meta);
+		
+		if(element.content.equalsIgnoreCase("Type"))
+			return buildType(element, arguments, meta);
+		
 		if(element.content.equalsIgnoreCase("Return"))
 			return buildReturn(element, arguments, meta);
 		
-		if(element.content.equalsIgnoreCase("Scope"))
+		if(element.content.equalsIgnoreCase("Scope")) {
+			
+			if(element.children.size() >= 2) {
+				
+				if(element.children.get(0).content.equalsIgnoreCase("In")) {
+					
+					Element in = element.children.get(0);
+					
+					String operator = 
+							buildElement(
+									name,
+									in.children.get(0),
+									categories,
+									new ArrayList<String>(variables),
+									meta,
+									nest + 1);
+
+					String operation =
+							buildElement(
+									name,
+									element.children.get(1),
+									categories,
+									new ArrayList<String>(variables),
+									meta,
+									nest + 1);
+					
+					return buildObjectOperation(operator, operation, meta);
+				}
+			}
+			
 			return buildScope(element, arguments, meta, nest);
+		}
 		
 		if(element.content.equalsIgnoreCase("Break"))
 			return buildBreak(element, arguments, meta, nest);
@@ -228,17 +272,38 @@ public class CrossDialect extends Dialect {
 		if(element.content.equalsIgnoreCase("Crop"))
 			return buildCrop(element, arguments, meta);
 		
-		if(element.content.equalsIgnoreCase("List to String"))
-			return buildListToString(element, arguments, meta);
+		if(element.content.equalsIgnoreCase("Contains"))
+			return buildContains(element, arguments, meta);
 		
-		if(element.content.equalsIgnoreCase("String to List"))
-			return buildStringToList(element, arguments, meta);
+		if(element.content.equalsIgnoreCase("Index"))
+			return buildIndex(element, arguments, meta);
+		
+		if(element.content.equalsIgnoreCase("Count"))
+			return buildCount(element, arguments, meta);
+		
+		if(element.content.equalsIgnoreCase("Cut"))
+			return buildCut(element, arguments, meta);
+		
+		if(element.content.equalsIgnoreCase("Reverse"))
+			return buildReverse(element, arguments, meta);
+		
+		if(element.content.equalsIgnoreCase("Convert Sequence"))
+			return buildConvertSequence(element, arguments, meta);
 		
 		if(element.content.equalsIgnoreCase("Character to Number"))
 			return buildCharacterToNumber(element, arguments, meta);
 		
 		if(element.content.equalsIgnoreCase("Number to Character"))
 			return buildNumberToCharacter(element, arguments, meta);
+		
+		if(element.content.equalsIgnoreCase("Upper"))
+			return buildUpper(element, arguments, meta);
+		
+		if(element.content.equalsIgnoreCase("Lower"))
+			return buildLower(element, arguments, meta);
+		
+		if(element.content.equalsIgnoreCase("Trim"))
+			return buildTrim(element, arguments, meta);
 		
 		if(element.content.equalsIgnoreCase("Not"))
 			return buildNot(element, arguments, meta);
@@ -323,6 +388,9 @@ public class CrossDialect extends Dialect {
 		
 		if(element.content.equalsIgnoreCase("Absolute Value"))
 			return buildAbsoluteValue(element, arguments, meta);
+		
+		if(element.content.equalsIgnoreCase("Infinity"))
+			return buildInfinity(element, arguments, meta);
 		
 		String operation = buildOperator(element, arguments, meta);
 		
@@ -422,7 +490,7 @@ public class CrossDialect extends Dialect {
 		return "";
 	}
 	
-	public void ammendMeta(Element meta, Element element) {
+	public void ammendMeta(Element meta, Element element, ArrayList<Category> categories) {
 		
 		for(int i = 0; i < element.children.size(); i++) {
 			
@@ -444,6 +512,10 @@ public class CrossDialect extends Dialect {
 			if(!found)
 				ElementUtilities.addChild(meta, ElementUtilities.copyElement(element.children.get(i)));
 		}
+	}
+	
+	public boolean trickleDown(Element element, Element meta, ArrayList<Category> categories) {
+		return true;
 	}
 	
 	public String buildObjectOperation(
@@ -506,7 +578,11 @@ public class CrossDialect extends Dialect {
 		return "";
 	}
 	
-	public String buildIn(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildLiteralCommand(Element element, ArrayList<String> arguments, Element meta) {
+		return "";
+	}
+	
+	public String buildType(Element element, ArrayList<String> arguments, Element meta) {
 		return "";
 	}
 	
@@ -538,7 +614,7 @@ public class CrossDialect extends Dialect {
 		return "";
 	}
 	
-	public String buildNew(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildNew(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
@@ -638,11 +714,27 @@ public class CrossDialect extends Dialect {
 		return "";
 	}
 	
-	public String buildListToString(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildContains(Element element, ArrayList<String> arguments, Element meta) {
 		return "";
 	}
 	
-	public String buildStringToList(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildIndex(Element element, ArrayList<String> arguments, Element meta) {
+		return "";
+	}
+	
+	public String buildCount(Element element, ArrayList<String> arguments, Element meta) {
+		return "";
+	}
+	
+	public String buildCut(Element element, ArrayList<String> arguments, Element meta) {
+		return "";
+	}
+	
+	public String buildReverse(Element element, ArrayList<String> arguments, Element meta) {
+		return "";
+	}
+	
+	public String buildConvertSequence(Element element, ArrayList<String> arguments, Element meta) {
 		return "";
 	}
 	
@@ -651,6 +743,18 @@ public class CrossDialect extends Dialect {
 	}
 	
 	public String buildNumberToCharacter(Element element, ArrayList<String> arguments, Element meta) {
+		return "";
+	}
+	
+	public String buildUpper(Element element, ArrayList<String> arguments, Element meta) {
+		return "";
+	}
+	
+	public String buildLower(Element element, ArrayList<String> arguments, Element meta) {
+		return "";
+	}
+	
+	public String buildTrim(Element element, ArrayList<String> arguments, Element meta) {
 		return "";
 	}
 	
@@ -763,6 +867,10 @@ public class CrossDialect extends Dialect {
 	}
 	
 	public String buildAbsoluteValue(Element element, ArrayList<String> arguments, Element meta) {
+		return "";
+	}
+	
+	public String buildInfinity(Element element, ArrayList<String> arguments, Element meta) {
 		return "";
 	}
 }

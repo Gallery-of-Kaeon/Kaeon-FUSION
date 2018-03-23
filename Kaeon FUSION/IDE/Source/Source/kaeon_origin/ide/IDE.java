@@ -930,7 +930,7 @@ public class IDE implements ActionListener {
 
 		JTextArea text = new JTextArea();
 
-		text.setBackground(new Color(200, 220, 255));
+		text.setBackground(Color.WHITE);
 		text.setFont(new Font(Font.MONOSPACED, Font.BOLD, scale(14)));
 		text.setTabSize(4);
 

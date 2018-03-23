@@ -124,7 +124,7 @@ public class OptionsPane extends JFrame implements ActionListener {
 				panel.removeAll();
 				
 				panel.setLayout(new GridLayout(3, 1));
-		
+				
 				panel.add(createButton("Settings"));
 				panel.add(createButton("Help"));
 				panel.add(createButton("Back"));
@@ -209,7 +209,7 @@ public class OptionsPane extends JFrame implements ActionListener {
 			
 			JTextArea text = new JTextArea();
 
-			text.setBackground(new Color(200, 220, 255));
+			text.setBackground(Color.WHITE);
 			text.setFont(new Font(Font.MONOSPACED, Font.BOLD, ide.scale(14)));
 			text.setEditable(false);
 			text.setTabSize(4);
