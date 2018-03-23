@@ -1,4 +1,4 @@
-<h1 align="center">Kaeon FUSION</h1>
+<h1 align="center">This is Kaeon FUSION</h1>
 <h2 align="center">The First Ever Universal Programming Language</h2>
 
 <p align="center">
