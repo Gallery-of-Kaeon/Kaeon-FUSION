@@ -9,9 +9,7 @@
 			irrelevant. It may have an indefinite number of children. It will execute before its
 			siblings.
 			
-			If the use command has at least one child, then for each of its children, the use
-			command will integrate any available interface with an alias that matches the string
-			form of the value returned by said child, and will then return a null value.
-			
-			If the use command has no children, it will return its content as a string.
+			For each of its children, the use command will integrate any available interface with
+			an alias that matches the string form of the value returned by said child. The use
+			command will then return its content as a string.
 		-
