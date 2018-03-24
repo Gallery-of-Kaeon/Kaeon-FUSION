@@ -10,6 +10,11 @@ import philosophers_stone.PhilosophersStoneUtilities;
 
 public class Use extends FUSIONUnit {
 	
+	public Use() {
+		tags.add("Kaeon FUSION");
+		tags.add("Use");
+	}
+	
 	public boolean verify(Element element) {
 		return element.content.equalsIgnoreCase("Use");
 	}
@@ -24,19 +29,11 @@ public class Use extends FUSIONUnit {
 		
 		for(int i = 0; i < element.children.size(); i++) {
 			
-			String fusionInterface = "";
-			
-			if(processed.get(i) == null)
-				fusionInterface = element.children.get(i).content;
-			
-			else
-				fusionInterface = "" + processed.get(i);
-			
-			Aether.call(fusionInterface, 0, fusion);
+			Aether.call("" + processed.get(i), 0, fusion);
 			
 			PhilosophersStoneUtilities.call(fusion, "Update");
 		}
 		
-		return null;
+		return "Use";
 	}
 }

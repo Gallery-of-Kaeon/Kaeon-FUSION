@@ -10,7 +10,7 @@ import standard_kaeon_fusion.utilities.state.State;
 
 public class Literals extends FUSIONUnit {
 	
-	FUSION fusion;
+	public FUSION fusion;
 	
 	public Literals() {
 		tags.add("Standard");

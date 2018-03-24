@@ -115,6 +115,16 @@ public class Aether {
 			
 			PhilosophersStoneUtilities.publiclyConnect(stone, tag);
 			
+			PhilosophersStone literal =
+					PhilosophersStoneUtilities.get(
+							stone,
+							"Kaeon FUSION",
+							"Literal").
+					get(0);
+			
+			if(literal != null)
+				PhilosophersStoneUtilities.destroy(literal);
+			
 			if(!PhilosophersStoneUtilities.has(stone, "Console"))
 				PhilosophersStoneUtilities.publiclyConnect(stone, new Console());
 			
