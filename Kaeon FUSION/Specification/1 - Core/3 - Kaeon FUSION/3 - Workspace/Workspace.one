@@ -1,0 +1,18 @@
+-
+	Workspace
+-
+	-
+		Philosophy
+	-
+		-
+			The workspace refers to the directories that Kaeon FUSION will import resources from.
+			The directories that compose the workspace must be arranged into a hierarchy.
+			
+			When attempting to locate a given resource, Kaeon FUSION will search each directory in
+			the order of their priorities until either the resource is found or there are no more
+			directories to search.
+			
+			By default, the workspace will only consist of the local directory, but the host
+			environment of the Kaeon FUSION interpreter may add additional directories to the
+			workspace, and may remove the local directory from the workspace.
+		-
