@@ -3,6 +3,9 @@ Literals
 	Philosophy
 		
 		-
+			The standard interface will override the literals present in Kaeon FUSION at startup
+			with the following functionality.
+			
 			A command with content that does not match the name of a defined command or any alias
 			in the state and has no children will return its content as a string.
 			
