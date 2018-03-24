@@ -34,6 +34,6 @@ public class Use extends FUSIONUnit {
 			PhilosophersStoneUtilities.call(fusion, "Update");
 		}
 		
-		return "Use";
+		return element.content;
 	}
 }
