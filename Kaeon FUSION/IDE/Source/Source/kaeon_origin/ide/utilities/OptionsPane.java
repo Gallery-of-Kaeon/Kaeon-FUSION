@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.awt.image.BufferedImage;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -178,16 +179,16 @@ public class OptionsPane extends JFrame implements ActionListener {
 
 			if(mode.equals("Kaeon Origin")) {
 				
-				setSize(ide.scale(200), ide.scale(200));
+				setSize(ide.scale(200), ide.scale(250));
 				
 				panel.removeAll();
 				
-				panel.setLayout(new GridLayout(3, 1));
+				panel.setLayout(new GridLayout(4, 1));
 				
 				panel.add(createButton("Set Perspective"));
 //				panel.add(createButton("Set Workspace"));
 				panel.add(createButton("Set View"));
-//				panel.add(createButton("Print"));
+				panel.add(createButton("Print"));
 				panel.add(createButton("Back"));
 			}
 			
@@ -280,6 +281,19 @@ public class OptionsPane extends JFrame implements ActionListener {
 			panel.add(createButton("Back"));
 			
 			back = "Set View";
+		}
+		
+		if(command.equals("Print") && ide.currentInput != null) {
+			
+			BufferedImage image =
+					new BufferedImage(
+							ide.currentInput.text.getWidth(),
+							ide.currentInput.text.getHeight(),
+							BufferedImage.TYPE_INT_ARGB);
+			
+			ide.currentInput.text.paint(image.getGraphics());
+			
+			Printer.print(image);
 		}
 
 		if(command.equals("Set Arguments") && ide.currentInput != null) {

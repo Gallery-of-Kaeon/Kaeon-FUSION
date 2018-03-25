@@ -80,8 +80,13 @@ public class IDE implements ActionListener {
 	public String folder;
 
 	public IDE(Element originData) {
+		
 		initializeFrame();
 		initializeInputs(originData);
+		
+		frame.revalidate();
+		
+		frame.setVisible(true);
 	}
 
 	public void initializeFrame() {
@@ -95,6 +100,7 @@ public class IDE implements ActionListener {
 		
 		base = new JPanel();
 		base.setLayout(new GridLayout(1, 1));
+		
 		content = new JPanel();
 		
 		content.setLayout(new BorderLayout());
@@ -121,7 +127,6 @@ public class IDE implements ActionListener {
 		frame.setTitle("Kaeon Origin - Kaeon FUSION");
 		frame.setSize(scale(800), scale(500));
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setVisible(true);
 	}
 
 	public static void initializeLookAndFeel() {
