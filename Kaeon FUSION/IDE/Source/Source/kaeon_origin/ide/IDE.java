@@ -53,6 +53,9 @@ public class IDE implements ActionListener {
 
 	public JFrame frame;
 
+	public JPanel base;
+	public JPanel content;
+
 	public JPanel input;
 	public JPanel output;
 
@@ -61,6 +64,11 @@ public class IDE implements ActionListener {
 
 	public JButton one;
 	public JButton options;
+	
+	public boolean inputEnlarged;
+	public boolean outputEnlarged;
+	
+	public JTextArea enlargeText;
 
 	public Font font;
 
@@ -83,24 +91,32 @@ public class IDE implements ActionListener {
 		font = new Font("None", Font.BOLD, scale(14));
 
 		frame = new JFrame();
-
-		frame.setLayout(new BorderLayout());
+		frame.setLayout(new GridLayout(1, 1));
+		
+		base = new JPanel();
+		base.setLayout(new GridLayout(1, 1));
+		content = new JPanel();
+		
+		content.setLayout(new BorderLayout());
 
 		JPanel inputPanel = new JPanel();
 		initializeInputPanel(inputPanel);
 
-		frame.add(inputPanel, BorderLayout.WEST);
+		content.add(inputPanel, BorderLayout.WEST);
 
 		JPanel workPanel = new JPanel();
 
 		initializeWorkPanel(workPanel);
 
-		frame.add(workPanel, BorderLayout.CENTER);
+		content.add(workPanel, BorderLayout.CENTER);
 
 		JPanel outputPanel = new JPanel();
 		initializeOutputPanel(outputPanel);
 
-		frame.add(outputPanel, BorderLayout.EAST);
+		content.add(outputPanel, BorderLayout.EAST);
+		
+		base.add(content);
+		frame.add(base);
 
 		frame.setTitle("Kaeon Origin - Kaeon FUSION");
 		frame.setSize(scale(800), scale(500));
@@ -775,87 +791,7 @@ public class IDE implements ActionListener {
 		}
 
 		if(command.equals("Export") && currentInput != null) {
-			
-//			JOptionPane.showMessageDialog(frame, "Exported successfully.");
-			
-			int option = JOptionPane.showConfirmDialog(
-					frame,
-					"WARNING.\n\n" +
-					"Once you export, Kaeon Orign will close and you will no longer be able to open Kaeon Origin in GUI Mode.\n\n" +
-					"It is possible to reverse this by doing one of the following:\n\n" +
-					"Run the following command: java -jar \"Kaeon Origin.jar\" -reset\n" +
-					"Open the ONE+ file \"Origin.op\" and place an element at the root level with the content \"reset\".\n" +
-					"Delete the ONE+ file \"Origin.op\".\n\n" +
-					"Are you sure you want to continue?",
-					"Kaeon Origin",
-					JOptionPane.YES_NO_OPTION);
-			
-			if(option == JOptionPane.YES_OPTION) {
-				
-				option = JOptionPane.showConfirmDialog(
-						frame,
-						"Export with arguments?",
-						"Kaeon Origin",
-						JOptionPane.YES_NO_OPTION);
-				
-				if(option == JOptionPane.YES_OPTION) {
-					
-					String arguments = JOptionPane.showInputDialog(frame, "Enter the program arguments:");
-					
-					if(arguments != null) {
-						
-						ElementUtilities.removeChild(originData, "Arguments");
-						ElementUtilities.removeChild(originData, "Prompt");
-	
-						Element argumentsElement = new Element();
-						argumentsElement.content = "Arguments";
-						
-						Element args = new Element();
-						args.content = arguments;
-						
-						ElementUtilities.addChild(argumentsElement, args);
-						ElementUtilities.addChild(originData, argumentsElement);
-					}
-				}
-				
-				else {
-					
-					ElementUtilities.removeChild(originData, "Arguments");
-					
-					option = JOptionPane.showConfirmDialog(
-							frame,
-							"Should the application prompt for arguments?",
-							"Kaeon Origin",
-							JOptionPane.YES_NO_OPTION);
-					
-					if(option == JOptionPane.YES_OPTION &&
-							!ElementUtilities.hasChild(originData, "Prompt")) {
-						
-						Element prompt = new Element();
-						prompt.content = "Prompt";
-						
-						ElementUtilities.addChild(originData, prompt);
-					}
-					
-					else
-						ElementUtilities.removeChild(originData, "Prompt");
-				}
-				
-				ElementUtilities.removeChild(originData, "Source");
-				
-				Element source = new Element();
-				source.content = "Source";
-				
-				Element main = new Element();
-				main.content = currentInput.path;
-
-				ElementUtilities.addChild(source, main);
-				ElementUtilities.addChild(originData, source);
-				
-				IO.save("" + originData, "Origin.op");
-				
-				System.exit(0);
-			}
+			JOptionPane.showMessageDialog(frame, "Exported successfully.");
 		}
 
 		frame.repaint();
