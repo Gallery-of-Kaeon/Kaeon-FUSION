@@ -70,13 +70,9 @@
 					If the element is followed by a sibling element, FUSION will shift focus to the
 					next sibling and loop back to step two.
 					
-					Otherwise, if the element has a parent and if the depth value is greater than
-					zero, FUSION will shift focus to the element's parent, and decrement the depth
-					value by one.
-					
-					If the depth value is less than or equal to zero or if the element does not
-					have a parent, FUSION will proceed to step five. Otherwise, FUSION will loop
-					back to step three.
+					If the element has a parent and if the depth value is greater than zero, FUSION
+					will shift focus to the element's parent, decrement the depth value by one, and
+					loop back to step three.
 				-
 			-
 				Step Five
