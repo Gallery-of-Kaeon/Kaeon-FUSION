@@ -6,6 +6,6 @@ Return
 			The return command contains the content "Return", and may have one child.
 			
 			It prevents any subsequent commands in the script or function from which it is called
-			from executing, and if it has a child, will return the object returned by the child to
-			the script or function that called the script or function to which it belongs.
+			from executing, and if it has a child, will return the value returned by its child. The
+			returned value will also be returned by the function command that called the script.
 		-
