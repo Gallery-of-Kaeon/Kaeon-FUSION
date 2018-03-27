@@ -11,12 +11,6 @@
 		Principles
 	-
 		-
-			Commands
-		-
-			-
-				An element being operated on by FUSION is referred to as a command.
-			-
-		-
 			Order of Operations
 		-
 			-
@@ -87,6 +81,23 @@
 					
 					FUSION will then terminate.
 				-
+		-
+			Commands
+		-
+			-
+				An element being operated on by FUSION is referred to as a command.
+				
+				By default, commands will do the following unless otherwise specified:
+				
+				At step two, they will perform no operation and will trickle down.
+				
+				At step three, they will perform no operation, generate a null value, allow the
+				generated value to be used as an argument for its parent, and will not use the
+				generated value as the return value.
+				
+				At step four, they will not modify the depth value and will not jump to another
+				element.
+			-
 		-
 			Error Handling
 		-
