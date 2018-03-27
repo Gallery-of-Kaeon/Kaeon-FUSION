@@ -6,6 +6,6 @@ Return
 			The return command contains the content "Return", and may have one child.
 			
 			It prevents any subsequent commands in the script or function from which it is called
-			from executing, and if it has a child, will return the value returned by its child. The
-			returned value will also be returned by the function command that called the script.
+			from executing, and if it has a child, will return the value returned by its child, and
+			set the FUSION's return value to the returned value.
 		-
