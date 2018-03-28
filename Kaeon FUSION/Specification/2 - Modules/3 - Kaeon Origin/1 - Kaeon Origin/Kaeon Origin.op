@@ -97,8 +97,9 @@ Kaeon Origin
 					An input is created for each file that is created or opened. Every active input
 					will accessible to the user.
 					
-					When a file is done being edited, it may be removed from Kaeon Origin. At any time
-					the user may choose to save the data in the input console to its respective file.
+					When a file is done being edited, it may be removed from Kaeon Origin. At any
+					time the user may choose to save the data in the input console to its
+					respective file.
 					
 					The data for all active inputs will be stored in the origin file. 
 					
@@ -108,8 +109,8 @@ Kaeon Origin
 				Input Console
 				
 					-
-						Every input shall have a corresponding input console, which allows the file to
-						be edited.
+						Every input shall have a corresponding input console, which allows the file
+						to be edited.
 						
 						The nature of the interface provided by the console depends on the active
 						perspective.
@@ -118,19 +119,20 @@ Kaeon Origin
 			Dual Console Perspectives
 			
 				-
-					In a dual console perspective, the user will be able to execute the data stored in
-					the active input console, which will generate an output console.
+					In a dual console perspective, the user will be able to execute the data stored
+					in the active input console, which will generate an output console.
 					
-					The execution of an output console may be stopped at any time. Output consoles may
-					also be removed at any time. Removing a running output console stops its execution.
+					The execution of an output console may be stopped at any time. Output consoles
+					may also be removed at any time. Removing a running output console stops its
+					execution.
 					
 					In a synchronized dual console perspective, the output console may respond to
-					changes made to its respective input console at runtime, but each input console may
-					only have one running output console.
+					changes made to its respective input console at runtime, but each input console
+					may only have one running output console.
 					
-					In an unsynchronized dual console perspective, the output console may not respond
-					to changes made to its respective input console at runtime, but each input console
-					may have multiple running output consoles.
+					In an unsynchronized dual console perspective, the output console may not
+					respond to changes made to its respective input console at runtime, but each
+					input console may have multiple running output consoles.
 				-
 		
 		Command Line
@@ -150,6 +152,8 @@ Kaeon Origin
 				forming a list. Lists will be processed based on the flag that preceded them.
 				
 				A list preceded by the flag "-r" will specify the names of files to execute.
+				
+				A list preceded by the flag "-a" will arguments for the aforementioned files.
 				
 				A list preceded by the flag "-o" will specify a setting to modify, and will only
 				contain one data argument. It must be followed by a list preceded by the flag "-s",
