@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import fusion.FUSIONUnit;
 import io.IO;
 import one.Element;
+import philosophers_stone.PhilosophersStoneUtilities;
 
 public class Save extends FUSIONUnit {
 	
@@ -18,7 +19,17 @@ public class Save extends FUSIONUnit {
 	
 	public Object process(Element element, ArrayList<Object> processed) {
 		
-		IO.save("" + processed.get(1), "" + processed.get(0));
+		String workspace = "";
+		
+		try {
+			workspace = "" + PhilosophersStoneUtilities.call(this, "Get Build Workspace").get(0);
+		}
+		
+		catch(Exception exception) {
+			
+		}
+		
+		IO.save("" + processed.get(1), workspace + processed.get(0));
 		
 		return null;
 	}

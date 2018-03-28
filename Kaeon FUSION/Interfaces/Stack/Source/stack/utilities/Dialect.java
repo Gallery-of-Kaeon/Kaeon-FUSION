@@ -6,6 +6,7 @@ import io.IO;
 import one.Element;
 import one_plus.ONEPlus;
 import philosophers_stone.PhilosophersStone;
+import philosophers_stone.PhilosophersStoneUtilities;
 
 public class Dialect extends PhilosophersStone {
 	
@@ -75,8 +76,18 @@ public class Dialect extends PhilosophersStone {
 				derive(files, groups.get(i), getGroupName(names, i), i, arguments);
 		}
 		
+		String workspace = "";
+		
+		try {
+			workspace = "" + PhilosophersStoneUtilities.call(this, "Get Build Workspace").get(0);
+		}
+		
+		catch(Exception exception) {
+			
+		}
+		
 		for(int i = 0; i < files.size(); i++)
-			IO.save(files.get(i).get(1), filePath + files.get(i).get(0));
+			IO.save(files.get(i).get(1), workspace + filePath + files.get(i).get(0));
 		
 		return null;
 	}

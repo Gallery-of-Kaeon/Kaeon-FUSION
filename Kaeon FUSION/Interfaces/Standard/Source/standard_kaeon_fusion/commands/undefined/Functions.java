@@ -8,7 +8,7 @@ import one.Element;
 import one.ElementUtilities;
 import philosophers_stone.PhilosophersStone;
 import philosophers_stone.PhilosophersStoneUtilities;
-import standard_kaeon_fusion.commands.core.Return;
+import standard_kaeon_fusion.commands.flow.Return;
 import standard_kaeon_fusion.utilities.FUSIONUtilities;
 import standard_kaeon_fusion.utilities.state.State;
 

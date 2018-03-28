@@ -1,4 +1,4 @@
-package standard_kaeon_fusion.commands.core;
+package standard_kaeon_fusion.commands.flow;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;

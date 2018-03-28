@@ -1,21 +1,21 @@
-package standard_kaeon_fusion.commands.core;
+package standard_kaeon_fusion.commands.data;
 
 import java.util.ArrayList;
 
 import fusion.FUSIONUnit;
 import one.Element;
 
-public class Throw extends FUSIONUnit {
+public class Literal extends FUSIONUnit {
 	
-	public Throw() {
+	public Literal() {
 		tags.add("Standard");
 	}
 	
 	public boolean verify(Element element) {
-		return element.content.equalsIgnoreCase("Throw");
+		return element.content.equalsIgnoreCase("Literal");
 	}
 	
 	public Object process(Element element, ArrayList<Object> processed) {
-		return processed.get(-1);
+		return element.children.get(0).content;
 	}
 }

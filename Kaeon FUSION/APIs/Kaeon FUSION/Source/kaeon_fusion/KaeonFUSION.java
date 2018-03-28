@@ -6,10 +6,11 @@ import kaeon_fusion.use.Use;
 import philosophers_stone.PhilosophersStoneUtilities;
 
 public class KaeonFUSION extends FUSION {
-
+	
 	public KaeonFUSION() {
 		
 		tags.add("Kaeon FUSION");
+		tags.add("Source");
 
 		PhilosophersStoneUtilities.publiclyConnectMutually(this, new Literal());
 		PhilosophersStoneUtilities.publiclyConnectMutually(this, new Use());
