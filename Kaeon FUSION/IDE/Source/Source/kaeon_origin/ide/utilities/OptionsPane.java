@@ -9,17 +9,21 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
+import java.io.File;
 
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-//import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 import io.IO;
 import kaeon_origin.ide.IDE;
+import kaeon_origin.ide.utilities.web.VerticalLayout;
 import one_plus.ONEPlus;
 
 @SuppressWarnings("serial")
@@ -33,11 +37,15 @@ public class OptionsPane extends JFrame implements ActionListener {
 	public JPanel panel;
 	public JPanel enlargePanel;
 	
+	public JPanel workspacePanel;
+	
 	public OptionsPane(IDE ide) {
 		
 		this.ide = ide;
 		
+		setLocation(ide.frame.getX() + ide.scale(300), ide.frame.getY() + ide.scale(150));
 		setSize(ide.scale(200), ide.scale(150));
+		
 		setResizable(false);
 		setVisible(true);
 		
@@ -141,7 +149,14 @@ public class OptionsPane extends JFrame implements ActionListener {
 				
 				command = "Settings";
 				
-				back = "Kaeon Origin";
+				back = "Settings";
+			}
+			
+			else if(back.startsWith("Set Workspace")) {
+				
+				command = "Settings";
+				
+				back = "Settings";
 			}
 		}
 		
@@ -165,13 +180,13 @@ public class OptionsPane extends JFrame implements ActionListener {
 
 			if(mode.equals("Kaeon FUSION")) {
 				
-				setSize(ide.scale(200), ide.scale(200));
+				setSize(ide.scale(200), ide.scale(250));
 				
 				panel.removeAll();
 				
-				panel.setLayout(new GridLayout(3, 1));
+				panel.setLayout(new GridLayout(4, 1));
 
-//				panel.add(createButton("Set Workspace"));
+				panel.add(createButton("Set Workspace"));
 				panel.add(createButton("Set Arguments"));
 				panel.add(createButton("Show ONE"));
 				panel.add(createButton("Back"));
@@ -179,20 +194,241 @@ public class OptionsPane extends JFrame implements ActionListener {
 
 			if(mode.equals("Kaeon Origin")) {
 				
-				setSize(ide.scale(200), ide.scale(250));
+				setSize(ide.scale(200), ide.scale(300));
 				
 				panel.removeAll();
 				
-				panel.setLayout(new GridLayout(4, 1));
+				panel.setLayout(new GridLayout(5, 1));
 				
 				panel.add(createButton("Set Perspective"));
-//				panel.add(createButton("Set Workspace"));
+				panel.add(createButton("Set Workspace"));
 				panel.add(createButton("Set View"));
 				panel.add(createButton("Print"));
 				panel.add(createButton("Back"));
 			}
 			
 			back = command + " " + mode;
+		}
+		
+		if(command.equals("Set Workspace")) {
+			
+			setSize(ide.scale(300), ide.scale(400));
+			
+			panel.removeAll();
+			
+			panel.setLayout(new BorderLayout());
+			
+			JPanel manage = new JPanel();
+			
+			manage.setLayout(new GridLayout(2, 1));
+			manage.setBackground(Color.WHITE);
+			
+			JPanel add = new JPanel();
+			
+			add.setLayout(new GridLayout(1, 2));
+			add.setBackground(Color.WHITE);
+			
+			add.add(createButton("Set Build"));
+			add.add(createButton("Add Source"));
+			
+			manage.add(add);
+			manage.add(createButton("Remove"));
+			
+			workspacePanel = new JPanel();
+			
+			workspacePanel.setBackground(Color.WHITE);
+			workspacePanel.setLayout(new VerticalLayout());
+			
+			if(mode.equals("Kaeon Origin")) {
+				
+				for(int i = 0; i < ide.originSource.size(); i++) {
+					
+					JPanel panel = new JPanel();
+					panel.setBackground(Color.WHITE);
+					
+					panel.add(new JRadioButton());
+					
+					JLabel label = new JLabel(ide.originSource.get(i));
+					label.setFont(ide.font);
+					
+					panel.add(label);
+					
+					workspacePanel.add(panel);
+				}
+			}
+			
+			if(mode.equals("Kaeon FUSION")) {
+				
+				for(int i = 0; i < ide.fusionSource.size(); i++) {
+					
+					JPanel panel = new JPanel();
+					panel.setBackground(Color.WHITE);
+					
+					panel.add(new JRadioButton());
+					
+					JLabel label = new JLabel(ide.fusionSource.get(i));
+					label.setFont(ide.font);
+					
+					panel.add(label);
+					
+					workspacePanel.add(panel);
+				}
+			}
+			
+			JPanel navigate = new JPanel();
+			
+			navigate.setLayout(new GridLayout(2, 1));
+			navigate.setBackground(Color.WHITE);
+			
+			JPanel select = new JPanel();
+			
+			select.setLayout(new GridLayout(1, 2));
+			
+			select.add(createButton("All"));
+			select.add(createButton("None"));
+			
+			navigate.add(select);
+			navigate.add(createButton("Back"));
+			
+			panel.add(manage, BorderLayout.NORTH);
+			panel.add(new JScrollPane(workspacePanel), BorderLayout.CENTER);
+			panel.add(navigate, BorderLayout.SOUTH);
+			
+			back = command + " " + mode;
+		}
+
+		if(command.equals("Set Build")) {
+			
+			if(mode.equals("Kaeon Origin")) {
+				
+				int option =
+						JOptionPane.showConfirmDialog(
+								this,
+								(ide.originBuild != null ?
+										"The current build workspace is " +
+										ide.originBuild +
+										".\n\nWould you like to change the build workspace?" :
+										"There is no build workspace currently set." +
+										"\n\nWould you like to set a build workspace?"));
+				
+				if(option == JOptionPane.YES_OPTION) {
+					
+					String directory = getDirectory();
+					
+					if(directory != null)
+						ide.originBuild = directory;
+					
+					ide.saveState();
+				}
+				
+				else if(ide.originBuild != null) {
+					
+					option =
+							JOptionPane.showConfirmDialog(
+									this,
+									"Would you like to disable the current build workspace?");
+					
+					if(option == JOptionPane.YES_OPTION)
+						ide.originBuild = null;
+					
+					ide.saveState();
+				}
+			}
+			
+			if(mode.equals("Kaeon FUSION")) {
+				
+				int option =
+						JOptionPane.showConfirmDialog(
+								this,
+								(ide.fusionBuild != null ?
+										"The current build workspace is " +
+										ide.fusionBuild +
+										".\n\nWould you like to change the build workspace?" :
+										"There is no build workspace currently set." +
+										"\n\nWould you like to set a build workspace?"));
+				
+				if(option == JOptionPane.YES_OPTION) {
+					
+					String directory = getDirectory();
+					
+					if(directory != null)
+						ide.fusionBuild = directory;
+					
+					ide.saveState();
+				}
+				
+				else if(ide.fusionBuild != null) {
+					
+					option =
+							JOptionPane.showConfirmDialog(
+									this,
+									"Would you like to disable the current build workspace?");
+					
+					if(option == JOptionPane.YES_OPTION)
+						ide.fusionBuild = null;
+					
+					ide.saveState();
+				}
+			}
+		}
+
+		if(command.equals("Add Source")) {
+			
+			String directory = getDirectory();
+			
+			if(directory != null) {
+				
+				JPanel panel = new JPanel();
+				panel.setBackground(Color.WHITE);
+				
+				panel.add(new JRadioButton());
+				
+				JLabel label = new JLabel(directory);
+				label.setFont(ide.font);
+				
+				panel.add(label);
+				
+				workspacePanel.add(panel);
+				
+				if(mode.equals("Kaeon Origin"))
+					ide.originSource.add(directory);
+				
+				if(mode.equals("Kaeon FUSION"))
+					ide.fusionSource.add(directory);
+				
+				ide.saveState();
+			}
+		}
+
+		if(command.equals("All")) {
+			
+			for(int i = 0; i < workspacePanel.getComponentCount(); i++)
+				((JRadioButton) ((JPanel) workspacePanel.getComponent(i)).getComponent(0)).setSelected(true);
+		}
+
+		if(command.equals("None")) {
+			
+			for(int i = 0; i < workspacePanel.getComponentCount(); i++)
+				((JRadioButton) ((JPanel) workspacePanel.getComponent(i)).getComponent(0)).setSelected(false);
+		}
+
+		if(command.equals("Remove")) {
+			
+			for(int i = 0; i < workspacePanel.getComponentCount(); i++) {
+				
+				if(((JRadioButton) ((JPanel) workspacePanel.getComponent(i)).getComponent(0)).isSelected()) {
+					
+					if(mode.equals("Kaeon Origin"))
+						ide.originSource.remove(i);
+					
+					if(mode.equals("Kaeon FUSION"))
+						ide.originSource.remove(i);
+					
+					workspacePanel.remove(i);
+					
+					i--;
+				}
+			}
 		}
 		
 		if(command.equals("Enlarge Input") && !ide.inputEnlarged && ide.currentInput != null) {
@@ -211,6 +447,7 @@ public class OptionsPane extends JFrame implements ActionListener {
 			text.setTabSize(4);
 			
 			ide.enlargeText = text;
+			ide.enlargeOutput = null;
 			
 			enlargePanel.add(new JScrollPane(text), BorderLayout.CENTER);
 			enlargePanel.add(ide.createButton("Options"), BorderLayout.NORTH);
@@ -222,15 +459,13 @@ public class OptionsPane extends JFrame implements ActionListener {
 		
 		if(command.equals("Enlarge Output") && !ide.outputEnlarged && ide.currentOutput != null) {
 			
-			ide.outputEnlarged = true;
-			ide.inputEnlarged = false;
-			
 			ide.base.removeAll();
 			
 			enlargePanel = new JPanel();
 			enlargePanel.setLayout(new BorderLayout());
 			
-			ide.currentInput.text.setText(ide.enlargeText.getText());
+			if(ide.inputEnlarged)
+				ide.currentInput.text.setText(ide.enlargeText.getText());
 
 			JTextArea text = new JTextArea(ide.currentOutput.text.getText());
 			
@@ -238,12 +473,17 @@ public class OptionsPane extends JFrame implements ActionListener {
 			text.setEditable(false);
 			text.setTabSize(4);
 			
+			ide.enlargeOutput = text;
+			
 			enlargePanel.add(new JScrollPane(text), BorderLayout.CENTER);
 			enlargePanel.add(ide.createButton("Options"), BorderLayout.NORTH);
 			
 			ide.base.add(enlargePanel);
 			
 			ide.frame.revalidate();
+			
+			ide.outputEnlarged = true;
+			ide.inputEnlarged = false;
 		}
 		
 		if((command.equals("Minimize Input") && ide.inputEnlarged) ||
@@ -254,6 +494,9 @@ public class OptionsPane extends JFrame implements ActionListener {
 			
 			if(command.equals("Minimize Input"))
 				ide.currentInput.text.setText(ide.enlargeText.getText());
+			
+			if(command.equals("Minimize Input"))
+				ide.enlargeOutput = null;
 			
 			ide.base.removeAll();
 			ide.base.setLayout(new GridLayout(1, 1));
@@ -304,7 +547,7 @@ public class OptionsPane extends JFrame implements ActionListener {
 
 				arguments =
 						JOptionPane.showInputDialog(
-								ide.frame,
+								this,
 								"The current arguments are:\n\n" +
 										arguments +
 								"\n\nEnter the desired arguments:");
@@ -314,7 +557,7 @@ public class OptionsPane extends JFrame implements ActionListener {
 
 				arguments =
 						JOptionPane.showInputDialog(
-								ide.frame,
+								this,
 								"There are no current arguments.\n\n" +
 								"Enter the desired arguments:");
 			}
@@ -355,7 +598,6 @@ public class OptionsPane extends JFrame implements ActionListener {
 			catch(Exception exception) {
 				text.setForeground(Color.RED);
 				text.setText("Invalid ONE+.");
-				exception.printStackTrace();
 			}
 
 			oneFrame.add(new JScrollPane(text), BorderLayout.CENTER);
@@ -368,5 +610,25 @@ public class OptionsPane extends JFrame implements ActionListener {
 		}
 		
 		revalidate();
+	}
+	
+	public String getDirectory() {
+
+		JFileChooser chooser = new JFileChooser(); 
+		
+		if(ide.openFolder != null)
+			chooser.setCurrentDirectory(new java.io.File(ide.openFolder));
+		
+		else
+			chooser.setCurrentDirectory(new java.io.File("."));
+		
+		chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+		
+		chooser.setAcceptAllFileFilterUsed(false);
+		
+		if(chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION)
+			return chooser.getSelectedFile().getAbsolutePath() + File.separator;
+		
+		return null;
 	}
 }

@@ -7,6 +7,8 @@ import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
@@ -69,20 +71,43 @@ public class IDE implements ActionListener {
 	public boolean outputEnlarged;
 	
 	public JTextArea enlargeText;
+	public JTextArea enlargeOutput;
 
 	public Font font;
 
 	public int newFiles;
 	public int newConsoles;
-
-	public Element originData;
 	
-	public String folder;
+	public String openFolder;
+	public String saveFolder;
+	
+	public String originBuild;
+	public ArrayList<String> originSource;
+	
+	public String fusionBuild;
+	public ArrayList<String> fusionSource;
 
 	public IDE(Element originData) {
+
+		inputs = new ArrayList<Input>();
+		outputs = new ArrayList<Output>();
+
+		newFiles = 1;
+		
+		originSource = new ArrayList<String>();
+		fusionSource = new ArrayList<String>();
 		
 		initializeFrame();
-		initializeInputs(originData);
+		
+		try {
+			
+			if(originData.children.size() > 0)
+				initializeInputs(originData);
+		}
+		
+		catch(Exception exception) {
+			
+		}
 		
 		frame.revalidate();
 		
@@ -126,7 +151,16 @@ public class IDE implements ActionListener {
 
 		frame.setTitle("Kaeon Origin - Kaeon FUSION");
 		frame.setSize(scale(800), scale(500));
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		frame.addWindowListener(new WindowAdapter() {
+			
+		    public void windowClosing(WindowEvent e) {
+		    	
+		    	saveState();
+		    	
+		        System.exit(0);
+		    }
+		});
 	}
 
 	public static void initializeLookAndFeel() {
@@ -175,7 +209,6 @@ public class IDE implements ActionListener {
 
 		options = createButton("Options");
 		
-//		manage.add(options);
 		manage.add(io);
 		manage.add(file);
 
@@ -266,8 +299,6 @@ public class IDE implements ActionListener {
 
 		settings.setLayout(new GridLayout(1, 1));
 		settings.setBackground(Color.WHITE);
-
-//		settings.add(createButton("Set Arguments"));
 		
 		one = createButton("ONE");
 		
@@ -288,48 +319,103 @@ public class IDE implements ActionListener {
 
 	public void initializeInputs(Element originData) {
 
-		inputs = new ArrayList<Input>();
-		outputs = new ArrayList<Output>();
-
-		newFiles = 1;
-
 		Element files = null;
-
-		if(ElementUtilities.hasChild(originData, "Files"))
-			files = ElementUtilities.getChild(originData, "Files");
-
-		else {
-
-			files = new Element();
-			files.content = "Files";
-
-			originData.children.add(files);
+		
+		try {
+			
+			files =
+					ElementUtilities.getChild(
+							ElementUtilities.getChild(
+									ElementUtilities.getChild(originData, "Perspectives"),
+									"Kaeon FUSION"),
+							"Files");
 		}
-
-		for(Element file : files.children) {
-
+		
+		catch(Exception exception) {
+			files = new Element();
+		}
+		
+		for(int i = 0; i < files.children.size(); i++) {
+			
+			Element file = files.children.get(i);
+			
 			Input input = getInput();
 
-			int start = file.content.indexOf(File.separator) != -1 ? file.content.lastIndexOf(File.separator) + 1: 0;
-			int end = file.content.indexOf('.') != -1 ? file.content.lastIndexOf('.') : file.content.length();
+			input.button.setText(file.content);
+			
+			if(ElementUtilities.hasChild(file, "Path")) {
+				
+				input.path = ElementUtilities.getChild(file, "Path").children.get(0).content;
 
-			input.button.setText(file.content.substring(start, end));
-			input.path = file.content;
+				try {
+					input.text.setText(IO.openAsString(input.path));
+				}
+
+				catch(Exception exception) {
+
+				}
+			}
+			
+			else if(ElementUtilities.hasChild(file, "Source"))
+				input.text.setText(ElementUtilities.getChild(file, "Source").children.get(0).content);
+			
+			if(ElementUtilities.hasChild(file, "Arguments"))
+				input.arguments = ElementUtilities.getChild(file, "Arguments").children.get(0).content;
 
 			this.input.add(input.panel);
-
-			try {
-				input.text.setText(IO.openAsString(file.content));
-			}
-
-			catch(Exception exception) {
-
-			}
-
-			inputs.add(input);
 		}
-
-		this.originData = originData;
+		
+		String build =
+				ElementUtilities.getChild(
+						ElementUtilities.getChild(
+								ElementUtilities.getChild(
+										originData,
+										"Kaeon Origin"),
+								"Workspace"),
+						"Build").children.get(0).content;
+		
+		if(build.length() > 0)
+			originBuild = build;
+		
+		Element source =
+				ElementUtilities.getChild(
+						ElementUtilities.getChild(
+								ElementUtilities.getChild(
+										originData,
+										"Kaeon Origin"),
+								"Workspace"),
+						"Source");
+		
+		for(int i = 0; i < source.children.size(); i++)
+			originSource.add(source.children.get(i).content);
+		
+		build =
+				ElementUtilities.getChild(
+					ElementUtilities.getChild(
+							ElementUtilities.getChild(
+									ElementUtilities.getChild(
+											originData,
+											"Perspectives"),
+									"Kaeon FUSION"),
+							"Workspace"),
+					"Build").children.get(0).content;
+		
+		if(build.length() > 0)
+			fusionBuild = build;
+		
+		source =
+				ElementUtilities.getChild(
+						ElementUtilities.getChild(
+								ElementUtilities.getChild(
+										ElementUtilities.getChild(
+												originData,
+												"Perspectives"),
+										"Kaeon FUSION"),
+								"Workspace"),
+						"Source");
+		
+		for(int i = 0; i < source.children.size(); i++)
+			fusionSource.add(source.children.get(i).content);
 	}
 
 	public JButton createButton(String string, Color color, Color textColor) {
@@ -365,9 +451,6 @@ public class IDE implements ActionListener {
 		String command = actionEvent.getActionCommand();
 
 		if(command.equals("Options")) {
-			
-//			options.setEnabled(false);
-			
 			new OptionsPane(this);
 		}
 		
@@ -493,8 +576,13 @@ public class IDE implements ActionListener {
 						for(Object object : processed)
 							string += object;
 
-						if(((String) packet.get(0)).equalsIgnoreCase("Log"))
+						if(((String) packet.get(0)).equalsIgnoreCase("Log")) {
+							
 							output.text.setText(output.text.getText() + string);
+							
+							if(enlargeOutput != null)
+								enlargeOutput.setText(enlargeOutput.getText() + string);
+						}
 
 						if(((String) packet.get(0)).equalsIgnoreCase("Input"))
 							return JOptionPane.showInputDialog(frame, string);
@@ -507,6 +595,39 @@ public class IDE implements ActionListener {
 			console.tags.add("Console");
 
 			PhilosophersStoneUtilities.publiclyConnect(fusion, console);
+
+			PhilosophersStone workspace = new PhilosophersStone() {
+
+				public Object onCall(ArrayList<Object> packet) {
+
+					if(((String) packet.get(0)).equalsIgnoreCase("Get Workspace")) {
+						
+						ArrayList<String> workspace = new ArrayList<String>();
+
+						workspace.addAll(originSource);
+						workspace.addAll(fusionSource);
+						
+						return workspace;
+					}
+
+					if(((String) packet.get(0)).equalsIgnoreCase("Get Build Workspace")) {
+						
+						if(fusionBuild != null)
+							return fusionBuild;
+						
+						if(originBuild != null)
+							return originBuild;
+						
+						return "";
+					}
+					
+					return null;
+				}
+			};
+
+			workspace.tags.add("Workspace");
+
+			PhilosophersStoneUtilities.publiclyConnect(fusion, workspace);
 
 			PhilosophersStoneUtilities.publiclyConnect(
 					fusion,
@@ -622,7 +743,6 @@ public class IDE implements ActionListener {
 			catch(Exception exception) {
 				text.setForeground(Color.RED);
 				text.setText("Invalid ONE+.");
-				exception.printStackTrace();
 			}
 
 			in.add(new JScrollPane(text), BorderLayout.CENTER);
@@ -681,8 +801,8 @@ public class IDE implements ActionListener {
 			
 			JFileChooser chooser = new JFileChooser();
 			
-			if(folder != null)
-				chooser.setCurrentDirectory(new File(folder, ""));
+			if(openFolder != null)
+				chooser.setCurrentDirectory(new File(openFolder, ""));
 			
 			int returnVal = chooser.showOpenDialog(null);
 
@@ -692,7 +812,7 @@ public class IDE implements ActionListener {
 			if(file == null)
 				return;
 
-			folder = file.getAbsolutePath().substring(0,
+			openFolder = file.getAbsolutePath().substring(0,
 					file.getAbsolutePath().lastIndexOf(File.separator));
 
 			String name = file.getAbsolutePath().substring(
@@ -796,6 +916,37 @@ public class IDE implements ActionListener {
 		}
 
 		if(command.equals("Export") && currentInput != null) {
+			
+			String export = "";
+			
+			if(fusionBuild != null)
+				export = fusionBuild;
+			
+			else if(originBuild != null)
+				export = originBuild;
+			
+			export += currentInput.button.getText() + File.separator;
+			
+			File directory = new File(export);
+			
+		    if(!directory.exists())
+		        directory.mkdir();
+			
+			for(int i = 0; i < inputs.size(); i++) {
+				
+				if(inputs.get(i).radioButton.isSelected() || inputs.get(i) == currentInput) {
+					
+					IO.save(
+							inputs.get(i).path != null ?
+									IO.openAsString(inputs.get(i).path) :
+									inputs.get(i).text.getText(),
+							export +
+							(inputs.get(i).path != null ?
+									inputs.get(i).path.substring(inputs.get(i).path.lastIndexOf(File.separator) + 1) :
+									inputs.get(i).button.getText() + ".op"));
+				}
+			}
+			
 			JOptionPane.showMessageDialog(frame, "Exported successfully.");
 		}
 
@@ -810,33 +961,19 @@ public class IDE implements ActionListener {
 
 		else {
 
-			while(true) {
+			JOptionPane.showMessageDialog(frame, "Save " + input.button.getText() + ".");
 
-				JOptionPane.showMessageDialog(frame, "Save " + input.button.getText() + ".");
+			File file = saveAs(input.text.getText());
 
-				File file = saveAs(input.text.getText());
+			if(file != null) {
 
-				if(file != null) {
-
-					String name = file.getAbsolutePath();
-					input.path = name;
-					
-					int start = name.indexOf(File.separator) != -1 ? name.lastIndexOf(File.separator) + 1 : 0;
-					int end = name.indexOf('.') != -1 ? name.lastIndexOf('.') : name.length();
-					
-					input.button.setText(name.substring(start, end));
-
-					break;
-				}
-
-				int option = JOptionPane.showConfirmDialog(
-						frame,
-						"Would you to continue without saving " + input.button.getText() + "?",
-						"Kaeon Origin",
-						JOptionPane.YES_NO_OPTION);
+				String name = file.getAbsolutePath();
+				input.path = name;
 				
-				if(option == JOptionPane.YES_OPTION)
-					break;
+				int start = name.indexOf(File.separator) != -1 ? name.lastIndexOf(File.separator) + 1 : 0;
+				int end = name.indexOf('.') != -1 ? name.lastIndexOf('.') : name.length();
+				
+				input.button.setText(name.substring(start, end));
 			}
 		}
 	}
@@ -1004,41 +1141,134 @@ public class IDE implements ActionListener {
 	}
 
 	public void saveState() {
-
-		ElementUtilities.removeChild(originData, "Files");
-
-		Element files = new Element();
-		files.content = "Files";
-
-		for(Input input : inputs) {
-
-			if(input.path == null)
-				continue;
+		
+		Element element = new Element();
+		
+		Element origin = ElementUtilities.createElement("Kaeon Origin");
+		ElementUtilities.addChild(element, origin);
+		
+		Element perspective = ElementUtilities.createElement("Perspective");
+		ElementUtilities.addChild(origin, perspective);
+		
+		ElementUtilities.addChild(perspective, ElementUtilities.createElement("Kaeon FUSION"));
+		
+		Element originWorkspace = ElementUtilities.createElement("Workspace");
+		ElementUtilities.addChild(origin, originWorkspace);
+		
+		Element originSource = ElementUtilities.createElement("Source");
+		ElementUtilities.addChild(originWorkspace, originSource);
+		
+		for(int i = 0; i < this.originSource.size(); i++)
+			ElementUtilities.addChild(originSource, ElementUtilities.createElement(this.originSource.get(i)));
+		
+		Element originBuild = ElementUtilities.createElement("Build");
+		ElementUtilities.addChild(originWorkspace, originBuild);
+		
+		if(this.originBuild != null)
+			ElementUtilities.addChild(originBuild, ElementUtilities.createElement(this.originBuild));
+		
+		else
+			ElementUtilities.addChild(originBuild, ElementUtilities.createElement(""));
+		
+		Element folder = ElementUtilities.createElement("Folder");
+		ElementUtilities.addChild(origin, folder);
+		
+		Element open = ElementUtilities.createElement("Open");
+		ElementUtilities.addChild(folder, open);
+		
+		if(openFolder != null)
+			ElementUtilities.addChild(open, ElementUtilities.createElement(openFolder));
+		
+		else
+			ElementUtilities.addChild(open, ElementUtilities.createElement(""));
+		
+		Element save = ElementUtilities.createElement("Save");
+		ElementUtilities.addChild(folder, save);
+		
+		if(saveFolder != null)
+			ElementUtilities.addChild(save, ElementUtilities.createElement(saveFolder));
+		
+		else
+			ElementUtilities.addChild(save, ElementUtilities.createElement(""));
+		
+		Element perspectives = ElementUtilities.createElement("Perspectives");
+		ElementUtilities.addChild(element, perspectives);
+		
+		Element fusion = ElementUtilities.createElement("Kaeon FUSION");
+		ElementUtilities.addChild(perspectives, fusion);
+		
+		Element fusionWorkspace = ElementUtilities.createElement("Workspace");
+		ElementUtilities.addChild(fusion, fusionWorkspace);
+		
+		Element fusionSource = ElementUtilities.createElement("Source");
+		ElementUtilities.addChild(fusionWorkspace, fusionSource);
+		
+		for(int i = 0; i < this.fusionSource.size(); i++)
+			ElementUtilities.addChild(fusionSource, ElementUtilities.createElement(this.fusionSource.get(i)));
+		
+		Element fusionBuild = ElementUtilities.createElement("Build");
+		ElementUtilities.addChild(fusionWorkspace, fusionBuild);
+		
+		if(this.fusionBuild != null)
+			ElementUtilities.addChild(fusionBuild, ElementUtilities.createElement(this.fusionBuild));
+		
+		else
+			ElementUtilities.addChild(fusionBuild, ElementUtilities.createElement(""));
+		
+		Element files = ElementUtilities.createElement("Files");
+		ElementUtilities.addChild(fusion, files);
+		
+		for(int i = 0; i < inputs.size(); i++) {
 			
-			boolean repeat = false;
+			String name = inputs.get(i).button.getText();
 			
-			for(Element file : files.children) {
+			if(inputs.get(i).path == null && !name.endsWith(" [SAVED]"))
+				name += " [SAVED]";
+			
+			Element file = ElementUtilities.createElement(name);
+			ElementUtilities.addChild(files, file);
+			
+			if(inputs.get(i).path != null) {
 				
-				if(input.path.equalsIgnoreCase(file.content)) {
-					
-					repeat = true;
-					
-					break;
-				}
+				Element path = ElementUtilities.createElement("Path");
+				ElementUtilities.addChild(file, path);
+				
+				ElementUtilities.addChild(path, ElementUtilities.createElement(inputs.get(i).path));
 			}
 			
-			if(repeat)
-				continue;
+			else {
+				
+				Element source = ElementUtilities.createElement("Source");
+				ElementUtilities.addChild(file, source);
+				
+				ElementUtilities.addChild(source, ElementUtilities.createElement(inputs.get(i).text.getText()));
+			}
 			
-			Element file = new Element();
-			file.content = input.path;
-
-			ElementUtilities.addChild(files, file);
+			if(inputs.get(i).arguments != null) {
+				
+				Element arguments = ElementUtilities.createElement("Arguments");
+				ElementUtilities.addChild(file, arguments);
+				
+				ElementUtilities.addChild(arguments, ElementUtilities.createElement(inputs.get(i).arguments));
+			}
 		}
-
-		ElementUtilities.addChild(originData, files);
 		
-		IO.save("" + originData, "Origin.op");
+		for(int i = 0; i < files.children.size(); i++) {
+			
+			int match = 1;
+			
+			for(int j = i + 1; j < files.children.size(); j++) {
+				
+				if(files.children.get(i).content.equals(files.children.get(j).content)) {
+					
+					files.children.get(j).content = match + " - " + files.children.get(j).content;
+					
+					match++;
+				}
+			}
+		}
+		
+		IO.save("" + element, "Origin.op");
 	}
 
 	public File saveAs(String file) {
@@ -1053,8 +1283,8 @@ public class IDE implements ActionListener {
 
 		JFileChooser fc = new JFileChooser();
 		
-		if(folder != null)
-			fc.setCurrentDirectory(new File(folder, ""));
+		if(saveFolder != null)
+			fc.setCurrentDirectory(new File(saveFolder, ""));
 		
 		PrintWriter outputStream = null;
 
@@ -1066,7 +1296,7 @@ public class IDE implements ActionListener {
 
 			file = fc.getSelectedFile();
 
-			folder = file.getAbsolutePath().substring(0,
+			saveFolder = file.getAbsolutePath().substring(0,
 					file.getAbsolutePath().lastIndexOf(File.separator));
 
 			try {
