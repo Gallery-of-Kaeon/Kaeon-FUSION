@@ -100,17 +100,19 @@ public class CrossDialect extends Dialect {
 					
 					for(int j = i + 1; j < element.children.size(); j++) {
 	
-						String operation =
-								buildElement(
-										name,
-										element.children.get(j),
-										categories,
-										new ArrayList<String>(variables),
-										metaCopy,
-										nest + 1);
+						Element operation = element.children.get(j);
 						
-						if(operation != null)
-							arguments.add(buildObjectOperation(operator, operation, metaCopy));
+						if(operation != null) {
+							
+							arguments.add(
+									buildObjectOperation(
+											operator,
+											operation,
+											metaCopy,
+											categories,
+											variables,
+											nest));
+						}
 					}
 					
 					break;
@@ -192,17 +194,17 @@ public class CrossDialect extends Dialect {
 									new ArrayList<String>(variables),
 									meta,
 									nest + 1);
-
-					String operation =
-							buildElement(
-									name,
-									element.children.get(1),
-									categories,
-									new ArrayList<String>(variables),
-									meta,
-									nest + 1);
 					
-					return buildObjectOperation(operator, operation, meta);
+					Element operation = element.children.get(1);
+					
+					return
+							buildObjectOperation(
+									operator,
+									operation,
+									meta,
+									categories,
+									variables,
+									nest);
 				}
 			}
 			
@@ -468,6 +470,31 @@ public class CrossDialect extends Dialect {
 		return identifier;
 	}
 	
+	public String buildInfix(Element element, ArrayList<String> arguments, Element meta, String infix) {
+		
+		String build = "(" + arguments.get(0);
+		
+		for(int i = 1; i < arguments.size(); i++)
+			build += infix + arguments.get(i);
+		
+		return build + ")";
+	}
+	
+	public String buildLogicInfix(Element element, ArrayList<String> arguments, Element meta, String infix) {
+		
+		String build = "(";
+		
+		for(int i = 0; i < arguments.size() - 1; i++) {
+			
+			build += "(" + arguments.get(i) + infix + arguments.get(i + 1) + ")";
+			
+			if(i < arguments.size() - 2)
+				build += " and ";
+		}
+		
+		return build + ")";
+	}
+	
 	public String buildMain(
 			String name,
 			Element main,
@@ -487,7 +514,7 @@ public class CrossDialect extends Dialect {
 	}
 	
 	public String buildBodyElementSeparator() {
-		return "";
+		return ";";
 	}
 	
 	public void ammendMeta(Element meta, Element element, ArrayList<Category> categories) {
@@ -512,6 +539,14 @@ public class CrossDialect extends Dialect {
 			if(!found)
 				ElementUtilities.addChild(meta, ElementUtilities.copyElement(element.children.get(i)));
 		}
+		
+		if(ElementUtilities.hasChild(element, "Functions")) {
+			
+			Element functions = ElementUtilities.getChild(element, "Functions");
+			
+			for(int i = 0; i < functions.children.size(); i++)
+				getCategory(categories, "Function Names").objects.add(functions.children.get(i).content);
+		}
 	}
 	
 	public boolean trickleDown(Element element, Element meta, ArrayList<Category> categories) {
@@ -520,17 +555,47 @@ public class CrossDialect extends Dialect {
 	
 	public String buildObjectOperation(
 			String operator,
-			String operation,
-			Element meta) {
+			Element operation,
+			Element meta,
+			ArrayList<Category> categories,
+			ArrayList<String> variables,
+			int nest) {
 		
-		return "";
+		String operationString = "";
+		
+		if(operation.content.equalsIgnoreCase("Return"))
+			operationString = operation.children.get(0).content;
+		
+		else {
+			
+			ArrayList<String> arguments = new ArrayList<String>();
+			
+			for(int i = 0; i < operation.children.size(); i++) {
+				
+				String argument =
+						buildElement(
+								"",
+								operation.children.get(i),
+								categories,
+								new ArrayList<String>(variables),
+								meta,
+								nest + 1);
+				
+				if(argument != null)
+					arguments.add(argument);
+			}
+			
+			operationString = buildFunctionCall(operation, arguments, meta);
+		}
+		
+		return operator + buildObjectOperator(meta) + operationString;
 	}
 	
-	public String buildOperator(
-			Element element,
-			ArrayList<String> arguments,
-			Element meta) {
-		
+	public String buildObjectOperator(Element meta) {
+		return ".";
+	}
+	
+	public String buildOperator(Element element, ArrayList<String> arguments, Element meta) {
 		return null;
 	}
 	
@@ -548,7 +613,7 @@ public class CrossDialect extends Dialect {
 		}
 		
 		if(element.content.equalsIgnoreCase("true") || element.content.equalsIgnoreCase("false"))
-			return element.content;
+			return element.content.toLowerCase();
 		
 		if(element.content.indexOf('\"') == 0 &&
 				element.content.lastIndexOf('\"') == element.content.length() - 1) {
@@ -567,15 +632,26 @@ public class CrossDialect extends Dialect {
 	}
 	
 	public String buildVariableAssignment(Element element, ArrayList<String> arguments, Element meta) {
-		return "";
+		return element.content + "=" + arguments.get(0);
 	}
 	
 	public String buildVariableReference(Element element, ArrayList<String> arguments, Element meta) {
-		return "";
+		return element.content;
 	}
 	
 	public String buildFunctionCall(Element element, ArrayList<String> arguments, Element meta) {
-		return "";
+		
+		String build = element.content + "(";
+		
+		for(int i = 0; i < arguments.size(); i++) {
+			
+			build += arguments.get(i);
+			
+			if(i < arguments.size() - 1)
+				build += ",";
+		}
+		
+		return build + ")";
 	}
 	
 	public String buildLiteralCommand(Element element, ArrayList<String> arguments, Element meta) {
@@ -627,19 +703,39 @@ public class CrossDialect extends Dialect {
 	}
 	
 	public String buildScope(Element element, ArrayList<String> arguments, Element meta, int nest) {
-		return "";
+		
+		String build = "while(true){";
+		
+		for(int i = 0; i < arguments.size(); i++)
+			build += arguments.get(i) + buildBodyElementSeparator();;
+		
+		return build + "break;}";
 	}
 	
 	public String buildBreak(Element element, ArrayList<String> arguments, Element meta, int nest) {
-		return "";
+		
+		return
+				"if(" +
+				(arguments.size() > 0 ? arguments.get(0) : "true") +
+				"){scope=true;break;}";
 	}
 	
 	public String buildElse(Element element, ArrayList<String> arguments, Element meta, int nest) {
-		return "";
+		
+		String build = "if(scope){scope=false;while(true){";
+		
+		for(int i = 0; i < arguments.size(); i++)
+			build += arguments.get(i) + buildBodyElementSeparator();;
+		
+		return build + "break;}}";
 	}
 	
 	public String buildLoop(Element element, ArrayList<String> arguments, Element meta, int nest) {
-		return "";
+		
+		return
+				"if(" +
+				(arguments.size() > 0 ? arguments.get(0) : "true") +
+				"){scope=true;continue;}";
 	}
 	
 	public String buildWait(Element element, ArrayList<String> arguments, Element meta) {
@@ -687,7 +783,7 @@ public class CrossDialect extends Dialect {
 	}
 	
 	public String buildAt(Element element, ArrayList<String> arguments, Element meta) {
-		return "";
+		return arguments.get(0) + "[(" + arguments.get(1) + ")-1]";
 	}
 	
 	public String buildAppend(Element element, ArrayList<String> arguments, Element meta) {
@@ -759,63 +855,63 @@ public class CrossDialect extends Dialect {
 	}
 	
 	public String buildNot(Element element, ArrayList<String> arguments, Element meta) {
-		return "";
+		return "!(" + arguments.get(0) + ")";
 	}
 	
 	public String buildIs(Element element, ArrayList<String> arguments, Element meta) {
-		return "";
+		return buildLogicInfix(element, arguments, meta, "==");
 	}
 	
 	public String buildEqual(Element element, ArrayList<String> arguments, Element meta) {
-		return "";
+		return buildIs(element, arguments, meta);
 	}
 	
 	public String buildAnd(Element element, ArrayList<String> arguments, Element meta) {
-		return "";
+		return buildInfix(element, arguments, meta, "&&");
 	}
 	
 	public String buildOr(Element element, ArrayList<String> arguments, Element meta) {
-		return "";
+		return buildInfix(element, arguments, meta, "||");
 	}
 	
 	public String buildExclusiveOr(Element element, ArrayList<String> arguments, Element meta) {
-		return "";
+		return buildInfix(element, arguments, meta, "^");
 	}
 	
 	public String buildGreater(Element element, ArrayList<String> arguments, Element meta) {
-		return "";
+		return buildLogicInfix(element, arguments, meta, ">");
 	}
 	
 	public String buildGreaterOrEqual(Element element, ArrayList<String> arguments, Element meta) {
-		return "";
+		return buildLogicInfix(element, arguments, meta, ">=");
 	}
 	
 	public String buildLess(Element element, ArrayList<String> arguments, Element meta) {
-		return "";
+		return buildLogicInfix(element, arguments, meta, "<");
 	}
 	
 	public String buildLessOrEqual(Element element, ArrayList<String> arguments, Element meta) {
-		return "";
+		return buildLogicInfix(element, arguments, meta, "<=");
 	}
 	
 	public String buildAdd(Element element, ArrayList<String> arguments, Element meta) {
-		return "";
+		return buildInfix(element, arguments, meta, "+");
 	}
 	
 	public String buildSubtract(Element element, ArrayList<String> arguments, Element meta) {
-		return "";
+		return buildInfix(element, arguments, meta, "-");
 	}
 	
 	public String buildMultiply(Element element, ArrayList<String> arguments, Element meta) {
-		return "";
+		return buildInfix(element, arguments, meta, "*");
 	}
 	
 	public String buildDivide(Element element, ArrayList<String> arguments, Element meta) {
-		return "";
+		return buildInfix(element, arguments, meta, "/");
 	}
 	
 	public String buildModulus(Element element, ArrayList<String> arguments, Element meta) {
-		return "";
+		return buildInfix(element, arguments, meta, "%");
 	}
 	
 	public String buildRandom(Element element, ArrayList<String> arguments, Element meta) {

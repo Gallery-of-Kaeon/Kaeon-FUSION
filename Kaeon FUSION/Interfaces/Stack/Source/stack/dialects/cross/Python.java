@@ -51,19 +51,6 @@ public class Python extends CrossDialect {
 		return true;
 	}
 	
-	public void ammendMeta(Element meta, Element element, ArrayList<Category> categories) {
-		
-		super.ammendMeta(meta, element, categories);
-		
-		if(ElementUtilities.hasChild(element, "Functions")) {
-			
-			Element functions = ElementUtilities.getChild(element, "Functions");
-			
-			for(int i = 0; i < functions.children.size(); i++)
-				getCategory(categories, "Function Names").objects.add(functions.children.get(i).content);
-		}
-	}
-	
 	public String buildLiteral(Element element, ArrayList<String> arguments, Element meta) {
 		
 		try {
@@ -96,15 +83,7 @@ public class Python extends CrossDialect {
 	}
 	
 	public String buildVariableDeclaration(Element element, ArrayList<String> arguments, Element meta) {
-		return element.content + "=" + arguments.get(0);
-	}
-	
-	public String buildVariableAssignment(Element element, ArrayList<String> arguments, Element meta) {
-		return buildVariableDeclaration(element, arguments, meta);
-	}
-	
-	public String buildVariableReference(Element element, ArrayList<String> arguments, Element meta) {
-		return element.content;
+		return buildVariableAssignment(element, arguments, meta);
 	}
 	
 	public String buildFunctionCall(Element element, ArrayList<String> arguments, Element meta) {
@@ -492,10 +471,6 @@ public class Python extends CrossDialect {
 		return "len(" + arguments.get(0) + ")";
 	}
 	
-	public String buildAt(Element element, ArrayList<String> arguments, Element meta) {
-		return arguments.get(0) + "[(" + arguments.get(1) + ")-1]";
-	}
-	
 	public String buildAppend(Element element, ArrayList<String> arguments, Element meta) {
 		return arguments.get(0) + ".append(" + arguments.get(1) + ")";
 	}
@@ -531,85 +506,12 @@ public class Python extends CrossDialect {
 		return "not (" + arguments.get(0) + ")";
 	}
 	
-	public String buildInfix(Element element, ArrayList<String> arguments, Element meta, String infix) {
-		
-		String build = "(" + arguments.get(0);
-		
-		for(int i = 1; i < arguments.size(); i++)
-			build += infix + arguments.get(i);
-		
-		return build + ")";
-	}
-	
-	public String buildLogicInfix(Element element, ArrayList<String> arguments, Element meta, String infix) {
-		
-		String build = "(";
-		
-		for(int i = 0; i < arguments.size() - 1; i++) {
-			
-			build += "(" + arguments.get(i) + infix + arguments.get(i + 1) + ")";
-			
-			if(i < arguments.size() - 2)
-				build += " and ";
-		}
-		
-		return build + ")";
-	}
-	
-	public String buildIs(Element element, ArrayList<String> arguments, Element meta) {
-		return buildLogicInfix(element, arguments, meta, "==");
-	}
-	
-	public String buildEqual(Element element, ArrayList<String> arguments, Element meta) {
-		return buildIs(element, arguments, meta);
-	}
-	
-	public String buildAnd(Element element, ArrayList<String> arguments, Element meta) {
-		return buildInfix(element, arguments, meta, " and ");
-	}
-	
 	public String buildOr(Element element, ArrayList<String> arguments, Element meta) {
 		return buildInfix(element, arguments, meta, " or ");
 	}
 	
 	public String buildExclusiveOr(Element element, ArrayList<String> arguments, Element meta) {
 		return buildInfix(element, arguments, meta, " xor ");
-	}
-	
-	public String buildGreater(Element element, ArrayList<String> arguments, Element meta) {
-		return buildLogicInfix(element, arguments, meta, ">");
-	}
-	
-	public String buildGreaterOrEqual(Element element, ArrayList<String> arguments, Element meta) {
-		return buildLogicInfix(element, arguments, meta, ">=");
-	}
-	
-	public String buildLess(Element element, ArrayList<String> arguments, Element meta) {
-		return buildLogicInfix(element, arguments, meta, "<");
-	}
-	
-	public String buildLessOrEqual(Element element, ArrayList<String> arguments, Element meta) {
-		return buildLogicInfix(element, arguments, meta, "<=");
-	}
-	
-	public String buildAdd(Element element, ArrayList<String> arguments, Element meta) {
-		return buildInfix(element, arguments, meta, "+");
-	}
-	
-	public String buildSubtract(Element element, ArrayList<String> arguments, Element meta) {
-		return buildInfix(element, arguments, meta, "-");
-	}
-	
-	public String buildMultiply(Element element, ArrayList<String> arguments, Element meta) {
-		return buildInfix(element, arguments, meta, "*");
-	}
-	
-	public String buildDivide(Element element, ArrayList<String> arguments, Element meta) {
-		return buildInfix(element, arguments, meta, "/");
-	}
-	
-	public String buildModulus(Element element, ArrayList<String> arguments, Element meta) {
-		return buildInfix(element, arguments, meta, "%");
 	}
 	
 	public String indentBody(String body, int indent) {
