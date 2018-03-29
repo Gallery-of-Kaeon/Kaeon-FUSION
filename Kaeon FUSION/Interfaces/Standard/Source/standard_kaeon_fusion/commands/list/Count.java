@@ -36,13 +36,10 @@ public class Count extends FUSIONUnit {
 		String string = "" + processed.get(0);
 		String item = "" + processed.get(1);
 		
-		int from = 0;
-		
-		while(string.indexOf(item, from) != -1) {
+		for(int i = 0; i <= string.length() - item.length() && i < string.length(); i++) {
 			
-			from = string.indexOf(item) + item.length();
-			
-			count++;
+			if(string.substring(i, i + item.length()).equals(item))
+				count++;
 		}
 		
 		return count;
