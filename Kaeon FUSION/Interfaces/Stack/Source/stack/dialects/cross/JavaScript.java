@@ -26,8 +26,8 @@ public class JavaScript extends CrossDialect {
 		files.add(file);
 	}
 	
-	public String buildVariableDeclaration(Element element, ArrayList<String> arguments, Element meta) {
-		return "var " + buildVariableAssignment(element, arguments, meta);
+	public String buildVariableDeclarationType(Element element, ArrayList<String> arguments, Element meta) {
+		return "var";
 	}
 	
 	public String buildLog(Element element, ArrayList<String> arguments, Element meta) {

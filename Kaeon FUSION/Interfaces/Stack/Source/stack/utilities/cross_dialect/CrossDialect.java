@@ -550,6 +550,10 @@ public class CrossDialect extends Dialect {
 	}
 	
 	public boolean trickleDown(Element element, Element meta, ArrayList<Category> categories) {
+		
+		if(element.content.equalsIgnoreCase("Define"))
+			return false;
+		
 		return true;
 	}
 	
@@ -587,6 +591,9 @@ public class CrossDialect extends Dialect {
 			
 			operationString = buildFunctionCall(operation, arguments, meta);
 		}
+		
+		if(operator.startsWith("\"") && operator.endsWith("\"") && operator.length() > 1)
+			operator = operator.substring(1, operator.length() - 1);
 		
 		return operator + buildObjectOperator(meta) + operationString;
 	}
@@ -628,6 +635,20 @@ public class CrossDialect extends Dialect {
 	}
 	
 	public String buildVariableDeclaration(Element element, ArrayList<String> arguments, Element meta) {
+		
+		return
+				buildVariableDeclarationType(
+						element,
+						arguments,
+						meta) +
+				" " +
+				buildVariableAssignment(
+						element,
+						arguments,
+						meta);
+	}
+	
+	public String buildVariableDeclarationType(Element element, ArrayList<String> arguments, Element meta) {
 		return "";
 	}
 	
@@ -663,6 +684,107 @@ public class CrossDialect extends Dialect {
 	}
 	
 	public String buildDefine(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		
+		Element metaCopy = ElementUtilities.copyElement(meta);
+		
+		for(int i = 0; i < element.children.size(); i++) {
+			
+			if(element.children.get(i).content.equalsIgnoreCase("Meta")) {
+				
+				ammendMeta(metaCopy, element.children.get(i), categories);
+				
+				continue;
+			}
+			
+			String definition = "Function";
+			
+			if(ElementUtilities.hasChild(metaCopy, "Definition"))
+				definition = ElementUtilities.getChild(metaCopy, "Definition").children.get(0).content;
+			
+			if(definition.equalsIgnoreCase("Class")) {
+						
+				ArrayList<Category> newCategories = new ArrayList<Category>(categories);
+				
+				for(int j = 0; j < newCategories.size(); j++) {
+					
+					if(newCategories.get(j).name.equalsIgnoreCase("Functions") ||
+							newCategories.get(j).name.equalsIgnoreCase("Function Names")) {
+					
+						newCategories.remove(j);
+						
+						j--;
+					}
+				}
+				
+				Category functions = new Category();
+				
+				functions.name = "Functions";
+				
+				newCategories.add(functions);
+				
+				Category functionNames = new Category();
+				
+				functionNames.name = "Function Names";
+				functionNames.objects = new ArrayList<Object>(getCategory(categories, "Function Names").objects);
+				
+				newCategories.add(functionNames);
+				
+				ArrayList<String> inheritence = new ArrayList<String>();
+				
+				for(int j = 0; j < ElementUtilities.getChild(metaCopy, "Definition").children.get(0).children.size(); j++)
+					inheritence.add(ElementUtilities.getChild(metaCopy, "Definition").children.get(0).children.get(i).content);
+				
+				String constructor =
+						buildFunctionDefinition(
+								element.children.get(i),
+								buildFunctionBody(element.children.get(i), newCategories, metaCopy),
+								metaCopy,
+								newCategories,
+								true);
+				
+				getCategory(categories, "Classes").objects.add(
+						buildClassDefinition(
+								element.children.get(i),
+								constructor,
+								metaCopy,
+								newCategories,
+								inheritence));
+			}
+			
+			else {
+				
+				getCategory(categories, "Functions").objects.add(
+						buildFunctionDefinition(
+								element.children.get(i),
+								buildFunctionBody(element.children.get(i), categories, metaCopy),
+								metaCopy,
+								categories,
+								false));
+			}
+		}
+		
+		return null;
+	}
+	
+	public String buildFunctionBody(Element function, ArrayList<Category> categories, Element metaCopy) {
+		
+		Element functionElement = ElementUtilities.copyElement(function);
+		functionElement.content = null;
+		
+		return buildElement(
+				"",
+				functionElement,
+				categories,
+				new ArrayList<String>(),
+				metaCopy,
+				0);
+	}
+	
+	public String buildFunctionDefinition(Element function, String functionBody, Element metaCopy, ArrayList<Category> categories, boolean isConstructor) {
+		return "";
+	}
+	
+	public String buildClassDefinition(Element classElement, String constructor, Element metaCopy, ArrayList<Category> newCategories, ArrayList<String> inheritence) {
 		return "";
 	}
 	
@@ -791,7 +913,7 @@ public class CrossDialect extends Dialect {
 	}
 	
 	public String buildSet(Element element, ArrayList<String> arguments, Element meta) {
-		return "";
+		return arguments.get(0) + "[(" + arguments.get(1) + ")-1]=" + arguments.get(2);
 	}
 	
 	public String buildInsert(Element element, ArrayList<String> arguments, Element meta) {
