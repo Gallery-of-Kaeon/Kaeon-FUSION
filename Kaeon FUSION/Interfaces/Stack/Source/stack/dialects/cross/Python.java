@@ -25,7 +25,7 @@ public class Python extends CrossDialect {
 		Category imports = getCategory(categories, "Imports");
 		
 		for(int i = 0; i < imports.objects.size(); i++)
-			build = imports.objects.get(i) + build;
+			build = "import " + imports.objects.get(i) + "\n" + build;
 		
 		Category functions = getCategory(categories, "Functions");
 		
@@ -147,17 +147,6 @@ public class Python extends CrossDialect {
 		return build;
 	}
 	
-	public String buildArguments(Element element, ArrayList<String> arguments, Element meta) {
-		return "arguments";
-	}
-	
-	public String buildImport(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
-		
-		getCategory(categories, "Imports").objects.add("import " + element.children.get(0).content + "\n");
-		
-		return null;
-	}
-	
 	public String buildThis(Element element, ArrayList<String> arguments, Element meta) {
 		return "self";
 	}
@@ -199,13 +188,6 @@ public class Python extends CrossDialect {
 	
 	public String buildNull(Element element, ArrayList<String> arguments, Element meta) {
 		return "null";
-	}
-	
-	public String buildReturn(Element element, ArrayList<String> arguments, Element meta) {
-		
-		String build = "return ";
-		
-		return build + arguments.get(0);
 	}
 	
 	public String indent(int indent) {

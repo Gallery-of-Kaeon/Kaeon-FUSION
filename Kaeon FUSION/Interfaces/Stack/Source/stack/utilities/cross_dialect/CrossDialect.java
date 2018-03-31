@@ -99,7 +99,14 @@ public class CrossDialect extends Dialect {
 									nest + 1);
 					
 					for(int j = i + 1; j < element.children.size(); j++) {
-	
+						
+						if(element.children.get(i).equals("Meta")) {
+							
+							ammendMeta(metaCopy, element.children.get(i), categories);
+							
+							continue;
+						}
+						
 						Element operation = element.children.get(j);
 						
 						if(operation != null) {
@@ -572,24 +579,51 @@ public class CrossDialect extends Dialect {
 		
 		else {
 			
-			ArrayList<String> arguments = new ArrayList<String>();
-			
-			for(int i = 0; i < operation.children.size(); i++) {
+			if(ElementUtilities.hasChild(meta, "Field")) {
 				
-				String argument =
-						buildElement(
-								"",
-								operation.children.get(i),
-								categories,
-								new ArrayList<String>(variables),
-								meta,
-								nest + 1);
+				if(ElementUtilities.hasChild(ElementUtilities.getChild(meta, "Field"), "Variable")) {
 				
-				if(argument != null)
-					arguments.add(argument);
+					if(operation.children.size() == 0)
+						operationString = operation.content;
+				
+					else {
+						
+						ArrayList<String> newVariables = new ArrayList<String>(variables);
+						newVariables.add(operation.content);
+						
+						operationString =
+								buildElement(
+										"",
+										operation,
+										categories,
+										newVariables,
+										meta,
+										nest + 1);
+					}
+				}
 			}
 			
-			operationString = buildFunctionCall(operation, arguments, meta);
+			else {
+				
+				ArrayList<String> arguments = new ArrayList<String>();
+				
+				for(int i = 0; i < operation.children.size(); i++) {
+					
+					String argument =
+							buildElement(
+									"",
+									operation.children.get(i),
+									categories,
+									new ArrayList<String>(variables),
+									meta,
+									nest + 1);
+					
+					if(argument != null)
+						arguments.add(argument);
+				}
+				
+				operationString = buildFunctionCall(operation, arguments, meta);
+			}
 		}
 		
 		if(operator.startsWith("\"") && operator.endsWith("\"") && operator.length() > 1)
@@ -789,15 +823,23 @@ public class CrossDialect extends Dialect {
 	}
 	
 	public String buildArguments(Element element, ArrayList<String> arguments, Element meta) {
-		return "";
+		return "arguments";
 	}
 	
 	public String buildGlobal(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
-		return "";
+
+		for(int i = 0; i < element.children.size(); i++)
+			getCategory(categories, "Global").objects.add(element.children.get(i).content);
+		
+		return null;
 	}
 	
 	public String buildImport(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
-		return "";
+		
+		for(int i = 0; i < element.children.size(); i++)
+			getCategory(categories, "Imports").objects.add(element.children.get(i).content);
+		
+		return null;
 	}
 	
 	public String buildCall(Element element, ArrayList<String> arguments, Element meta) {
@@ -821,7 +863,18 @@ public class CrossDialect extends Dialect {
 	}
 	
 	public String buildReturn(Element element, ArrayList<String> arguments, Element meta) {
-		return "";
+		
+		String build = "return ";
+		
+		for(int i = 0; i < arguments.size(); i++) {
+			
+			build += arguments.get(i);
+			
+			if(i < arguments.size() - 1)
+				build += ",";
+		}
+		
+		return build;
 	}
 	
 	public String buildScope(Element element, ArrayList<String> arguments, Element meta, int nest) {
