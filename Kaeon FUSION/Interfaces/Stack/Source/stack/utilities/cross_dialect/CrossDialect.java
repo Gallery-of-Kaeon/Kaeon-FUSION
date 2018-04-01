@@ -670,12 +670,15 @@ public class CrossDialect extends Dialect {
 	
 	public String buildVariableDeclaration(Element element, ArrayList<String> arguments, Element meta) {
 		
-		return
+		String type =
 				buildVariableDeclarationType(
 						element,
 						arguments,
-						meta) +
-				" " +
+						meta);
+		
+		return
+				type +
+				(type.length() > 0 ? " " : "") +
 				buildVariableAssignment(
 						element,
 						arguments,
@@ -742,7 +745,8 @@ public class CrossDialect extends Dialect {
 				for(int j = 0; j < newCategories.size(); j++) {
 					
 					if(newCategories.get(j).name.equalsIgnoreCase("Functions") ||
-							newCategories.get(j).name.equalsIgnoreCase("Function Names")) {
+							newCategories.get(j).name.equalsIgnoreCase("Function Names") ||
+							newCategories.get(j).name.equalsIgnoreCase("Global")) {
 					
 						newCategories.remove(j);
 						
@@ -762,6 +766,13 @@ public class CrossDialect extends Dialect {
 				functionNames.objects = new ArrayList<Object>(getCategory(categories, "Function Names").objects);
 				
 				newCategories.add(functionNames);
+				
+				Category global = new Category();
+				
+				functionNames.name = "Global";
+				functionNames.objects = new ArrayList<Object>(getCategory(categories, "Global").objects);
+				
+				newCategories.add(global);
 				
 				ArrayList<String> inheritence = new ArrayList<String>();
 				
@@ -851,7 +862,7 @@ public class CrossDialect extends Dialect {
 	}
 	
 	public String buildThis(Element element, ArrayList<String> arguments, Element meta) {
-		return "";
+		return "this";
 	}
 	
 	public String buildNew(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
@@ -859,7 +870,7 @@ public class CrossDialect extends Dialect {
 	}
 	
 	public String buildNull(Element element, ArrayList<String> arguments, Element meta) {
-		return "";
+		return "null";
 	}
 	
 	public String buildReturn(Element element, ArrayList<String> arguments, Element meta) {
@@ -1094,7 +1105,7 @@ public class CrossDialect extends Dialect {
 	}
 	
 	public String buildNegative(Element element, ArrayList<String> arguments, Element meta) {
-		return "";
+		return "(-(" + arguments.get(0) + "))";
 	}
 	
 	public String buildPower(Element element, ArrayList<String> arguments, Element meta) {
