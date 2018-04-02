@@ -25,11 +25,18 @@ Kaeon Origin
 				Perspectives come in two varieties: Mono console and dual console. Dual console
 				perspectives may either be synchronized or unsynchronized.
 				
-				Kaeon Origin may only have one perspective active at a time. The currently loaded
-				perspective will be named in the origin file. If no perspective is loaded at
-				startup, the user will be prompted to specify one. If no perspective is specified,
-				then Kaeon Origin will exit.
+				Kaeon Origin may one perspective set as the default. Said perspective will be named
+				in the origin file.
+				
+				By default, the default perspective will be the text perspective.
 			-
+			
+			Text Perspective
+			
+				-
+					The text perspective is a mono console perspective that allows files to be
+					edited as raw text.
+				-
 		
 		Workspaces
 			
@@ -52,7 +59,7 @@ Kaeon Origin
 		
 			-
 				The user may open an options menu, which will provide separate sub menus for Kaeon
-				Origin and for the active perspective.
+				Origin, all previously used perspectives, and for each file.
 				
 				Each sub menu will be divided into help and settings categories.
 				
@@ -99,9 +106,12 @@ Kaeon Origin
 					
 					When a file is done being edited, it may be removed from Kaeon Origin. At any
 					time the user may choose to save the data in the input console to its
-					respective file.
+					respective file. If the content of the input has not been saved to the file
+					system, it will be stored in the origin file.
 					
-					The data for all active inputs will be stored in the origin file. 
+					Each input may be assigned a different perspective.
+					
+					The settings for all active inputs will be stored in the origin file. 
 					
 					Only one input may be active at a time, but multiple may be selected.
 				-
@@ -140,6 +150,8 @@ Kaeon Origin
 			-
 				If Kaeon Origin is run from the command line with any arguments, it will execute
 				within the command line.
+				
+				Unless otherwise specified, the command line will use the default perspective.
 				
 				Arguments passed through the command line will be either in the form of flags or
 				data.
