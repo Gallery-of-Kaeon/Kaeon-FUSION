@@ -56,372 +56,384 @@ public class CrossDialect extends Dialect {
 			Element meta,
 			int nest) {
 		
-		if(element.content != null) {
+		try {
 			
-			if(element.content.equalsIgnoreCase("Use"))
-				return null;
-			
-			if(element.content.equalsIgnoreCase("Meta")) {
+			if(element.content != null) {
 				
-				ammendMeta(meta, element, categories);
+				if(element.content.equalsIgnoreCase("Use"))
+					return null;
 				
-				return null;
-			}
-		}
-		
-		addFunctions(element, categories);
-		
-		ArrayList<String> arguments = new ArrayList<String>();
-		
-		Element metaCopy = ElementUtilities.copyElement(meta);
-		
-		boolean trickleDown = true;
-		
-		if(element.content != null)
-			trickleDown = trickleDown(element, meta, categories);
-		
-		if(trickleDown) {
-			
-			for(int i = 0; i < element.children.size(); i++) {
-				
-				if(!variables.contains(element.children.get(i).content.toLowerCase()) && element.children.get(i).children.size() > 0)
-					variables.add(element.children.get(i).content.toLowerCase());
-				
-				if(element.children.get(i).content.equalsIgnoreCase("In")) {
+				if(element.content.equalsIgnoreCase("Meta")) {
 					
-					String operator = 
+					ammendMeta(meta, element, categories);
+					
+					Element injection = ElementUtilities.getChild(element, "Injection");
+					
+					if(injection != null)
+						return processInjection(injection.children.get(0).content, categories);
+					
+					return null;
+				}
+			}
+			
+			addFunctions(element, categories);
+			
+			ArrayList<String> arguments = new ArrayList<String>();
+			
+			Element metaCopy = ElementUtilities.copyElement(meta);
+			
+			boolean trickleDown = true;
+			
+			if(element.content != null)
+				trickleDown = trickleDown(element, meta, categories);
+			
+			if(trickleDown) {
+				
+				for(int i = 0; i < element.children.size(); i++) {
+					
+					if(!variables.contains(element.children.get(i).content.toLowerCase()) && element.children.get(i).children.size() > 0)
+						variables.add(element.children.get(i).content.toLowerCase());
+					
+					if(element.children.get(i).content.equalsIgnoreCase("In")) {
+						
+						String operator = 
+								buildElement(
+										name,
+										element.children.get(i).children.get(0),
+										categories,
+										new ArrayList<String>(variables),
+										metaCopy,
+										nest + 1);
+						
+						for(int j = i + 1; j < element.children.size(); j++) {
+							
+							if(element.children.get(i).equals("Meta")) {
+								
+								ammendMeta(metaCopy, element.children.get(i), categories);
+								
+								continue;
+							}
+							
+							Element operation = element.children.get(j);
+							
+							if(operation != null) {
+								
+								arguments.add(
+										buildObjectOperation(
+												operator,
+												operation,
+												metaCopy,
+												categories,
+												variables,
+												nest));
+							}
+						}
+						
+						break;
+					}
+					
+					String argument =
 							buildElement(
 									name,
-									element.children.get(i).children.get(0),
+									element.children.get(i),
 									categories,
 									new ArrayList<String>(variables),
 									metaCopy,
 									nest + 1);
 					
-					for(int j = i + 1; j < element.children.size(); j++) {
+					if(argument != null)
+						arguments.add(argument);
+				}
+			}
+			
+			if(element.content == null && element.parent == null) {
+				
+				String string = "";
+				
+				for(int i = 0; i < arguments.size(); i++)
+					string += arguments.get(i) + buildBodyElementSeparator();
+				
+				return string;
+			}
+			
+			if(element.content.equalsIgnoreCase("Define"))
+				return buildDefine(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Arguments"))
+				return buildArguments(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Import"))
+				return buildImport(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Global"))
+				return buildGlobal(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Execute"))
+				return buildExecute(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Call"))
+				return buildCall(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("This"))
+				return buildThis(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("New"))
+				return buildNew(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Null"))
+				return buildNull(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Literal"))
+				return buildLiteralCommand(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Type"))
+				return buildType(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Return"))
+				return buildReturn(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Scope")) {
+				
+				if(element.children.size() >= 2) {
+					
+					if(element.children.get(0).content.equalsIgnoreCase("In")) {
 						
-						if(element.children.get(i).equals("Meta")) {
-							
-							ammendMeta(metaCopy, element.children.get(i), categories);
-							
-							continue;
-						}
+						Element in = element.children.get(0);
 						
-						Element operation = element.children.get(j);
+						String operator = 
+								buildElement(
+										name,
+										in.children.get(0),
+										categories,
+										new ArrayList<String>(variables),
+										meta,
+										nest + 1);
 						
-						if(operation != null) {
-							
-							arguments.add(
-									buildObjectOperation(
-											operator,
-											operation,
-											metaCopy,
-											categories,
-											variables,
-											nest));
-						}
+						Element operation = element.children.get(1);
+						
+						return
+								buildObjectOperation(
+										operator,
+										operation,
+										meta,
+										categories,
+										variables,
+										nest);
 					}
-					
-					break;
 				}
 				
-				String argument =
-						buildElement(
-								name,
-								element.children.get(i),
-								categories,
-								new ArrayList<String>(variables),
-								metaCopy,
-								nest + 1);
-				
-				if(argument != null)
-					arguments.add(argument);
-			}
-		}
-		
-		if(element.content == null && element.parent == null) {
-			
-			String string = "";
-			
-			for(int i = 0; i < arguments.size(); i++)
-				string += arguments.get(i) + buildBodyElementSeparator();
-			
-			return string;
-		}
-		
-		if(element.content.equalsIgnoreCase("Define"))
-			return buildDefine(element, arguments, meta, categories);
-		
-		if(element.content.equalsIgnoreCase("Arguments"))
-			return buildArguments(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Import"))
-			return buildImport(element, arguments, meta, categories);
-		
-		if(element.content.equalsIgnoreCase("Global"))
-			return buildGlobal(element, arguments, meta, categories);
-		
-		if(element.content.equalsIgnoreCase("Execute"))
-			return buildExecute(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Call"))
-			return buildCall(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("This"))
-			return buildThis(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("New"))
-			return buildNew(element, arguments, meta, categories);
-		
-		if(element.content.equalsIgnoreCase("Null"))
-			return buildNull(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Literal"))
-			return buildLiteralCommand(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Type"))
-			return buildType(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Return"))
-			return buildReturn(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Scope")) {
-			
-			if(element.children.size() >= 2) {
-				
-				if(element.children.get(0).content.equalsIgnoreCase("In")) {
-					
-					Element in = element.children.get(0);
-					
-					String operator = 
-							buildElement(
-									name,
-									in.children.get(0),
-									categories,
-									new ArrayList<String>(variables),
-									meta,
-									nest + 1);
-					
-					Element operation = element.children.get(1);
-					
-					return
-							buildObjectOperation(
-									operator,
-									operation,
-									meta,
-									categories,
-									variables,
-									nest);
-				}
+				return buildScope(element, arguments, meta, nest);
 			}
 			
-			return buildScope(element, arguments, meta, nest);
-		}
-		
-		if(element.content.equalsIgnoreCase("Break"))
-			return buildBreak(element, arguments, meta, nest);
-		
-		if(element.content.equalsIgnoreCase("Else"))
-			return buildElse(element, arguments, meta, nest);
-		
-		if(element.content.equalsIgnoreCase("Loop"))
-			return buildLoop(element, arguments, meta, nest);
-		
-		if(element.content.equalsIgnoreCase("Run"))
-			return buildRun(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Wait"))
-			return buildWait(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Split"))
-			return buildSplit(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Log"))
-			return buildLog(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Log Line"))
-			return buildLogLine(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Input"))
-			return buildInput(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Time"))
-			return buildTime(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Open"))
-			return buildOpen(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Save"))
-			return buildSave(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("List"))
-			return buildList(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Size"))
-			return buildSize(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("At"))
-			return buildAt(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Append"))
-			return buildAppend(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Set"))
-			return buildSet(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Insert"))
-			return buildInsert(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Remove"))
-			return buildRemove(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Concatenate"))
-			return buildConcatenate(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Crop"))
-			return buildCrop(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Contains"))
-			return buildContains(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Index"))
-			return buildIndex(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Count"))
-			return buildCount(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Cut"))
-			return buildCut(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Reverse"))
-			return buildReverse(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Convert Sequence"))
-			return buildConvertSequence(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Character to Number"))
-			return buildCharacterToNumber(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Number to Character"))
-			return buildNumberToCharacter(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Upper"))
-			return buildUpper(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Lower"))
-			return buildLower(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Trim"))
-			return buildTrim(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Not"))
-			return buildNot(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Is"))
-			return buildIs(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Equal"))
-			return buildEqual(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("And"))
-			return buildAnd(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Or"))
-			return buildOr(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Exclusive Or"))
-			return buildExclusiveOr(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Greater"))
-			return buildGreater(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Greater or Equal"))
-			return buildGreaterOrEqual(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Less"))
-			return buildLess(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Less or Equal"))
-			return buildLessOrEqual(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Add"))
-			return buildAdd(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Subtract"))
-			return buildSubtract(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Multiply"))
-			return buildMultiply(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Divide"))
-			return buildDivide(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Modulus"))
-			return buildModulus(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Random"))
-			return buildRandom(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Negative"))
-			return buildNegative(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Power"))
-			return buildPower(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Sine"))
-			return buildSine(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Cosine"))
-			return buildCosine(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Tangent"))
-			return buildTangent(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Square Root"))
-			return buildSquareRoot(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Natural Logarithm"))
-			return buildNaturalLogarithm(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Floor"))
-			return buildFloor(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Ceiling"))
-			return buildCeiling(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("To Radians"))
-			return buildToRadians(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("To Degrees"))
-			return buildToDegrees(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Absolute Value"))
-			return buildAbsoluteValue(element, arguments, meta);
-		
-		if(element.content.equalsIgnoreCase("Infinity"))
-			return buildInfinity(element, arguments, meta);
-		
-		String operation = buildOperator(element, arguments, meta);
-		
-		if(operation != null)
-			return operation;
-		
-		if(getCategory(categories, "Function Names").objects.contains(element.content.toLowerCase()))
-			return buildFunctionCall(element, arguments, meta);
-		
-		if(variables.contains(element.content.toLowerCase())) {
+			if(element.content.equalsIgnoreCase("Break"))
+				return buildBreak(element, arguments, meta, nest);
+			
+			if(element.content.equalsIgnoreCase("Else"))
+				return buildElse(element, arguments, meta, nest);
+			
+			if(element.content.equalsIgnoreCase("Loop"))
+				return buildLoop(element, arguments, meta, nest);
+			
+			if(element.content.equalsIgnoreCase("Run"))
+				return buildRun(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Wait"))
+				return buildWait(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Split"))
+				return buildSplit(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Log"))
+				return buildLog(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Log Line"))
+				return buildLogLine(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Input"))
+				return buildInput(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Time"))
+				return buildTime(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Open"))
+				return buildOpen(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Save"))
+				return buildSave(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("List"))
+				return buildList(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Size"))
+				return buildSize(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("At"))
+				return buildAt(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Append"))
+				return buildAppend(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Set"))
+				return buildSet(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Insert"))
+				return buildInsert(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Remove"))
+				return buildRemove(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Concatenate"))
+				return buildConcatenate(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Crop"))
+				return buildCrop(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Contains"))
+				return buildContains(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Index"))
+				return buildIndex(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Count"))
+				return buildCount(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Cut"))
+				return buildCut(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Reverse"))
+				return buildReverse(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Convert Sequence"))
+				return buildConvertSequence(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Character to Number"))
+				return buildCharacterToNumber(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Number to Character"))
+				return buildNumberToCharacter(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Upper"))
+				return buildUpper(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Lower"))
+				return buildLower(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Trim"))
+				return buildTrim(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Not"))
+				return buildNot(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Is"))
+				return buildIs(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Equal"))
+				return buildEqual(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("And"))
+				return buildAnd(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Or"))
+				return buildOr(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Exclusive Or"))
+				return buildExclusiveOr(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Greater"))
+				return buildGreater(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Greater or Equal"))
+				return buildGreaterOrEqual(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Less"))
+				return buildLess(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Less or Equal"))
+				return buildLessOrEqual(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Add"))
+				return buildAdd(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Subtract"))
+				return buildSubtract(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Multiply"))
+				return buildMultiply(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Divide"))
+				return buildDivide(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Modulus"))
+				return buildModulus(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Random"))
+				return buildRandom(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Negative"))
+				return buildNegative(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Power"))
+				return buildPower(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Sine"))
+				return buildSine(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Cosine"))
+				return buildCosine(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Tangent"))
+				return buildTangent(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Square Root"))
+				return buildSquareRoot(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Natural Logarithm"))
+				return buildNaturalLogarithm(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Floor"))
+				return buildFloor(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Ceiling"))
+				return buildCeiling(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("To Radians"))
+				return buildToRadians(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("To Degrees"))
+				return buildToDegrees(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Absolute Value"))
+				return buildAbsoluteValue(element, arguments, meta);
+			
+			if(element.content.equalsIgnoreCase("Infinity"))
+				return buildInfinity(element, arguments, meta);
+			
+			String operation = buildOperator(element, arguments, meta);
+			
+			if(operation != null)
+				return operation;
+			
+			if(getCategory(categories, "Function Names").objects.contains(element.content.toLowerCase()))
+				return buildFunctionCall(element, arguments, meta);
+			
+			if(variables.contains(element.content.toLowerCase())) {
+				
+				if(element.children.size() > 0)
+					return buildVariableAssignment(element, arguments, meta);
+				
+				else
+					return buildVariableReference(element, arguments, meta);
+			}
 			
 			if(element.children.size() > 0)
-				return buildVariableAssignment(element, arguments, meta);
+				return buildVariableDeclaration(element, arguments, meta);
 			
-			else
-				return buildVariableReference(element, arguments, meta);
+			return buildLiteral(element, arguments, meta);
 		}
 		
-		if(element.children.size() > 0)
-			return buildVariableDeclaration(element, arguments, meta);
-		
-		return buildLiteral(element, arguments, meta);
+		catch(Exception exception) {
+			return "";
+		}
 	}
 	
 	public void addFunctions(Element element, ArrayList<Category> categories) {
@@ -554,6 +566,10 @@ public class CrossDialect extends Dialect {
 			for(int i = 0; i < functions.children.size(); i++)
 				getCategory(categories, "Function Names").objects.add(functions.children.get(i).content);
 		}
+	}
+	
+	public String processInjection(String injection, ArrayList<Category> categories) {
+		return injection;
 	}
 	
 	public boolean trickleDown(Element element, Element meta, ArrayList<Category> categories) {
