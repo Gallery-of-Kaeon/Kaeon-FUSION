@@ -5,15 +5,21 @@ Standard Cross Dialect
 		-
 			The standard cross dialect is a set of Meta command use cases for the cross dialect
 			that are generalizable across the majority of Turing complete programming languages.
-			
-			Any effect specified by a meta command in the standard cross dialect will take effect
-			on commands that follow said meta command. An effect of a Meta command may be said to
-			have extended scope if said effect trickles down to elements within the scope of the
-			affected elements. If two Meta command specify effects that contradict one another, the
-			effects of the more recent meta command will take effect.
 		-
 	
 	Principles
+	
+		Scope
+		
+			-
+				Any effect specified by a meta command in the standard cross dialect will take
+				effect on commands that follow said meta command. An effect of a Meta command
+				effect is said to have extended scope if said effect trickles down to elements
+				within the scope of the affected elements. If two Meta command specify effects that
+				contradict one another, the effects of the more recent meta command will take
+				effect. A Meta command effect is said to have reduced scope if it only applies to
+				the element immediately following the Meta command.
+			-
 		
 		Structure
 			
@@ -30,7 +36,8 @@ Standard Cross Dialect
 					-
 						A Meta command may have a child with the content "Cast". The children of
 						the cast element will determine the type that the value returned by the
-						command that follows the Meta command will be cast to.
+						command that follows the Meta command will be cast to. This effect will
+						have reduced scope.
 					-
 			
 			Arrays
@@ -74,28 +81,41 @@ Standard Cross Dialect
 					
 						-
 							If a Meta element has a child with the content "Function", said child
-							may have a child with the content "Type". The children of the type
-							element determine the return type of the function.
+							may have use one of the following three ways to declare the type of
+							functions declared within the Meta command's scope.
+							
+							The function element may have a child with the content "Type". The
+							children of the type element determine the return type of the function.
+							
+							The function element may have a child with the content "Class". In this
+							case, the function definition will serve as the constructor for a class
+							definition. Functions defined within the function definitions will
+							become methods of the class, and global variables defined within the
+							function definitions will become class variables. The class element may
+							have an indefinite number of children, each with content specifying the
+							names of classes to extend from.
+							
+							The function element may have a child with the content "Constructor".
+							In this case, the function definition will serve as a constructor for
+							the class definition it occurs within.
 						-
 				
 					Parameters
 					
 						-
 							If a Meta element has a child with the content "Function", said child
-							may have a child with the content "Parameters". Each child of the
-							parameters element defines a parameter. The content of said child
-							defines the parameter's alias, and its children define its type.
-						-
-				
-					Class
-					
-						-
-							If a Meta element has a child with the content "Function", said child
-							may have a child with the content "Class". If this is the case, the
-							function definition will become a class definition. The class element
-							may have a single child with content specifying the name of a class to
-							extend from. If the class element is present the type element may not
-							be present.
+							may have use one of the following two ways to declare the parameters of
+							functions declared within the Meta command's scope.
+							
+							The function element may have a child with the content "Parameters".
+							Each child of the parameters element defines a parameter. The content
+							of said child defines the parameter's alias, and its children define
+							its type.
+							
+							Alternatively, The function element may have a child with the content
+							"Parameter Number". The parameter number element must have a single
+							child with content containing an integer number specifying the number
+							of parameters the functions will have.
 						-
 				
 				Host Functions
@@ -115,6 +135,17 @@ Standard Cross Dialect
 					To specify notations, a Meta command may have a child with the content
 					"Notation". Every child of said child will constitute a notation, and may have
 					any content and any children.
+				-
+			
+			Nullify
+			
+				-
+					A Meta command may have a child with the content "Nullify". The nullify element
+					may have any of combination of children with the content "Type", "Array",
+					"Function", "Host", or "Notation". A notation element may have any children.
+					
+					The effects of preceding Meta commands that correspond to the content of the
+					nullify element's children will be nullified.
 				-
 			
 			Injections
