@@ -12,11 +12,11 @@ Standard Cross Dialect
 		Scope
 		
 			-
-				Any effect specified by a meta command in the standard cross dialect will take
-				effect on commands that follow said meta command. An effect of a Meta command
+				Any effect specified by a Meta command in the standard cross dialect will take
+				effect on commands that follow said Meta command. An effect of a Meta command
 				effect is said to have extended scope if said effect trickles down to elements
 				within the scope of the affected elements. If two Meta command specify effects that
-				contradict one another, the effects of the more recent meta command will take
+				contradict one another, the effects of the more recent Meta command will take
 				effect. A Meta command effect is said to have reduced scope if it only applies to
 				the element immediately following the Meta command.
 			-
