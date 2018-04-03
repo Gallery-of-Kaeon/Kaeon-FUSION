@@ -145,7 +145,7 @@ Standard Cross Dialect
 			
 				-
 					A Meta command may have a child with the content "Nullify". The nullify element
-					may have any of combination of children with the content "Type", "Array",
+					may have any of combination of children with the content "Type", "Arrays",
 					"Function", "Host", or "Notation". A notation element may have any children.
 					
 					The effects of preceding Meta commands that correspond to the content of the
