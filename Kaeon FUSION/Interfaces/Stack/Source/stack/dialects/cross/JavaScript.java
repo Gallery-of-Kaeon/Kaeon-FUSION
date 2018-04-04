@@ -71,6 +71,10 @@ public class JavaScript extends CrossDialect {
 		return build + "];" + functionBody + "}";
 	}
 	
+	public String buildClassDefinition(Element classElement, String constructor, Element metaCopy, ArrayList<Category> categories, ArrayList<String> inheritence) {
+		return constructor;
+	}
+	
 	public String buildLog(Element element, ArrayList<String> arguments, Element meta) {
 		
 		String build = "console.log(";

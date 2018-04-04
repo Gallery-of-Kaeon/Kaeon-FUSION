@@ -42,20 +42,6 @@ public class Java extends CrossDialect {
 				"}}";
 	}
 	
-	public String buildBodyElementSeparator() {
-		return ";";
-	}
-	
-	public String buildObjectOperation(
-			String operator,
-			String operation,
-			Element meta) {
-		
-		// STUB
-		
-		return "";
-	}
-	
 	public String buildOperator(
 			Element element,
 			ArrayList<String> arguments,
@@ -66,7 +52,7 @@ public class Java extends CrossDialect {
 		return null;
 	}
 	
-	public String buildVariableDeclaration(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildVariableDeclarationType(Element element, ArrayList<String> arguments, Element meta) {
 		
 		String declaration = "";
 		
@@ -90,69 +76,14 @@ public class Java extends CrossDialect {
 				
 				if(type.children.get(i).content.equalsIgnoreCase("Boolean"))
 					declaration += "boolean ";
-				
-				// STUB
 			}
-			
-			// STUB
 		}
 		
 		else {
-			// STUB
+			declaration = "Object";
 		}
 		
-		return declaration + element.content + "=" + arguments.get(0);
-	}
-	
-	public String buildVariableAssignment(Element element, ArrayList<String> arguments, Element meta) {
-		return element.content + "=" + arguments.get(0);
-	}
-	
-	public String buildVariableReference(Element element, ArrayList<String> arguments, Element meta) {
-		return element.content;
-	}
-	
-	public String buildThis(Element element, ArrayList<String> arguments, Element meta) {
-		return "this";
-	}
-	
-	public String buildNull(Element element, ArrayList<String> arguments, Element meta) {
-		return "null";
-	}
-	
-	public String buildReturn(Element element, ArrayList<String> arguments, Element meta) {
-		
-		String build = "return ";
-		
-		return build + arguments.get(0);
-	}
-	
-	public String buildScope(Element element, ArrayList<String> arguments, Element meta, int nest) {
-		
-		String build = "do{";
-		
-		for(int i = 0; i < arguments.size(); i++)
-			build += arguments.get(i) + ';';
-		
-		return build + "}while(false)";
-	}
-	
-	public String buildBreak(Element element, ArrayList<String> arguments, Element meta, int nest) {
-		return "if(" + (arguments.size() > 0 ? arguments.get(0) : "true") + "){scope=true;break;}";
-	}
-	
-	public String buildElse(Element element, ArrayList<String> arguments, Element meta, int nest) {
-		
-		String build = "if(scope)do{scope=false;";
-		
-		for(int i = 0; i < arguments.size(); i++)
-			build += arguments.get(i) + ';';
-		
-		return build + "}while(false)";
-	}
-	
-	public String buildLoop(Element element, ArrayList<String> arguments, Element meta, int nest) {
-		return "if(" + (arguments.size() > 0 ? arguments.get(0) : "true") + ")continue;";
+		return declaration;
 	}
 	
 	public String buildRun(Element element, ArrayList<String> arguments, Element meta) {
@@ -214,16 +145,8 @@ public class Java extends CrossDialect {
 	// CROP
 	// CASTING OPERATIONS
 	
-	public String buildNot(Element element, ArrayList<String> arguments, Element meta) {
-		return "!(" + arguments.get(0) + ")";
-	}
-	
 	public String buildRandom(Element element, ArrayList<String> arguments, Element meta) {
 		return "Math.random()";
-	}
-	
-	public String buildNegative(Element element, ArrayList<String> arguments, Element meta) {
-		return "-" + arguments.get(0);
 	}
 	
 	public String buildPower(Element element, ArrayList<String> arguments, Element meta) {
