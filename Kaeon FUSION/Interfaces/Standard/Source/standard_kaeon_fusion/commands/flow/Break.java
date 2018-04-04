@@ -61,7 +61,7 @@ public class Break extends FUSIONUnit {
 		return null;
 	}
 	
-	public int changeDepth(Element element, ArrayList<Object> processed, int currentDepth) {
+	public boolean terminate(Element element, ArrayList<Object> processed, int currentDepth) {
 		
 		boolean condition = true;
 		
@@ -71,11 +71,8 @@ public class Break extends FUSIONUnit {
 		if(condition) {
 			
 			Element current = element.parent;
-			int depth = currentDepth;
 			
 			while(current.parent != null) {
-				
-				depth--;
 				
 				int parentIndex = ElementUtilities.getIndex(current);
 				
@@ -86,12 +83,12 @@ public class Break extends FUSIONUnit {
 					continue;
 				}
 				
-				return depth;
+				return false;
 			}
 			
-			return -1;
+			return true;
 		}
 		
-		return currentDepth;
+		return false;
 	}
 }

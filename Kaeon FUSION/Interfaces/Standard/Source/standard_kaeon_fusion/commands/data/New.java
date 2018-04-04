@@ -21,14 +21,27 @@ public class New extends FUSIONUnit {
 	}
 	
 	public boolean verify(Element element) {
+		
+		if(element.parent != null) {
+			
+			if(element.parent.content != null) {
+				
+				if(element.parent.content.equalsIgnoreCase("New"))
+					return true;
+			}
+		}
+		
 		return element.content.equalsIgnoreCase("New");
 	}
 	
 	public boolean trickleDown(Element element) {
-		return false;
+		return true;
 	}
 	
 	public Object process(Element element, ArrayList<Object> processed) {
+		
+		if(!element.content.equalsIgnoreCase("New"))
+			return processed;
 		
 		if(fusion == null)
 			fusion = (FUSION) PhilosophersStoneUtilities.get(this, "FUSION").get(0);
@@ -65,13 +78,8 @@ public class New extends FUSIONUnit {
 		
 		PhilosophersStoneUtilities.publiclyConnect(functionFUSION, newState);
 		
-		FUSION clone = FUSIONUtilities.clone(fusion);
-		
-		Element copy = ElementUtilities.copyElement(element.children.get(0));
-		copy.content = "List";
-		
-		@SuppressWarnings({ "unchecked", "rawtypes" })
-		ArrayList<Object> list = (ArrayList) clone.process(copy);
+		@SuppressWarnings({ "unchecked" })
+		ArrayList<Object> list = (ArrayList<Object>) processed.get(0);
 		
 		PhilosophersStone argumentStone = new PhilosophersStone() {
 			

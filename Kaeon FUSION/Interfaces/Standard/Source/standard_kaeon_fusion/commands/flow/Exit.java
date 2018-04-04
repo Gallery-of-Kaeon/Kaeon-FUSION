@@ -15,7 +15,7 @@ public class Exit extends FUSIONUnit {
 		return element.content.equalsIgnoreCase("Exit");
 	}
 	
-	public int changeDepth(Element element, ArrayList<Object> processed, int currentDepth) {
-		return -1;
+	public boolean terminate(Element element, ArrayList<Object> processed, int currentDepth) {
+		return true;
 	}
 }

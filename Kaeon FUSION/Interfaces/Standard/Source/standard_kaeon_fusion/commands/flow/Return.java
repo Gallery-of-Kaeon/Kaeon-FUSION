@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import fusion.FUSIONUnit;
 import one.Element;
+import philosophers_stone.PhilosophersStoneUtilities;
 
 public class Return extends FUSIONUnit {
 	
@@ -32,6 +33,8 @@ public class Return extends FUSIONUnit {
 			toReturn = processed;
 		
 		returning = true;
+		
+		PhilosophersStoneUtilities.call(this, "Kaeon FUSION Return", toReturn);
 		
 		return toReturn;
 	}

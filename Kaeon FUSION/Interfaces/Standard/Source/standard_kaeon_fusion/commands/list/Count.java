@@ -32,7 +32,7 @@ public class Count extends FUSIONUnit {
 			
 			return count;
 		}
-	
+		
 		String string = "" + processed.get(0);
 		String item = "" + processed.get(1);
 		

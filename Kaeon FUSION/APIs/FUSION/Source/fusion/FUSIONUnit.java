@@ -31,12 +31,16 @@ public class FUSIONUnit extends PhilosophersStone {
 		return null;
 	}
 	
-	public Element jump(Element element, ArrayList<Object> processed) {
-		return null;
+	public boolean isAdded(Element element) {
+		return true;
 	}
 	
-	public int changeDepth(Element element, ArrayList<Object> processed, int currentDepth) {
-		return currentDepth;
+	public boolean terminate(Element element) {
+		return false;
+	}
+	
+	public Element jump(Element element, ArrayList<Object> processed) {
+		return null;
 	}
 	
 	public void handleError(Element element, Exception exception) {

@@ -23,13 +23,7 @@ public class FUSION extends PhilosophersStone {
 		running = false;
 	}
 	
-	public Object process(Element element) {
-		return process(element, 0);
-	}
-	
-	public Object process(
-			Element element,
-			int depth) {
+	public void process(Element element) {
 		
 		running = true;
 		
@@ -45,7 +39,7 @@ public class FUSION extends PhilosophersStone {
 		
 		boolean bubbleUp = false;
 		
-		while(depth >= 0 & running) {
+		while(running) {
 			
 			boolean denied = isDenied(currentElement);
 			
@@ -65,8 +59,6 @@ public class FUSION extends PhilosophersStone {
 					currentElement = currentElement.children.get(0);
 					processed.add(new ArrayList<Object>());
 					
-					depth += 1;
-					
 					continue;
 				}
 			}
@@ -75,21 +67,17 @@ public class FUSION extends PhilosophersStone {
 			ArrayList<Object> arguments = processed.get(processed.size() - 1);
 			
 			Object object = processElement(verifiedFUSIONUnits, currentElement, arguments);
+			boolean terminated = terminate(verifiedFUSIONUnits, currentElement, arguments);
+			boolean added = isAdded(verifiedFUSIONUnits, currentElement, arguments);
 			Element jumpElement = jump(verifiedFUSIONUnits, currentElement, arguments);
-			depth = changeDepth(verifiedFUSIONUnits, currentElement, arguments, depth);
 			
-			if(!denied)
+			if(!denied && added)
 				processedArguments.add(object);
 			
 			processed.set(processed.size() - 1, new ArrayList<Object>());
 			
-			if(depth < 0) {
-				
-				fusionUnits = new ArrayList<FUSIONUnit>();
-				running = false;
-				
-				return object;
-			}
+			if(terminated)
+				break;
 			
 			bubbleUp = false;
 			
@@ -97,13 +85,8 @@ public class FUSION extends PhilosophersStone {
 				
 				int index = ElementUtilities.getIndex(currentElement);
 				
-				if(currentElement.parent == null) {
-					
-					fusionUnits = new ArrayList<FUSIONUnit>();
-					running = false;
-					
-					return object;
-				}
+				if(currentElement.parent == null)
+					break;
 				
 				if(index < currentElement.parent.children.size() - 1)
 					currentElement = currentElement.parent.children.get(index + 1);
@@ -114,14 +97,12 @@ public class FUSION extends PhilosophersStone {
 					bubbleUp = true;
 					
 					processed.remove(processed.size() - 1);
-					
-					depth--;
 				}
 			}
 			
 			else {
 				
-				clearArgumentsOnJump(depth, processed, currentElement, jumpElement);
+				clearArgumentsOnJump(processed);
 				currentElement = jumpElement;
 				
 				bubbleUp = false;
@@ -130,8 +111,6 @@ public class FUSION extends PhilosophersStone {
 		
 		fusionUnits = new ArrayList<FUSIONUnit>();
 		running = false;
-		
-		return null;
 	}
 	
 	public void update() {
@@ -189,16 +168,8 @@ public class FUSION extends PhilosophersStone {
 		}
 	}
 	
-	public void clearArgumentsOnJump(
-			int depth,
-			ArrayList<ArrayList<Object>> arguments,
-			Element jump,
-			Element land) {
-
-		arguments = new ArrayList<ArrayList<Object>>();
-		
-		for(int i = 0; i < depth + 2; i++)
-			arguments.add(new ArrayList<Object>());
+	public void clearArgumentsOnJump(ArrayList<ArrayList<Object>> arguments) {
+		arguments = new ArrayList<ArrayList<Object>>(arguments.size());
 	}
 	
 	private ArrayList<Element> sort(ArrayList<Element> input) {
@@ -364,6 +335,58 @@ public class FUSION extends PhilosophersStone {
 		return object;
 	}
 	
+	public boolean isAdded(
+			ArrayList<FUSIONUnit> verifiedFUSIONUnits,
+			Element element,
+			ArrayList<Object> processed) {
+		
+		boolean isAdded = true;
+		
+		for(int i = 0; i < verifiedFUSIONUnits.size(); i++) {
+			
+			boolean result = true;
+			
+			try {
+				result = verifiedFUSIONUnits.get(i).isAdded(element);
+			}
+			
+			catch(Exception exception) {
+				handleError(element, exception);
+			}
+			
+			if(!result)
+				isAdded = false;
+		}
+		
+		return isAdded;
+	}
+	
+	public boolean terminate(
+			ArrayList<FUSIONUnit> verifiedFUSIONUnits,
+			Element element,
+			ArrayList<Object> processed) {
+		
+		boolean terminate = false;
+		
+		for(int i = 0; i < verifiedFUSIONUnits.size(); i++) {
+			
+			boolean result = false;
+			
+			try {
+				result = verifiedFUSIONUnits.get(i).terminate(element);
+			}
+			
+			catch(Exception exception) {
+				handleError(element, exception);
+			}
+			
+			if(result)
+				terminate = true;
+		}
+		
+		return terminate;
+	}
+	
 	public Element jump(
 			ArrayList<FUSIONUnit> verifiedFUSIONUnits,
 			Element element,
@@ -389,34 +412,6 @@ public class FUSION extends PhilosophersStone {
 		}
 		
 		return jumpElement;
-	}
-	
-	public int changeDepth(
-			ArrayList<FUSIONUnit> verifiedFUSIONUnits,
-			Element element,
-			ArrayList<Object> processed,
-			int depth) {
-		
-		int defaultDepth = depth;
-		int changeDepth = defaultDepth;
-		
-		for(int i = 0; i < verifiedFUSIONUnits.size(); i++) {
-			
-			int newChangeDepth = defaultDepth;
-			
-			try {
-				newChangeDepth = verifiedFUSIONUnits.get(i).changeDepth(element, processed, depth);
-			}
-			
-			catch(Exception exception) {
-				handleError(element, exception);
-			}
-			
-			if(defaultDepth != newChangeDepth)
-				changeDepth = newChangeDepth;
-		}
-		
-		return changeDepth;
 	}
 	
 	public void handleError(Element element, Exception exception) {
