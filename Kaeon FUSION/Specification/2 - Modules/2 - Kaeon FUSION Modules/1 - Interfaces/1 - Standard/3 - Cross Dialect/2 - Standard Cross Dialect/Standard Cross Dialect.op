@@ -59,6 +59,8 @@ Standard Cross Dialect
 						command's scope will be treated as fixed length arrays, or it may have a
 						child with the content "Variable", in which case all lists within the Meta
 						command's scope will be treated as variable length vectors.
+						
+						By default arrays are assumed to be of variable length.
 					-
 				
 				Index
@@ -68,6 +70,8 @@ Standard Cross Dialect
 						have a child with the content "Index". The index element will have a child
 						containing an integer number as its content, dictating the starting index
 						of all lists in the Meta command's scope.
+						
+						By default arrays are assumed to start at an index of one.
 					-
 			
 			Functions
@@ -130,6 +134,18 @@ Standard Cross Dialect
 						the host element's children. This effect will have extended scope.
 					-
 			
+			Fields
+			
+				-
+					A Meta command may have a child with the content "Field". The field element
+					must either have a child with the content "Function", in which case In commands
+					within the Meta command's scope will only access public functions, or a child
+					with the content "Variable", in which case the In commands within the Meta
+					command's scope will only access public variables.
+					
+					By default In commands are assumed to only access functions.
+				-
+			
 			Notations
 				
 				-
@@ -146,7 +162,8 @@ Standard Cross Dialect
 				-
 					A Meta command may have a child with the content "Nullify". The nullify element
 					may have any of combination of children with the content "Type", "Arrays",
-					"Function", "Host", or "Notation". A notation element may have any children.
+					"Function", "Host", "Field", or "Notation". A notation element may have any
+					children.
 					
 					The effects of preceding Meta commands that correspond to the content of the
 					nullify element's children will be nullified.
