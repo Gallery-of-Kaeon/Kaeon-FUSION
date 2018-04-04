@@ -3,7 +3,6 @@ package stack.dialects.cross;
 import java.util.ArrayList;
 
 import one.Element;
-import one.ElementUtilities;
 import stack.utilities.cross_dialect.Category;
 import stack.utilities.cross_dialect.CrossDialect;
 
@@ -31,42 +30,41 @@ public class JavaScript extends CrossDialect {
 		return "var";
 	}
 	
-	public String buildFunctionDefinition(Element function, String functionBody, Element metaCopy, ArrayList<Category> categories, boolean isConstructor) {
-		
-		Element parameters = ElementUtilities.getChild(metaCopy, "Parameters");
-		int paramNum = 0;
-		
-		if(parameters != null) {
-			
-			try {
-				paramNum = Integer.parseInt(parameters.children.get(0).content);
-			}
-			
-			catch(Exception exception) {
-				paramNum = 0;
-			}
-		}
-		
-		else
-			paramNum = 0;
+	public String buildFunctionDefinition(
+			Element function,
+			String functionBody,
+			Element metaCopy,
+			ArrayList<Category> categories,
+			ArrayList<String> returnType,
+			boolean isConstructor,
+			ArrayList<Category> parameters,
+			int parameterNumber) {
 		
 		String build = "function " + function.content + "(";
 		
-		for(int j = 0; j < paramNum; j++) {
+		for(int i = 0; i < parameterNumber; i++) {
 			
-			build += "arg" + j;
+			build += "arg" + i;
 			
-			if(j < paramNum - 1)
+			if(i < parameterNumber - 1)
+				build += ",";
+		}
+		
+		for(int i = 0; i < parameters.size(); i++) {
+			
+			build += parameters.get(i).name;
+			
+			if(i < parameters.size() - 1)
 				build += ",";
 		}
 		
 		build += "){scope=false;arguments=[";
 		
-		for(int j = 0; j < paramNum; j++) {
+		for(int i = 0; i < parameterNumber; i++) {
 			
-			build += "arg" + j;
+			build += "arg" + i;
 			
-			if(j < paramNum - 1)
+			if(i < parameterNumber - 1)
 				build += ",";
 		}
 		

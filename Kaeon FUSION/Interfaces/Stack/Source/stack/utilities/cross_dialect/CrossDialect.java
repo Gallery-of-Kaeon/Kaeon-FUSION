@@ -76,6 +76,20 @@ public class CrossDialect extends Dialect {
 				}
 			}
 			
+			String arraySize = "Variable";
+			int arrayIndex = 1;
+			
+			Element arrays = ElementUtilities.getChild(meta, "Arrays");
+			
+			if(arrays != null) {
+				
+				if(ElementUtilities.hasChild(arrays, "Size"))
+					arraySize = ElementUtilities.getChild(arrays, "Size").content;
+				
+				if(ElementUtilities.hasChild(arrays, "Index"))
+					arrayIndex = Integer.parseInt(ElementUtilities.getChild(arrays, "Index").content);
+			}
+			
 			addFunctions(element, categories);
 			
 			ArrayList<String> arguments = new ArrayList<String>();
@@ -262,49 +276,49 @@ public class CrossDialect extends Dialect {
 				return buildSave(element, arguments, meta);
 			
 			if(element.content.equalsIgnoreCase("List"))
-				return buildList(element, arguments, meta);
+				return buildList(element, arguments, meta, arraySize, arrayIndex);
 			
 			if(element.content.equalsIgnoreCase("Size"))
-				return buildSize(element, arguments, meta);
+				return buildSize(element, arguments, meta, arraySize, arrayIndex);
 			
 			if(element.content.equalsIgnoreCase("At"))
-				return buildAt(element, arguments, meta);
+				return buildAt(element, arguments, meta, arraySize, arrayIndex);
 			
 			if(element.content.equalsIgnoreCase("Append"))
-				return buildAppend(element, arguments, meta);
+				return buildAppend(element, arguments, meta, arraySize, arrayIndex);
 			
 			if(element.content.equalsIgnoreCase("Set"))
-				return buildSet(element, arguments, meta);
+				return buildSet(element, arguments, meta, arraySize, arrayIndex);
 			
 			if(element.content.equalsIgnoreCase("Insert"))
-				return buildInsert(element, arguments, meta);
+				return buildInsert(element, arguments, meta, arraySize, arrayIndex);
 			
 			if(element.content.equalsIgnoreCase("Remove"))
-				return buildRemove(element, arguments, meta);
+				return buildRemove(element, arguments, meta, arraySize, arrayIndex);
 			
 			if(element.content.equalsIgnoreCase("Concatenate"))
-				return buildConcatenate(element, arguments, meta);
+				return buildConcatenate(element, arguments, meta, arraySize, arrayIndex);
 			
 			if(element.content.equalsIgnoreCase("Crop"))
-				return buildCrop(element, arguments, meta);
+				return buildCrop(element, arguments, meta, arraySize, arrayIndex);
 			
 			if(element.content.equalsIgnoreCase("Contains"))
-				return buildContains(element, arguments, meta);
+				return buildContains(element, arguments, meta, arraySize, arrayIndex);
 			
 			if(element.content.equalsIgnoreCase("Index"))
-				return buildIndex(element, arguments, meta);
+				return buildIndex(element, arguments, meta, arraySize, arrayIndex);
 			
 			if(element.content.equalsIgnoreCase("Count"))
-				return buildCount(element, arguments, meta);
+				return buildCount(element, arguments, meta, arraySize, arrayIndex);
 			
 			if(element.content.equalsIgnoreCase("Cut"))
-				return buildCut(element, arguments, meta);
+				return buildCut(element, arguments, meta, arraySize, arrayIndex);
 			
 			if(element.content.equalsIgnoreCase("Reverse"))
-				return buildReverse(element, arguments, meta);
+				return buildReverse(element, arguments, meta, arraySize, arrayIndex);
 			
 			if(element.content.equalsIgnoreCase("Convert Sequence"))
-				return buildConvertSequence(element, arguments, meta);
+				return buildConvertSequence(element, arguments, meta, arraySize, arrayIndex);
 			
 			if(element.content.equalsIgnoreCase("Character to Number"))
 				return buildCharacterToNumber(element, arguments, meta);
@@ -432,7 +446,7 @@ public class CrossDialect extends Dialect {
 		}
 		
 		catch(Exception exception) {
-			return "";
+			return null;
 		}
 	}
 	
@@ -455,7 +469,7 @@ public class CrossDialect extends Dialect {
 			
 			if(element.children.get(i).content.equalsIgnoreCase("Meta")) {
 				
-				Element meta = ElementUtilities.getChild(element.children.get(i), "Functions");
+				Element meta = ElementUtilities.getChild(element.children.get(i), "Host");
 				
 				if(meta != null) {
 					
@@ -540,6 +554,22 @@ public class CrossDialect extends Dialect {
 		
 		for(int i = 0; i < element.children.size(); i++) {
 			
+			if(element.children.get(i).content.equalsIgnoreCase("Nullify"))
+				continue;
+			
+			if(element.children.get(i).content.equalsIgnoreCase("Notation")) {
+				
+				Element notation = ElementUtilities.getChild(meta, "Notation");
+				
+				if(notation == null)
+					ElementUtilities.addChild(meta, element.children.get(i));
+				
+				else
+					ammendNotation(notation, element.children.get(i));
+				
+				continue;
+			}
+			
 			boolean found = false;
 			
 			for(int j = 0; j < meta.children.size(); j++) {
@@ -559,13 +589,40 @@ public class CrossDialect extends Dialect {
 				ElementUtilities.addChild(meta, ElementUtilities.copyElement(element.children.get(i)));
 		}
 		
-		if(ElementUtilities.hasChild(element, "Functions")) {
+		if(ElementUtilities.hasChild(element, "Host")) {
 			
-			Element functions = ElementUtilities.getChild(element, "Functions");
+			Element functions = ElementUtilities.getChild(element, "Host");
 			
 			for(int i = 0; i < functions.children.size(); i++)
 				getCategory(categories, "Function Names").objects.add(functions.children.get(i).content);
 		}
+		
+		if(ElementUtilities.hasChild(element, "Nullify")) {
+
+			Element nullify = ElementUtilities.getChild(element, "Nullify");
+			
+			for(int i = 0; i < nullify.children.size(); i++) {
+				
+				if(nullify.children.get(i).content.equals("Notation")) {
+					
+					Element notation = ElementUtilities.getChild(meta, "Notation");
+					
+					if(notation != null)
+						ammendNotation(notation, nullify.children.get(i));
+				}
+				
+				else
+					ElementUtilities.removeChild(meta, nullify.children.get(i).content);
+			}
+		}
+	}
+	
+	public void ammendNotation(Element metaNotation, Element notation) {
+		
+	}
+	
+	public void nullifyNotation(Element metaNotation, Element notation) {
+		
 	}
 	
 	public String processInjection(String injection, ArrayList<Category> categories) {
@@ -578,6 +635,31 @@ public class CrossDialect extends Dialect {
 			return false;
 		
 		return true;
+	}
+	
+	public String buildCast(String operation, Element meta) {
+		
+		Element cast = ElementUtilities.getChild(meta, "Cast");
+		
+		if(cast == null)
+			return operation;
+		
+		ArrayList<String> type = new ArrayList<String>();
+		
+		for(int i = 0; i < cast.children.size(); i++)
+			type.add(cast.children.get(i).content);
+		
+		ElementUtilities.removeChild(meta, "Cast");
+		
+		return buildCastOperation(operation, buildCastType(type));
+	}
+	
+	public String buildCastOperation(String operation, String cast) {
+		return "(" + cast + ")" + "(" + operation + ")";
+	}
+	
+	public String buildCastType(ArrayList<String> type) {
+		return "";
 	}
 	
 	public String buildObjectOperation(
@@ -749,12 +831,35 @@ public class CrossDialect extends Dialect {
 				continue;
 			}
 			
-			String definition = "Function";
+			Element function = ElementUtilities.getChild(metaCopy, "Function");
 			
-			if(ElementUtilities.hasChild(metaCopy, "Definition"))
-				definition = ElementUtilities.getChild(metaCopy, "Definition").children.get(0).content;
+			if(function == null)
+				function = ElementUtilities.createElement("Function");
+
+			int parameterNumber = 0;
+			ArrayList<Category> parameters = new ArrayList<Category>();
+
+			if(ElementUtilities.hasChild(function, "Parameter Number"))
+				parameterNumber = Integer.parseInt(ElementUtilities.getChild(function, "Parameter Number").children.get(0).content);
+
+			if(ElementUtilities.hasChild(function, "Parameters")) {
+				
+				Element parameterData = ElementUtilities.getChild(function, "Parameters");
+				
+				for(int j = 0; j < parameterData.children.size(); j++) {
+					
+					Category parameter = new Category();
+					
+					parameter.name = parameterData.children.get(j).content;
+					
+					for(int k = 0; k < parameterData.children.get(j).children.size(); k++)
+						parameter.objects.add(parameterData.children.get(j).children.get(k).content);
+					
+					parameters.add(parameter);
+				}
+			}
 			
-			if(definition.equalsIgnoreCase("Class")) {
+			if(ElementUtilities.hasChild(function, "Class")) {
 						
 				ArrayList<Category> newCategories = new ArrayList<Category>(categories);
 				
@@ -792,16 +897,21 @@ public class CrossDialect extends Dialect {
 				
 				ArrayList<String> inheritence = new ArrayList<String>();
 				
-				for(int j = 0; j < ElementUtilities.getChild(metaCopy, "Definition").children.get(0).children.size(); j++)
-					inheritence.add(ElementUtilities.getChild(metaCopy, "Definition").children.get(0).children.get(i).content);
+				Element classElement = ElementUtilities.getChild(function, "Class");
+				
+				for(int j = 0; j < classElement.children.size(); j++)
+					inheritence.add(classElement.children.get(i).content);
 				
 				String constructor =
 						buildFunctionDefinition(
 								element.children.get(i),
-								buildFunctionBody(element.children.get(i), newCategories, metaCopy),
+								buildFunctionBody(element.children.get(i), newCategories, metaCopy, parameters),
 								metaCopy,
 								newCategories,
-								true);
+								new ArrayList<String>(),
+								true,
+								parameters,
+								parameterNumber);
 				
 				getCategory(categories, "Classes").objects.add(
 						buildClassDefinition(
@@ -814,34 +924,61 @@ public class CrossDialect extends Dialect {
 			
 			else {
 				
+				ArrayList<String> returnType = new ArrayList<String>();
+				
+				if(ElementUtilities.hasChild(function, "Type")) {
+					
+					Element type = ElementUtilities.getChild(function, "Type");
+					
+					for(int j = 0; j < type.children.size(); j++)
+						returnType.add(type.children.get(j).content);
+				}
+				
 				getCategory(categories, "Functions").objects.add(
 						buildFunctionDefinition(
 								element.children.get(i),
-								buildFunctionBody(element.children.get(i), categories, metaCopy),
+								buildFunctionBody(element.children.get(i), categories, metaCopy, parameters),
 								metaCopy,
 								categories,
-								false));
+								returnType,
+								ElementUtilities.hasChild(function, "Constructor"),
+								parameters,
+								parameterNumber));
 			}
 		}
 		
 		return null;
 	}
 	
-	public String buildFunctionBody(Element function, ArrayList<Category> categories, Element metaCopy) {
+	public String buildFunctionBody(Element function, ArrayList<Category> categories, Element metaCopy, ArrayList<Category> parameters) {
 		
 		Element functionElement = ElementUtilities.copyElement(function);
 		functionElement.content = null;
+		
+		ArrayList<String> variables = new ArrayList<String>();
+		
+		for(int i = 0; i < parameters.size(); i++)
+			variables.add(parameters.get(i).name);
 		
 		return buildElement(
 				"",
 				functionElement,
 				categories,
-				new ArrayList<String>(),
+				variables,
 				metaCopy,
 				0);
 	}
 	
-	public String buildFunctionDefinition(Element function, String functionBody, Element metaCopy, ArrayList<Category> categories, boolean isConstructor) {
+	public String buildFunctionDefinition(
+			Element function,
+			String functionBody,
+			Element metaCopy,
+			ArrayList<Category> categories,
+			ArrayList<String> returnType,
+			boolean isConstructor,
+			ArrayList<Category> parameters,
+			int parameterNumber) {
+		
 		return "";
 	}
 	
@@ -976,63 +1113,63 @@ public class CrossDialect extends Dialect {
 		return "";
 	}
 	
-	public String buildList(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildList(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
 		return "";
 	}
 	
-	public String buildSize(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildSize(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
 		return "";
 	}
 	
-	public String buildAt(Element element, ArrayList<String> arguments, Element meta) {
-		return arguments.get(0) + "[(" + arguments.get(1) + ")-1]";
+	public String buildAt(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+		return arguments.get(0) + "[(" + arguments.get(1) + ")-" + index  + "]";
 	}
 	
-	public String buildAppend(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildAppend(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
 		return "";
 	}
 	
-	public String buildSet(Element element, ArrayList<String> arguments, Element meta) {
-		return arguments.get(0) + "[(" + arguments.get(1) + ")-1]=" + arguments.get(2);
+	public String buildSet(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+		return arguments.get(0) + "[(" + arguments.get(1) + ")-" + index + "]=" + arguments.get(2);
 	}
 	
-	public String buildInsert(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildInsert(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
 		return "";
 	}
 	
-	public String buildRemove(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildRemove(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
 		return "";
 	}
 	
-	public String buildConcatenate(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildConcatenate(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
 		return "";
 	}
 	
-	public String buildCrop(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildCrop(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
 		return "";
 	}
 	
-	public String buildContains(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildContains(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
 		return "";
 	}
 	
-	public String buildIndex(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildIndex(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
 		return "";
 	}
 	
-	public String buildCount(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildCount(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
 		return "";
 	}
 	
-	public String buildCut(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildCut(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
 		return "";
 	}
 	
-	public String buildReverse(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildReverse(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
 		return "";
 	}
 	
-	public String buildConvertSequence(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildConvertSequence(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
 		return "";
 	}
 	

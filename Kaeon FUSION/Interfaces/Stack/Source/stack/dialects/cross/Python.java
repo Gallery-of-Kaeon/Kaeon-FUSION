@@ -3,7 +3,6 @@ package stack.dialects.cross;
 import java.util.ArrayList;
 
 import one.Element;
-import one.ElementUtilities;
 import stack.utilities.cross_dialect.Category;
 import stack.utilities.cross_dialect.CrossDialect;
 
@@ -79,46 +78,45 @@ public class Python extends CrossDialect {
 		return "\"" + element.content + "\"";
 	}
 	
-	public String buildFunctionDefinition(Element function, String functionBody, Element metaCopy, ArrayList<Category> categories, boolean isConstructor) {
-		
-		Element parameters = ElementUtilities.getChild(metaCopy, "Parameters");
-		int paramNum = 0;
-		
-		if(parameters != null) {
-			
-			try {
-				paramNum = Integer.parseInt(parameters.children.get(0).content);
-			}
-			
-			catch(Exception exception) {
-				paramNum = 0;
-			}
-		}
-		
-		else
-			paramNum = 0;
+	public String buildFunctionDefinition(
+			Element function,
+			String functionBody,
+			Element metaCopy,
+			ArrayList<Category> categories,
+			ArrayList<String> returnType,
+			boolean isConstructor,
+			ArrayList<Category> parameters,
+			int parameterNumber) {
 		
 		String build =
 				"def " +
 				(isConstructor ? "__init__" : function.content) +
 				"(" +
-				(isConstructor ? "self" + (paramNum > 0 ? "," : "") : "");
+				(isConstructor ? "self" + (parameterNumber > 0 ? "," : "") : "");
 		
-		for(int j = 0; j < paramNum; j++) {
+		for(int i = 0; i < parameterNumber; i++) {
 			
-			build += "arg" + j;
+			build += "arg" + i;
 			
-			if(j < paramNum - 1)
+			if(i < parameterNumber - 1)
+				build += ",";
+		}
+		
+		for(int i = 0; i < parameters.size(); i++) {
+			
+			build += parameters.get(i).name;
+			
+			if(i < parameters.size() - 1)
 				build += ",";
 		}
 		
 		build += "):\n\tscope=False\n\targuments=[";
 		
-		for(int j = 0; j < paramNum; j++) {
+		for(int i = 0; i < parameterNumber; i++) {
 			
-			build += "arg" + j;
+			build += "arg" + i;
 			
-			if(j < paramNum - 1)
+			if(i < parameterNumber - 1)
 				build += ",";
 		}
 		
@@ -266,7 +264,7 @@ public class Python extends CrossDialect {
 		return "input(str(" + arguments.get(0) + "))";
 	}
 	
-	public String buildList(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildList(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
 		
 		String build = "[";
 		
@@ -281,23 +279,23 @@ public class Python extends CrossDialect {
 		return build + "]";
 	}
 	
-	public String buildSize(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildSize(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
 		return "len(" + arguments.get(0) + ")";
 	}
 	
-	public String buildAppend(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildAppend(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
 		return arguments.get(0) + ".append(" + arguments.get(1) + ")";
 	}
 	
-	public String buildInsert(Element element, ArrayList<String> arguments, Element meta) {
-		return arguments.get(0) + ".insert(" + arguments.get(1) + ",(" + arguments.get(2) + ")-1)";
+	public String buildInsert(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+		return arguments.get(0) + ".insert(" + arguments.get(1) + ",(" + arguments.get(2) + ")-" + index + ")";
 	}
 	
-	public String buildRemove(Element element, ArrayList<String> arguments, Element meta) {
-		return arguments.get(0) + ".remove((" + arguments.get(1) + ")-1)";
+	public String buildRemove(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+		return arguments.get(0) + ".remove((" + arguments.get(1) + ")-" + index + ")";
 	}
 	
-	public String buildConcatenate(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildConcatenate(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
 		
 		String build = "\"\"+";
 		
