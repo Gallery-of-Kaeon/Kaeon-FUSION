@@ -18,8 +18,7 @@
 			-
 				-
 					FUSION will be given a ONE element to start at and an integer to serve as a
-					depth value. A variable to hold a value called the return value will also be
-					declared.
+					depth value.
 				-
 			-
 				Step Two
@@ -50,10 +49,6 @@
 					FUSION will then decide based on the aforementioned factors whether the
 					generated value will be used as an argument when performing step three on the
 					element's parent.
-					
-					Finally, FUSION will decide based on the aforementioned factors whether the
-					generated value will be used as the return value. If it is used as the return
-					value, FUSION will overwrite the current return value if one has been assigned.
 				-
 			-
 				Step Four
@@ -72,14 +67,8 @@
 					If the element has a parent and if the depth value is greater than zero, FUSION
 					will shift focus to the element's parent, decrement the depth value by one, and
 					loop back to step three.
-				-
-			-
-				Step Five
-			-
-				-
-					If a return value has been assigned, FUSION will return it.
 					
-					FUSION will then terminate.
+					If none of the aforementioned conditions are met, FUSION will terminate.
 				-
 		-
 			Commands
@@ -91,9 +80,8 @@
 				
 				At step two, they will perform no operation and will trickle down.
 				
-				At step three, they will perform no operation, generate a null value, allow the
-				generated value to be used as an argument for its parent, and will not use the
-				generated value as the return value.
+				At step three, they will perform no operation, generate a null value, and allow the
+				generated value to be used as an argument for its parent.
 				
 				At step four, they will not modify the depth value and will not jump to another
 				element.
