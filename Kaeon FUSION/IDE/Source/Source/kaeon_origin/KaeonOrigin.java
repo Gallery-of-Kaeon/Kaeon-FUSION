@@ -51,7 +51,7 @@ public class KaeonOrigin {
 		
 		for(int i = 0; i < args.length; i++) {
 			
-			if(args[i].startsWith("-") && args.length == 2) {
+			if(args[i].startsWith("-") && args[i].length() == 2) {
 				
 				flag = args[i].toLowerCase();
 				
@@ -61,7 +61,7 @@ public class KaeonOrigin {
 			if(flag.equals("-r") && file == null)
 				file = args[i];
 			
-			if(flag.equals("-a") && file == null) {
+			if(flag.equals("-a")) {
 				
 				if(arguments.length() > 0)
 					arguments += " ";
@@ -176,7 +176,7 @@ public class KaeonOrigin {
 					break;
 			}
 			
-			fusion.process(ONEPlus.parseONEPlus(code));
+			fusion.processKaeonFUSION(ONEPlus.parseONEPlus(code));
 		}
 	}
 	
