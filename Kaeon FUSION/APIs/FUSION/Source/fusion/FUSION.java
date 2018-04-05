@@ -347,7 +347,7 @@ public class FUSION extends PhilosophersStone {
 			boolean result = true;
 			
 			try {
-				result = verifiedFUSIONUnits.get(i).isAdded(element);
+				result = verifiedFUSIONUnits.get(i).isAdded(element, processed);
 			}
 			
 			catch(Exception exception) {
@@ -373,7 +373,7 @@ public class FUSION extends PhilosophersStone {
 			boolean result = false;
 			
 			try {
-				result = verifiedFUSIONUnits.get(i).terminate(element);
+				result = verifiedFUSIONUnits.get(i).terminate(element, processed);
 			}
 			
 			catch(Exception exception) {

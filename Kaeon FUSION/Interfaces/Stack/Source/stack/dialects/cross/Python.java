@@ -21,20 +21,20 @@ public class Python extends CrossDialect {
 		
 		build = "arguments=sys.argv\nscope=False\n" + build;
 		
-		Category imports = getCategory(categories, "Imports");
+		Category classes = getCategory(categories, "Classes");
 		
-		for(int i = 0; i < imports.objects.size(); i++)
-			build = "import " + imports.objects.get(i) + "\n" + build;
+		for(int i = 0; i < classes.objects.size(); i++)
+			build = classes.objects.get(i) + build;
 		
 		Category functions = getCategory(categories, "Functions");
 		
 		for(int i = 0; i < functions.objects.size(); i++)
 			build = functions.objects.get(i) + build;
 		
-		Category classes = getCategory(categories, "Classes");
+		Category imports = getCategory(categories, "Imports");
 		
-		for(int i = 0; i < classes.objects.size(); i++)
-			build = classes.objects.get(i) + build;
+		for(int i = 0; i < imports.objects.size(); i++)
+			build = "import " + imports.objects.get(i) + "\n" + build;
 		
 		build = "import sys\n" + build;
 		

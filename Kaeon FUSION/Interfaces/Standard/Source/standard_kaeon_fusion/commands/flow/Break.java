@@ -61,7 +61,7 @@ public class Break extends FUSIONUnit {
 		return null;
 	}
 	
-	public boolean terminate(Element element, ArrayList<Object> processed, int currentDepth) {
+	public boolean terminate(Element element, ArrayList<Object> processed) {
 		
 		boolean condition = true;
 		

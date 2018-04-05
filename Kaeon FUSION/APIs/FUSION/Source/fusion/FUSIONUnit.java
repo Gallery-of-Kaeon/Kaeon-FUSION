@@ -31,11 +31,11 @@ public class FUSIONUnit extends PhilosophersStone {
 		return null;
 	}
 	
-	public boolean isAdded(Element element) {
+	public boolean isAdded(Element element, ArrayList<Object> processed) {
 		return true;
 	}
 	
-	public boolean terminate(Element element) {
+	public boolean terminate(Element element, ArrayList<Object> processed) {
 		return false;
 	}
 	

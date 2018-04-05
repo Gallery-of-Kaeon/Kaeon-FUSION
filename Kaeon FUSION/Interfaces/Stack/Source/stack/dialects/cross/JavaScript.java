@@ -21,6 +21,11 @@ public class JavaScript extends CrossDialect {
 		
 		build = "var scope=false;" + build;
 		
+		Category functions = getCategory(categories, "Functions");
+		
+		for(int i = 0; i < functions.objects.size(); i++)
+			build = functions.objects.get(i) + build;
+		
 		file.add(build);
 		
 		files.add(file);
