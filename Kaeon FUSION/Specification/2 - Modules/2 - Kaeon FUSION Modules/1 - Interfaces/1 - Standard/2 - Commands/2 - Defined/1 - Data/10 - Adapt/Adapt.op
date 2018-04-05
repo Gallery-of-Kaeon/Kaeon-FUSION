@@ -1,0 +1,14 @@
+Adapt
+
+	Philosophy
+	
+		-
+			The adapt command contains the content "Adapt". It has two children, the first of which
+			returns the stored namespace of a function, and the second of which returns a string.
+			
+			The adapt command will tie the specified namespace to an object stored within the host
+			environment such that the state of the object will correspond to variables stored
+			within the namespace. The type of object the namespace will be tied to is dependent on
+			the string value. Said object may either be pre-existing or newly generated upon the
+			use of the adapt command.
+		-
