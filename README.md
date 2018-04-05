@@ -160,7 +160,7 @@ All of them except for the updater API will be necessary.
 
 Here's an example of how one would start the interpreter from Java:
 
-    new KaeonFUSION().process(ONEPlus.parseONEPlus(IO.openAsString("My Code.op")));
+    new KaeonFUSION().processKaeonFUSION(ONEPlus.parseONEPlus(IO.openAsString("My Code.op")));
 
 The Java implementation of the Kaeon FUSION interpreter is built on Philosopher's Stones,
 and the KaeonFUSION object,

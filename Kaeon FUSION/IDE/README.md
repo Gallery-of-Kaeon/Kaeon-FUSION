@@ -34,16 +34,8 @@ After opening Kaeon Origin in GUI mode, you will see open and save options at th
 Beneath the two buttons is a blank text area which can be typed into.
 This is where you will write your Kaeon FUSION code.
 
-Beneath the text area is a "Set Arguments" button,
-a "Run" button,
-a "Show ONE" button,
+Beneath the text area is a "Run" button,
 and another blank text area which cannot be edited.
-
-Clicking the "Set Arguments" button will allow you to give arguments to your program similar to how you would if running it from the command line.
-Once entered,
-the arguments will be stored until overridden.
-If clicked after already setting the arguments, the pre-existing arguments will be shown.
-
 Clicking the "Run" option will execute the Kaeon FUSION script written into the upper text area and log the results to the lower text area.
 
 For example, if you type:
@@ -70,11 +62,11 @@ To open Kaeon Origin in GUI mode:
 
 To run a Kaeon FUSION script in the command line:
 
-    java -jar "Kaeon Origin.jar" "My Kaeon FUSION.op"
+    java -jar "Kaeon Origin.jar" -r "My Kaeon FUSION.op"
 
 To run a Kaeon FUSION script in the command line with arguments:
 
-    java -jar "Kaeon Origin.jar" "My Kaeon FUSION.op" "Argument 1" "Argument 2" "etc"
+    java -jar "Kaeon Origin.jar" -r "My Kaeon FUSION.op" -a "Argument 1" "Argument 2" "etc"
 
 ## Source Code
 
