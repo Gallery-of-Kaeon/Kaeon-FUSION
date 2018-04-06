@@ -40,7 +40,7 @@ XML Dialect
 					A use document is a ONE document containing elements with either the content
 					"Tags" or "Attributes". Each of these elements may have an indefinite number
 					of children, with each of said children having one child. No child of a tags or
-					attributes element may have the content "Attributes", "Data", or "Children".
+					attributes element may have the content "Attributes" or "Children".
 					
 					Any element in an XML dialect document nested within the scope of the root
 					element that matches the content of a child of a tag element in a use document
