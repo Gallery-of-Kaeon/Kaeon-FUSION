@@ -83,9 +83,7 @@ XML Dialect
 					"Document", and it may have an indefinite number of children, each of which
 					will take the form of a category element.
 					
-					If the content of the element starts and ends with a quotation mark, it will
-					represent a tag name that matches said content where the first and last
-					quotation marks have been cropped.
+					The content of the element will be literal content.
 				-
 			
 			Category Elements
@@ -107,6 +105,8 @@ XML Dialect
 				-
 					An attribute element may have any content, and will have a single child which
 					may have any content.
+					
+					The content of both the element and its child will be literal content.
 				-
 			
 			Children Element
@@ -122,7 +122,13 @@ XML Dialect
 					A data element may have any content other than "Attributes" or "Children", but
 					no children.
 					
-					If the content of the element starts and ends with a quotation mark, it will
-					represent XML content that matches said content where the first and last
-					quotation marks have been cropped.
+					The content of the element will be literal content.
+				-
+			
+			Literal Content
+				
+				-
+					If literal content starts and ends with a quotation mark, it will represent XML
+					content that matches itself where the first and last quotation marks have been
+					cropped.
 				-
