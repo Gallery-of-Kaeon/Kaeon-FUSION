@@ -15,7 +15,8 @@ XML Dialect
 				-
 					An XML dialect document will have exactly one root element at the root level.
 					It may also optionally have one or both of a single declaration element and a
-					single document element at the root level.
+					single document element at the root level, as well as an indefinite number of
+					use elements.
 				-
 			
 			Letter Case
@@ -23,6 +24,37 @@ XML Dialect
 				-
 					The letter case of content specified for elements listed in this document is
 					irrelevant.
+				-
+				
+			Use Element
+			
+				-
+					A use element has the content "Use". It may have an indefinite number of
+					children, each of which having content that specifies the file path of a use
+					document.
+				-
+			
+			Use Document
+			
+				-
+					A use document is a ONE document containing elements with either the content
+					"Tags" or "Attributes". Each of these elements may have an indefinite number
+					of children, with each of said children having one child. No child of a tags or
+					attributes element may have the content "Attributes", "Data", or "Children".
+					
+					Any element in an XML dialect document nested within the scope of the root
+					element that matches the content of a child of a tag element in a use document
+					referenced by a use command by said XML dialect document shall function as an
+					XML element that translates to an XML tag with a name matching the content of
+					the child of said child, even if said element is not nested within a children
+					element.
+					
+					Any element in an XML dialect document nested within an XML element that
+					matches the content of a child of a attributes element in a use document
+					referenced by a use command by said XML dialect document shall function as an
+					attribute element that translates to an XML attribute with a name matching the
+					content of the child of said child, even if said element is not nested within
+					an attributes element.
 				-
 			
 			Root Element
