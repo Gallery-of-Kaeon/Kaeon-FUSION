@@ -13,8 +13,8 @@ XML Dialect
 			Structure
 				
 				-
-					An XML dialect document will have exactly one root element at the root level.
-					It may also optionally have one or both of a single declaration element and a
+					An XML dialect document will have exactly one XML element at the root level. It
+					may also optionally have one or both of a single declaration element and a
 					single document element at the root level, as well as an indefinite number of
 					use elements.
 				-
@@ -57,13 +57,6 @@ XML Dialect
 					an attributes element.
 				-
 			
-			Root Element
-				
-				-
-					The root element has the content "Root" and has a single XML element as a
-					child.
-				-
-			
 			Declaration Element
 				
 				-
@@ -85,8 +78,14 @@ XML Dialect
 			XML Elements
 			
 				-
-					An XML element may have any content, and it may have an indefinite number of
-					children, each of which will take the form of a category element.
+					An XML element may have any content, unless it is at the root level of the
+					document, in which case it may not have the content "Use", "Declaration", or
+					"Document", and it may have an indefinite number of children, each of which
+					will take the form of a category element.
+					
+					If the content of the element starts and ends with a quotation mark, it will
+					represent a tag name that matches said content where the first and last
+					quotation marks have been cropped.
 				-
 			
 			Category Elements
