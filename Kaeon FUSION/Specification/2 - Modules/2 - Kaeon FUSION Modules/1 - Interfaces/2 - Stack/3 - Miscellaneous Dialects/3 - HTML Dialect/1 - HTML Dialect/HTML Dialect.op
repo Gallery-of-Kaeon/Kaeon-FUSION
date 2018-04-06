@@ -49,10 +49,10 @@ HTML Dialect
 			Resources
 				
 				-
-					If the content of a command is "Style", the children of the command will be
+					If the content of a command is "CSS", the children of the command will be
 					cross compiled to CSS as per the CSS dialect and nested within a "style" tag.
 					
-					If the content of a command is "Script", the children of the command will be
+					If the content of a command is "JavaScript", the children of the command will be
 					cross compiled to JavaScript as per the JavaScript dialect and nested within a
 					"script" tag.
 					

@@ -90,12 +90,14 @@ Tags
 			Resource: source
 			Ruby: ruby
 			Sample: samp
+			Script: script
 			Section: section
 			Select: select
 			Small: small
 			Span: span
 			Strong: strong
 			Struck: s
+			Style: style
 			Subscript: sub
 			Summary: summary
 			Superscript: sup
