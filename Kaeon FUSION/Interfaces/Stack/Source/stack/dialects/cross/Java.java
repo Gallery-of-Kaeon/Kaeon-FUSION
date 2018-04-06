@@ -25,6 +25,22 @@ public class Java extends CrossDialect {
 		file.add(formatIdentifier(name) + ".java");
 		file.add(build);
 		
+		Category functions = getCategory(categories, "Functions");
+		
+		for(int i = 0; i < functions.objects.size(); i++)
+			build = functions.objects.get(i) + build;
+		
+		build =
+				"public class " +
+				formatIdentifier(name) +
+				build +
+				"}";
+		
+		Category imports = getCategory(categories, "Imports");
+		
+		for(int i = 0; i < imports.objects.size(); i++)
+			build = "import " + imports.objects.get(i) + ";" + build;
+		
 		files.add(file);
 	}
 	
@@ -35,11 +51,10 @@ public class Java extends CrossDialect {
 			String body) {
 		
 		return
-				"public class " +
-				formatIdentifier(name) +
+				
 				"{public static void main(String[]args){boolean scope=false;" +
 				body +
-				"}}";
+				"}";
 	}
 	
 	public String buildOperator(

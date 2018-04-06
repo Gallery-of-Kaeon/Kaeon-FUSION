@@ -6,6 +6,7 @@ import io.IO;
 import one.Element;
 import one.ElementUtilities;
 import one_plus.ONEPlus;
+import stack.dialects.cross.JavaScript;
 import stack.dialects.cross.PHP;
 import stack.utilities.Dialect;
 
@@ -76,7 +77,10 @@ public class HTML extends Dialect {
 			Element tags,
 			Element attributes) {
 		
-		if(element.content.equalsIgnoreCase("Style"))
+		if(element.content.equalsIgnoreCase("JavaScript"))
+			return "<script>" + processResource(element, new JavaScript()) + "</script>";
+		
+		if(element.content.equalsIgnoreCase("CSS"))
 			return "<style>" + processResource(element, new CSS()) + "</style>";
 		
 		if(element.content.equalsIgnoreCase("PHP"))
