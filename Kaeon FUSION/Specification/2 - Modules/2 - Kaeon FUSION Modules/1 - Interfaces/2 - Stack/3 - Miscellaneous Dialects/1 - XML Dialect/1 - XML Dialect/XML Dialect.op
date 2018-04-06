@@ -110,16 +110,20 @@ XML Dialect
 					may have any content.
 				-
 			
-			Data Element
-			
-				-
-					A data element will have the content "Data" and may have an indefinite number
-					of children, each of which may have any content but no children.
-				-
-			
-			Children
+			Children Element
 				
 				-
 					A children element will have the content "Children" and may have an indefinite
 					number of children, each of which will be an XML element.
+				-
+			
+			Data Element
+			
+				-
+					A data element may have any content other than "Attributes" or "Children", but
+					no children.
+					
+					If the content of the element starts and ends with a quotation mark, it will
+					represent XML content that matches said content where the first and last
+					quotation marks have been cropped.
 				-
