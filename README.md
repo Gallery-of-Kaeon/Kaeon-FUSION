@@ -18,7 +18,7 @@ In order to liberate developers from the bondage of incomplete tools,
 we have created the first ever universal programming language.
 This is Kaeon FUSION!
 
-## Contents of this repository
+<h2 align="center">Contents of this repository</h2>
 
 This repository contains the specification,
 documentation,
@@ -45,7 +45,7 @@ and the specification for Kaeon FUSION.
 
 [Specification](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Specification)
 
-## Kaeon FUSION Example
+<h2 align="center">Kaeon FUSION Example</h2>
 
 Here's hello world,
 written using [ONE](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/1%20-%20ONE/README.md):
@@ -103,11 +103,11 @@ but with the Super Mode directive acting as a preprocessor:
 
 Click [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Samples) for all of our available sample code.
 
-## Contact info
+<h2 align="center">Contact Info</h2>
 
 For any questions or comments, please email the following address: kaeon.ace@gmail.com
 
-## FAQs
+<h2 align="center">FAQs</h2>
 
 ### How can I try it out?
 
