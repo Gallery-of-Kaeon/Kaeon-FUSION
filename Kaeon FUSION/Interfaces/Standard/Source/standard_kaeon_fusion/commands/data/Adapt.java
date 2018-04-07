@@ -1,29 +1,29 @@
-package standard_kaeon_fusion.commands.exporting;
+package standard_kaeon_fusion.commands.data;
 
 import java.util.ArrayList;
 
 import fusion.FUSIONUnit;
 import one.Element;
 import philosophers_stone.PhilosophersStoneUtilities;
+import standard_kaeon_fusion.utilities.state.State;
 
-public class Derive extends FUSIONUnit {
+public class Adapt extends FUSIONUnit {
 	
-	public Derive() {
+	public Adapt() {
 		tags.add("Standard");
 	}
 	
 	public boolean verify(Element element) {
-		return element.content.equalsIgnoreCase("Derive");
+		return element.content.equalsIgnoreCase("Adapt");
 	}
 	
 	public Object process(Element element, ArrayList<Object> processed) {
 		
 		PhilosophersStoneUtilities.call(
 				this,
-				"Derive",
-				element.children.get(0).content,
-				processed.get(1),
-				processed.size() == 3 ? processed.get(2) : new ArrayList<Object>());
+				"Adapt",
+				((State) processed.get(0)).toArrayList(),
+				"" + processed.get(1));
 		
 		return null;
 	}

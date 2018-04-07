@@ -1,9 +1,13 @@
 package stack.dialects;
 
+import java.io.File;
 import java.util.ArrayList;
 
+import io.IO;
 import one.Element;
 import one.ElementUtilities;
+import one_plus.ONEPlus;
+import philosophers_stone.PhilosophersStoneUtilities;
 import stack.utilities.Dialect;
 import stack.utilities.parse.xml.XMLAttribute;
 import stack.utilities.parse.xml.XMLElement;
@@ -11,6 +15,7 @@ import stack.utilities.parse.xml.XMLUnit;
 
 public class XML extends Dialect {
 	
+	@SuppressWarnings("unchecked")
 	public void build(
 			ArrayList<ArrayList<String>> files,
 			ArrayList<Element> code,
@@ -18,13 +23,101 @@ public class XML extends Dialect {
 			int index,
 			ArrayList<Object> arguments) {
 		
+		boolean html = false;
+		
+		for(int i = 0; i < arguments.size(); i++) {
+			
+			if(("" + arguments.get(i)).equalsIgnoreCase("HTML")) {
+				
+				html = true;
+				
+				break;
+			}
+		}
+		
+		ArrayList<String> workspace = new ArrayList<String>();
+		
+		workspace.add("");
+		
+		ArrayList<Object> workspaces = PhilosophersStoneUtilities.call(this, "Get Workspace");
+		
+		for(int i = 0; i < workspaces.size(); i++) {
+			
+			try {
+				workspace.addAll((ArrayList<String>) workspaces.get(i));
+			}
+			
+			catch(Exception exception) {
+				
+			}
+		}
+		
 		Element element = code.get(0);
+		
+		Element tags = new Element();
+		Element attributes = new Element();
+
+		ArrayList<Element> use = ElementUtilities.getChildren(element, "Use");
+		
+		if(html) {
+			
+			Element useHTML = ElementUtilities.createElement("Use");
+			ElementUtilities.addChild(useHTML, ElementUtilities.createElement("HTML.op"));
+			
+			use.add(useHTML);
+		}
+		
+		for(int i = 0; i < use.size(); i++) {
+			
+			for(int j = 0; j < use.get(i).children.size(); j++) {
+				
+				String path = null;
+				
+				for(int k = 0; k < workspace.size(); k++) {
+					
+					if(new File(workspace.get(k) + use.get(i).children.get(j).content).exists()) {
+						
+						path = workspace.get(j) + use.get(i).children.get(j).content;
+						
+						break;
+					}
+				}
+				
+				if(path != null) {
+					
+					Element useData = ONEPlus.parseONEPlus(IO.openAsString(path));
+					
+					ArrayList<Element> tagData = ElementUtilities.getChildren(useData, "Tags");
+					
+					for(int k = 0; k < tagData.size(); k++)
+						ElementUtilities.addChildren(tags, tagData.get(k).children);
+					
+					ArrayList<Element> attributeData = ElementUtilities.getChildren(useData, "Attributes");
+					
+					for(int k = 0; k < attributeData.size(); k++)
+						ElementUtilities.addChildren(attributes, attributeData.get(k).children);
+				}
+			}
+		}
 		
 		String xml = "";
 
 		Element declaration = ElementUtilities.getChild(element, "Declaration");
 		Element document = ElementUtilities.getChild(element, "Document");
-		Element root = ElementUtilities.getChild(element, "Root");
+		
+		Element root = new Element();
+		
+		for(int i = 0; i < element.children.size(); i++) {
+			
+			if(!element.children.get(i).content.equalsIgnoreCase("Use") &&
+					!element.children.get(i).content.equalsIgnoreCase("Declaration") &&
+					!element.children.get(i).content.equalsIgnoreCase("Document")) {
+				
+				root = element.children.get(i);
+				
+				break;
+			}
+		}
 		
 		if(declaration != null)
 			xml += buildDeclaration(declaration);
@@ -33,7 +126,7 @@ public class XML extends Dialect {
 			xml += buildDocument(document);
 		
 		if(root != null)
-			xml += buildElement(root.children.get(0));
+			xml += buildElement(root, tags, attributes);
 		
 		ArrayList<String> file = new ArrayList<String>();
 		
@@ -45,8 +138,9 @@ public class XML extends Dialect {
 				name += "_" + index;
 		}
 		
-		file.add(name + ".xml");
-		file.add(xml);
+		file.add(name + (html ? ".html" : ".xml"));
+		
+		file.add(html ? "<DOCTYPE html>" + xml : xml);
 		
 		files.add(file);
 	}
@@ -67,9 +161,15 @@ public class XML extends Dialect {
 		return element.children.get(0).content;
 	}
 	
-	public String buildElement(Element element) {
+	public String buildElement(Element element, Element tags, Element attributes) {
 		
-		String xml = "<" + buildLiteral(element) + " ";
+		String xml = "";
+		
+		if(ElementUtilities.hasChild(tags, element.content))
+			xml += "<" + ElementUtilities.getChild(tags, element.content).children.get(0).content + " ";
+		
+		else
+			xml += "<" + buildLiteral(element) + " ";
 		
 		for(int i = 0; i < element.children.size(); i++) {
 			
@@ -84,31 +184,49 @@ public class XML extends Dialect {
 							"\"";
 				}
 			}
+			
+			if(ElementUtilities.hasChild(attributes, element.children.get(i).content)) {
+				
+				xml +=
+						ElementUtilities.getChild(attributes, element.children.get(i).content).children.get(0).content +
+						"=\"" +
+						element.children.get(i).children.get(0).content +
+						"\"";
+			}
 		}
 		
 		xml += ">";
 		
 		for(int i = 0; i < element.children.size(); i++) {
 			
-			if(element.children.get(i).content.equalsIgnoreCase("Data")) {
-				
-				for(int j = 0; j < element.children.get(i).children.size(); j++)
-					xml += buildLiteral(element.children.get(i).children.get(j));
-			}
-			
 			if(element.children.get(i).content.equalsIgnoreCase("Children")) {
 				
 				for(int j = 0; j < element.children.get(i).children.size(); j++)
-					xml += buildElement(element.children.get(i).children.get(j));
+					xml += buildElement(element.children.get(i).children.get(j), tags, attributes);
 			}
+			
+			else if(ElementUtilities.hasChild(tags, element.children.get(i).content))
+				xml += buildElement(element.children.get(i), tags, attributes);
+			
+			else if(!ElementUtilities.hasChild(attributes, element.children.get(i).content))
+				xml += buildLiteral(element.children.get(i));
 		}
 		
-		return xml + "</" + buildLiteral(element) + ">";
+		if(ElementUtilities.hasChild(tags, element.content))
+			xml += "</" + ElementUtilities.getChild(tags, element.content).children.get(0).content + ">";
+		
+		else
+			xml += "</" + buildLiteral(element) + ">";
+		
+		return xml;
 	}
 	
 	public String buildLiteral(Element element) {
 		
 		String literal = element.content;
+		
+		if(literal.startsWith("\"") && literal.endsWith("\"") && literal.length() >= 2)
+			literal = literal.substring(1, literal.length() - 1);
 		
 		literal.replace("&", "&amp;");
 		literal.replace("<", "&lt;");
@@ -218,31 +336,17 @@ public class XML extends Dialect {
 			
 			else if(element.getData().get(i) instanceof String) {
 				
-				boolean newElement = false;
-				
-				if(currentType == null)
-					newElement = true;
-				
-				else if(currentType.equalsIgnoreCase("Element"))
-					newElement = true;
-				
-				if(newElement) {
-					
-					currentType = "String";
-					
-					currentElement = new Element();
-					currentElement.content = "Data";
-					
-					ElementUtilities.addChild(
-							derive,
-							currentElement);
-				}
-				
 				Element data = new Element();
 				data.content = (String) element.getData().get(i);
 				
+				if(data.content.equalsIgnoreCase("Attributes") ||
+						data.content.equalsIgnoreCase("Children")) {
+					
+					data.content = "\"" + data.content + "\"";
+				}
+				
 				ElementUtilities.addChild(
-						currentElement,
+						derive,
 						data);
 			}
 		}

@@ -5,11 +5,8 @@ import java.util.ArrayList;
 import fusion.FUSIONUnit;
 import one.Element;
 import philosophers_stone.PhilosophersStoneUtilities;
-import standard_kaeon_fusion.utilities.state.State;
 
 public class Build extends FUSIONUnit {
-	
-	public State state;
 	
 	public Build() {
 		tags.add("Standard");
@@ -17,10 +14,6 @@ public class Build extends FUSIONUnit {
 	
 	public boolean verify(Element element) {
 		return element.content.equalsIgnoreCase("Build");
-	}
-	
-	public boolean trickleDown(Element element) {
-		return true;
 	}
 	
 	public Object process(Element element, ArrayList<Object> processed) {

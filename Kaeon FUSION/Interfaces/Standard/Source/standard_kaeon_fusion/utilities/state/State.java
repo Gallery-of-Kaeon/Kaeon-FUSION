@@ -20,6 +20,14 @@ public class State extends FUSIONUnit {
 		state.add(new ArrayList<Alias>());
 	}
 	
+	public State(ArrayList<Object> list) {
+
+		tags.add("Standard");
+		tags.add("State");
+		
+		generateFromArrayList(list);
+	}
+	
 	public boolean verify(
 			Element element) {
 		
@@ -210,5 +218,87 @@ public class State extends FUSIONUnit {
 			copy.state.add(new ArrayList<Alias>(state.get(i)));
 		
 		return copy;
+	}
+	
+	public ArrayList<Object> toArrayList() {
+		
+		ArrayList<Object> list = new ArrayList<Object>();
+		
+		ArrayList<Object> globalList = new ArrayList<Object>();
+		
+		for(int i = 0; i < global.size(); i++) {
+			
+			ArrayList<Object> alias = new ArrayList<Object>();
+			
+			alias.add(global.get(i).alias);
+			alias.add(global.get(i).object);
+			
+			globalList.add(alias);
+		}
+		
+		ArrayList<Object> stateList = new ArrayList<Object>();
+		
+		for(int i = 0; i < state.size(); i++) {
+			
+			ArrayList<Object> stack = new ArrayList<Object>();
+			
+			for(int j = 0; j < state.get(i).size(); j++) {
+				
+				ArrayList<Object> alias = new ArrayList<Object>();
+				
+				alias.add(state.get(i).get(j).alias);
+				alias.add(state.get(i).get(j).object);
+				
+				stack.add(alias);
+			}
+			
+			stateList.add(stack);
+		}
+		
+		list.add(globalList);
+		list.add(stateList);
+		
+		return list;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public void generateFromArrayList(ArrayList<Object> list) {
+		
+		global = new ArrayList<Alias>();
+		state = new ArrayList<ArrayList<Alias>>();
+		
+		ArrayList<Object> globalList = (ArrayList<Object>) list.get(0);
+		
+		for(int i = 0; i < globalList.size(); i++) {
+			
+			ArrayList<Object> aliasList = (ArrayList<Object>) globalList.get(i);
+			Alias alias = new Alias();
+			
+			alias.alias = "" + aliasList.get(0);
+			alias.object = aliasList.get(1);
+			
+			global.add(alias);
+		}
+		
+		ArrayList<Object> stateList = (ArrayList<Object>) list.get(1);
+		
+		for(int i = 0; i < stateList.size(); i++) {
+
+			ArrayList<Object> stackList = (ArrayList<Object>) stateList.get(i);
+			ArrayList<Alias> stack = new ArrayList<Alias>();
+			
+			for(int j = 0; j < stackList.size(); j++) {
+
+				ArrayList<Object> aliasList = (ArrayList<Object>) stackList.get(i);
+				Alias alias = new Alias();
+				
+				alias.alias = "" + aliasList.get(0);
+				alias.object = aliasList.get(1);
+				
+				stack.add(alias);
+			}
+			
+			state.add(stack);
+		}
 	}
 }
