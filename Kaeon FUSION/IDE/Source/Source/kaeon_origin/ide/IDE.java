@@ -167,16 +167,18 @@ public class IDE implements ActionListener {
 
 		try {
 
-			for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+			for(LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
 
-				if ("Nimbus".equals(info.getName())) {
+				if("Nimbus".equals(info.getName())) {
+					
 					UIManager.setLookAndFeel(info.getClassName());
+					
 					break;
 				}
 			}
 		}
 
-		catch (Exception exception) {
+		catch(Exception exception) {
 
 		}
 	}
@@ -340,19 +342,19 @@ public class IDE implements ActionListener {
 			Element file = files.children.get(i);
 			
 			Input input = getInput();
-
+			
 			input.button.setText(file.content);
 			
 			if(ElementUtilities.hasChild(file, "Path")) {
 				
 				input.path = ElementUtilities.getChild(file, "Path").children.get(0).content;
-
+				
 				try {
 					input.text.setText(IO.openAsString(input.path));
 				}
-
+				
 				catch(Exception exception) {
-
+					
 				}
 			}
 			
@@ -361,7 +363,7 @@ public class IDE implements ActionListener {
 			
 			if(ElementUtilities.hasChild(file, "Arguments"))
 				input.arguments = ElementUtilities.getChild(file, "Arguments").children.get(0).content;
-
+			
 			this.input.add(input.panel);
 		}
 		
@@ -457,9 +459,30 @@ public class IDE implements ActionListener {
 		if(command.equals("New")) {
 
 			Input input = getInput();
-
-			input.button.setText("New File " + newFiles);
-			newFiles++;
+			
+			int newFiles = 1;
+			
+			while(true) {
+				
+				input.button.setText("New File " + newFiles);
+				newFiles++;
+				
+				boolean duplicate = false;
+				
+				for(int i = 0; i < inputs.size(); i++) {
+					
+					if(input != inputs.get(i) &&
+							inputs.get(i).button.getText().equals("New File " + (newFiles - 1))) {
+						
+						duplicate = true;
+						
+						break;
+					}
+				}
+				
+				if(!duplicate)
+					break;
+			}
 
 			this.input.add(input.panel);
 
@@ -643,7 +666,7 @@ public class IDE implements ActionListener {
 
 						try {
 							
-							fusion.process(
+							fusion.processKaeonFUSION(
 									ONEPlus.parseONEPlus(
 											(options.getText().equals("Disable Super") ? "[USE: SUPER] [SUPER]\n" : "") +
 											currentInput.text.getText()));
@@ -1222,8 +1245,8 @@ public class IDE implements ActionListener {
 			
 			String name = inputs.get(i).button.getText();
 			
-			if(inputs.get(i).path == null && !name.endsWith(" [SAVED]"))
-				name += " [SAVED]";
+//			if(inputs.get(i).path == null && !name.endsWith(" [SAVED]"))
+//				name += " [SAVED]";
 			
 			Element file = ElementUtilities.createElement(name);
 			ElementUtilities.addChild(files, file);
