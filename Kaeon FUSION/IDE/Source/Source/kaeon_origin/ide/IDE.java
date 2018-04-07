@@ -563,10 +563,29 @@ public class IDE implements ActionListener {
 
 			output.radioButton = new JRadioButton();
 			
-			newConsoles++;
+			int newConsoles = 0;
 			
-			output.button = createButton(currentInput.button.getText() + " - " + newConsoles);
-			output.button.setActionCommand("Output " + newConsoles);
+			while(true) {
+				
+				newConsoles++;
+				
+				output.button = createButton(currentInput.button.getText() + " - " + newConsoles);
+				output.button.setActionCommand("Output " + newConsoles);
+				
+				boolean duplicate = false;
+				
+				for(int i = 0; i < outputs.size(); i++) {
+					
+					if(output != outputs.get(i) &&
+							output.button.getText().equals(outputs.get(i).button.getText())) {
+						
+						duplicate = true;
+					}
+				}
+				
+				if(!duplicate)
+					break;
+			}
 
 			output.panel.add(output.radioButton);
 			output.panel.add(output.button);
@@ -1244,9 +1263,6 @@ public class IDE implements ActionListener {
 		for(int i = 0; i < inputs.size(); i++) {
 			
 			String name = inputs.get(i).button.getText();
-			
-//			if(inputs.get(i).path == null && !name.endsWith(" [SAVED]"))
-//				name += " [SAVED]";
 			
 			Element file = ElementUtilities.createElement(name);
 			ElementUtilities.addChild(files, file);
