@@ -5,3 +5,32 @@ SQL Dialect
 		-
 			The SQL dialect is a ONE dialect analogous to SQL.
 		-
+	
+	Principles
+	
+		Structure
+		
+			Statements
+			
+				-
+					A statement is composed of any contiguous set of elements which do not have the
+					content "Scope".
+				-
+			
+			Scope
+			
+				-
+					An element with the content "Scope" is equivalent to the statement or
+					statements defined by its children.
+				-
+			
+			Split
+			
+				-
+					The occurrence of an element with the content "Split" denotes that the statment
+					will become two statements, with the beginning of each statement consisting of
+					the portion of the statement preceding the split element, and with the
+					remainder of the first element being comprised of the children of the split
+					element, and the remainder of the second statement being comprised of the
+					elements following the split element.
+				-
