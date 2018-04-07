@@ -140,7 +140,7 @@ public class XML extends Dialect {
 		
 		file.add(name + (html ? ".html" : ".xml"));
 		
-		file.add(html ? "<DOCTYPE html>" + xml : xml);
+		file.add(html ? "<!DOCTYPE html>" + xml : xml);
 		
 		files.add(file);
 	}
