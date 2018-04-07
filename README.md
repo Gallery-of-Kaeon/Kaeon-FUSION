@@ -238,11 +238,9 @@ As a consequence,
 many parts of the documentation are often out of date,
 and may take a while to catch up.
 
-As of Novemeber 13, 2017,
-the implementations for Kaeon FUSION and its standard interface are stable.
-However,
-the Kaeon Origin IDE and the stack interface are still in beta,
-the standard ONE+ directives and the stack interface are in alpha.
+At the time of writing,
+there are still minor bugs with the standard ONE+ directives and with Super mode,
+and the stack interface is in beta.
 It should also be noted that all of our implementations were developed and tested on an unmodified Lenovo IdeaPad P500 laptop running Windows 10.
 
 Kaeon FUSION,
@@ -258,6 +256,3 @@ As of November 5, 2017,
 the Kaeon Origin IDE automatically notifies the user when updates are available and offers them the option to have the updates installed automatically.
 If you downloaded Kaeon Origin prior to November 5, 2017,
 we recommend that you re-download it.
-
-Finally,
-we plan on releasing a more advanced version of our IDE by early 2018 to make up for the current version's shortcomings.
