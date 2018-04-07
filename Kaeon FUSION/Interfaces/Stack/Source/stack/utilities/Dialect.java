@@ -78,12 +78,15 @@ public class Dialect extends PhilosophersStone {
 		
 		String workspace = "";
 		
-		try {
-			workspace = "" + PhilosophersStoneUtilities.call(this, "Get Build Workspace").get(0);
-		}
-		
-		catch(Exception exception) {
+		if(filePath.length() == 0) {
 			
+			try {
+				workspace = "" + PhilosophersStoneUtilities.call(this, "Get Build Workspace").get(0);
+			}
+			
+			catch(Exception exception) {
+				
+			}
 		}
 		
 		for(int i = 0; i < files.size(); i++)
