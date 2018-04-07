@@ -225,7 +225,7 @@ However,
 if you have something you feel that we need to know,
 we'll hear you out.
 
-## Disclaimer
+<h2 align="center">Disclaimer</h2>
 
 It is important to note that the contents of this repository are aimed at those who have a strong background in computer science.
 If you're a newcomer to programming in general,
