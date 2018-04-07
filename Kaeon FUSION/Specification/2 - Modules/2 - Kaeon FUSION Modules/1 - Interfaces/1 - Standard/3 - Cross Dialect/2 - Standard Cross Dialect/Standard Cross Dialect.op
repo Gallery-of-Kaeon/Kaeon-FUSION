@@ -177,3 +177,13 @@ Standard Cross Dialect
 					implementation of the standard cross dialect builds to. Said code will be
 					inserted in place of the Meta command at build time.
 				-
+		
+		Extensions
+		
+			-
+				An extended variant of the standard cross dialect must specify what languages and
+				frameworks the dialect corresponds to, what data types may be used for variables
+				and functions, what may be placed in a notation, what operator commands will be
+				added to those already present in the standard interface, and any limitations of
+				the dialect.
+			-
