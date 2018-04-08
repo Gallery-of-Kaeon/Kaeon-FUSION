@@ -78,7 +78,7 @@ Please note that the provided code is dependent on the [ONE](https://github.com/
 [ONE+](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/APIs/ONE%2B/Library),
 and [Philosopher's Stone](https://github.com/Gallery-of-Kaeon/Philosophers-Stone/tree/master/Philosopher's%20Stone/API/Java/Library) APIs.
 
-You can also try out the pre-compilded sample directive [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Module%20Development%20Framework/Directives/Test%20Interface/Directive/Test.jar?raw=true).
+You can also try out the pre-compilded sample directive [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Module%20Development%20Framework/Directives/Test%20Directive/Directive/Test.jar?raw=true).
 
 The first thing to do is to name your directive module.
 For the sake of this example,
