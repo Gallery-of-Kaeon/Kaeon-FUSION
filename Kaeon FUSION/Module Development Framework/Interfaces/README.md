@@ -38,7 +38,7 @@ Please note that the provided code is dependent on the [ONE](https://github.com/
 [FUSION](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/APIs/FUSION/Library),
 and [Philosopher's Stone](https://github.com/Gallery-of-Kaeon/Philosophers-Stone/tree/master/Philosopher's%20Stone/API/Java/Library) APIs.
 
-You can also try out the pre-compilded sample interface [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Module%20Development%20Framework/Interfaces/Test%20Interface/Interface).
+You can also try out the pre-compilded sample interface [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Module%20Development%20Framework/Interfaces/Test%20Interface/Interface/Test.jar?raw=true).
 
 The first thing to do is to name your interface.
 For the sake of this example,
