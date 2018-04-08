@@ -34,3 +34,22 @@ SQL Dialect
 					element, and the remainder of the second statement being comprised of the
 					elements following the split element.
 				-
+			
+			Commands
+				
+				-
+					Commands are elements within a statement that may have children. Whether an
+					element is a command or not is dependent on its content.
+					
+					Each child of a command will be processed as a statement, command, or literal
+					depending on its content, and the content of a command will determine how the
+					processed forms of its children are formatted during cross compilation.
+				-
+			
+			Literals
+			
+				-
+					Literals are elements which occur within statements but are not commands.
+					
+					Literals may not have children.
+				-
