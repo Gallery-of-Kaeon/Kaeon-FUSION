@@ -1,6 +1,6 @@
 [Kaeon FUSION Home](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/README.md)
 
-# ONE+ Directive Development Framework
+# ONE+ Directive Development
 
 The ONE+ directive development framework allows third parties to develop directives for ONE+.
 
@@ -11,8 +11,7 @@ so be sure that you have Java installed and that you're comfortable writing Java
 
 ## Framework Structure
 
-The framework comes in the form of an Eclipse project,
-although you're free to use any development environment that supports Java.
+The framework comes in the form of a Java project.
 
 The project itself is a fully functioning directive module,
 which provides access to one directive.
@@ -73,7 +72,13 @@ The following ONE would be generated:
 
 ## How to use
 
-First, download the ONE+ directive development framework [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Module%20Development%20Framework/Directives/Test%20Directive.zip?raw=true).
+First, download the code for our sample ONE+ directive [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Module%20Development%20Framework/Directives/Test%20Directive/Source).
+
+Please note that the provided code is dependent on the [ONE](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/APIs/ONE/Library),
+[ONE+](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/APIs/ONE%2B/Library),
+and [Philosopher's Stone](https://github.com/Gallery-of-Kaeon/Philosophers-Stone/tree/master/Philosopher's%20Stone/API/Java/Library) APIs.
+
+You can also try out the pre-compilded sample directive [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Module%20Development%20Framework/Interfaces/Test%20Interface/Directive).
 
 The first thing to do is to name your directive module.
 For the sake of this example,
@@ -86,11 +91,11 @@ So,
 for our example,
 the package will be renamed to "aether_my_directive".
 
-Proceed to implement any directives provided by your direcitve module as extensions of the Directive class.
+Proceed to implement any directives provided by your direcitve module as extensions of the DirectiveUnit class.
 
 Then,
 in the onCall method of the Aether class,
-add a new instance of each of your directives to the directiveUnits ArrayList.
+add a new instance of each of your directiveUnits to the directiveUnits ArrayList.
 Feel free to remove the test command.
 
 Finally,
@@ -99,12 +104,26 @@ The jar file for this example would be named "My Directive.jar".
 
 Place the jar file next to the Kaeon Origin.jar file and Kaeon Origin will automatically be able to access it.
 
-## The Directive Class Functions
+## The DirectiveUnit Class Functions
 
 ### Apply
 
-    public void apply(ArrayList<Directive> directiveUnits, ArrayList<Element> directives, Element element)
+    public void apply(ArrayList<DirectiveUnit> directiveUnits, ArrayList<Directive> directives, Directive directive)
 
-This function is called when a directive is triggered.
-All directive objects currently in effect as well as all elements in the document recognized as directives and the element that triggered the directive are passed to the function.
+This function is called when a directive unit is triggered.
+All directive objects currently in effect as well as all directives in the document and the directve that triggered the directive unit are passed to the function.
 Any of the passed in values may be modified.
+
+## The Directive Class Fields
+
+    public Element directive
+
+This field contains the element containing the directive.
+
+    public ArrayList<Element> header
+
+This field contains all of the directive element's children located in the directive element's directive definition.
+
+    public ArrayList<Element> body
+
+This field contains all of the directive element's children located outside of the directive element's directive definition.
