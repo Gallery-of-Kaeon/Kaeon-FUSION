@@ -27,11 +27,11 @@ SQL Dialect
 			Split
 			
 				-
-					The occurrence of an element with the content "Split" denotes that the statment
-					will become two statements, with the beginning of each statement consisting of
-					the portion of the statement preceding the split element, and with the
-					remainder of the first element being comprised of the children of the split
-					element, and the remainder of the second statement being comprised of the
+					The occurrence of an element with the content "Split" denotes that the
+					statement will become two statements, with the beginning of each statement
+					consisting of the portion of the statement preceding the split element, and
+					with the remainder of the first element being comprised of the children of the
+					split element, and the remainder of the second statement being comprised of the
 					elements following the split element.
 				-
 			
