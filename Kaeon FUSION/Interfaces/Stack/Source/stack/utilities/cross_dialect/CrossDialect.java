@@ -565,7 +565,7 @@ public class CrossDialect extends Dialect {
 					ElementUtilities.addChild(meta, element.children.get(i));
 				
 				else
-					ammendNotation(notation, element.children.get(i));
+					ammendNotation(notation, element.children.get(i), categories);
 				
 				continue;
 			}
@@ -608,7 +608,7 @@ public class CrossDialect extends Dialect {
 					Element notation = ElementUtilities.getChild(meta, "Notation");
 					
 					if(notation != null)
-						ammendNotation(notation, nullify.children.get(i));
+						ammendNotation(notation, nullify.children.get(i), categories);
 				}
 				
 				else
@@ -617,7 +617,7 @@ public class CrossDialect extends Dialect {
 		}
 	}
 	
-	public void ammendNotation(Element metaNotation, Element notation) {
+	public void ammendNotation(Element metaNotation, Element notation, ArrayList<Category> categories) {
 		
 	}
 	
@@ -1122,7 +1122,7 @@ public class CrossDialect extends Dialect {
 	}
 	
 	public String buildAt(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
-		return arguments.get(0) + "[(" + arguments.get(1) + ")-" + index  + "]";
+		return arguments.get(0) + "[(" + arguments.get(1) + ")-" + index + "]";
 	}
 	
 	public String buildAppend(Element element, ArrayList<String> arguments, Element meta, String size, int index) {

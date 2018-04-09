@@ -1,15 +1,18 @@
 package stack.dialects;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import io.IO;
 import one.Element;
 import one.ElementUtilities;
 import one_plus.ONEPlus;
+import philosophers_stone.PhilosophersStoneUtilities;
 import stack.utilities.Dialect;
 
 public class CSS extends Dialect {
 
+	@SuppressWarnings("unchecked")
 	public void build(
 			ArrayList<ArrayList<String>> files,
 			ArrayList<Element> code,
@@ -17,9 +20,41 @@ public class CSS extends Dialect {
 			int index,
 			ArrayList<Object> arguments) {
 		
+		ArrayList<String> workspace = new ArrayList<String>();
+		
+		workspace.add("");
+		
+		ArrayList<Object> workspaces =
+				PhilosophersStoneUtilities.call(this, "Get Workspace");
+		
+		for(int i = 0; i < workspaces.size(); i++) {
+			
+			try {
+				workspace.addAll((ArrayList<String>) workspaces.get(i));
+			}
+			
+			catch(Exception exception) {
+				
+			}
+		}
+		
 		Element element = code.get(0);
 		
-		Element tags = ONEPlus.parseONEPlus(IO.openAsString("Tags.op"));
+		Element tags = new Element();
+		
+		for(int i = 0; i < workspace.size(); i++) {
+			
+			if(new File(workspace.get(i) + "HTML.op").exists()) {
+				
+				tags =
+						ElementUtilities.getChild(
+								ONEPlus.parseONEPlus(
+										IO.openAsString(
+												workspace.get(i) +
+												"HTML.op")),
+								"Tags");
+			}
+		}
 		
 		String css = "";
 		
@@ -63,8 +98,13 @@ public class CSS extends Dialect {
 			else if(element.children.get(i).content.equalsIgnoreCase("For"))
 				domain += "." + element.children.get(i).children.get(0).content;
 			
-			else
-				domain += ElementUtilities.getChild(tags, element.children.get(i).content).children.get(0).content;
+			else {
+				
+				domain +=
+						ElementUtilities.getChild(
+								tags,
+								element.children.get(i).content).children.get(0).content;
+			}
 		}
 		
 		return domain;

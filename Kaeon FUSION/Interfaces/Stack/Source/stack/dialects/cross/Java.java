@@ -9,10 +9,6 @@ import stack.utilities.cross_dialect.CrossDialect;
 
 public class Java extends CrossDialect {
 	
-	public String formatIdentifier(String identifier) {
-		return identifier.replaceAll(" ", "").toLowerCase();
-	}
-	
 	public void buildCategories(
 			ArrayList<ArrayList<String>> files,
 			String name,
@@ -41,7 +37,22 @@ public class Java extends CrossDialect {
 		for(int i = 0; i < imports.objects.size(); i++)
 			build = "import " + imports.objects.get(i) + ";" + build;
 		
+		Category classes = getCategory(categories, "Classes");
+		
+		for(int i = 0; i < classes.objects.size(); i++)
+			buildClass("" + classes.objects.get(i), files, imports);
+		
 		files.add(file);
+	}
+	
+	public void buildClass(String classBuild, ArrayList<ArrayList<String>> files, Category imports) {
+		
+		ArrayList<String> file = new ArrayList<String>();
+		
+		int index = classBuild.indexOf("public class ");
+		
+		file.add(formatIdentifier(classBuild.substring(index + 14, classBuild.indexOf("{"))) + ".java");
+		file.add(classBuild);
 	}
 	
 	public String buildMain(
@@ -50,11 +61,63 @@ public class Java extends CrossDialect {
 			ArrayList<Category> categories,
 			String body) {
 		
-		return
-				
-				"{public static void main(String[]args){boolean scope=false;" +
+		String build = "";
+		
+		ArrayList<Object> helper = new ArrayList<Object>();
+
+		helper.addAll(getCategory(categories, "Globals").objects);
+		helper.addAll(getCategory(categories, "Functions").objects);
+		
+		for(int i = 0; i < helper.size(); i++) {
+			
+			String help = "" + helper.get(i);
+			
+			if(help.startsWith("public "))
+				help = help.substring(7);
+			
+			if(help.startsWith("private "))
+				help = help.substring(8);
+			
+			if(help.startsWith("protected "))
+				help = help.substring(10);
+			
+			if(help.startsWith("package "))
+				help = help.substring(8);
+			
+			if(help.startsWith("static "))
+				help = help.substring(7);
+			
+			help += "public static ";
+			
+			build += help;
+		}
+		
+		build +=
+				"{public static void main(String[]args){" +
+				"boolean scope=false;" +
+				"ArrayList<Object> arguments=" +
+				"new ArrayList<Object>(Arrays.asList(args));" +
 				body +
 				"}";
+		
+		return build;
+	}
+	
+	public void ammendNotation(Element metaNotation, Element notation, ArrayList<Category> categories) {
+		
+		try {
+			
+			getCategory(
+					categories,
+					"Packages").objects.add(
+							ElementUtilities.getChild(
+									notation,
+									"Package").children.get(0).content);
+		}
+		
+		catch(Exception exception) {
+			
+		}
 	}
 	
 	public String buildOperator(
@@ -69,36 +132,130 @@ public class Java extends CrossDialect {
 	
 	public String buildVariableDeclarationType(Element element, ArrayList<String> arguments, Element meta) {
 		
-		String declaration = "";
+		if(ElementUtilities.hasChild(meta, "Type"))
+			return buildType(element, arguments, ElementUtilities.getChild(meta, "Type"));
 		
-		Element type = ElementUtilities.getChild(meta, "Type");
+		return "";
+	}
+	
+	public String buildFunctionDefinition(
+			Element function,
+			String functionBody,
+			Element metaCopy,
+			ArrayList<Category> categories,
+			ArrayList<String> returnType,
+			boolean isConstructor,
+			ArrayList<Category> parameters,
+			int parameterNumber) {
 		
-		if(type != null) {
+		Element returnTypeElement = new Element();
+
+		try {
 			
-			for(int i = 0; i < type.children.size(); i++) {
-				
-				if(type.children.get(i).content.equalsIgnoreCase("Integer"))
-					declaration += "int ";
-				
-				if(type.children.get(i).content.equalsIgnoreCase("Double"))
-					declaration += "double ";
-				
-				if(type.children.get(i).content.equalsIgnoreCase("Float"))
-					declaration += "float ";
-				
-				if(type.children.get(i).content.equalsIgnoreCase("Character"))
-					declaration += "char ";
-				
-				if(type.children.get(i).content.equalsIgnoreCase("Boolean"))
-					declaration += "boolean ";
-			}
+			returnTypeElement =
+					ElementUtilities.getChild(
+							ElementUtilities.getChild(
+									metaCopy,
+									"Function"),
+							"Type");
+		}
+		
+		catch(Exception exception) {
+			
+		}
+		
+		String build = "";
+		
+		if(!isConstructor) {
+			
+			build +=
+					buildType(returnTypeElement) +
+					" " +
+					function.content +
+					"(";
 		}
 		
 		else {
-			declaration = "Object";
+			
+			build +=
+					"public " +
+					function.content +
+					"(";
 		}
 		
-		return declaration;
+		for(int i = 0; i < parameterNumber; i++) {
+			
+			build += "Object arg" + i;
+			
+			if(i < parameterNumber - 1)
+				build += ",";
+		}
+		
+		for(int i = 0; i < parameters.size(); i++) {
+			
+			Element parameter =
+					ElementUtilities.getChild(
+							ElementUtilities.getChild(
+									metaCopy,
+									"Function"),
+							"Parameters").children.get(i);
+			
+			build += buildType(parameter) + " " + parameters.get(i).name;
+			
+			if(i < parameters.size() - 1)
+				build += ",";
+		}
+		
+		build += "){bool scope=false;void* arguments[]={";
+		
+		for(int i = 0; i < parameterNumber; i++) {
+			
+			build += "arg" + i;
+			
+			if(i < parameterNumber - 1)
+				build += ",";
+		}
+		
+		return build + "};" + functionBody + "}";
+	}
+	
+	public String buildClassDefinition(Element classElement, String constructor, Element metaCopy, ArrayList<Category> categories, ArrayList<String> inheritence) {
+		
+		String build = "";
+		
+		Category packages = getCategory(categories, "Packages");
+		
+		if(packages.objects.size() > 0)
+			build += "package " + packages.objects.get(packages.objects.size() - 1) + ";";
+		
+		if(packages.objects.size() > 1)
+			packages.objects.remove(packages.objects.size() - 1);
+		
+		Category imports = getCategory(categories, "Imports");
+		
+		for(int i = 0; i < imports.objects.size(); i++)
+			build += "import " + imports.objects.get(i) + ";";
+		
+		build += "public class " + classElement.content + " extends ";
+		
+		if(inheritence.size() >= 1)
+			build += inheritence.get(0) + " ";
+		
+		build += "{" + constructor;
+		
+		Category global = getCategory(categories, "Global");
+		
+		for(int i = 0; i < global.objects.size(); i++)
+			build += global.objects.get(i);
+		
+		Category functions = getCategory(categories, "Functions");
+		
+		for(int i = 0; i < functions.objects.size(); i++)
+			build += functions.objects.get(i);
+		
+		build += "}";
+		
+		return build;
 	}
 	
 	public String buildRun(Element element, ArrayList<String> arguments, Element meta) {
@@ -135,12 +292,73 @@ public class Java extends CrossDialect {
 		return "(double) System.currentTimeMillis() / 1000";
 	}
 	
-	/*
-	 * OPEN
-	 * SAVE
-	 * LIST
-	 * LIST OPERATIONS
-	 */
+	// STUB - IO
+	
+	public String buildList(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+		
+		String build = "";
+		
+		if(size.equalsIgnoreCase("Variable"))
+			build += "new ArrayList<Object>(Arrays.asList(";
+		
+		else
+			build += "{";
+		
+		for(int i = 0; i < arguments.size(); i++) {
+			
+			build += arguments.get(i);
+			
+			if(i < arguments.size() - 1)
+				build += ",";
+		}
+		
+		if(size.equalsIgnoreCase("Variable"))
+			build += "))";
+		
+		else
+			build += "}";
+			
+		return build;
+	}
+	
+	public String buildSize(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+		
+		if(size.equalsIgnoreCase("Variable"))
+			return arguments.get(0) + ".size()";
+		
+		else
+			return arguments.get(0) + ".length";
+	}
+	
+	public String buildAt(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+		
+		if(size.equalsIgnoreCase("Variable"))
+			return arguments.get(0) + ".get((" + arguments.get(1) + ")-" + index + ")";
+		
+		else
+			return arguments.get(0) + "[(" + arguments.get(1) + ")-" + index + "]";
+	}
+	
+	public String buildAppend(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+		return arguments.get(0) + ".add(" + arguments.get(1) + ")";
+	}
+	
+	public String buildSet(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+		
+		if(size.equalsIgnoreCase("Variable"))
+			return arguments.get(0) + ".set((" + arguments.get(1) + ")-" + index + "," + arguments.get(2) + ")";
+		
+		else
+			return arguments.get(0) + "[(" + arguments.get(1) + ")-" + index + "]=" + arguments.get(2);
+	}
+	
+	public String buildInsert(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+		return "";
+	}
+	
+	public String buildRemove(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+		return arguments.get(0) + ".remove(" + arguments.get(1) + ")";
+	}
 	
 	public String buildConcatenate(Element element, ArrayList<String> arguments, Element meta) {
 		
@@ -157,8 +375,53 @@ public class Java extends CrossDialect {
 		return build;
 	}
 	
-	// CROP
-	// CASTING OPERATIONS
+	public String buildCrop(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+		return "";
+	}
+	
+	public String buildContains(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+		return "";
+	}
+	
+	public String buildIndex(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+		return "";
+	}
+	
+	public String buildCount(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+		return "";
+	}
+	
+	public String buildCut(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+		return "";
+	}
+	
+	public String buildReverse(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+		return "";
+	}
+	
+	public String buildConvertSequence(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+		return "";
+	}
+	
+	public String buildCharacterToNumber(Element element, ArrayList<String> arguments, Element meta) {
+		return "";
+	}
+	
+	public String buildNumberToCharacter(Element element, ArrayList<String> arguments, Element meta) {
+		return "";
+	}
+	
+	public String buildUpper(Element element, ArrayList<String> arguments, Element meta) {
+		return "";
+	}
+	
+	public String buildLower(Element element, ArrayList<String> arguments, Element meta) {
+		return "";
+	}
+	
+	public String buildTrim(Element element, ArrayList<String> arguments, Element meta) {
+		return "";
+	}
 	
 	public String buildRandom(Element element, ArrayList<String> arguments, Element meta) {
 		return "Math.random()";
@@ -206,5 +469,77 @@ public class Java extends CrossDialect {
 	
 	public String buildAbsoluteValue(Element element, ArrayList<String> arguments, Element meta) {
 		return "Math.abs(" + arguments.get(0) + ")";
+	}
+	
+	public String buildType(Element type) {
+		
+		String declaration = "";
+		
+		if(ElementUtilities.hasChild(type, "Public"))
+			declaration += "public ";
+		
+		if(ElementUtilities.hasChild(type, "Private"))
+			declaration += "private ";
+		
+		if(ElementUtilities.hasChild(type, "Protected"))
+			declaration += "protected ";
+		
+		if(ElementUtilities.hasChild(type, "Package"))
+			declaration += "package ";
+		
+		if(ElementUtilities.hasChild(type, "Static"))
+			declaration += "static ";
+		
+		if(ElementUtilities.hasChild(type, "Final"))
+			declaration += "final ";
+		
+		if(ElementUtilities.hasChild(type, "Void"))
+			declaration += "void ";
+		
+		else if(ElementUtilities.hasChild(type, "Class"))
+			declaration += ElementUtilities.getChild(type, "Class").children.get(0).content + " ";
+		
+		else if(ElementUtilities.hasChild(type, "Integer"))
+			declaration += "int ";
+		
+		else if(ElementUtilities.hasChild(type, "Double"))
+			declaration += "double ";
+		
+		else if(ElementUtilities.hasChild(type, "Float"))
+			declaration += "float ";
+		
+		else if(ElementUtilities.hasChild(type, "Character"))
+			declaration += "char ";
+		
+		else if(ElementUtilities.hasChild(type, "Boolean"))
+			declaration += "boolean ";
+		
+		else if(ElementUtilities.hasChild(type, "Byte"))
+			declaration += "byte ";
+		
+		else if(ElementUtilities.hasChild(type, "Short"))
+			declaration += "short ";
+		
+		else if(ElementUtilities.hasChild(type, "Long"))
+			declaration += "Long ";
+		
+		else
+			declaration += "Object ";
+		
+		if(ElementUtilities.hasChild(type, "Template"))
+			declaration += "<" + buildType(ElementUtilities.getChild(type, "Template")) + "> ";
+		
+		if(ElementUtilities.hasChild(type, "Array")) {
+			
+			int dimensions = 1;
+			
+			if(ElementUtilities.getChild(type, "Array").children.size() > 0)
+				dimensions = Integer.parseInt(ElementUtilities.getChild(type, "Array").children.get(0).content);
+			
+			for(int i = 0; i < dimensions; i++)
+				declaration += "[] ";
+		}
+		
+		return declaration;
 	}
 }
