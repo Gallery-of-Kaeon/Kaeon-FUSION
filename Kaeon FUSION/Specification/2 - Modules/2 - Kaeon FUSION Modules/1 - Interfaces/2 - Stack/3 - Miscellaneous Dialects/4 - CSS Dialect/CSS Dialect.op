@@ -7,23 +7,44 @@ CSS Dialect
 		-
 	
 	Principles
-		
-		Style Elements
+	
+		Structure
 		
 			-
-				A document written in the CSS dialect shall consist entirely of style elements.
-				
-				A style element shall have the content "Style". A style element must have at least
-				one element with the content "Domain", and exactly one element with the content
-				"Data".
-				
-				A domain element's children will specify one of the domains the style block
-				effects. A child with no child will represent a tag type. The child of a child with
-				the content "On" will represent an ID. The child of a child with the content "For"
-				will represent a class. The order in which said children are listed dictate their
-				hierarchy.
-				
-				The data element's children will each have one child. The content of each child of
-				the data element represent an attribute and the content of each of said element's
-				children represent the value assigned to the respective attribute.
+				A document written in the CSS dialect shall consist entirely of style elements and
+				use elements.
 			-
+			
+			Use Elements
+			
+				-
+					A use element shall have the content "Use" and will have a single child with
+					content containing the file path of a ONE+ file which has an element with the
+					content "Tags".
+					
+					All of the children of the tags element will each have a single child with no
+					children.
+				-
+			
+			Style Elements
+			
+				-
+					A style element shall have the content "Style". A style element must have at
+					least one element with the content "Domain", and exactly one element with the
+					content "Data".
+					
+					A domain element's children will specify one of the domains the style block
+					effects. A child with no child will represent a tag type. The child of a child
+					with the content "On" will represent an ID. The child of a child with the
+					content "For" will represent a class. The order in which said children are
+					listed dictate their hierarchy.
+					
+					If an element representing a tag type has content matching the content of an
+					element in a document referenced by a use element, The content of the child of
+					the matching element will be the name of the tag after cross compilation.
+					Otherwise, the name of the tag will be the content of the element. 
+					
+					The data element's children will each have one child. The content of each child
+					of the data element represent an attribute and the content of each of said
+					element's children represent the value assigned to the respective attribute.
+				-
