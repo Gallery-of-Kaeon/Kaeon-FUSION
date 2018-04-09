@@ -18,9 +18,9 @@ ONE+
 				the close directive sequence, the escape sequence, the escape scope sequence, the
 				encoded escape scope sequence, the alternate breaking sequence, the alternate
 				nesting sequence, the comment sequence, the open comment sequence, the close
-				comment sequence, the zero sequence, and the blank sequence. It is not permitted
-				for the sequences to be defined such that there may be any instances where two or
-				more sequences conflict at a given location.
+				comment sequence, and the blank sequence. It is not permitted for the sequences to
+				be defined such that there may be any instances where two or more sequences
+				conflict at a given location.
 				
 				In ONE+, it is possible to have more than one character sequence for each defined
 				sequence.
@@ -189,9 +189,15 @@ ONE+
 						the directives implemented within them will be usable.
 					-
 			
-			Zero Documents
+			Alternate Syntaxes
 			
 				-
-					If the document begins with the zero sequence, the remainder of the document
-					will constitute a zero document and will be parsed as such.
+					If the document begins with the escape sequence followed by the open directive
+					sequence, then the sequence of characters between the aforementioned open
+					directive sequence and the first instance of a sequence consisting of the close
+					directive sequence followed by the breaking sequence will match the alias of an
+					alternate syntax for encoding ONE documents.
+					
+					All text following the aforementioned breaking sequence will be encoded as a
+					ONE document based on the specified syntax.
 				-
