@@ -142,6 +142,6 @@ It will return null by default.
 
 ### Handle Error
 
-    public void handleError(Element element)
+    public void handleError(Element element, Exception exception)
 
 This function is called whenever any FUSION unit throws an exception.
