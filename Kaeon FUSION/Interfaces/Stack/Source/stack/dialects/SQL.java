@@ -66,6 +66,71 @@ public class SQL extends Dialect {
 	}
 	
 	public String buildCommand(Element command) {
+		
+		ArrayList<String> arguments = new ArrayList<String>();
+		
+		for(int i = 0; i < command.children.size(); i++) {
+			
+			if(command.children.get(i).content.equalsIgnoreCase("Scope")) {
+				
+				ArrayList<String> statements = new ArrayList<String>();
+				buildStatements(statements, "", command.children.get(i));
+				
+				arguments.addAll(statements);
+			}
+			
+			else
+				arguments.add(buildCommand(command.children.get(i)));
+		}
+		
+		String prefix = getPrefix(command);
+		
+		if(prefix != null) {
+			
+			String build = prefix + " ";
+			
+			for(int i = 0; i < arguments.size(); i++)
+				build += arguments.get(i) + " ";
+			
+			return build;
+		}
+		
+		String infix = getInfix(command);
+		
+		if(infix != null)
+			return arguments.get(0) + infix + arguments.get(1) + " ";
+		
+		String alias = getAlias(command);
+		
+		if(alias != null)
+			return alias + " ";
+		
 		return command.content;
+	}
+	
+	public String getPrefix(Element command) {
+		
+		if(command.content.equalsIgnoreCase("Select"))
+			return "SELECT";
+		
+		if(command.content.equalsIgnoreCase("From"))
+			return "FROM";
+		
+		if(command.content.equalsIgnoreCase("Where"))
+			return "WHERE";
+		
+		return null;
+	}
+	
+	public String getInfix(Element command) {
+		return null;
+	}
+	
+	public String getAlias(Element command) {
+		
+		if(command.content.equalsIgnoreCase("All"))
+			return "*";
+		
+		return null;
 	}
 }

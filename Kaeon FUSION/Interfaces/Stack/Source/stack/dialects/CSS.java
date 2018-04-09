@@ -40,19 +40,32 @@ public class CSS extends Dialect {
 		
 		Element element = code.get(0);
 		
-		Element tags = new Element();
+		Element tags = ElementUtilities.createElement("Tags");
+		
+		ArrayList<Element> use = ElementUtilities.getChildren(element, "Use");
 		
 		for(int i = 0; i < workspace.size(); i++) {
 			
-			if(new File(workspace.get(i) + "HTML.op").exists()) {
+			for(int j = 0; j < use.size(); j++) {
 				
-				tags =
-						ElementUtilities.getChild(
-								ONEPlus.parseONEPlus(
-										IO.openAsString(
-												workspace.get(i) +
-												"HTML.op")),
-								"Tags");
+				try {
+					
+					String path = workspace.get(i) + use.get(j).children.get(0).content;
+					
+					if(new File(path).exists()) {
+						
+						ElementUtilities.addChildren(
+								tags,
+								ElementUtilities.getChild(
+										ONEPlus.parseONEPlus(
+												IO.openAsString(path)),
+										"Tags").children);
+					}
+				}
+				
+				catch(Exception exception) {
+					
+				}
 			}
 		}
 		

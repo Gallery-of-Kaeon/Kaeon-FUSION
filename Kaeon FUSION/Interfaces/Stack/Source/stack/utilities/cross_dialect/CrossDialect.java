@@ -608,7 +608,7 @@ public class CrossDialect extends Dialect {
 					Element notation = ElementUtilities.getChild(meta, "Notation");
 					
 					if(notation != null)
-						ammendNotation(notation, nullify.children.get(i), categories);
+						nullifyNotation(notation, nullify.children.get(i), categories);
 				}
 				
 				else
@@ -621,7 +621,7 @@ public class CrossDialect extends Dialect {
 		
 	}
 	
-	public void nullifyNotation(Element metaNotation, Element notation) {
+	public void nullifyNotation(Element metaNotation, Element notation, ArrayList<Category> categories) {
 		
 	}
 	

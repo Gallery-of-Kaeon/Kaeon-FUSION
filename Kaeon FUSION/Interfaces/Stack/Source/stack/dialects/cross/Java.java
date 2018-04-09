@@ -118,6 +118,25 @@ public class Java extends CrossDialect {
 		catch(Exception exception) {
 			
 		}
+		
+		if(ElementUtilities.hasChild(notation, "Interfaces")) {
+			
+			getCategory(categories, "Interfaces").objects = new ArrayList<Object>();
+			
+			Element interfaces = ElementUtilities.getChild(notation, "Interfaces");
+			
+			for(int i = 0; i < interfaces.children.size(); i++)
+				getCategory(categories, "Interfaces").objects.add(interfaces.children.get(i).content);
+		}
+	}
+	
+	public void nullifyNotation(Element metaNotation, Element notation, ArrayList<Category> categories) {
+		
+		if(ElementUtilities.hasChild(notation, "Package"))
+			getCategory(categories, "Packages").objects = new ArrayList<Object>();
+		
+		if(ElementUtilities.hasChild(notation, "Interfaces"))
+			getCategory(categories, "Interfaces").objects = new ArrayList<Object>();
 	}
 	
 	public String buildOperator(
@@ -125,7 +144,9 @@ public class Java extends CrossDialect {
 			ArrayList<String> arguments,
 			Element meta) {
 		
-		// STUB
+		if(element.content.equalsIgnoreCase("Instance Of")) {
+			return arguments.get(0) + " instanceof " + element.children.get(1).content;
+		}
 		
 		return null;
 	}
@@ -236,10 +257,20 @@ public class Java extends CrossDialect {
 		for(int i = 0; i < imports.objects.size(); i++)
 			build += "import " + imports.objects.get(i) + ";";
 		
-		build += "public class " + classElement.content + " extends ";
+		build += "public class " + classElement.content + " ";
 		
 		if(inheritence.size() >= 1)
-			build += inheritence.get(0) + " ";
+			build += "extends " +  inheritence.get(0) + " ";
+		
+		Category interfaces = getCategory(categories, "Interfaces");
+		
+		if(interfaces.objects.size() > 0) {
+			
+			build = "implements ";
+			
+			for(int i = 0; i < interfaces.objects.size(); i++)
+				build += interfaces.objects.get(i);
+		}
 		
 		build += "{" + constructor;
 		
