@@ -20,19 +20,25 @@ SQL Dialect
 			Scope
 			
 				-
-					An element with the content "Scope" is equivalent to the statement or
-					statements defined by its children.
+					An element with the content "Scope" that has no parent is equivalent to the
+					statement or statements defined by its children.
 				-
 			
-			Split
+			Splitting
 			
 				-
-					The occurrence of an element with the content "Split" denotes that the
-					statement will become two statements, with the beginning of each statement
-					consisting of the portion of the statement preceding the split element, and
-					with the remainder of the first element being comprised of the children of the
-					split element, and the remainder of the second statement being comprised of the
-					elements following the split element.
+					The occurrence of an element with the content "Scope" that is nested within
+					another element with the content "Scope" denotes that its parent scope element
+					will be equivalent to two statements.
+					
+					The statement preceding the child scope element will become the first part of
+					each statement.
+					
+					The children of the child scope element will become the second part of the
+					first statement.
+					
+					The siblings following the child scope element will become the second part of
+					the second statement.
 				-
 			
 			Commands
