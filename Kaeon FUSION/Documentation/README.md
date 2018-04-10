@@ -34,9 +34,9 @@ _For both the documentation and the beginners resource in PDF form, click [here]
 
 [4 - The Stack Interface](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/4%20-%20Stack%20Interface/README.md)
 
-<div align="right">
+<div align="right"><p>
 
-<a href="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/README.md">Kaeon FUSION Home</a><p> / </p>
+<a href="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/README.md">Kaeon FUSION Home</a> / 
 <a href="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/README.md">Next</a>
 
-</div>
+</p></div>
