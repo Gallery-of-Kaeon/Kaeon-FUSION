@@ -45,27 +45,26 @@ and the specification for Kaeon FUSION.
 
 [Specification](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Specification)
 
-<h2 align="center">Kaeon FUSION Example</h2>
-
-Here's hello world,
-written using [ONE](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/1%20-%20ONE/README.md):
-
-    -
-    	Use
-    -
-    	-
-    		Standard
-    	-
-    -
-    	Log Line
-    -
-    	-
-    		Hello, world!
-    	-
-
+<h2 align="center">Kaeon FUSION Examples</h2>
 
 Here's the solution to [Euler problem #1](https://projecteuler.net/problem=1),
-written using [ONE+](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/README.md):
+written in [ONE+](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/README.md),
+the markup language Kaeon FUSION uses as its syntax,
+and with the Super Mode directive acting as a preprocessor:
+
+	[USE: SUPER] [SUPER]
+
+	sum = 0
+
+	for range { i, 3, 999 }
+	
+		if { i % 3 == 0 or i % 5 == 0 }
+			sum += i
+
+	print sum
+
+Here's the same code as above,
+also written in ONE+ but without using Super Mode:
 
     Use: Standard
 
@@ -86,20 +85,22 @@ written using [ONE+](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/maste
 
     Log Line: sum
 
-Here's the same code as above,
-also written in [ONE+](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/README.md),
-but with the Super Mode directive acting as a preprocessor:
+Here's hello world,
+written using [ONE](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/1%20-%20ONE/README.md),
+the most basic form of Kaeon FUSION's syntax:
 
-	[USE: SUPER] [SUPER]
-
-	sum = 0
-
-	for range { i, 3, 999 }
-	
-		if { i % 3 == 0 or i % 5 == 0 }
-			sum += i
-
-	print sum
+    -
+    	Use
+    -
+    	-
+    		Standard
+    	-
+    -
+    	Log Line
+    -
+    	-
+    		Hello, world!
+    	-
 
 Click [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Samples) for all of our available sample code.
 
