@@ -162,9 +162,9 @@ is analogous to:
 
 <div align="right"><p>
 
-<a href="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/README.md">Home</a><p> / </p>
-<a href="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md">Back</a><p> / </p>
-<a href="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md">Previous</a><p> / </p>
+<a href="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/README.md">Home</a> / 
+<a href="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md">Back</a> / 
+<a href="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md">Previous</a> / 
 <a href="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/4%20-%20Stack%20Interface/README.md">Next</a>
 
 </p></div>
