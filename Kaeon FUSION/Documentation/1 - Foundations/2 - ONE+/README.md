@@ -354,7 +354,7 @@ and all of the elements in its header contain the names of modules containing di
 For example,
 you can use the hypothetical directive call "FOO" which is stored in the hypothetical directive module "bar" using the following code:
 
-    [USE: bar}
+    [USE: bar]
     
     [FOO]
 
