@@ -1,5 +1,6 @@
 package kaeon_origin;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
@@ -182,11 +183,24 @@ public class KaeonOrigin {
 	
 	public static void update() {
 		
-		String updatePath =
-				"https://raw.githubusercontent.com/" +
-				"Gallery-of-Kaeon/Kaeon-FUSION/" +
-				"master/" +
-				"Kaeon%20FUSION/IDE/Application/Update/Update.op";
+		if(!(new File("Origin.op").exists()))
+			IO.save("", "Origin.op");
+		
+		Element origin = ONEPlus.parseONEPlus(IO.openAsString("Origin.op"));
+		
+		String updatePath = null;
+		
+		try {
+			
+			updatePath =
+					ElementUtilities.getChild(
+							origin,
+							"Update Path").children.get(0).content;
+		}
+		
+		catch(Exception exception) {
+			return;
+		}
 		
 		Object object = Aether.call("Updater", 0, updatePath);
 		

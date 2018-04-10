@@ -194,14 +194,15 @@ public class OptionsPane extends JFrame implements ActionListener {
 
 			if(mode.equals("Kaeon Origin")) {
 				
-				setSize(ide.scale(200), ide.scale(300));
+				setSize(ide.scale(200), ide.scale(350));
 				
 				panel.removeAll();
 				
-				panel.setLayout(new GridLayout(5, 1));
+				panel.setLayout(new GridLayout(6, 1));
 				
 				panel.add(createButton("Set Perspective"));
 				panel.add(createButton("Set Workspace"));
+				panel.add(createButton("Set Update Path"));
 				panel.add(createButton("Set View"));
 				panel.add(createButton("Print"));
 				panel.add(createButton("Back"));
@@ -505,6 +506,39 @@ public class OptionsPane extends JFrame implements ActionListener {
 
 			ide.base.repaint();
 			ide.frame.revalidate();
+		}
+
+		if(command.equals("Set Update Path")) {
+			
+			int option = 0;
+			
+			if(ide.updatePath == null) {
+				
+				option =
+						JOptionPane.showConfirmDialog(
+								this,
+								"No update path is set.\n" +
+								"Would you like to set it?");
+			}
+			
+			else {
+				
+				option =
+						JOptionPane.showConfirmDialog(
+								this,
+								"The current update path is:\n\n" +
+								ide.updatePath +
+								"\n\n" +
+								"Would you like to change it?");
+			}
+			
+			if(option == JOptionPane.YES_OPTION) {
+				
+				String updatePath = JOptionPane.showInputDialog(this, "Set the update path:");
+				
+				if(updatePath != null)
+					ide.updatePath = updatePath;
+			}
 		}
 		
 		if(command.equals("Set View") ||

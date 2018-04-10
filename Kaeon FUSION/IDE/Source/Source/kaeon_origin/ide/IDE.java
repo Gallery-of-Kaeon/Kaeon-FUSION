@@ -86,6 +86,8 @@ public class IDE implements ActionListener {
 	
 	public String fusionBuild;
 	public ArrayList<String> fusionSource;
+	
+	public String updatePath;
 
 	public IDE(Element originData) {
 
@@ -418,6 +420,14 @@ public class IDE implements ActionListener {
 		
 		for(int i = 0; i < source.children.size(); i++)
 			fusionSource.add(source.children.get(i).content);
+		
+		try {
+			updatePath = ElementUtilities.getChild(originData, "Update Path").children.get(0).content;
+		}
+		
+		catch(Exception exception) {
+			
+		}
 	}
 
 	public JButton createButton(String string, Color color, Color textColor) {
@@ -1185,6 +1195,11 @@ public class IDE implements ActionListener {
 	public void saveState() {
 		
 		Element element = new Element();
+		
+		Element update = ElementUtilities.createElement("Update Path");
+		ElementUtilities.addChild(element, update);
+		
+		ElementUtilities.addChild(update, ElementUtilities.createElement(updatePath != null ? updatePath : ""));
 		
 		Element origin = ElementUtilities.createElement("Kaeon Origin");
 		ElementUtilities.addChild(element, origin);
