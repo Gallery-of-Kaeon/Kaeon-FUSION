@@ -928,11 +928,11 @@ For example:
 
 will print "15" to the console.
 
-<div align="right">
+<div align="right"><p>
 
 <a href="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/README.md">Home</a><p> / </p>
 <a href="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/README.md">Back</a><p> / </p>
 <a href="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/2%20-%20Interfaces%20and%20the%20Use%20Command/README.md">Previous</a><p> / </p>
 <a href="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/1%20-%20Super%20Mode/README.md">Next</a>
 
-</div>
+</p></div>

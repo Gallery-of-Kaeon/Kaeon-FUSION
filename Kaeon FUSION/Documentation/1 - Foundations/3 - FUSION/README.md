@@ -57,11 +57,11 @@ FUSION will terminate.
 If an error occurs during at any step,
 FUSION will skip over the step and proceed as if nothing happened.
 
-<div align="right">
+<div align="right"><p>
 
 <a href="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/README.md">Home</a><p> / </p>
 <a href="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/README.md">Back</a><p> / </p>
 <a href="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/1%20-%20Standard%20ONE%2B%20Directives/README.md">Previous</a><p> / </p>
 <a href="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/2%20-%20Interfaces%20and%20the%20Use%20Command/README.md">Next</a>
 
-</div>
+</p></div>
