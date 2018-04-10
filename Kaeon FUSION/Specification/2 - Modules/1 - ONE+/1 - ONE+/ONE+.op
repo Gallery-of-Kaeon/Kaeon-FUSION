@@ -192,11 +192,12 @@ ONE+
 			Alternate Syntaxes
 			
 				-
-					If the document begins with the escape sequence followed by the open directive
-					sequence, then the sequence of characters between the aforementioned open
-					directive sequence and the first instance of a sequence consisting of the close
-					directive sequence followed by the breaking sequence will match the alias of an
-					alternate syntax for encoding ONE documents.
+					If the first sequence of the document past any instances of the blank sequence
+					begins with the terminating sequence followed by the open directive sequence,
+					then the sequence of characters between the aforementioned open directive
+					sequence and the first instance of a sequence consisting of the close directive
+					sequence followed by the breaking sequence will match the alias of an alternate
+					syntax for encoding ONE documents.
 					
 					All text following the aforementioned breaking sequence will be encoded as a
 					ONE document based on the specified syntax.
