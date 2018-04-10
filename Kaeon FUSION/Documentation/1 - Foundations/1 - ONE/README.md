@@ -7,8 +7,8 @@
 
 ONE is an extremely minimalistic markup language that allows the user to define a tree of string literals.
 
-String literals may only be encoded in elements.
-Elements may be nested within one another.
+String literals may only be encoded in elements,
+and elements may be nested within one another.
 
 An element is started with a minus sign followed by a new line and a tab.
 Every character from the first tab (exclusive) to the new line character (inclusive if and only if not the last line in the element) is encoded into the string.
@@ -81,3 +81,8 @@ Note: The above element encodes the following string: "Line 1\n\tLine 2\n\t\tLin
     		-
     			Grand Child 1
     		-
+
+[Home](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/README.md) /
+[Back](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/README.md) /
+[Previous](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/README.md) /
+[Next](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/README.md)
