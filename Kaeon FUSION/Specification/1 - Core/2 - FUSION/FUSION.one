@@ -23,8 +23,7 @@
 				Step Two
 			-
 				-
-					Based on the string encoded in the current element, FUSION will perform an
-					operation.
+					Based on the current element, FUSION will perform an operation.
 					
 					If the current element has no children, FUSION will proceed to step three.
 					
