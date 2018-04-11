@@ -108,11 +108,17 @@ Let's say we have the following ONE+ document:
 In that case the way FUSION processes the above document would look something like this:
 
 arg1 = c
+
 arg1 = b(arg1)
+
 arg2 = d()
+
 a(arg1, arg2)
+
 arg1 = i()
+
 arg1 = LAND(arg1)
+
 g(arg1)
 
 <div align="right"><p>
