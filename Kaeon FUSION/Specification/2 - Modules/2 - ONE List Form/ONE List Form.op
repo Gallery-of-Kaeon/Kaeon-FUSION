@@ -21,6 +21,9 @@ ONE List Form
 				content, then the all of the objects in the list will represent one of the
 				element's children.
 				
+				If an empty list is interpreted as an element with content, said element will have
+				an empty string as its content.
+				
 				When interpreting an object within a list as an element's child, the string form of
 				the object will be said child's content if the object is not a list, and if the
 				object is a list, said child will be said list interpreted as an element with
