@@ -1,0 +1,28 @@
+ONE List Form
+
+	Philosophy
+	
+		-
+			ONE list form is an alternative way of representing ONE elements as lists rather than
+			trees.
+		-
+	
+	Principles
+		
+		Structure
+			
+			-
+				Any list of objects may be used to represent a ONE element in ONE list form.
+				
+				When a list is being interpreted as a ONE element, it must be specified whether the
+				element has content. If it does have content, then the string form of the first
+				object in the list will be said element's content, and every object following the
+				first object will represent one of said element's children. If the element has no
+				content, then the all of the objects in the list will represent one of the
+				element's children.
+				
+				When interpreting an object within a list as an element's child, the string form of
+				the object will be said child's content if the object is not a list, and if the
+				object is a list, said child will be said list interpreted as an element with
+				content.
+			-
