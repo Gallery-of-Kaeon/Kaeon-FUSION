@@ -202,3 +202,18 @@ ONE+
 					All text following the aforementioned breaking sequence will be encoded as a
 					ONE document based on the specified syntax.
 				-
+				
+		Workspace
+		
+			-
+				The workspace refers to the directories that the ONE+ parser will import resources
+				from. The directories that compose the workspace must be arranged into a hierarchy.
+				
+				When attempting to locate a given resource, the ONE+ parser will search each
+				directory in the order of their priorities until either the resource is found or
+				there are no more directories to search.
+				
+				By default, the workspace will consist of the local directory, the root directory,
+				and the internet, but the host environment of the ONE+ parser may add directories
+				to or remove directories from the workspace.
+			-
