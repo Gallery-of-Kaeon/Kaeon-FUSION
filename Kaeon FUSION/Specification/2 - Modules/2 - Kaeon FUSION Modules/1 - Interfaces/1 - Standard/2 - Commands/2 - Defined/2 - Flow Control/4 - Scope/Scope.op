@@ -4,8 +4,4 @@ Scope
 	
 		-
 			The scope command is a command with the content "Scope".
-			
-			It performs no operation. I a single value is returned to it, it will return that
-			value. If multiple values are returned to it, it will return a list containing each
-			returned value in the order it was returned.
 		-
