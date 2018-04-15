@@ -9,6 +9,13 @@ SQL Dialect
 	Principles
 	
 		Structure
+			
+			Use
+			
+				-
+					An element with the content "Use" may have an indefinite number of children,
+					each of which with content containing the file path of a ONE+ document.
+				-
 		
 			Statements
 			
@@ -20,32 +27,33 @@ SQL Dialect
 			Scope
 			
 				-
-					An element with the content "Scope" that has no parent is equivalent to the
-					statement or statements defined by its children.
+					An element with the content "Scope" is equivalent to the statement or
+					statements defined by its children.
 				-
 			
 			Splitting
 			
 				-
-					The occurrence of an element with the content "Scope" that is nested within
-					another element with the content "Scope" denotes that its parent scope element
-					will be equivalent to two statements.
+					The occurrence of an element with the content "Split" that is nested within an
+					element with the content "Scope" denotes that its parent scope element will be
+					equivalent to two statements.
 					
-					The statement preceding the child scope element will become the first part of
-					each statement.
+					The statement preceding the split element will become the first part of each
+					statement.
 					
-					The children of the child scope element will become the second part of the
-					first statement.
+					The children of the split element will become the second part of the first
+					statement.
 					
-					The siblings following the child scope element will become the second part of
-					the second statement.
+					The siblings following the split element will become the second part of the
+					second statement.
 				-
 			
 			Commands
 				
 				-
 					Commands are elements within a statement that may have children. Whether an
-					element is a command or not is dependent on its content.
+					element is a command or not is dependent on whether its content corresponds to
+					an element within a document referenced by a use element.
 					
 					Each child of a command will be processed as a statement, command, or literal
 					depending on its content, and the content of a command will determine how the
