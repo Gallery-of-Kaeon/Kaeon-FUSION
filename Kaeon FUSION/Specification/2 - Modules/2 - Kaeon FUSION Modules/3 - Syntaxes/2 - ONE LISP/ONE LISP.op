@@ -7,3 +7,40 @@ ONE LISP
 			
 			It uses the alias "ONE LISP".
 		-
+	
+	Principles
+		
+		Structure
+		
+			-
+				The document represents a list in ONE list form representing an element with no
+				content. All elements at the root of the document are implicitly assumed to be in a
+				list. 
+			-
+		
+		Syntax
+		
+			-
+				An open parenthesis denotes the beginning of a list.
+				
+				A closed parenthesis denotes the end of a list.
+				
+				Sequences located between double quotes will be interpreted as literals where both
+				of said double quotes are present.
+				
+				Sequences located between single quotes will be interpreted as literals where both
+				of said single quotes are absent.
+				
+				Whitespace will separate literal values.
+				
+				A sequence located outside a quoted literal beginning with a pound sign where said
+				pound sign is not immediately followed by a square bracket and ending with a new
+				line will be a comment.
+				
+				A sequence located outside a quoted literal beginning with a pound sign followed by
+				a square bracket and ending with a square bracket followed by a pound sign will be
+				a comment.
+				
+				The end of the file may be interpreted as the end of a list, quoted literal, or
+				comment.
+			-
