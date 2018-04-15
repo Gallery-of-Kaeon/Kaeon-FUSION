@@ -1,5 +1,5 @@
 Meta
-
+	
 	Philosophy
 		
 		-
@@ -9,3 +9,52 @@ Meta
 			It performs no operation, but its children may act to specify information regarding any
 			siblings following it to the build command.
 		-
+	
+	Principles
+	
+		Scope
+		
+			-
+				Any effect specified by a meta command will act on commands that follow said meta
+				command.
+				
+				An effect of a meta command is said to have extended scope if said effect trickles
+				down to elements within the scope of the affected elements.
+				
+				A meta command effect is said to have reduced scope if it only applies to the
+				element immediately following the meta command.
+				
+				If two meta command specify effects that contradict one another, the effects of the
+				more recent meta command will take effect.
+			-
+		
+		Content
+			
+			Injection
+				
+				-
+					A meta command may have a child with the content "Injection". Said child will
+					have a child with content consisting of literal text. Said text will be
+					inserted in place of the meta command at build time.
+				-
+			
+			Notation
+				
+				-
+					Notations consist of information that may be placed inside meta commands to
+					specify miscellaneous information about the following commands.
+					
+					To specify notations, a meta command may have a child with the content
+					"Notation". Every child of said child will constitute a notation, and may have
+					any content and any children.
+				-
+			
+			Nullify
+			
+				-
+					A meta command may have a child with the content "Nullify". The nullify element
+					may have any of children.
+					
+					The effects of preceding meta commands that correspond to the content of the
+					nullify element's children will be nullified.
+				-

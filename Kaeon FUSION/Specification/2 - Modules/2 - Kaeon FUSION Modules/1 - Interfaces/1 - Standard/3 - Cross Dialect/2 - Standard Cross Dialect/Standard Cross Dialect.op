@@ -3,61 +3,45 @@ Standard Cross Dialect
 	Philosophy
 		
 		-
-			The standard cross dialect is a set of Meta command use cases for the cross dialect
+			The standard cross dialect is a set of meta command use cases for the cross dialect
 			that are generalizable across the majority of Turing complete programming languages.
 		-
 	
 	Principles
-	
-		Scope
-		
-			-
-				Any effect specified by a Meta command in the standard cross dialect will act on
-				commands that follow said Meta command.
-				
-				An effect of a Meta command is said to have extended scope if said effect trickles
-				down to elements within the scope of the affected elements.
-				
-				A Meta command effect is said to have reduced scope if it only applies to the 
-				element immediately following the Meta command.
-				
-				If two Meta command specify effects that contradict one another, the effects of the
-				more recent Meta command will take effect.
-			-
 		
 		Structure
 			
 			Strong Typing
 				
 				-
-					A Meta command may have a child with the content "Type". The children of the
-					type element will determine the type of any variable declared within the Meta
+					A meta command may have a child with the content "Type". The children of the
+					type element will determine the type of any variable declared within the meta
 					command's scope.
 				-
 				
 				Casting
 					
 					-
-						A Meta command may have a child with the content "Cast". The children of
+						A meta command may have a child with the content "Cast". The children of
 						the cast element will determine the type that the value returned by the
-						command that follows the Meta command will be cast to. This effect will
+						command that follows the meta command will be cast to. This effect will
 						have reduced scope.
 					-
 			
 			Arrays
 			
 				-
-					A Meta command may have a child with the content "Arrays".
+					A meta command may have a child with the content "Arrays".
 				-
 			
 				Size
 				
 					-
-						If a Meta element has a child with the content "Arrays", said child may
+						If a meta element has a child with the content "Arrays", said child may
 						have a child with the content "Size". The size element may either have a
-						child with the content "Fixed", in which case all lists within the Meta
+						child with the content "Fixed", in which case all lists within the meta
 						command's scope will be treated as fixed length arrays, or it may have a
-						child with the content "Variable", in which case all lists within the Meta
+						child with the content "Variable", in which case all lists within the meta
 						command's scope will be treated as variable length vectors.
 						
 						By default arrays are assumed to be of variable length.
@@ -66,10 +50,10 @@ Standard Cross Dialect
 				Index
 				
 					-
-						If a Meta element has a child with the content "Arrays", said child may
+						If a meta element has a child with the content "Arrays", said child may
 						have a child with the content "Index". The index element will have a child
 						containing an integer number as its content, dictating the starting index
-						of all lists in the Meta command's scope.
+						of all lists in the meta command's scope.
 						
 						By default arrays are assumed to start at an index of one.
 					-
@@ -79,7 +63,7 @@ Standard Cross Dialect
 				Function Definitions
 					
 					-
-						A Meta command may have a child with the content "Function". If the Meta
+						A meta command may have a child with the content "Function". If the meta
 						command immediately precedes a Define command, the function element's
 						children will determine the properties of all of the functions defined by
 						said Define command.
@@ -88,9 +72,9 @@ Standard Cross Dialect
 					Type
 					
 						-
-							If a Meta element has a child with the content "Function", said child
+							If a meta element has a child with the content "Function", said child
 							may have use one of the following three ways to declare the type of
-							functions declared within the Meta command's scope.
+							functions declared within the meta command's scope.
 							
 							The function element may have a child with the content "Type". The
 							children of the type element determine the return type of the function.
@@ -111,9 +95,9 @@ Standard Cross Dialect
 					Parameters
 					
 						-
-							If a Meta element has a child with the content "Function", said child
+							If a meta element has a child with the content "Function", said child
 							may have use one of the following two ways to declare the parameters of
-							functions declared within the Meta command's scope.
+							functions declared within the meta command's scope.
 							
 							The function element may have a child with the content "Parameters".
 							Each child of the parameters element defines a parameter. The content
@@ -129,53 +113,21 @@ Standard Cross Dialect
 				Host Functions
 					
 					-
-						A Meta command may have a child with the content "Host". Any command within
-						the Meta command's scope with content that matches the content of one of
+						A meta command may have a child with the content "Host". Any command within
+						the meta command's scope with content that matches the content of one of
 						the host element's children. This effect will have extended scope.
 					-
 			
 			Fields
 			
 				-
-					A Meta command may have a child with the content "Field". The field element
+					A meta command may have a child with the content "Field". The field element
 					must either have a child with the content "Function", in which case In commands
-					within the Meta command's scope will only access public functions, or a child
-					with the content "Variable", in which case the In commands within the Meta
+					within the meta command's scope will only access public functions, or a child
+					with the content "Variable", in which case the In commands within the meta
 					command's scope will only access public variables.
 					
 					By default In commands are assumed to only access functions.
-				-
-			
-			Notations
-				
-				-
-					Notations consist of information that may be placed inside Meta commands to
-					specify miscellaneous information about the following commands.
-					
-					To specify notations, a Meta command may have a child with the content
-					"Notation". Every child of said child will constitute a notation, and may have
-					any content and any children.
-				-
-			
-			Nullify
-			
-				-
-					A Meta command may have a child with the content "Nullify". The nullify element
-					may have any of combination of children with the content "Type", "Arrays",
-					"Function", "Host", "Field", or "Notation". A notation element may have any
-					children.
-					
-					The effects of preceding Meta commands that correspond to the content of the
-					nullify element's children will be nullified.
-				-
-			
-			Injections
-				
-				-
-					A Meta command may have a child with the content "Injection". Said child will
-					have a child with content consisting of code written in the language the
-					implementation of the standard cross dialect builds to. Said code will be
-					inserted in place of the Meta command at build time.
 				-
 		
 		Extensions
