@@ -71,8 +71,9 @@ Kaeon Origin
 				for the active perspective will override the one for Kaeon Origin. Any changes made
 				to said settings will be stored in the origin file.
 				
-				The settings for Kaeon Origin will allow the active perspective to be changed and
-				to scan for updates that occurred as Kaeon Origin was running.
+				The settings for Kaeon Origin will allow the default perspective to be changed, to
+				scan for updates that occurred as Kaeon Origin was running, and to alter where
+				Kaeon Origin scans for updates.
 			-
 		
 		Exporting
