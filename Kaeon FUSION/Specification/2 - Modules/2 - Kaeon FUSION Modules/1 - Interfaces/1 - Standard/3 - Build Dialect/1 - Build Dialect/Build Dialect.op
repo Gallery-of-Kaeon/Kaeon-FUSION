@@ -1,0 +1,40 @@
+Build Dialect
+
+	Philosophy
+	
+		-
+			A build dialect is a ONE dialect used to represent another file format.
+		-
+	
+	Principles
+		
+		Meta Commands
+			
+			Injection
+				
+				-
+					A meta command may have a child with the content "Injection". Said child will
+					have a child with content consisting of literal text. Said text will be
+					inserted in place of the meta command at build time.
+				-
+			
+			Notation
+				
+				-
+					Notations consist of information that may be placed inside meta commands to
+					specify miscellaneous information about the following commands.
+					
+					To specify notations, a meta command may have a child with the content
+					"Notation". Every child of said child will constitute a notation, and may have
+					any content and any children.
+				-
+			
+			Nullification
+			
+				-
+					A meta command may have a child with the content "Nullify". The nullify element
+					may have any of children.
+					
+					The effects of preceding meta commands that correspond to the content of the
+					nullify element's children will be nullified.
+				-

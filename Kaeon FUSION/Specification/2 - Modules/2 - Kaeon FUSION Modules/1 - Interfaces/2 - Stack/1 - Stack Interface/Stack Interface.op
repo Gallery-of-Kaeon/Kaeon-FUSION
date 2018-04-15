@@ -11,11 +11,11 @@ Kaeon FUSION Stack Interface
 	
 		Dialects
 		
-			Standard Cross Dialects
+			Cross Dialects
 			
 				-
-					The Kaeon FUSION Stack Interface provides standard cross dialects analogous to
-					C, C++, JavaScript, PHP, Java, Python, C#, and Swift.
+					The Kaeon FUSION Stack Interface provides cross dialects analogous to C, C++,
+					JavaScript, PHP, Java, Python, C#, and Swift.
 				-
 			
 			Miscellaneous Dialects
@@ -39,13 +39,17 @@ Kaeon FUSION Stack Interface
 			-
 				The string form of the first argument, if said argument returns a non-null value
 				and at least one argument is present, specifies the directory the cross compiled
-				code should be exported to. If no arguments are present, or if the first argument
-				returns a null value, the code will be exported to the local directory. The second
-				argument, if present, will be a list. The string form of each element in the list,
-				if said element is a non-null value, specifies the name of the cross compiled group
-				corresponding to its index. If this argument is absent, an element corresponding to
-				a given file returns a null value, or there is no element in the list corresponding
-				to a given group, the corresponding cross compiled groups will be given default
-				names determined by the dialect in use. Any arguments following the second argument
-				will be specific to the dialect in use.
+				code should be exported to.
+				
+				If no arguments are present, or if the first argument returns a null value, the
+				code will be exported to the local directory.
+				
+				The second argument, if present, will be a list. The string form of each element in
+				the list, if said element is a non-null value, specifies the name of the cross
+				compiled group corresponding to its index. If this argument is absent, an element
+				corresponding to a given file returns a null value, or there is no element in the
+				list corresponding to a given group, the corresponding cross compiled groups will
+				be given default names determined by the dialect in use.
+				
+				Any arguments following the second argument will be specific to the dialect in use.
 			-

@@ -1,10 +1,18 @@
-Standard Cross Dialect
+Cross Dialect
 	
 	Philosophy
 		
 		-
-			The standard cross dialect is a set of meta command use cases for the cross dialect
-			that are generalizable across the majority of Turing complete programming languages.
+			A cross dialect is a build dialect that allows code written in the Kaeon FUSION
+			standard interface to be translated to another language.
+			
+			Given that there are certain details some languages may require that would not be
+			included in native Standard interface code, meta commands may be used to specify the
+			necessary information. As such, a set of meta command formats used for all cross
+			dialects has been specified.
+			
+			Additional commands and meta command formats may be added to individual cross dialect
+			to cover for operators specific to certain languages.
 		-
 	
 	Principles
@@ -133,9 +141,9 @@ Standard Cross Dialect
 		Extensions
 		
 			-
-				An extended variant of the standard cross dialect must specify what languages and
-				frameworks the dialect corresponds to, what data types may be used for variables
-				and functions, what may be placed in a notation, what operator commands will be
-				added to those already present in the standard interface, and any limitations of
-				the dialect.
+				An extended variant of the cross dialect must specify what languages and frameworks
+				the dialect corresponds to, what data types may be used for variables and
+				functions, what may be placed in a notation, what operator commands will be added
+				to those already present in the standard interface, and any limitations of the
+				dialect.
 			-
