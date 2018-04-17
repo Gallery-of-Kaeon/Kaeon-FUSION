@@ -21,6 +21,14 @@ ONE LISP
 		Syntax
 		
 			-
+				A sequence located outside a quoted literal beginning with a pound sign where said
+				pound sign is not immediately followed by a square bracket and ending with a new
+				line will be a comment.
+				
+				A sequence located outside a quoted literal beginning with a pound sign followed by
+				a square bracket and ending with a square bracket followed by a pound sign will be
+				a comment.
+				
 				An open parenthesis denotes the beginning of a list.
 				
 				A closed parenthesis denotes the end of a list.
@@ -31,15 +39,17 @@ ONE LISP
 				Sequences located between single quotes will be interpreted as literals where both
 				of said single quotes are absent.
 				
-				Whitespace will separate literal values.
+				Any contiguous sequence located outside of comments and quoted literals that does
+				not contain whitespace, parentheses, single quotes, double quotes, or pound signs
+				will be interpreted as a literal.
 				
-				A sequence located outside a quoted literal beginning with a pound sign where said
-				pound sign is not immediately followed by a square bracket and ending with a new
-				line will be a comment.
+				Whitespace will separate said literal values.
 				
-				A sequence located outside a quoted literal beginning with a pound sign followed by
-				a square bracket and ending with a square bracket followed by a pound sign will be
-				a comment.
+				A sequence occurring within a literal that consists of a backslash followed by an
+				'n' will be interpreted as a new line character.
+				
+				A sequence occurring within a literal that consists of a backslash followed by a
+				't' will be interpreted as a tab character.
 				
 				The end of the file may be interpreted as the end of a list, quoted literal, or
 				comment.
