@@ -22,8 +22,17 @@ Kaeon FUSION Stack Interface
 			
 				-
 					The Kaeon FUSION Stack Interface provides ONE dialects analogous to XML, JSON,
-					HTML, CSS, and SQL.
+					SQL, and CSS.
 				-
+				
+				HTML in the XML Dialect
+				
+					-
+						If the XML dialect receives arguments when cross compiling and one of them
+						is the string "HTML", it will cross compile with an HTML extension, it will
+						use the HTML.op use document automatically, and the cross compiled file
+						will have an HTML doctype.
+					-
 		
 		Code Groups
 			

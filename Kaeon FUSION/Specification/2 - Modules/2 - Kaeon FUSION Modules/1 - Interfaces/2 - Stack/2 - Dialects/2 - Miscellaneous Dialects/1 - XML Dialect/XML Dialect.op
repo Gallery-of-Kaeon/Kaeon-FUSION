@@ -132,12 +132,3 @@ XML Dialect
 					content that matches itself where the first and last quotation marks have been
 					cropped.
 				-
-		
-		Arguments
-		
-			-
-				If the XML dialect receives arguments when cross compiling and one of them is the
-				string "HTML", it will cross compile with an HTML extension, it will use the
-				HTML.op use document automatically, and the cross compiled file will have an HTML
-				doctype.
-			-
