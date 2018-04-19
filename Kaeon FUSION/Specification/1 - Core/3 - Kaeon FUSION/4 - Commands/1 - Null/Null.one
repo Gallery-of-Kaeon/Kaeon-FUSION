@@ -1,9 +1,0 @@
--
-	Null
--
-	-
-		Philosophy
-	-
-		-
-			Any command with no content will return a null value.
-		-
