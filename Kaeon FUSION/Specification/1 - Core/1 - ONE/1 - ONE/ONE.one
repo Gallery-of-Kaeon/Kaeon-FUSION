@@ -17,8 +17,12 @@
 				ONE stores data in elements.
 				
 				An element may contain a string of characters referred to as the element's content,
-				and may act as a parent to an indefinite number of other elements. The children of
-				an element must be arranged in a specific order relative to each other. No element
-				may be the child of more than one element, and no loops may occur in the chain of
-				parent-child connections. All elements with a parent must contain content.
+				and may act as a parent to an indefinite number of other elements.
+				
+				The children of an element must be arranged in a specific order relative to each
+				other. No element may be the child of more than one element, and no loops may occur
+				in the chain of parent-child connections.
+				
+				Any element that may be accessed by trickling down through the child connections of
+				another element are said to be in the latter element's scope.
 			-
