@@ -24,26 +24,28 @@
 				The ONE language is composed entirely of ONE element definitions. No characters are
 				permitted outside of element definitions.
 				
-				An element definition begins with the terminating sequence, followed by the
-				breaking sequence. The breaking sequence may either be followed by the nesting
-				sequence or by the terminating sequence. If it is followed by the terminating
-				sequence, said terminating sequence will end the element definition. If it is
-				followed by the nesting sequence, then the nesting sequence may be followed by any
-				sequence of characters as long as the breaking sequence does not occur within it.
-				This sequence is referred to as the encoded sequence. The encoded sequence is
-				followed by the breaking sequence, which must be followed either with the nesting
-				sequence which continues the element definition, or by the terminating sequence
-				which ends the element definition. If an element definition precedes another
-				element definition, the final terminating sequence within it must be followed by
-				the breaking sequence.
+				An element definition begins with the terminating sequence. The terminating
+				sequence that begins the element definition may either be followed by another
+				instance of the terminating sequence or by the breaking sequence. If it is followed
+				by the terminating sequence, said terminating sequence will end the element
+				definition. If it is followed by the breaking sequence, then the breaking sequence
+				must be followed by the nesting sequence. The nesting sequence may be followed by
+				any sequence of characters as long as the breaking sequence does not occur within
+				it. This sequence is referred to as the encoded sequence. The encoded sequence must
+				be followed by the breaking sequence, which must be followed either with the
+				nesting sequence which continues the element definition, or by the terminating
+				sequence which ends the element definition. If an element definition precedes
+				another element definition, the final terminating sequence within it must be
+				followed by the breaking sequence.
 				
 				Element definitions may be nested within one another. If an element definition is
 				nested within another element definition, the child element definition must be
-				placed directly after its parent. For every terminating sequence and for every
-				nesting sequence which immediately precedes an encoded sequence within the element
-				definition, one instance of the nesting sequence must be placed between the
-				breaking sequence that precedes said sequence and said sequence for every level the
-				element definition is nested.
+				placed directly after its parent. For every terminating sequence that does not
+				occur within an encoded sequence and does not immediately follow another
+				terminating sequence and for every nesting sequence which immediately precedes an
+				encoded sequence within the element definition, one instance of the nesting
+				sequence must be placed between the breaking sequence that precedes said sequence
+				and said sequence for every level the element definition is nested.
 			-
 		-
 			Semantics
