@@ -32,6 +32,13 @@ Standard ONE+ Language
 					line, exclusive, said character will be appended to the nesting sequence.
 				-
 		
+			Null Sequence
+			
+				-
+					In the standard variant of the ONE+ Language, the null sequence is a question
+					mark.
+				-
+		
 			Segregating Sequence
 			
 				-
