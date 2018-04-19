@@ -12,6 +12,15 @@
 		Principles
 	-
 		-
+			String Forms
+		-
+			-
+				All values returned by Kaeon FUSION commands must be convertible to strings.
+				
+				When a value is converted to a string, said string is referred to as the value's
+				string form.
+			-
+		-
 			Return Value
 		-
 			-
