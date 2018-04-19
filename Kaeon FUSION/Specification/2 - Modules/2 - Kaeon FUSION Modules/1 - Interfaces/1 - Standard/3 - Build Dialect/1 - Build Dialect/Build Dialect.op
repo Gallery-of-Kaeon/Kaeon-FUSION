@@ -18,6 +18,17 @@ Build Dialect
 					inserted in place of the meta command at build time.
 				-
 			
+			Use
+				
+				-
+					A meta command may have a child with the content "Use". Said child will have a
+					child with content containing the name of another build dialect. Said child
+					will have a child containing code written in said dialect. Said code will be
+					cross compiled into another language according to the specified dialect and the
+					cross compiled code will be inserted in place of the meta command at build
+					time.
+				-
+			
 			Notation
 				
 				-
