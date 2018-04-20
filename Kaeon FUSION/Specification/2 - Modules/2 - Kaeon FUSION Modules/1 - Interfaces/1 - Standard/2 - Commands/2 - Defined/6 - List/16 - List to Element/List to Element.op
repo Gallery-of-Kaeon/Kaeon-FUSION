@@ -6,7 +6,6 @@ List to Element
 			The list to element command contains the content "List to Element". It must have one
 			child that returns a list.
 			
-			It will interpret the returned list using ONE list form as an element with no content,
-			and return a string containing the interpreted element written using the standard ONE
-			language.
+			It will interpret the returned list using ONE list form as an element, and return a
+			string containing the interpreted element written using the standard ONE language.
 		-
