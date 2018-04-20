@@ -1,0 +1,11 @@
+-
+	Reduced ONE Language
+-
+	-
+		Philosophy
+	-
+		-
+			The reduced ONE language is an alternate form of the ONE language where all instances
+			of the terminating sequence except for those that occur within encoded sequences are
+			omitted.
+		-
