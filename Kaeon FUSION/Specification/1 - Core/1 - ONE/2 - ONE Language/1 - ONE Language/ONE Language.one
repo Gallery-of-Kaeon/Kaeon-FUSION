@@ -46,8 +46,8 @@
 			Semantics
 		-
 			-
-				The encoded data will begin as an element with no parent and an empty string as its
-				content referred to as the document element.
+				The encoded data will all reside within the scope of an element with no parent and
+				an empty string as its content referred to as the document element.
 				
 				Every element definition with no parent will encode an element as a child of the
 				document element. Every element definition with a parent will encode an element as
@@ -62,12 +62,12 @@
 				
 				The order in which elements defined by element definitions are arranged within
 				their parent element shall correspond to the order in which the definitions that
-				defined them occur.
+				defined them are written.
 			-
 		-
 			Encoding
 		-
 			-
-				A ONE element can only be encoded if it has an empty string as its content. Said
-				element will become the document element of the document.
+				A ONE element can only be encoded as a ONE document if it has an empty string as
+				its content. Said element will become the document element of the document.
 			-
