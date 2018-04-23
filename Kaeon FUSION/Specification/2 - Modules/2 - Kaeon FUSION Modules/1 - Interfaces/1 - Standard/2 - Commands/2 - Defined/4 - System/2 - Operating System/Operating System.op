@@ -1,0 +1,10 @@
+Operating System
+
+	Philosophy
+	
+		-
+			The operating system command contains the content "Operating System".
+			
+			It returns the name of the operating system of the device Kaeon FUSION is running on as
+			a string.
+		-

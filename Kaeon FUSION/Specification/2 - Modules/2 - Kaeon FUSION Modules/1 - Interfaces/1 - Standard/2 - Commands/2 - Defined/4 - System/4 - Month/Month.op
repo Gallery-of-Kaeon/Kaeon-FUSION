@@ -1,0 +1,9 @@
+Month
+
+	Philosophy
+	
+		-
+			The month command contains the content "Month".
+			
+			It returns the current month according to the computer's clock as a number.
+		-
