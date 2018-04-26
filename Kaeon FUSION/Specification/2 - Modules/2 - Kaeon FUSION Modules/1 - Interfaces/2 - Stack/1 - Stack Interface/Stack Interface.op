@@ -17,6 +17,22 @@ Kaeon FUSION Stack Interface
 					The Kaeon FUSION Stack Interface provides cross dialects analogous to C, C++,
 					JavaScript, PHP, Java, Python, C#, and Swift.
 				-
+				
+				Utility Code
+				
+					-
+						If the string "Utility" is passed to a cross dialect provided by the stack
+						interface as an argument, the cross compiled code will not contain a main
+						function.
+					-
+				
+				Snippet Code
+				
+					-
+						If the string "Snippet" is passed to a cross dialect provided by the stack
+						interface as an argument, the cross compiled code will only contain the
+						body of the main function.
+					-
 			
 			Miscellaneous Dialects
 			

@@ -21,12 +21,29 @@ Build Dialect
 			Use
 				
 				-
-					A meta command may have a child with the content "Use". Said child will have a
-					child with content containing the name of another build dialect. Said child
-					will have a child containing code written in said dialect. Said code will be
-					cross compiled into another language according to the specified dialect and the
-					cross compiled code will be inserted in place of the meta command at build
-					time.
+					A meta command may have a child with the content "Use". The use element will
+					have at least two children.
+					
+					One of the use element's children will have the content "Dialect", and will
+					have a child containing the name of another build dialect.
+					
+					One of the use element's children will have the content "Code", and will have
+					an indefinite number of children containing code written in the build dialect
+					specified by the child of the dialect element.
+					
+					The use element may optionally have a third child with the content "Arguments",
+					which will have an indefinite number of children, the content of which will
+					specify arguments for the build dialect specified by the child of the dialect
+					element.
+					
+					The code specified by the children of the code element will be cross compiled
+					into another language according to the dialect specified by the child of the
+					document element using the arguments specified by the children of the arguments
+					element, and the cross compiled code will be inserted in place of the meta
+					command at build time.
+					
+					If the cross compiled code consists of multiple files, only the content of the
+					first file returned will be used.
 				-
 			
 			Notation
