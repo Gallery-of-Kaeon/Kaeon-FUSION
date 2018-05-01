@@ -50,6 +50,13 @@
 				more directories to search.
 				
 				By default, the workspace will consist of the local directory, the root directory,
-				and the internet, but the host environment of Kaeon FUSION may add directories to
-				or remove directories from the workspace.
+				and the internet, but said directories may be added to or removed from the
+				workspace.
+			-
+		-
+			Host Environment
+		-
+			-
+				The host environment may read from and alter the state of Kaeon FUSION as Kaeon
+				FUSION runs.
 			-
