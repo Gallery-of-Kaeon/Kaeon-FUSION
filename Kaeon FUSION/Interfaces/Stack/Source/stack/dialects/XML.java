@@ -3,17 +3,17 @@ package stack.dialects;
 import java.io.File;
 import java.util.ArrayList;
 
+import build_dialect.BuildDialect;
 import io.IO;
 import one.Element;
 import one.ElementUtilities;
 import one_plus.ONEPlus;
 import philosophers_stone.PhilosophersStoneUtilities;
-import stack.utilities.Dialect;
-import stack.utilities.parse.xml.XMLAttribute;
-import stack.utilities.parse.xml.XMLElement;
-import stack.utilities.parse.xml.XMLUnit;
+import stack.utilities.xml.XMLAttribute;
+import stack.utilities.xml.XMLElement;
+import stack.utilities.xml.XMLUnit;
 
-public class XML extends Dialect {
+public class XML extends BuildDialect {
 	
 	@SuppressWarnings("unchecked")
 	public void build(
@@ -105,19 +105,7 @@ public class XML extends Dialect {
 		Element declaration = ElementUtilities.getChild(element, "Declaration");
 		Element document = ElementUtilities.getChild(element, "Document");
 		
-		Element root = new Element();
-		
-		for(int i = 0; i < element.children.size(); i++) {
-			
-			if(!element.children.get(i).content.equalsIgnoreCase("Use") &&
-					!element.children.get(i).content.equalsIgnoreCase("Declaration") &&
-					!element.children.get(i).content.equalsIgnoreCase("Document")) {
-				
-				root = element.children.get(i);
-				
-				break;
-			}
-		}
+		Element root = null;
 		
 		if(declaration != null)
 			xml += buildDeclaration(declaration);
@@ -125,8 +113,28 @@ public class XML extends Dialect {
 		if(document != null)
 			xml += buildDocument(document);
 		
-		if(root != null)
-			xml += buildElement(root, tags, attributes);
+		for(int i = 0; i < element.children.size(); i++) {
+			
+			if(element.children.get(i).content.equalsIgnoreCase("Meta")) {
+				
+				String injection = getInjection(element.children.get(i));
+				
+				if(injection != null)
+					xml += injection;
+			}
+			
+			else if(!element.children.get(i).content.equalsIgnoreCase("Use") &&
+					!element.children.get(i).content.equalsIgnoreCase("Declaration") &&
+					!element.children.get(i).content.equalsIgnoreCase("Document")) {
+
+				if(root == null) {
+					
+					root = element.children.get(i);
+					
+					xml += buildElement(root, tags, attributes);
+				}
+			}
+		}
 		
 		ArrayList<String> file = new ArrayList<String>();
 		
@@ -199,7 +207,15 @@ public class XML extends Dialect {
 		
 		for(int i = 0; i < element.children.size(); i++) {
 			
-			if(element.children.get(i).content.equalsIgnoreCase("Children")) {
+			if(element.children.get(i).content.equalsIgnoreCase("Meta")) {
+				
+				String injection = getInjection(element.children.get(i));
+				
+				if(injection != null)
+					xml += injection;
+			}
+			
+			else if(element.children.get(i).content.equalsIgnoreCase("Children")) {
 				
 				for(int j = 0; j < element.children.get(i).children.size(); j++)
 					xml += buildElement(element.children.get(i).children.get(j), tags, attributes);

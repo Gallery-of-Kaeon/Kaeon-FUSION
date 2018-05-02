@@ -2,9 +2,9 @@ package stack.dialects.cross;
 
 import java.util.ArrayList;
 
+import build_dialect.cross_dialect.Category;
+import build_dialect.cross_dialect.CrossDialect;
 import one.Element;
-import stack.utilities.cross_dialect.Category;
-import stack.utilities.cross_dialect.CrossDialect;
 
 public class Python extends CrossDialect {
 	
@@ -13,30 +13,36 @@ public class Python extends CrossDialect {
 			String name,
 			Element main,
 			String build,
-			ArrayList<Category> categories) {
+			ArrayList<Category> categories,
+			boolean utility,
+			boolean snippet) {
 		
 		ArrayList<String> file = new ArrayList<String>();
 		
 		file.add(formatIdentifier(name) + ".py");
 		
-		build = "arguments=sys.argv\nscope=False\n" + build;
+		if(!utility)
+			build = (!snippet ? "arguments=sys.argv\nscope=False\n" : "") + build;
 		
-		Category classes = getCategory(categories, "Classes");
-		
-		for(int i = 0; i < classes.objects.size(); i++)
-			build = classes.objects.get(i) + build;
-		
-		Category functions = getCategory(categories, "Functions");
-		
-		for(int i = 0; i < functions.objects.size(); i++)
-			build = functions.objects.get(i) + build;
-		
-		Category imports = getCategory(categories, "Imports");
-		
-		for(int i = 0; i < imports.objects.size(); i++)
-			build = "import " + imports.objects.get(i) + "\n" + build;
-		
-		build = "import sys\n" + build;
+		if(!snippet) {
+			
+			Category classes = getCategory(categories, "Classes");
+			
+			for(int i = 0; i < classes.objects.size(); i++)
+				build = classes.objects.get(i) + build;
+			
+			Category functions = getCategory(categories, "Functions");
+			
+			for(int i = 0; i < functions.objects.size(); i++)
+				build = functions.objects.get(i) + build;
+			
+			Category imports = getCategory(categories, "Imports");
+			
+			for(int i = 0; i < imports.objects.size(); i++)
+				build = "import " + imports.objects.get(i) + "\n" + build;
+			
+			build = "import sys\n" + build;
+		}
 		
 		file.add(build);
 		

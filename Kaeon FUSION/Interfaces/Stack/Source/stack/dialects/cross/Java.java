@@ -2,10 +2,10 @@ package stack.dialects.cross;
 
 import java.util.ArrayList;
 
+import build_dialect.cross_dialect.Category;
+import build_dialect.cross_dialect.CrossDialect;
 import one.Element;
 import one.ElementUtilities;
-import stack.utilities.cross_dialect.Category;
-import stack.utilities.cross_dialect.CrossDialect;
 
 public class Java extends CrossDialect {
 	
@@ -14,33 +14,38 @@ public class Java extends CrossDialect {
 			String name,
 			Element main,
 			String build,
-			ArrayList<Category> categories) {
+			ArrayList<Category> categories,
+			boolean utility,
+			boolean snippet) {
 		
 		ArrayList<String> file = new ArrayList<String>();
 		
+		if(!snippet) {
+			
+			Category functions = getCategory(categories, "Functions");
+			
+			for(int i = 0; i < functions.objects.size(); i++)
+				build = functions.objects.get(i) + build;
+			
+			build =
+					"public class " +
+					formatIdentifier(name) +
+					build +
+					"}";
+			
+			Category imports = getCategory(categories, "Imports");
+			
+			for(int i = 0; i < imports.objects.size(); i++)
+				build = "import " + imports.objects.get(i) + ";" + build;
+			
+			Category classes = getCategory(categories, "Classes");
+			
+			for(int i = 0; i < classes.objects.size(); i++)
+				buildClass("" + classes.objects.get(i), files, imports);
+		}
+		
 		file.add(formatIdentifier(name) + ".java");
 		file.add(build);
-		
-		Category functions = getCategory(categories, "Functions");
-		
-		for(int i = 0; i < functions.objects.size(); i++)
-			build = functions.objects.get(i) + build;
-		
-		build =
-				"public class " +
-				formatIdentifier(name) +
-				build +
-				"}";
-		
-		Category imports = getCategory(categories, "Imports");
-		
-		for(int i = 0; i < imports.objects.size(); i++)
-			build = "import " + imports.objects.get(i) + ";" + build;
-		
-		Category classes = getCategory(categories, "Classes");
-		
-		for(int i = 0; i < classes.objects.size(); i++)
-			buildClass("" + classes.objects.get(i), files, imports);
 		
 		files.add(file);
 	}
@@ -59,46 +64,55 @@ public class Java extends CrossDialect {
 			String name,
 			Element main,
 			ArrayList<Category> categories,
-			String body) {
+			String body,
+			boolean utility,
+			boolean snippet) {
 		
 		String build = "";
 		
-		ArrayList<Object> helper = new ArrayList<Object>();
-
-		helper.addAll(getCategory(categories, "Globals").objects);
-		helper.addAll(getCategory(categories, "Functions").objects);
-		
-		for(int i = 0; i < helper.size(); i++) {
+		if(!snippet) {
 			
-			String help = "" + helper.get(i);
+			ArrayList<Object> helper = new ArrayList<Object>();
+	
+			helper.addAll(getCategory(categories, "Globals").objects);
+			helper.addAll(getCategory(categories, "Functions").objects);
 			
-			if(help.startsWith("public "))
-				help = help.substring(7);
-			
-			if(help.startsWith("private "))
-				help = help.substring(8);
-			
-			if(help.startsWith("protected "))
-				help = help.substring(10);
-			
-			if(help.startsWith("package "))
-				help = help.substring(8);
-			
-			if(help.startsWith("static "))
-				help = help.substring(7);
-			
-			help += "public static ";
-			
-			build += help;
+			for(int i = 0; i < helper.size(); i++) {
+				
+				String help = "" + helper.get(i);
+				
+				if(help.startsWith("public "))
+					help = help.substring(7);
+				
+				if(help.startsWith("private "))
+					help = help.substring(8);
+				
+				if(help.startsWith("protected "))
+					help = help.substring(10);
+				
+				if(help.startsWith("package "))
+					help = help.substring(8);
+				
+				if(help.startsWith("static "))
+					help = help.substring(7);
+				
+				help += "public static ";
+				
+				build += help;
+			}
 		}
 		
-		build +=
-				"{public static void main(String[]args){" +
-				"boolean scope=false;" +
-				"ArrayList<Object> arguments=" +
-				"new ArrayList<Object>(Arrays.asList(args));" +
-				body +
-				"}";
+		if(!utility) {
+			
+			build +=
+					(!snippet ?
+							"{public static void main(String[]args){" +
+							"boolean scope=false;" +
+							"ArrayList<Object> arguments=" +
+							"new ArrayList<Object>(Arrays.asList(args));" : "") +
+					body +
+					(!snippet ? "}" : "");
+		}
 		
 		return build;
 	}

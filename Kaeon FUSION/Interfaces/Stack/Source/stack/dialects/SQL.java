@@ -2,10 +2,10 @@ package stack.dialects;
 
 import java.util.ArrayList;
 
+import build_dialect.BuildDialect;
 import one.Element;
-import stack.utilities.Dialect;
 
-public class SQL extends Dialect {
+public class SQL extends BuildDialect {
 	
 	public void build(
 			ArrayList<ArrayList<String>> files,
@@ -32,7 +32,7 @@ public class SQL extends Dialect {
 		buildStatements(statements, "", code.get(0));
 		
 		for(int i = 0; i < statements.size(); i++)
-			sql += statements.get(i) + ";";
+			sql += statements.get(i) + (statements.get(i).endsWith(":") ? "" : ";");
 		
 		file.add(sql);
 		
@@ -43,7 +43,15 @@ public class SQL extends Dialect {
 		
 		for(int i = 0; i < command.children.size(); i++) {
 			
-			if(command.content.equalsIgnoreCase("Scope")) {
+			if(command.content.equalsIgnoreCase("Meta")) {
+				
+				String injection = getInjection(command);
+				
+				if(injection != null)
+					statement += injection;
+			}
+			
+			else if(command.content.equalsIgnoreCase("Scope")) {
 				
 				if(command.parent == null) {
 					
@@ -71,7 +79,15 @@ public class SQL extends Dialect {
 		
 		for(int i = 0; i < command.children.size(); i++) {
 			
-			if(command.children.get(i).content.equalsIgnoreCase("Scope")) {
+			if(command.children.get(i).content.equalsIgnoreCase("Meta")) {
+				
+				String injection = getInjection(command.children.get(i));
+				
+				if(injection != null)
+					arguments.add(injection);
+			}
+			
+			else if(command.children.get(i).content.equalsIgnoreCase("Scope")) {
 				
 				ArrayList<String> statements = new ArrayList<String>();
 				buildStatements(statements, "", command.children.get(i));

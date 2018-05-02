@@ -3,14 +3,14 @@ package stack.dialects;
 import java.io.File;
 import java.util.ArrayList;
 
+import build_dialect.BuildDialect;
 import io.IO;
 import one.Element;
 import one.ElementUtilities;
 import one_plus.ONEPlus;
 import philosophers_stone.PhilosophersStoneUtilities;
-import stack.utilities.Dialect;
 
-public class CSS extends Dialect {
+public class CSS extends BuildDialect {
 
 	@SuppressWarnings("unchecked")
 	public void build(
@@ -71,8 +71,19 @@ public class CSS extends Dialect {
 		
 		String css = "";
 		
-		for(int i = 0; i < element.children.size(); i++)
-			css += buildElement(element.children.get(i), tags);
+		for(int i = 0; i < element.children.size(); i++) {
+			
+			if(element.children.get(i).content.equalsIgnoreCase("Meta")) {
+				
+				String injection = getInjection(element.children.get(i));
+				
+				if(injection != null)
+					css += injection;
+			}
+			
+			else
+				css += buildElement(element.children.get(i), tags);
+		}
 		
 		ArrayList<String> file = new ArrayList<String>();
 		

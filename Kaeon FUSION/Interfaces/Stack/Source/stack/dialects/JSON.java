@@ -2,14 +2,13 @@ package stack.dialects;
 
 import java.util.ArrayList;
 
+import build_dialect.BuildDialect;
 import one.Element;
 import one.ElementUtilities;
-import stack.utilities.Dialect;
-//import stack.utilities.parse.json.JSONUnit;
-import stack.utilities.parse.json.containers.arrays.JSONArray;
-import stack.utilities.parse.json.containers.objects.JSONObject;
+import stack.utilities.json.containers.arrays.JSONArray;
+import stack.utilities.json.containers.objects.JSONObject;
 
-public class JSON extends Dialect {
+public class JSON extends BuildDialect {
 	
 	public void build(
 			ArrayList<ArrayList<String>> files,
@@ -42,6 +41,14 @@ public class JSON extends Dialect {
 	}
 	
 	public String processElement(Element element) {
+		
+		if(element.content.equalsIgnoreCase("Meta")) {
+			
+			String injection = getInjection(element);
+			
+			if(injection != null)
+				return injection;
+		}
 		
 		if(element.content.equalsIgnoreCase("List")) {
 			

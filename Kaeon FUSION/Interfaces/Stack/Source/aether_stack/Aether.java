@@ -5,6 +5,7 @@ import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.ArrayList;
 
+import build_dialect.cross_dialect.Category;
 import philosophers_stone.PhilosophersStone;
 import philosophers_stone.PhilosophersStoneUtilities;
 import stack.dialects.CSS;
@@ -19,21 +20,20 @@ import stack.dialects.cross.JavaScript;
 import stack.dialects.cross.PHP;
 import stack.dialects.cross.Python;
 import stack.dialects.cross.Swift;
-import stack.utilities.cross_dialect.Category;
-import stack.utilities.parse.json.JSONUnit;
-import stack.utilities.parse.json.containers.JSONContainer;
-import stack.utilities.parse.json.containers.arrays.JSONArray;
-import stack.utilities.parse.json.containers.objects.JSONObject;
-import stack.utilities.parse.json.containers.objects.JSONObjectField;
-import stack.utilities.parse.json.io.read.FileScanner;
-import stack.utilities.parse.json.io.read.JSONReader;
-import stack.utilities.parse.json.io.write.JSONWriter;
-import stack.utilities.parse.json.values.JSONValue;
-import stack.utilities.parse.xml.XMLAttribute;
-import stack.utilities.parse.xml.XMLElement;
-import stack.utilities.parse.xml.XMLUnit;
-import stack.utilities.parse.xml.io.XMLReader;
-import stack.utilities.parse.xml.io.XMLWriter;
+import stack.utilities.json.JSONUnit;
+import stack.utilities.json.containers.JSONContainer;
+import stack.utilities.json.containers.arrays.JSONArray;
+import stack.utilities.json.containers.objects.JSONObject;
+import stack.utilities.json.containers.objects.JSONObjectField;
+import stack.utilities.json.io.read.FileScanner;
+import stack.utilities.json.io.read.JSONReader;
+import stack.utilities.json.io.write.JSONWriter;
+import stack.utilities.json.values.JSONValue;
+import stack.utilities.xml.XMLAttribute;
+import stack.utilities.xml.XMLElement;
+import stack.utilities.xml.XMLUnit;
+import stack.utilities.xml.io.XMLReader;
+import stack.utilities.xml.io.XMLWriter;
 
 public class Aether {
 	

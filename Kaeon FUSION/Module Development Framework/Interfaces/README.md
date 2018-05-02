@@ -87,15 +87,6 @@ this fusion will act on the element passed in.
 
 It will return false by default.
 
-### Get Priority
-
-    public int getPriority(Element element)
-
-The position of the element passed in may change based on the integer returned by this function.
-The lower the number, the higher the priority.
-
-It will return zero by default.
-
 ### Trickle Down
 
     public boolean trickleDown(Element element)

@@ -2,9 +2,9 @@ package stack.dialects.cross;
 
 import java.util.ArrayList;
 
+import build_dialect.cross_dialect.Category;
+import build_dialect.cross_dialect.CrossDialect;
 import one.Element;
-import stack.utilities.cross_dialect.Category;
-import stack.utilities.cross_dialect.CrossDialect;
 
 public class JavaScript extends CrossDialect {
 	
@@ -13,18 +13,24 @@ public class JavaScript extends CrossDialect {
 			String name,
 			Element main,
 			String build,
-			ArrayList<Category> categories) {
+			ArrayList<Category> categories,
+			boolean utility,
+			boolean snippet) {
 		
 		ArrayList<String> file = new ArrayList<String>();
 		
 		file.add(formatIdentifier(name) + ".js");
 		
-		build = "var scope=false;" + build;
+		if(!utility)
+			build = (!snippet ? "var scope=false;" : "") + build;
 		
-		Category functions = getCategory(categories, "Functions");
-		
-		for(int i = 0; i < functions.objects.size(); i++)
-			build = functions.objects.get(i) + build;
+		if(!snippet) {
+			
+			Category functions = getCategory(categories, "Functions");
+			
+			for(int i = 0; i < functions.objects.size(); i++)
+				build = functions.objects.get(i) + build;
+		}
 		
 		file.add(build);
 		
