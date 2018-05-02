@@ -30,7 +30,7 @@ public class FUSIONException extends FUSIONUnit {
 		return errors.toString();
 	}
 	
-	public void handleError(Element element, Exception exception) {
+	public void handleError(Element element, ArrayList<Object> processed, Exception exception) {
 		this.exception = exception;
 	}
 }

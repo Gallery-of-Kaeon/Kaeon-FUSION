@@ -1,5 +1,7 @@
 package standard_kaeon_fusion.commands.flow;
 
+import java.util.ArrayList;
+
 import fusion.FUSIONUnit;
 import one.Element;
 import one.ElementUtilities;
@@ -35,7 +37,7 @@ public class Catch extends FUSIONUnit {
 		return wasCaught;
 	}
 	
-	public void handleError(Element element, Exception exception) {
+	public void handleError(Element element, ArrayList<Object> processed, Exception exception) {
 		caught = true;
 	}
 }

@@ -54,7 +54,7 @@ public class Split extends FUSIONUnit implements Runnable {
 		split.fusion = functionFUSION;
 		
 		Element newElement = ElementUtilities.copyElement(element);
-		newElement.content = null;
+		newElement.content = "";
 		
 		split.element = newElement;
 		

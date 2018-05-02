@@ -5,9 +5,9 @@ import java.util.Arrays;
 
 import one.Element;
 import one.ElementUtilities;
-import one_plus.directive.Directive;
+import tokenizer.Tokenizer;
 
-public class ONE_LISP extends Directive {
+public class ONE_LISP {
 	
 	public static Element parse(String string) {
 		
@@ -21,6 +21,7 @@ public class ONE_LISP extends Directive {
 						string);
 		
 		Element currentElement = one;
+		one.content = null;
 		
 		boolean isQuote = false;
 		String literal = "";
@@ -67,6 +68,8 @@ public class ONE_LISP extends Directive {
 			if(tokens.get(i).equals("(") && i < tokens.size() - 1) {
 				
 				Element newElement = new Element();
+				newElement.content = null;
+				
 				ElementUtilities.addChild(currentElement, newElement);
 				
 				currentElement = newElement;
@@ -87,6 +90,11 @@ public class ONE_LISP extends Directive {
 					ElementUtilities.addChild(currentElement, ElementUtilities.createElement(tokens.get(i)));
 			}
 		}
+		
+		one.content = "";
+		
+		if(currentElement.content == null)
+			currentElement.content = "";
 		
 		return one;
 	}

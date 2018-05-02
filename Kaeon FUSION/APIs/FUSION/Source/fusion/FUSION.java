@@ -10,26 +10,85 @@ import philosophers_stone.PhilosophersStoneUtilities;
 
 public class FUSION extends PhilosophersStone {
 
-	public boolean running;
+	public boolean running = false;
 	
-	public ArrayList<FUSIONUnit> fusionUnits;
-	public Element currentElement;
+	public ArrayList<FUSIONUnit> fusionUnits = new ArrayList<FUSIONUnit>();
+	public boolean updated = false;
 	
 	public FUSION() {
-		
 		tags.add("FUSION");
+	}
+	
+	public Object onCall(ArrayList<Object> packet) {
 		
-		fusionUnits = new ArrayList<FUSIONUnit>();
-		running = false;
+		if(packet.get(0) instanceof String) {
+			
+			if(((String) packet.get(0)).equalsIgnoreCase("Update"))
+				update();
+			
+			if(((String) packet.get(0)).equalsIgnoreCase("Stop"))
+				running = false;
+		}
+		
+		return null;
+	}
+	
+	public void update() {
+		
+		ArrayList<FUSIONUnit> fusionUnitBuffer = new ArrayList<FUSIONUnit>();
+		
+		ArrayList<PhilosophersStone> newFusionUnits =
+				PhilosophersStoneUtilities.get(this, "FUSION Unit");
+		
+		for(int i = 0; i < newFusionUnits.size(); i++) {
+			
+			try {
+				fusionUnitBuffer.add((FUSIONUnit) newFusionUnits.get(i));
+			}
+			
+			catch(Exception exception) {
+				
+			}
+		}
+		
+		for(int i = 0; i < fusionUnitBuffer.size(); i++) {
+			
+			for(int j = i + 1; j < fusionUnitBuffer.size(); j++) {
+				
+				if(fusionUnitBuffer.get(i).getClass().equals(fusionUnitBuffer.get(j).getClass())) {
+					fusionUnitBuffer.remove(j);
+					j--;
+				}
+			}
+		}
+		
+		fusionUnits = fusionUnitBuffer;
+		
+		updated = true;
 	}
 	
 	public void process(Element element) {
 		
 		running = true;
 		
-		currentElement = element;
-		
 		update();
+		
+		internalProcess(element, true);
+		
+		fusionUnits = new ArrayList<FUSIONUnit>();
+		running = false;
+	}
+	
+	public void internalProcess(Element element, boolean internal) {
+		
+		Element currentElement = element;
+		
+		if(!internal) {
+			
+			running = true;
+			
+			update();
+		}
 		
 		ArrayList<ArrayList<Object>> processed =
 				new ArrayList<ArrayList<Object>>(
@@ -40,6 +99,8 @@ public class FUSION extends PhilosophersStone {
 		boolean bubbleUp = false;
 		
 		while(running) {
+			
+			updated = false;
 			
 			boolean denied = isDenied(currentElement);
 			
@@ -54,8 +115,6 @@ public class FUSION extends PhilosophersStone {
 				
 				if(trickleDown && currentElement.children.size() > 0) {
 					
-					currentElement.children = sort(currentElement.children);
-					
 					currentElement = currentElement.children.get(0);
 					processed.add(new ArrayList<Object>());
 					
@@ -67,8 +126,14 @@ public class FUSION extends PhilosophersStone {
 			ArrayList<Object> arguments = processed.get(processed.size() - 1);
 			
 			Object object = processElement(verifiedFUSIONUnits, currentElement, arguments);
+			verifiedFUSIONUnits = updateVerifiedUnits(verifiedFUSIONUnits, currentElement, denied);
+			
 			boolean terminated = terminate(verifiedFUSIONUnits, currentElement, arguments);
+			verifiedFUSIONUnits = updateVerifiedUnits(verifiedFUSIONUnits, currentElement, denied);
+			
 			boolean added = isAdded(verifiedFUSIONUnits, currentElement, arguments);
+			verifiedFUSIONUnits = updateVerifiedUnits(verifiedFUSIONUnits, currentElement, denied);
+			
 			Element jumpElement = jump(verifiedFUSIONUnits, currentElement, arguments);
 			
 			if(!denied && added)
@@ -102,140 +167,33 @@ public class FUSION extends PhilosophersStone {
 			
 			else {
 				
-				clearArgumentsOnJump(processed);
+				for(int i = 0; i < processed.size(); i++)
+					processed.set(i, new ArrayList<Object>());
+				
 				currentElement = jumpElement;
 				
 				bubbleUp = false;
 			}
 		}
-		
-		fusionUnits = new ArrayList<FUSIONUnit>();
-		running = false;
 	}
 	
-	public void update() {
+	public ArrayList<FUSIONUnit> updateVerifiedUnits(
+			ArrayList<FUSIONUnit> verifiedFUSIONUnits,
+			Element currentElement,
+			boolean denied) {
 		
-		ArrayList<PhilosophersStone> fusionStones =
-				PhilosophersStoneUtilities.get(this, "FUSION Command");
+		boolean update = updated;
+		updated = false;
 		
-		for(PhilosophersStone stone : fusionStones) {
+		if(update) {
 			
-			try {
-				this.fusionUnits.add((FUSIONUnit) stone);
-			}
-			
-			catch(Exception exception) {
-				
-			}
+			return
+				!denied ?
+						getVerifiedFUSIONUnits(currentElement) :
+						new ArrayList<FUSIONUnit>();
 		}
 		
-		clean();
-		
-		sortFutureCommands(currentElement);
-	}
-	
-	public void clean() {
-		
-		for(int i = 0; i < fusionUnits.size(); i++) {
-			
-			for(int j = i + 1; j < fusionUnits.size(); j++) {
-				
-				if(fusionUnits.get(i).getClass().equals(fusionUnits.get(j).getClass())) {
-					fusionUnits.remove(j);
-					j--;
-				}
-			}
-		}
-	}
-	
-	public void sortFutureCommands(Element element) {
-		
-		Element current = element;
-		
-		while(current.parent != null) {
-			
-			ArrayList<Element> children = current.parent.children;
-			int index = ElementUtilities.getIndex(current);
-			
-			ArrayList<Element> futureCommands = new ArrayList<Element>();
-			
-			while(children.size() > index + 1)
-				futureCommands.add(children.remove(index + 1));
-			
-			children.addAll(sort(futureCommands));
-			
-			current = current.parent;
-		}
-	}
-	
-	public void clearArgumentsOnJump(ArrayList<ArrayList<Object>> arguments) {
-		arguments = new ArrayList<ArrayList<Object>>(arguments.size());
-	}
-	
-	private ArrayList<Element> sort(ArrayList<Element> input) {
-		
-		if(input.size() <= 1)
-			return input;
-		
-		int middle = (int) Math.ceil((double) input.size() / 2);
-		Element pivot = input.get(middle);
-		
-		ArrayList<Element> less = new ArrayList<Element>();
-		ArrayList<Element> greater = new ArrayList<Element>();
-		
-		for (int i = 0; i < input.size(); i++) {
-			
-			double priority = getPriority(input.get(i));
-			double pivotPriority = getPriority(pivot);
-			
-			if(priority == pivotPriority) {
-				priority = i;
-				pivotPriority = middle;
-			}
-			
-			if(priority <= pivotPriority) {
-				
-				if(i == middle)
-					continue;
-				
-				less.add(input.get(i));
-			}
-			
-			else
-				greater.add(input.get(i));
-		}
-		
-		return concatenate(sort(less), pivot, sort(greater));
-	}
-	
-	private ArrayList<Element> concatenate(
-			ArrayList<Element> less,
-			Element pivot,
-			ArrayList<Element> greater){
-		
-		ArrayList<Element> list = new ArrayList<Element>();
-		
-		list.addAll(less);
-		list.add(pivot);
-		list.addAll(greater);
-		
-		return list;
-	}
-	
-	public double getPriority(Element element) {
-		
-		for(FUSIONUnit unit : fusionUnits) {
-			
-			if(unit.verify(element)) {
-				
-				double priority = unit.getPriority(element);
-				
-				if(priority != 0)
-					return priority;
-			}
-		}
-		
-		return 0;
+		return verifiedFUSIONUnits;
 	}
 	
 	public boolean isDenied(Element element) {
@@ -254,7 +212,7 @@ public class FUSION extends PhilosophersStone {
 			}
 			
 			catch(Exception exception) {
-				handleError(element, exception);
+				handleError(element, new ArrayList<Object>(), exception);
 			}
 		}
 		
@@ -263,21 +221,18 @@ public class FUSION extends PhilosophersStone {
 	
 	public ArrayList<FUSIONUnit> getVerifiedFUSIONUnits(Element element) {
 		
-		if(element.content == null)
-			return new ArrayList<FUSIONUnit>();
-		
 		ArrayList<FUSIONUnit> verifiedFUSIONUnits = new ArrayList<FUSIONUnit>();
 		
-		for(FUSIONUnit unit : fusionUnits) {
+		for(int i = 0; i < fusionUnits.size(); i++) {
 			
 			try {
 				
-				if(unit.verify(element))
-					verifiedFUSIONUnits.add(unit);
+				if(fusionUnits.get(i).verify(element))
+					verifiedFUSIONUnits.add(fusionUnits.get(i));
 			}
 			
 			catch(Exception exception) {
-				handleError(element, exception);
+				handleError(element, new ArrayList<Object>(), exception);
 			}
 		}
 		
@@ -299,7 +254,7 @@ public class FUSION extends PhilosophersStone {
 			}
 			
 			catch(Exception exception) {
-				handleError(element, exception);
+				handleError(element, new ArrayList<Object>(), exception);
 			}
 			
 			if(!result)
@@ -325,7 +280,7 @@ public class FUSION extends PhilosophersStone {
 			}
 			
 			catch(Exception exception) {
-				handleError(element, exception);
+				handleError(element, new ArrayList<Object>(), exception);
 			}
 			
 			if(newObject != null)
@@ -351,7 +306,7 @@ public class FUSION extends PhilosophersStone {
 			}
 			
 			catch(Exception exception) {
-				handleError(element, exception);
+				handleError(element, new ArrayList<Object>(), exception);
 			}
 			
 			if(!result)
@@ -377,7 +332,7 @@ public class FUSION extends PhilosophersStone {
 			}
 			
 			catch(Exception exception) {
-				handleError(element, exception);
+				handleError(element, new ArrayList<Object>(), exception);
 			}
 			
 			if(result)
@@ -404,7 +359,7 @@ public class FUSION extends PhilosophersStone {
 			}
 			
 			catch(Exception exception) {
-				handleError(element, exception);
+				handleError(element, new ArrayList<Object>(), exception);
 			}
 			
 			if(defaultElement != newJumpElement)
@@ -414,35 +369,17 @@ public class FUSION extends PhilosophersStone {
 		return jumpElement;
 	}
 	
-	public void handleError(Element element, Exception exception) {
+	public void handleError(Element element, ArrayList<Object> arguments, Exception exception) {
 		
 		for(FUSIONUnit unit : fusionUnits) {
 			
 			try {
-				unit.handleError(element, exception);
+				unit.handleError(element, arguments, exception);
 			}
 			
 			catch(Exception innerException) {
 				
 			}
 		}
-	}
-	
-	public Object onCall(ArrayList<Object> packet) {
-		
-		if(packet.get(0) instanceof String) {
-			
-			if(((String) packet.get(0)).equalsIgnoreCase("Update"))
-				update();
-			
-			if(((String) packet.get(0)).equalsIgnoreCase("Stop"))
-				running = false;
-		}
-		
-		return null;
-	}
-	
-	public boolean isRunning() {
-		return running;
 	}
 }

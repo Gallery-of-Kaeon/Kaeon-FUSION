@@ -8,7 +8,7 @@ import one.Element;
 import one.ElementUtilities;
 import one_plus.directive.Directive;
 import one_plus.directive.DirectiveUnit;
-import one_plus.parse.Tokenizer;
+import tokenizer.Tokenizer;
 
 public class SuperMode extends DirectiveUnit {
 	

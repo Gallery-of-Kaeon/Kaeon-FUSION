@@ -95,7 +95,7 @@ public class New extends FUSIONUnit {
 		Element function = (Element) state.getByAliasAndType(element.children.get(0).content, "FUNCTION");
 		
 		function = ElementUtilities.copyElement(function);
-		function.content = null;
+		function.content = "";
 		
 		functionFUSION.process(function);
 		

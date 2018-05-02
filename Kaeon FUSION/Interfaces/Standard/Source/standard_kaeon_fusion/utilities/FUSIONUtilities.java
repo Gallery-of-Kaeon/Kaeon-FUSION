@@ -27,7 +27,7 @@ public class FUSIONUtilities {
 									stone.getClass().newInstance());
 				}
 				
-				catch (Exception e) {
+				catch (Exception exception) {
 					
 				}
 			}

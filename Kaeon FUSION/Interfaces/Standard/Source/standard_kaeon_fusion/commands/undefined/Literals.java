@@ -6,6 +6,7 @@ import fusion.FUSION;
 import fusion.FUSIONUnit;
 import one.Element;
 import philosophers_stone.PhilosophersStoneUtilities;
+import standard_kaeon_fusion.utilities.Priority;
 import standard_kaeon_fusion.utilities.state.State;
 
 public class Literals extends FUSIONUnit {
@@ -26,7 +27,9 @@ public class Literals extends FUSIONUnit {
 		
 		for(FUSIONUnit command : fusion.fusionUnits) {
 			
-			if(command != this && !(command instanceof State)) {
+			if(command != this &&
+					!(command instanceof State) &&
+					!(command instanceof Priority)) {
 				
 				if(command.verify(element))
 					return false;

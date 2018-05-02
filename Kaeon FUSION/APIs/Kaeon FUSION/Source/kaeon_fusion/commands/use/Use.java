@@ -1,15 +1,17 @@
-package kaeon_fusion.use;
+package kaeon_fusion.commands.use;
 
 import java.io.File;
 import java.util.ArrayList;
 
 import aether_kaeon_fusion.Aether;
+import fusion.FUSION;
 import fusion.FUSIONUnit;
 import one.Element;
-import philosophers_stone.PhilosophersStone;
 import philosophers_stone.PhilosophersStoneUtilities;
 
 public class Use extends FUSIONUnit {
+	
+	public FUSION fusion;
 	
 	public Use() {
 		tags.add("Kaeon FUSION");
@@ -17,11 +19,11 @@ public class Use extends FUSIONUnit {
 	}
 	
 	public boolean verify(Element element) {
+		
+		if(fusion == null)
+			fusion = (FUSION) PhilosophersStoneUtilities.get(this, "FUSION").get(0);
+		
 		return element.content.equalsIgnoreCase("Use");
-	}
-	
-	public double getPriority(Element element) {
-		return Double.NEGATIVE_INFINITY;
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -43,8 +45,6 @@ public class Use extends FUSIONUnit {
 				
 			}
 		}
-		
-		PhilosophersStone fusion = PhilosophersStoneUtilities.get(this, "FUSION").get(0);
 		
 		for(int i = 0; i < processed.size(); i++) {
 			

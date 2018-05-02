@@ -6,6 +6,7 @@ import fusion.FUSION;
 import fusion.FUSIONUnit;
 import one.Element;
 import philosophers_stone.PhilosophersStoneUtilities;
+import standard_kaeon_fusion.utilities.Priority;
 import standard_kaeon_fusion.utilities.state.Alias;
 import standard_kaeon_fusion.utilities.state.State;
 
@@ -30,6 +31,7 @@ public class Variables extends FUSIONUnit {
 			
 			if(command != this &&
 					!(command instanceof State) &&
+					!(command instanceof Priority) &&
 					!(command instanceof Literals)) {
 				
 				if(command.verify(element))

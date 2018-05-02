@@ -99,6 +99,7 @@ import standard_kaeon_fusion.commands.undefined.Literals;
 import standard_kaeon_fusion.commands.undefined.Variables;
 import standard_kaeon_fusion.utilities.Console;
 import standard_kaeon_fusion.utilities.FUSIONUtilities;
+import standard_kaeon_fusion.utilities.Priority;
 import standard_kaeon_fusion.utilities.state.Alias;
 import standard_kaeon_fusion.utilities.state.State;
 import standard_one_plus.utilities.DirectiveUtilities;
@@ -119,20 +120,29 @@ public class Aether {
 			
 			PhilosophersStoneUtilities.publiclyConnect(stone, tag);
 			
-			PhilosophersStone literal =
+			ArrayList<PhilosophersStone> literal =
 					PhilosophersStoneUtilities.get(
 							stone,
 							"Kaeon FUSION",
-							"Literal").
-					get(0);
+							"Literal");
 			
-			if(literal != null)
-				PhilosophersStoneUtilities.destroy(literal);
+			for(int i = 0; i < literal.size(); i++)
+				PhilosophersStoneUtilities.destroy(literal.get(i));
+			
+			ArrayList<PhilosophersStone> priority =
+					PhilosophersStoneUtilities.get(
+							stone,
+							"Kaeon FUSION",
+							"Priority");
+			
+			for(int i = 0; i < priority.size(); i++)
+				PhilosophersStoneUtilities.destroy(priority.get(i));
 			
 			if(!PhilosophersStoneUtilities.has(stone, "Console"))
 				PhilosophersStoneUtilities.publiclyConnect(stone, new Console());
 			
 			PhilosophersStoneUtilities.publiclyConnect(stone, new State());
+			PhilosophersStoneUtilities.publiclyConnect(stone, new Priority());
 			
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Literals());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Variables());

@@ -1,9 +1,10 @@
-package kaeon_fusion.literal;
+package kaeon_fusion.commands.literal;
 
 import java.util.ArrayList;
 
 import fusion.FUSION;
 import fusion.FUSIONUnit;
+import kaeon_fusion.utilities.priority.Priority;
 import one.Element;
 import philosophers_stone.PhilosophersStoneUtilities;
 
@@ -23,7 +24,7 @@ public class Literal extends FUSIONUnit {
 		
 		for(FUSIONUnit command : fusion.fusionUnits) {
 			
-			if(command != this) {
+			if(command != this && !(command instanceof Priority)) {
 				
 				if(command.verify(element))
 					return false;

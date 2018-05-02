@@ -564,6 +564,7 @@ public class IDE implements ActionListener {
 			output.text.setEditable(false);
 			output.text.setFont(new Font(Font.MONOSPACED, Font.BOLD, scale(14)));
 			output.text.setTabSize(4);
+			output.text.setForeground(Color.BLACK);
 
 			output.pane = new JScrollPane(output.text);
 

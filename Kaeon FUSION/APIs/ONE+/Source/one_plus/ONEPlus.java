@@ -7,14 +7,16 @@ import one.Element;
 import one_plus.parse.Preprocessor;
 import one_plus.parse.Processor;
 import one_plus.parse.TokenGenerator;
-import one_plus.parse.Tokenizer;
 import philosophers_stone.PhilosophersStone;
+import tokenizer.Tokenizer;
 
 public class ONEPlus {
 	
-	public static PhilosophersStone host;
-	
 	public static Element parseONEPlus(String string) {
+		return parseONEPlus(string, new PhilosophersStone());
+	}
+	
+	public static Element parseONEPlus(String string, PhilosophersStone host) {
 		
 		if(string.trim().startsWith("-[")) {
 			

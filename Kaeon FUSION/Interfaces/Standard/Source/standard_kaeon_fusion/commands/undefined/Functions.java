@@ -10,6 +10,7 @@ import philosophers_stone.PhilosophersStone;
 import philosophers_stone.PhilosophersStoneUtilities;
 import standard_kaeon_fusion.commands.flow.Return;
 import standard_kaeon_fusion.utilities.FUSIONUtilities;
+import standard_kaeon_fusion.utilities.Priority;
 import standard_kaeon_fusion.utilities.state.State;
 
 public class Functions extends FUSIONUnit {
@@ -33,6 +34,7 @@ public class Functions extends FUSIONUnit {
 			
 			if(command != this &&
 					!(command instanceof State) &&
+					!(command instanceof Priority) &&
 					!(command instanceof Literals) &&
 					!(command instanceof Variables)) {
 				
@@ -78,9 +80,9 @@ public class Functions extends FUSIONUnit {
 		Element function = (Element) state.getByAliasAndType(element.content, "FUNCTION");
 		
 		function = ElementUtilities.copyElement(function);
-		function.content = null;
+		function.content = "";
 		
-		functionFUSION.process(function);
+		functionFUSION.internalProcess(function, false);
 		
 		Object toReturn = null;
 		

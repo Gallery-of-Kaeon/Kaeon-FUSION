@@ -31,10 +31,6 @@ public class Define extends FUSIONUnit {
 		return element.content.equalsIgnoreCase("Define");
 	}
 	
-	public double getPriority(Element element) {
-		return -1;
-	}
-	
 	public boolean trickleDown(Element element) {
 		return false;
 	}

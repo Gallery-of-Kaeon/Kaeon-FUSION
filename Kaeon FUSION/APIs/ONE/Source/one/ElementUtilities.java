@@ -1,10 +1,14 @@
 package one;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ElementUtilities {
 	
 	public static Element createElement(String content) {
+		
+		if(content == null)
+			content = "";
 		
 		Element element = new Element();
 		element.content = content;
@@ -14,9 +18,7 @@ public class ElementUtilities {
 	
 	public static Element copyElement(Element element) {
 		
-		Element newElement = new Element();
-		
-		newElement.content = element.content;
+		Element newElement = createElement(element.content);
 		
 		for(int i = 0; i < element.children.size(); i++)
 			addChild(newElement, copyElement(element.children.get(i)));
@@ -25,6 +27,10 @@ public class ElementUtilities {
 	}
 	
 	public static void setContent(Element element, String content) {
+		
+		if(content == null)
+			content = "";
+		
 		element.content = content;
 	}
 	
@@ -97,6 +103,10 @@ public class ElementUtilities {
 	}
 	
 	public static String getContent(Element element) {
+		
+		if(element.content == null)
+			return "";
+		
 		return element.content;
 	}
 	
@@ -108,23 +118,48 @@ public class ElementUtilities {
 		return element.children;
 	}
 	
-	public static Element getChild(Element element, int index) {
+	public static Element getChild(Element element, Object... indices) {
 		
-		if(index >= 0 && index < element.children.size())
-			return element.children.get(index);
+		if(indices.length == 0)
+			return null;
 		
-		return null;
-	}
-	
-	public static Element getChild(Element element, String content) {
+		Element currentElement = element;
 		
-		for(int i = 0; i < element.children.size(); i++) {
+		for(int i = 0; i < indices.length; i++) {
 			
-			if(element.children.get(i).content.equalsIgnoreCase(content))
-				return element.children.get(i);
+			if(indices[i] instanceof Integer) {
+				
+				int index = (Integer) indices[i];
+				
+				if(index >= 0 && index < currentElement.children.size())
+					currentElement = currentElement.children.get(index);
+				
+				else
+					return null;
+			}
+			
+			else {
+				
+				String content = "" + indices[i];
+				
+				boolean found = false;
+				
+				for(int j = 0; j < currentElement.children.size() && !found; j++) {
+					
+					if(currentElement.children.get(j).content.equalsIgnoreCase(content)) {
+						
+						currentElement = currentElement.children.get(j);
+						
+						found = true;
+					}
+				}
+				
+				if(!found)
+					return null;
+			}
 		}
 		
-		return null;
+		return currentElement;
 	}
 	
 	public static ArrayList<Element> getChildren(Element element, String content) {
@@ -151,11 +186,11 @@ public class ElementUtilities {
 		return false;
 	}
 	
-	public static int getNumChildren(Element element) {
+	public static int getNumberOfChildren(Element element) {
 		return element.children.size();
 	}
 	
-	public static int getNumElements(Element element, String content) {
+	public static int getNumberOfChildren(Element element, String content) {
 		
 		int numChildren = 0;
 		
@@ -196,34 +231,159 @@ public class ElementUtilities {
 		return true;
 	}
 	
-	public static String writeElement(Element element) {
-		return writeElement(element, 0);
+	public static Element readElement(String string) {
+		return readElement(string, new ArrayList<String>(Arrays.asList("-", "\n", "\t")), false);
 	}
 	
-	public static String writeElement(Element element, int nest) {
+	public static Element readElement(String string, ArrayList<String> tokens, boolean reduced) {
+		
+		Element element = new Element();
+		
+		try {
+			
+			ArrayList<ArrayList<String>> elements =
+					getElements(
+							new ArrayList<String>(
+									Arrays.asList(
+											string.split(tokens.get(1)))));
+			
+			Element currentElement = element;
+			int currentNest = 0;
+			
+			for(int i = 0; i < elements.size(); i++) {
+				
+				int nest = cropElement(elements.get(i), tokens.get(2));
+				
+				Element newElement = createElement(getElementContent(elements.get(i), tokens.get(1)));
+				
+				for(int j = currentNest; j > nest - 1 && currentElement.parent != null; j--)
+					currentElement = currentElement.parent;
+				
+				if(nest > currentNest && currentElement.children.size() > 0)
+					currentElement = currentElement.children.get(currentElement.children.size() - 1);
+				
+				addChild(currentElement, newElement);
+				
+				if(nest > currentNest)
+					currentElement = newElement;
+				
+				currentNest = nest;
+			}
+		}
+		
+		catch(Exception exception) {
+			
+			exception.printStackTrace();
+			
+			element = new Element();
+		}
+		
+		return element;
+	}
+	
+	public static ArrayList<ArrayList<String>> getElements(ArrayList<String> lines) {
+		
+		ArrayList<ArrayList<String>> elements = new ArrayList<ArrayList<String>>();
+		
+		for(int i = 0; i < lines.size(); i++) {
+			
+			String line = lines.get(i);
+			
+			ArrayList<String> element = new ArrayList<String>();
+			element.add(lines.get(i));
+			
+			for(i++; i < lines.size() && !lines.get(i).equals(line); i++)
+				element.add(lines.get(i));
+			
+			elements.add(element);
+		}
+		
+		return elements;
+	}
+	
+	public static int cropElement(ArrayList<String> element, String nesting) {
+		
+		int nestIndex = 0;
+		int nest = 0;
+		
+		for(; element.get(0).indexOf(nesting, nestIndex) != -1; nestIndex += nesting.length())
+			nest++;
+		
+		element.remove(0);
+		
+		for(int i = 0; i < element.size(); i++)
+			element.set(i, element.get(i).substring((nest + 1) * nesting.length()));
+		
+		return nest;
+	}
+	
+	public static String getElementContent(ArrayList<String> element, String breaking) {
+		
+		String content = "";
+		
+		for(int i = 0; i < element.size(); i++) {
+			
+			content += element.get(i);
+			
+			if(i < element.size() - 1)
+				content += breaking;
+		}
+		
+		return content;
+	}
+	
+	public static String writeElement(Element element) {
+		return writeElement(element, new ArrayList<String>(Arrays.asList("-", "\n", "\t")), false);
+	}
+	
+	public static String writeElement(Element element, ArrayList<String> tokens, boolean reduced) {
+		
+		Element write = element;
+		
+		if(!element.content.equals("")) {
+			
+			write = new Element();
+			
+			addChild(write, copyElement(element));
+		}
+		
+		return writeElement(tokens, write, 0, true, reduced);
+	}
+	
+	public static String writeElement(
+			ArrayList<String> tokens,
+			Element element,
+			int nest,
+			boolean isRoot,
+			boolean reduced) {
 		
 		String code = "";
-		
-		boolean isRoot = element.parent == null;
 		
 		if(!isRoot) {
 			
 			String content = element.content;
 			
-			code += indent(nest) + "-\n" + indent(nest + 1);
+			code +=
+					indent(
+							nest,
+							tokens.get(2)) +
+					(!reduced ? tokens.get(0) : "") +
+					tokens.get(1) +
+					indent(
+							nest + 1,
+							tokens.get(2));
 			
-			for(int i = 0; i < content.length(); i++) {
+			ArrayList<String> lines = new ArrayList<String>(Arrays.asList(content.split(tokens.get(1))));
+			
+			for(int i = 0; i < lines.size(); i++) {
 				
-				char character = content.charAt(i);
+				code += lines.get(i);
 				
-				if(character != '\n')
-					code += character;
-				
-				else
-					code += '\n' + indent(nest + 1);
+				if(i < lines.size() - 1)
+					code += tokens.get(1) + indent(nest + 1, tokens.get(2));
 			}
 			
-			code += '\n' + indent(nest) + '-';
+			code += tokens.get(1) + indent(nest, tokens.get(2)) + (!reduced ? tokens.get(0) : "");
 		}
 		
 		ArrayList<Element> elements = element.children;
@@ -231,23 +391,26 @@ public class ElementUtilities {
 		for(int i = 0; i < elements.size(); i++) {
 			
 			if(!isRoot || i > 0)
-				code += '\n';
+				code += tokens.get(1);
 			
 			code +=
-				writeElement(
-					elements.get(i),
-					element.parent != null ? nest + 1 : nest);
+					writeElement(
+							tokens,
+							elements.get(i),
+							(!isRoot ? nest + 1 : nest),
+							false,
+							reduced);
 		}
 		
 		return code;
 	}
 	
-	public static String indent(int nest) {
+	public static String indent(int nest, String token) {
 		
 		String indent = "";
 		
 		for(int i = 0; i < nest; i++)
-			indent += '\t';
+			indent += token;
 		
 		return indent;
 	}

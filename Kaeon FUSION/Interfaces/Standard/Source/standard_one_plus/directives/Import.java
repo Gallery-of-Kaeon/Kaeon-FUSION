@@ -9,7 +9,7 @@ import one_plus.directive.Directive;
 import one_plus.directive.DirectiveUnit;
 import one_plus.parse.Processor;
 import one_plus.parse.TokenGenerator;
-import one_plus.parse.Tokenizer;
+import tokenizer.Tokenizer;
 
 public class Import extends DirectiveUnit {
 	
