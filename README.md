@@ -261,9 +261,7 @@ we recommend that you re-download it.
 As of April 10, 2018,
 the Kaeon Origin IDE requires that the update path be manually specified.
 This is in case the update path changes.
-If you downloaded Kaeon Origin prior to April 10, 2018,
-and have updated it since then,
-you may specify the update path in the Kaeon Origin section of the options menu.
+You may specify the update path in the Kaeon Origin section of the options menu.
 Please set it to:
 
     https://raw.githubusercontent.com/Gallery-of-Kaeon/Kaeon-FUSION/master/Kaeon%20FUSION/IDE/Application/Update/Update.op
