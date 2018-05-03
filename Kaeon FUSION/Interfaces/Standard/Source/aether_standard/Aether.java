@@ -17,6 +17,7 @@ import standard_kaeon_fusion.commands.data.Define;
 import standard_kaeon_fusion.commands.data.Generate;
 import standard_kaeon_fusion.commands.data.Global;
 import standard_kaeon_fusion.commands.data.Import;
+import standard_kaeon_fusion.commands.data.IsCommand;
 import standard_kaeon_fusion.commands.data.Literal;
 import standard_kaeon_fusion.commands.data.New;
 import standard_kaeon_fusion.commands.data.Null;
@@ -170,6 +171,7 @@ public class Aether {
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Global());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Import());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new In());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new IsCommand());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Literal());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new New());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Null());
