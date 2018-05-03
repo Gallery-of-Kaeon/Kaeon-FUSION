@@ -11,6 +11,7 @@ import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
+import javax.swing.AbstractAction;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -20,6 +21,11 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.KeyStroke;
+import javax.swing.event.UndoableEditEvent;
+import javax.swing.event.UndoableEditListener;
+import javax.swing.text.Document;
+import javax.swing.undo.UndoManager;
 
 import io.IO;
 import kaeon_origin.ide.IDE;
@@ -446,6 +452,52 @@ public class OptionsPane extends JFrame implements ActionListener {
 			
 			text.setFont(new Font(Font.MONOSPACED, Font.BOLD, ide.scale(14)));
 			text.setTabSize(4);
+
+			UndoManager undoManager = new UndoManager();
+			Document doc = text.getDocument();
+
+			doc.addUndoableEditListener(new UndoableEditListener() {
+
+				public void undoableEditHappened(UndoableEditEvent event) {
+					undoManager.addEdit(event.getEdit());
+				}
+			});
+
+			text.getActionMap().put("Undo", new AbstractAction("Undo") {
+
+				public void actionPerformed(ActionEvent event) {
+
+					try {
+
+						if (undoManager.canUndo())
+							undoManager.undo();
+					}
+
+					catch (Exception exception) {
+
+					}
+				}
+			});
+
+			text.getInputMap().put(KeyStroke.getKeyStroke("control Z"), "Undo");
+
+			text.getActionMap().put("Redo", new AbstractAction("Redo") {
+
+				public void actionPerformed(ActionEvent event) {
+
+					try {
+
+						if (undoManager.canRedo())
+							undoManager.redo();
+					}
+
+					catch (Exception exception) {
+
+					}
+				}
+			});
+
+			text.getInputMap().put(KeyStroke.getKeyStroke("control Y"), "Redo");
 			
 			ide.enlargeText = text;
 			ide.enlargeOutput = null;
@@ -496,7 +548,7 @@ public class OptionsPane extends JFrame implements ActionListener {
 			if(command.equals("Minimize Input"))
 				ide.currentInput.text.setText(ide.enlargeText.getText());
 			
-			if(command.equals("Minimize Input"))
+			if(command.equals("Minimize Output"))
 				ide.enlargeOutput = null;
 			
 			ide.base.removeAll();
@@ -512,7 +564,7 @@ public class OptionsPane extends JFrame implements ActionListener {
 			
 			int option = 0;
 			
-			if(ide.updatePath == null) {
+			if(ide.updatePath.length() == 0) {
 				
 				option =
 						JOptionPane.showConfirmDialog(

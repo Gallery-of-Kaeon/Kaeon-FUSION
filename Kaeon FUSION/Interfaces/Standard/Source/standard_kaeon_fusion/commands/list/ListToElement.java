@@ -22,7 +22,7 @@ public class ListToElement extends FUSIONUnit {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public Element listToElement(ArrayList<Object> list, boolean content) {
+	public static Element listToElement(ArrayList<Object> list, boolean content) {
 		
 		Element element =
 				content ?

@@ -12,12 +12,16 @@ public class State extends FUSIONUnit {
 	public ArrayList<ArrayList<Alias>> state =
 			new ArrayList<ArrayList<Alias>>();
 	
+	public ArrayList<ArrayList<State>> inStates =
+			new ArrayList<ArrayList<State>>();
+	
 	public State() {
 
 		tags.add("Standard");
 		tags.add("State");
 		
 		state.add(new ArrayList<Alias>());
+		inStates.add(new ArrayList<State>());
 	}
 	
 	public State(ArrayList<Object> list) {
@@ -38,6 +42,7 @@ public class State extends FUSIONUnit {
 			Element element) {
 		
 		state.add(new ArrayList<Alias>());
+		inStates.add(new ArrayList<State>());
 		
 		return true;
 	}
@@ -49,10 +54,19 @@ public class State extends FUSIONUnit {
 		if(state.size() > 1)
 			state.remove(state.size() - 1);
 		
+		if(inStates.size() > 1)
+			inStates.remove(inStates.size() - 1);
+		
 		return null;
 	}
 	
 	public void setAlias(Alias alias) {
+		
+		for(int i = 0; i < inStates.size(); i++) {
+			
+			for(int j = 0; j < inStates.get(i).size(); j++)
+				inStates.get(i).get(j).setAlias(alias);
+		}
 		
 		for(int i = global.size() - 1; i >= 0; i--) {
 			
@@ -81,6 +95,12 @@ public class State extends FUSIONUnit {
 	}
 	
 	public void setGlobalAlias(Alias alias) {
+		
+		for(int i = 0; i < inStates.size(); i++) {
+			
+			for(int j = 0; j < inStates.get(i).size(); j++)
+				inStates.get(i).get(j).setGlobalAlias(alias);
+		}
 		
 		boolean found = false;
 		
@@ -112,6 +132,17 @@ public class State extends FUSIONUnit {
 	
 	public Object getByAlias(String alias) {
 		
+		for(int i = 0; i < inStates.size(); i++) {
+			
+			for(int j = 0; j < inStates.get(i).size(); j++) {
+				
+				Object object = inStates.get(i).get(j).getByAlias(alias);
+				
+				if(object != null)
+					return object;
+			}
+		}
+		
 		for(int i = global.size() - 1; i >= 0; i--) {
 			
 			if(global.get(i).alias.equalsIgnoreCase(alias))
@@ -131,6 +162,17 @@ public class State extends FUSIONUnit {
 	}
 	
 	public Object getByAliasAndType(String alias, String type) {
+		
+		for(int i = 0; i < inStates.size(); i++) {
+			
+			for(int j = 0; j < inStates.get(i).size(); j++) {
+				
+				Object object = inStates.get(i).get(j).getByAliasAndType(alias, type);
+				
+				if(object != null)
+					return object;
+			}
+		}
 		
 		for(int i = global.size() - 1; i >= 0; i--) {
 			
@@ -160,6 +202,12 @@ public class State extends FUSIONUnit {
 		
 		ArrayList<Alias> aliases = new ArrayList<Alias>();
 		
+		for(int i = 0; i < inStates.size(); i++) {
+			
+			for(int j = 0; j < inStates.get(i).size(); j++)
+				aliases.addAll(inStates.get(i).get(j).getByType(type));
+		}
+		
 		for(int i = global.size() - 1; i >= 0; i--) {
 			
 			if(global.get(i).type.equalsIgnoreCase(type))
@@ -180,6 +228,17 @@ public class State extends FUSIONUnit {
 	
 	public boolean hasAlias(String alias) {
 		
+		for(int i = 0; i < inStates.size(); i++) {
+			
+			for(int j = 0; j < inStates.get(i).size(); j++) {
+				
+				boolean has = inStates.get(i).get(j).hasAlias(alias);
+				
+				if(has)
+					return true;
+			}
+		}
+		
 		for(int i = global.size() - 1; i >= 0; i--) {
 			
 			if(global.get(i).alias.equalsIgnoreCase(alias))
@@ -199,11 +258,27 @@ public class State extends FUSIONUnit {
 	}
 	
 	public void push() {
+		
+		for(int i = 0; i < inStates.size(); i++) {
+			
+			for(int j = 0; j < inStates.get(i).size(); j++)
+				inStates.get(i).get(j).push();
+		}
+		
 		state.add(new ArrayList<Alias>());
+		inStates.add(new ArrayList<State>());
 	}
 	
 	public void pop() {
+		
 		state.remove(state.size() - 1);
+		inStates.remove(inStates.size() - 1);
+		
+		for(int i = 0; i < inStates.size(); i++) {
+			
+			for(int j = 0; j < inStates.get(i).size(); j++)
+				inStates.get(i).get(j).pop();
+		}
 	}
 	
 	public State copy() {

@@ -34,9 +34,11 @@ import standard_kaeon_fusion.commands.flow.Exit;
 import standard_kaeon_fusion.commands.flow.FUSIONException;
 import standard_kaeon_fusion.commands.flow.In;
 import standard_kaeon_fusion.commands.flow.Loop;
+import standard_kaeon_fusion.commands.flow.Retrieve;
 import standard_kaeon_fusion.commands.flow.Return;
 import standard_kaeon_fusion.commands.flow.Run;
 import standard_kaeon_fusion.commands.flow.Scope;
+import standard_kaeon_fusion.commands.flow.Shift;
 import standard_kaeon_fusion.commands.flow.Split;
 import standard_kaeon_fusion.commands.flow.Throw;
 import standard_kaeon_fusion.commands.flow.Wait;
@@ -93,7 +95,15 @@ import standard_kaeon_fusion.commands.string.Lower;
 import standard_kaeon_fusion.commands.string.NumberToCharacter;
 import standard_kaeon_fusion.commands.string.Trim;
 import standard_kaeon_fusion.commands.string.Upper;
+import standard_kaeon_fusion.commands.system.Day;
+import standard_kaeon_fusion.commands.system.Hour;
+import standard_kaeon_fusion.commands.system.Minute;
+import standard_kaeon_fusion.commands.system.Month;
+import standard_kaeon_fusion.commands.system.OperatingSystem;
+import standard_kaeon_fusion.commands.system.Second;
 import standard_kaeon_fusion.commands.system.Time;
+import standard_kaeon_fusion.commands.system.Weekday;
+import standard_kaeon_fusion.commands.system.Year;
 import standard_kaeon_fusion.commands.undefined.Functions;
 import standard_kaeon_fusion.commands.undefined.Literals;
 import standard_kaeon_fusion.commands.undefined.Variables;
@@ -163,8 +173,10 @@ public class Aether {
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Literal());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new New());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Null());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Retrieve());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Return());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Run());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Shift());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new This());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Throw());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Type());
@@ -241,8 +253,16 @@ public class Aether {
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new NumberToCharacter());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Trim());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Upper());
-			
+
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Day());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Hour());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Minute());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Month());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new OperatingSystem());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Second());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Time());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Weekday());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Year());
 			
 			new Alias();
 			new FUSIONUtilities();

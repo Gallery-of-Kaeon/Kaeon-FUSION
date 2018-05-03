@@ -426,7 +426,7 @@ public class IDE implements ActionListener {
 		}
 		
 		catch(Exception exception) {
-			
+			updatePath = "";
 		}
 	}
 
@@ -1200,7 +1200,7 @@ public class IDE implements ActionListener {
 		Element update = ElementUtilities.createElement("Update Path");
 		ElementUtilities.addChild(element, update);
 		
-		ElementUtilities.addChild(update, ElementUtilities.createElement(updatePath != null ? updatePath : ""));
+		ElementUtilities.addChild(update, ElementUtilities.createElement(updatePath));
 		
 		Element origin = ElementUtilities.createElement("Kaeon Origin");
 		ElementUtilities.addChild(element, origin);
