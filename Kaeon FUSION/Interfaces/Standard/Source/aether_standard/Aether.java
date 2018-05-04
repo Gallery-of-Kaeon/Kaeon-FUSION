@@ -14,6 +14,7 @@ import standard_kaeon_fusion.commands.console.LogLine;
 import standard_kaeon_fusion.commands.data.Adapt;
 import standard_kaeon_fusion.commands.data.Arguments;
 import standard_kaeon_fusion.commands.data.Define;
+import standard_kaeon_fusion.commands.data.Form;
 import standard_kaeon_fusion.commands.data.Generate;
 import standard_kaeon_fusion.commands.data.Global;
 import standard_kaeon_fusion.commands.data.Import;
@@ -35,6 +36,7 @@ import standard_kaeon_fusion.commands.flow.Exit;
 import standard_kaeon_fusion.commands.flow.FUSIONException;
 import standard_kaeon_fusion.commands.flow.In;
 import standard_kaeon_fusion.commands.flow.Loop;
+import standard_kaeon_fusion.commands.flow.Out;
 import standard_kaeon_fusion.commands.flow.Retrieve;
 import standard_kaeon_fusion.commands.flow.Return;
 import standard_kaeon_fusion.commands.flow.Run;
@@ -62,6 +64,7 @@ import standard_kaeon_fusion.commands.list.Remove;
 import standard_kaeon_fusion.commands.list.Reverse;
 import standard_kaeon_fusion.commands.list.Set;
 import standard_kaeon_fusion.commands.list.Size;
+import standard_kaeon_fusion.commands.list.Tokenize;
 import standard_kaeon_fusion.commands.logic.And;
 import standard_kaeon_fusion.commands.logic.Equal;
 import standard_kaeon_fusion.commands.logic.ExclusiveOr;
@@ -161,42 +164,50 @@ public class Aether {
 
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Adapt());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Arguments());
-			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Call());
-			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Catch());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Define());
-			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Execute());
-			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Exit());
-			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new FUSIONException());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Form());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Generate());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Global());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Import());
-			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new In());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new IsCommand());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Literal());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new New());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Null());
-			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Retrieve());
-			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Return());
-			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Run());
-			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Shift());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new This());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Throw());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Type());
 			
-			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Build());
-			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Meta());
-			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Derive());
-			
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Break());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Call());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Catch());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Else());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Execute());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Exit());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new FUSIONException());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new In());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Loop());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Out());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Retrieve());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Return());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Run());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Scope());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Shift());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Split());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Wait());
 			
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Input());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Log());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new LogLine());
+
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Day());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Hour());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Minute());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Month());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new OperatingSystem());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Second());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Time());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Weekday());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Year());
 			
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Open());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Save());
@@ -218,6 +229,13 @@ public class Aether {
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Reverse());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Set());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Size());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Tokenize());
+	
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new CharacterToNumber());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Lower());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new NumberToCharacter());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Trim());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Upper());
 			
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new And());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Equal());
@@ -249,22 +267,10 @@ public class Aether {
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Tangent());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new ToDegrees());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new ToRadians());
-	
-			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new CharacterToNumber());
-			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Lower());
-			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new NumberToCharacter());
-			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Trim());
-			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Upper());
-
-			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Day());
-			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Hour());
-			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Minute());
-			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Month());
-			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new OperatingSystem());
-			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Second());
-			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Time());
-			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Weekday());
-			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Year());
+			
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Build());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Meta());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Derive());
 			
 			new Alias();
 			new FUSIONUtilities();
