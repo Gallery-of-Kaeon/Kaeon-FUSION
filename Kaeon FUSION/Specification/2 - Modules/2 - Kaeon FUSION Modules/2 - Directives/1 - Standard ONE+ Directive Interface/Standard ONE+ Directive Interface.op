@@ -118,6 +118,19 @@ Standard ONE+ Directive Interface
 					corresponding to the range of indexes specified by the numbers will be pasted.
 				-
 			
+			Alternate
+			
+				-
+					The alternate directive contains the content "Alternate". Its header must have
+					one element with content specifying the name of an alternate syntax for
+					encoding ONE documents.
+					
+					The content of each of the elements in its body will be parsed as a ONE
+					document based on the specified alternate syntax. The children of the document
+					element of each parsed document will be pasted in order in the alternate
+					directive's place.
+				-
+			
 			If
 				
 				-
