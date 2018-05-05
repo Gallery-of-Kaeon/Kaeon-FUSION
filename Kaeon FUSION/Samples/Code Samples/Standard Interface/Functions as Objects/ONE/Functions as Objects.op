@@ -25,18 +25,12 @@
 					-
 						1
 					-
-		-
-			Global
-		-
 			-
 				height
 			-
 				-
 					5
 				-
-		-
-			Global
-		-
 			-
 				weight
 			-
@@ -125,32 +119,38 @@
 	Log Line
 -
 	-
-		In
+		Scope
 	-
 		-
-			my dog
+			In
 		-
-	-
-		Return
-	-
+			-
+				my dog
+			-
 		-
-			height
+			Retrieve
 		-
+			-
+				height
+			-
 -
 	Log Line
 -
 	-
-		In
+		Scope
 	-
 		-
-			my dog
+			In
 		-
-	-
-		Return
-	-
+			-
+				my dog
+			-
 		-
-			weight
+			Retrieve
 		-
+			-
+				weight
+			-
 -
 	Scope
 -

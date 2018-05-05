@@ -32,8 +32,8 @@ Scope { In: my dog }
 
 # Run code within my dog to return data to the Log Line command
 
-Log Line: In { my dog } Return: height
-Log Line: In { my dog } Return: weight
+Log Line: Scope: In { my dog } Retrieve: height
+Log Line: Scope: In { my dog } Retrieve: weight
 
 # Run the function bork within my dog
 Scope { In: my dog }
