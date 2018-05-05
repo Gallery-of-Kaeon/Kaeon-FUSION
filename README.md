@@ -266,6 +266,6 @@ Please set it to:
 
     https://raw.githubusercontent.com/Gallery-of-Kaeon/Kaeon-FUSION/master/Kaeon%20FUSION/IDE/Application/Update/Update.op
 
-On May 4, 2018,
+On May 5, 2018,
 We had to repair Kaeon Origin's updater module due to changes we made to the ONE+ parser.
 If you downloaded Kaeon Origin prior to May 4, 2018, please re-download it manually.

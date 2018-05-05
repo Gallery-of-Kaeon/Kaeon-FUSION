@@ -17,14 +17,6 @@ Be sure to have Java installed before you begin. You can install Java at:
 After installing Java and downloading the "Kaeon Origin.jar" file,
 place the "Kaeon Origin.jar" file in the root directory of your project.
 
-Once you open Kaeon Origin,
-open the options menu,
-select the "Kaeon Origin" sub-menu,
-select "Settings",
-and set the update path to:
-
-    https://raw.githubusercontent.com/Gallery-of-Kaeon/Kaeon-FUSION/master/Kaeon%20FUSION/IDE/Application/Update/Update.op
-
 ## Interfaces
 
 The Kaeon Origin Download comes with the standard interface.
