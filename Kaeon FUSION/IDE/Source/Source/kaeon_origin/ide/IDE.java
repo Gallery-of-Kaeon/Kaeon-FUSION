@@ -88,6 +88,9 @@ public class IDE implements ActionListener {
 	public ArrayList<String> fusionSource;
 	
 	public String updatePath;
+	
+	public String originHelp;
+	public String fusionHelp;
 
 	public IDE(Element originData) {
 
@@ -326,6 +329,30 @@ public class IDE implements ActionListener {
 		Element files = null;
 		
 		try {
+			updatePath = ElementUtilities.getChild(originData, "Update Path").children.get(0).content;
+		}
+		
+		catch(Exception exception) {
+			updatePath = "";
+		}
+		
+		try {
+			originHelp = ElementUtilities.getChild(originData, "Kaeon Origin Help").children.get(0).content;
+		}
+		
+		catch(Exception exception) {
+			originHelp = "";
+		}
+		
+		try {
+			fusionHelp = ElementUtilities.getChild(originData, "Kaeon FUSION Help").children.get(0).content;
+		}
+		
+		catch(Exception exception) {
+			fusionHelp = "";
+		}
+		
+		try {
 			
 			files =
 					ElementUtilities.getChild(
@@ -339,76 +366,64 @@ public class IDE implements ActionListener {
 			files = new Element();
 		}
 		
-		for(int i = 0; i < files.children.size(); i++) {
+		try {
 			
-			Element file = files.children.get(i);
-			
-			Input input = getInput();
-			
-			input.button.setText(file.content);
-			
-			if(ElementUtilities.hasChild(file, "Path")) {
+			for(int i = 0; i < files.children.size(); i++) {
 				
-				input.path = ElementUtilities.getChild(file, "Path").children.get(0).content;
+				Element file = files.children.get(i);
 				
-				try {
-					input.text.setText(IO.openAsString(input.path));
-				}
+				Input input = getInput();
 				
-				catch(Exception exception) {
+				input.button.setText(file.content);
+				
+				if(ElementUtilities.hasChild(file, "Path")) {
 					
+					input.path = ElementUtilities.getChild(file, "Path").children.get(0).content;
+					
+					try {
+						input.text.setText(IO.openAsString(input.path));
+					}
+					
+					catch(Exception exception) {
+						
+					}
 				}
+				
+				else if(ElementUtilities.hasChild(file, "Source"))
+					input.text.setText(ElementUtilities.getChild(file, "Source").children.get(0).content);
+				
+				if(ElementUtilities.hasChild(file, "Arguments"))
+					input.arguments = ElementUtilities.getChild(file, "Arguments").children.get(0).content;
+				
+				this.input.add(input.panel);
 			}
 			
-			else if(ElementUtilities.hasChild(file, "Source"))
-				input.text.setText(ElementUtilities.getChild(file, "Source").children.get(0).content);
-			
-			if(ElementUtilities.hasChild(file, "Arguments"))
-				input.arguments = ElementUtilities.getChild(file, "Arguments").children.get(0).content;
-			
-			this.input.add(input.panel);
-		}
-		
-		String build =
-				ElementUtilities.getChild(
-						ElementUtilities.getChild(
-								ElementUtilities.getChild(
-										originData,
-										"Kaeon Origin"),
-								"Workspace"),
-						"Build").children.get(0).content;
-		
-		if(build.length() > 0)
-			originBuild = build;
-		
-		Element source =
-				ElementUtilities.getChild(
-						ElementUtilities.getChild(
-								ElementUtilities.getChild(
-										originData,
-										"Kaeon Origin"),
-								"Workspace"),
-						"Source");
-		
-		for(int i = 0; i < source.children.size(); i++)
-			originSource.add(source.children.get(i).content);
-		
-		build =
-				ElementUtilities.getChild(
+			String build =
 					ElementUtilities.getChild(
 							ElementUtilities.getChild(
 									ElementUtilities.getChild(
 											originData,
-											"Perspectives"),
-									"Kaeon FUSION"),
-							"Workspace"),
-					"Build").children.get(0).content;
-		
-		if(build.length() > 0)
-			fusionBuild = build;
-		
-		source =
-				ElementUtilities.getChild(
+											"Kaeon Origin"),
+									"Workspace"),
+							"Build").children.get(0).content;
+			
+			if(build.length() > 0)
+				originBuild = build;
+			
+			Element source =
+					ElementUtilities.getChild(
+							ElementUtilities.getChild(
+									ElementUtilities.getChild(
+											originData,
+											"Kaeon Origin"),
+									"Workspace"),
+							"Source");
+			
+			for(int i = 0; i < source.children.size(); i++)
+				originSource.add(source.children.get(i).content);
+			
+			build =
+					ElementUtilities.getChild(
 						ElementUtilities.getChild(
 								ElementUtilities.getChild(
 										ElementUtilities.getChild(
@@ -416,17 +431,28 @@ public class IDE implements ActionListener {
 												"Perspectives"),
 										"Kaeon FUSION"),
 								"Workspace"),
-						"Source");
-		
-		for(int i = 0; i < source.children.size(); i++)
-			fusionSource.add(source.children.get(i).content);
-		
-		try {
-			updatePath = ElementUtilities.getChild(originData, "Update Path").children.get(0).content;
+						"Build").children.get(0).content;
+			
+			if(build.length() > 0)
+				fusionBuild = build;
+			
+			source =
+					ElementUtilities.getChild(
+							ElementUtilities.getChild(
+									ElementUtilities.getChild(
+											ElementUtilities.getChild(
+													originData,
+													"Perspectives"),
+											"Kaeon FUSION"),
+									"Workspace"),
+							"Source");
+			
+			for(int i = 0; i < source.children.size(); i++)
+				fusionSource.add(source.children.get(i).content);
 		}
 		
 		catch(Exception exception) {
-			updatePath = "";
+			
 		}
 	}
 
@@ -1201,6 +1227,16 @@ public class IDE implements ActionListener {
 		ElementUtilities.addChild(element, update);
 		
 		ElementUtilities.addChild(update, ElementUtilities.createElement(updatePath));
+		
+		Element originLink = ElementUtilities.createElement("Kaeon Origin Help");
+		ElementUtilities.addChild(element, originLink);
+		
+		ElementUtilities.addChild(originLink, ElementUtilities.createElement(originHelp));
+		
+		Element fusionLink = ElementUtilities.createElement("Kaeon FUSION Help");
+		ElementUtilities.addChild(element, fusionLink);
+		
+		ElementUtilities.addChild(fusionLink, ElementUtilities.createElement(fusionHelp));
 		
 		Element origin = ElementUtilities.createElement("Kaeon Origin");
 		ElementUtilities.addChild(element, origin);

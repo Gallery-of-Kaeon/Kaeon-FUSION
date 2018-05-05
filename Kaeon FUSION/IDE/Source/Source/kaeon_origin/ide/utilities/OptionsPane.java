@@ -171,10 +171,10 @@ public class OptionsPane extends JFrame implements ActionListener {
 			try {
 				
 				if(mode.equals("Kaeon Origin"))
-					Runtime.getRuntime().exec("explorer \"https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/IDE/README.md\"");
+					Runtime.getRuntime().exec("explorer \"" + ide.originHelp + "\"");
 				
 				if(mode.equals("Kaeon FUSION"))
-					Runtime.getRuntime().exec("explorer \"https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/README.md\"");
+					Runtime.getRuntime().exec("explorer \"" + ide.fusionHelp + "\"");
 			}
 			
 			catch(Exception exception) {
