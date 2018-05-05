@@ -282,6 +282,7 @@ public class Aether {
 		
 		ArrayList<DirectiveUnit> directives = new ArrayList<DirectiveUnit>();
 		
+		directives.add(new standard_one_plus.directives.Alternate());
 		directives.add(new standard_one_plus.directives.Call());
 		directives.add(new standard_one_plus.directives.Define());
 		directives.add(new standard_one_plus.directives.For());
