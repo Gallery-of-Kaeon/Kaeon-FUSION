@@ -156,7 +156,8 @@ public class Java extends CrossDialect {
 	public String buildOperator(
 			Element element,
 			ArrayList<String> arguments,
-			Element meta) {
+			Element meta,
+			ArrayList<Category> categories) {
 		
 		if(element.content.equalsIgnoreCase("Instance Of")) {
 			return arguments.get(0) + " instanceof " + element.children.get(1).content;
@@ -165,10 +166,10 @@ public class Java extends CrossDialect {
 		return null;
 	}
 	
-	public String buildVariableDeclarationType(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildVariableDeclarationType(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		
 		if(ElementUtilities.hasChild(meta, "Type"))
-			return buildType(element, arguments, ElementUtilities.getChild(meta, "Type"));
+			return buildType(ElementUtilities.getChild(meta, "Type"));
 		
 		return "";
 	}
@@ -303,15 +304,15 @@ public class Java extends CrossDialect {
 		return build;
 	}
 	
-	public String buildRun(Element element, ArrayList<String> arguments, Element meta) {
-		return "try{Runtime.getRuntime().exec(" + buildConcatenate(element, arguments, meta) + ");}catch(Exception e){}";
+	public String buildRun(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "try{Runtime.getRuntime().exec(" + buildConcatenate(element, arguments, meta, categories) + ");}catch(Exception e){}";
 	}
 	
-	public String buildWait(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildWait(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "try{Thread.sleep(((int)" + arguments.get(0) + ")*1000);}catch(Exception e){}";
 	}
 	
-	public String buildSplit(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildSplit(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		
 		String body = "";
 		
@@ -321,25 +322,25 @@ public class Java extends CrossDialect {
 		return "try{new Thread(new Runnable(){public void run(){" + body + "}}).start();}catch(Exception e){}";
 	}
 	
-	public String buildLog(Element element, ArrayList<String> arguments, Element meta) {
-		return "System.out.print(" + buildConcatenate(element, arguments, meta) + ")";
+	public String buildLog(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "System.out.print(" + buildConcatenate(element, arguments, meta, categories) + ")";
 	}
 	
-	public String buildLogLine(Element element, ArrayList<String> arguments, Element meta) {
-		return "System.out.println(" + buildConcatenate(element, arguments, meta) + ")";
+	public String buildLogLine(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "System.out.println(" + buildConcatenate(element, arguments, meta, categories) + ")";
 	}
 	
-	public String buildInput(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildInput(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "new Scanner(System.in).nextLine()";
 	}
 	
-	public String buildTime(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildTime(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "(double) System.currentTimeMillis() / 1000";
 	}
 	
 	// STUB - IO
 	
-	public String buildList(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+	public String buildList(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		
 		String build = "";
 		
@@ -366,7 +367,7 @@ public class Java extends CrossDialect {
 		return build;
 	}
 	
-	public String buildSize(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+	public String buildSize(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		
 		if(size.equalsIgnoreCase("Variable"))
 			return arguments.get(0) + ".size()";
@@ -375,7 +376,7 @@ public class Java extends CrossDialect {
 			return arguments.get(0) + ".length";
 	}
 	
-	public String buildAt(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+	public String buildAt(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		
 		if(size.equalsIgnoreCase("Variable"))
 			return arguments.get(0) + ".get((" + arguments.get(1) + ")-" + index + ")";
@@ -384,11 +385,11 @@ public class Java extends CrossDialect {
 			return arguments.get(0) + "[(" + arguments.get(1) + ")-" + index + "]";
 	}
 	
-	public String buildAppend(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+	public String buildAppend(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		return arguments.get(0) + ".add(" + arguments.get(1) + ")";
 	}
 	
-	public String buildSet(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+	public String buildSet(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		
 		if(size.equalsIgnoreCase("Variable"))
 			return arguments.get(0) + ".set((" + arguments.get(1) + ")-" + index + "," + arguments.get(2) + ")";
@@ -397,15 +398,15 @@ public class Java extends CrossDialect {
 			return arguments.get(0) + "[(" + arguments.get(1) + ")-" + index + "]=" + arguments.get(2);
 	}
 	
-	public String buildInsert(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+	public String buildInsert(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		return "";
 	}
 	
-	public String buildRemove(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+	public String buildRemove(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		return arguments.get(0) + ".remove(" + arguments.get(1) + ")";
 	}
 	
-	public String buildConcatenate(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildConcatenate(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		
 		String build = "\"\"+";
 		
@@ -420,99 +421,99 @@ public class Java extends CrossDialect {
 		return build;
 	}
 	
-	public String buildCrop(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+	public String buildCrop(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		return "";
 	}
 	
-	public String buildContains(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+	public String buildContains(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		return "";
 	}
 	
-	public String buildIndex(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+	public String buildIndex(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		return "";
 	}
 	
-	public String buildCount(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+	public String buildCount(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		return "";
 	}
 	
-	public String buildCut(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+	public String buildCut(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		return "";
 	}
 	
-	public String buildReverse(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+	public String buildReverse(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		return "";
 	}
 	
-	public String buildConvertSequence(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+	public String buildConvertSequence(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		return "";
 	}
 	
-	public String buildCharacterToNumber(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildCharacterToNumber(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
-	public String buildNumberToCharacter(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildNumberToCharacter(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
-	public String buildUpper(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildUpper(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
-	public String buildLower(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildLower(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
-	public String buildTrim(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildTrim(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
-	public String buildRandom(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildRandom(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "Math.random()";
 	}
 	
-	public String buildPower(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildPower(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "Math.pow(" + arguments.get(0) + "," + arguments.get(1) + ")";
 	}
 	
-	public String buildSine(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildSine(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "Math.sin(" + arguments.get(0) + ")";
 	}
 	
-	public String buildCosine(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildCosine(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "Math.cos(" + arguments.get(0) + ")";
 	}
 	
-	public String buildTangent(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildTangent(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "Math.tan(" + arguments.get(0) + ")";
 	}
 	
-	public String buildSquareRoot(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildSquareRoot(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "Math.sqrt(" + arguments.get(0) + ")";
 	}
 	
-	public String buildNaturalLogarithm(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildNaturalLogarithm(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "Math.log(" + arguments.get(0) + ")";
 	}
 	
-	public String buildFloor(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildFloor(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "Math.floor(" + arguments.get(0) + ")";
 	}
 	
-	public String buildCeiling(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildCeiling(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "Math.ceil(" + arguments.get(0) + ")";
 	}
 	
-	public String buildToRadians(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildToRadians(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "Math.toRadians(" + arguments.get(0) + ")";
 	}
 	
-	public String buildToDegrees(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildToDegrees(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "Math.toDegrees(" + arguments.get(0) + ")";
 	}
 	
-	public String buildAbsoluteValue(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildAbsoluteValue(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "Math.abs(" + arguments.get(0) + ")";
 	}
 	

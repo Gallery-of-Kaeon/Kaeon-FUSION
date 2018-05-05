@@ -113,9 +113,6 @@ public class CrossDialect extends BuildDialect {
 				
 				for(int i = 0; i < element.children.size(); i++) {
 					
-					if(!variables.contains(element.children.get(i).content.toLowerCase()) && element.children.get(i).children.size() > 0)
-						variables.add(element.children.get(i).content.toLowerCase());
-					
 					if(element.children.get(i).content.equalsIgnoreCase("In")) {
 						
 						String operator = 
@@ -165,6 +162,9 @@ public class CrossDialect extends BuildDialect {
 					
 					if(argument != null)
 						arguments.add(argument);
+					
+					if(!variables.contains(element.children.get(i).content.toLowerCase()) && element.children.get(i).children.size() > 0)
+						variables.add(element.children.get(i).content.toLowerCase());
 				}
 			}
 			
@@ -178,11 +178,77 @@ public class CrossDialect extends BuildDialect {
 				return string;
 			}
 			
+			if(element.content.equalsIgnoreCase("Throw"))
+				return buildThrow(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Catch"))
+				return buildCatch(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Exit"))
+				return buildExit(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Exeption"))
+				return buildException(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Out"))
+				return buildOut(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Retrieve"))
+				return buildRetrieve(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Shift"))
+				return buildShift(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Operating System"))
+				return buildOperatingSystem(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Year"))
+				return buildYear(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Month"))
+				return buildMonth(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Day"))
+				return buildDay(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Hour"))
+				return buildHour(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Minute"))
+				return buildMinute(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Second"))
+				return buildSecond(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Weekday"))
+				return buildWeekday(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("List to Element"))
+				return buildListToElement(element, arguments, meta, categories, arraySize, arrayIndex);
+			
+			if(element.content.equalsIgnoreCase("Element to List"))
+				return buildElementToList(element, arguments, meta, categories, arraySize, arrayIndex);
+			
+			if(element.content.equalsIgnoreCase("Tokenize"))
+				return buildTokenize(element, arguments, meta, categories, arraySize, arrayIndex);
+			
+			if(element.content.equalsIgnoreCase("Adapt"))
+				return buildAdapt(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Generate"))
+				return buildGenerate(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Form"))
+				return buildForm(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Is Command"))
+				return buildIsCommand(element, arguments, meta, categories);
+			
 			if(element.content.equalsIgnoreCase("Define"))
 				return buildDefine(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Arguments"))
-				return buildArguments(element, arguments, meta);
+				return buildArguments(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Import"))
 				return buildImport(element, arguments, meta, categories);
@@ -191,28 +257,28 @@ public class CrossDialect extends BuildDialect {
 				return buildGlobal(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Execute"))
-				return buildExecute(element, arguments, meta);
+				return buildExecute(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Call"))
-				return buildCall(element, arguments, meta);
+				return buildCall(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("This"))
-				return buildThis(element, arguments, meta);
+				return buildThis(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("New"))
 				return buildNew(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Null"))
-				return buildNull(element, arguments, meta);
+				return buildNull(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Literal"))
-				return buildLiteralCommand(element, arguments, meta);
+				return buildLiteralCommand(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Type"))
-				return buildType(element, arguments, meta);
+				return buildType(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Return"))
-				return buildReturn(element, arguments, meta);
+				return buildReturn(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Scope")) {
 				
@@ -257,200 +323,200 @@ public class CrossDialect extends BuildDialect {
 				return buildLoop(element, arguments, meta, nest);
 			
 			if(element.content.equalsIgnoreCase("Run"))
-				return buildRun(element, arguments, meta);
+				return buildRun(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Wait"))
-				return buildWait(element, arguments, meta);
+				return buildWait(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Split"))
-				return buildSplit(element, arguments, meta);
+				return buildSplit(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Log"))
-				return buildLog(element, arguments, meta);
+				return buildLog(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Log Line"))
-				return buildLogLine(element, arguments, meta);
+				return buildLogLine(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Input"))
-				return buildInput(element, arguments, meta);
+				return buildInput(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Time"))
-				return buildTime(element, arguments, meta);
+				return buildTime(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Open"))
-				return buildOpen(element, arguments, meta);
+				return buildOpen(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Save"))
-				return buildSave(element, arguments, meta);
+				return buildSave(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("List"))
-				return buildList(element, arguments, meta, arraySize, arrayIndex);
+				return buildList(element, arguments, meta, categories, arraySize, arrayIndex);
 			
 			if(element.content.equalsIgnoreCase("Size"))
-				return buildSize(element, arguments, meta, arraySize, arrayIndex);
+				return buildSize(element, arguments, meta, categories, arraySize, arrayIndex);
 			
 			if(element.content.equalsIgnoreCase("At"))
-				return buildAt(element, arguments, meta, arraySize, arrayIndex);
+				return buildAt(element, arguments, meta, categories, arraySize, arrayIndex);
 			
 			if(element.content.equalsIgnoreCase("Append"))
-				return buildAppend(element, arguments, meta, arraySize, arrayIndex);
+				return buildAppend(element, arguments, meta, categories, arraySize, arrayIndex);
 			
 			if(element.content.equalsIgnoreCase("Set"))
-				return buildSet(element, arguments, meta, arraySize, arrayIndex);
+				return buildSet(element, arguments, meta, categories, arraySize, arrayIndex);
 			
 			if(element.content.equalsIgnoreCase("Insert"))
-				return buildInsert(element, arguments, meta, arraySize, arrayIndex);
+				return buildInsert(element, arguments, meta, categories, arraySize, arrayIndex);
 			
 			if(element.content.equalsIgnoreCase("Remove"))
-				return buildRemove(element, arguments, meta, arraySize, arrayIndex);
+				return buildRemove(element, arguments, meta, categories, arraySize, arrayIndex);
 			
 			if(element.content.equalsIgnoreCase("Concatenate"))
-				return buildConcatenate(element, arguments, meta, arraySize, arrayIndex);
+				return buildConcatenate(element, arguments, meta, categories, arraySize, arrayIndex);
 			
 			if(element.content.equalsIgnoreCase("Crop"))
-				return buildCrop(element, arguments, meta, arraySize, arrayIndex);
+				return buildCrop(element, arguments, meta, categories, arraySize, arrayIndex);
 			
 			if(element.content.equalsIgnoreCase("Contains"))
-				return buildContains(element, arguments, meta, arraySize, arrayIndex);
+				return buildContains(element, arguments, meta, categories, arraySize, arrayIndex);
 			
 			if(element.content.equalsIgnoreCase("Index"))
-				return buildIndex(element, arguments, meta, arraySize, arrayIndex);
+				return buildIndex(element, arguments, meta, categories, arraySize, arrayIndex);
 			
 			if(element.content.equalsIgnoreCase("Count"))
-				return buildCount(element, arguments, meta, arraySize, arrayIndex);
+				return buildCount(element, arguments, meta, categories, arraySize, arrayIndex);
 			
 			if(element.content.equalsIgnoreCase("Cut"))
-				return buildCut(element, arguments, meta, arraySize, arrayIndex);
+				return buildCut(element, arguments, meta, categories, arraySize, arrayIndex);
 			
 			if(element.content.equalsIgnoreCase("Reverse"))
-				return buildReverse(element, arguments, meta, arraySize, arrayIndex);
+				return buildReverse(element, arguments, meta, categories, arraySize, arrayIndex);
 			
 			if(element.content.equalsIgnoreCase("Convert Sequence"))
-				return buildConvertSequence(element, arguments, meta, arraySize, arrayIndex);
+				return buildConvertSequence(element, arguments, meta, categories, arraySize, arrayIndex);
 			
 			if(element.content.equalsIgnoreCase("Character to Number"))
-				return buildCharacterToNumber(element, arguments, meta);
+				return buildCharacterToNumber(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Number to Character"))
-				return buildNumberToCharacter(element, arguments, meta);
+				return buildNumberToCharacter(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Upper"))
-				return buildUpper(element, arguments, meta);
+				return buildUpper(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Lower"))
-				return buildLower(element, arguments, meta);
+				return buildLower(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Trim"))
-				return buildTrim(element, arguments, meta);
+				return buildTrim(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Not"))
-				return buildNot(element, arguments, meta);
+				return buildNot(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Is"))
-				return buildIs(element, arguments, meta);
+				return buildIs(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Equal"))
-				return buildEqual(element, arguments, meta);
+				return buildEqual(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("And"))
-				return buildAnd(element, arguments, meta);
+				return buildAnd(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Or"))
-				return buildOr(element, arguments, meta);
+				return buildOr(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Exclusive Or"))
-				return buildExclusiveOr(element, arguments, meta);
+				return buildExclusiveOr(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Greater"))
-				return buildGreater(element, arguments, meta);
+				return buildGreater(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Greater or Equal"))
-				return buildGreaterOrEqual(element, arguments, meta);
+				return buildGreaterOrEqual(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Less"))
-				return buildLess(element, arguments, meta);
+				return buildLess(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Less or Equal"))
-				return buildLessOrEqual(element, arguments, meta);
+				return buildLessOrEqual(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Add"))
-				return buildAdd(element, arguments, meta);
+				return buildAdd(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Subtract"))
-				return buildSubtract(element, arguments, meta);
+				return buildSubtract(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Multiply"))
-				return buildMultiply(element, arguments, meta);
+				return buildMultiply(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Divide"))
-				return buildDivide(element, arguments, meta);
+				return buildDivide(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Modulus"))
-				return buildModulus(element, arguments, meta);
+				return buildModulus(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Random"))
-				return buildRandom(element, arguments, meta);
+				return buildRandom(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Negative"))
-				return buildNegative(element, arguments, meta);
+				return buildNegative(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Power"))
-				return buildPower(element, arguments, meta);
+				return buildPower(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Sine"))
-				return buildSine(element, arguments, meta);
+				return buildSine(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Cosine"))
-				return buildCosine(element, arguments, meta);
+				return buildCosine(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Tangent"))
-				return buildTangent(element, arguments, meta);
+				return buildTangent(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Square Root"))
-				return buildSquareRoot(element, arguments, meta);
+				return buildSquareRoot(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Natural Logarithm"))
-				return buildNaturalLogarithm(element, arguments, meta);
+				return buildNaturalLogarithm(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Floor"))
-				return buildFloor(element, arguments, meta);
+				return buildFloor(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Ceiling"))
-				return buildCeiling(element, arguments, meta);
+				return buildCeiling(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("To Radians"))
-				return buildToRadians(element, arguments, meta);
+				return buildToRadians(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("To Degrees"))
-				return buildToDegrees(element, arguments, meta);
+				return buildToDegrees(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Absolute Value"))
-				return buildAbsoluteValue(element, arguments, meta);
+				return buildAbsoluteValue(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Infinity"))
-				return buildInfinity(element, arguments, meta);
+				return buildInfinity(element, arguments, meta, categories);
 			
-			String operation = buildOperator(element, arguments, meta);
+			String operation = buildOperator(element, arguments, meta, categories);
 			
 			if(operation != null)
 				return operation;
 			
 			if(getCategory(categories, "Function Names").objects.contains(element.content.toLowerCase()))
-				return buildFunctionCall(element, arguments, meta);
+				return buildFunctionCall(element, arguments, meta, categories);
 			
 			if(variables.contains(element.content.toLowerCase())) {
 				
 				if(element.children.size() > 0)
-					return buildVariableAssignment(element, arguments, meta);
+					return buildVariableAssignment(element, arguments, meta, categories);
 				
 				else
-					return buildVariableReference(element, arguments, meta);
+					return buildVariableReference(element, arguments, meta, categories);
 			}
 			
 			if(element.children.size() > 0)
-				return buildVariableDeclaration(element, arguments, meta);
+				return buildVariableDeclaration(element, arguments, meta, categories);
 			
-			return buildLiteral(element, arguments, meta);
+			return buildLiteral(element, arguments, meta, categories);
 		}
 		
 		catch(Exception exception) {
@@ -645,7 +711,7 @@ public class CrossDialect extends BuildDialect {
 		return true;
 	}
 	
-	public String buildCast(String operation, Element meta) {
+	public String buildCast(String operation, Element meta, ArrayList<Category> categories) {
 		
 		Element cast = ElementUtilities.getChild(meta, "Cast");
 		
@@ -680,7 +746,7 @@ public class CrossDialect extends BuildDialect {
 		
 		String operationString = "";
 		
-		if(operation.content.equalsIgnoreCase("Return"))
+		if(operation.content.equalsIgnoreCase("Retrieve") || operation.content.equalsIgnoreCase("Return"))
 			operationString = operation.children.get(0).content;
 		
 		else {
@@ -728,7 +794,7 @@ public class CrossDialect extends BuildDialect {
 						arguments.add(argument);
 				}
 				
-				operationString = buildFunctionCall(operation, arguments, meta);
+				operationString = buildFunctionCall(operation, arguments, meta, categories);
 			}
 		}
 		
@@ -742,11 +808,11 @@ public class CrossDialect extends BuildDialect {
 		return ".";
 	}
 	
-	public String buildOperator(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildOperator(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return null;
 	}
 	
-	public String buildLiteral(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildLiteral(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		
 		try {
 			
@@ -774,13 +840,14 @@ public class CrossDialect extends BuildDialect {
 		return "\"" + element.content + "\"";
 	}
 	
-	public String buildVariableDeclaration(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildVariableDeclaration(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		
 		String type =
 				buildVariableDeclarationType(
 						element,
 						arguments,
-						meta);
+						meta,
+						categories);
 		
 		return
 				type +
@@ -788,22 +855,23 @@ public class CrossDialect extends BuildDialect {
 				buildVariableAssignment(
 						element,
 						arguments,
-						meta);
+						meta,
+						categories);
 	}
 	
-	public String buildVariableDeclarationType(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildVariableDeclarationType(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
-	public String buildVariableAssignment(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildVariableAssignment(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return element.content + "=" + arguments.get(0);
 	}
 	
-	public String buildVariableReference(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildVariableReference(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return element.content;
 	}
 	
-	public String buildFunctionCall(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildFunctionCall(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		
 		String build = element.content + "(";
 		
@@ -818,11 +886,87 @@ public class CrossDialect extends BuildDialect {
 		return build + ")";
 	}
 	
-	public String buildLiteralCommand(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildWeekday(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
-	public String buildType(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildSecond(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildMinute(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildHour(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildDay(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildMonth(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildYear(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildOperatingSystem(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildOut(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildRetrieve(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildShift(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildException(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildExit(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildThrow(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildCatch(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildAdapt(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildGenerate(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildForm(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildIsCommand(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildLiteralCommand(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildType(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
@@ -994,7 +1138,7 @@ public class CrossDialect extends BuildDialect {
 		return "";
 	}
 	
-	public String buildArguments(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildArguments(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "arguments";
 	}
 	
@@ -1014,15 +1158,15 @@ public class CrossDialect extends BuildDialect {
 		return null;
 	}
 	
-	public String buildCall(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildCall(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
-	public String buildExecute(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildExecute(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
-	public String buildThis(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildThis(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "this";
 	}
 	
@@ -1030,11 +1174,11 @@ public class CrossDialect extends BuildDialect {
 		return "";
 	}
 	
-	public String buildNull(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildNull(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "null";
 	}
 	
-	public String buildReturn(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildReturn(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		
 		String build = "return ";
 		
@@ -1085,235 +1229,247 @@ public class CrossDialect extends BuildDialect {
 				"){scope=true;continue;}";
 	}
 	
-	public String buildWait(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildWait(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
-	public String buildRun(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildRun(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
-	public String buildSplit(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildSplit(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
-	public String buildLog(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildLog(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
-	public String buildLogLine(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildLogLine(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
-	public String buildInput(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildInput(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
-	public String buildTime(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildTime(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
-	public String buildOpen(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildOpen(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
-	public String buildSave(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildSave(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
-	public String buildList(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+	public String buildList(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		return "";
 	}
 	
-	public String buildSize(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+	public String buildSize(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		return "";
 	}
 	
-	public String buildAt(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+	public String buildAt(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		return arguments.get(0) + "[(" + arguments.get(1) + ")-" + index + "]";
 	}
 	
-	public String buildAppend(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+	public String buildAppend(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		return "";
 	}
 	
-	public String buildSet(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+	public String buildSet(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		return arguments.get(0) + "[(" + arguments.get(1) + ")-" + index + "]=" + arguments.get(2);
 	}
 	
-	public String buildInsert(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+	public String buildInsert(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		return "";
 	}
 	
-	public String buildRemove(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+	public String buildRemove(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		return "";
 	}
 	
-	public String buildConcatenate(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+	public String buildConcatenate(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		return "";
 	}
 	
-	public String buildCrop(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+	public String buildCrop(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		return "";
 	}
 	
-	public String buildContains(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+	public String buildContains(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		return "";
 	}
 	
-	public String buildIndex(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+	public String buildIndex(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		return "";
 	}
 	
-	public String buildCount(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+	public String buildCount(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		return "";
 	}
 	
-	public String buildCut(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+	public String buildCut(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		return "";
 	}
 	
-	public String buildReverse(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+	public String buildReverse(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		return "";
 	}
 	
-	public String buildConvertSequence(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+	public String buildConvertSequence(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		return "";
 	}
 	
-	public String buildCharacterToNumber(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildListToElement(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		return "";
 	}
 	
-	public String buildNumberToCharacter(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildElementToList(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		return "";
 	}
 	
-	public String buildUpper(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildTokenize(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		return "";
 	}
 	
-	public String buildLower(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildCharacterToNumber(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
-	public String buildTrim(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildNumberToCharacter(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
-	public String buildNot(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildUpper(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildLower(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildTrim(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildNot(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "!(" + arguments.get(0) + ")";
 	}
 	
-	public String buildIs(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildIs(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return buildLogicInfix(element, arguments, meta, "==");
 	}
 	
-	public String buildEqual(Element element, ArrayList<String> arguments, Element meta) {
-		return buildIs(element, arguments, meta);
+	public String buildEqual(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return buildIs(element, arguments, meta, categories);
 	}
 	
-	public String buildAnd(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildAnd(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return buildInfix(element, arguments, meta, "&&");
 	}
 	
-	public String buildOr(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildOr(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return buildInfix(element, arguments, meta, "||");
 	}
 	
-	public String buildExclusiveOr(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildExclusiveOr(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return buildInfix(element, arguments, meta, "^");
 	}
 	
-	public String buildGreater(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildGreater(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return buildLogicInfix(element, arguments, meta, ">");
 	}
 	
-	public String buildGreaterOrEqual(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildGreaterOrEqual(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return buildLogicInfix(element, arguments, meta, ">=");
 	}
 	
-	public String buildLess(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildLess(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return buildLogicInfix(element, arguments, meta, "<");
 	}
 	
-	public String buildLessOrEqual(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildLessOrEqual(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return buildLogicInfix(element, arguments, meta, "<=");
 	}
 	
-	public String buildAdd(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildAdd(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return buildInfix(element, arguments, meta, "+");
 	}
 	
-	public String buildSubtract(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildSubtract(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return buildInfix(element, arguments, meta, "-");
 	}
 	
-	public String buildMultiply(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildMultiply(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return buildInfix(element, arguments, meta, "*");
 	}
 	
-	public String buildDivide(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildDivide(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return buildInfix(element, arguments, meta, "/");
 	}
 	
-	public String buildModulus(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildModulus(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return buildInfix(element, arguments, meta, "%");
 	}
 	
-	public String buildRandom(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildRandom(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
-	public String buildNegative(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildNegative(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "(-(" + arguments.get(0) + "))";
 	}
 	
-	public String buildPower(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildPower(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
-	public String buildSine(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildSine(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
-	public String buildCosine(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildCosine(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
-	public String buildTangent(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildTangent(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
-	public String buildSquareRoot(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildSquareRoot(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
-	public String buildNaturalLogarithm(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildNaturalLogarithm(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
-	public String buildFloor(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildFloor(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
-	public String buildCeiling(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildCeiling(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
-	public String buildToRadians(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildToRadians(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
-	public String buildToDegrees(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildToDegrees(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
-	public String buildAbsoluteValue(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildAbsoluteValue(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
-	public String buildInfinity(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildInfinity(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 }

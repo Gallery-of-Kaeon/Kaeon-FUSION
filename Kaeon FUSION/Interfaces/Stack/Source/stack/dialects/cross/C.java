@@ -58,7 +58,7 @@ public class C extends CrossDialect {
 				(!snippet ? "return 0;}" : "");
 	}
 	
-	public String buildVariableDeclarationType(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildVariableDeclarationType(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		
 		if(ElementUtilities.hasChild(meta, "Type")) {
 			
@@ -129,11 +129,11 @@ public class C extends CrossDialect {
 		return buildType(type);
 	}
 	
-	public String buildLog(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildLog(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "printf(" + arguments.get(0) + ")";
 	}
 	
-	public String buildLogLine(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildLogLine(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "printf(" + arguments.get(0) + ")";
 	}
 	

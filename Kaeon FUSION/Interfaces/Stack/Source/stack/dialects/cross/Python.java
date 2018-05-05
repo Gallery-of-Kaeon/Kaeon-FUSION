@@ -53,7 +53,7 @@ public class Python extends CrossDialect {
 		return "\n";
 	}
 	
-	public String buildLiteral(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildLiteral(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		
 		try {
 			
@@ -151,7 +151,7 @@ public class Python extends CrossDialect {
 		return build;
 	}
 	
-	public String buildThis(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildThis(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "self";
 	}
 	
@@ -182,7 +182,7 @@ public class Python extends CrossDialect {
 		return element.children.get(0).content + "(" + args + ")";
 	}
 	
-	public String buildObjectOperation(String operator, String operation, Element meta) {
+	public String buildObjectOperation(String operator, String operation, Element meta, ArrayList<Category> categories) {
 		
 		if(operation.indexOf("return ") == 0)
 			return operator + '.' + operation.substring(7);
@@ -190,7 +190,7 @@ public class Python extends CrossDialect {
 		return operator + '.' + operation;
 	}
 	
-	public String buildNull(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildNull(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "null";
 	}
 	
@@ -204,7 +204,7 @@ public class Python extends CrossDialect {
 		return build;
 	}
 	
-	public String buildScope(Element element, ArrayList<String> arguments, Element meta, int nest) {
+	public String buildScope(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, int nest) {
 		
 		String build = "while True:\n";
 		
@@ -214,7 +214,7 @@ public class Python extends CrossDialect {
 		return build + indent(nest) + "break\n";
 	}
 	
-	public String buildBreak(Element element, ArrayList<String> arguments, Element meta, int nest) {
+	public String buildBreak(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, int nest) {
 		
 		return
 				"if(" +
@@ -226,7 +226,7 @@ public class Python extends CrossDialect {
 				"break";
 	}
 	
-	public String buildElse(Element element, ArrayList<String> arguments, Element meta, int nest) {
+	public String buildElse(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, int nest) {
 		
 		String build = "if scope:\n" + indent(nest) + "scope=False\n" + indent(nest) + "while True:\n";
 		
@@ -236,7 +236,7 @@ public class Python extends CrossDialect {
 		return build + "\n" + indent(nest + 1) + "break\n";
 	}
 	
-	public String buildLoop(Element element, ArrayList<String> arguments, Element meta, int nest) {
+	public String buildLoop(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, int nest) {
 		
 		return
 				"if(" +
@@ -246,7 +246,7 @@ public class Python extends CrossDialect {
 				"continue";
 	}
 	
-	public String buildLog(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildLog(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		
 		String build = "print(";
 		
@@ -256,7 +256,7 @@ public class Python extends CrossDialect {
 		return build + "end=\"\")";
 	}
 	
-	public String buildLogLine(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildLogLine(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		
 		String build = "print(";
 		
@@ -266,11 +266,11 @@ public class Python extends CrossDialect {
 		return build + ")";
 	}
 	
-	public String buildInput(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildInput(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "input(str(" + arguments.get(0) + "))";
 	}
 	
-	public String buildList(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+	public String buildList(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		
 		String build = "[";
 		
@@ -285,23 +285,23 @@ public class Python extends CrossDialect {
 		return build + "]";
 	}
 	
-	public String buildSize(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+	public String buildSize(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		return "len(" + arguments.get(0) + ")";
 	}
 	
-	public String buildAppend(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+	public String buildAppend(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		return arguments.get(0) + ".append(" + arguments.get(1) + ")";
 	}
 	
-	public String buildInsert(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+	public String buildInsert(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		return arguments.get(0) + ".insert(" + arguments.get(1) + ",(" + arguments.get(2) + ")-" + index + ")";
 	}
 	
-	public String buildRemove(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+	public String buildRemove(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		return arguments.get(0) + ".remove((" + arguments.get(1) + ")-" + index + ")";
 	}
 	
-	public String buildConcatenate(Element element, ArrayList<String> arguments, Element meta, String size, int index) {
+	public String buildConcatenate(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		
 		String build = "\"\"+";
 		
@@ -316,15 +316,15 @@ public class Python extends CrossDialect {
 		return build;
 	}
 	
-	public String buildNot(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildNot(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "not (" + arguments.get(0) + ")";
 	}
 	
-	public String buildOr(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildOr(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return buildInfix(element, arguments, meta, " or ");
 	}
 	
-	public String buildExclusiveOr(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildExclusiveOr(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return buildInfix(element, arguments, meta, " xor ");
 	}
 	

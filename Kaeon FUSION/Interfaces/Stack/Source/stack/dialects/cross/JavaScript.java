@@ -37,7 +37,7 @@ public class JavaScript extends CrossDialect {
 		files.add(file);
 	}
 	
-	public String buildVariableDeclarationType(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildVariableDeclarationType(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "var";
 	}
 	
@@ -86,7 +86,7 @@ public class JavaScript extends CrossDialect {
 		return constructor;
 	}
 	
-	public String buildLog(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildLog(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		
 		String build = "console.log(";
 		
@@ -96,7 +96,7 @@ public class JavaScript extends CrossDialect {
 		return build + ")";
 	}
 	
-	public String buildLogLine(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildLogLine(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		
 		String build = "console.log(";
 		
@@ -106,7 +106,7 @@ public class JavaScript extends CrossDialect {
 		return build + ")";
 	}
 	
-	public String buildList(Element element, ArrayList<String> arguments, Element meta) {
+	public String buildList(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		
 		String build = "[";
 		
