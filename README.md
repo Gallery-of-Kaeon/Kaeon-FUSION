@@ -173,13 +173,13 @@ It is important to understand Philosopher's Stones in order to take full advanta
 ### How long has Kaeon FUSION been in development?
 
 At the time of writing,
-Kaeon FUSION has officially been in development for about one year and two months,
+Kaeon FUSION has officially been in development since the middle of February 2017,
 and was built upon things that were in development for around one and a half years before the project began.
 
 ### How often will Kaeon FUSION be updated?
 
-You should expect to see several minor updates per month,
-with major updates occurring between once per month and once every three months.
+Due to the current state of Kaeon FUSION's development,
+we cannot offer an accurate timeline for updates until further notice.
 
 ### What should I expect to see in the next major updates?
 
