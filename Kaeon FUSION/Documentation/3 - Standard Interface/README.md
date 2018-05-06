@@ -907,24 +907,27 @@ but object orientation can be achieved by using functions as objects.
 The state of the function can be stored within a variable after the function returns by nesting the function call beneath a "New" command,
 and assigning the value returned by the new command to a variable.
 
-The In command will take the stored state of a function and execute all of the commands following it within the stored state.
+The In command will take the stored state of a function and merge the the global variables and function definitions in it with the local state.
 For this reason,
 the In command should always be nested inside another command.
-The In command will also return a value if the Return command is used within it.
+The In command will also return a value if the Retrieve command is used within it.
 
 For example:
 
     Define: foo
-        
-    	x: At: Arguments, 1
-    	y: 10
+    
+    	Global
+
+    		x: At: Arguments, 1
+    		y: 10
+    		z: 0
 
     my foo: New: foo: 5
 
     Scope { In: my foo }
     	z: Add: x, y
 
-    Log Line: In { my foo } Return: z
+    Log Line: Scope: In { my foo } Retrieve: z
 
 will print "15" to the console.
 
