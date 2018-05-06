@@ -268,4 +268,4 @@ Please set it to:
 
 On May 5, 2018,
 We had to repair Kaeon Origin's updater module due to changes we made to the ONE+ parser.
-If you downloaded Kaeon Origin prior to May 4, 2018, please re-download it manually.
+If you downloaded Kaeon Origin prior to May 5, 2018, please re-download it manually.
