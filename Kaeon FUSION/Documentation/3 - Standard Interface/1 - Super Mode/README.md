@@ -148,7 +148,7 @@ is analogous to:
 Super Mode allows for the use of for loops in three forms:
 standard for loops,
 for range loops,
-and for each loops
+and for each loops.
 
 For example:
 
