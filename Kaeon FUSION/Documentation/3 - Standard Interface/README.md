@@ -259,45 +259,6 @@ For example:
 
 will assign the value "y" to the variable "x".
 
-### The Build Command
-
-Kaeon FUSION interfaces can provide the ability to code for various domains by specifying custom ONE dialects that meet the needs of those domains.
-Code written in these custom dialects can be nested within function definitions and cross compiled to other languages using the Build command.
-
-The Build command takes one child that specifies the name of the custom ONE dialect.
-The children of this element specify functions containing code written in this dialect.
-The Build command may also take an indefinite number of other children as additional arguments.
-
-For example:
-    
-    Define: Code
-    	# Code written in custom ONE dialect
-    
-    Build: Name of Dialect { Code } Argument 1, Argument 2
-
-Will cross compile the ONE markup nested within the Code function to another language.
-
-### The Meta Command
-
-The Meta command can have an indefinite number of children,
-does not trickle down,
-and performs no operation.
-Its children can act as localized arguments when cross compiling a custom ONE dialect using the build command.
-
-For example:
-    
-    Define: Code
-    	
-    	Meta { #[ Arguments for custom ONE dialect ]# }
-    	# Code written in custom ONE dialect
-    	
-    	Meta { #[ Different arguments for custom ONE dialect ]# }
-    	# Code written in custom ONE dialect
-    
-    Build: Name of Dialect { Code } Argument 1, Argument 2
-
-the Build command will take the arguments nested within the Meta commands when cross compiling.
-
 ## 3 - Console IO Commands
 
 ### Log
@@ -875,20 +836,6 @@ The wait command will take a number and pause the current thread for that many s
 The time command will return the value on the computer's clock in seconds.
 
 ## 10 - Metaprogramming Commands
-
-### Execute
-
-The Execute command takes a string and executes it as Kaeon FUSION code.
-
-For example, if we have a file called "My Code.op" with the content:
-
-    Log Line: Hello
-
-then:
-
-    Execute: Open: My Code.op
-
-will print "Hello" to the console.
 
 ### Run
 
