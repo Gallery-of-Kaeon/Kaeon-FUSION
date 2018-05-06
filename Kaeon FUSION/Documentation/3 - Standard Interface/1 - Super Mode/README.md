@@ -69,9 +69,10 @@ is analogous to:
     Or: True, False
     Exclusive Or: True, False
 
-## Not
+## Not and Print
 
-Super Mode allows for the use of the not command without a colon.
+Super Mode allows for the use of the not command without a colon,
+and allows the use of the keyword "print" to be used without a colon in substitution of the log line command.
 
 For example:
 					
@@ -83,6 +84,16 @@ is analogous to:
 					
     Not: True
 
+and:
+					
+    [SUPER]
+			
+    print hello
+				
+is analogous to:
+					
+    Log Line: hello
+
 ## Array Indexing
 
 Super Mode allows for the use of the at character as an infix operator for list indexing.
@@ -91,7 +102,7 @@ For example:
 
     [SUPER]
 
-    Arguments @ 1
+    arguments @ 1
 
 is analogous to:
 
@@ -105,7 +116,7 @@ For example:
 
     [SUPER]
 
-    If { my boolean }
+    if { my boolean }
     	# Operation
 
 is analogous to:
@@ -121,7 +132,7 @@ For example:
 
     [SUPER]
 
-    While { my boolean }
+    while { my boolean }
     	# Operation
 
 is analogous to:
@@ -132,33 +143,28 @@ is analogous to:
 
     	 Loop: my boolean
 
-## Object Scope
+## For
 
-Super Mode allows for the use of a minus character followed by a greater than character in place of the In command.
+Super Mode allows for the use of for loops in three forms:
+standard for loops,
+for range loops,
+and for each loops
 
 For example:
 
     [SUPER]
 
-    Define: foo
-    	Define: bar
-    		Log Line: Arguments @ 1
-		
-    var = foo
-    var -> bar: foobar
+    # Performs the operation n times
+    for { n }
+    	# Operation
 
-is analogous to:
+    # prints i from x to y, inclusive
+    for range { i, x, y }
+    	print i
 
-    Define: foo
-
-    	Define: bar
-    		Log Line: At: Arguments, 1
-
-    var: foo
-
-    Scope { In: foo }
-
-        bar: foobar
+    # prints every item in my list
+    for each { i, my list }
+    	print i
 
 <div align="right"><p>
 
