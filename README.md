@@ -18,7 +18,7 @@ In order to liberate developers from the bondage of incomplete tools,
 we have created the first ever universal programming language.
 This is Kaeon FUSION!
 
-<h2 align="center">Contents of this repository</h2>
+<h2 align="center">Contents of this Repository</h2>
 
 This repository contains the specification,
 documentation,
