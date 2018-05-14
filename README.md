@@ -20,9 +20,9 @@ This is Kaeon FUSION!
 
 <h2 align="center">What is Kaeon FUSION?</h2>
 
-Kaeon FUSION is an interpreted programming language with the unique ability to alter its properties at runtime using modules that it can load dynamically,
-like if Java could import a module at runtime that made multiple inheritence legal,
-or if C could import a module at runtime that allowed the use of C++ style classes.
+Kaeon FUSION is an interpreted programming language with the unique ability to alter its properties at runtime using modules that it can load dynamically.
+It's like if Java could import a module at runtime that made multiple inheritence legal,
+or if C could import a module at runtime that allowed the use of C++ style classes or enabled automatic garbage collection.
 
 It is also unique in that sits on top of a markup language called ONE+.
 ONE+ allows the user to manually encode any tree of strings.
