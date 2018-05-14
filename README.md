@@ -18,6 +18,21 @@ In order to liberate developers from the bondage of incomplete tools,
 we have created the first ever universal programming language.
 This is Kaeon FUSION!
 
+<h2 align="center">What is Kaeon FUSION?</h2>
+
+Kaeon FUSION is an interpreted programming language with the unique ability to alter its properties at runtime using modules that it can load dynamically,
+like if Java could import a module at runtime that made multiple inheritence legal,
+or if C could import a module at runtime that allowed the use of C++ style classes.
+
+It is also unique in that sits on top of a markup language called ONE+.
+ONE+ allows the user to manually encode any tree of strings.
+Said tree serves as the abstract syntax tree for Kaeon FUSION.
+This property allows Kaeon FUSION to be easily cross compiled into other languages,
+so despite being interpreted,
+Kaeon FUSION can still be useful into speed critical envrionments by being cross compiled to a compiled language.
+Another benefit to ONE+ is that it has a highly customizable syntax,
+which allows for a wide variety of developer preferences to be accommodated.
+
 <h2 align="center">Contents of this Repository</h2>
 
 This repository contains the specification,
