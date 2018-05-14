@@ -29,7 +29,7 @@ ONE+ allows the user to manually encode any tree of strings.
 Said tree serves as the abstract syntax tree for Kaeon FUSION.
 This property allows Kaeon FUSION to be easily cross compiled into other languages,
 so despite being interpreted,
-Kaeon FUSION can still be useful into speed critical envrionments by being cross compiled to a compiled language.
+Kaeon FUSION can still be useful in speed critical envrionments by being cross compiled to a compiled language.
 Another benefit to ONE+ is that it has a highly customizable syntax,
 which allows for a wide variety of developer preferences to be accommodated.
 
