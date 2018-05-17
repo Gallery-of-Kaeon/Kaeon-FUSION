@@ -20,7 +20,7 @@ This is Kaeon FUSION!
 
 <h2 align="center">What is Kaeon FUSION?</h2>
 
-Kaeon FUSION is an interpreted programming language with the unique ability to alter its properties at runtime using modules that it can load dynamically.
+Kaeon FUSION (pronounced "KAI-on") is an interpreted programming language with the unique ability to alter its properties at runtime using modules that it can load dynamically.
 It's like if Java could import a module at runtime that made multiple inheritence legal,
 or if C could import a module at runtime that allowed the use of C++ style classes or enabled automatic garbage collection.
 
@@ -208,10 +208,6 @@ as well as improving the quality of the Kaeon Origin IDE.
 Kaeon FUSION is licensed under the [Apache License 2.0](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/LICENSE.md).
 Therefore,
 the contents of this repository are free for everyone to use and make modifications to.
-
-### How do you pronounce "Kaeon"?
-
-"KAI-on".
 
 ### Does Kaeon FUSION have a mascot?
 
