@@ -62,7 +62,14 @@ public class Functions extends FUSIONUnit {
 		}
 		
 		State newState = new State();
+		
 		newState.global.addAll(state.global);
+		
+		for(int i = 0; i < state.inStates.size(); i++) {
+			
+			for(int j = 0; j < state.inStates.get(i).size(); j++)
+				newState.global.addAll(state.inStates.get(i).get(j).global);
+		}
 		
 		PhilosophersStoneUtilities.publiclyConnect(functionFUSION, newState);
 		

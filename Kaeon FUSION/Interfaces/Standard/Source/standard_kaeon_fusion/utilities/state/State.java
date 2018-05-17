@@ -132,9 +132,9 @@ public class State extends FUSIONUnit {
 	
 	public Object getByAlias(String alias) {
 		
-		for(int i = 0; i < inStates.size(); i++) {
+		for(int i = inStates.size() - 1; i >= 0; i--) {
 			
-			for(int j = 0; j < inStates.get(i).size(); j++) {
+			for(int j = inStates.get(i).size() - 1; j >= 0; j--) {
 				
 				Object object = inStates.get(i).get(j).getByAlias(alias);
 				
@@ -163,9 +163,9 @@ public class State extends FUSIONUnit {
 	
 	public Object getByAliasAndType(String alias, String type) {
 		
-		for(int i = 0; i < inStates.size(); i++) {
+		for(int i = inStates.size() - 1; i >= 0; i--) {
 			
-			for(int j = 0; j < inStates.get(i).size(); j++) {
+			for(int j = inStates.get(i).size() - 1; j >= 0; j--) {
 				
 				Object object = inStates.get(i).get(j).getByAliasAndType(alias, type);
 				
@@ -288,9 +288,20 @@ public class State extends FUSIONUnit {
 		copy.global = new ArrayList<Alias>(global);
 		
 		copy.state = new ArrayList<ArrayList<Alias>>();
+		copy.inStates = new ArrayList<ArrayList<State>>();
 		
 		for(int i = 0; i < state.size(); i++)
 			copy.state.add(new ArrayList<Alias>(state.get(i)));
+		
+		for(int i = 0; i < inStates.size(); i++) {
+			
+			ArrayList<State> states = new ArrayList<State>();
+			
+			for(int j = 0; j < inStates.get(i).size(); j++)
+				states.add(inStates.get(i).get(j).copy());
+			
+			copy.inStates.add(states);
+		}
 		
 		return copy;
 	}

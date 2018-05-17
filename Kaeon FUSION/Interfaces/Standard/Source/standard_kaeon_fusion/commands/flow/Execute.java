@@ -7,7 +7,6 @@ import fusion.FUSIONUnit;
 import one.Element;
 import one_plus.ONEPlus;
 import philosophers_stone.PhilosophersStoneUtilities;
-import standard_kaeon_fusion.utilities.FUSIONUtilities;
 
 public class Execute extends FUSIONUnit {
 	
@@ -26,12 +25,8 @@ public class Execute extends FUSIONUnit {
 		if(fusion == null)
 			fusion = (FUSION) PhilosophersStoneUtilities.get(this, "FUSION").get(0);
 		
-		FUSION newFusion = FUSIONUtilities.clone(fusion);
-		
 		for(Object object : processed)
-			newFusion.process(ONEPlus.parseONEPlus("" + object));
-		
-		PhilosophersStoneUtilities.destroy(newFusion);
+			fusion.internalProcess(ONEPlus.parseONEPlus("" + object), true);
 		
 		return null;
 	}
