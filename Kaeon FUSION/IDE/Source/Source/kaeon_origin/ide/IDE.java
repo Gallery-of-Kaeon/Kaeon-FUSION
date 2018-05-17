@@ -1332,7 +1332,21 @@ public class IDE implements ActionListener {
 				Element source = ElementUtilities.createElement("Source");
 				ElementUtilities.addChild(file, source);
 				
-				ElementUtilities.addChild(source, ElementUtilities.createElement(inputs.get(i).text.getText()));
+				if(inputs.get(i) == currentInput && inputEnlarged) {
+					
+					ElementUtilities.addChild(
+							source,
+							ElementUtilities.createElement(
+									enlargeText.getText()));
+				}
+				
+				else {
+					
+					ElementUtilities.addChild(
+							source,
+							ElementUtilities.createElement(
+									inputs.get(i).text.getText()));
+				}
 			}
 			
 			if(inputs.get(i).arguments != null) {
