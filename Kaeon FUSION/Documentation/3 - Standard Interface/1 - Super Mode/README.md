@@ -7,11 +7,13 @@
 
 Super Mode is a ONE+ directive that allows the syntax code written using the Kaeon FUSION Standard Interface to resemble the syntax of a more C-like language like Python.
 
-Super Mode can be activated by placing the following line anywhere in the document:
+Super Mode is contained in a directive interface called "SUPER",
+and once imported, can be activated using a directive with the content "SUPER",
+like so:
 
-    [SUPER]
+    [USE: SUPER] [SUPER]
 
-Activating Super Mode also automatically activates the standard interface.
+Activating Super Mode also automatically activates the standard interface and the stack interface.
 
 ## Variable Assignment
 
@@ -19,13 +21,13 @@ Super Mode allows the equals character to act as an infix operator for variable 
 
 For example:
 
-    [SUPER]
+    [USE: SUPER] [SUPER]
 
     x = 0
 
 is analogous to:
 
-    Use: Standard
+    Use: Standard, Stack
 
     x: 0
 
@@ -35,7 +37,7 @@ The Super Mode directive will allow for the use of infix notation for arithmetic
 
 For example:
 
-    [SUPER]
+    [USE: SUPER] [SUPER]
 
     1 + 2
     1 - 2
@@ -53,6 +55,8 @@ For example:
     True xor False
 
 is analogous to:
+
+    Use: Standard, Stack
 
     Add: 1, 2
     Subtract: 1, 2
@@ -76,22 +80,26 @@ and allows the use of the keyword "print" to be used without a colon in substitu
 
 For example:
 					
-    [SUPER]
+    [USE: SUPER] [SUPER]
 			
     not True
 				
 is analogous to:
-					
+
+    Use: Standard, Stack
+
     Not: True
 
 and:
 					
-    [SUPER]
+    [USE: SUPER] [SUPER]
 			
     print hello
 				
 is analogous to:
-					
+
+    Use: Standard, Stack
+
     Log Line: hello
 
 ## Array Indexing
@@ -100,11 +108,13 @@ Super Mode allows for the use of the at character as an infix operator for list 
 
 For example:
 
-    [SUPER]
+    [USE: SUPER] [SUPER]
 
     arguments @ 1
 
 is analogous to:
+
+    Use: Standard, Stack
 
     At: Arguments, 1
 
@@ -114,12 +124,14 @@ Super Mode allows for the use of "If" to substitute for a scope command with a b
 
 For example:
 
-    [SUPER]
+    [USE: SUPER] [SUPER]
 
     if { my boolean }
     	# Operation
 
 is analogous to:
+
+    Use: Standard, Stack
 
     Scope { Break: Not: my boolean }
     	# Operations
@@ -130,12 +142,14 @@ Super Mode allows for the use of "While" to substitute for a scope command with 
 
 For example:
 
-    [SUPER]
+    [USE: SUPER] [SUPER]
 
     while { my boolean }
     	# Operation
 
 is analogous to:
+
+    Use: Standard, Stack
 
     Scope
 
@@ -152,7 +166,7 @@ and for each loops.
 
 For example:
 
-    [SUPER]
+    [USE: SUPER] [SUPER]
 
     # Performs the operation n times
     for { n }
