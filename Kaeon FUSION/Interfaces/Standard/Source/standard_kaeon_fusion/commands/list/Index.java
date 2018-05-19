@@ -31,7 +31,7 @@ public class Index extends FUSIONUnit {
 					return i + 1;
 			}
 			
-			return -1;
+			return 0;
 		}
 		
 		return ("" + processed.get(0)).indexOf("" + processed.get(1), start) + 1;
