@@ -48,6 +48,7 @@ import standard_kaeon_fusion.commands.flow.Wait;
 import standard_kaeon_fusion.commands.io.Open;
 import standard_kaeon_fusion.commands.io.Save;
 import standard_kaeon_fusion.commands.list.Append;
+import standard_kaeon_fusion.commands.list.AppendAll;
 import standard_kaeon_fusion.commands.list.At;
 import standard_kaeon_fusion.commands.list.Concatenate;
 import standard_kaeon_fusion.commands.list.Contains;
@@ -55,7 +56,9 @@ import standard_kaeon_fusion.commands.list.Crop;
 import standard_kaeon_fusion.commands.list.Cut;
 import standard_kaeon_fusion.commands.list.ElementToList;
 import standard_kaeon_fusion.commands.list.Index;
+import standard_kaeon_fusion.commands.list.Indexes;
 import standard_kaeon_fusion.commands.list.Insert;
+import standard_kaeon_fusion.commands.list.InsertAll;
 import standard_kaeon_fusion.commands.list.List;
 import standard_kaeon_fusion.commands.list.ListToElement;
 import standard_kaeon_fusion.commands.list.ConvertSequence;
@@ -213,6 +216,7 @@ public class Aether {
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Save());
 			
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Append());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new AppendAll());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new At());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Concatenate());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Contains());
@@ -222,7 +226,9 @@ public class Aether {
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Cut());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new ElementToList());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Index());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Indexes());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Insert());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new InsertAll());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new List());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new ListToElement());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Remove());

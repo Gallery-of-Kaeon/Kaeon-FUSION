@@ -19,7 +19,6 @@ public class Insert extends FUSIONUnit {
 	public Object process(Element element, ArrayList<Object> processed) {
 		
 		int index = (Integer.parseInt("" + processed.get(1))) - 1;
-		Object object = processed.get(2);
 		
 		if(processed.get(0) instanceof ArrayList) {
 			
@@ -29,7 +28,10 @@ public class Insert extends FUSIONUnit {
 			while(list.size() < index)
 				list.add(null);
 			
-			list.add(index, object);
+			for(int i = 2; i < processed.size(); i++)
+				list.add(index + (i - 2), processed.get(i));
+			
+			return list;
 		}
 		
 		String string = "" + processed.get(0);
@@ -37,6 +39,11 @@ public class Insert extends FUSIONUnit {
 		while(string.length() < index)
 			string += " ";
 		
-		return string.substring(0, index) + object + string.substring(index);
+		String insert = "";
+		
+		for(int i = 2; i < processed.size(); i++)
+			insert += processed.get(i);
+		
+		return string.substring(0, index) + insert + string.substring(index);
 	}
 }

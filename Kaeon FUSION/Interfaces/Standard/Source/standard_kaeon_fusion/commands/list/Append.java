@@ -25,16 +25,15 @@ public class Append extends FUSIONUnit {
 			
 			for(int i = 1; i < processed.size(); i++)
 				list.add(processed.get(i));
+			
+			return list;
 		}
 		
-		if(processed.get(0) instanceof String) {
-			
-			Object stringObject = processed.get(0);
-			
-			for(int i = 1; i < processed.size(); i++)
-				stringObject = ((String) stringObject) + processed.get(i);
-		}
+		String string = "" + processed.get(0);
 		
-		return null;
+		for(int i = 1; i < processed.size(); i++)
+			string += processed.get(i);
+		
+		return string;
 	}
 }

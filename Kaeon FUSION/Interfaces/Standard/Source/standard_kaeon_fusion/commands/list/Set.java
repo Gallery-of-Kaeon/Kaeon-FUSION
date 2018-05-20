@@ -30,6 +30,8 @@ public class Set extends FUSIONUnit {
 				list.add(null);
 			
 			list.set(index, object);
+			
+			return list;
 		}
 		
 		String string = "" + processed.get(0);
