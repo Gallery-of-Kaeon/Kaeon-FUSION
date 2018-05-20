@@ -9,5 +9,5 @@ Insert
 			
 			It will insert the objects returned by the every child past the second child in the
 			order they were returned into the list returned by the first child at the index
-			specified by the integer returned by the second child.
+			specified by the integer returned by the second child. The list will then be returned.
 		-

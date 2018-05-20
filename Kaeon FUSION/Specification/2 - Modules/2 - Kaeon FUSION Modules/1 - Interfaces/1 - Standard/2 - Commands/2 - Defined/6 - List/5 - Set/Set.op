@@ -8,5 +8,6 @@ Set
 			an object.
 			
 			It will set the value in the list returned by the first child at the index specified by
-			the integer returned by the second child to the object returned by the third child.
+			the integer returned by the second child to the object returned by the third child. The
+			list will then be returned.
 		-
