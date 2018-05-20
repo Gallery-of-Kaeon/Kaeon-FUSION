@@ -1,0 +1,16 @@
+Sort Numerical
+
+	Philosophy
+		
+		-
+			
+			The sort numerical command contains the content "Sort Numerical". It may have either
+			one or two children, the first of which returns a list and the second of which, if
+			present, returns an integer number.
+			
+			If the second child is not present, the elements of the returned list will be sorted in
+			numerical order by their string forms. If the second child is present, it is assumed
+			that every element in the returned list is a list. The lists will be sorted in
+			numerical order by the string forms of the element within them at the index specified
+			by the returned number. The sorted list will then be returned.
+		-
