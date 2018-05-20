@@ -9,3 +9,4 @@ Remove
 			It will remove the object in the list returned by the first child at the index
 			specified by the integer returned by the second child. If the list is in the form of a
 			string, it will return the list, and will return the removed object otherwise.
+		-
