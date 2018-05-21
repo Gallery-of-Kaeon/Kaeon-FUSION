@@ -19,8 +19,30 @@ public class Shuffle extends FUSIONUnit {
 	@SuppressWarnings("unchecked")
 	public Object process(Element element, ArrayList<Object> processed) {
 		
-		Collections.shuffle((ArrayList<Object>) processed.get(0));
+		if(processed.get(0) instanceof ArrayList) {
+			
+			Collections.shuffle((ArrayList<Object>) processed.get(0));
+			
+			return processed.get(0);
+		}
 		
-		return processed.get(0);
+		else {
+			
+			String string = "" + processed.get(0);
+			
+			ArrayList<String> list = new ArrayList<String>();
+			
+			for(int i = 0; i < string.length(); i++)
+				list.add("" + string.charAt(i));
+			
+			Collections.shuffle(list);
+			
+			string = "";
+			
+			for(int i = 0; i < list.size(); i++)
+				string += list.get(i);
+			
+			return string;
+		}
 	}
 }
