@@ -108,60 +108,6 @@ Define: evaluate page
 		i: Add: i, 1
 		Loop: Less or Equal: i, Size: links
 
-Define: quick sort partition { start { At: Arguments, 1 }, end { At: Arguments, 2 } }
-
-	pivot: At: At { link data, start }, 2
-
-	left: Add: start, 1
-	right: end
-
-	Scope
-
-		Scope
-			
-			Break: Not: And
-
-				Less or Equal: left, right
-				Less or Equal: At { At { link data, left }, 2 }, pivot
-
-			left: Add: left, 1
-
-			Loop
-
-		Scope
-			
-			Break: Not: And
-
-				Greater or Equal: right, left
-				Greater or Equal: At { At { link data, right }, 2 }, pivot
-
-			right: Subtract: right, 1
-
-			Loop
-
-		Break: Less: right, left
-
-		temp: At: link data, left
-
-		Set: link data, left, At: link data, right
-		Set: link data, right, temp
-
-	temp: At: link data, start
-
-	Set: link data, start, At: link data, right
-	Set: link data, right, temp
-
-	Return: right
-
-Define: quick sort { start { At: Arguments, 1 }, end { At: Arguments, 2 } }
-	
-	Scope { Break: Not: Less: start, end }
-
-		middle: quick sort partition: start, end
-		
-		quick sort: start, Subtract { middle, 1 }
-		quick sort: Add { middle, 1 }, end
-
 Define: sort
 	
 	Scope { Break: Not: Equal: 0, Size: list data }
@@ -182,7 +128,7 @@ Define: sort
 		i: Add: i, 1
 		Loop: Less or Equal: i, Size: link data
 
-	quick sort: 1, Size: link data
+	Sort Numerical: link data, 2
 
 Define: main
 
