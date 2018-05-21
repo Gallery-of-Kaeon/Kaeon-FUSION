@@ -36,7 +36,7 @@ public class Swap extends FUSIONUnit {
 		String string = "" + processed.get(0);
 		
 		char charA = string.charAt(a);
-		char charB = string.charAt(a);
+		char charB = string.charAt(b);
 		
 		string = string.substring(0, a) + charB + string.substring(a + 1);
 		string = string.substring(0, b) + charA + string.substring(b + 1);
