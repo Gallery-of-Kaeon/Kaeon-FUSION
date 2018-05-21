@@ -59,6 +59,8 @@ import standard_kaeon_fusion.commands.list.Index;
 import standard_kaeon_fusion.commands.list.Indexes;
 import standard_kaeon_fusion.commands.list.Insert;
 import standard_kaeon_fusion.commands.list.InsertAll;
+import standard_kaeon_fusion.commands.list.IsSortedAlphabetical;
+import standard_kaeon_fusion.commands.list.IsSortedNumerical;
 import standard_kaeon_fusion.commands.list.List;
 import standard_kaeon_fusion.commands.list.ListToElement;
 import standard_kaeon_fusion.commands.list.ConvertSequence;
@@ -66,7 +68,11 @@ import standard_kaeon_fusion.commands.list.Count;
 import standard_kaeon_fusion.commands.list.Remove;
 import standard_kaeon_fusion.commands.list.Reverse;
 import standard_kaeon_fusion.commands.list.Set;
+import standard_kaeon_fusion.commands.list.Shuffle;
 import standard_kaeon_fusion.commands.list.Size;
+import standard_kaeon_fusion.commands.list.SortAlphabetical;
+import standard_kaeon_fusion.commands.list.SortNumerical;
+import standard_kaeon_fusion.commands.list.Swap;
 import standard_kaeon_fusion.commands.list.Tokenize;
 import standard_kaeon_fusion.commands.logic.And;
 import standard_kaeon_fusion.commands.logic.Equal;
@@ -117,6 +123,7 @@ import standard_kaeon_fusion.commands.undefined.Variables;
 import standard_kaeon_fusion.utilities.Console;
 import standard_kaeon_fusion.utilities.FUSIONUtilities;
 import standard_kaeon_fusion.utilities.Priority;
+import standard_kaeon_fusion.utilities.SortList;
 import standard_kaeon_fusion.utilities.state.Alias;
 import standard_kaeon_fusion.utilities.state.State;
 import standard_one_plus.utilities.DirectiveUtilities;
@@ -229,12 +236,18 @@ public class Aether {
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Indexes());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Insert());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new InsertAll());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new IsSortedAlphabetical());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new IsSortedNumerical());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new List());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new ListToElement());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Remove());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Reverse());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Set());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Shuffle());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Size());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new SortAlphabetical());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new SortNumerical());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Swap());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Tokenize());
 	
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new CharacterToNumber());
@@ -280,6 +293,7 @@ public class Aether {
 			
 			new Alias();
 			new FUSIONUtilities();
+			new SortList();
 		}
 		
 		catch(Exception exception) {
