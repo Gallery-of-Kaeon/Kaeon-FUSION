@@ -27,6 +27,7 @@ import standard_kaeon_fusion.commands.data.Type;
 import standard_kaeon_fusion.commands.exporting.Build;
 import standard_kaeon_fusion.commands.exporting.Derive;
 import standard_kaeon_fusion.commands.exporting.Meta;
+import standard_kaeon_fusion.commands.flow.Block;
 import standard_kaeon_fusion.commands.flow.Break;
 import standard_kaeon_fusion.commands.flow.Call;
 import standard_kaeon_fusion.commands.flow.Catch;
@@ -34,6 +35,7 @@ import standard_kaeon_fusion.commands.flow.Else;
 import standard_kaeon_fusion.commands.flow.Execute;
 import standard_kaeon_fusion.commands.flow.Exit;
 import standard_kaeon_fusion.commands.flow.FUSIONException;
+import standard_kaeon_fusion.commands.flow.Flip;
 import standard_kaeon_fusion.commands.flow.In;
 import standard_kaeon_fusion.commands.flow.Loop;
 import standard_kaeon_fusion.commands.flow.Out;
@@ -61,6 +63,8 @@ import standard_kaeon_fusion.commands.list.Insert;
 import standard_kaeon_fusion.commands.list.InsertAll;
 import standard_kaeon_fusion.commands.list.IsSortedAlphabetical;
 import standard_kaeon_fusion.commands.list.IsSortedNumerical;
+import standard_kaeon_fusion.commands.list.KeyIndex;
+import standard_kaeon_fusion.commands.list.KeyIndexes;
 import standard_kaeon_fusion.commands.list.List;
 import standard_kaeon_fusion.commands.list.ListToElement;
 import standard_kaeon_fusion.commands.list.ConvertSequence;
@@ -106,6 +110,7 @@ import standard_kaeon_fusion.commands.math.ToRadians;
 import standard_kaeon_fusion.commands.string.CharacterToNumber;
 import standard_kaeon_fusion.commands.string.Lower;
 import standard_kaeon_fusion.commands.string.NumberToCharacter;
+import standard_kaeon_fusion.commands.string.PatternMatch;
 import standard_kaeon_fusion.commands.string.Trim;
 import standard_kaeon_fusion.commands.string.Upper;
 import standard_kaeon_fusion.commands.system.Day;
@@ -186,13 +191,15 @@ public class Aether {
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new This());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Throw());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Type());
-			
+
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Block());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Break());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Call());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Catch());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Else());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Execute());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Exit());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Flip());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new FUSIONException());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new In());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Loop());
@@ -238,6 +245,8 @@ public class Aether {
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new InsertAll());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new IsSortedAlphabetical());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new IsSortedNumerical());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new KeyIndex());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new KeyIndexes());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new List());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new ListToElement());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Remove());
@@ -253,6 +262,7 @@ public class Aether {
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new CharacterToNumber());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Lower());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new NumberToCharacter());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new PatternMatch());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Trim());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Upper());
 			

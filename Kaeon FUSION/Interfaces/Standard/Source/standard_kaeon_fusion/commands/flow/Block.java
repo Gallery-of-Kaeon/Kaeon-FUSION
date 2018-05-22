@@ -1,18 +1,22 @@
-package standard_kaeon_fusion.commands.data;
+package standard_kaeon_fusion.commands.flow;
 
 import java.util.ArrayList;
 
 import fusion.FUSIONUnit;
 import one.Element;
 
-public class Null extends FUSIONUnit {
+public class Block extends FUSIONUnit {
 	
-	public Null() {
+	public Block() {
 		tags.add("Standard");
 	}
 	
 	public boolean verify(Element element) {
-		return element.content.equalsIgnoreCase("Null");
+		return element.content.equalsIgnoreCase("Block");
+	}
+	
+	public boolean trickleDown(Element element) {
+		return false;
 	}
 	
 	public Object process(Element element, ArrayList<Object> processed) {
