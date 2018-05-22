@@ -1,12 +1,13 @@
-Key Indexes
+Key Index
 
 	Philosophy
 	
 		-
-			The key indexes command contains the content "Key Indexes". It has three children, the
-			first of which returns a list where each element is a list, the second of which returns
-			an object, and the third of which returns and integer number.
+			The key index command contains the content "Key Index". It may have either two or three
+			children, the first of which returns a list where each element is a list, the second of
+			which returns an object, and the third of which, if present, returns an integer number.
 			
-			It will return a list of the indexes of each list in the returned list that has an
-			object equivalent to the returned object at the index specified by the returned number.
+			It will return a list of the indexes of each list in the returned list that contains an
+			object equivalent to the returned object. If the third child is present, said object
+			must be located at the index specified by the returned number.
 		-
