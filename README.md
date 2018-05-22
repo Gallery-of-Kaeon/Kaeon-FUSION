@@ -239,6 +239,11 @@ we'll hear you out.
 
 <h2 align="center">Disclaimer</h2>
 
+Tl;Dr: The core of Kaeon FUSION's specification is more or less complete,
+but the modular parts of the specification,
+the implementation,
+and the documentation are works in progress.
+
 It is important to note that the contents of this repository are aimed at those who have a strong background in computer science.
 If you're a newcomer to programming in general,
 we recommend you check out our [Kaeon FUSION for Beginners](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/README.md) resource.
@@ -250,9 +255,6 @@ As a consequence,
 many parts of the documentation are often out of date,
 and may take a while to catch up.
 
-At the time of writing,
-there are still minor bugs with the standard ONE+ directives and with Super mode,
-and the stack interface is in beta.
 It should also be noted that all of our implementations were developed and tested on an unmodified Lenovo IdeaPad P500 laptop running Windows 10.
 
 Kaeon FUSION,
