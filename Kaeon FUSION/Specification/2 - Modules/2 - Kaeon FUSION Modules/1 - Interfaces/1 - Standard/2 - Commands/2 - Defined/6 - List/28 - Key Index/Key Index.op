@@ -8,5 +8,6 @@ Key Index
 			an object, and the third of which returns and integer number.
 			
 			It will return the index of the first list in the returned list that has an object
-			equivalent to the returned object at the index specified by the returned number.
+			equivalent to the returned object at the index specified by the returned number. If no
+			such list is found, it will return zero.
 		-

@@ -7,5 +7,7 @@ Cut
 			which returns a list, and the second of which returns an object.
 			
 			It will split the list into several sublists based on the specified object and return
-			the sublists as a list.
+			the sublists as a list. If the list is in the form of a string and the object's string
+			form is in the form of a regular expression, the string will be split based on said
+			regular expression.
 		-
