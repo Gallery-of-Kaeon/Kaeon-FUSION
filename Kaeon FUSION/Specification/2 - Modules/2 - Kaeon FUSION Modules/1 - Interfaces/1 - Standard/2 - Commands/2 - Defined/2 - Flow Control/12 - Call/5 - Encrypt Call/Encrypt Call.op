@@ -1,0 +1,13 @@
+Encrypt Call
+
+	Philosophy
+	
+		-
+			An encrypt call is a type of packet sent through a call command that is used to encrypt
+			data.
+			
+			It shall consist of the string "Encrypt", followed by a string specifying the name of
+			the algorithm being used, followed by a list of strings containing data to be
+			encrypted, followed by a list of strings to serve as the keys for encryption, and
+			optionally followed by a list of objects to serve as arguments for encryption.
+		-

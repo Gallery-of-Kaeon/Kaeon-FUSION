@@ -1,0 +1,15 @@
+Decrypt Call
+
+	Philosophy
+	
+		-
+			An decrypt call is a type of packet sent through a call command that is used to decrypt
+			data.
+			
+			It shall may either consist of the string "Automatic Decrypt", followed by a list of
+			strings containing data to be decrypted, or the string "Manual Decrypt", followed by a
+			string specifying the name of the algorithm being used, followed by a list of strings
+			containing data to be decrypted, followed by a list of strings to serve as the keys for
+			decryption, and optionally followed by a list of objects to serve as arguments for
+			decryption.
+		-

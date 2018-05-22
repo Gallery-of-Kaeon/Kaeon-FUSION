@@ -1,0 +1,15 @@
+Derive Call
+
+	Philosophy
+	
+		-
+			A derive call is a type of packet sent through a call command that is used to cross
+			compile code written in a given language to a dialect of ONE that is analogous to said
+			language.
+			
+			It shall consist of either three or four elements, the first of which being the string
+			"Derive", the second of which being a string specifying the name of the dialect being
+			used, the third of which being a list of strings written in the language that said
+			dialect is analogous to, and the fourth of which, if present, being a list of objects
+			to be used as arguments during cross compilation.
+		-

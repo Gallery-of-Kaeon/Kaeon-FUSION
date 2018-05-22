@@ -1,0 +1,15 @@
+Build Call
+
+	Philosophy
+	
+		-
+			A build call is a type of packet sent through a call command that is used to cross
+			compile code written in a dialect of ONE to another language that said dialect is
+			analogous to.
+			
+			It shall consist of either three or four elements, the first of which being the string
+			"Build", the second of which being a string specifying the name of the dialect being
+			used, the third of which being a list of strings written in said dialect, and the
+			fourth of which, if present, being a list of objects to be used as arguments during
+			cross compilation.
+		-
