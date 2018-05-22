@@ -151,6 +151,6 @@ Define: main
 	choice: Input: "Enter the number of the site you would like to visit: "
 	site: At: At { link data, Add: 1, Subtract: Size { link data }, choice }, 1
 
-	Run: Literal { explorer ~" }, site, Literal { ~" }
+	Run: Concatenate: Literal { explorer ~" }, site, Literal { ~" }
 
 main
