@@ -1,0 +1,11 @@
+Flip
+
+	Philosophy
+	
+		-
+			The flip command contains the content "Flip". It has one child that returns a boolean.
+			
+			If the returned boolean is true, the command will reverse the order of all of the
+			elements in the scope of the root of the elements that FUSION is acting on, causing the
+			program to flow in reverse.
+		-
