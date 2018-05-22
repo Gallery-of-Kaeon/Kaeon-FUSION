@@ -45,7 +45,7 @@ import one_plus.ONEPlus;
 import philosophers_stone.PhilosophersStone;
 import philosophers_stone.PhilosophersStoneUtilities;
 
-public class IDE implements ActionListener {
+public class IDE extends PhilosophersStone implements ActionListener {
 
 	public ArrayList<Input> inputs;
 	public ArrayList<Output> outputs;
@@ -93,6 +93,8 @@ public class IDE implements ActionListener {
 	public String fusionHelp;
 
 	public IDE(Element originData) {
+		
+		tags.add("Kaeon Origin");
 
 		inputs = new ArrayList<Input>();
 		outputs = new ArrayList<Output>();
@@ -630,6 +632,8 @@ public class IDE implements ActionListener {
 			this.output.add(output.panel);
 
 			KaeonFUSION fusion = new KaeonFUSION();
+			
+			PhilosophersStoneUtilities.publiclyConnect(fusion, this);
 
 			output.fusion = fusion;
 
