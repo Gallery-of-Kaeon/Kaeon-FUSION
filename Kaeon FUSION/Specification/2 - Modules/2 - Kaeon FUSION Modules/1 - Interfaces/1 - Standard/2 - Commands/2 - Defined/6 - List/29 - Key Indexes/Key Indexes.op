@@ -1,0 +1,12 @@
+Key Indexes
+
+	Philosophy
+	
+		-
+			The key indexes command contains the content "Key Indexes". It has three children, the
+			first of which returns a list where each element is a list, the second of which returns
+			an object, and the third of which returns and integer number.
+			
+			It will return a list of the indexes of each list in the returned list that has an
+			object equivalent to the returned object at the index specified by the returned number.
+		-
