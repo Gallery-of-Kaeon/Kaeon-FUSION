@@ -145,9 +145,10 @@ you can write ONE+ code that doesn't do anything in Kaeon FUSION but can work wi
 
 The first step is to define a function and write ONE+ code within the function that corresponds to the desired dialect.
 Then,
-use the build command.
-The build command should have one child specifying the name of the desired dialect,
-and a second that returns a list of strings written in said dialect.
+use the call command.
+The call command should have one child with the content "Build",
+a second child specifying the name of the desired dialect,
+and a third that returns a list of strings written in said dialect.
 
 For example, running:
 
@@ -160,7 +161,7 @@ For example, running:
     		Text: 'Hello, world!'
     	-
 
-    Build: HTML, List { My Website }
+    Call: Build, HTML, List { My Website }
 
 will generate an html file in the local directory containing the following html code:
 
