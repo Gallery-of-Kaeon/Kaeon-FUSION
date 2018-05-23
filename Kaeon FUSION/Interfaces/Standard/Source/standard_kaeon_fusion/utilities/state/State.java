@@ -315,7 +315,8 @@ public class State extends FUSIONUnit {
 		for(int i = 0; i < global.size(); i++) {
 			
 			ArrayList<Object> alias = new ArrayList<Object>();
-			
+
+			alias.add(global.get(i).type);
 			alias.add(global.get(i).alias);
 			alias.add(global.get(i).object);
 			
@@ -331,7 +332,8 @@ public class State extends FUSIONUnit {
 			for(int j = 0; j < state.get(i).size(); j++) {
 				
 				ArrayList<Object> alias = new ArrayList<Object>();
-				
+
+				alias.add(state.get(i).get(j).type);
 				alias.add(state.get(i).get(j).alias);
 				alias.add(state.get(i).get(j).object);
 				
@@ -359,9 +361,10 @@ public class State extends FUSIONUnit {
 			
 			ArrayList<Object> aliasList = (ArrayList<Object>) globalList.get(i);
 			Alias alias = new Alias();
-			
-			alias.alias = "" + aliasList.get(0);
-			alias.object = aliasList.get(1);
+
+			alias.type = "" + aliasList.get(0);
+			alias.alias = "" + aliasList.get(1);
+			alias.object = aliasList.get(2);
 			
 			global.add(alias);
 		}
@@ -377,9 +380,10 @@ public class State extends FUSIONUnit {
 
 				ArrayList<Object> aliasList = (ArrayList<Object>) stackList.get(i);
 				Alias alias = new Alias();
-				
-				alias.alias = "" + aliasList.get(0);
-				alias.object = aliasList.get(1);
+
+				alias.type = "" + aliasList.get(0);
+				alias.alias = "" + aliasList.get(1);
+				alias.object = aliasList.get(2);
 				
 				stack.add(alias);
 			}

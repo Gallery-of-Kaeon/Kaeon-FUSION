@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import fusion.FUSIONUnit;
 import one.Element;
 import philosophers_stone.PhilosophersStoneUtilities;
+import standard_kaeon_fusion.utilities.state.State;
 
 public class Call extends FUSIONUnit {
 	
@@ -17,6 +18,12 @@ public class Call extends FUSIONUnit {
 	}
 	
 	public Object process(Element element, ArrayList<Object> processed) {
+		
+		for(int i = 0; i < processed.size(); i++) {
+			
+			if(processed.get(i) instanceof State)
+				processed.set(i, ((State) processed.get(i)).toArrayList());
+		}
 		
 		PhilosophersStoneUtilities.call(this, processed);
 		

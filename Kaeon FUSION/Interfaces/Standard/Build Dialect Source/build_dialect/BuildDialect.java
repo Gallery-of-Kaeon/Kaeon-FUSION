@@ -25,7 +25,11 @@ public class BuildDialect extends PhilosophersStone {
 		ArrayList<ArrayList<String>> files = new ArrayList<ArrayList<String>>();
 
 		ArrayList<Object> code = (ArrayList<Object>) packet.get(2);
-		ArrayList<Object> arguments = (ArrayList<Object>) packet.get(3);
+		
+		ArrayList<Object> arguments =
+				packet.size() > 3 ?
+						(ArrayList<Object>) packet.get(3) :
+						new ArrayList<Object>();
 		
 		String filePath = "";
 		
