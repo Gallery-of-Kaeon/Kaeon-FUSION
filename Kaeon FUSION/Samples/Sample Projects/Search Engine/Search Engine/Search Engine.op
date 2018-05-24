@@ -25,6 +25,8 @@ Define: get links { page: At: Arguments, 1 }
 		i: Add: i, 1
 		Loop: Less or Equal: i, Size: link indexes
 
+	Catch
+
 	Return: links
 
 Define: get score { page { At: Arguments, 1 }, search { At: Arguments, 2 } }
@@ -39,7 +41,9 @@ Define: get link index { link: At: Arguments, 1 }
 
 		i: Add: i, 1
 		Loop: Less or Equal: i, Size: link data
-
+	
+	Catch
+	
 	Return: 0
 
 Define: add links { links { At: Arguments, 1 }, root { At: Arguments, 2 } }
@@ -66,6 +70,8 @@ Define: add links { links { At: Arguments, 1 }, root { At: Arguments, 2 } }
 			
 				Set { At { link data, link index }, 3 }
 					Subtract: At { At { link data, link index }, 3 }, 1
+
+		Catch
 
 		i: Add: i, 1
 		Loop: Less or Equal: i, Size: links
