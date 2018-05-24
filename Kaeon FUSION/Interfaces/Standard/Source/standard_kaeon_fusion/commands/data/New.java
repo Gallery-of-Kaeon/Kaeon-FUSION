@@ -8,7 +8,10 @@ import one.Element;
 import one.ElementUtilities;
 import philosophers_stone.PhilosophersStone;
 import philosophers_stone.PhilosophersStoneUtilities;
+import standard_kaeon_fusion.commands.flow.Catch;
+import standard_kaeon_fusion.commands.flow.FUSIONException;
 import standard_kaeon_fusion.utilities.FUSIONUtilities;
+import standard_kaeon_fusion.utilities.Stopper;
 import standard_kaeon_fusion.utilities.state.State;
 
 public class New extends FUSIONUnit {
@@ -104,9 +107,22 @@ public class New extends FUSIONUnit {
 		function = ElementUtilities.copyElement(function);
 		function.content = "";
 		
+		((Stopper) PhilosophersStoneUtilities.get(functionFUSION, "Stopper").get(0)).fusion.add(functionFUSION);
+		
 		functionFUSION.process(function);
 		
 		State toReturn = (State) PhilosophersStoneUtilities.get(functionFUSION, "State").get(0);
+		
+		Catch localCatch = (Catch) PhilosophersStoneUtilities.get(this, "Catch").get(0);
+		Catch functionCatch = (Catch) PhilosophersStoneUtilities.get(functionFUSION, "Catch").get(0);
+		
+		FUSIONException localException = (FUSIONException) PhilosophersStoneUtilities.get(this, "Exception").get(0);
+		FUSIONException functionException = (FUSIONException) PhilosophersStoneUtilities.get(functionFUSION, "Exception").get(0);
+		
+		if(!localCatch.caught)
+			localCatch.caught = functionCatch.caught;
+		
+		localException.exception = functionException.exception;
 		
 		PhilosophersStoneUtilities.destroy(functionFUSION);
 		

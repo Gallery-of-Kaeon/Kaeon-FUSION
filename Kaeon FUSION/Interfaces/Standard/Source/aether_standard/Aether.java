@@ -125,6 +125,7 @@ import standard_kaeon_fusion.utilities.Console;
 import standard_kaeon_fusion.utilities.FUSIONUtilities;
 import standard_kaeon_fusion.utilities.Priority;
 import standard_kaeon_fusion.utilities.SortList;
+import standard_kaeon_fusion.utilities.Stopper;
 import standard_kaeon_fusion.utilities.state.Alias;
 import standard_kaeon_fusion.utilities.state.State;
 import standard_one_plus.utilities.DirectiveUtilities;
@@ -168,6 +169,7 @@ public class Aether {
 			
 			PhilosophersStoneUtilities.publiclyConnect(stone, new State());
 			PhilosophersStoneUtilities.publiclyConnect(stone, new Priority());
+			PhilosophersStoneUtilities.publiclyConnect(stone, new Stopper());
 			
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Literals());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Variables());

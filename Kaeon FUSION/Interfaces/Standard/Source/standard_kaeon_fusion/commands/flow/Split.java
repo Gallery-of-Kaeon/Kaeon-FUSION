@@ -9,6 +9,7 @@ import one.ElementUtilities;
 import philosophers_stone.PhilosophersStone;
 import philosophers_stone.PhilosophersStoneUtilities;
 import standard_kaeon_fusion.utilities.FUSIONUtilities;
+import standard_kaeon_fusion.utilities.Stopper;
 import standard_kaeon_fusion.utilities.state.State;
 
 public class Split extends FUSIONUnit implements Runnable {
@@ -57,6 +58,8 @@ public class Split extends FUSIONUnit implements Runnable {
 		newElement.content = "";
 		
 		split.element = newElement;
+		
+		((Stopper) PhilosophersStoneUtilities.get(functionFUSION, "Stopper").get(0)).fusion.add(functionFUSION);
 		
 		new Thread(split).start();
 		

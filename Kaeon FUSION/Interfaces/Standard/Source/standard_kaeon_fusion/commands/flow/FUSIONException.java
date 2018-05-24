@@ -13,6 +13,7 @@ public class FUSIONException extends FUSIONUnit {
 	
 	public FUSIONException() {
 		tags.add("Standard");
+		tags.add("Exception");
 	}
 	
 	public boolean verify(Element element) {

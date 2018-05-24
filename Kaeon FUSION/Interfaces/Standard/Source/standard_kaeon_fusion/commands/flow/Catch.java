@@ -12,6 +12,7 @@ public class Catch extends FUSIONUnit {
 	
 	public Catch() {
 		tags.add("Standard");
+		tags.add("Catch");
 	}
 	
 	public boolean deny(Element element) {

@@ -17,6 +17,7 @@ public class Call extends FUSIONUnit {
 		return element.content.equalsIgnoreCase("Call");
 	}
 	
+	@SuppressWarnings("unchecked")
 	public Object process(Element element, ArrayList<Object> processed) {
 		
 		for(int i = 0; i < processed.size(); i++) {
@@ -25,8 +26,16 @@ public class Call extends FUSIONUnit {
 				processed.set(i, ((State) processed.get(i)).toArrayList());
 		}
 		
-		PhilosophersStoneUtilities.call(this, processed);
+		Object toReturn = PhilosophersStoneUtilities.call(this, processed);
 		
-		return null;
+		if(("" + processed.get(0)).equalsIgnoreCase("Generate")) {
+			
+			State state = new State();
+			state.generateFromArrayList((ArrayList<Object>) toReturn);
+			
+			toReturn = state;
+		}
+		
+		return toReturn;
 	}
 }
