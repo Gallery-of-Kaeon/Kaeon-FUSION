@@ -21,7 +21,7 @@ appends the string "TEST - " prior to the content of all elements within the sco
 For example,
 If you were to export the project as "Test.jar",
 place the jar file next to [Kaeon Origin](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/IDE/README.md),
-and click the "Show ONE button after typing in the following text:
+and click the "Show ONE" button in the Kaeon FUSION settings option menu after typing in the following text:
 
     [USE: TEST]
 
@@ -94,7 +94,7 @@ the package will be renamed to "aether_my_directive".
 Proceed to implement any directives provided by your direcitve module as extensions of the DirectiveUnit class.
 
 Then,
-in the onCall method of the Aether class,
+in the getDirectives method of the DirectiveInterface class in the Aether package,
 add a new instance of each of your directiveUnits to the directiveUnits ArrayList.
 Feel free to remove the test command.
 

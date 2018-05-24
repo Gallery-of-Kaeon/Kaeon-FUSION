@@ -6,7 +6,7 @@ import one.Element;
 import one_plus.directive.DirectiveUnit;
 import one_plus.directive.Directive;
 
-public class Test extends Directive {
+public class Test extends DirectiveUnit {
 	
 	public void apply(
 			ArrayList<DirectiveUnit> directiveUnits,

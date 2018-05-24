@@ -5,18 +5,10 @@ import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.ArrayList;
 
-import one_plus.directive.Directive;
-import test.Test;
-
 public class Aether {
 	
 	public static Object onCall(Object object) {
-		
-		ArrayList<Directive> directiveUnits = new ArrayList<Directive>();
-		
-		directiveUnits.add(new Test());
-		
-		return directiveUnits;
+		return DirectiveInterface.getDirectives();
 	}
 	
 	public static Integer id;

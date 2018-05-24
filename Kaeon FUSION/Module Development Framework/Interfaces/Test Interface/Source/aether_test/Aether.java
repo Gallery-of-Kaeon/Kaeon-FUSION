@@ -7,7 +7,8 @@ import java.util.ArrayList;
 
 import philosophers_stone.PhilosophersStone;
 import philosophers_stone.PhilosophersStoneUtilities;
-import test.Test;
+import aether_test.FUSIONInterface;
+import fusion.FUSION;
 
 public class Aether {
 	
@@ -25,7 +26,7 @@ public class Aether {
 		
 		PhilosophersStoneUtilities.publiclyConnect(stone, tag);
 		
-		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Test());
+		FUSIONInterface.addInterface((FUSION) stone);
 		
 		return null;
 	}

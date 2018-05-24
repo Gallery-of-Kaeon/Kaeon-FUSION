@@ -133,6 +133,6 @@ It will return null by default.
 
 ### Handle Error
 
-    public void handleError(Element element, Exception exception)
+    public void handleError(Element element, ArrayList<Object> processed, Exception exception)
 
 This function is called whenever any FUSION unit throws an exception.
