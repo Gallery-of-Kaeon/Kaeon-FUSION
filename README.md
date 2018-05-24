@@ -1,5 +1,5 @@
 <h1 align="center">This is Kaeon FUSION</h1>
-<h2 align="center">The First Ever Universal Programming Language</h2>
+<h2 align="center">A Language Without Limits!</h2>
 
 <p align="center">
 	<img src="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/raw/master/Kaeon%20FUSION/Logo/Kaeon%20FUSION%20Logo.png" width="300px" height="300px"/>
@@ -15,7 +15,7 @@ we disagree with this sentiment.
 The sheer,
 ever-growing scale of the toolset required by software developers is a burden that should have been dealt with long ago.
 In order to liberate developers from the bondage of incomplete tools,
-we have created the first ever universal programming language.
+we have created a language without limits.
 This is Kaeon FUSION!
 
 <h2 align="center">What is Kaeon FUSION?</h2>
