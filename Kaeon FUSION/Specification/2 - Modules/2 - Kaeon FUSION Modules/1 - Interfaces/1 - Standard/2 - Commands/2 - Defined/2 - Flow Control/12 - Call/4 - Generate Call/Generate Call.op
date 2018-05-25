@@ -9,4 +9,6 @@ Generate Call
 			
 			It shall consist of the string "Generate", followed by a string specifying the type of
 			object being generated.
+			
+			It will cause the call command to return the generate namespace.
 		-

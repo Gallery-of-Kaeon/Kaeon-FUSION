@@ -12,4 +12,6 @@ Decrypt Call
 			containing data to be decrypted, followed by a list of strings to serve as the keys for
 			decryption, and optionally followed by a list of objects to serve as arguments for
 			decryption.
+			
+			It will cause the call command to return the decrypted strings as a list.
 		-

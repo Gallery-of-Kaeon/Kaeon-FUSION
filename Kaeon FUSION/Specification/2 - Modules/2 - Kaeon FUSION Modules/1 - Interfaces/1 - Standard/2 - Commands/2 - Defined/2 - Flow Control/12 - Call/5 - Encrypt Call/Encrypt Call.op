@@ -10,4 +10,6 @@ Encrypt Call
 			the algorithm being used, followed by a list of strings containing data to be
 			encrypted, followed by a list of strings to serve as the keys for encryption, and
 			optionally followed by a list of objects to serve as arguments for encryption.
+			
+			It will cause the call command to return the encrypted strings as a list.
 		-

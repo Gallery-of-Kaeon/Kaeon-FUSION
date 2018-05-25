@@ -12,4 +12,6 @@ Derive Call
 			used, the third of which being a list of strings written in the language that said
 			dialect is analogous to, and the fourth of which, if present, being a list of objects
 			to be used as arguments during cross compilation.
+			
+			It may cause the call command to return the cross compiled code as a list.
 		-
