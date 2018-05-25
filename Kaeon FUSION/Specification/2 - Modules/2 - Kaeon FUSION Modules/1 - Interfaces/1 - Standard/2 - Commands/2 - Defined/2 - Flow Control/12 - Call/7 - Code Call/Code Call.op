@@ -1,0 +1,15 @@
+Code Call
+
+	Philosophy
+	
+		-
+			A code call is a type of packet sent through a call command that is used to execute
+			code in a another language within a Kaeon FUSION script.
+			
+			It shall consist of the string "Code", followed by a string specifying the name of the
+			language the code is written in, followed by a list of strings naming dependencies of
+			the code, followed by a string containing the code which will be placed into a function
+			that takes a variable length list of objects of unspecified type and returns an object
+			of unspecified type, followed by a list of objects which will all be passed to the code
+			as a single list of objects of unspecified type.
+		-
