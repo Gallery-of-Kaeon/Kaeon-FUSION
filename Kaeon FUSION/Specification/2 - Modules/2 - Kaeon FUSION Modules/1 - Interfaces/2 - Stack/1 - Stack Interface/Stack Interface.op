@@ -77,4 +77,8 @@ Kaeon FUSION Stack Interface
 				be given default names determined by the dialect in use.
 				
 				Any arguments following the second argument will be specific to the dialect in use.
+				
+				If the arguments contain the string "Return", the contents of each file will be
+				returned to the code that called for the cross compilation as a list instead of
+				being exported to the file system.
 			-
