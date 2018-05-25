@@ -5,5 +5,5 @@ Address
 		-
 			The address command contains the content "Address".
 			
-			It returns the IP address of the device that Kaeon FUSION is running on.
+			It returns the IP addresses of the device that Kaeon FUSION is running on as a list.
 		-
