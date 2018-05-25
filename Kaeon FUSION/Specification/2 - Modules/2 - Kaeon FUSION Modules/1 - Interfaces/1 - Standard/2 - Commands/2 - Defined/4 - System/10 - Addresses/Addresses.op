@@ -1,9 +1,9 @@
-Address
+Addresses
 
 	Philosophy
 	
 		-
-			The address command contains the content "Address".
+			The addresses command contains the content "Addresses".
 			
 			It returns the IP addresses of the device that Kaeon FUSION is running on as a list.
 		-
