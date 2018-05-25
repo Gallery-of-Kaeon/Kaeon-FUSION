@@ -4,7 +4,7 @@ Module Call
 	
 		-
 			A module call is a type of packet sent through a call command that is used to execute
-			code in a module wrritten in another language within a Kaeon FUSION script.
+			code in a module written in another language within a Kaeon FUSION script.
 			
 			It shall consist of the string "Module", followed by a string specifying the name of
 			the language the module is written in, followed by a list of objects to be passed to
