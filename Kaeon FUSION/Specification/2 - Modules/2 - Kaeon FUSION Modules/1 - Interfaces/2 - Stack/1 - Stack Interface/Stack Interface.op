@@ -9,6 +9,14 @@ Kaeon FUSION Stack Interface
 		
 	Principles
 	
+		Call Packets
+		
+			-
+				Cross compilation may be triggered through use of build and derive packets sent
+				through the standard interface's call command. The letter case of the contents of
+				such packets is irrelevant.
+			-
+	
 		Dialects
 		
 			Cross Dialects
@@ -77,8 +85,18 @@ Kaeon FUSION Stack Interface
 				be given default names determined by the dialect in use.
 				
 				Any arguments following the second argument will be specific to the dialect in use.
+			-
+		
+		Generated Files
+		
+			-
+				All files generated during cross compilation will be assigned names. They, along
+				with their names will each be placed into lists where the name is the first element
+				and the file is the second element.
 				
-				If the arguments contain the string "Return", the contents of each file will be
-				returned to the code that called for the cross compilation as a list instead of
-				being exported to the file system.
+				The files will be exported to the file system and the list of file lists will be
+				returned to the code that called the cross compilation.
+				
+				If the arguments passed to the cross compiler contain the string "Return", the
+				cross compiled code will not be exported to the file system.
 			-
