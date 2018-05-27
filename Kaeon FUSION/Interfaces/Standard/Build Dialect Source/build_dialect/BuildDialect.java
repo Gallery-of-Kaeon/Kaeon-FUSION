@@ -95,7 +95,15 @@ public class BuildDialect extends PhilosophersStone {
 			}
 		}
 		
-		if(packet.size() <= 4) {
+		boolean export = true;
+		
+		for(int i = 0; i < arguments.size() && export; i++) {
+			
+			if(("" + arguments.get(i)).equalsIgnoreCase("Return"))
+				export = false;
+		}
+		
+		if(export) {
 			
 			for(int i = 0; i < files.size(); i++)
 				IO.save(files.get(i).get(1), workspace + filePath + files.get(i).get(0));
@@ -189,14 +197,15 @@ public class BuildDialect extends PhilosophersStone {
 				if(ElementUtilities.hasChild(use, "Arguments"))
 					arguments = new ArrayList<Object>(ElementUtilities.getChild(use, "Arguments").children);
 				
+				arguments.add("Return");
+				
 				ArrayList<ArrayList<String>> files =
 						(ArrayList<ArrayList<String>>)
 							PhilosophersStoneUtilities.call(this,
 									"Build",
 									dialect,
 									code,
-									arguments,
-									null).get(0);
+									arguments).get(0);
 				
 				return files.get(0).get(1);
 			}
