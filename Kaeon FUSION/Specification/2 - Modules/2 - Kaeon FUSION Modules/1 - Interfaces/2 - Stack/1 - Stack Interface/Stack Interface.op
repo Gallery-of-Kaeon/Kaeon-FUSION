@@ -4,99 +4,119 @@ Kaeon FUSION Stack Interface
 	
 		-
 			The Kaeon FUSION Stack Interface allows users to cross compile Kaeon FUSION code into
-			several mainstream languages.
+			several mainstream languages and to interact with said languages at runtime.
 		-
 		
 	Principles
-	
+		
 		Call Packets
 		
 			-
-				Cross compilation may be triggered through use of build and derive packets sent
-				through the standard interface's call command. The letter case of the contents of
-				such packets is irrelevant.
+				The functionality of the stack interface may be triggered through use of packets
+				sent through the standard interface's call command. The letter case of the contents
+				of such packets is irrelevant.
 			-
 	
-		Dialects
+		Building and Deriving
 		
-			Cross Dialects
+			Build and Derive Calls
 			
 				-
-					The Kaeon FUSION Stack Interface provides cross dialects analogous to C, C++,
-					JavaScript, PHP, Java, Python, C#, and Swift.
+					Cross compilation may be triggered through use of build and derive calls sent
+					through the standard interface's call command.
 				-
-				
-				Utility Code
-				
-					-
-						If the string "Utility" is passed to a cross dialect provided by the stack
-						interface as an argument, the cross compiled code will not contain a main
-						function.
-					-
-				
-				Snippet Code
-				
-					-
-						If the string "Snippet" is passed to a cross dialect provided by the stack
-						interface as an argument, the cross compiled code will only contain the
-						body of the main function.
-					-
+		
+			Dialects
 			
-			Miscellaneous Dialects
+				Cross Dialects
+				
+					-
+						The Kaeon FUSION Stack Interface provides cross dialects analogous to C,
+						C++, JavaScript, PHP, Java, Python, C#, and Swift.
+					-
+					
+					Utility Code
+					
+						-
+							If the string "Utility" is passed to a cross dialect provided by the
+							stack interface as an argument, the cross compiled code will not
+							contain a main function.
+						-
+					
+					Snippet Code
+					
+						-
+							If the string "Snippet" is passed to a cross dialect provided by the
+							stack interface as an argument, the cross compiled code will only
+							contain the body of the main function.
+						-
+				
+				Miscellaneous Dialects
+				
+					-
+						The Kaeon FUSION Stack Interface provides ONE dialects analogous to XML,
+						JSON, SQL, and CSS.
+					-
+					
+					HTML in the XML Dialect
+					
+						-
+							If the XML dialect receives arguments when cross compiling and one of
+							them is the string "HTML", it will cross compile with an HTML
+							extension, it will use the HTML.op use document automatically, and the
+							cross compiled file will have an HTML doctype.
+						-
+			
+			Code Groups
+				
+				-
+					The strings provided as code to be cross compiled will be arranged into groups
+					prior to cross compilation, and each group will be assigned a unique index.
+					Unless otherwise specified, each provided string will be placed by itself into
+					its own group.
+				-
+			
+			Arguments
+				
+				-
+					The string form of the first argument, if said argument returns a non-null
+					value and at least one argument is present, specifies the directory the cross
+					compiled code should be exported to.
+					
+					If no arguments are present, or if the first argument returns a null value, the
+					code will be exported to the local directory.
+					
+					The second argument, if present, will be a list. The string form of each
+					element in the list, if said element is a non-null value, specifies the name of
+					the cross compiled group corresponding to its index. If this argument is
+					absent, an element corresponding to a given file returns a null value, or there
+					is no element in the list corresponding to a given group, the corresponding
+					cross compiled groups will be given default names determined by the dialect in
+					use.
+					
+					Any arguments following the second argument will be specific to the dialect in
+					use.
+				-
+			
+			Generated Files
 			
 				-
-					The Kaeon FUSION Stack Interface provides ONE dialects analogous to XML, JSON,
-					SQL, and CSS.
+					All files generated during cross compilation will be assigned names. They,
+					along with their names will each be placed into lists where the name is the
+					first element and the file is the second element.
+					
+					The files will be exported to the file system and the list of file lists will
+					be returned to the code that called the cross compilation.
+					
+					If the arguments passed to the cross compiler contain the string "Return", the
+					cross compiled code will not be exported to the file system.
 				-
-				
-				HTML in the XML Dialect
-				
-					-
-						If the XML dialect receives arguments when cross compiling and one of them
-						is the string "HTML", it will cross compile with an HTML extension, it will
-						use the HTML.op use document automatically, and the cross compiled file
-						will have an HTML doctype.
-					-
 		
-		Code Groups
-			
-			-
-				The strings provided as code to be cross compiled will be arranged into groups
-				prior to cross compilation, and each group will be assigned a unique index. Unless
-				otherwise specified, each provided string will be placed by itself into its own
-				group.
-			-
-		
-		Arguments
-			
-			-
-				The string form of the first argument, if said argument returns a non-null value
-				and at least one argument is present, specifies the directory the cross compiled
-				code should be exported to.
-				
-				If no arguments are present, or if the first argument returns a null value, the
-				code will be exported to the local directory.
-				
-				The second argument, if present, will be a list. The string form of each element in
-				the list, if said element is a non-null value, specifies the name of the cross
-				compiled group corresponding to its index. If this argument is absent, an element
-				corresponding to a given file returns a null value, or there is no element in the
-				list corresponding to a given group, the corresponding cross compiled groups will
-				be given default names determined by the dialect in use.
-				
-				Any arguments following the second argument will be specific to the dialect in use.
-			-
-		
-		Generated Files
+		Language Interaction
 		
 			-
-				All files generated during cross compilation will be assigned names. They, along
-				with their names will each be placed into lists where the name is the first element
-				and the file is the second element.
+				The stack interface shall provide support for code and module calls sent through
+				the standard interface's call command.
 				
-				The files will be exported to the file system and the list of file lists will be
-				returned to the code that called the cross compilation.
-				
-				If the arguments passed to the cross compiler contain the string "Return", the
-				cross compiled code will not be exported to the file system.
+				The languages supported are C, C++, JavaScript, PHP, Java, Python, C#, and Swift.
 			-
