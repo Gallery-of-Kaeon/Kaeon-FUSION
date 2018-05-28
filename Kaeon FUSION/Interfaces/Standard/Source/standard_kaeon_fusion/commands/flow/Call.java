@@ -28,12 +28,15 @@ public class Call extends FUSIONUnit {
 		
 		Object toReturn = PhilosophersStoneUtilities.call(this, processed);
 		
-		if(("" + processed.get(0)).equalsIgnoreCase("Generate")) {
+		if(processed.size() > 0) {
 			
-			State state = new State();
-			state.generateFromArrayList((ArrayList<Object>) toReturn);
-			
-			toReturn = state;
+			if(("" + processed.get(0)).equalsIgnoreCase("Generate")) {
+				
+				State state = new State();
+				state.generateFromArrayList((ArrayList<Object>) toReturn);
+				
+				toReturn = state;
+			}
 		}
 		
 		return toReturn;

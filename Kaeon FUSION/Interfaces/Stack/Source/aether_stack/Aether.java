@@ -20,6 +20,7 @@ import stack.dialects.cross.JavaScript;
 import stack.dialects.cross.PHP;
 import stack.dialects.cross.Python;
 import stack.dialects.cross.Swift;
+import stack.interaction.JavaInterface;
 import stack.utilities.json.JSONUnit;
 import stack.utilities.json.containers.JSONContainer;
 import stack.utilities.json.containers.arrays.JSONArray;
@@ -57,6 +58,8 @@ public class Aether {
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new PHP());
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Python());
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Swift());
+
+		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new JavaInterface());
 
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new XML());
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new JSON());
