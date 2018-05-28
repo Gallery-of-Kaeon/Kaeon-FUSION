@@ -196,7 +196,9 @@ public class BuildDialect extends PhilosophersStone {
 				
 				if(ElementUtilities.hasChild(use, "Arguments"))
 					arguments = new ArrayList<Object>(ElementUtilities.getChild(use, "Arguments").children);
-				
+
+				arguments.add("");
+				arguments.add(new ArrayList<Object>());
 				arguments.add("Return");
 				
 				ArrayList<ArrayList<String>> files =
