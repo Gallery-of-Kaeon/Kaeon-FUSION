@@ -1,6 +1,6 @@
 [Kaeon FUSION Home](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/README.md)
 
-# Why use Kaeon FUSION?
+<h2>What <i>is</i> Kaeon FUSION?</h2>
 
 ## Why is Kaeon FUSION called "a language without limits"?
 
