@@ -18,7 +18,9 @@ In order to liberate developers from the bondage of incomplete tools,
 we have created a language without limits.
 This is Kaeon FUSION!
 
-<h2 align="center">What is Kaeon FUSION?</h2>
+<h2 align="center">What _is_ Kaeon FUSION?</h2>
+
+_This part is extremely technical. It's ok to skip past it._
 
 Kaeon FUSION (pronounced "KAI-on") is an interpreted programming language with the unique ability to alter its properties at runtime using modules that it can load dynamically.
 It's like if Java could import a module at runtime that made multiple inheritence legal,
