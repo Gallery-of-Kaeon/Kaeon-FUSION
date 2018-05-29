@@ -35,6 +35,8 @@ Kaeon FUSION can still be useful in speed critical envrionments by being cross c
 Another benefit to ONE+ is that it has a highly customizable syntax,
 which allows for a wide variety of developer preferences to be accommodated.
 
+Click [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/X%20-%20Why%20use%20Kaeon%20FUSION/README.md) for a more detailed explanation.
+
 <h2 align="center">Contents of this Repository</h2>
 
 This repository contains the specification,
@@ -130,11 +132,6 @@ For any questions or comments, please email the following address: kaeon.ace@gma
 ### How can I try it out?
 
 We've provided a simple IDE called [Kaeon Origin](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/IDE/README.md) to get you started.
-
-### Why should I use Kaeon FUSION?
-
-We have a lot to say on this topic,
-so click [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/X%20-%20Why%20use%20Kaeon%20FUSION/README.md) for our two cents on it.
 
 ### What's the difference between an interface and a library?
 
