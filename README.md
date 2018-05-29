@@ -18,7 +18,7 @@ In order to liberate developers from the bondage of incomplete tools,
 we have created a language without limits.
 This is Kaeon FUSION!
 
-<h2 align="center">What _is_ Kaeon FUSION?</h2>
+<h2 align="center">What <i>is</i> Kaeon FUSION?</h2>
 
 _This part is extremely technical. It's ok to skip past it._
 
