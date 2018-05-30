@@ -41,6 +41,7 @@ import standard_kaeon_fusion.commands.flow.Run;
 import standard_kaeon_fusion.commands.flow.Scope;
 import standard_kaeon_fusion.commands.flow.Shift;
 import standard_kaeon_fusion.commands.flow.Split;
+import standard_kaeon_fusion.commands.flow.Ternary;
 import standard_kaeon_fusion.commands.flow.Throw;
 import standard_kaeon_fusion.commands.flow.Wait;
 import standard_kaeon_fusion.commands.io.Open;
@@ -188,7 +189,6 @@ public class Aether {
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new New());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Null());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new This());
-			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Throw());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Type());
 
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Block());
@@ -209,6 +209,8 @@ public class Aether {
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Scope());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Shift());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Split());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Ternary());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Throw());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Wait());
 			
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Input());
