@@ -1,0 +1,11 @@
+Audio
+
+	Philosophy
+	
+		-
+			The audio command contains the content "Audio". It has one child that returns a string
+			containing the filepath of an audio file.
+			
+			It will play the audio file in a loop and return a namespace representing the state of
+			the audio.
+		-
