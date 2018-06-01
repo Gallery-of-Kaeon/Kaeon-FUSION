@@ -176,14 +176,25 @@ Standard ONE+ Directive Interface
 					
 					The index directive will paste an element containing either the content of
 					the element or the number that corresponds to the current iteration of the
-					loop of the respective for directive.
+					loop of the respective for directive where it is located.
+				-
+				
+			Query
+			
+				-
+					The query directive contains content "Query". This directive may have any
+					number of elements within its header.
+					
+					It will take the elements within its header and use them as arguments to query
+					the host environment for another element, which it will paste where it is
+					located.
 				-
 			
 			Info
 				
 				-
-					The info directive contains content "Info". This element may have any number of
-					elements within its header and body.
+					The info directive contains content "Info". This directive may have any number
+					of elements within its header and body.
 					
 					The content of the "Info" element's children and the children of the directive
 					can convey information to the host environment of the ONE+ parser.
