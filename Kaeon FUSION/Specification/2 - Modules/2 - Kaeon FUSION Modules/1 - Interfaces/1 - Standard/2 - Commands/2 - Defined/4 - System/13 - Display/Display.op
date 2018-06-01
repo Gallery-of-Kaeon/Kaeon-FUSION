@@ -1,0 +1,12 @@
+Display
+
+	Philosophy
+	
+		-
+			The display command contains the content "Display". It has one child which returns a
+			string in the form of an HTML document.
+			
+			It will open a local GUI environment and render the returned HTML document in said
+			environment, and will return a namespace that represents the state of the GUI
+			environment.
+		-
