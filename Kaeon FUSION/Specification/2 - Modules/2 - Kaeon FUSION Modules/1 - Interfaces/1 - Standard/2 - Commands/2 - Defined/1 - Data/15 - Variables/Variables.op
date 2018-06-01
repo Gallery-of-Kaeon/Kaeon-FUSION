@@ -1,0 +1,13 @@
+Variables
+
+	Philosophy
+	
+		-
+			The variables command contains the content "Variables". It may optionally have a child
+			that returns a boolean value.
+			
+			It returns a list of all variable aliases stored in the state. If it has a child and
+			the child returns false, then the list will only contain aliases from the local scope.
+			If it has a child and the child returns true, then the list will only contain aliases
+			from the global scope.
+		-
