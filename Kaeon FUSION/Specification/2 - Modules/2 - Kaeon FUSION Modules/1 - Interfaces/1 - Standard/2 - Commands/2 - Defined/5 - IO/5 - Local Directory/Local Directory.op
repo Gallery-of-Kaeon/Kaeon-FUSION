@@ -1,0 +1,9 @@
+Local Directory
+
+	Philosophy
+	
+		-
+			The local directory command contains the content "Local Directory".
+			
+			It returns the path of the directory the host environment is running out of.
+		-

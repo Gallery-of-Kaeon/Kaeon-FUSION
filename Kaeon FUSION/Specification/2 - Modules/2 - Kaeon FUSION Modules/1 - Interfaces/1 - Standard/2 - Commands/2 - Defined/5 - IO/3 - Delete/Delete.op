@@ -1,0 +1,10 @@
+Delete
+
+	Philosophy
+	
+		-
+			The delete command contains the content "Delete". It has one child which returns a
+			string in the form of a file path.
+			
+			It will delete the file at the returned file path from the file system.
+		-
