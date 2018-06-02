@@ -7,5 +7,11 @@ Audio
 			containing the filepath of an audio file.
 			
 			It will play the audio file in a loop and return a namespace representing the state of
-			the audio.
+			the audio. The namespace will contain the global variables volume, which contains a
+			number between zero and one representing the volume of the track, iterations, which
+			contains an integer number representing the number of times the audio has looped,
+			length, which contains a number specifying the length of the track in seconds and may
+			not be reset, point, which contains a number specifying the current point in the track
+			that is being played, and active, which contains a boolean value representing whether
+			or not the audio is still playing.
 		-

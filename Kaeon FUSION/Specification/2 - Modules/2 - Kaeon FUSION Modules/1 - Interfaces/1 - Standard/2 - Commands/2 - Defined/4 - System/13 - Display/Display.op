@@ -8,5 +8,16 @@ Display
 			
 			It will open a local GUI environment and render the returned HTML document in said
 			environment, and will return a namespace that represents the state of the GUI
-			environment.
+			environment. The namespace will contain the global variables title, which contains a
+			string representing the title of the frame, icon, containing a string specifying the
+			file path of the image of the frame's icon, width, containing an integer number
+			specifying the width of the frame in pixels, height, containing an integer number
+			specifying the height of the frame in pixels, x, containing an integer number
+			specifying the horizontal position of the frame in pixels, y, containing an integer
+			number specifying the vertical position of the frame in pixels, decorated, containing a
+			boolean specifying whether or not the frame has a border, and active, containing a
+			boolean specifying whether or not the frame is still in use. It will also contain the
+			global variable reset, which has a value of null by default, but may be assigned a
+			string containing an HTML document, which will replace the HTML document currently
+			occupying the frame, at which point the value will be reset to null.
 		-
