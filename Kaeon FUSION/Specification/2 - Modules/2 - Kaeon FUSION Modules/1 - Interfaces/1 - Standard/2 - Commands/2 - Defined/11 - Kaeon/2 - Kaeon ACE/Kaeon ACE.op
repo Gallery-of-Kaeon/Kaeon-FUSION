@@ -1,0 +1,10 @@
+Kaeon ACE
+
+	Philosophy
+	
+		-
+			The Kaeon ACE command contains the content "Kaeon ACE". It has one child that returns
+			a string containing a Kaeon ACE document.
+			
+			It create an instance of the ACE engine and passes the returned document to it.
+		-

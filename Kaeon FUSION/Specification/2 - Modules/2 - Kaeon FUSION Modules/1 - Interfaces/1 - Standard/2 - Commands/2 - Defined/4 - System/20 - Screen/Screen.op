@@ -1,0 +1,11 @@
+Screen
+
+	Philosophy
+	
+		-
+			The screen command contains the content "Screen".
+			
+			It returns a list containing two elements, the first of which being an integer number
+			representing the width of the screen in pixels, and the second of which being an
+			integer number representing the height of the screen in pixels.
+		-

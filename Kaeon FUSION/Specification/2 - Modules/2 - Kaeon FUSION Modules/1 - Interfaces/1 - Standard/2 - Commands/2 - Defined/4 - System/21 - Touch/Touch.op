@@ -1,0 +1,12 @@
+Touch
+
+	Philosophy
+	
+		-
+			The touch command contains the content "Touch".
+			
+			It returns a list of lists, where each list represents a point of contact on a touch
+			screen, with each list's first element being an integer number representing the
+			horizontal pixel value of the point of contact, and their second element being an
+			integer number representing the vertical pixel value of the point of contact.
+		-

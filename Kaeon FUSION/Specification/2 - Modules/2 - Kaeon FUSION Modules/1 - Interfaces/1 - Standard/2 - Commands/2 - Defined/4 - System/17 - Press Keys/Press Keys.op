@@ -1,0 +1,11 @@
+Press Keys
+
+	Philosophy
+	
+		-
+			The press keys command contains the content "Press Keys". It may have an indefinite
+			number of children, each of which return a string representing a keyboard code.
+			
+			It will trigger a bot to digitally hold down the keys specified by the returned
+			keyboard codes.
+		-
