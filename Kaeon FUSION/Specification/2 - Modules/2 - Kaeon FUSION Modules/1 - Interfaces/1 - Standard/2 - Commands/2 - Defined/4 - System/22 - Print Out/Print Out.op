@@ -1,0 +1,11 @@
+Print Out
+
+	Philosophy
+	
+		-
+			The print out command contains the content "Print Out". It has one child that returns a
+			string in the form of an HTML document.
+			
+			The command will render the returned document to an image and open a print prompt to
+			print out the image.
+		-

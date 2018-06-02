@@ -1,0 +1,10 @@
+3D Print
+
+	Philosophy
+	
+		-
+			The 3D print command contains the content "3D Print". It has one child that returns a
+			string in the form of a COLLADA, STL, OBJ, PLY, or OFF model file.
+			
+			The command will open a prompt to print the returned model using a 3D printer.
+		-
