@@ -3,19 +3,11 @@ Kaeon FUSION Stack Interface
 	Philosophy
 	
 		-
-			The Kaeon FUSION Stack Interface allows users to cross compile Kaeon FUSION code into
-			several mainstream languages and to interact with said languages at runtime.
+			The Kaeon FUSION Stack Interface provides a standard set of functionality for the
+			various call packets provided by the Kaeon FUSION Standard Interface.
 		-
 		
 	Principles
-		
-		Call Packets
-		
-			-
-				The functionality of the stack interface may be triggered through use of packets
-				sent through the standard interface's call command. The letter case of the contents
-				of such packets is irrelevant.
-			-
 	
 		Building and Deriving
 		
@@ -120,3 +112,50 @@ Kaeon FUSION Stack Interface
 				
 				The languages supported are C, C++, JavaScript, PHP, Java, Python, C#, and Swift.
 			-
+		
+		Keyboard Codes
+			
+			-
+				The keys on a standard keyboard may be referenced for certain stack interface
+				commands using string aliases.
+			-
+			
+			Codes
+			
+				Letters, Numbers, and Symbols
+				
+					-
+						Letter, number, and symbol keys may be referenced by a string code
+						containing the character located on the lower shift value, where letter
+						case is irrelevant.
+					-
+				
+				Caps Lock
+				
+					-
+						The caps lock command may be referenced with the string "Caps Lock".
+						The caps lock key is considered to be held down if caps lock is active.
+					-
+				
+				Other Standard Keys
+					
+					Enter: Enter
+					Left Shift: Left Shift
+					Right Shift: Right Shift
+					Tab: Tab
+					Esc: Escape
+					Alt: Alternate
+					Backspace: Backspace
+					Delete: Delete
+					Insert: Insert
+					Left Arrow Key: Left
+					Right Arrow Key: Right
+					Up Arrow Key: Up
+					Down Arrow Key: Down
+				
+				System Specific Keys
+				
+					-
+						The codes for system specific keys will vary based on the host
+						environment.
+					-

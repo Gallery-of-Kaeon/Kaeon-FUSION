@@ -1,0 +1,12 @@
+Render Call
+
+	Philosophy
+	
+		-
+			A render call is a type of packet sent through a call command that is used to render
+			content to an external device or application.
+			
+			It shall consist of the string "Render", followed by a string specifying the device or
+			application to receive input from, followed by an object containing the content to be
+			rendered.
+		-
