@@ -113,49 +113,77 @@ Kaeon FUSION Stack Interface
 				The languages supported are C, C++, JavaScript, PHP, Java, Python, C#, and Swift.
 			-
 		
-		Keyboard Codes
+		Listening
 			
-			-
-				The keys on a standard keyboard may be referenced for certain stack interface
-				commands using string aliases.
-			-
-			
-			Codes
-			
-				Letters, Numbers, and Symbols
+			Keyboard Codes
 				
-					-
-						Letter, number, and symbol keys may be referenced by a string code
-						containing the character located on the lower shift value, where letter
-						case is irrelevant.
-					-
+				-
+					The keys on a standard keyboard may be referenced for certain stack interface
+					commands using string aliases.
+				-
 				
-				Caps Lock
+				Codes
 				
-					-
-						The caps lock command may be referenced with the string "Caps Lock".
-						The caps lock key is considered to be held down if caps lock is active.
-					-
-				
-				Other Standard Keys
+					Letters, Numbers, and Symbols
 					
-					Enter: Enter
-					Left Shift: Left Shift
-					Right Shift: Right Shift
-					Tab: Tab
-					Esc: Escape
-					Alt: Alternate
-					Backspace: Backspace
-					Delete: Delete
-					Insert: Insert
-					Left Arrow Key: Left
-					Right Arrow Key: Right
-					Up Arrow Key: Up
-					Down Arrow Key: Down
-				
-				System Specific Keys
-				
-					-
-						The codes for system specific keys will vary based on the host
-						environment.
-					-
+						-
+							Letter, number, and symbol keys may be referenced by a string code
+							containing the character located on the lower shift value, where letter
+							case is irrelevant.
+						-
+					
+					Caps Lock
+					
+						-
+							The caps lock command may be referenced with the string "Caps Lock".
+							The caps lock key is considered to be held down if caps lock is active.
+						-
+					
+					Other Standard Keys
+						
+						Enter: Enter
+						Left Shift: Left Shift
+						Right Shift: Right Shift
+						Tab: Tab
+						Esc: Escape
+						Alt: Alternate
+						Backspace: Backspace
+						Delete: Delete
+						Insert: Insert
+						Left Arrow Key: Left
+						Right Arrow Key: Right
+						Up Arrow Key: Up
+						Down Arrow Key: Down
+					
+					System Specific Keys
+					
+						-
+							The codes for system specific keys will vary based on the host
+							environment.
+						-
+		
+		Rendering
+		
+			HTML for GUI and Printing
+			
+				-
+					A render call containing the containing as its second element the string "GUI"
+					and as its third element a string containing an HTML document will trigger the
+					stack interface to open a GUI and render the HTML document to it, after which a
+					namespace representing the state of the GUI will be returned to the call
+					command.
+					
+					A render call containing the containing as its second element the string "Print"
+					and as its third element a string containing an HTML document will trigger the
+					stack interface to render the HTML document to an image and to open a prompt to
+					print said image out.
+				-
+			
+			Kaeon ACE
+			
+				-
+					A render call containing the containing as its second element the string value
+					"Kaeon ACE" and as its third element a string containing a ONE document in the
+					Kaeon ACE format will trigger the stack interface to open an instance of the
+					ACE engine and to pass said document to the engine.
+				-
