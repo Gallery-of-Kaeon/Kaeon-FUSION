@@ -3,9 +3,12 @@ Break
 	Philosophy
 		
 		-
-			The break command contains the content "Break", and may have one child that returns a
-			boolean.
+			The break command contains the content "Break". It may any combination of a child that
+			returns a boolean and a child that returns a positive integer number.
 			
-			If it has a child that returns a boolean value of true, or if it has no children, it
-			will prevent its siblings from executing.
+			If it has a child that returns a boolean value of false, it will not execute.
+			Otherwise, it will prevent its siblings from executing, and if it has a child that
+			returns a number, will bubble up its parent connections for the as many times as
+			specified by the returned number and prevent any siblings of the command it lands on as
+			well as any commands within its scope from executing.
 		-
