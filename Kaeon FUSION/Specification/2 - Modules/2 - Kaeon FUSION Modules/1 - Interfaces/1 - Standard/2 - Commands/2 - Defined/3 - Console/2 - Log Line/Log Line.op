@@ -3,7 +3,7 @@ Log Line
 	Philosophy
 	
 		-
-			The Log Line command is a command with the content "Log Line".
+			The log line command is a command with the content "Log Line".
 			
-			It prints all of the objects returned to it to the console, and then prints a new line.
+			It prints all of the objects returned to it followed by a new line to the console.
 		-
