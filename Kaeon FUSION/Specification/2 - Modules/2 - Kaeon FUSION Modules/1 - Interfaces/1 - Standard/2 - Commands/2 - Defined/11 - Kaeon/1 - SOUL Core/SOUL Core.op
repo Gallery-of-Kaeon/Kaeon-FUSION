@@ -29,4 +29,8 @@ SOUL Core
 			third child to the list. If the value of the string returned by the second child is
 			"Write", the command will return a string containing the corpus stored by the list in
 			the form of a ONE document in the SOUL core format.
+			
+			By default, the standard interface provides access to the SOUL core variable model
+			through the alias "SOUL Core Variable Model", and the SOUL core classifier model
+			through the alias "SOUL Core Classifier Model".
 		-
