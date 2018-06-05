@@ -55,7 +55,8 @@ Kaeon FUSION Standard Interface
 					
 					-
 						The host environment of a script using the standard interface may provide
-						an alternate console for the script to output to.
+						an alternate console for the script to output to. By default, the console
+						is standard out.
 					-
 				
 				Build Workspace
@@ -100,50 +101,3 @@ Kaeon FUSION Standard Interface
 					at one. If a command attempts to access or modify an index of a list that does
 					not exist, the list will be resized to accommodate the index.
 				-
-			
-			Keyboard Codes
-				
-				-
-					The keys on a standard keyboard may be referenced in certain standard interface
-					commands using string aliases.
-				-
-				
-				Codes
-				
-					Letters, Numbers, and Symbols
-					
-						-
-							Letter, number, and symbol keys may be referenced by a string code
-							containing the character located on the lower shift value, where letter
-							case is irrelevant.
-						-
-					
-					Caps Lock
-					
-						-
-							The caps lock command may be referenced with the string "Caps Lock".
-							The caps lock key is considered to be held down if caps lock is active.
-						-
-					
-					Other Standard Keys
-						
-						Enter: Enter
-						Left Shift: Left Shift
-						Right Shift: Right Shift
-						Tab: Tab
-						Esc: Escape
-						Alt: Alternate
-						Backspace: Backspace
-						Delete: Delete
-						Insert: Insert
-						Left Arrow Key: Left
-						Right Arrow Key: Right
-						Up Arrow Key: Up
-						Down Arrow Key: Down
-					
-					System Specific Keys
-					
-						-
-							The codes for system specific keys will vary based on the host
-							environment.
-						-
