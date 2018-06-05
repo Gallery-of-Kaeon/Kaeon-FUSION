@@ -1,9 +1,9 @@
-Delete
+Destroy
 
 	Philosophy
 	
 		-
-			The delete command contains that content "Delete". It has one child that returns a
+			The destroy command contains that content "Destroy". It has one child that returns a
 			string and may optionally have a second child that returns a boolean.
 			
 			It will delete and variable or function alias in the state that matches the returned
