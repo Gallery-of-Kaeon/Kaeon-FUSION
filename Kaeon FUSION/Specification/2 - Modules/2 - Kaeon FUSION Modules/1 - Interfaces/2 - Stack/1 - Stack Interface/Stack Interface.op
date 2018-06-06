@@ -241,7 +241,7 @@ Kaeon FUSION Stack Interface
 					has one.
 				-
 			
-			Outer Camera
+			Camera
 			
 				-
 					A listen packet with a string value of "Inner Camera" as its second element
@@ -315,4 +315,25 @@ Kaeon FUSION Stack Interface
 					third element a string containing a model file in COLLADA, OBJ, STL, PLY, or
 					OFF format will trigger the stack interface to open a prompt to print said
 					model out using a 3D printer.
+				-
+			
+			Motor
+			
+				-
+					A render call containing as its second element the string "Motor" and as its
+					third element a number representing the power output to the motor will cause a
+					motor, if one is present, to spin with the specified amount of force. It will
+					return a list for which the first element is a boolean specifying whether the
+					motor is still spinning and as its second element a number specifying the
+					amount of power being fed to the motor.
+				-
+			
+			Servo
+			
+				-
+					A render call containing as its second element the string "Servo" and as its
+					third element either a null value or a number representing the intended
+					position of the servo in radians will cause a servo, if one is present, to spin
+					to the specified position if the provided value is not null. It will return a
+					list a number specifying the current position of the servo in radians.
 				-
