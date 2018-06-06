@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import fusion.FUSIONUnit;
 import one.Element;
 import philosophers_stone.PhilosophersStoneUtilities;
+import standard_kaeon_fusion.utilities.FUSIONUtilities;
 import standard_kaeon_fusion.utilities.state.Alias;
 import standard_kaeon_fusion.utilities.state.State;
 
@@ -54,7 +55,7 @@ public class Define extends FUSIONUnit {
 				functionAlias.alias = alias;
 				functionAlias.object = function;
 				
-				state.setGlobalAlias(functionAlias);
+				state.setGlobalAlias(functionAlias, FUSIONUtilities.isIsolated(element));
 			}
 			
 			catch(Exception exception) {

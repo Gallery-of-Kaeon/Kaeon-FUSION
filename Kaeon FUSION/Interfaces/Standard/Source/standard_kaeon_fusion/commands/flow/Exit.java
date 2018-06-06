@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import fusion.FUSIONUnit;
 import one.Element;
+import philosophers_stone.PhilosophersStoneUtilities;
 
 public class Exit extends FUSIONUnit {
 	
@@ -16,6 +17,9 @@ public class Exit extends FUSIONUnit {
 	}
 	
 	public boolean terminate(Element element, ArrayList<Object> processed, int currentDepth) {
+		
+		PhilosophersStoneUtilities.call(this, "Stop");
+		
 		return true;
 	}
 }

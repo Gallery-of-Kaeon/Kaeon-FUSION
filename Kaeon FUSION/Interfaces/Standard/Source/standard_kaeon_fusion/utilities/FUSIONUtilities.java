@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import fusion.FUSION;
 import fusion.FUSIONUnit;
+import one.Element;
 import philosophers_stone.PhilosophersStone;
 import philosophers_stone.PhilosophersStoneUtilities;
 
@@ -66,5 +67,23 @@ public class FUSIONUtilities {
 		}
 		
 		return copy;
+	}
+	
+	public static boolean isIsolated(Element element) {
+		
+		Element current = element;
+		
+		while(true) {
+			
+			if(current.content.equalsIgnoreCase("Isolate"))
+				return true;
+			
+			if(current.parent == null)
+				break;
+			
+			current = current.parent;
+		}
+		
+		return false;
 	}
 }

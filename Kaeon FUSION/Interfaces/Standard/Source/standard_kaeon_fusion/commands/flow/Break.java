@@ -27,19 +27,50 @@ public class Break extends FUSIONUnit {
 		if(state == null)
 			state = (State) PhilosophersStoneUtilities.get(this, "State").get(0);
 		
-		if(element.parent.parent == null)
+		boolean condition = true;
+		int nest = 0;
+		
+		for(int i = 0; i < processed.size(); i++) {
+			
+			try {
+				nest = Integer.parseInt("" + processed.get(i)) - 1;
+			}
+			
+			catch(Exception exception) {
+				
+				if(("" + processed.get(i)).equalsIgnoreCase("false") ||
+						("" + processed.get(i)).equalsIgnoreCase("true")) {
+					
+					condition = Boolean.parseBoolean("" + processed.get(i));
+				}
+			}
+		}
+		
+		Element current = element;
+		
+		if(current.parent.parent == null)
 			return null;
 		
-		boolean condition = true;
+		int popState = 0;
 		
-		if(processed.size() > 0)
-			condition = Boolean.parseBoolean("" + processed.get(0));
+		for(int i = 0; i < nest; i++) {
+			
+			current = current.parent;
+			
+			if(current.parent.parent == null)
+				return null;
+			
+			popState++;
+		}
 		
 		broke = condition;
 		
 		if(condition) {
 			
-			Element current = element.parent;
+			for(int i = 0; i < popState; i++)
+				state.pop();
+			
+			current = current.parent;
 			
 			while(current.parent != null) {
 				
@@ -64,13 +95,37 @@ public class Break extends FUSIONUnit {
 	public boolean terminate(Element element, ArrayList<Object> processed) {
 		
 		boolean condition = true;
+		int nest = 0;
 		
-		if(processed.size() > 0)
-			condition = Boolean.parseBoolean("" + processed.get(0));
+		for(int i = 0; i < processed.size(); i++) {
+			
+			try {
+				nest = Integer.parseInt("" + processed.get(i)) - 1;
+			}
+			
+			catch(Exception exception) {
+				
+				if(("" + processed.get(i)).equalsIgnoreCase("false") ||
+						("" + processed.get(i)).equalsIgnoreCase("true")) {
+					
+					condition = Boolean.parseBoolean("" + processed.get(i));
+				}
+			}
+		}
+		
+		Element current = element;
+		
+		for(int i = 0; i < nest; i++) {
+			
+			current = current.parent;
+			
+			if(current.parent.parent == null)
+				return true;
+		}
 		
 		if(condition) {
 			
-			Element current = element.parent;
+			current = element.parent;
 			
 			while(current.parent != null) {
 				

@@ -6,6 +6,7 @@ import fusion.FUSION;
 import fusion.FUSIONUnit;
 import one.Element;
 import philosophers_stone.PhilosophersStoneUtilities;
+import standard_kaeon_fusion.utilities.FUSIONUtilities;
 import standard_kaeon_fusion.utilities.Priority;
 import standard_kaeon_fusion.utilities.state.Alias;
 import standard_kaeon_fusion.utilities.state.State;
@@ -54,7 +55,7 @@ public class Variables extends FUSIONUnit {
 			alias.alias = element.content;
 			alias.object = processed.get(0);
 			
-			state.setAlias(alias);
+			state.setAlias(alias, FUSIONUtilities.isIsolated(element));
 		}
 		
 		return state.getByAlias(element.content);

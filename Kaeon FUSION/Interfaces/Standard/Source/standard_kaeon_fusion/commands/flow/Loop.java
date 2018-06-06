@@ -26,16 +26,44 @@ public class Loop extends FUSIONUnit {
 	public Element jump(Element element, ArrayList<Object> processed) {
 		
 		boolean condition = true;
+		int nest = 0;
 		
-		if(processed.size() > 0)
-			condition = Boolean.parseBoolean("" + processed.get(0));
+		for(int i = 0; i < processed.size(); i++) {
+			
+			try {
+				nest = Integer.parseInt("" + processed.get(i)) - 1;
+			}
+			
+			catch(Exception exception) {
+				
+				if(("" + processed.get(i)).equalsIgnoreCase("false") ||
+						("" + processed.get(i)).equalsIgnoreCase("true")) {
+					
+					condition = Boolean.parseBoolean("" + processed.get(i));
+				}
+			}
+		}
+		
+		Element current = element;
+		
+		int popState = 0;
+		
+		for(int i = 0; i < nest && current.parent.parent != null; i++) {
+			
+			current = current.parent;
+			
+			popState++;
+		}
 		
 		if(condition) {
+			
+			for(int i = 0; i < popState; i++)
+				state.pop();
 			
 			state.pop();
 			state.push();
 			
-			return element.parent.children.get(0);
+			return current.parent.children.get(0);
 		}
 		
 		return null;

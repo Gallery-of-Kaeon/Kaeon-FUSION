@@ -20,7 +20,7 @@ public class ElementToList extends FUSIONUnit {
 		return elementToList(ONEPlus.parseONEPlus("" + processed.get(0)));
 	}
 	
-	public ArrayList<Object> elementToList(Element element) {
+	public static ArrayList<Object> elementToList(Element element) {
 		
 		ArrayList<Object> list = new ArrayList<Object>();
 		

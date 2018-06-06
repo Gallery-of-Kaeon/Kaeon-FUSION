@@ -61,12 +61,19 @@ public class State extends FUSIONUnit {
 	}
 	
 	public void setAlias(Alias alias) {
+		setAlias(alias, false);
+	}
+	
+	public void setAlias(Alias alias, boolean isolated) {
 		
 		for(int i = 0; i < inStates.size(); i++) {
 			
 			for(int j = 0; j < inStates.get(i).size(); j++)
-				inStates.get(i).get(j).setAlias(alias);
+				inStates.get(i).get(j).setAlias(alias, isolated);
 		}
+		
+		if(isolated)
+			return;
 		
 		for(int i = global.size() - 1; i >= 0; i--) {
 			
@@ -95,12 +102,19 @@ public class State extends FUSIONUnit {
 	}
 	
 	public void setGlobalAlias(Alias alias) {
+		setGlobalAlias(alias, false);
+	}
+	
+	public void setGlobalAlias(Alias alias, boolean isolated) {
 		
 		for(int i = 0; i < inStates.size(); i++) {
 			
 			for(int j = 0; j < inStates.get(i).size(); j++)
-				inStates.get(i).get(j).setGlobalAlias(alias);
+				inStates.get(i).get(j).setGlobalAlias(alias, isolated);
 		}
+		
+		if(isolated)
+			return;
 		
 		boolean found = false;
 		
@@ -130,26 +144,69 @@ public class State extends FUSIONUnit {
 		global.add(alias);
 	}
 	
+	public void removeAlias(String alias) {
+		removeAlias(alias, false, false, false);
+	}
+	
+	public void removeAlias(String alias, boolean isolated, boolean noGlobal, boolean noLocal) {
+		
+		for(int i = 0; i < inStates.size(); i++) {
+			
+			for(int j = 0; j < inStates.get(i).size(); j++)
+				inStates.get(i).get(j).removeAlias(alias, isolated, noGlobal, noLocal);
+		}
+		
+		if(isolated)
+			return;
+		
+		for(int i = global.size() - 1; i >= 0 && !noGlobal; i--) {
+			
+			if(global.get(i).alias.equalsIgnoreCase(alias)) {
+				
+				global.remove(i);
+				
+				i--;
+			}
+		}
+		
+		for(int i = state.size() - 1; i >= 0 && !noLocal; i--) {
+			
+			for(int j = state.get(i).size() - 1; j >= 0; j--) {
+				
+				if(state.get(i).get(j).alias.equalsIgnoreCase(alias)) {
+					
+					state.get(i).remove(j);
+					
+					j--;
+				}
+			}
+		}
+	}
+	
 	public Object getByAlias(String alias) {
+		return getByAlias(alias, false, false);
+	}
+	
+	public Object getByAlias(String alias, boolean noGlobal, boolean noLocal) {
 		
 		for(int i = inStates.size() - 1; i >= 0; i--) {
 			
 			for(int j = inStates.get(i).size() - 1; j >= 0; j--) {
 				
-				Object object = inStates.get(i).get(j).getByAlias(alias);
+				Object object = inStates.get(i).get(j).getByAlias(alias, noGlobal, noLocal);
 				
 				if(object != null)
 					return object;
 			}
 		}
 		
-		for(int i = global.size() - 1; i >= 0; i--) {
+		for(int i = global.size() - 1; i >= 0 && !noGlobal; i--) {
 			
 			if(global.get(i).alias.equalsIgnoreCase(alias))
 				return global.get(i).object;
 		}
 		
-		for(int i = state.size() - 1; i >= 0; i--) {
+		for(int i = state.size() - 1; i >= 0 && !noLocal; i--) {
 			
 			for(int j = state.get(i).size() - 1; j >= 0; j--) {
 				
@@ -162,19 +219,23 @@ public class State extends FUSIONUnit {
 	}
 	
 	public Object getByAliasAndType(String alias, String type) {
+		return getByAliasAndType(alias, type, false, false);
+	}
+	
+	public Object getByAliasAndType(String alias, String type, boolean noGlobal, boolean noLocal) {
 		
 		for(int i = inStates.size() - 1; i >= 0; i--) {
 			
 			for(int j = inStates.get(i).size() - 1; j >= 0; j--) {
 				
-				Object object = inStates.get(i).get(j).getByAliasAndType(alias, type);
+				Object object = inStates.get(i).get(j).getByAliasAndType(alias, type, noGlobal, noLocal);
 				
 				if(object != null)
 					return object;
 			}
 		}
 		
-		for(int i = global.size() - 1; i >= 0; i--) {
+		for(int i = global.size() - 1; i >= 0 && !noGlobal; i--) {
 			
 			if(global.get(i).alias.equalsIgnoreCase(alias) &&
 					global.get(i).type.equalsIgnoreCase(type)) {
@@ -183,7 +244,7 @@ public class State extends FUSIONUnit {
 			}
 		}
 		
-		for(int i = state.size() - 1; i >= 0; i--) {
+		for(int i = state.size() - 1; i >= 0 && !noLocal; i--) {
 			
 			for(int j = state.get(i).size() - 1; j >= 0; j--) {
 				
@@ -199,22 +260,26 @@ public class State extends FUSIONUnit {
 	}
 	
 	public ArrayList<Alias> getByType(String type) {
+		return getByType(type, false, false);
+	}
+	
+	public ArrayList<Alias> getByType(String type, boolean noGlobal, boolean noLocal) {
 		
 		ArrayList<Alias> aliases = new ArrayList<Alias>();
 		
 		for(int i = 0; i < inStates.size(); i++) {
 			
 			for(int j = 0; j < inStates.get(i).size(); j++)
-				aliases.addAll(inStates.get(i).get(j).getByType(type));
+				aliases.addAll(inStates.get(i).get(j).getByType(type, noGlobal, noLocal));
 		}
 		
-		for(int i = global.size() - 1; i >= 0; i--) {
+		for(int i = global.size() - 1; i >= 0 && !noGlobal; i--) {
 			
 			if(global.get(i).type.equalsIgnoreCase(type))
 				aliases.add(global.get(i));
 		}
 		
-		for(int i = state.size() - 1; i >= 0; i--) {
+		for(int i = state.size() - 1; i >= 0 && !noLocal; i--) {
 			
 			for(int j = state.get(i).size() - 1; j >= 0; j--) {
 				
@@ -227,29 +292,68 @@ public class State extends FUSIONUnit {
 	}
 	
 	public boolean hasAlias(String alias) {
+		return hasAlias(alias, false, false);
+	}
+	
+	public boolean hasAlias(String alias, boolean noGlobal, boolean noLocal) {
 		
 		for(int i = 0; i < inStates.size(); i++) {
 			
 			for(int j = 0; j < inStates.get(i).size(); j++) {
 				
-				boolean has = inStates.get(i).get(j).hasAlias(alias);
+				boolean has = inStates.get(i).get(j).hasAlias(alias, noGlobal, noLocal);
 				
 				if(has)
 					return true;
 			}
 		}
 		
-		for(int i = global.size() - 1; i >= 0; i--) {
+		for(int i = global.size() - 1; i >= 0 && !noGlobal; i--) {
 			
 			if(global.get(i).alias.equalsIgnoreCase(alias))
 				return true;
 		}
 		
-		for(int i = state.size() - 1; i >= 0; i--) {
+		for(int i = state.size() - 1; i >= 0 && !noLocal; i--) {
 			
 			for(int j = state.get(i).size() - 1; j >= 0; j--) {
 				
 				if(state.get(i).get(j).alias.equalsIgnoreCase(alias))
+					return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	public boolean hasAliasAndType(String alias, String type) {
+		return hasAliasAndType(alias, type, false, false);
+	}
+	
+	public boolean hasAliasAndType(String alias, String type, boolean noGlobal, boolean noLocal) {
+		
+		for(int i = 0; i < inStates.size(); i++) {
+			
+			for(int j = 0; j < inStates.get(i).size(); j++) {
+				
+				boolean has = inStates.get(i).get(j).hasAlias(alias, noGlobal, noLocal);
+				
+				if(has)
+					return true;
+			}
+		}
+		
+		for(int i = global.size() - 1; i >= 0 && !noGlobal; i--) {
+			
+			if(global.get(i).alias.equalsIgnoreCase(alias) && global.get(i).type.equalsIgnoreCase(type))
+				return true;
+		}
+		
+		for(int i = state.size() - 1; i >= 0 && !noLocal; i--) {
+			
+			for(int j = state.get(i).size() - 1; j >= 0; j--) {
+				
+				if(state.get(i).get(j).alias.equalsIgnoreCase(alias) && state.get(i).get(j).type.equalsIgnoreCase(type))
 					return true;
 			}
 		}
