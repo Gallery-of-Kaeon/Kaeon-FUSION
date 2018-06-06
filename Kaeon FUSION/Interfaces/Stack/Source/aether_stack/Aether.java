@@ -21,6 +21,10 @@ import stack.dialects.cross.PHP;
 import stack.dialects.cross.Python;
 import stack.dialects.cross.Swift;
 import stack.interaction.JavaInterface;
+import stack.rendering.Display;
+import stack.utilities.gui.DisplayGUI;
+import stack.utilities.gui.Printer;
+import stack.utilities.gui.PrinterImage;
 import stack.utilities.json.JSONUnit;
 import stack.utilities.json.containers.JSONContainer;
 import stack.utilities.json.containers.arrays.JSONArray;
@@ -30,6 +34,7 @@ import stack.utilities.json.io.read.FileScanner;
 import stack.utilities.json.io.read.JSONReader;
 import stack.utilities.json.io.write.JSONWriter;
 import stack.utilities.json.values.JSONValue;
+import stack.utilities.stopper.Stopper;
 import stack.utilities.xml.XMLAttribute;
 import stack.utilities.xml.XMLElement;
 import stack.utilities.xml.XMLUnit;
@@ -60,13 +65,21 @@ public class Aether {
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Swift());
 
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new JavaInterface());
+		
+		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Display());
 
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new XML());
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new JSON());
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new SQL());
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new CSS());
 		
+		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Stopper());
+		
 		new Category();
+		
+		new DisplayGUI();
+		new Printer();
+		new PrinterImage();
 		
 		new XMLUnit();
 		new XMLElement();
