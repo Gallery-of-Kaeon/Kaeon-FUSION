@@ -10,5 +10,7 @@ Listen Call
 			application to receive input from.
 			
 			It will cause the call command to return a list which the input from the specified
-			devices and applications will be written to.
+			devices and applications will be written to. Any modifications made to this list from
+			an external script will be written to the state of the devices and applications it is
+			tied to.
 		-
