@@ -118,11 +118,11 @@ Kaeon FUSION Stack Interface
 			Mouse
 			
 				-
-					A listen packet with a string value of "Mouse" as its second element will
-					return a list containing only a null value if the device does not support mice,
-					and if the device does support mice will return a list where the first element
-					is a number containing the horizontal position of the cursor in pixels where
-					the left of the screen has a value of one, the second element is a number
+					A listen call with a string value of "Mouse" as its second element will return
+					a list containing only a null value if the device does not support mice, and if
+					the device does support mice will return a list where the first element is a
+					number containing the horizontal position of the cursor in pixels where the
+					left of the screen has a value of one, the second element is a number
 					containing the vertical position of the cursor in pixels where the top of the
 					screen has a value of one, the third element is a boolean value representing
 					whether the left mouse button is held down, the fourth element is a boolean
@@ -136,7 +136,7 @@ Kaeon FUSION Stack Interface
 			Keyboard
 			
 				-
-					A listen packet with a string value of "Keyboard" as its second element will
+					A listen call with a string value of "Keyboard" as its second element will
 					return a list containing only a null value if the device does not support
 					keyboards, and if the device does support keyboards will return a list
 					containing the keyboard codes of all keys currently held down.
@@ -193,68 +193,66 @@ Kaeon FUSION Stack Interface
 			Screen
 			
 				-
-					A listen packet with a string value of "Screen" as its second element will
-					return a list containing only a null value if the device does not have a
-					screen, and if the device does have a screen will return a list where the first
-					element is a number containing the width of the screen in pixels, the second
-					element is a number containing the height of the screen in pixels, and the
-					third element is a null value if the screen is not a touch screen, and if the
-					screen is a touch screen is a list of lists, one for each point on the screen
-					being touched, where the first element of each sub list is the horizontal
-					position of the point of contact in pixels where the left of the screen has a
-					value of one, and the second element of each sub list is the vertical position
-					of the point of contact in pixels where the top of the screen has a value of
-					one.
+					A listen call with a string value of "Screen" as its second element will return
+					a list containing only a null value if the device does not have a screen, and
+					if the device does have a screen will return a list where the first element is
+					a number containing the width of the screen in pixels, the second element is a
+					number containing the height of the screen in pixels, and the third element is
+					a null value if the screen is not a touch screen, and if the screen is a touch
+					screen is a list of lists, one for each point on the screen being touched,
+					where the first element of each sub list is the horizontal position of the
+					point of contact in pixels where the left of the screen has a value of one, and
+					the second element of each sub list is the vertical position of the point of
+					contact in pixels where the top of the screen has a value of one.
 				-
 			
 			Motion
 			
 				-
-					A listen packet with a string value of "Motion" as its second element will
-					return a list where the first element is null if the device does not detect
-					rotation, and if the device does detect rotation will be a list containing
-					three numbers representing the device's pitch, yaw, and roll respectively in
-					radians, the second element is null if the device does not detect motion, and
-					if the device does detect motion will be a list containing three numbers
-					representing the device's movement on the x, y, and z axes respectively, the
-					third element is null if the device does not have a compass, and if the device
-					does have a compass will be a number specifying the rotation of the compass in
-					radians, and the fourth element is null if the device does not have a GPS, and
-					if the device does have a GPS is a list where the first element is a number
-					specifying the device's longitude and the second element is a number specifying
-					the device's latitude.
+					A listen call with a string value of "Motion" as its second element will return
+					a list where the first element is null if the device does not detect rotation,
+					and if the device does detect rotation will be a list containing three numbers
+					representing the device's pitch, yaw, and roll respectively in radians, the
+					second element is null if the device does not detect motion, and if the device
+					does detect motion will be a list containing three numbers representing the
+					device's movement on the x, y, and z axes respectively, the third element is
+					null if the device does not have a compass, and if the device does have a
+					compass will be a number specifying the rotation of the compass in radians, and
+					the fourth element is null if the device does not have a GPS, and if the device
+					does have a GPS is a list where the first element is a number specifying the
+					device's longitude and the second element is a number specifying the device's
+					latitude.
 				-
 			
 			Environment
 			
 				-
-					A listen packet with a string value of "Environment" as its second element will
+					A listen call with a string value of "Environment" as its second element will
 					return a list containing information on the local temperature, air pressure,
 					and lighting if the device provides such information.
-				-
-			
-			Inner Camera
-			
-				-
-					A listen packet with a string value of "Inner Camera" as its second element
-					will return a list containing information from the device's inner camera if it
-					has one.
 				-
 			
 			Camera
 			
 				-
-					A listen packet with a string value of "Inner Camera" as its second element
-					will return a list containing information from the device's outer camera if it
-					has one.
+					A listen call with a string value of "Camera" as its second element will
+					return a list containing information from the device's outer camera if it has
+					one.
 				-
 			
 			Microphone
 			
 				-
-					A listen packet with a string value of "Inner Camera" as its second element
-					will return a list containing information from the device's microphone if it
-					has one.
+					A listen call with a string value of "Microphone" as its second element will
+					return a list containing information from the device's microphone if it has
+					one.
+				-
+			
+			GPIO
+			
+				-
+					A listen call containing as its second element the string "GPIO" will return a
+					list containing the current input values of the GPIO pins, if they exist.
 				-
 		
 		Rendering
@@ -336,4 +334,13 @@ Kaeon FUSION Stack Interface
 					position of the servo in radians will cause a servo, if one is present, to spin
 					to the specified position if the provided value is not null. It will return a
 					list a number specifying the current position of the servo in radians.
+				-
+			
+			GPIO
+			
+				-
+					A render call containing as its second element the string "GPIO" and as its
+					third element a list of numbers will set the output of the GPIO pins, if they
+					exist, to the specified numbers. It will return a list containing the current
+					output values of the GPIO pins.
 				-
