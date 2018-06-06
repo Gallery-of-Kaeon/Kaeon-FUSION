@@ -7,5 +7,8 @@ Listen Call
 			input from an external device or application.
 			
 			It shall consist of the string "Listen", followed by a string specifying the device or
-			application to receive input from, followed by a list to write said input to.
+			application to receive input from.
+			
+			It will cause the call command to return a list which the input from the specified
+			devices and applications will be written to.
 		-
