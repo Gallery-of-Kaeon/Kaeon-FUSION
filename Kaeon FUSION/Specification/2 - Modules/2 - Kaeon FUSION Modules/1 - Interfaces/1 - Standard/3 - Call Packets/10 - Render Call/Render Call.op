@@ -11,5 +11,6 @@ Render Call
 			rendered.
 			
 			It may cause the call command to return a list which the state of any rendered objects
-			will be written to.
+			will be written to. Any modifications made to this list from an external script will be
+			written to the state of the objects it is tied to.
 		-
