@@ -383,7 +383,7 @@ If you were to compile the following code to ONE:
     -[ONE LISP]
 
     (a 1 2 3)
-    (foo (bar 4) (baz 5)
+    (foo (bar 4) (baz 5))
 
 It would produce the following:
 
