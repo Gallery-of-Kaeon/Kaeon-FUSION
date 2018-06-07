@@ -13,7 +13,7 @@ Either that or you just have a low tolerance for tech jargon.
 Don't worry,
 we've got you covered.
 
-_For both the documentation and the beginners resource in PDF form, click [here](https://drive.google.com/open?id=1cpDkYGPyTE08rpowXH10VjTxr03_jl6b)._
+_For both the documentation and the beginners resource in PDF form, click [here](https://drive.google.com/open?id=1D7LaDrj4KTY2_w23FKLni1gHFFuap19s)._
 
 ## Before you start
 
