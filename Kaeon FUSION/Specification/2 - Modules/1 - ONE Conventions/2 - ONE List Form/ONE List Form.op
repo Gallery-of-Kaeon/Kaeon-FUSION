@@ -15,13 +15,14 @@ ONE List Form
 				Any list of objects may be used to represent a ONE element in ONE list form.
 				
 				The string form of the first object in the list will be said element's content, and
-				every object following the first object will represent one of said element's children.
+				every object following the first object will represent one of said element's
+				children.
 				
-				If an empty list is interpreted as an element with content, said element will have
-				an empty string as its content.
+				If an empty list is interpreted as an element in ONE list form, said element will
+				have an empty string as its content.
 				
 				When interpreting an object within a list as an element's child, the string form of
 				the object will be said child's content if the object is not a list, and if the
-				object is a list, said child will be said list interpreted as an element with
-				content.
+				object is a list, said child will be said list interpreted as an element in ONE
+				list form.
 			-
