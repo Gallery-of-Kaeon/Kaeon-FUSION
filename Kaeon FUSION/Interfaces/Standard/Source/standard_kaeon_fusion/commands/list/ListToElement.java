@@ -18,24 +18,21 @@ public class ListToElement extends FUSIONUnit {
 	
 	@SuppressWarnings("unchecked")
 	public Object process(Element element, ArrayList<Object> processed) {
-		return "" + listToElement((ArrayList<Object>) processed.get(0), false);
+		return "" + listToElement((ArrayList<Object>) processed.get(0));
 	}
 	
 	@SuppressWarnings("unchecked")
-	public static Element listToElement(ArrayList<Object> list, boolean content) {
+	public static Element listToElement(ArrayList<Object> list) {
 		
-		Element element =
-				content ?
-						ElementUtilities.createElement(
-								list.size() > 0 ?
-										"" + list.get(0) :
-										"") :
-						new Element();
+		if(list.size() == 0)
+			return new Element();
 		
-		for(int i = content ? 1 : 0; i < list.size(); i++) {
+		Element element = ElementUtilities.createElement("" + list.get(0));
+		
+		for(int i = 1; i < list.size(); i++) {
 			
 			if(list.get(i) instanceof ArrayList)
-				ElementUtilities.addChild(element, listToElement((ArrayList<Object>) list.get(i), true));
+				ElementUtilities.addChild(element, listToElement((ArrayList<Object>) list.get(i)));
 			
 			else
 				ElementUtilities.addChild(element, ElementUtilities.createElement("" + list.get(i)));

@@ -20,7 +20,7 @@ public class Shift extends FUSIONUnit {
 	@SuppressWarnings("unchecked")
 	public Element jump(Element element, ArrayList<Object> processed) {
 		
-		Element jump = ListToElement.listToElement((ArrayList<Object>) processed.get(0), true);
+		Element jump = ListToElement.listToElement((ArrayList<Object>) processed.get(0));
 		
 		if(processed.size() > 1) {
 			

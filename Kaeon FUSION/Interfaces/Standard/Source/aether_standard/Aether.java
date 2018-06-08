@@ -30,6 +30,7 @@ import standard_kaeon_fusion.commands.data.New;
 import standard_kaeon_fusion.commands.data.Null;
 import standard_kaeon_fusion.commands.data.This;
 import standard_kaeon_fusion.commands.data.Type;
+import standard_kaeon_fusion.commands.data.With;
 import standard_kaeon_fusion.commands.exporting.Meta;
 import standard_kaeon_fusion.commands.flow.Block;
 import standard_kaeon_fusion.commands.flow.Break;
@@ -233,6 +234,7 @@ public class Aether {
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new This());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Type());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new standard_kaeon_fusion.commands.data.Variables());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new With());
 
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Block());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Break());
