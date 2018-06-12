@@ -22,7 +22,7 @@ _Please note that the components of Kaeon FUSION are officially defined by their
 
 _This documentation is aimed at those with a solid background in computer science. If you are new to programming, we recommend you check out our [Kaeon FUSION for Beginners](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/README.md) resource._
 
-_For both the documentation and the beginners resource in PDF form, click [here](https://drive.google.com/open?id=1D7LaDrj4KTY2_w23FKLni1gHFFuap19s)._
+_For both the documentation and the beginners resource in PDF form, click [here](https://drive.google.com/open?id=1Ut8fIiKjGFRSH0hO9KSEyIFxsP3PTXOE)._
 
 ## Contents
 

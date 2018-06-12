@@ -23,7 +23,7 @@ This is Kaeon FUSION!
 _This part is extremely technical. It's ok to skip past it._
 
 Kaeon FUSION (pronounced "KAI-on") is an interpreted programming language with the unique ability to alter its properties at runtime using modules that it can load dynamically.
-It's like if Java could import a module at runtime that made multiple inheritence legal,
+It's like if Java could import a module at runtime that made multiple inheritance legal,
 or if C could import a module at runtime that allowed the use of C++ style classes or enabled automatic garbage collection.
 Put another way,
 it's like if in LISP,
@@ -36,7 +36,7 @@ allows the user to manually encode any tree of strings.
 Said tree serves as the abstract syntax tree for Kaeon FUSION.
 This property allows Kaeon FUSION to be easily cross compiled into other languages,
 so despite being interpreted,
-Kaeon FUSION can still be useful in speed critical envrionments by being cross compiled to a compiled language.
+Kaeon FUSION can still be useful in speed critical environments by being cross compiled to a compiled language.
 Another benefit to ONE+ is that it has a highly customizable syntax,
 which allows for a wide variety of developer preferences to be accommodated.
 
@@ -55,7 +55,7 @@ and the specification for Kaeon FUSION.
 
 ### Direct Links
 
-[Online](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/README.md) and [PDF](https://drive.google.com/open?id=1D7LaDrj4KTY2_w23FKLni1gHFFuap19s) Documentation
+[Online](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/README.md) and [PDF](https://drive.google.com/open?id=1Ut8fIiKjGFRSH0hO9KSEyIFxsP3PTXOE) Documentation
 
 [Samples](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Samples)
 
