@@ -25,9 +25,14 @@ _This part is extremely technical. It's ok to skip past it._
 Kaeon FUSION (pronounced "KAI-on") is an interpreted programming language with the unique ability to alter its properties at runtime using modules that it can load dynamically.
 It's like if Java could import a module at runtime that made multiple inheritence legal,
 or if C could import a module at runtime that allowed the use of C++ style classes or enabled automatic garbage collection.
+Put another way,
+it's like if in LISP,
+instead of only being able to use one dialect at a time,
+it was possible to use several at once.
 
-It is also unique in that sits on top of a markup language called ONE+.
-ONE+ allows the user to manually encode any tree of strings.
+It is also unique in that sits on top of a markup language called ONE+[https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/README.md].
+ONE+, which is a syntactic superset of a much more minimalistic markup language called ONE[https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/1%20-%20ONE/README.md],
+allows the user to manually encode any tree of strings.
 Said tree serves as the abstract syntax tree for Kaeon FUSION.
 This property allows Kaeon FUSION to be easily cross compiled into other languages,
 so despite being interpreted,
