@@ -30,8 +30,8 @@ it's like if in LISP,
 instead of only being able to use one dialect at a time,
 it was possible to use several at once.
 
-It is also unique in that sits on top of a markup language called ONE+[https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/README.md].
-ONE+, which is a syntactic superset of a much more minimalistic markup language called ONE[https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/1%20-%20ONE/README.md],
+It is also unique in that sits on top of a markup language called [ONE+](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/README.md).
+ONE+, which is a syntactic superset of a much more minimalistic markup language called [ONE](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/1%20-%20ONE/README.md),
 allows the user to manually encode any tree of strings.
 Said tree serves as the abstract syntax tree for Kaeon FUSION.
 This property allows Kaeon FUSION to be easily cross compiled into other languages,
