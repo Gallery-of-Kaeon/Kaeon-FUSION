@@ -244,9 +244,9 @@ we'll hear you out.
 <h2 align="center">Disclaimer</h2>
 
 Tl;Dr: The core of Kaeon FUSION's specification is more or less complete,
-but the modular parts of the specification,
-the implementation,
-and the documentation are works in progress.
+but the implementation,
+the documentation,
+and the modular parts of the specification are works in progress.
 
 It is important to note that the contents of this repository are aimed at those who have a strong background in computer science.
 If you're a newcomer to programming in general,
