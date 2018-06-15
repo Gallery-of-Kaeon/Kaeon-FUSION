@@ -243,7 +243,7 @@ we'll hear you out.
 
 <h2 align="center">Disclaimer</h2>
 
-Tl;Dr: The core of Kaeon FUSION's specification is more or less complete,
+TL;DR: The core of Kaeon FUSION's specification is more or less complete,
 but the implementation,
 the documentation,
 and the modular parts of the specification are works in progress.
