@@ -5,7 +5,7 @@
 
 # ONE+
 
-While ONE is versatile and serves as a solid foundation for the FUSION system,
+While [ONE](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/1%20-%20ONE/README.md) is versatile and serves as a solid foundation for the FUSION system,
 it is quite cumbersome to write it by hand.
 ONE+ was created to compensate for this.
 
