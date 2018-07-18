@@ -1,0 +1,13 @@
+[USE: SUPER] [SUPER]
+
+a = 0
+b = 1
+
+for { input: "Enter a number: " }
+	
+	print a
+	
+	temp = a
+	
+	a = b
+	b += temp

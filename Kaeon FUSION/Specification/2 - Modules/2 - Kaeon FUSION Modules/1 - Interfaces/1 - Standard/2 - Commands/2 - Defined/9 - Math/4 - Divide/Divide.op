@@ -1,0 +1,11 @@
+Divide
+	
+	Philosophy
+		
+		-
+			The divide command contains the content "Divide". It may have an indefinite number of
+			children, each of which return a number.
+			
+			It assigns the first number to a value and divides the value by each subsequent number
+			in order. It then returns the resulting value.
+		-

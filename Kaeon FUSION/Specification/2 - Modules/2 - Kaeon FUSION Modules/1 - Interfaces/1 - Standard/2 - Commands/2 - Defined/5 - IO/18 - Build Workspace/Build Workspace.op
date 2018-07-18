@@ -1,0 +1,9 @@
+Build Workspace
+
+	Philosophy
+	
+		-
+			The build workspace command contains the content "Build Workspace".
+			
+			It returns the path to the build workspace currently in use by the standard interface.
+		-

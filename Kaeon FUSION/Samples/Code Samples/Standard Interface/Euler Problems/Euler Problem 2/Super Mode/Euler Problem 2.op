@@ -1,0 +1,18 @@
+[USE: SUPER] [SUPER]
+
+a = 0
+b = 1
+
+sum = 0
+
+while { a < 4000000 }
+	
+	if { a % 2 == 0 }
+		sum += a
+
+	temp = b
+
+	b = a + temp
+	a = temp
+
+print sum

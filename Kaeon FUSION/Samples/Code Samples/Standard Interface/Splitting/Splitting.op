@@ -1,0 +1,39 @@
+#[
+	This code will simultaneously run a loop the counts from 1 to 5 and a loop that counts from 6
+	to 10.
+
+	Thus, the output should closely resemble the following:
+
+	1
+	6
+	2
+	7
+	3
+	8
+	4
+	9
+	5
+	10
+ ]#
+
+Use: Standard
+
+Split
+	
+	i: 1
+	
+	Scope
+		
+		Log Line: i
+		
+		i: Add: i, 1
+		Loop: Less or Equal: i, 5
+
+i: 6
+
+Scope
+	
+	Log Line: i
+	
+	i: Add: i, 1
+	Loop: Less or Equal: i, 10

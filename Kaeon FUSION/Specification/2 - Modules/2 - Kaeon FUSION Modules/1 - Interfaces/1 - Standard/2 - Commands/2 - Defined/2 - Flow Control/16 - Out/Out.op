@@ -1,0 +1,11 @@
+Out
+
+	Philosophy
+	
+		-
+			The out command is a command with the content "Out". It may have an indefinite number
+			of children, each of which return a the namespace of a script or function.
+			
+			If any of the values in the returned namespaces have been introduced to the local
+			namespace by in commands, they will be removed from the local namespace.
+		-

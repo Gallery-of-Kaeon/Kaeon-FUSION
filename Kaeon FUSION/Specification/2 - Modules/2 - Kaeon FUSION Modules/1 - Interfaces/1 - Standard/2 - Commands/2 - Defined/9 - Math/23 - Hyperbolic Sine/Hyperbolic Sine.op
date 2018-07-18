@@ -1,0 +1,10 @@
+Hyperbolic Sine
+	
+	Philosophy
+		
+		-
+			The hyperbolic sine command contains the content "Hyperbolic Sine". It must have a
+			single child which returns a number.
+			
+			It returns the hyperbolic sine value of the returned number in radians.
+		-

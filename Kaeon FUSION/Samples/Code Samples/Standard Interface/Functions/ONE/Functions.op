@@ -1,0 +1,72 @@
+-
+	Use
+-
+	-
+		Standard
+	-
+-
+	baz
+-
+	-
+		5
+	-
+-
+	Define
+-
+	-
+		foo
+	-
+		-
+			Log Line
+		-
+			-
+				bar
+			-
+-
+	Define
+-
+	-
+		baz
+	-
+		-
+			i
+		-
+			-
+				0
+			-
+		-
+			Scope
+		-
+			-
+				foo
+			-
+			-
+				i
+			-
+				-
+					Add
+				-
+					-
+						i
+					-
+					-
+						1
+					-
+			-
+				Loop
+			-
+				-
+					Less
+				-
+					-
+						i
+					-
+					-
+						At
+					-
+						-
+							Arguments
+						-
+						-
+							1
+						-

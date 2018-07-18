@@ -1,0 +1,37 @@
+# Super Mode has not been implemented yet.
+
+[USE: SUPER] [SUPER]
+
+def dog { params: name }
+	
+	# Object fields should be global
+	global
+
+		# Makes the passed in name value a field of the class
+		name
+		
+		height = 5
+		weight = 10
+	
+	# Define the function bork within dog
+	# Prints bork from zero to the number passed in
+	def bork { params: borks }
+		
+		for { borks }
+			
+			# Surround bork in quotation marks to avoid recursive call
+			print "bork"
+
+# Assign a new instance of dog with the argument doggo to my dog
+my dog = new dog { doggo }
+
+# Run the code "height: 7" within my dog to set my dog's height to 7
+my dog -> height = 7
+
+# Run code within my dog to return data to the Log Line command
+
+print my dog => height
+print my dog => weight
+
+# Run the function bork within my dog
+my dog -> bork { 3 }

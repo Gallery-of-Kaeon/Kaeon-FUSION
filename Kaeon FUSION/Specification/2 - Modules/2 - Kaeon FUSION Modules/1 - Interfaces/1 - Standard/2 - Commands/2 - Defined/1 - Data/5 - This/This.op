@@ -1,0 +1,10 @@
+This
+	
+	Philosophy
+		
+		-
+			The this command contains the content "This".
+			
+			It returns a reference to the namespace of the function or script from which it was
+			called.
+		-

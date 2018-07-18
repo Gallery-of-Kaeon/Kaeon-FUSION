@@ -1,0 +1,10 @@
+Global
+	
+	Philosophy
+	
+		-
+			The global command contains the content "Global" and may have an indefinite number of
+			children.
+			
+			The content of each child will become a global alias in the state.
+		-

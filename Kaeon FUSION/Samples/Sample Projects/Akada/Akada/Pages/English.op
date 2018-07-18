@@ -1,0 +1,126 @@
+Define: English
+	
+	Head
+
+		Style: English Style
+		Script: English Script
+
+		Title: Akada - English Test
+
+	Division { ID: content }
+		Image { ID: background; Source: res/background.jpg }
+
+	Division { Class: question; ID: number_1 }
+		
+		Text: Class { prompt }, What is 1 + 1?
+		
+		Table { Class: answers }
+
+			Table Row
+				Cell: Button: Class { answer }, 2, On Click { myFunc }
+				Cell: Button: Class { answer }, Not 2
+
+			Table Row
+				Cell: Button: Class { answer }, -1/12
+				Cell: Button: Class { answer }, Mayonnaise
+
+	Division { Class: question; ID: number_2 }
+		
+		Text: Class { prompt }, What is the derivative of x^2?
+		
+		Table { Class: answers }
+
+			Table Row
+				Cell: Button: Class { answer }, 2
+				Cell: Button: Class { answer }, 4x
+
+			Table Row
+				Cell: Button: Class { answer }, -1/4x^2
+				Cell: Button: Class { answer }, 2x
+
+	Division { Class: question; ID: number_3 }
+		
+		Text: Class { prompt }, What is the integral of 2x?
+		
+		Table { Class: answers }
+
+			Table Row
+				Cell: Button: Class { answer }, 16
+				Cell: Button: Class { answer }, x^2
+
+			Table Row
+				Cell: Button: Class { answer }, 2^x
+				Cell: Button: Class { answer }, x-2
+
+
+
+Define: English Style
+
+	Button
+		border-radius: 25px
+
+	On: content
+		
+		margin: 0
+		padding: 0
+
+		top: 0%
+		left: 0%
+
+		height: 100vh
+		
+		position: fixed
+		background: black
+
+	On: background
+
+		width: 100%
+
+	question
+		
+		left: 10%
+
+		width: 80%
+		height: 30%
+
+		position: absolute
+		background: white
+
+		border-radius: 25px
+	
+	prompt
+		
+		top: 25%
+		left: 7%
+
+		font-size: 2vw
+		
+		color: black
+		text-shadow: 4px 4px 8px grey
+
+		position: absolute
+
+	answers
+		
+		top: 25%
+		left: 40%
+
+		position: absolute
+	
+	answer
+
+		font-size: 2vw
+		
+		height: 3vw
+		width: 20vw
+
+	On: number_1: top: 10%
+	On: number_2: top: 50%
+	On: number_3: top: 90%
+
+Define: English Script
+
+	Define: myFunc
+
+		Scope { In: Default }
+			alert: hello

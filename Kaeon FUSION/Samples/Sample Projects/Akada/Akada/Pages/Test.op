@@ -1,0 +1,101 @@
+Define: Test
+	
+	Head
+
+		Style: Test Style
+	
+		Title: Akada - Tests
+	
+	Division { ID: content }
+		Image { ID: background; Source: res/background.jpg }
+	
+	Link { Reference: ../Calculus/Calculus.html } 
+	
+		Division { Class: test; ID: calculus }
+			Image: Class { thumb } Source: res/calc.jpg
+			Text: Class { name } Calculus
+	
+	Link { Reference: ../Biology/Biology.html } 
+
+		Division { Class: test; ID: biology }
+			Image: Class { thumb } Source: res/bio.jpg
+			Text: Class { name } Biology
+	
+	Link { Reference: ../Comp Sci/CompSci.html } 
+
+		Division { Class: test; ID: compsci }
+			Image: Class { thumb } Source: res/comp sci.jpg
+			Text: Class { name } Computer Science
+	
+	Link { Reference: ../History/History.html } 
+	
+		Division { Class: test; ID: history }
+			Image: Class { thumb } Source: res/history.jpg
+			Text: Class { name } History
+	
+	Link { Reference: ../English/English.html } 
+	
+		Division { Class: test; ID: english }
+			Image: Class { thumb } Source: res/english.jpg
+			Text: Class { name } English
+
+
+Define: Test Style
+
+	On: content
+		
+		margin: 0
+		padding: 0
+
+		top: 0%
+		left: 0%
+
+		height: 100vh
+		
+		position: fixed
+		background: black
+
+	On: background
+
+		width: 100%
+
+	test
+		
+		left: 10%
+
+		width: 80%
+		height: 30%
+
+		position: absolute
+		background: white
+
+		border-radius: 25px
+	
+	thumb
+		
+		top: 10%
+		left: 5%
+
+		width: 30%
+		height: 80%
+
+		position: absolute
+
+		border-radius: 25px
+	
+	name
+		
+		top: 7%
+		left: 55%
+		font-size: 4vw
+		
+		color: white
+		text-shadow: 4px 4px 8px black
+
+		position: absolute
+
+	On: calculus: top: 10%
+	On: biology: top: 50%
+	On: compsci: top: 90%
+	On: history: top: 130%
+	On: english: top: 170%

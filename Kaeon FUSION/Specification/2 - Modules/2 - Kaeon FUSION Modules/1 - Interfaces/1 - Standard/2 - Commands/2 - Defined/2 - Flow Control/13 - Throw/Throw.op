@@ -1,0 +1,10 @@
+Throw
+	
+	Philosophy
+		
+		-
+			The throw command contains the content "Throw". It does not trickle down.
+			
+			It will throw an exception, preventing any subsequent commands from executing until the
+			exception is caught.
+		-

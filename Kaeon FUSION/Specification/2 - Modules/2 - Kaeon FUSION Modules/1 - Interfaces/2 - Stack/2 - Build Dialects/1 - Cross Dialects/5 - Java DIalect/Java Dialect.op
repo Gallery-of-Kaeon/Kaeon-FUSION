@@ -1,0 +1,94 @@
+Java Dialect
+	
+	Philosophy
+		
+		-
+			The Java dialect is a cross dialect analogous to Java.
+		-
+	
+	Types
+	
+		Public
+		
+		Private
+		
+		Protected
+		
+		Package
+		
+		Static
+		
+		Final
+		
+		Object
+		
+		Byte
+		
+		Integer
+		
+		Short
+		
+		Long
+		
+		Float
+		
+		Double
+		
+		Character
+		
+		Boolean
+		
+		Void
+		
+		Class
+		
+			-
+				If the type element has a child with the content "Class", said child must have a
+				single child with content containing an the name of a Java class.
+			-
+		
+		Template
+		
+			-
+				If the type element has a child with the content "Template", said child may have
+				any children that the type element itself may have, specifying the type to place
+				within a template.
+			-
+			
+		Array
+			
+			-
+				If the type element has a child with the content "Array", said child may have a
+				child with content containing an integer number, specifying the dimensions of the
+				array. If no such child is present, the array will be assumed to be one
+				dimensional.
+			-
+	
+	Operator Commands
+	
+		Instance Of
+		
+			-
+				The instance of operator command contains the content "Instance Of". It will have
+				two children, the first of which may return any Java object value and the second of
+				which has content that matches the name of a Java class.
+			-
+	
+	Notations
+	
+		Package
+		
+			-
+				If a notation element has a child with the content "Package", said child must have
+				one child with content containing the name of a java package, which will be the
+				package the class it occurs within will be declared to reside in.
+			-
+		
+		Interfaces
+		
+			-
+				If a notation element has a child with the content "Interfaces", said child may
+				have an indefinite number of children, each of which with content containing the
+				name of a Java interface, which any class definitions following the respective meta
+				command will implement.
+			-

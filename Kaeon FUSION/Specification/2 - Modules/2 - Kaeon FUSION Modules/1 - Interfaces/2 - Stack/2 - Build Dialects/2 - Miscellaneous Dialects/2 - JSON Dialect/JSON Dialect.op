@@ -1,0 +1,54 @@
+JSON Dialect
+	
+	Philosophy
+		
+		-
+			The JSON dialect is a build dialect analogous to JSON.
+		-
+	
+	Principles
+	
+		Syntax
+	
+			Structure
+			
+				-
+					Every element in an JSON dialect document takes the form of either a list
+					element or an object element.
+				-
+			
+			Letter Case
+			
+				-
+					The letter case of content specified for elements listed in this document is
+					irrelevant.
+				-
+			
+			List Elements
+			
+				-
+					A list element has the content "List" and may have an indefinite number of
+					children, each of which will be a value element.
+				-
+			
+			Object Elements
+			
+				-
+					A list element has the content "Object" and may have an indefinite number of
+					children, each of which will be a field element.
+				-
+			
+			Field Elements
+			
+				-
+					A field element will have content that is neither "List" nor "Object", and will
+					have a single value element as its child.
+				-
+			
+			Value Elements
+				
+				-
+					A value element may take the form of a list element, an object element, or an
+					element with content that is neither "List" nor "Object". A value element that
+					is not a list element or an object element may not have any children.
+				-

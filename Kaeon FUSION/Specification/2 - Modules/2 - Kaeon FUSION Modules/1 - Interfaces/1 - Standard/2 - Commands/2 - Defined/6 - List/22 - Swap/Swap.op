@@ -1,0 +1,10 @@
+Swap
+
+	Philosophy
+		
+		-
+			The swap command contains the content "Swap". It has three children, the first or which
+			returns a list, and the second and third of which return integer numbers.
+			
+			It will swap the elements of the list at the indexes specified by the returned numbers.
+		-

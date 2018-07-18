@@ -1,0 +1,11 @@
+Or
+
+	Philosophy
+		
+		-
+			The or command contains the content "Or". It may have an indefinite number of children,
+			each of which return a boolean.
+			
+			It will return true if any of the returned booleans are true, and return false
+			otherwise.
+		-

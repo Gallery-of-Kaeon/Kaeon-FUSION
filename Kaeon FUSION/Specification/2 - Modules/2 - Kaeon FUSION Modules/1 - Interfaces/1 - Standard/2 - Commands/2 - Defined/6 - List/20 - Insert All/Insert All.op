@@ -1,0 +1,13 @@
+Insert All
+	
+	Philosophy
+		
+		-
+			The insert all command contains the content "Insert All". It must have at least three
+			children, the first of which returns a list, the second of which returns an integer,
+			and every subsequent child returning a list.
+			
+			It will insert the contents of the lists returned by the every child past the second
+			child in the order their respective lists were returned into the list returned by the
+			first child at the index specified by the integer returned by the second child.
+		-

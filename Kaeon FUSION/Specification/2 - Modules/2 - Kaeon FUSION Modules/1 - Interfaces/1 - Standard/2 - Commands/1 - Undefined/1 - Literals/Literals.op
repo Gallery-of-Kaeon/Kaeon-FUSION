@@ -1,0 +1,19 @@
+Literals
+	
+	Philosophy
+		
+		-
+			The standard interface will override the literals present in Kaeon FUSION at startup
+			with the following functionality.
+			
+			A command with content that does not match the name of a defined command or any alias
+			in the state and has no children will return its content as a string.
+			
+			If its content begins and ends with a double quote, the double quotes will be cropped
+			from the returned content.
+			
+			Any sequence within the returned string consisting of a backslash followed by another
+			character will be interpreted based on what the second character in the sequence is,
+			with an 'n' denoting a new line, a 't' denoting a tab, and any other character denoting
+			itself.
+		-

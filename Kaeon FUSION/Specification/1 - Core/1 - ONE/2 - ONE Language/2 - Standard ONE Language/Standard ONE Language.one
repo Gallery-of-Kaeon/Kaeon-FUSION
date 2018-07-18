@@ -1,0 +1,36 @@
+-
+	Standard ONE Language
+-
+	-
+		Philosophy
+	-
+		-
+			The standard variant of the ONE Language defines specific sequences of characters as
+			the three required sequences of the ONE language.
+		-
+	-
+		Principles
+	-
+		-
+			Standard Sequences
+		-
+			-
+				Terminating Sequence
+			-
+				-
+					In the standard variant of the ONE Language, the terminating sequence is a
+					dash.
+				-
+			-
+				Breaking Sequence
+			-
+				-
+					In the standard variant of the ONE Language, the breaking sequence is a new
+					line.
+				-
+			-
+				Nesting Sequence
+			-
+				-
+					In the standard variant of the ONE Language, the nesting sequence is a tab.
+				-

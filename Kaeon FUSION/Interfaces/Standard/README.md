@@ -1,0 +1,2 @@
+It should be noted that though we list the file standard.jar as an interface,
+it also provides the standard ONE+ directives due to the fact that both the interface and the directives share the same alias.

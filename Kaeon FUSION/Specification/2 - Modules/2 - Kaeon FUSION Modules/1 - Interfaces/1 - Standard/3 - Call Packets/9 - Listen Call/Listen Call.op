@@ -1,0 +1,19 @@
+Listen Call
+
+	Philosophy
+	
+		-
+			A listen call is a type of packet sent through a call command that is used to receive
+			input from an external device or application.
+			
+			It shall consist of the string "Listen", followed by a string specifying the device or
+			application to receive input from, optionally followed by a list of objects to serve as
+			arguments for the listener. The first element in the arguments list, if there is one,
+			may be used to identify which device or application, if there are several of the same
+			kind, should be listened to.
+			
+			It will cause the call command to return a list which the input from the specified
+			devices and applications will be written to. Any modifications made to this list from
+			an external script will be written to the state of the devices and applications it is
+			tied to.
+		-

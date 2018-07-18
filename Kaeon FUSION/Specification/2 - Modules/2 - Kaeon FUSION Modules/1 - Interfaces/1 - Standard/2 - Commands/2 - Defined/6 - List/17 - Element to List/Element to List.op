@@ -1,0 +1,11 @@
+Element to List
+
+	Philosophy
+	
+		-
+			The element to list command contains the content "Element to List". It must have one
+			child that returns a string containing a ONE+ document.
+			
+			It will parse the document and return a list representing the document in ONE list
+			form.
+		-

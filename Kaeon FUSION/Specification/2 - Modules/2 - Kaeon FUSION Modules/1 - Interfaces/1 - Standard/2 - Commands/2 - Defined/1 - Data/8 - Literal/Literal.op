@@ -1,0 +1,9 @@
+Literal
+	
+	Philosophy
+		
+		-
+			The literal command contains the content "Literal". It must have a single child.
+			
+			It returns the content of its child.
+		-

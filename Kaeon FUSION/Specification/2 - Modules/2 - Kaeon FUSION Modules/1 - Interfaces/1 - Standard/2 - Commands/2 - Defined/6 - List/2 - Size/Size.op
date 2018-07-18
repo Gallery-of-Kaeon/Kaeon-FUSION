@@ -1,0 +1,9 @@
+Size
+	
+	Philosophy
+		
+		-
+			The size command contains the content "Size". It has one child that returns a list.
+			
+			It will return the size of the list.
+		-

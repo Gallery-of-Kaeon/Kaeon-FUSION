@@ -1,0 +1,14 @@
+List to Element
+
+	Philosophy
+	
+		-
+			The list to element command contains the content "List to Element". It must have one
+			child that returns a list.
+			
+			It will make a copy of the list. If the copy is either empty or the string form of its
+			first object is not in the form of an empty string, an empty string will be appended to
+			the beginning of the list. It will interpret the copied list using ONE list form as an
+			element, and return a string containing the interpreted element written using the
+			standard ONE language.
+		-

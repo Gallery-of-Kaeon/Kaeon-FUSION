@@ -1,0 +1,19 @@
+Use: Standard
+
+a: 0
+b: 1
+
+limit: Input: "Enter a number: "
+
+i { 1 } Scope
+	
+	Log Line: a
+	
+	temp: a
+	
+	a: b
+	b: Add: temp, b
+	
+	i: Add: i, 1
+	
+	Loop: Less: i, limit

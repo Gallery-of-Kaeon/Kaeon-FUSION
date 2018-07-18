@@ -1,0 +1,12 @@
+Addresses
+
+	Philosophy
+	
+		-
+			The addresses command contains the content "Addresses". It may have one child that
+			returns a string in the form of a domain name.
+			
+			If it has no children, it will return the IP addresses of the device that Kaeon FUSION
+			is running on as a list. If it does have a child, it will return the IP addresses of
+			the specified domain name as a list
+		-

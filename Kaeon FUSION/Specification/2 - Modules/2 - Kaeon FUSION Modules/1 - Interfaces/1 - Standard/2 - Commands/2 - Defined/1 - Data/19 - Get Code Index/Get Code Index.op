@@ -1,0 +1,11 @@
+Get Code Index
+
+	Philosophy
+	
+		-
+			The get code index command contains the content "Get Code Index".
+			
+			It creates a list, and then starting from the command that called it, adds the index of
+			said command to the beginning of said list, and trickles up to said command's parent
+			until it reaches the root. It then returns the generated list.
+		-

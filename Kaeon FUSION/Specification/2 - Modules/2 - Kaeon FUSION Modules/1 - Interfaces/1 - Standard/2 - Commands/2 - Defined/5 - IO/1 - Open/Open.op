@@ -1,0 +1,11 @@
+Open
+	
+	Philosophy
+		
+		-
+			The open command contains the content "Open". It has one child that returns a string
+			value.
+			
+			It will return the content of the file located at the path specified by the returned
+			string.
+		-

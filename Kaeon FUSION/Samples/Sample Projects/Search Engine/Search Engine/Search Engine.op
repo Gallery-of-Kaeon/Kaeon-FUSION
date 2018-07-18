@@ -1,0 +1,162 @@
+Use: Standard
+
+Global
+	
+	root site: Input: "Enter the URL of the root site: "
+	max depth: 2
+
+	link data: List
+	link path: List
+
+Define: get links { page: At: Arguments, 1 }
+	
+	links: List
+	
+	link tokens: Tokenize: page, Literal { href=~" }, Literal { ~" }
+	link indexes: Indexes: link tokens, Literal { href=~" }
+
+	i: 1; Scope
+
+		link: At: link tokens, Add: 1, At: link indexes, i
+
+		Scope { Break: Not: Contains: link, http }
+			Append: links, link
+
+		i: Add: i, 1
+		Loop: Less or Equal: i, Size: link indexes
+
+	Catch
+
+	Return: links
+
+Define: get score { page { At: Arguments, 1 }, search { At: Arguments, 2 } }
+	Return: Count: Lower { page }, Lower { search }
+
+Define: get link index { link: At: Arguments, 1 }
+
+	i: 1; Scope
+
+		Scope { Break: Not: Equal: link, At: At { link data, i }, 1 }
+			Return: i
+
+		i: Add: i, 1
+		Loop: Less or Equal: i, Size: link data
+	
+	Catch
+	
+	Return: 0
+
+Define: add links { links { At: Arguments, 1 }, root { At: Arguments, 2 } }
+
+	i: 1; Scope
+
+		link: At: links, i
+		link index: get link index: link
+		
+		Scope { Break: Not: Equal: link index, Null }
+			link index: 0
+
+		Scope { Break: Not: Contains: link, http }
+
+			Scope { Break: Not: Equal: link index, 0 }
+				Append: link data, List: link, 0, 1
+
+			Else
+			
+				Set { At { link data, link index }, 3 }
+					Add: 1, At: At { link data, link index }, 3
+
+			Scope { Break: Not: root }
+			
+				Set { At { link data, link index }, 3 }
+					Subtract: At { At { link data, link index }, 3 }, 1
+
+		Catch
+
+		i: Add: i, 1
+		Loop: Less or Equal: i, Size: links
+
+Define: evaluate page
+
+	page name { At: Arguments, 1 }
+	search { At: Arguments, 2 }
+	depth { At: Arguments, 3 }
+
+	Scope { Break: Not: Equal: depth, max depth }
+		Return
+
+	Scope { Break: Not: Contains: link path, page name }
+		Return
+	
+	page: Open: page name
+
+	results: List
+
+	links: get links: page
+	score: get score: page, search
+
+	add links: List { page name }, true
+	add links: links, false
+
+	link index: get link index: page name
+	Set: At { link data, link index }, 2, score
+
+	Append: link path, page name
+	depth: Add: depth, 1
+
+	Scope { Break: Not: Equal: 0, Size: links }
+		Return
+
+	i: 1; Scope
+
+		evaluate page: At { links, i }, search, depth
+
+		i: Add: i, 1
+		Loop: Less or Equal: i, Size: links
+
+Define: sort
+	
+	Scope { Break: Not: Equal: 0, Size: list data }
+		Return
+
+	i: 1; Scope
+
+		Set: At { link data, i }, 2, Multiply
+
+			Add
+				At: At { link data, i }, 2
+				At: At { link data, i }, 3
+
+			At: At { link data, i }, 3
+		
+		Remove: At { link data, i }, 3
+
+		i: Add: i, 1
+		Loop: Less or Equal: i, Size: link data
+
+	Sort Numerical: link data, 2
+
+Define: main
+
+	search: Input: What are you looking for?
+
+	evaluate page: root site, search, 0
+	sort
+
+	i { Size: link data } Scope
+
+		Log Line
+
+			Add: 1, Subtract: Size { link data }, i
+			" - "
+			At: At { link data, i }, 1
+
+		i: Subtract: i, 1
+		Loop: Greater or Equal: i, 1
+
+	choice: Input: "Enter the number of the site you would like to visit: "
+	site: At: At { link data, Add: 1, Subtract: Size { link data }, choice }, 1
+
+	Run: Concatenate: Literal { explorer ~" }, site, Literal { ~" }
+
+main

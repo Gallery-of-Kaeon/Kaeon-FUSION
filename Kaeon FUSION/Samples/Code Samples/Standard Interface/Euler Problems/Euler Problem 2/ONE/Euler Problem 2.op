@@ -1,0 +1,108 @@
+-
+	Use
+-
+	-
+		Standard
+	-
+-
+	a
+-
+	-
+		0
+	-
+-
+	b
+-
+	-
+		1
+	-
+-
+	sum
+-
+	-
+		0
+	-
+-
+	Scope
+-
+	-
+		Break
+	-
+		-
+			Greater or Equal
+		-
+			-
+				a
+			-
+			-
+				4000000
+			-
+	-
+		Scope
+	-
+		-
+			Break
+		-
+			-
+				Not
+			-
+				-
+					Equal
+				-
+					-
+						0
+					-
+					-
+						Modulus
+					-
+						-
+							a
+						-
+						-
+							2
+						-
+		-
+			sum
+		-
+			-
+				Add
+			-
+				-
+					sum
+				-
+				-
+					a
+				-
+	-
+		temp
+	-
+		-
+			b
+		-
+	-
+		b
+	-
+		-
+			Add
+		-
+			-
+				a
+			-
+			-
+				temp
+			-
+	-
+		a
+	-
+		-
+			temp
+		-
+	-
+		Loop
+	-
+-
+	Log Line
+-
+	-
+		sum
+	-

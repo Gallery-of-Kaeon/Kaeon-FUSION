@@ -1,0 +1,4 @@
+Use: Standard, Stack
+
+Call: Build, XML, List { Open: My Website.op }, List { "", List { }, html }
+Call: Build, CSS, List { Open: My Style.op }

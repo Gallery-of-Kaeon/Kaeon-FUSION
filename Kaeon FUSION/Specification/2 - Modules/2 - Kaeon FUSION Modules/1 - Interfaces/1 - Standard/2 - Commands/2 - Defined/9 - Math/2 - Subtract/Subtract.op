@@ -1,0 +1,11 @@
+Subtract
+	
+	Philosophy
+		
+		-
+			The subtract command contains the content "Subtract". It may have an indefinite number
+			of children, each of which return a number.
+			
+			It subtracts each number following the first number from the first number and returns
+			the resulting value.
+		-

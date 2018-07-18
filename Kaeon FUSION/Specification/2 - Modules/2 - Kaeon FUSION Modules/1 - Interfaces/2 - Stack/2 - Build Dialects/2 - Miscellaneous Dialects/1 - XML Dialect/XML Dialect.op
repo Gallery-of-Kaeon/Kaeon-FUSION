@@ -1,0 +1,134 @@
+XML Dialect
+	
+	Philosophy
+		
+		-
+			The XML dialect is a build dialect analogous to XML.
+		-
+	
+	Principles
+		
+		Syntax
+			
+			Structure
+				
+				-
+					An XML dialect document will have exactly one XML element at the root level. It
+					may also optionally have one or both of a single declaration element and a
+					single document element at the root level, as well as an indefinite number of
+					use elements.
+				-
+			
+			Letter Case
+			
+				-
+					The letter case of content specified for elements listed in this document is
+					irrelevant.
+				-
+				
+			Use Element
+			
+				-
+					A use element has the content "Use". It may have an indefinite number of
+					children, each of which having content that specifies the file path of a use
+					document.
+				-
+			
+			Use Document
+			
+				-
+					A use document is a ONE document containing elements with either the content
+					"Tags" or "Attributes". Each of these elements may have an indefinite number
+					of children, with each of said children having one child. No child of a tags or
+					attributes element may have the content "Attributes" or "Children".
+					
+					Any element in an XML dialect document nested within the scope of the root
+					element that matches the content of a child of a tag element in a use document
+					referenced by a use command by said XML dialect document shall function as an
+					XML element that translates to an XML tag with a name matching the content of
+					the child of said child, even if said element is not nested within a children
+					element.
+					
+					Any element in an XML dialect document nested within an XML element that
+					matches the content of a child of a attributes element in a use document
+					referenced by a use command by said XML dialect document shall function as an
+					attribute element that translates to an XML attribute with a name matching the
+					content of the child of said child, even if said element is not nested within
+					an attributes element.
+				-
+			
+			Declaration Element
+				
+				-
+					The root element has the content "Declaration". It may have one or both or both
+					of a child with the content "Encoding" and a child with the content
+					"Standalone". The child with the content "Encoding" must have a child with
+					content matching the name of a character encoding standard. The child with the
+					content "Standalone" must have a child with either "Yes" or "No" as its
+					content.
+				-
+			
+			Document Element
+				
+				-
+					The document element has the content "Document". It will have a single child
+					which will have content in the form of an XML DTD.
+				-
+			
+			XML Elements
+			
+				-
+					An XML element may have any content, unless it is at the root level of the
+					document, in which case it may not have the content "Use", "Declaration", or
+					"Document", and it may have an indefinite number of children, each of which
+					will take the form of a category element.
+					
+					The content of the element will be literal content.
+				-
+			
+			Category Elements
+				
+				-
+					A category element will take the form of an attributes element, a data element,
+					or a children element.
+				-
+			
+			Attributes Element
+			
+				-
+					An attributes element will have the content "Attributes". It may have an
+					indefinite number of children, each of which will be an attribute element.
+				-
+			
+			Attribute Element
+			
+				-
+					An attribute element may have any content, and will have a single child which
+					may have any content.
+					
+					The content of both the element and its child will be literal content.
+				-
+			
+			Children Element
+				
+				-
+					A children element will have the content "Children" and may have an indefinite
+					number of children, each of which will be an XML element.
+				-
+			
+			Data Element
+			
+				-
+					A data element may have any content other than "Attributes" or "Children", but
+					no children.
+					
+					The content of the element will be literal content.
+				-
+			
+			Literal Content
+				
+				-
+					If literal content starts and ends with a quotation mark, it will represent XML
+					content that matches itself where the first and last quotation marks have been
+					cropped.
+				-

@@ -1,0 +1,14 @@
+Return
+	
+	Philosophy
+		
+		-
+			The return command contains the content "Return", and may have an indefinite number of
+			children.
+			
+			It prevents any subsequent commands in the script or function from which it is called
+			from executing. If it has no children, it will return a null value. If it has one
+			child, it will return the value returned by its child. If it has more than one child,
+			it will return all of the values returned by its children in a list. It will set
+			Kaeon FUSION's return value whatever it returned.
+		-

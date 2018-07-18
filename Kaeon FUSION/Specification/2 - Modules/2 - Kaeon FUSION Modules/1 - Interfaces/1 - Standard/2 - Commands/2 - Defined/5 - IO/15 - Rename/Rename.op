@@ -1,0 +1,11 @@
+Rename
+
+	Philosophy
+	
+		-
+			The rename command contains the content "Rename". It has two children, both of which
+			return strings that contain file or directory paths.
+			
+			It renames the path of the file or directory located at the path returned by the first
+			child to the path returned by the second child.
+		-

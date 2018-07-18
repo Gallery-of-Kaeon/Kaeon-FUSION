@@ -1,0 +1,40 @@
+Use: Standard
+
+Define: dog
+	
+	# Object fields should be global
+	Global
+
+		# Set name to the first argument passed in
+		name: At: Arguments, 1
+	
+		height: 5
+		weight: 10
+	
+	# Define the function bork within dog
+	# Prints bork from zero to the number passed in
+	Define: bork
+		
+		i { 0 } Scope
+			
+			# Surround bork in quotation marks to avoid recursive call
+			Log Line: "bork"
+			
+			i: Add: i, 1
+			Loop: Less: i, At: Arguments, 1
+
+# Assign a new instance of dog with the argument doggo to my dog
+my dog: New: dog: doggo
+
+# Run the code "height: 7" within my dog to set my dog's height to 7
+Scope { In: my dog }
+	height: 7
+
+# Run code within my dog to return data to the Log Line command
+
+Log Line: Scope: In { my dog } Retrieve: height
+Log Line: Scope: In { my dog } Retrieve: weight
+
+# Run the function bork within my dog
+Scope { In: my dog }
+	bork: 3

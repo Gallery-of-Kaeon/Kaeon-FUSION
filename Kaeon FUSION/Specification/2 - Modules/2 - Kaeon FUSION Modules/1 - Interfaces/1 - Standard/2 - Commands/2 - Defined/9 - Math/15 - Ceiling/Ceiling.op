@@ -1,0 +1,10 @@
+Ceiling
+	
+	Philosophy
+		
+		-
+			The ceiling command contains the content "Ceiling". It must have a single child which
+			returns a number.
+			
+			It returns the value of the returned number rounded up.
+		-

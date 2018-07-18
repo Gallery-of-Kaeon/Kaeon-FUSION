@@ -1,0 +1,23 @@
+Crop
+	
+	Philosophy
+		
+		-
+			The crop command contains the content "Crop". It will have three children, the first of
+			which returns a list and the second and third of which return numbers.
+			
+			If the second and third number are equal it will return an empty list.
+			
+			If the second number is less than the third number, it will run through the list from
+			the index specified by the second number to one less than the index specified by the
+			third number, appending each element it runs through to a new list. It will then return
+			the new list.
+			
+			If the second number is greater than the third number, it will run through the list
+			from the index specified by the third number to one greater than the index specified by
+			the second number, appending each element it runs through to a new list. It will then
+			return the new list.
+			
+			If the returned list list was in the form of a string, the generated list will be
+			returned as a string. Otherwise, it will be returned as a list.
+		-

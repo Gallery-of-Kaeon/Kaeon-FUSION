@@ -1,0 +1,14 @@
+Indexes
+	
+	Philosophy
+		
+		-
+			The indexes command contains the content "Indexes". It may have between two and three
+			children, the first of which returns a list, the second of which returns an object, and
+			the third of which, if present, returns an integer.
+			
+			It will return a list of the indexes of every instance of an object equal to the
+			specified object within the list with an index greater or equal to one if the third
+			child is not present, or with an index greater than or equal to the number returned by
+			the third child if said child is present.
+		-

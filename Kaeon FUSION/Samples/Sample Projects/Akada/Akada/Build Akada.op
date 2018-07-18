@@ -1,0 +1,31 @@
+Use: Standard, Web
+
+Import: pages/Akada.op
+Build: Page { Akada } Akada/Akada/
+
+Import: pages/About.op
+Build: Page { About } Akada/About/
+
+Import: pages/Contact.op
+Build: Page { Contact } Akada/Contact/
+
+Import: pages/Press.op
+Build: Page { Press } Akada/Press/
+
+Import: pages/Test.op
+Build: Page { Test } Akada/Test/
+
+Import: pages/Calculus.op
+Build: Page { Calculus } Akada/Calculus/
+
+Import: pages/Biology.op
+Build: Page { Biology } Akada/Biology/
+
+Import: pages/CompSci.op
+Build: Page { CompSci } Akada/CompSci/
+
+Import: pages/History.op
+Build: Page { History } Akada/History/
+
+Import: pages/English.op
+Build: Page { English } Akada/English/

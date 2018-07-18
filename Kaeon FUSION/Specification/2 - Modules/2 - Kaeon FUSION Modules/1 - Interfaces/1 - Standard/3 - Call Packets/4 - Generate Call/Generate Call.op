@@ -1,0 +1,14 @@
+Generate Call
+
+	Philosophy
+	
+		-
+			A generate call is a type of packet sent through a call command that is used to
+			generate a stored standard interface function namespace that corresponds to an object
+			in the host environment.
+			
+			It shall consist of the string "Generate", followed by a string specifying the type of
+			object being generated.
+			
+			It will cause the call command to return the generated namespace.
+		-

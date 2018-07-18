@@ -1,0 +1,34 @@
+[USE: SUPER] [SUPER]
+
+print Welcome to Battle!
+
+player = 100
+foe = 100
+
+while { player > 0 and foe > 0 }
+	
+	print: "You: ", player, " Opponent: ", foe
+	
+	answer = Input
+	
+		What move will you use?\n
+		1. Tackle\n
+		2. Scratch\n
+	
+	if { answer == 1 }
+		foe -= 20
+		print Opponent took 20 damage.
+	
+	else
+		foe -= 10
+		print Opponent took 10 damage.
+		
+	if { foe > 0 }
+		player -= 15
+		print Opponent used bite. You took 15 damage.
+
+if { player > foe }
+	print: Opponent fainted., \n, You Win!
+
+else
+	print: You fainted., \n, You Lose!

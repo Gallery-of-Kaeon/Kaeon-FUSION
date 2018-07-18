@@ -1,0 +1,13 @@
+Insert
+	
+	Philosophy
+		
+		-
+			The insert command contains the content "Insert". It must have at least three children,
+			the first of which returns a list, the second of which returns an integer, and every
+			subsequent child returning an object.
+			
+			It will insert the objects returned by the every child past the second child in the
+			order they were returned into the list returned by the first child at the index
+			specified by the integer returned by the second child. The list will then be returned.
+		-

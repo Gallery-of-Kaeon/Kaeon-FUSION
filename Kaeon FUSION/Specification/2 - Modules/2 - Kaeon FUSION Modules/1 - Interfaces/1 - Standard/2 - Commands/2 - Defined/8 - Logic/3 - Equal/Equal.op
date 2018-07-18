@@ -1,0 +1,10 @@
+Equal
+	
+	Philosophy
+		
+		-
+			The equal command contains the content "Equal". It has two children.
+			
+			It will return true if the string form of the objects returned by both of its children
+			are equal, and return false otherwise.
+		-

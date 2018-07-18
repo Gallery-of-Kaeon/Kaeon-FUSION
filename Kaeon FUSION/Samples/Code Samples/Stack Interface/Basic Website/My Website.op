@@ -1,0 +1,12 @@
+html
+
+	head { title: my website }
+
+		import
+			relationship: stylesheet
+			reference: style.css
+
+	body
+
+		link { reference: 'https://www.github.com/Gallery-of-Kaeon/Kaeon-FUSION' }
+			text: 'This is Kaeon FUSION!'

@@ -1,0 +1,168 @@
+-
+	Use
+-
+	-
+		Standard
+	-
+-
+	Define
+-
+	-
+		dog
+	-
+		-
+			Global
+		-
+			-
+				name
+			-
+				-
+					At
+				-
+					-
+						Arguments
+					-
+					-
+						1
+					-
+			-
+				height
+			-
+				-
+					5
+				-
+			-
+				weight
+			-
+				-
+					10
+				-
+		-
+			Define
+		-
+			-
+				bork
+			-
+				-
+					i
+				-
+					-
+						0
+					-
+				-
+					Scope
+				-
+					-
+						Log Line
+					-
+						-
+							"bork"
+						-
+					-
+						i
+					-
+						-
+							Add
+						-
+							-
+								i
+							-
+							-
+								1
+							-
+					-
+						Loop
+					-
+						-
+							Less
+						-
+							-
+								i
+							-
+							-
+								At
+							-
+								-
+									Arguments
+								-
+								-
+									1
+								-
+-
+	my dog
+-
+	-
+		New
+	-
+		-
+			dog
+		-
+			-
+				doggo
+			-
+-
+	Scope
+-
+	-
+		In
+	-
+		-
+			my dog
+		-
+	-
+		height
+	-
+		-
+			7
+		-
+-
+	Log Line
+-
+	-
+		Scope
+	-
+		-
+			In
+		-
+			-
+				my dog
+			-
+		-
+			Retrieve
+		-
+			-
+				height
+			-
+-
+	Log Line
+-
+	-
+		Scope
+	-
+		-
+			In
+		-
+			-
+				my dog
+			-
+		-
+			Retrieve
+		-
+			-
+				weight
+			-
+-
+	Scope
+-
+	-
+		In
+	-
+		-
+			my dog
+		-
+	-
+		bork
+	-
+		-
+			3
+		-

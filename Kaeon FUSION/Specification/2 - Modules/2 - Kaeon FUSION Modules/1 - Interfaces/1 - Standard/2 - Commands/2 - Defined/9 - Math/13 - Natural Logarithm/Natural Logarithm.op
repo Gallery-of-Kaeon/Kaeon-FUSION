@@ -1,0 +1,10 @@
+Natural Logarithm
+	
+	Philosophy
+		
+		-
+			The natural logarithm command contains the content "Natural Logarithm". It must have a
+			single child which returns a number.
+			
+			It returns the natural logarithm of the returned number.
+		-

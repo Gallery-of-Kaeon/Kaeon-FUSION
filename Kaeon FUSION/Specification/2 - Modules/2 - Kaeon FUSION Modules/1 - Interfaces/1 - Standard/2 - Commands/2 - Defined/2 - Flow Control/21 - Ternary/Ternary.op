@@ -1,0 +1,13 @@
+Ternary
+
+	Philosophy
+	
+		-
+			The ternary command contains the content "Ternary". It must have three children, the
+			first of which returns a boolean and the second and third of which may return any
+			value.
+			
+			If the boolean value returned by its first child is true, it will return the value
+			returned by its second child, and return the value returned by its third child
+			otherwise.
+		-

@@ -1,0 +1,12 @@
+Modulus
+	
+	Philosophy
+		
+		-
+			The modulus command contains the content "Modulus". It may have an indefinite number of
+			children, each of which return a number.
+			
+			It assigns the first number to a value and for each subsequent number in order assigns
+			the remainder of the division of the value and the respective number to the value. It
+			then returns the resulting value.
+		-

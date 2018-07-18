@@ -1,0 +1,36 @@
+Use: Standard
+
+Log Line: Welcome to Battle!
+
+player: 100
+foe: 100
+
+Scope
+	
+	Log Line: "You: ", player, " Opponent: ", foe
+	
+	answer: Input
+	
+		What move will you use?\n
+		1. Tackle\n
+		2. Scratch\n
+	
+	Scope { Break: Not: Equal: answer, 1 }
+		foe: Subtract: foe, 20
+		Log Line: Opponent took 20 damage.
+	
+	Else
+		foe: Subtract: foe, 10
+		Log Line: Opponent took 10 damage.
+		
+	Scope { Break: Less or Equal: foe, 0 }
+		player: Subtract: player, 15
+		Log Line: Opponent used bite. You took 15 damage.
+	
+	Loop: And: Greater { player, 0 }, Greater { foe, 0 } 
+
+Scope { Break: Less: player, foe }
+	Log Line: Opponent fainted., \n, You Win!
+
+Else
+	Log Line: You fainted., \n, You Lose!

@@ -1,0 +1,14 @@
+Convert Sequence
+	
+	Philosophy
+		
+		-
+			The convert sequence command contains the content "Convert Sequence". It will have one
+			child that returns a either a list or a string.
+			
+			If its child returns a list, it will append each element in the list in order to a
+			string and return the string.
+			
+			If its child returns a string, it will append each character in the string in order to
+			a list and return the list.
+		-

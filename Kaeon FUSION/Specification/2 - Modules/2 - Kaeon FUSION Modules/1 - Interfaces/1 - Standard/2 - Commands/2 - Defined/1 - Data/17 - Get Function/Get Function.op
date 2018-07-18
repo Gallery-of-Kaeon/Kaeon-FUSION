@@ -1,0 +1,11 @@
+Get Function
+
+	Philosophy
+	
+		-
+			The get function command contains the content "Get Function". It has a single child
+			that returns a string.
+			
+			It will return, in ONE list form, the body of the most recently declared function in
+			the state that has an alias matching the returned string.
+		-

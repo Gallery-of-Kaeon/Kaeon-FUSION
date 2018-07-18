@@ -1,0 +1,12 @@
+Execute
+	
+	Philosophy
+		
+		-
+			The execute command contains the content "Execute", and may have an indefinite number
+			of children, each of which return a list representing a ONE element in ONE list form.
+			
+			It will interpret each returned list as a ONE element and execute said elements in
+			order as Kaeon FUSION code within the namespace of the script or function it was called
+			from.
+		-

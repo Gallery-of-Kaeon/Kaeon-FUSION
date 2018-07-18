@@ -1,0 +1,76 @@
+Define: Contact
+	
+	Head
+
+		Style: About Style
+	
+		Title: Akada - About
+	
+	Division { ID: content }
+
+		Image { ID: background; Source: res/background.jpg }
+
+	Division { ID: blurb }
+
+		Text: Link: Reference { ../Akada/Akada.html } Italic: Akada
+
+	Division { ID: about }
+		
+		Text
+		
+			Akada is a product of Kaeon., Break
+			Break
+			"Kaeon may be reached at the following e-mail address:", Break
+			kaeon.ace@gmail.com
+
+Define: About Style
+
+	On: content
+		
+		margin: 0
+		padding: 0
+
+		top: 0%
+		left: 0%
+
+		height: 100vh
+		
+		position: fixed
+		background: black
+
+	On: background
+
+		width: 100%
+
+	On: blurb
+
+		top: 0%
+		left: 40%
+
+		position: absolute
+
+		font-size: 7vw
+		font-family: "Georgia"
+
+		color: white
+
+		text-shadow: 1px 1px 2px black
+
+	On: about
+
+		top: 30%
+		left: 15%
+
+		position: absolute
+
+		font-size: 3vw
+		font-family: "Georgia"
+
+		color: white
+
+		text-shadow: 4px 4px 8px black
+	
+	Link
+		
+		text-decoration: none
+		color: white

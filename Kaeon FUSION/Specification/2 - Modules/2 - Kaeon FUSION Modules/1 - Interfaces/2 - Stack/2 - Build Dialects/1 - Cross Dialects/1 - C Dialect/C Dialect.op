@@ -1,0 +1,46 @@
+C Dialect
+	
+	Philosophy
+		
+		-
+			The C dialect is a cross dialect analogous to C.
+		-
+	
+	Types
+	
+		External
+		
+		Automatic
+		
+		Unsigned
+		
+		Signed
+		
+		Integer
+		
+		Short
+		
+		Long
+		
+		Float
+		
+		Double
+		
+		Character
+		
+		Boolean
+		
+		Void
+		
+		Pointer
+		
+		Address
+		
+		Array
+			
+			-
+				If the type element has a child with the content "Array", said child may have a
+				child with content containing an integer number, specifying the dimensions of the
+				array. If no such child is present, the array will be assumed to be one
+				dimensional.
+			-

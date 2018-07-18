@@ -1,0 +1,10 @@
+-
+	Literals
+-
+	-
+		Philosophy
+	-
+		-
+			Any command that does not have any functionality will return its content as a string.
+			Such a command is referred to as a literal.
+		-

@@ -1,0 +1,9 @@
+Year
+
+	Philosophy
+	
+		-
+			The year command contains the content "Year".
+			
+			It returns the current year according to the computer's clock as a number.
+		-

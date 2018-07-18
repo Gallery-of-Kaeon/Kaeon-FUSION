@@ -1,0 +1,13 @@
+Input
+	
+	Philosophy
+		
+		-
+			The input command contains the content "Input". It may have an indefinite number of
+			children.
+			
+			If it has no children, it will return the next value returned by standard in. If it
+			does have children, it will print the values returned by each of its children to the
+			console, prompt the user for input and then return the string that was entered by the
+			user.
+		-

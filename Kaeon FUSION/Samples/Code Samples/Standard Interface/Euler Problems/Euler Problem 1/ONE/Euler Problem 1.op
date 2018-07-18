@@ -1,0 +1,105 @@
+-
+	Use
+-
+	-
+		Standard
+	-
+-
+	sum
+-
+	-
+		0
+	-
+-
+	i
+-
+	-
+		3
+	-
+-
+	Scope
+-
+	-
+		Scope
+	-
+		-
+			Break
+		-
+			-
+				Not
+			-
+				-
+					Or
+				-
+					-
+						Equal
+					-
+						-
+							0
+						-
+						-
+							Modulus
+						-
+							-
+								i
+							-
+							-
+								3
+							-
+					-
+						Equal
+					-
+						-
+							0
+						-
+						-
+							Modulus
+						-
+							-
+								i
+							-
+							-
+								5
+							-
+		-
+			sum
+		-
+			-
+				Add
+			-
+				-
+					sum
+				-
+				-
+					i
+				-
+	-
+		i
+	-
+		-
+			Add
+		-
+			-
+				i
+			-
+			-
+				1
+			-
+	-
+		Loop
+	-
+		-
+			Less
+		-
+			-
+				i
+			-
+			-
+				1000
+			-
+-
+	Log Line
+-
+	-
+		sum
+	-

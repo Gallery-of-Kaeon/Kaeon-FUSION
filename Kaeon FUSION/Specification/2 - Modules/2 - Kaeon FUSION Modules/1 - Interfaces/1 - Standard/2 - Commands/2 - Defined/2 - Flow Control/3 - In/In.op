@@ -1,0 +1,13 @@
+In
+	
+	Philosophy
+		
+		-
+			The In command is a command with the content "In". It may have an indefinite number of
+			children, each of which return a the namespace of a script or function.
+			
+			It will take all of the global variables and function definitions stored in the
+			namespaces returned to it and place them into the namespace from which it was called.
+			If any of the aliases of the values within the current namespace and new namespaces
+			conflict, the values in the new namespaces will take priority.
+		-

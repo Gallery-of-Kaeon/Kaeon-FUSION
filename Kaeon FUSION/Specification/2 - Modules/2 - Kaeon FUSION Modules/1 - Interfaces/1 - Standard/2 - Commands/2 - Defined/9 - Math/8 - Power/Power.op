@@ -1,0 +1,11 @@
+Power
+	
+	Philosophy
+		
+		-
+			The power command contains the content "Power". It must have two children, each of
+			which return a number.
+			
+			It returns the value of the number returned by its first child raised to the power of
+			the number returned by its second child.
+		-

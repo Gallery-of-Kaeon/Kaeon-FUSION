@@ -1,0 +1,87 @@
+-
+	Use
+-
+	-
+		Standard
+	-
+-
+	Split
+-
+	-
+		i
+	-
+		-
+			1
+		-
+	-
+		Scope
+	-
+		-
+			Log Line
+		-
+			-
+				i
+			-
+		-
+			i
+		-
+			-
+				Add
+			-
+				-
+					i
+				-
+				-
+					1
+				-
+		-
+			Loop
+		-
+			-
+				Less or Equal
+			-
+				-
+					i
+				-
+				-
+					5
+				-
+-
+	i
+-
+	-
+		6
+	-
+-
+	Scope
+-
+	-
+		Log Line
+	-
+		-
+			i
+		-
+	-
+		i
+	-
+		-
+			Add
+		-
+			-
+				i
+			-
+			-
+				1
+			-
+	-
+		Loop
+	-
+		-
+			Less or Equal
+		-
+			-
+				i
+			-
+			-
+				10
+			-
