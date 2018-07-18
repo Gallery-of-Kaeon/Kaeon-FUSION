@@ -1,5 +1,5 @@
 Use: HTML.op
 
-Style { Domain: Text } Data
+Style: Domain { Text } Data
 
 	Color: blue
