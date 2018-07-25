@@ -160,6 +160,7 @@ Attributes
 	Reference Language: hreflang
 	ID: id
 	Image Server Map: ismap
+	Inline Style: style
 	Key Type: keytype
 	Kind: kind
 	Label: label
