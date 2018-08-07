@@ -123,7 +123,9 @@ Cross Dialect
 					-
 						A meta command may have a child with the content "Host". Any command within
 						the meta command's scope with content that matches the content of one of
-						the host element's children. This effect will have extended scope.
+						the host element's children will be treated as a function call to a
+						function with an alias matching its content. This effect will have extended
+						scope.
 					-
 			
 			Fields
