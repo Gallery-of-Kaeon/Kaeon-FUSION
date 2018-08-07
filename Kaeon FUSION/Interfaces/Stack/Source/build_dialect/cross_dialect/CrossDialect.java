@@ -828,17 +828,24 @@ public class CrossDialect extends BuildDialect {
 		if(element.content.equalsIgnoreCase("true") || element.content.equalsIgnoreCase("false"))
 			return element.content.toLowerCase();
 		
-		if(element.content.indexOf('\"') == 0 &&
-				element.content.lastIndexOf('\"') == element.content.length() - 1) {
+		String literal = element.content;
+		
+		literal = literal.replaceAll("\n", "\\\\n");
+		literal = literal.replaceAll("\t", "\\\\t");
+		
+		if(literal.indexOf('\"') == 0 &&
+				literal.lastIndexOf('\"') == literal.length() - 1) {
 
-			if(element.content.length() > 1)
-				return element.content;
+			if(literal.length() > 1)
+				return literal;
 			
 			return "\"\"";
 		}
 		
-		return "\"" + element.content + "\"";
+		return "\"" + literal + "\"";
 	}
+	
+	
 	
 	public String buildVariableDeclaration(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		
