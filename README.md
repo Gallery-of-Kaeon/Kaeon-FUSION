@@ -212,7 +212,7 @@ we have not yet been able to implement all of the features mentioned in the spec
 Our plan moving forward is to develop a new implementation of Kaeon FUSION using JavaScript,
 which will allow Kaeon FUSION to run natively in the browser,
 on mobile,
-and other platforms,
+and on other platforms,
 as well as to use URLs to load interfaces.
 In this new implementation,
 we plan to improve performance by crystallizing the interfaces (see [philosopher's stones](https://github.com/Gallery-of-Kaeon/Philosophers-Stone/blob/master/Philosopher's%20Stone/Specification/1%20-%20Philosopher's%20Stone%20of%20Computation/Philosopher's%20Stone%20of%20Computation.one) and [philosopher's stone crystallization](https://github.com/Gallery-of-Kaeon/Philosophers-Stone/blob/master/Philosopher's%20Stone/Specification/3%20-%20Philosopher's%20Crystal/Philosopher's%20Crystal.op)).
