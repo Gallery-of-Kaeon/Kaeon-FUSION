@@ -170,6 +170,8 @@ and because the JVM's dynamic class loader made developing the interface's abili
 However,
 an implementation of Kaeon FUSION can be written in any language and for any platform,
 as long as it conforms to the rules laid out in the specification.
+In fact,
+our current plan is to transition to the implementation to JavaScript.
 
 ### Can the Java implementation of the Kaeon FUSION interpreter be embedded into a larger Java project?
 
@@ -201,10 +203,24 @@ we cannot offer an accurate timeline for updates until further notice.
 
 ### What should I expect to see in the next major updates?
 
-At the time of writing,
-our main focus is on stabilizing the specification and our implementations for the standard ONE+ directives,
-super mode, and the stack interface,
-as well as improving the quality of the Kaeon Origin IDE.
+Up until now,
+Kaeon FUSION has been running on Java.
+And unfortunately,
+in addition to the fact that the language is much slower than we want it to be,
+we have not yet been able to implement all of the features mentioned in the specification.
+
+Our plan moving forward is to develop a new implementation of Kaeon FUSION using JavaScript,
+which will allow Kaeon FUSION to run natively in the browser,
+on mobile,
+and other platforms,
+as well as to use URLs to load interfaces.
+In this new implementation,
+we plan to improve performance by crystallizing the interfaces (see [philosopher's stones](https://github.com/Gallery-of-Kaeon/Philosophers-Stone/blob/master/Philosopher's%20Stone/Specification/1%20-%20Philosopher's%20Stone%20of%20Computation/Philosopher's%20Stone%20of%20Computation.one) and [philosopher's stone crystallization](https://github.com/Gallery-of-Kaeon/Philosophers-Stone/blob/master/Philosopher's%20Stone/Specification/3%20-%20Philosopher's%20Crystal/Philosopher's%20Crystal.op)).
+
+Until this new implementation is developed,
+we will maintain the Java implementation,
+and the Java implementation will still be available once the JavaScript implementation has been released,
+but the Java implementation will no longer be updated after that point.
 
 ### I would like to use Kaeon FUSION in a commercial project. Who do I make the check out to?
 
