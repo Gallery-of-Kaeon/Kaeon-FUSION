@@ -76,6 +76,15 @@ ONE+
 						into the elements.
 					-
 				
+				Extended Escape Scope Plus Sequences
+				
+					-
+						If an escape scope plus sequence or encoded escape scope plus sequence does
+						not properly close within the definition it occurs within, and said
+						definition is followed by another definition, the sequence will continue
+						through to the next definition.
+					-
+				
 				Escape Character Plus Sequences
 					
 					-
