@@ -55,7 +55,7 @@
 				
 				The content encoded into elements defined by element definitions will consist of
 				the content of each encoded sequence within the respective element definition, each
-				with the exception of the content last occurring encoded sequence within the
+				with the exception of the content of the last occurring encoded sequence within the
 				respective element definition followed by an instance of the breaking sequence,
 				concatenated in the order in which the respective encoded sequences occur within
 				the respective element definition.
