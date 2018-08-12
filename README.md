@@ -23,7 +23,7 @@ This is Kaeon FUSION!
 
 _This part is a bit technical. It's ok to skip past it._
 
-Kaeon FUSION (pronounced "KAI-on") is a purely interpreted programming language designed to be the successor to [LISP](https://en.wikipedia.org/wiki/Lisp_(programming_language)).
+Kaeon FUSION (pronounced "KAI-on") is an interpreted programming language designed to be the successor to [LISP](https://en.wikipedia.org/wiki/Lisp_(programming_language)).
 
 At first glance,
 Kaeon FUSION's obvious improvement over LISP is its syntax:
@@ -46,7 +46,7 @@ Said changes can be anything from modifying how the language handles exceptions 
 Kaeon FUSION's standard interface provides the basic functionality expected of any Turing complete language like [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) or [JavaScript](https://en.wikipedia.org/wiki/JavaScript).
 However,
 there is also an interface available for Kaeon FUSION called the stack interface,
-which takes advantage of the modular nature of Kaeon FUSION's interpreter as well as its tree based syntax
+which takes advantage of the dynamic nature of Kaeon FUSION's interpreter as well as its tree based syntax
 to cross compile Kaeon FUSION code to and from several mainstream programming and markup languages.
 
 We believe that these properties not only allow Kaeon FUSION to serve practically any existing software development need,
