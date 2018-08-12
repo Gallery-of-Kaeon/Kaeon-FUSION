@@ -16,6 +16,7 @@ The sheer,
 ever-growing scale of the toolset required by software developers is a burden that should have been dealt with long ago.
 In order to liberate developers from the bondage of incomplete tools,
 we have created a language without limits.
+
 This is Kaeon FUSION!
 
 <h2 align="center">What <i>is</i> Kaeon FUSION?</h2>
