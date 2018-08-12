@@ -38,7 +38,7 @@ Kaeon FUSION's real selling point is that unlike LISP,
 where many different interpretations of the language exist but are divided into separate and incompatible dialects,
 Kaeon FUSION's various dialects come in the form of modules called interfaces,
 which dynamically extend the interpreter at runtime.
-Any comination of interfaces may be used simultaneously.
+Of course, any comination of interfaces may be used simultaneously.
 This not only allows for new commands to be added but also for changes to be made to the basic rules of the language.
 Said changes can be anything from modifying how the language handles exceptions to completely altering the language's control flow.
 
