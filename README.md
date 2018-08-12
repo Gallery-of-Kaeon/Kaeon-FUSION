@@ -30,7 +30,7 @@ a markup language called [ONE+](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION
 In addition to being arguably easier on the eyes than (L(I(S(P)))),
 ONE+ is tree based,
 which we feel better represents how the interpreter actually processes the code.
-The icing on the ONE+ cake is that it supports an extensible preproccessor system,
+The icing on the ONE+ cake is that it supports an extensible preprocessor system,
 which makes its syntax almost indefinitely customizable.
 
 However,
