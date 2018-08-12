@@ -26,7 +26,7 @@ _This part is a bit technical. It's ok to skip past it._
 Kaeon FUSION (pronounced "KAI-on") is an interpreted programming language designed to be the successor to [LISP](https://en.wikipedia.org/wiki/Lisp_(programming_language)).
 
 At first glance,
-Kaeon FUSION's obvious improvement over LISP is its syntax:
+Kaeon FUSION's obvious improvement over LISP is its syntax,
 a markup language called [ONE+](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/README.md).
 In addition to being arguably easier on the eyes than (L(I(S(P)))),
 ONE+ is tree based,
