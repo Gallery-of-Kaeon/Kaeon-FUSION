@@ -20,27 +20,30 @@ This is Kaeon FUSION!
 
 <h2 align="center">What <i>is</i> Kaeon FUSION?</h2>
 
-_This part is extremely technical. It's ok to skip past it._
+_This part is a bit technical. It's ok to skip past it._
 
-Kaeon FUSION (pronounced "KAI-on") is an interpreted programming language with the unique ability to alter its properties at runtime using modules that it can load dynamically.
-It's like if Java could import a module at runtime that made multiple inheritance legal,
-or if C could import a module at runtime that allowed the use of C++ style classes or enabled automatic garbage collection.
-Put another way,
-it's like if in LISP,
-instead of only being able to use one dialect at a time,
-it was possible to use several at once.
+Kaeon FUSION (pronounced "KAI-on") is a purely interpreted programming language designed to be the successor to [LISP](https://en.wikipedia.org/wiki/Lisp_(programming_language)).
 
-It is also unique in that sits on top of a markup language called [ONE+](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/README.md).
-ONE+, which is a syntactic superset of a much more minimalistic markup language called [ONE](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/1%20-%20ONE/README.md),
-allows the user to manually encode any tree of strings.
-Said tree serves as the abstract syntax tree for Kaeon FUSION.
-This property allows Kaeon FUSION to be easily cross compiled into other languages,
-so despite being interpreted,
-Kaeon FUSION can still be useful in speed critical environments by being cross compiled to a compiled language.
-Another benefit to ONE+ is that it has a highly customizable syntax,
-which allows for a wide variety of developer preferences to be accommodated.
+At first glance,
+Kaeon FUSION's obvious improvement over LISP is its syntax:
+a markup language called [ONE+](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/README.md).
+ONE+ is tree based,
+which we feel better represents how the interpreter actually processes the code.
+We also feel that it's a bit easier on the eyes than (L(I(S(P)))).
+The icing on the cake is that ONE+ supports an extensible preproccessor system that makes its syntax almost indefinitely customizable.
 
-Click [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/X%20-%20Why%20use%20Kaeon%20FUSION/README.md) for a more detailed explanation.
+However,
+Kaeon FUSION's real selling point is that unlike LISP,
+where many different interpretations of the language exist but are divided into separate and incompatible dialects,
+Kaeon FUSION's various dialects come in the form of modules called interfaces,
+which dynamically extend the interpreter at runtime.
+This not only allows for new commands to be added but also for changes to be made to the basic rules of the language.
+
+Kaeon FUSION's standard interface provides the basic functionality expected of any Turing complete language like [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) or [JavaScript](https://en.wikipedia.org/wiki/JavaScript).
+However,
+there is also an interface available for Kaeon FUSION called the stack interface,
+which takes advantage of the modular nature of Kaeon FUSION's interpreter as well as its tree based syntax
+to cross compile Kaeon FUSION code to and from several mainstream programming and markup languages.
 
 <h2 align="center">Contents of this Repository</h2>
 
