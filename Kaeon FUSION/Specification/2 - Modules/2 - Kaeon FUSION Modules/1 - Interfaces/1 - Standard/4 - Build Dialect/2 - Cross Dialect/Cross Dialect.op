@@ -11,7 +11,7 @@ Cross Dialect
 			necessary information. As such, a set of meta command formats used for all cross
 			dialects has been specified.
 			
-			Additional commands and meta command formats may be added to individual cross dialect
+			Additional commands and meta command formats may be added to individual cross dialects
 			to cover for operators specific to certain languages.
 		-
 	
