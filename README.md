@@ -27,10 +27,11 @@ Kaeon FUSION (pronounced "KAI-on") is a purely interpreted programming language 
 At first glance,
 Kaeon FUSION's obvious improvement over LISP is its syntax:
 a markup language called [ONE+](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/README.md).
+In addition to being arguably easier on the eyes than (L(I(S(P)))),
 ONE+ is tree based,
 which we feel better represents how the interpreter actually processes the code.
-We also feel that it's a bit easier on the eyes than (L(I(S(P)))).
-The icing on the cake is that ONE+ supports an extensible preproccessor system that makes its syntax almost indefinitely customizable.
+The icing on the ONE+ cake is that it supports an extensible preproccessor system,
+which makes its syntax almost indefinitely customizable.
 
 However,
 Kaeon FUSION's real selling point is that unlike LISP,
