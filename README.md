@@ -38,6 +38,7 @@ where many different interpretations of the language exist but are divided into 
 Kaeon FUSION's various dialects come in the form of modules called interfaces,
 which dynamically extend the interpreter at runtime.
 This not only allows for new commands to be added but also for changes to be made to the basic rules of the language.
+Said changes can be anything from modifying how the language handles exceptions to completely altering the language's control flow.
 
 Kaeon FUSION's standard interface provides the basic functionality expected of any Turing complete language like [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) or [JavaScript](https://en.wikipedia.org/wiki/JavaScript).
 However,
