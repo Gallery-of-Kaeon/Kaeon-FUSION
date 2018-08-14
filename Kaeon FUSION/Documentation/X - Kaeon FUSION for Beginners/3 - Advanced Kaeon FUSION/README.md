@@ -148,7 +148,8 @@ Then,
 use the call command.
 The call command should have one child with the content "Build",
 a second child specifying the name of the desired dialect,
-and a third that returns a list of strings written in said dialect.
+a third that returns a list of strings written in said dialect,
+and an optional fourth that specifies additional information.
 
 For example, running:
 
@@ -161,7 +162,9 @@ For example, running:
     		Text: 'Hello, world!'
     	-
 
-    Call: Build, HTML, List { My Website }
+    Call: Build, XML, List { My Website }, List { "", List { }, HTML }
+
+_HTML is the language used to define what a website looks like. It is an extended form of a langauge called XML, which is just used to store data._
 
 will generate an html file in the local directory containing the following html code:
 
