@@ -212,7 +212,7 @@ And unfortunately,
 in addition to the fact that the language is much slower than we want it to be,
 we have not yet been able to implement all of the features mentioned in the specification.
 Granted,
-the Kaeon FUSION's speed,
+Kaeon FUSION's speed,
 or lack thereof,
 is almost entirely mitigated by it's ability to cross compile,
 but we're still not happy about it.
