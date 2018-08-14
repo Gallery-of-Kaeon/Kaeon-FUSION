@@ -250,14 +250,13 @@ The male version of the character is shown [here](https://drive.google.com/open?
 For now,
 mostly [this person](https://www.github.com/kaeon-ace).
 
-But we do take contributions from others from time to time,
-and we anticipate bringing more people on board at some point,
-so we call ourselves "we" to be respectful.
-
-And to be honest,
-we don't want our brand,
+We call ourselves "we" because we don't want our brand,
 Kaeon,
-to be associated with a single person.
+to be thought of as the work of a single person.
+
+Furthermore,
+we anticipate expanding the team at some point,
+and should that happen the project will grow into the pronoun.
 
 ### Can I join you?
 
