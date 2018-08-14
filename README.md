@@ -7,18 +7,6 @@
 
     Use: Standard; Log Line: "This is Kaeon FUSION!"
 
-In software engineering,
-it is a commonly held belief that it is inherently necessary to use multiple tools to cover the vast array of tasks that the discipline entails.
-However,
-we disagree with this sentiment.
-
-The sheer,
-ever-growing scale of the toolset required by software developers is a burden that should have been dealt with long ago.
-In order to liberate developers from the bondage of incomplete tools,
-we have created a language without limits.
-
-This is Kaeon FUSION!
-
 <h2 align="center">What <i>is</i> Kaeon FUSION?</h2>
 
 _This part is a bit technical. It's ok to skip past it._
