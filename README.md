@@ -219,6 +219,11 @@ Kaeon FUSION has been running on Java.
 And unfortunately,
 in addition to the fact that the language is much slower than we want it to be,
 we have not yet been able to implement all of the features mentioned in the specification.
+Granted,
+the Kaeon FUSION's speed,
+or lack thereof,
+is almost entirely mitigated by it's ability to cross compile,
+but we're still not happy about it.
 
 Our plan moving forward is to develop a new implementation of Kaeon FUSION using JavaScript,
 which will allow Kaeon FUSION to run natively in the browser,
