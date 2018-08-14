@@ -1,0 +1,12 @@
+Lock Down
+
+	Philosophy
+	
+		-
+			The lock down command contains the content "lock down". It may have an indefinite
+			number of children, where each of the string forms of the values they return are used
+			to activate a given command.
+			
+			It permanently disables the commands activated by the string forms of the returned
+			values.
+		-
