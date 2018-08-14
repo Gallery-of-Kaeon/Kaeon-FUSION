@@ -11,7 +11,7 @@
 
 <h2 align="center">What is Kaeon FUSION?</h2>
 
-_This part is a bit technical. It's ok to skip past it._
+_This part is a bit technical. If you're new to programming, we've put together a beginner's resource which you can find [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/README.md)._
 
 Kaeon FUSION (pronounced "KAI-on") is an interpreted programming language designed to be the successor to [LISP](https://en.wikipedia.org/wiki/Lisp_(programming_language)).
 
