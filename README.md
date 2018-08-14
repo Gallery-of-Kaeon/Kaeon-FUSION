@@ -285,7 +285,9 @@ As a consequence,
 many parts of the documentation are often out of date,
 and may take a while to catch up.
 
-It should also be noted that all of our implementations were developed and tested on an unmodified Lenovo IdeaPad P500 laptop running Windows 10.
+It should also be noted that prior to July 4, 2018,
+all of our implementations were developed and tested on an unmodified Lenovo IdeaPad P500 laptop running Windows 10.
+Since July 4, 2018 we have been using a 2018 Alienware 15 inch laptop running Windows 10.
 
 Kaeon FUSION,
 being a purely interpreted language,
