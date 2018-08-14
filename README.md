@@ -249,8 +249,7 @@ The male version of the character is shown [here](https://drive.google.com/open?
 
 For now,
 mostly [this person](https://www.github.com/kaeon-ace),
-and one other person who doesn't want to be named,
-because they don't like posting their personal information online.
+and one other person who doesn't want to be named because they don't like posting their personal information online.
 
 ### Can I join you?
 
