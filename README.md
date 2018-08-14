@@ -25,23 +25,24 @@ _This part is a bit technical. It's ok to skip past it._
 
 Kaeon FUSION (pronounced "KAI-on") is an interpreted programming language designed to be the successor to [LISP](https://en.wikipedia.org/wiki/Lisp_(programming_language)).
 
-At first glance,
-Kaeon FUSION's obvious improvement over LISP is its syntax,
-a markup language called [ONE+](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/README.md).
-In addition to being arguably easier on the eyes than (L(I(S(P)))),
-ONE+ is tree based,
-which we feel better represents how the interpreter actually processes the code.
-The icing on the ONE+ cake is that it supports an extensible preprocessor system,
-which makes its syntax almost indefinitely customizable.
-
-However,
-Kaeon FUSION's real selling point is that unlike LISP,
+The primary advantage of Kaeon FUSION over LISP is that unlike LISP,
 where many different interpretations of the language exist but are divided into separate and incompatible dialects,
 Kaeon FUSION's various dialects come in the form of modules called interfaces,
 which dynamically extend the interpreter at runtime.
-Of course, any comination of interfaces may be used simultaneously.
 This not only allows for new commands to be added but also for changes to be made to the basic rules of the language.
 Said changes can be anything from modifying how the language handles exceptions to completely altering the language's control flow.
+Of course, any comination of interfaces may be used simultaneously.
+
+Furthermore,
+Kaeon FUSION's syntax,
+[ONE+](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/README.md),
+also provides several advantages over LISP.
+In addition to being arguably easier on the eyes than (L(I(S(P)))),
+ONE+ is tree based,
+which we feel better represents how the interpreter actually processes the code.
+ONE+ also supports an extensible preprocessor system,
+which makes its syntax almost indefinitely customizable.
+The icing on the cake is that ONE+ is usable as a general purpose markup language independent of Kaeon FUSION.
 
 Kaeon FUSION's standard interface provides the basic functionality expected of any Turing complete language like [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) or [JavaScript](https://en.wikipedia.org/wiki/JavaScript).
 However,
