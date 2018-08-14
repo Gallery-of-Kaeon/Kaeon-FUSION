@@ -35,23 +35,8 @@
 		-
 			-
 				Certain Kaeon FUSION commands may hold priority over others, meaning that commands
-				every time Kaeon FUSION trickles down at a command, the commands children will be
+				every time Kaeon FUSION trickles down at a command, the command's children will be
 				rearranged first based on their priority and then based on their current order.
-			-
-		-
-			Workspace
-		-
-			-
-				The workspace refers to the directories that Kaeon FUSION will import resources
-				from. The directories that compose the workspace must be arranged into a hierarchy.
-				
-				When attempting to locate a given resource, Kaeon FUSION will search each directory
-				in the order of their priorities until either the resource is found or there are no
-				more directories to search.
-				
-				By default, the workspace will consist of the local directory, the root directory,
-				and the internet, but said directories may be added to or removed from the
-				workspace.
 			-
 		-
 			Host Environment
