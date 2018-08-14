@@ -27,7 +27,7 @@ you can install it [here](https://www.java.com/en/download/).
 
 Once you have Java installed,
 download our development app,
-or IDE (Integrated Development Environment) called Kaeon Origin [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/raw/master/Kaeon%20FUSION/IDE/Application/Kaeon%20Dev.jar).
+or IDE (Integrated Development Environment) called Kaeon Origin [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/raw/master/Kaeon%20FUSION/IDE/Application/Kaeon%20Origin.zip).
 
 ## A quick shout out
 
