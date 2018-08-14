@@ -41,7 +41,7 @@ to cross compile Kaeon FUSION code to and from several mainstream programming an
 We believe that these properties not only allow Kaeon FUSION to serve practically any existing software development need,
 but also to adapt to the unforseen needs of the future,
 hence its motto,
-"A Language Without Limits".
+"a language without limits".
 
 <h2 align="center">Contents of this Repository</h2>
 
