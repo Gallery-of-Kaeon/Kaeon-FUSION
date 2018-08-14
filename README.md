@@ -5,7 +5,9 @@
 	<img src="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/raw/master/Kaeon%20FUSION/Logo/Kaeon%20FUSION%20Logo.png" width="300px" height="300px"/>
 </p>
 
-    Use: Standard; Log Line: "This is Kaeon FUSION!"
+    Use: Standard
+    
+    Log Line: "This is Kaeon FUSION!"
 
 <h2 align="center">What is Kaeon FUSION?</h2>
 
