@@ -245,6 +245,20 @@ The mascot of all projects under the Kaeon name is the ACE.
 The female version of the character is shown on the profile picture of the Gallery-of-Kaeon github account.
 The male version of the character is shown [here](https://drive.google.com/open?id=0B7qYhFZP1C70Q3cxQjREYUdETHM).
 
+### Who are you?
+
+For now,
+mostly [this person](https://www.github.com/kaeon-ace).
+
+But we do take contributions from others from time to time,
+and we anticipate bringing more people on board at some point,
+so we call ourselves "we" to be respectful.
+
+And to be honest,
+we don't want our brand,
+Kaeon,
+to be associated with a single person.
+
 ### Can I join you?
 
 Short answer:
