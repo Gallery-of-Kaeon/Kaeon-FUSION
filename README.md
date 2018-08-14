@@ -248,15 +248,8 @@ The male version of the character is shown [here](https://drive.google.com/open?
 ### Who are you?
 
 For now,
-mostly [this person](https://www.github.com/kaeon-ace).
-
-We call ourselves "we" because we don't want our brand,
-Kaeon,
-to be thought of as the work of a single person.
-
-Furthermore,
-we anticipate expanding the team at some point,
-and should that happen the project will grow into the pronoun.
+mostly [this person](https://www.github.com/kaeon-ace),
+and one other person who doesn't want to be named.
 
 ### Can I join you?
 
