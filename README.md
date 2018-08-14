@@ -7,7 +7,7 @@
 
     Use: Standard; Log Line: "This is Kaeon FUSION!"
 
-<h2 align="center">What <i>is</i> Kaeon FUSION?</h2>
+<h2 align="center">What is Kaeon FUSION?</h2>
 
 _This part is a bit technical. It's ok to skip past it._
 
