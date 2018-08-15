@@ -187,7 +187,7 @@ public class CrossDialect extends BuildDialect {
 			if(element.content.equalsIgnoreCase("Exit"))
 				return buildExit(element, arguments, meta, categories);
 			
-			if(element.content.equalsIgnoreCase("Exeption"))
+			if(element.content.equalsIgnoreCase("Exception"))
 				return buildException(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Out"))
@@ -282,32 +282,62 @@ public class CrossDialect extends BuildDialect {
 			
 			if(element.content.equalsIgnoreCase("Scope")) {
 				
-				if(element.children.size() >= 2) {
+				int inIndex = -1;
+				
+				for(int i = 0; i < element.children.size(); i++) {
 					
-					if(element.children.get(0).content.equalsIgnoreCase("In")) {
+					if(element.children.get(i).content.equalsIgnoreCase("In"))
+						inIndex = i;
+					
+					if(element.children.get(i).content.equalsIgnoreCase("Meta")) {
 						
-						Element in = element.children.get(0);
+						ammendMeta(metaCopy, element.children.get(i), categories);
 						
-						String operator = 
-								buildElement(
-										name,
-										in.children.get(0),
-										categories,
-										new ArrayList<String>(variables),
-										meta,
-										nest + 1);
-						
-						Element operation = element.children.get(1);
-						
-						return
-								buildObjectOperation(
-										operator,
-										operation,
-										meta,
-										categories,
-										variables,
-										nest);
+						continue;
 					}
+					
+					break;
+				}
+				
+				if(element.children.size() >= 2 && inIndex != -1) {
+					
+					Element in = element.children.get(inIndex);
+					
+					String operator = 
+							buildElement(
+									name,
+									in.children.get(0),
+									categories,
+									new ArrayList<String>(variables),
+									metaCopy,
+									nest + 1);
+					
+					int operationIndex = 0;
+					
+					for(int i = inIndex + 1; i < element.children.size(); i++) {
+						
+						if(element.children.get(i).content.equalsIgnoreCase("Meta")) {
+							
+							ammendMeta(metaCopy, element.children.get(i), categories);
+							
+							continue;
+						}
+						
+						operationIndex = i;
+						
+						break;
+					}
+					
+					Element operation = element.children.get(operationIndex);
+					
+					return
+							buildObjectOperation(
+									operator,
+									operation,
+									metaCopy,
+									categories,
+									variables,
+									nest);
 				}
 				
 				return buildScope(element, arguments, meta, nest);
@@ -1205,7 +1235,7 @@ public class CrossDialect extends BuildDialect {
 		String build = "while(true){";
 		
 		for(int i = 0; i < arguments.size(); i++)
-			build += arguments.get(i) + buildBodyElementSeparator();;
+			build += arguments.get(i) + buildBodyElementSeparator();
 		
 		return build + "break;}";
 	}
@@ -1223,7 +1253,7 @@ public class CrossDialect extends BuildDialect {
 		String build = "if(scope){scope=false;while(true){";
 		
 		for(int i = 0; i < arguments.size(); i++)
-			build += arguments.get(i) + buildBodyElementSeparator();;
+			build += arguments.get(i) + buildBodyElementSeparator();
 		
 		return build + "break;}}";
 	}
