@@ -91,6 +91,8 @@ public class IDE extends PhilosophersStone implements ActionListener {
 	
 	public String originHelp;
 	public String fusionHelp;
+	
+	public String defaultFileExtension;
 
 	public IDE(Element originData) {
 		
@@ -352,6 +354,14 @@ public class IDE extends PhilosophersStone implements ActionListener {
 		
 		catch(Exception exception) {
 			fusionHelp = "";
+		}
+		
+		try {
+			defaultFileExtension = ElementUtilities.getChild(originData, "Default File Extension").children.get(0).content;
+		}
+		
+		catch(Exception exception) {
+			defaultFileExtension = "op";
 		}
 		
 		try {
@@ -983,16 +993,19 @@ public class IDE extends PhilosophersStone implements ActionListener {
 					save(input);
 			}
 			
-			if(!currentInput.radioButton.isSelected()) {
+			if(currentInput != null) {
 				
-				int option = JOptionPane.showConfirmDialog(
-						frame,
-						"The current file: \"" + currentInput.button.getText() + "\", is not selected. Would you like to save it anyway?",
-						"Kaeon Origin",
-						JOptionPane.YES_NO_OPTION);
-				
-				if(option == JOptionPane.YES_OPTION)
-					save(currentInput);
+				if(!currentInput.radioButton.isSelected()) {
+					
+					int option = JOptionPane.showConfirmDialog(
+							frame,
+							"The current file: \"" + currentInput.button.getText() + "\", is not selected. Would you like to save it anyway?",
+							"Kaeon Origin",
+							JOptionPane.YES_NO_OPTION);
+					
+					if(option == JOptionPane.YES_OPTION)
+						save(currentInput);
+				}
 			}
 
 			saveState();
@@ -1026,7 +1039,7 @@ public class IDE extends PhilosophersStone implements ActionListener {
 							export +
 							(inputs.get(i).path != null ?
 									inputs.get(i).path.substring(inputs.get(i).path.lastIndexOf(File.separator) + 1) :
-									inputs.get(i).button.getText() + ".op"));
+									inputs.get(i).button.getText()));
 				}
 			}
 			
@@ -1054,7 +1067,7 @@ public class IDE extends PhilosophersStone implements ActionListener {
 				input.path = name;
 				
 				int start = name.indexOf(File.separator) != -1 ? name.lastIndexOf(File.separator) + 1 : 0;
-				int end = name.indexOf('.') != -1 ? name.lastIndexOf('.') : name.length();
+				int end = name.length();
 				
 				input.button.setText(name.substring(start, end));
 			}
@@ -1242,6 +1255,11 @@ public class IDE extends PhilosophersStone implements ActionListener {
 		
 		ElementUtilities.addChild(fusionLink, ElementUtilities.createElement(fusionHelp));
 		
+		Element extension = ElementUtilities.createElement("Default File Extension");
+		ElementUtilities.addChild(element, extension);
+		
+		ElementUtilities.addChild(extension, ElementUtilities.createElement(defaultFileExtension));
+		
 		Element origin = ElementUtilities.createElement("Kaeon Origin");
 		ElementUtilities.addChild(element, origin);
 		
@@ -1385,7 +1403,7 @@ public class IDE extends PhilosophersStone implements ActionListener {
 		ArrayList<String> lines = new ArrayList<String>();
 		lines.add(file);
 
-		return saveAs(lines, "op");
+		return saveAs(lines, defaultFileExtension);
 	}
 
 	public File saveAs(ArrayList<String> lines, String fileExtension) {
@@ -1415,9 +1433,6 @@ public class IDE extends PhilosophersStone implements ActionListener {
 				if(fileExtension.length() > 0) {
 
 					if(file.toString().indexOf('.') == -1)
-						file = new File(file + "." + fileExtension);
-
-					else if(!file.toString().substring(file.toString().lastIndexOf('.') + 1).equals(fileExtension))
 						file = new File(file + "." + fileExtension);
 
 					else

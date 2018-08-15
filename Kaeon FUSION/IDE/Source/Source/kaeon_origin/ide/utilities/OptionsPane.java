@@ -200,15 +200,16 @@ public class OptionsPane extends JFrame implements ActionListener {
 
 			if(mode.equals("Kaeon Origin")) {
 				
-				setSize(ide.scale(200), ide.scale(350));
+				setSize(ide.scale(200), ide.scale(400));
 				
 				panel.removeAll();
 				
-				panel.setLayout(new GridLayout(6, 1));
+				panel.setLayout(new GridLayout(7, 1));
 				
 				panel.add(createButton("Set Perspective"));
 				panel.add(createButton("Set Workspace"));
 				panel.add(createButton("Set Update Path"));
+				panel.add(createButton("Set Default File Extension"));
 				panel.add(createButton("Set View"));
 				panel.add(createButton("Print"));
 				panel.add(createButton("Back"));
@@ -590,6 +591,25 @@ public class OptionsPane extends JFrame implements ActionListener {
 				
 				if(updatePath != null)
 					ide.updatePath = updatePath;
+			}
+		}
+
+		if(command.equals("Set Default File Extension")) {
+			
+			int option =
+					JOptionPane.showConfirmDialog(
+							this,
+							"The current default file extension is:\n\n" +
+							ide.defaultFileExtension +
+							"\n\n" +
+							"Would you like to change it?");
+			
+			if(option == JOptionPane.YES_OPTION) {
+				
+				String defaultFileExtension = JOptionPane.showInputDialog(this, "Set the default file extension:");
+				
+				if(defaultFileExtension != null)
+					ide.defaultFileExtension = defaultFileExtension;
 			}
 		}
 		
