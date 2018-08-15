@@ -50,11 +50,16 @@ public class Use extends FUSIONUnit {
 			
 			for(int j = 0; j < workspace.size(); j++) {
 				
-				File file = new File(workspace.get(j) + processed.get(i) + ".jar");
+				String path = "" + processed.get(i);
+				
+				if(path.toLowerCase().endsWith(".jar"))
+					path = path.substring(0, path.length() - 4);
+				
+				File file = new File(workspace.get(j) + path + ".jar");
 				
 				if(file.exists()) {
 					
-					Aether.call(workspace.get(j) + processed.get(i), 0, fusion);
+					Aether.call(workspace.get(j) + path, 0, fusion);
 					PhilosophersStoneUtilities.call(fusion, "Update");
 					
 					break;
