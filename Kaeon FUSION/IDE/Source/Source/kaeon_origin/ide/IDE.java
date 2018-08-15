@@ -109,6 +109,14 @@ public class IDE extends PhilosophersStone implements ActionListener {
 		initializeFrame();
 		
 		try {
+			defaultFileExtension = ElementUtilities.getChild(originData, "Default File Extension").children.get(0).content;
+		}
+		
+		catch(Exception exception) {
+			defaultFileExtension = "op";
+		}
+		
+		try {
 			
 			if(originData.children.size() > 0)
 				initializeInputs(originData);
@@ -121,6 +129,14 @@ public class IDE extends PhilosophersStone implements ActionListener {
 		frame.revalidate();
 		
 		frame.setVisible(true);
+		
+		new Thread() {
+			
+			public void run() {
+				frame.repaint();
+				frame.revalidate();
+			}
+		}.start();
 	}
 
 	public void initializeFrame() {
@@ -354,14 +370,6 @@ public class IDE extends PhilosophersStone implements ActionListener {
 		
 		catch(Exception exception) {
 			fusionHelp = "";
-		}
-		
-		try {
-			defaultFileExtension = ElementUtilities.getChild(originData, "Default File Extension").children.get(0).content;
-		}
-		
-		catch(Exception exception) {
-			defaultFileExtension = "op";
 		}
 		
 		try {
@@ -908,9 +916,7 @@ public class IDE extends PhilosophersStone implements ActionListener {
 			openFolder = file.getAbsolutePath().substring(0,
 					file.getAbsolutePath().lastIndexOf(File.separator));
 
-			String name = file.getAbsolutePath().substring(
-					file.getAbsolutePath().lastIndexOf(File.separator) + 1,
-					file.getAbsolutePath().lastIndexOf('.'));
+			String name = file.getAbsolutePath().substring(file.getAbsolutePath().lastIndexOf(File.separator) + 1);
 			
 			for(int i = 0; i < inputs.size(); i++) {
 				
