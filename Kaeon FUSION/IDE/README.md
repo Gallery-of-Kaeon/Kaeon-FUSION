@@ -10,12 +10,6 @@ To begin, download Kaeon Origin:
 
 [Kaeon Origin](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/raw/master/Kaeon%20FUSION/IDE/Application/Kaeon%20Origin.zip)
 
-Be sure to have Java installed before you begin. You can install Java at:
-
-[Java Download](https://www.java.com/en/download/)
-
-## Modules
-
 The download link will come as a zip file containing the Kaeon Origin IDE as well as various modules for Kaeon FUSION,
 including the standard interface,
 the stack interface,
@@ -24,7 +18,12 @@ the super mode directive,
 and the ONE LISP syntax.
 
 Each interface comes in a JAR (Java ARchive) file,
-which must be place in the same directory as Kaeon Origin in order for Kaeon Origin to use them.
+which must be placed in the same directory as Kaeon Origin in order for Kaeon Origin to use them.
+
+Kaeon Origin runs on Java,
+so be sure to have Java installed before you begin. You can install Java at:
+
+[Java Download](https://www.java.com/en/download/)
 
 ## How to Use
 
