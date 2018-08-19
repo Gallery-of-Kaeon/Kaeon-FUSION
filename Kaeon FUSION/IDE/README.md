@@ -13,7 +13,7 @@ To begin, download Kaeon Origin:
 The download link will come as a zip file containing the Kaeon Origin IDE as well as various modules for Kaeon FUSION,
 including the standard interface,
 the stack interface,
-the standard ONE+ directive,
+the standard ONE+ directives,
 the super mode directive,
 and the ONE LISP syntax.
 
