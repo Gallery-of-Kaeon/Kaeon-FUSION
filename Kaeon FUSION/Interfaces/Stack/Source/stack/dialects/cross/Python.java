@@ -92,7 +92,8 @@ public class Python extends CrossDialect {
 			ArrayList<String> returnType,
 			boolean isConstructor,
 			ArrayList<Category> parameters,
-			int parameterNumber) {
+			int parameterNumber,
+			boolean aliased) {
 		
 		String build =
 				"def " +

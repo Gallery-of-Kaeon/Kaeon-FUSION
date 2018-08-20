@@ -49,9 +49,10 @@ public class JavaScript extends CrossDialect {
 			ArrayList<String> returnType,
 			boolean isConstructor,
 			ArrayList<Category> parameters,
-			int parameterNumber) {
+			int parameterNumber,
+			boolean aliased) {
 		
-		String build = "function " + function.content + "(";
+		String build = "function " + (aliased ? function.content : "") + "(";
 		
 		for(int i = 0; i < parameterNumber; i++) {
 			

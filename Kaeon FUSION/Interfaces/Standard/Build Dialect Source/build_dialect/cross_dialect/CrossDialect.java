@@ -126,7 +126,7 @@ public class CrossDialect extends BuildDialect {
 						
 						for(int j = i + 1; j < element.children.size(); j++) {
 							
-							if(element.children.get(i).equals("Meta")) {
+							if(element.children.get(i).content.equals("Meta")) {
 								
 								ammendMeta(metaCopy, element.children.get(i), categories);
 								
@@ -187,7 +187,7 @@ public class CrossDialect extends BuildDialect {
 			if(element.content.equalsIgnoreCase("Exit"))
 				return buildExit(element, arguments, meta, categories);
 			
-			if(element.content.equalsIgnoreCase("Exeption"))
+			if(element.content.equalsIgnoreCase("Exception"))
 				return buildException(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Out"))
@@ -282,32 +282,62 @@ public class CrossDialect extends BuildDialect {
 			
 			if(element.content.equalsIgnoreCase("Scope")) {
 				
-				if(element.children.size() >= 2) {
+				int inIndex = -1;
+				
+				for(int i = 0; i < element.children.size(); i++) {
 					
-					if(element.children.get(0).content.equalsIgnoreCase("In")) {
+					if(element.children.get(i).content.equalsIgnoreCase("In"))
+						inIndex = i;
+					
+					if(element.children.get(i).content.equalsIgnoreCase("Meta")) {
 						
-						Element in = element.children.get(0);
+						ammendMeta(metaCopy, element.children.get(i), categories);
 						
-						String operator = 
-								buildElement(
-										name,
-										in.children.get(0),
-										categories,
-										new ArrayList<String>(variables),
-										meta,
-										nest + 1);
-						
-						Element operation = element.children.get(1);
-						
-						return
-								buildObjectOperation(
-										operator,
-										operation,
-										meta,
-										categories,
-										variables,
-										nest);
+						continue;
 					}
+					
+					break;
+				}
+				
+				if(element.children.size() >= 2 && inIndex != -1) {
+					
+					Element in = element.children.get(inIndex);
+					
+					String operator = 
+							buildElement(
+									name,
+									in.children.get(0),
+									categories,
+									new ArrayList<String>(variables),
+									metaCopy,
+									nest + 1);
+					
+					int operationIndex = 0;
+					
+					for(int i = inIndex + 1; i < element.children.size(); i++) {
+						
+						if(element.children.get(i).content.equalsIgnoreCase("Meta")) {
+							
+							ammendMeta(metaCopy, element.children.get(i), categories);
+							
+							continue;
+						}
+						
+						operationIndex = i;
+						
+						break;
+					}
+					
+					Element operation = element.children.get(operationIndex);
+					
+					return
+							buildObjectOperation(
+									operator,
+									operation,
+									metaCopy,
+									categories,
+									variables,
+									nest);
 				}
 				
 				return buildScope(element, arguments, meta, nest);
@@ -828,17 +858,24 @@ public class CrossDialect extends BuildDialect {
 		if(element.content.equalsIgnoreCase("true") || element.content.equalsIgnoreCase("false"))
 			return element.content.toLowerCase();
 		
-		if(element.content.indexOf('\"') == 0 &&
-				element.content.lastIndexOf('\"') == element.content.length() - 1) {
+		String literal = element.content;
+		
+		literal = literal.replaceAll("\n", "\\\\n");
+		literal = literal.replaceAll("\t", "\\\\t");
+		
+		if(literal.indexOf('\"') == 0 &&
+				literal.lastIndexOf('\"') == literal.length() - 1) {
 
-			if(element.content.length() > 1)
-				return element.content;
+			if(literal.length() > 1)
+				return literal;
 			
 			return "\"\"";
 		}
 		
-		return "\"" + element.content + "\"";
+		return "\"" + literal + "\"";
 	}
+	
+	
 	
 	public String buildVariableDeclaration(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		
@@ -973,6 +1010,7 @@ public class CrossDialect extends BuildDialect {
 	public String buildDefine(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		
 		Element metaCopy = ElementUtilities.copyElement(meta);
+		String inline = null;
 		
 		for(int i = 0; i < element.children.size(); i++) {
 			
@@ -1063,15 +1101,36 @@ public class CrossDialect extends BuildDialect {
 								new ArrayList<String>(),
 								true,
 								parameters,
-								parameterNumber);
+								parameterNumber,
+								true);
 				
-				getCategory(categories, "Classes").objects.add(
-						buildClassDefinition(
-								element.children.get(i),
-								constructor,
-								metaCopy,
-								newCategories,
-								inheritence));
+				if(ElementUtilities.hasChild(function, "Inline")) {
+					
+					if(inline == null)
+						inline = "";
+
+					if(inline.length() > 0)
+						inline += buildInlineFunctionSeparator();
+					
+					inline +=
+							buildClassDefinition(
+									element.children.get(i),
+									constructor,
+									metaCopy,
+									newCategories,
+									inheritence);
+				}
+				
+				else {
+					
+					getCategory(categories, "Classes").objects.add(
+							buildClassDefinition(
+									element.children.get(i),
+									constructor,
+									metaCopy,
+									newCategories,
+									inheritence));
+				}
 			}
 			
 			else {
@@ -1086,20 +1145,51 @@ public class CrossDialect extends BuildDialect {
 						returnType.add(type.children.get(j).content);
 				}
 				
-				getCategory(categories, "Functions").objects.add(
-						buildFunctionDefinition(
-								element.children.get(i),
-								buildFunctionBody(element.children.get(i), categories, metaCopy, parameters),
-								metaCopy,
-								categories,
-								returnType,
-								ElementUtilities.hasChild(function, "Constructor"),
-								parameters,
-								parameterNumber));
+				if(ElementUtilities.hasChild(function, "Inline")) {
+					
+					if(inline == null)
+						inline = "";
+					
+					boolean aliased = !ElementUtilities.hasChild(ElementUtilities.getChild(function, "Inline"), "Unaliased");
+					
+					if(inline.length() > 0)
+						inline += buildInlineFunctionSeparator();
+					
+					inline +=
+							buildFunctionDefinition(
+									element.children.get(i),
+									buildFunctionBody(element.children.get(i), categories, metaCopy, parameters),
+									metaCopy,
+									categories,
+									returnType,
+									ElementUtilities.hasChild(function, "Constructor"),
+									parameters,
+									parameterNumber,
+									aliased);
+				}
+				
+				else {
+					
+					getCategory(categories, "Functions").objects.add(
+							buildFunctionDefinition(
+									element.children.get(i),
+									buildFunctionBody(element.children.get(i), categories, metaCopy, parameters),
+									metaCopy,
+									categories,
+									returnType,
+									ElementUtilities.hasChild(function, "Constructor"),
+									parameters,
+									parameterNumber,
+									true));
+				}
 			}
 		}
 		
-		return null;
+		return inline;
+	}
+	
+	public String buildInlineFunctionSeparator() {
+		return ",";
 	}
 	
 	public String buildFunctionBody(Element function, ArrayList<Category> categories, Element metaCopy, ArrayList<Category> parameters) {
@@ -1129,7 +1219,8 @@ public class CrossDialect extends BuildDialect {
 			ArrayList<String> returnType,
 			boolean isConstructor,
 			ArrayList<Category> parameters,
-			int parameterNumber) {
+			int parameterNumber,
+			boolean aliased) {
 		
 		return "";
 	}
@@ -1198,7 +1289,7 @@ public class CrossDialect extends BuildDialect {
 		String build = "while(true){";
 		
 		for(int i = 0; i < arguments.size(); i++)
-			build += arguments.get(i) + buildBodyElementSeparator();;
+			build += arguments.get(i) + buildBodyElementSeparator();
 		
 		return build + "break;}";
 	}
@@ -1216,7 +1307,7 @@ public class CrossDialect extends BuildDialect {
 		String build = "if(scope){scope=false;while(true){";
 		
 		for(int i = 0; i < arguments.size(); i++)
-			build += arguments.get(i) + buildBodyElementSeparator();;
+			build += arguments.get(i) + buildBodyElementSeparator();
 		
 		return build + "break;}}";
 	}

@@ -1010,6 +1010,7 @@ public class CrossDialect extends BuildDialect {
 	public String buildDefine(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		
 		Element metaCopy = ElementUtilities.copyElement(meta);
+		String inline = null;
 		
 		for(int i = 0; i < element.children.size(); i++) {
 			
@@ -1100,15 +1101,36 @@ public class CrossDialect extends BuildDialect {
 								new ArrayList<String>(),
 								true,
 								parameters,
-								parameterNumber);
+								parameterNumber,
+								true);
 				
-				getCategory(categories, "Classes").objects.add(
-						buildClassDefinition(
-								element.children.get(i),
-								constructor,
-								metaCopy,
-								newCategories,
-								inheritence));
+				if(ElementUtilities.hasChild(function, "Inline")) {
+					
+					if(inline == null)
+						inline = "";
+
+					if(inline.length() > 0)
+						inline += buildInlineFunctionSeparator();
+					
+					inline +=
+							buildClassDefinition(
+									element.children.get(i),
+									constructor,
+									metaCopy,
+									newCategories,
+									inheritence);
+				}
+				
+				else {
+					
+					getCategory(categories, "Classes").objects.add(
+							buildClassDefinition(
+									element.children.get(i),
+									constructor,
+									metaCopy,
+									newCategories,
+									inheritence));
+				}
 			}
 			
 			else {
@@ -1123,20 +1145,51 @@ public class CrossDialect extends BuildDialect {
 						returnType.add(type.children.get(j).content);
 				}
 				
-				getCategory(categories, "Functions").objects.add(
-						buildFunctionDefinition(
-								element.children.get(i),
-								buildFunctionBody(element.children.get(i), categories, metaCopy, parameters),
-								metaCopy,
-								categories,
-								returnType,
-								ElementUtilities.hasChild(function, "Constructor"),
-								parameters,
-								parameterNumber));
+				if(ElementUtilities.hasChild(function, "Inline")) {
+					
+					if(inline == null)
+						inline = "";
+					
+					boolean aliased = !ElementUtilities.hasChild(ElementUtilities.getChild(function, "Inline"), "Unaliased");
+					
+					if(inline.length() > 0)
+						inline += buildInlineFunctionSeparator();
+					
+					inline +=
+							buildFunctionDefinition(
+									element.children.get(i),
+									buildFunctionBody(element.children.get(i), categories, metaCopy, parameters),
+									metaCopy,
+									categories,
+									returnType,
+									ElementUtilities.hasChild(function, "Constructor"),
+									parameters,
+									parameterNumber,
+									aliased);
+				}
+				
+				else {
+					
+					getCategory(categories, "Functions").objects.add(
+							buildFunctionDefinition(
+									element.children.get(i),
+									buildFunctionBody(element.children.get(i), categories, metaCopy, parameters),
+									metaCopy,
+									categories,
+									returnType,
+									ElementUtilities.hasChild(function, "Constructor"),
+									parameters,
+									parameterNumber,
+									true));
+				}
 			}
 		}
 		
-		return null;
+		return inline;
+	}
+	
+	public String buildInlineFunctionSeparator() {
+		return ",";
 	}
 	
 	public String buildFunctionBody(Element function, ArrayList<Category> categories, Element metaCopy, ArrayList<Category> parameters) {
@@ -1166,7 +1219,8 @@ public class CrossDialect extends BuildDialect {
 			ArrayList<String> returnType,
 			boolean isConstructor,
 			ArrayList<Category> parameters,
-			int parameterNumber) {
+			int parameterNumber,
+			boolean aliased) {
 		
 		return "";
 	}

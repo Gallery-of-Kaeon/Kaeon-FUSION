@@ -182,7 +182,8 @@ public class Java extends CrossDialect {
 			ArrayList<String> returnType,
 			boolean isConstructor,
 			ArrayList<Category> parameters,
-			int parameterNumber) {
+			int parameterNumber,
+			boolean aliased) {
 		
 		Element returnTypeElement = new Element();
 
