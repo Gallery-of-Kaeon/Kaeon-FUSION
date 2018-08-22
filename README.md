@@ -20,7 +20,7 @@ a plugin development framework for said IDE,
 interfaces,
 and the specification for Kaeon FUSION.
 
-Main Page Links: [Contact Info](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/README.md#contact-info), [What is Kaeon FUSION](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/README.md#what-is-kaeon-fusion), [Kaeon FUSION Examples](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/README.md#kaeon-fusion-examples), [FAQs](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/README.md#faqs), [Disclaimer](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/README.md#disclaimer)
+Main Page Links: [Contact Info](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/README.md#contact-info), [What is Kaeon FUSION?](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/README.md#what-is-kaeon-fusion), [Kaeon FUSION Examples](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/README.md#kaeon-fusion-examples), [FAQs](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/README.md#faqs), [Disclaimer](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/README.md#disclaimer)
 
 ### Repository Links
 
