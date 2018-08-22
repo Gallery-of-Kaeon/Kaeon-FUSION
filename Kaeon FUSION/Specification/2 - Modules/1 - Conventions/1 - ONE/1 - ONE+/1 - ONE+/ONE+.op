@@ -199,8 +199,8 @@ ONE+
 						
 						A directive interface can be enabled using a directive element that
 						contains the content "Use". The content of each child of this element
-						should contain the name of an interface. If the interfaces are available,
-						the directives implemented within them will be usable.
+						should contain the file path or alias of an interface. If the interfaces
+						are available, the directives implemented within them will be usable.
 					-
 			
 			Alternate Syntaxes
@@ -210,8 +210,8 @@ ONE+
 					begins with the terminating sequence followed by the open directive sequence,
 					then the sequence of characters between the aforementioned open directive
 					sequence and the first instance of a sequence consisting of the close directive
-					sequence followed by the breaking sequence will match the alias of an alternate
-					syntax for encoding ONE documents.
+					sequence followed by the breaking sequence will match the file path or alias of
+					a module for parsing an alternate syntax for encoding ONE documents.
 					
 					All text following the aforementioned breaking sequence will be encoded as a
 					ONE document based on the specified syntax.
