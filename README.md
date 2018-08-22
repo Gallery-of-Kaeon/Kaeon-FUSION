@@ -9,8 +9,6 @@
     
     Log Line: "This is Kaeon FUSION!"
 
-Quick Links: [Contact Info](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/README.md#contact-info), [What is Kaeon FUSION](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/README.md#what-is-kaeon-fusion), [Kaeon FUSION Examples](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/README.md#kaeon-fusion-examples), [FAQs](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/README.md#faqs), [Disclaimer](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/README.md#disclaimer)
-
 <h2 align="center">Contents of this Repository</h2>
 
 This repository contains the specification,
@@ -22,7 +20,9 @@ a plugin development framework for said IDE,
 interfaces,
 and the specification for Kaeon FUSION.
 
-### Direct Links
+Main Page Links: [Contact Info](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/README.md#contact-info), [What is Kaeon FUSION](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/README.md#what-is-kaeon-fusion), [Kaeon FUSION Examples](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/README.md#kaeon-fusion-examples), [FAQs](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/README.md#faqs), [Disclaimer](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/README.md#disclaimer)
+
+### Repository Links
 
 [Online](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/README.md) and [PDF](https://drive.google.com/open?id=1Ut8fIiKjGFRSH0hO9KSEyIFxsP3PTXOE) Documentation
 
