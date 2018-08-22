@@ -16,7 +16,7 @@ use,
 allows functionality to be incorporated at runtime through interfaces.
 
 The third section explains the functionality provided by the standard interface,
-and the fourth section explains the functionality provided by the web and machine interfaces.
+and the fourth section explains the functionality provided by the stack interface.
 
 _Please note that the components of Kaeon FUSION are officially defined by their [specification](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Specification) documents. The provided documentation is merely a layman's guide to what is written in the specification. Should there be a conflict between the documentation and the specification, the specification overrules the documentation._
 
