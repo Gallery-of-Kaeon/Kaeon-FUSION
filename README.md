@@ -36,6 +36,10 @@ and the specification for Kaeon FUSION.
 
 [Specification](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Specification)
 
+<h2 align="center">Contact Info</h2>
+
+For any questions or comments, please email the following address: kaeon.ace@gmail.com
+
 <h2 align="center">What is Kaeon FUSION?</h2>
 
 _This part is a bit technical. If you're new to programming, we've put together a beginner's resource which you can find [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/README.md)._
@@ -130,10 +134,6 @@ the most basic form of Kaeon FUSION's syntax:
     	-
 
 Click [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Samples) for all of our available sample code.
-
-<h2 align="center">Contact Info</h2>
-
-For any questions or comments, please email the following address: kaeon.ace@gmail.com
 
 <h2 align="center">FAQs</h2>
 
