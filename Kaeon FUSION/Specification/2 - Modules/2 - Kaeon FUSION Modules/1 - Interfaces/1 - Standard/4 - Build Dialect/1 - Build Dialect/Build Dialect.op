@@ -66,3 +66,15 @@ Build Dialect
 					The effects of preceding meta commands that correspond to the content of the
 					nullify element's children will be nullified.
 				-
+			
+			Automatic Mode
+			
+				-
+					If information that would normally be required for certain cross dialect
+					commands has not been specified by meta commands, the cross compiler will
+					adhere to certain defaults when cross compiling.
+					
+					However, a meta command may have a child with the content "Automatic", which
+					will allow the cross compiler to make assumptions regarding unspecified
+					information concerning commands within its scope.
+				-

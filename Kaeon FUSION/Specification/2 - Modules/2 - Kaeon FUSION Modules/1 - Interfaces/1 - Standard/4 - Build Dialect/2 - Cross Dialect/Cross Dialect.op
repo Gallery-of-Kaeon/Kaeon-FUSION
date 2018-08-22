@@ -98,15 +98,6 @@ Cross Dialect
 							The function element may have a child with the content "Constructor".
 							In this case, the function definition will serve as a constructor for
 							the class definition it occurs within.
-							
-							The function element may have a child with the content "Inline". In
-							this case, the function definition will appear in the cross compiled
-							code where it was defined in the original cross dialect code. The
-							inline element may have a child with the content "Unaliased", in which
-							case the cross compiled function will not have an alias. The cross
-							dialect function that corresponds to an unaliased cross compiled
-							function must still have an alias, but there will be no issues if it
-							shares an alias with other functions.
 						-
 				
 					Parameters
@@ -125,6 +116,19 @@ Cross Dialect
 							"Parameter Number". The parameter number element must have a single
 							child with content containing an integer number specifying the number
 							of parameters the functions will have.
+						-
+					
+					Inline Functions
+					
+						-
+							The function element may have a child with the content "Inline". In
+							this case, the function definition will appear in the cross compiled
+							code where it was defined in the original cross dialect code. The
+							inline element may have a child with the content "Unaliased", in which
+							case the cross compiled function will not have an alias. The cross
+							dialect function that corresponds to an unaliased cross compiled
+							function must still have an alias, but there will be no issues if it
+							shares an alias with other functions.
 						-
 				
 				Host Functions
