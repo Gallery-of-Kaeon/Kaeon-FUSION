@@ -78,4 +78,8 @@ Assembly Dialect
 				mnemonic mode in ONE list form, and based on it either return a list of strings
 				containing binary corresponding to the compiled instruction, or return null if the
 				mnemonic is unrecognized.
+				
+				If multiple ONE+ files are included through use commands, and more than one of them
+				return a non null value for a given mnemonic, the more recently included document
+				will take priority.
 			-
