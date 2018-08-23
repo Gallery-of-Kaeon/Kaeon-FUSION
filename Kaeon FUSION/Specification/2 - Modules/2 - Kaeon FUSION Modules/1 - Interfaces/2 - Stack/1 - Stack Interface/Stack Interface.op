@@ -46,8 +46,8 @@ Kaeon FUSION Stack Interface
 				Miscellaneous Dialects
 				
 					-
-						The Kaeon FUSION Stack Interface provides ONE dialects analogous to XML,
-						JSON, SQL, and CSS.
+						The Kaeon FUSION Stack Interface provides ONE dialects analogous to
+						Assembly, XML, JSON, SQL, CSS, and CSV.
 					-
 					
 					HTML in the XML Dialect
