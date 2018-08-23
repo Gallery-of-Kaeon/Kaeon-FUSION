@@ -21,18 +21,10 @@ Assembly Dialect
 				
 				-
 					A mode command contains the content "Mode", regardless of letter case, and has
-					a single child containing the content "Raw", "Binary", "Decimal",
+					a single child containing the content "Binary", "Raw", "Decimal",
 					"Hexadecimal", or "Mnemonic", which will determine what mode the instructions
 					following it and preceding the next mode command or the end of the file will be
-					cross compiled according to.
-				-
-			
-			Raw Mode
-			
-				-
-					An instruction in raw mode is an element which may contain any string as its
-					content, corresponding to a sequence of instructions where each character
-					corresponds to a binary value.
+					cross compiled according to. The mode will be set to binary by default.
 				-
 			
 			Binary Mode
@@ -41,6 +33,14 @@ Assembly Dialect
 					An instruction in binary mode is an element which may contain as its content a
 					sequence of zeroes and ones, and corresponds literally to a single binary
 					instruction.
+				-
+			
+			Raw Mode
+			
+				-
+					An instruction in raw mode is an element which may contain any string as its
+					content, corresponding to a sequence of instructions where each character
+					corresponds to a binary value.
 				-
 			
 			Decimal Mode
@@ -62,7 +62,7 @@ Assembly Dialect
 			Mnemonic Mode
 			
 				-
-					An instruction in mneumonic mode is an element that may have any content other
+					An instruction in mnemonic mode is an element that may have any content other
 					than "Use" or "Mode", regardless of letter case, and may have any children.
 				-
 		
