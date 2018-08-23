@@ -1,9 +1,0 @@
-Module Aliases
-
-	Philosophy
-	
-		-
-			Certain Kaeon FUSION interfaces, as well as ONE+ directive interfaces and alternate
-			syntaxes may be referenced through aliases as opposed to their file paths. The letter
-			case of said aliases is irrelevant.
-		-

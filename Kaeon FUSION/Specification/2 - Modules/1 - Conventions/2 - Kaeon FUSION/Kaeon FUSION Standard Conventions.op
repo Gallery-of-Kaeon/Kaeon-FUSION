@@ -1,0 +1,43 @@
+Kaeon FUSION Standard Conventions
+
+	Philosophy
+	
+		-
+			The Kaeon FUSION Standard Conventions establish standards that Kaeon FUSION
+			implementations are expected to support.
+		-
+	
+	Principles
+	
+		Module Aiases
+		
+			-
+				Kaeon FUSION interfaces may be referenced through aliases as opposed to their file
+				paths. The letter case of said aliases is irrelevant.
+			-
+	
+		Return Value
+		
+			-
+				Whenever a Kaeon FUSION command returns a value, said value may be designated as
+				the return value, which will be returned to Kaeon FUSION's host environment after
+				it terminates.
+				
+				There may only be one return value at a time.
+			-
+		
+		Workspace
+		
+			-
+				The workspace refers to the directories that Kaeon FUSION will import resources
+				from. The directories that compose the workspace must be arranged into a hierarchy.
+				
+				When attempting to locate a given resource, Kaeon FUSION will search each directory
+				in the order of their priorities until either the resource is found or there are no
+				more directories to search.
+				
+				By default, the workspace will consist of the local directory, the root directory,
+				and the internet, but said directories may be added to or removed from the
+				workspace.
+
+			-
