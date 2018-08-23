@@ -55,8 +55,9 @@ Kaeon FUSION Stack Interface
 						-
 							If the XML dialect receives arguments when cross compiling and one of
 							them is the string "HTML", it will cross compile with an HTML
-							extension, it will use the HTML.op use document automatically, and the
-							cross compiled file will have an HTML doctype.
+							extension, it will use the HTML.op use document automatically, the
+							cross compiled file will have an HTML doctype, and the document will be
+							permitted to have multiple root elements.
 						-
 			
 			Code Groups
