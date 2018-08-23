@@ -1,0 +1,20 @@
+ONE Abstract Syntax Tree
+
+	Philosophy
+	
+		-
+			A ONE abstract syntax tree is a ONE element analogous to the abstract syntax tree of a
+			given document in a language that can be represented as an abstract syntax tree.
+		-
+	
+	Principles
+	
+		Structure
+		
+			-
+				A ONE abstract syntax tree contains as its content the name of the language the
+				abstract syntax tree represents and every child of it is a node on the tree. Each
+				node element has as its content the content of the node it represents and has other
+				node elements corresponding to the children of the node it represents. Node
+				elements must be arranged in the same order as the nodes they represent.
+			-
