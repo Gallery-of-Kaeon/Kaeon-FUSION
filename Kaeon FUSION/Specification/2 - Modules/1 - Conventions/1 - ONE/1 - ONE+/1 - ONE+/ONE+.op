@@ -1,4 +1,6 @@
 ONE+
+
+# STUB - Implied Scope
 	
 	Philosophy
 		
@@ -143,7 +145,7 @@ ONE+
 						sequence, the element following it will be a sibling of the element
 						preceding it.
 						
-						If a closed scope sequence is used as the separating sequence, the element
+						If a close scope sequence is used as the separating sequence, the element
 						following it will be a sibling of the element preceding the corresponding
 						open scope sequence.
 						
@@ -167,6 +169,12 @@ ONE+
 						be a child of the last element defined by the parent plus element
 						definition that is not followed by a closed domain sequence or denested
 						sequence.
+						
+						If a multiple plus element definition is ended with a nested sequence or an
+						open domain sequence, elements defined following said plus sequence will
+						define children of the last element defined by said plus sequence
+						regardless of the nest level of said elements, until an excess denested
+						sequence or close domain sequence is used respectively.
 					-
 			
 			Directive Definitions
