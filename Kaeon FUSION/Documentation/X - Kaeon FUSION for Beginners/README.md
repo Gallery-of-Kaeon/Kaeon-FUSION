@@ -39,7 +39,7 @@ Indeed,
 creating video games,
 websites,
 and robots are but the tip of the proverbial iceberg.
-Computer science is a liberal art that teaches us how to use the fundamental principals of mathematics to bend inanimate objects to our will,
+Computer science is a liberal art that bestows upon us wondrous knowledge regarding the use of the fundamental principals of mathematics to bend inanimate objects to our will,
 offsetting menial burdens unfit for human endeavor unto automatons and revolutionizing the social experience to such an extent that it redefines the human condition.
 
 In calling computer science a liberal art,
