@@ -34,9 +34,13 @@ or IDE (Integrated Development Environment) called Kaeon Origin [here](https://g
 We cannot emphasize enough how important the art of computer programming is in the modern world,
 and how much you can benefit from having the ability to code.
 
-Computer Science is an even grander concept than computer programming.
-It's so much more than how to make a cool video game or run a social media site.
-It's a liberal art that allows us to both offset the mental burden of our work onto inanimate objects and to bend said inanimate objects to our will.
+Computer science is a vast discipline encompassing theory that extends far beyond the simple task of writing code.
+Indeed,
+creating video games,
+websites,
+and robots are but the tip of the proverbial iceberg.
+Computer science is a liberal art that teaches us how to use the fundamental principals of mathematics to bend inanimate objects to our will,
+offsetting menial burdens unfit for human endeavor unto automatons and revolutionizing the social experience to such an extent that it redefines the human condition.
 
 In calling computer science a liberal art,
 we use the term liberal art in the classical Greek sense,
