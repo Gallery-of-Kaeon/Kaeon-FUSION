@@ -1,0 +1,10 @@
+Minimum
+
+	Philosophy
+	
+		-
+			The minimum command contains the content "Minimum". It must have a single child that
+			returns a list of numbers.
+			
+			It returns the number in the list with the lowest value.
+		-
