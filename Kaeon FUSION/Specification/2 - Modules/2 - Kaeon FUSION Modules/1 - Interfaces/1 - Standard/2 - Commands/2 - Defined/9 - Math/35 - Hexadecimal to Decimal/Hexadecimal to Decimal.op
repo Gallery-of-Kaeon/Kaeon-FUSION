@@ -1,0 +1,12 @@
+Hexadecimal to Decimal
+
+	Philosophy
+	
+		-
+			The hexadecimal to decimal command contains the content "Hexadecimal to Decimal". It
+			must have a single child that returns a string containing the hexadecimal
+			representation of a number.
+			
+			It returns a number that is equivalent to the hexadecimal value represented by the
+			returned string.
+		-

@@ -1,0 +1,11 @@
+Binary to Decimal
+
+	Philosophy
+	
+		-
+			The binary to decimal command contains the content "Binary to Decimal". It must have a
+			single child that returns a string containing the binary representation of a number.
+			
+			It returns a number that is equivalent to the binary value represented by the returned
+			string.
+		-
