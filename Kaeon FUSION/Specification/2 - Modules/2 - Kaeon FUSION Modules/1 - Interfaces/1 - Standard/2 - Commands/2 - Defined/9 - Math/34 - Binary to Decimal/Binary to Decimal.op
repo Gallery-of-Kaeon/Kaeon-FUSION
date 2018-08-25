@@ -3,9 +3,11 @@ Binary to Decimal
 	Philosophy
 	
 		-
-			The binary to decimal command contains the content "Binary to Decimal". It must have a
-			single child that returns a string containing the binary representation of a number.
+			The binary to decimal command contains the content "Binary to Decimal". It must have
+			three children, the first of which returns a string containing a binary representation
+			of a number, and the second and third of which return booleans.
 			
 			It returns a number that is equivalent to the binary value represented by the returned
-			string.
+			string. The number shall be assumed to be signed if the first boolean is true and shall
+			be assumed to be floating point if the second boolean is true.
 		-
