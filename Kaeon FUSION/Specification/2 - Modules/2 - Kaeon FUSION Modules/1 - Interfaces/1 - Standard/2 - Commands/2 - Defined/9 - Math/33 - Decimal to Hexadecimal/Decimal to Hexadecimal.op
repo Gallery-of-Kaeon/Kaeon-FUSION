@@ -1,0 +1,15 @@
+Decimal to Hexadecimal
+
+	Philosophy
+	
+		-
+			The decimal to hexadecimal command contains the content "Decimal to Hexadecimal". It
+			must have three children, the first of which returns a number, and the second and third
+			of which return booleans.
+			
+			It returns a string containing the hexadecimal representation of the binary form of the
+			returned number. If the boolean returned by the second child is true, the number will
+			be represented as a signed number, and unsigned otherwise. If the boolean returned by
+			the third child is true, the number will be represented as a floating point number, and
+			as an integer otherwise.
+		-
