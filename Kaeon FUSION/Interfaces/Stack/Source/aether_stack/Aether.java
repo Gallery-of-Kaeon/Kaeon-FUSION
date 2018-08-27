@@ -8,7 +8,9 @@ import java.util.ArrayList;
 import build_dialect.cross_dialect.Category;
 import philosophers_stone.PhilosophersStone;
 import philosophers_stone.PhilosophersStoneUtilities;
+import stack.dialects.Assembly;
 import stack.dialects.CSS;
+import stack.dialects.CSV;
 import stack.dialects.JSON;
 import stack.dialects.SQL;
 import stack.dialects.XML;
@@ -68,10 +70,12 @@ public class Aether {
 		
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Display());
 
+		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Assembly());
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new XML());
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new JSON());
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new SQL());
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new CSS());
+		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new CSV());
 		
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Stopper());
 		
