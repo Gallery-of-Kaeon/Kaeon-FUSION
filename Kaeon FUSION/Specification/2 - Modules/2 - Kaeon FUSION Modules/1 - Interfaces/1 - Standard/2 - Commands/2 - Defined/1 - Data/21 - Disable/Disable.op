@@ -3,7 +3,7 @@ Disable
 	Philosophy
 	
 		-
-			The disable command contains the content "disable". It may have an indefinite number of
+			The disable command contains the content "Disable". It may have an indefinite number of
 			children, where each of the string forms of the values they return are used to activate
 			a given command.
 			

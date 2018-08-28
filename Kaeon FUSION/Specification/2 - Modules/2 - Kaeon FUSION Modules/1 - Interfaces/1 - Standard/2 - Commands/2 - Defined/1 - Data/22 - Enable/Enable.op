@@ -3,7 +3,7 @@ Enable
 	Philosophy
 	
 		-
-			The enable command contains the content "enable". It may have an indefinite number of
+			The enable command contains the content "Enable". It may have an indefinite number of
 			children, where each of the string forms of the values they return are used to activate
 			a given command.
 			
