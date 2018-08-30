@@ -3,11 +3,17 @@ Kaeon FUSION Stack Interface
 	Philosophy
 	
 		-
-			The Kaeon FUSION Stack Interface provides a standard set of functionality for the
-			various call packets provided by the Kaeon FUSION Standard Interface.
+			The Kaeon FUSION stack interface provides a standard set of functionality for the
+			various call packets provided by the Kaeon FUSION standard interface.
 		-
 		
 	Principles
+		
+		Alias
+			
+			-
+				The Kaeon FUSION stack interface may be referenced using the alias "Stack".
+			-
 	
 		Building and Deriving
 		

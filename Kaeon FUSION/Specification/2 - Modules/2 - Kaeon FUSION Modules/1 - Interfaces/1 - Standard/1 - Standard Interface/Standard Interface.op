@@ -3,18 +3,16 @@ Kaeon FUSION Standard Interface
 	Philosophy
 		
 		-
-			The Kaeon FUSION Standard Interface provides commands that allow users to write Turing
+			The Kaeon FUSION standard interface provides commands that allow users to write Turing
 			complete scripts in Kaeon FUSION.
 		-
 	
 	Principles
 		
-		Activation
+		Alias
 			
 			-
-				The interface, if available, can be enabled with the following command:
-				
-					Use: Standard
+				The Kaeon FUSION standard interface may be referenced using the alias "Standard".
 			-
 		
 		Added Effects
