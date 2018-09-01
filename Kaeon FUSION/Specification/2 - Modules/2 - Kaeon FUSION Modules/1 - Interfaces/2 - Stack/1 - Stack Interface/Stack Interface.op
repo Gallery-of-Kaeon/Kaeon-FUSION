@@ -52,19 +52,9 @@ Kaeon FUSION Stack Interface
 				Miscellaneous Dialects
 				
 					-
-						The Kaeon FUSION Stack Interface provides ONE dialects analogous to
-						Assembly, XML, JSON, SQL, CSS, and CSV.
+						The Kaeon FUSION Stack Interface provides build dialects analogous to
+						JSON and Assembly.
 					-
-					
-					HTML in the XML Dialect
-					
-						-
-							If the XML dialect receives arguments when cross compiling and one of
-							them is the string "HTML", it will cross compile with an HTML
-							extension, it will use the HTML.op use document automatically, the
-							cross compiled file will have an HTML doctype, and the document will be
-							permitted to have multiple root elements.
-						-
 			
 			Code Groups
 				

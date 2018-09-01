@@ -12,10 +12,21 @@ Kaeon FUSION Extended Stack Interface
 		Language Support
 		
 			-
-				In addition to C and JavaScript, the Kaeon FUSION extended stack interface shall
-				provide cross dialects and support code and module calls for Java, Python, C++, C#,
-				Swift, and PHP.
+				In addition to C and JavaScript, the Kaeon FUSION extended stack interface provides
+				cross dialects, support code calls, and module calls for Java, Python, C++, C#,
+				Swift, and PHP. The interface also provides build dialects for XML, CSS, SQL, and
+				CSV.
 			-
+			
+			HTML in the XML Dialect
+			
+				-
+					If the XML dialect receives arguments when cross compiling and one of them is
+					the string "HTML", it will cross compile with an HTML extension, it will use
+					the HTML.op use document automatically, the cross compiled file will have an
+					HTML doctype, and the document will be permitted to have multiple root
+					elements.
+				-
 		
 		Listening
 			
