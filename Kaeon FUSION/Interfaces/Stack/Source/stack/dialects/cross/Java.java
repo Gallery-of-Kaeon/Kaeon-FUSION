@@ -58,6 +58,8 @@ public class Java extends CrossDialect {
 		
 		file.add(formatIdentifier(classBuild.substring(index + 14, classBuild.indexOf("{"))) + ".java");
 		file.add(classBuild);
+		
+		files.add(file);
 	}
 	
 	public String buildMain(
@@ -293,7 +295,7 @@ public class Java extends CrossDialect {
 		Category global = getCategory(categories, "Global");
 		
 		for(int i = 0; i < global.objects.size(); i++)
-			build += global.objects.get(i);
+			build += global.objects.get(i) + buildBodyElementSeparator();
 		
 		Category functions = getCategory(categories, "Functions");
 		

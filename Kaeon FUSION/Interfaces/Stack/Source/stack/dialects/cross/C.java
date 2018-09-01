@@ -130,6 +130,34 @@ public class C extends CrossDialect {
 		return buildType(type);
 	}
 	
+	public String buildClassDefinition(Element classElement, String constructor, Element metaCopy, ArrayList<Category> categories, ArrayList<String> inheritence) {
+		
+		boolean aliased = true;
+		boolean union = false;
+		
+		String build =
+				(!union ? "struct " : "union ") +
+				(aliased ? classElement.content : "") +
+				"{";
+		
+		Category global = getCategory(categories, "Global");
+		
+		for(int i = 0; i < global.objects.size(); i++)
+			build += "" + global.objects.get(i) + buildBodyElementSeparator();
+		
+		Category functions = getCategory(categories, "Functions");
+		
+		for(int i = 0; i < functions.objects.size(); i++) {
+			
+			String function = "" + functions.objects.get(i);
+			function = "&" + function.substring(0, function.indexOf("(")).trim();
+			
+			build += function + buildBodyElementSeparator();
+		}
+		
+		return build + "}";
+	}
+	
 	public String buildLog(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "printf(" + arguments.get(0) + ")";
 	}

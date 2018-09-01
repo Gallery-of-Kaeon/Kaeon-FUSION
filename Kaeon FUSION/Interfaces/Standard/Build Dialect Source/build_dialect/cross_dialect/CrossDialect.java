@@ -178,89 +178,17 @@ public class CrossDialect extends BuildDialect {
 				return string;
 			}
 			
-			if(element.content.equalsIgnoreCase("Throw"))
-				return buildThrow(element, arguments, meta, categories);
-			
-			if(element.content.equalsIgnoreCase("Catch"))
-				return buildCatch(element, arguments, meta, categories);
-			
-			if(element.content.equalsIgnoreCase("Exit"))
-				return buildExit(element, arguments, meta, categories);
-			
-			if(element.content.equalsIgnoreCase("Exception"))
-				return buildException(element, arguments, meta, categories);
-			
-			if(element.content.equalsIgnoreCase("Out"))
-				return buildOut(element, arguments, meta, categories);
-			
-			if(element.content.equalsIgnoreCase("Retrieve"))
-				return buildRetrieve(element, arguments, meta, categories);
-			
-			if(element.content.equalsIgnoreCase("Shift"))
-				return buildShift(element, arguments, meta, categories);
-			
-			if(element.content.equalsIgnoreCase("Operating System"))
-				return buildOperatingSystem(element, arguments, meta, categories);
-			
-			if(element.content.equalsIgnoreCase("Year"))
-				return buildYear(element, arguments, meta, categories);
-			
-			if(element.content.equalsIgnoreCase("Month"))
-				return buildMonth(element, arguments, meta, categories);
-			
-			if(element.content.equalsIgnoreCase("Day"))
-				return buildDay(element, arguments, meta, categories);
-			
-			if(element.content.equalsIgnoreCase("Hour"))
-				return buildHour(element, arguments, meta, categories);
-			
-			if(element.content.equalsIgnoreCase("Minute"))
-				return buildMinute(element, arguments, meta, categories);
-			
-			if(element.content.equalsIgnoreCase("Second"))
-				return buildSecond(element, arguments, meta, categories);
-			
-			if(element.content.equalsIgnoreCase("Weekday"))
-				return buildWeekday(element, arguments, meta, categories);
-			
-			if(element.content.equalsIgnoreCase("List to Element"))
-				return buildListToElement(element, arguments, meta, categories, arraySize, arrayIndex);
-			
-			if(element.content.equalsIgnoreCase("Element to List"))
-				return buildElementToList(element, arguments, meta, categories, arraySize, arrayIndex);
-			
-			if(element.content.equalsIgnoreCase("Tokenize"))
-				return buildTokenize(element, arguments, meta, categories, arraySize, arrayIndex);
-			
-			if(element.content.equalsIgnoreCase("Adapt"))
-				return buildAdapt(element, arguments, meta, categories);
-			
-			if(element.content.equalsIgnoreCase("Generate"))
-				return buildGenerate(element, arguments, meta, categories);
-			
-			if(element.content.equalsIgnoreCase("Form"))
-				return buildForm(element, arguments, meta, categories);
-			
-			if(element.content.equalsIgnoreCase("Is Command"))
-				return buildIsCommand(element, arguments, meta, categories);
-			
 			if(element.content.equalsIgnoreCase("Define"))
 				return buildDefine(element, arguments, meta, categories);
-			
-			if(element.content.equalsIgnoreCase("Arguments"))
-				return buildArguments(element, arguments, meta, categories);
-			
-			if(element.content.equalsIgnoreCase("Import"))
-				return buildImport(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Global"))
 				return buildGlobal(element, arguments, meta, categories);
 			
-			if(element.content.equalsIgnoreCase("Execute"))
-				return buildExecute(element, arguments, meta, categories);
+			if(element.content.equalsIgnoreCase("Import"))
+				return buildImport(element, arguments, meta, categories);
 			
-			if(element.content.equalsIgnoreCase("Call"))
-				return buildCall(element, arguments, meta, categories);
+			if(element.content.equalsIgnoreCase("Arguments"))
+				return buildArguments(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("This"))
 				return buildThis(element, arguments, meta, categories);
@@ -277,8 +205,53 @@ public class CrossDialect extends BuildDialect {
 			if(element.content.equalsIgnoreCase("Type"))
 				return buildType(element, arguments, meta, categories);
 			
+			if(element.content.equalsIgnoreCase("Form"))
+				return buildForm(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Is Command"))
+				return buildIsCommand(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Is Variable"))
+				return buildIsVariable(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Is Function"))
+				return buildIsFunction(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Destroy"))
+				return buildDestroy(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Variables"))
+				return buildVariables(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Functions"))
+				return buildFunctions(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Get Function"))
+				return buildGetFunction(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Get Code"))
+				return buildGetCode(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Get Code Index"))
+				return buildGetCodeIndex(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("With"))
+				return buildWith(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Disable"))
+				return buildDisable(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Enable"))
+				return buildEnable(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Lock Down"))
+				return buildLockDown(element, arguments, meta, categories);
+			
 			if(element.content.equalsIgnoreCase("Return"))
 				return buildReturn(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Catch"))
+				return buildCatch(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Scope")) {
 				
@@ -343,6 +316,9 @@ public class CrossDialect extends BuildDialect {
 				return buildScope(element, arguments, meta, nest);
 			}
 			
+			if(element.content.equalsIgnoreCase("Execute"))
+				return buildExecute(element, arguments, meta, categories);
+			
 			if(element.content.equalsIgnoreCase("Break"))
 				return buildBreak(element, arguments, meta, nest);
 			
@@ -352,14 +328,50 @@ public class CrossDialect extends BuildDialect {
 			if(element.content.equalsIgnoreCase("Loop"))
 				return buildLoop(element, arguments, meta, nest);
 			
-			if(element.content.equalsIgnoreCase("Run"))
-				return buildRun(element, arguments, meta, categories);
-			
 			if(element.content.equalsIgnoreCase("Wait"))
 				return buildWait(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Split"))
 				return buildSplit(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Run"))
+				return buildRun(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Call"))
+				return buildCall(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Throw"))
+				return buildThrow(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Exit"))
+				return buildExit(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Exception"))
+				return buildException(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Out"))
+				return buildOut(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Retrieve"))
+				return buildRetrieve(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Shift"))
+				return buildShift(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Flip"))
+				return buildFlip(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Block"))
+				return buildBlock(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Ternary"))
+				return buildTernary(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Isolate"))
+				return buildIsolate(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Vanish"))
+				return buildVanish(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Log"))
 				return buildLog(element, arguments, meta, categories);
@@ -370,14 +382,101 @@ public class CrossDialect extends BuildDialect {
 			if(element.content.equalsIgnoreCase("Input"))
 				return buildInput(element, arguments, meta, categories);
 			
+			if(element.content.equalsIgnoreCase("Log Error"))
+				return buildLogError(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Log Line Error"))
+				return buildLogLineError(element, arguments, meta, categories);
+			
 			if(element.content.equalsIgnoreCase("Time"))
 				return buildTime(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Operating System"))
+				return buildOperatingSystem(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Year"))
+				return buildYear(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Month"))
+				return buildMonth(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Day"))
+				return buildDay(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Hour"))
+				return buildHour(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Minute"))
+				return buildMinute(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Second"))
+				return buildSecond(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Weekday"))
+				return buildWeekday(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Addresses"))
+				return buildAddresses(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Send"))
+				return buildSend(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Connect"))
+				return buildConnect(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Open"))
 				return buildOpen(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Save"))
 				return buildSave(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Delete"))
+				return buildDelete(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Directory"))
+				return buildDirectory(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Local Directory"))
+				return buildLocalDirectory(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Root Directories"))
+				return buildRootDirectories(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Parent Directory"))
+				return buildParentDirectory(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Absolute Path"))
+				return buildAbsolutePath(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Create Directory"))
+				return buildCreateDirectory(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Is Directory"))
+				return buildIsDirectory(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("File Exists"))
+				return buildFileExists(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Separator"))
+				return buildSeparator(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Is Hidden"))
+				return buildIsHidden(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("File Size"))
+				return buildFileSize(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Rename"))
+				return buildRename(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Path Separator"))
+				return buildPathSeparator(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Source Workspaces"))
+				return buildSourceWorkspaces(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Build Workspace"))
+				return buildBuildWorkspace(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("List"))
 				return buildList(element, arguments, meta, categories, arraySize, arrayIndex);
@@ -424,6 +523,54 @@ public class CrossDialect extends BuildDialect {
 			if(element.content.equalsIgnoreCase("Convert Sequence"))
 				return buildConvertSequence(element, arguments, meta, categories, arraySize, arrayIndex);
 			
+			if(element.content.equalsIgnoreCase("List to Element"))
+				return buildListToElement(element, arguments, meta, categories, arraySize, arrayIndex);
+			
+			if(element.content.equalsIgnoreCase("Element to List"))
+				return buildElementToList(element, arguments, meta, categories, arraySize, arrayIndex);
+			
+			if(element.content.equalsIgnoreCase("Tokenize"))
+				return buildTokenize(element, arguments, meta, categories, arraySize, arrayIndex);
+			
+			if(element.content.equalsIgnoreCase("Append All"))
+				return buildAppendAll(element, arguments, meta, categories, arraySize, arrayIndex);
+			
+			if(element.content.equalsIgnoreCase("Insert All"))
+				return buildInsertAll(element, arguments, meta, categories, arraySize, arrayIndex);
+			
+			if(element.content.equalsIgnoreCase("Indexes"))
+				return buildIndexes(element, arguments, meta, categories, arraySize, arrayIndex);
+			
+			if(element.content.equalsIgnoreCase("Swap"))
+				return buildSwap(element, arguments, meta, categories, arraySize, arrayIndex);
+			
+			if(element.content.equalsIgnoreCase("Sort Alphabetical"))
+				return buildSortAlphabetical(element, arguments, meta, categories, arraySize, arrayIndex);
+			
+			if(element.content.equalsIgnoreCase("Sort Numerical"))
+				return buildSortNumerical(element, arguments, meta, categories, arraySize, arrayIndex);
+			
+			if(element.content.equalsIgnoreCase("Shuffle"))
+				return buildShuffle(element, arguments, meta, categories, arraySize, arrayIndex);
+			
+			if(element.content.equalsIgnoreCase("Is Sorted Alphabetical"))
+				return buildIsSortedAlphabetical(element, arguments, meta, categories, arraySize, arrayIndex);
+			
+			if(element.content.equalsIgnoreCase("Is Sorted Numerical"))
+				return buildIsSortedNumerical(element, arguments, meta, categories, arraySize, arrayIndex);
+			
+			if(element.content.equalsIgnoreCase("Key Index"))
+				return buildKeyIndex(element, arguments, meta, categories, arraySize, arrayIndex);
+			
+			if(element.content.equalsIgnoreCase("Key Indexes"))
+				return buildKeyIndexes(element, arguments, meta, categories, arraySize, arrayIndex);
+			
+			if(element.content.equalsIgnoreCase("Replace"))
+				return buildReplace(element, arguments, meta, categories, arraySize, arrayIndex);
+			
+			if(element.content.equalsIgnoreCase("Rank"))
+				return buildRank(element, arguments, meta, categories, arraySize, arrayIndex);
+			
 			if(element.content.equalsIgnoreCase("Character to Number"))
 				return buildCharacterToNumber(element, arguments, meta, categories);
 			
@@ -438,6 +585,9 @@ public class CrossDialect extends BuildDialect {
 			
 			if(element.content.equalsIgnoreCase("Trim"))
 				return buildTrim(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Pattern Match"))
+				return buildPatternMatch(element, arguments, meta, categories);
 			
 			if(element.content.equalsIgnoreCase("Not"))
 				return buildNot(element, arguments, meta, categories);
@@ -526,13 +676,67 @@ public class CrossDialect extends BuildDialect {
 			if(element.content.equalsIgnoreCase("Infinity"))
 				return buildInfinity(element, arguments, meta, categories);
 			
+			if(element.content.equalsIgnoreCase("Arc Sine"))
+				return buildArcSine(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Arc Cosine"))
+				return buildArcCosine(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Arc Tangent"))
+				return buildArcTangent(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Hyperbolic Sine"))
+				return buildHyperbolicSine(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Hyperbolic Cosine"))
+				return buildHyperbolicCosine(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Hyperbolic Tangent"))
+				return buildHyperbolicTangent(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Theta"))
+				return buildTheta(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Maximum"))
+				return buildMaximum(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Minimum"))
+				return buildMinimum(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Mean"))
+				return buildMean(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Median"))
+				return buildMedian(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Range"))
+				return buildRange(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Decimal to Binary"))
+				return buildDecimalToBinary(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Decimal to Hexadecimal"))
+				return buildDecimalToHexadecimal(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Binary to Decimal"))
+				return buildBinaryToDecimal(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("Hexadecimal to Decimal"))
+				return buildHexadecimalToDecimal(element, arguments, meta, categories);
+			
+			if(element.content.equalsIgnoreCase("SOUL Core"))
+				return buildSOULCore(element, arguments, meta, categories);
+			
 			String operation = buildOperator(element, arguments, meta, categories);
 			
 			if(operation != null)
 				return operation;
 			
-			if(getCategory(categories, "Function Names").objects.contains(element.content.toLowerCase()))
+			if(getCategory(categories, "Function Names").objects.contains(element.content.toLowerCase()) ||
+					element.parent.content.equalsIgnoreCase("New")) {
+				
 				return buildFunctionCall(element, arguments, meta, categories);
+			}
 			
 			if(variables.contains(element.content.toLowerCase())) {
 				
@@ -875,8 +1079,6 @@ public class CrossDialect extends BuildDialect {
 		return "\"" + literal + "\"";
 	}
 	
-	
-	
 	public String buildVariableDeclaration(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		
 		String type =
@@ -921,90 +1123,6 @@ public class CrossDialect extends BuildDialect {
 		}
 		
 		return build + ")";
-	}
-	
-	public String buildWeekday(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
-		return "";
-	}
-	
-	public String buildSecond(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
-		return "";
-	}
-	
-	public String buildMinute(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
-		return "";
-	}
-	
-	public String buildHour(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
-		return "";
-	}
-	
-	public String buildDay(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
-		return "";
-	}
-	
-	public String buildMonth(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
-		return "";
-	}
-	
-	public String buildYear(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
-		return "";
-	}
-	
-	public String buildOperatingSystem(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
-		return "";
-	}
-	
-	public String buildOut(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
-		return "";
-	}
-	
-	public String buildRetrieve(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
-		return "";
-	}
-	
-	public String buildShift(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
-		return "";
-	}
-	
-	public String buildException(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
-		return "";
-	}
-	
-	public String buildExit(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
-		return "";
-	}
-	
-	public String buildThrow(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
-		return "";
-	}
-	
-	public String buildCatch(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
-		return "";
-	}
-	
-	public String buildAdapt(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
-		return "";
-	}
-	
-	public String buildGenerate(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
-		return "";
-	}
-	
-	public String buildForm(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
-		return "";
-	}
-	
-	public String buildIsCommand(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
-		return "";
-	}
-	
-	public String buildLiteralCommand(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
-		return "";
-	}
-	
-	public String buildType(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
-		return "";
 	}
 	
 	public String buildDefine(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
@@ -1229,10 +1347,6 @@ public class CrossDialect extends BuildDialect {
 		return "";
 	}
 	
-	public String buildArguments(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
-		return "arguments";
-	}
-	
 	public String buildGlobal(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 
 		for(int i = 0; i < element.children.size(); i++)
@@ -1249,12 +1363,8 @@ public class CrossDialect extends BuildDialect {
 		return null;
 	}
 	
-	public String buildCall(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
-		return "";
-	}
-	
-	public String buildExecute(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
-		return "";
+	public String buildArguments(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "arguments";
 	}
 	
 	public String buildThis(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
@@ -1262,11 +1372,75 @@ public class CrossDialect extends BuildDialect {
 	}
 	
 	public String buildNew(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
-		return "";
+		return "new " + arguments.get(0);
 	}
 	
 	public String buildNull(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "null";
+	}
+	
+	public String buildLiteralCommand(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildType(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildForm(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildIsCommand(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildIsVariable(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildIsFunction(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildDestroy(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildVariables(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildFunctions(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildGetFunction(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildGetCode(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildGetCodeIndex(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildWith(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildDisable(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildEnable(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildLockDown(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
 	}
 	
 	public String buildReturn(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
@@ -1284,6 +1458,10 @@ public class CrossDialect extends BuildDialect {
 		return build;
 	}
 	
+	public String buildCatch(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
 	public String buildScope(Element element, ArrayList<String> arguments, Element meta, int nest) {
 		
 		String build = "while(true){";
@@ -1292,6 +1470,10 @@ public class CrossDialect extends BuildDialect {
 			build += arguments.get(i) + buildBodyElementSeparator();
 		
 		return build + "break;}";
+	}
+	
+	public String buildExecute(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
 	}
 	
 	public String buildBreak(Element element, ArrayList<String> arguments, Element meta, int nest) {
@@ -1324,11 +1506,59 @@ public class CrossDialect extends BuildDialect {
 		return "";
 	}
 	
+	public String buildSplit(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
 	public String buildRun(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
-	public String buildSplit(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+	public String buildCall(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildThrow(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildExit(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildException(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildOut(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildRetrieve(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildShift(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildFlip(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildBlock(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildTernary(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildIsolate(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildVanish(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
@@ -1344,7 +1574,59 @@ public class CrossDialect extends BuildDialect {
 		return "";
 	}
 	
+	public String buildLogError(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildLogLineError(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
 	public String buildTime(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildOperatingSystem(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildYear(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildMonth(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildDay(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildHour(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildMinute(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildSecond(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildWeekday(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildAddresses(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildSend(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildConnect(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
@@ -1353,6 +1635,70 @@ public class CrossDialect extends BuildDialect {
 	}
 	
 	public String buildSave(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildDelete(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildDirectory(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildLocalDirectory(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildRootDirectories(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildParentDirectory(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildAbsolutePath(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildCreateDirectory(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildIsDirectory(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildFileExists(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildSeparator(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildIsHidden(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildFileSize(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildRename(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildPathSeparator(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildSourceWorkspaces(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildBuildWorkspace(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
@@ -1428,6 +1774,58 @@ public class CrossDialect extends BuildDialect {
 		return "";
 	}
 	
+	public String buildAppendAll(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
+		return "";
+	}
+	
+	public String buildInsertAll(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
+		return "";
+	}
+	
+	public String buildIndexes(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
+		return "";
+	}
+	
+	public String buildSwap(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
+		return "";
+	}
+	
+	public String buildSortAlphabetical(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
+		return "";
+	}
+	
+	public String buildSortNumerical(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
+		return "";
+	}
+	
+	public String buildShuffle(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
+		return "";
+	}
+	
+	public String buildIsSortedAlphabetical(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
+		return "";
+	}
+	
+	public String buildIsSortedNumerical(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
+		return "";
+	}
+	
+	public String buildKeyIndex(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
+		return "";
+	}
+	
+	public String buildKeyIndexes(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
+		return "";
+	}
+	
+	public String buildReplace(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
+		return "";
+	}
+	
+	public String buildRank(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
+		return "";
+	}
+	
 	public String buildCharacterToNumber(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
@@ -1445,6 +1843,10 @@ public class CrossDialect extends BuildDialect {
 	}
 	
 	public String buildTrim(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildPatternMatch(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 	
@@ -1561,6 +1963,74 @@ public class CrossDialect extends BuildDialect {
 	}
 	
 	public String buildInfinity(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildArcSine(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildArcCosine(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildArcTangent(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildHyperbolicSine(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildHyperbolicCosine(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildHyperbolicTangent(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildTheta(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildMaximum(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildMinimum(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildMean(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildMedian(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildRange(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildDecimalToBinary(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildDecimalToHexadecimal(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildBinaryToDecimal(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildHexadecimalToDecimal(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		return "";
+	}
+	
+	public String buildSOULCore(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		return "";
 	}
 }

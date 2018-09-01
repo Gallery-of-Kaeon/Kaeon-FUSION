@@ -52,7 +52,7 @@ public class JavaScript extends CrossDialect {
 			int parameterNumber,
 			boolean aliased) {
 		
-		String build = "function " + (aliased ? function.content : "") + "(";
+		String build = (isConstructor ? "constructor " : "function ") + (aliased ? function.content : "") + "(";
 		
 		for(int i = 0; i < parameterNumber; i++) {
 			
@@ -84,7 +84,28 @@ public class JavaScript extends CrossDialect {
 	}
 	
 	public String buildClassDefinition(Element classElement, String constructor, Element metaCopy, ArrayList<Category> categories, ArrayList<String> inheritence) {
-		return constructor;
+		
+		String build =
+				"class " +
+				classElement.content +
+				(inheritence.size() > 0 ?
+						" extends " + inheritence.get(0) :
+						"") +
+				"{";
+		
+		Category global = getCategory(categories, "Global");
+		
+		for(int i = 0; i < global.objects.size(); i++)
+			build += "" + global.objects.get(i) + buildBodyElementSeparator();
+		
+		build += constructor;
+		
+		Category functions = getCategory(categories, "Functions");
+		
+		for(int i = 0; i < functions.objects.size(); i++)
+			build += "" + functions.objects.get(i);
+		
+		return build + "}";
 	}
 	
 	public String buildLog(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
