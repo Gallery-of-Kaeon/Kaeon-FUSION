@@ -44,3 +44,17 @@ C Dialect
 				array. If no such child is present, the array will be assumed to be one
 				dimensional.
 			-
+		
+		Structure
+		
+			-
+				If the type element has a child with the content "Structure", said child must have
+				a child with content containing the name of a C struct.
+			-
+		
+		Inline Structure
+		
+			-
+				If the type element has a child with the content "Inline Structure", the children
+				of said child shall compose the body of a function analogous to a C struct.
+			-
