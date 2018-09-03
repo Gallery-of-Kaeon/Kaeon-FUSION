@@ -67,13 +67,15 @@ C Dialect
 		Get Pointer
 		
 			-
-				If a notation element in a meta command contains the content "Get Pointer", any
-				variable reference within its scope will be a pointer reference.
+				If a notation element in a meta command contains the content "Get Pointer", the
+				command in the meta command's scope will be a pointer reference. This effect will
+				have reduced scope.
 			-
 		
 		Get Address
 		
 			-
-				If a notation element in a meta command contains the content "Get Address", any
-				variable reference within its scope will be an address reference.
+				If a notation element in a meta command contains the content "Get Address", the
+				command in the meta command's scope will be an address reference. This effect will
+				have reduced scope.
 			-

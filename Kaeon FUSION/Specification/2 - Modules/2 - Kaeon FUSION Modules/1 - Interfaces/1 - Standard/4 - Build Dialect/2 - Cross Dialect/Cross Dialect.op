@@ -32,8 +32,8 @@ Cross Dialect
 					-
 						A meta command may have a child with the content "Cast". The children of
 						the cast element will determine the type that the value returned by the
-						command that follows the meta command will be cast to. This effect will
-						have reduced scope.
+						command in the meta command's scope will be cast to. This effect will have
+						reduced scope.
 					-
 			
 			Arrays
