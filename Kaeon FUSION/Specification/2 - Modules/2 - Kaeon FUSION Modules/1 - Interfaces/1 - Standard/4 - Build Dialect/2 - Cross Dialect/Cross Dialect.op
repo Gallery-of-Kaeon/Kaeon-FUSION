@@ -11,8 +11,8 @@ Cross Dialect
 			necessary information. As such, a set of meta command formats used for all cross
 			dialects has been specified.
 			
-			Additional commands and meta command formats may be added to individual cross dialects
-			to cover for operators specific to certain languages.
+			Additional meta command notation formats may be added to individual cross dialects to
+			cover for features specific to certain languages.
 		-
 	
 	Principles
@@ -158,7 +158,5 @@ Cross Dialect
 			-
 				An extended variant of the cross dialect must specify what languages and frameworks
 				the dialect corresponds to, what data types may be used for variables and
-				functions, what may be placed in a notation, what operator commands will be added
-				to those already present in the standard interface, and any limitations of the
-				dialect.
+				functions, and what may be placed in a notation.
 			-

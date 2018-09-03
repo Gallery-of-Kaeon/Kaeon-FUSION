@@ -39,10 +39,13 @@ C Dialect
 		Array
 			
 			-
-				If the type element has a child with the content "Array", said child may have a
-				child with content containing an integer number, specifying the dimensions of the
-				array. If no such child is present, the array will be assumed to be one
-				dimensional.
+				If the type element has a child with the content "Array", said child may an
+				indefinite number of children, each of which may have either an integer number or
+				the string "Null" as their content. Each of said children represents a dimension of
+				an array, where a child containing a number represents the length of said dimension
+				and a child with the string "Null" represents a dimension of indeterminate length.
+				If the array element has no children, the array will be assumed be a one
+				dimensional array of indeterminate length.
 			-
 		
 		Structure
@@ -57,4 +60,20 @@ C Dialect
 			-
 				If the type element has a child with the content "Inline Structure", the children
 				of said child shall compose the body of a function analogous to a C struct.
+			-
+	
+	Notations
+	
+		Get Pointer
+		
+			-
+				If a notation element in a meta command contains the content "Get Pointer", any
+				variable reference within its scope will be a pointer reference.
+			-
+		
+		Get Address
+		
+			-
+				If a notation element in a meta command contains the content "Get Address", any
+				variable reference within its scope will be an address reference.
 			-
