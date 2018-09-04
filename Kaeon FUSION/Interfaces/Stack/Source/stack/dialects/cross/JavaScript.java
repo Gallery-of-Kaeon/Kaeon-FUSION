@@ -128,7 +128,7 @@ public class JavaScript extends CrossDialect {
 		return build + ")";
 	}
 	
-	public String buildList(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+	public String buildList(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
 		
 		String build = "[";
 		

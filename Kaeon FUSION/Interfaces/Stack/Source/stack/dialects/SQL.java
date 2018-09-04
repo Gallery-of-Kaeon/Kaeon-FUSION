@@ -99,6 +99,16 @@ public class SQL extends BuildDialect {
 				arguments.add(buildCommand(command.children.get(i)));
 		}
 		
+		if(command.content.equalsIgnoreCase("Fields")) {
+			
+			String build = "(";
+			
+			for(int i = 0; i < arguments.size(); i++)
+				build += arguments.get(i) + " ";
+			
+			return build + ")";
+		}
+		
 		String prefix = getPrefix(command);
 		
 		if(prefix != null) {

@@ -58,6 +58,83 @@ public class C extends CrossDialect {
 				(!snippet ? "return 0;}" : "");
 	}
 	
+	public String buildElement(
+			String name,
+			Element element,
+			ArrayList<Category> categories,
+			ArrayList<String> variables,
+			Element meta,
+			int nest) {
+		
+		String build = super.buildElement(name, element, categories, variables, meta, nest);
+		
+		if(element.content.equalsIgnoreCase("Meta"))
+			return null;
+		
+		if(ElementUtilities.hasChild(meta, "Notation")) {
+			
+			Element notation = ElementUtilities.getChild(meta, "Notation");
+			
+			if(ElementUtilities.hasChild(notation, "Address")) {
+				
+				build = "&(" + build + ")";
+				
+				ElementUtilities.removeChild(notation, "Address");
+			}
+			
+			if(ElementUtilities.hasChild(notation, "Pointer")) {
+				
+				build = "*(" + build + ")";
+				
+				ElementUtilities.removeChild(notation, "Pointer");
+			}
+		}
+		
+		return build;
+	}
+	
+	public String buildVariableDeclaration(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
+		
+		String type =
+				buildVariableDeclarationType(
+						element,
+						arguments,
+						meta,
+						categories);
+		
+		String variable =
+				type +
+				(type.length() > 0 ? " " : "") +
+				buildVariableAssignment(
+						element,
+						arguments,
+						meta,
+						categories);
+		
+		String array = "";
+		
+		if(ElementUtilities.hasChild(meta, "Type")) {
+			
+			Element typeElement = ElementUtilities.getChild(meta, "Type");
+			
+			if(ElementUtilities.hasChild(typeElement, "array")) {
+				
+				Element arrayElement = ElementUtilities.getChild(typeElement, "array");
+				
+				for(int i = 0; i < arrayElement.children.size(); i++) {
+					
+					if(arrayElement.children.get(i).content.equalsIgnoreCase("null"))
+						array += "[]";
+					
+					else
+						array += "[" + Integer.parseInt(arrayElement.children.get(i).content) + "]";
+				}
+			}
+		}
+		
+		return variable + array;
+	}
+	
 	public String buildVariableDeclarationType(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories) {
 		
 		if(ElementUtilities.hasChild(meta, "Type")) {
@@ -68,7 +145,12 @@ public class C extends CrossDialect {
 			for(int i = 0; i < typeElement.children.size(); i++)
 				type.add(typeElement.children.get(i).content);
 			
-			return buildType(type);
+			String struct = "";
+			
+			if(ElementUtilities.hasChild(typeElement, "structure"))
+				struct = ElementUtilities.getChild(typeElement, "structure").children.get(0).content;
+			
+			return buildType(type, struct);
 		}
 		
 		return "void*";
@@ -166,7 +248,26 @@ public class C extends CrossDialect {
 		return "printf(" + arguments.get(0) + ")";
 	}
 	
+	public String buildList(Element element, ArrayList<String> arguments, Element meta, ArrayList<Category> categories, String size, int index) {
+		
+		String build = "{";
+		
+		for(int i = 0; i < arguments.size(); i++) {
+			
+			build += arguments.get(i);
+			
+			if(i < arguments.size() - 1)
+				build += ",";
+		}
+		
+		return build + "}";
+	}
+	
 	public String buildType(ArrayList<String> type) {
+		return buildType(type, "");
+	}
+	
+	public String buildType(ArrayList<String> type, String struct) {
 		
 		String build = "";
 		
@@ -211,13 +312,13 @@ public class C extends CrossDialect {
 		if(lower.contains("void"))
 			build += "void ";
 		
+		if(struct.length() > 0)
+			build += struct;
+		
 		if(lower.contains("pointer"))
 			build += "* ";
 		
 		if(lower.contains("address"))
-			build += "& ";
-		
-		if(lower.contains("array"))
 			build += "& ";
 		
 		return build;
