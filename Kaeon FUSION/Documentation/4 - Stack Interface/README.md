@@ -4,9 +4,30 @@
 
 # The Stack Interface
 
-The stack interfaces allow Kaeon FUSION to be cross compiled to other languages.
+The stack interface allows Kaeon FUSION to be cross compiled to other languages.
 
-_Further documentation on the stack interface will be coming soon._
+_Futher documentation on the stack interface is coming soon._
+
+<!--
+
+For any given language,
+a dialect of ONE may be created called a build dialect.
+For traditional Turing complete programming languages,
+a build dialect that is similar to code written using the standard interface called the cross dialect is used.
+
+Build dialects allow metadata to be passed to the cross compiler using meta commands.
+
+## Contents
+
+[1 - Meta Commands]()
+
+[2 - Cross Dialect]()
+
+[3 - Building]()
+
+[4 - Supported Languages]()
+
+-->
 
 <div align="right"><p>
 
