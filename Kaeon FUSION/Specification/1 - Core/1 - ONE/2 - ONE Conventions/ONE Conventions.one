@@ -1,0 +1,33 @@
+-
+	ONE Conventions
+-
+	-
+		Philosophy
+	-
+		-
+			The ONE conventions are a set of principles regarding ONE that should be applied in any
+			scenario where ONE is relevant.
+		-
+	-
+		Principles
+	-
+		-
+			Content
+		-
+			-
+				The string contained by an element is referred to as its content.
+			-
+		-
+			Scope
+		-
+			-
+				Any element that may be accessed by trickling down through the child connections of
+				another element are said to be in the latter element's scope.
+			-
+		-
+			Default Element
+		-
+			-
+				By default, an element will have an empty string as its content and will have no
+				children.
+			-
