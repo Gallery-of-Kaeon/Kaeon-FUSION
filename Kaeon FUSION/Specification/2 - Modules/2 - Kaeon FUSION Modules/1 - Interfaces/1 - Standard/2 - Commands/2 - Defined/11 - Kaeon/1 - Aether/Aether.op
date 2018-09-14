@@ -1,0 +1,12 @@
+Aether
+
+	Philosophy
+	
+		-
+			The aether command contains the content "Aether". It must have two children, the first
+			of which returns a string containing the alias of an Aether module and the second of
+			which returns a list of objects.
+			
+			It calls the Aether module referenced by the alias and passes the contents of the list
+			to the modules as arguments. It then returns the value returned by the Aether module.
+		-
