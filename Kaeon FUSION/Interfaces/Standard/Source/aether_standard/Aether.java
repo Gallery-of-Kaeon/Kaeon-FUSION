@@ -24,6 +24,7 @@ import standard_kaeon_fusion.commands.data.GetCodeIndex;
 import standard_kaeon_fusion.commands.data.GetFunction;
 import standard_kaeon_fusion.commands.data.Global;
 import standard_kaeon_fusion.commands.data.Import;
+import standard_kaeon_fusion.commands.data.Interpreter;
 import standard_kaeon_fusion.commands.data.IsCommand;
 import standard_kaeon_fusion.commands.data.IsFunction;
 import standard_kaeon_fusion.commands.data.IsVariable;
@@ -31,6 +32,7 @@ import standard_kaeon_fusion.commands.data.Literal;
 import standard_kaeon_fusion.commands.data.LockDown;
 import standard_kaeon_fusion.commands.data.New;
 import standard_kaeon_fusion.commands.data.Null;
+import standard_kaeon_fusion.commands.data.Reflect;
 import standard_kaeon_fusion.commands.data.This;
 import standard_kaeon_fusion.commands.data.Type;
 import standard_kaeon_fusion.commands.data.With;
@@ -76,6 +78,7 @@ import standard_kaeon_fusion.commands.io.RootDirectories;
 import standard_kaeon_fusion.commands.io.Save;
 import standard_kaeon_fusion.commands.io.Separator;
 import standard_kaeon_fusion.commands.io.SourceWorkspaces;
+import standard_kaeon_fusion.commands.kaeon.AetherCommand;
 import standard_kaeon_fusion.commands.kaeon.SOULCore;
 import standard_kaeon_fusion.commands.list.Append;
 import standard_kaeon_fusion.commands.list.AppendAll;
@@ -240,6 +243,7 @@ public class Aether {
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new GetFunction());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Global());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Import());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Interpreter());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new IsCommand());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new IsFunction());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new IsVariable());
@@ -247,6 +251,7 @@ public class Aether {
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new LockDown());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new New());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Null());
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Reflect());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new This());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Type());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new standard_kaeon_fusion.commands.data.Variables());
@@ -401,7 +406,8 @@ public class Aether {
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new ToRadians());
 			
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Meta());
-			
+
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new AetherCommand());
 			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new SOULCore());
 			
 			new Alias();
