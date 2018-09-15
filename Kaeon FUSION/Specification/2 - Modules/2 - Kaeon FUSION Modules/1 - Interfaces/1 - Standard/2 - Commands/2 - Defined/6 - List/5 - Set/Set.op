@@ -3,7 +3,7 @@ Set
 	Philosophy
 		
 		-
-			The Set command contains the content "Set". It has three children., the first of which
+			The Set command contains the content "Set". It has three children, the first of which
 			returns a list, the second of which returns an integer, and the third of which returns
 			an object.
 			
