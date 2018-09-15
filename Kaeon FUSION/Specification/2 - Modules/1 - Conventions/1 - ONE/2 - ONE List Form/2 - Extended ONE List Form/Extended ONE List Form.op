@@ -1,0 +1,19 @@
+Extended ONE List Form
+
+	Philosophy
+	
+		-
+			A ONE element nested within another element may be represented as a list using extended
+			ONE list form. 
+		-
+	
+	Principles
+	
+		List Structure
+		
+			-
+				A list representing an element in extended ONE list form contains two lists, the
+				first of which represents an element that has no parent in ONE list form, and the
+				second of which containing integer numbers greater than or equal to one specifying,
+				in order, the indexes leading to the desired nested element.
+			-
