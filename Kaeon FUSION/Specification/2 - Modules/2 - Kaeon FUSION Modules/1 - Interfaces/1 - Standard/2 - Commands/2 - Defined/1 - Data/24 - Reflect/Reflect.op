@@ -19,5 +19,6 @@ Reflect
 			with the process, terminate, is added, jump, and handle error functions taking a list
 			of objects representing the values returned by said ONE element's children as their
 			second argument, and with the handle error function taking a string containing an error
-			message as its third argument.
+			message as its third argument. If the jump function returns an element, said element
+			will be in ONE list form.
 		-
