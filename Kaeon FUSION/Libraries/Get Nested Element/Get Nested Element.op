@@ -1,0 +1,21 @@
+Define: get nested element { element { At: Arguments, 1 } }
+
+	args: List: At: element, 1
+
+	nums: At: element, 2
+
+	i { 1 } Scope
+		
+		Set: nums, i, Add: 1, At: nums, i
+
+		i: Add: i, 1
+		Loop: Less or Equal: i, Size: nums
+
+	Append All: args, nums
+
+	nested: With: "At", args
+
+	Scope { Break: Equal: Type { nested }, List }
+		nested: List: nested
+
+	Return: nested

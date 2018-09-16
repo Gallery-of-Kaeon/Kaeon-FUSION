@@ -57,7 +57,7 @@ public class Reflect extends FUSIONUnit {
 				if(deny == null)
 					return false;
 				
-				return Boolean.parseBoolean("" + processFunction(deny, ElementToList.elementToList(element)));
+				return Boolean.parseBoolean("" + processFunction(deny, elementToList(element)));
 			}
 			
 			public boolean verify(Element element) {
@@ -65,7 +65,7 @@ public class Reflect extends FUSIONUnit {
 				if(verify == null)
 					return false;
 				
-				return Boolean.parseBoolean("" + processFunction(verify, ElementToList.elementToList(element)));
+				return Boolean.parseBoolean("" + processFunction(verify, elementToList(element)));
 			}
 			
 			public boolean trickleDown(Element element) {
@@ -73,7 +73,7 @@ public class Reflect extends FUSIONUnit {
 				if(trickleDown == null)
 					return true;
 				
-				return Boolean.parseBoolean("" + processFunction(trickleDown, ElementToList.elementToList(element)));
+				return Boolean.parseBoolean("" + processFunction(trickleDown, elementToList(element)));
 			}
 			
 			public Object process(Element element, ArrayList<Object> processed) {
@@ -81,7 +81,7 @@ public class Reflect extends FUSIONUnit {
 				if(process == null)
 					return null;
 				
-				return processFunction(process, ElementToList.elementToList(element), processed);
+				return processFunction(process, elementToList(element), processed);
 			}
 			
 			public boolean terminate(Element element, ArrayList<Object> processed) {
@@ -89,7 +89,7 @@ public class Reflect extends FUSIONUnit {
 				if(terminate == null)
 					return false;
 				
-				return Boolean.parseBoolean("" + processFunction(terminate, ElementToList.elementToList(element), processed));
+				return Boolean.parseBoolean("" + processFunction(terminate, elementToList(element), processed));
 			}
 			
 			public boolean isAdded(Element element, ArrayList<Object> processed) {
@@ -97,7 +97,7 @@ public class Reflect extends FUSIONUnit {
 				if(isAdded == null)
 					return true;
 				
-				return Boolean.parseBoolean("" + processFunction(isAdded, ElementToList.elementToList(element), processed));
+				return Boolean.parseBoolean("" + processFunction(isAdded, elementToList(element), processed));
 			}
 			
 			@SuppressWarnings("unchecked")
@@ -106,12 +106,12 @@ public class Reflect extends FUSIONUnit {
 				if(jump == null)
 					return null;
 				
-				Object object = processFunction(jump, ElementToList.elementToList(element), processed);
+				Object object = processFunction(jump, elementToList(element), processed);
 				
 				if(object == null)
 					return null;
 				
-				return ListToElement.listToElement((ArrayList<Object>) object);
+				return listToElement((ArrayList<Object>) object);
 			}
 			
 			public void handleError(Element element, ArrayList<Object> processed, Exception exception) {
@@ -129,7 +129,7 @@ public class Reflect extends FUSIONUnit {
 					error = errors.toString();
 				}
 				
-				processFunction(handleError, ElementToList.elementToList(element), processed, error);
+				processFunction(handleError, elementToList(element), processed, error);
 			}
 		};
 		
@@ -153,6 +153,33 @@ public class Reflect extends FUSIONUnit {
 			element.parent = null;
 			element.content = "";
 		}
+		
+		return element;
+	}
+	
+	public ArrayList<Object> elementToList(Element element) {
+		
+		ArrayList<Object> indexes = new ArrayList<Object>();
+		Element root = element;
+		
+		while(root.parent != null) {
+			
+			indexes.add(0, ElementUtilities.getIndex(root) + 1);
+			
+			root = root.parent;
+		}
+		
+		return new ArrayList<Object>(Arrays.asList(ElementToList.elementToList(root), indexes));
+	}
+	
+	@SuppressWarnings("unchecked")
+	public Element listToElement(ArrayList<Object> list) {
+		
+		Element element = ListToElement.listToElement((ArrayList<Object>) list.get(0));
+		ArrayList<Object> indexes = (ArrayList<Object>) list.get(1);
+		
+		for(int i = 0; i < indexes.size(); i++)
+			element = element.children.get(Integer.parseInt("" + indexes.get(i)) - 1);
 		
 		return element;
 	}
