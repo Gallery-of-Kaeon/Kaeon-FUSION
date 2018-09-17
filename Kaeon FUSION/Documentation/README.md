@@ -6,7 +6,7 @@
 The provided documentation serves to explain the Kaeon FUSION Language and its standard interface,
 as well as the web and machine interfaces.
 
-It is recommended that the documentation be read in order for those unacquainted with the language.
+It is recommended that the documentation be read by those unacquainted with the language.
 
 The first section describes the foundations upon which Kaeon FUSION operates,
 which include the ONE and ONE+ markup languages and the FUSION system.
