@@ -256,7 +256,7 @@ the contents of this repository are free for everyone to use and make modificati
 ### Does Kaeon FUSION have a mascot?
 
 The mascot of all projects under the Kaeon name is the ACE.
-Both the male and the female versions of the character are shown on the profile picture of the Gallery-of-Kaeon github account.
+Both the male version and the female version of the character are shown on the profile picture of the Gallery-of-Kaeon github account.
 
 ### Who are you?
 
