@@ -7,8 +7,9 @@ import one.Element;
 import one.ElementUtilities;
 
 public class Catch extends FUSIONUnit {
-	
+
 	public boolean caught;
+	public boolean auto;
 	
 	public Catch() {
 		tags.add("Standard");
@@ -16,7 +17,21 @@ public class Catch extends FUSIONUnit {
 	}
 	
 	public boolean deny(Element element) {
-		return !element.content.equalsIgnoreCase("Catch") && caught;
+		
+		Element pseudo = element;
+		
+		while(pseudo != null) {
+			
+			if(pseudo.content.equalsIgnoreCase("Pseudo Catch"))
+				return false;
+			
+			pseudo = pseudo.parent;
+		}
+		
+		return
+				!element.content.equalsIgnoreCase("Catch") &&
+				caught &&
+				!auto;
 	}
 	
 	public boolean verify(Element element) {
@@ -27,13 +42,17 @@ public class Catch extends FUSIONUnit {
 				return false;
 		}
 		
-		return element.content.equalsIgnoreCase("Catch");
+		return
+				element.content.equalsIgnoreCase("Catch") ||
+				element.content.equalsIgnoreCase("Pseudo Catch");
 	}
 	
 	public boolean trickleDown(Element element) {
 		
 		boolean wasCaught = caught;
-		caught = false;
+		
+		if(element.content.equalsIgnoreCase("Catch"))
+			caught = false;
 		
 		return wasCaught;
 	}
