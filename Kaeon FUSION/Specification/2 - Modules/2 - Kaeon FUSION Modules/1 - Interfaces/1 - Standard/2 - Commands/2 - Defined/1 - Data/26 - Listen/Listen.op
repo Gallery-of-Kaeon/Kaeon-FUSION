@@ -1,0 +1,12 @@
+Listen
+
+	Philosophy
+	
+		-
+			The listen command contains the content "Listen". It may have an indefinite number of
+			children, each of which return a list.
+			
+			If the interpreter receives packets from its host environment, their contents will be
+			appended to any lists that at any point were passed to a listen command through said
+			command's children.
+		-

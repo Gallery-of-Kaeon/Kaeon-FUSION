@@ -1,0 +1,10 @@
+Catch Enabled
+
+	Philosophy
+	
+		-
+			The catch enabled contains the content "Catch Enabled".
+			
+			It returns true if automatic exception catching enabled using the automatic catch
+			command is currently in effect, and returns false otherwise.
+		-

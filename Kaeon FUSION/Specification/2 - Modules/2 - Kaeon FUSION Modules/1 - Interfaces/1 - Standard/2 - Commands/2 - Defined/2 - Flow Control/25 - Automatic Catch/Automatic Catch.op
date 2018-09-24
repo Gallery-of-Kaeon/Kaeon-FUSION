@@ -1,10 +1,10 @@
-Auto Catch
+Automatic Catch
 
 	Philosophy
 	
 		-
-			The auto catch command contains the content "Auto Catch". It must have a single child
-			that returns a boolean.
+			The automatic catch command contains the content "Automatic Catch". It must have a
+			single child that returns a boolean.
 			
 			If the returned boolean is true, exceptions thrown following the execution of the
 			command will be automatically caught. If the returned boolean is false, exceptions
