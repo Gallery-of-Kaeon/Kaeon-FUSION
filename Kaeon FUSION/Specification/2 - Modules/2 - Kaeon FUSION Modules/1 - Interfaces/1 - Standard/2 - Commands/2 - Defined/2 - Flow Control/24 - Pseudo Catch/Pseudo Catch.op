@@ -1,0 +1,11 @@
+Pseudo Catch
+
+	Philosophy
+	
+		-
+			The pseudo catch command contains the content "Pseudo Catch".
+			
+			Unless an exception was thrown by a previous command, it will not trickle down. If it
+			does trickle down, commands within its scope will be execute despite the exception that
+			triggered it, but said exception will not be caught by the pseudo catch command.
+		-
