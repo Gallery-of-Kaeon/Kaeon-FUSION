@@ -5,7 +5,7 @@
 		Philosophy
 	-
 		-
-			Kaeon FUSION establishes various conventions in addition to those established by
+			Kaeon FUSION establishes certain conventions in addition to those established by
 			FUSION.
 		-
 	-
@@ -19,14 +19,6 @@
 				
 				When a value is converted to a string, said string is referred to as the value's
 				string form.
-			-
-		-
-			Command Priority
-		-
-			-
-				Certain Kaeon FUSION commands may hold priority over others, meaning that commands
-				every time Kaeon FUSION trickles down at a command, the command's children will be
-				rearranged first based on their priority and then based on their current order.
 			-
 		-
 			Host Environment

@@ -6,10 +6,9 @@
 	-
 		-
 			The use command contains the content "Use". The letter case of the content is
-			irrelevant. It may have an indefinite number of children. It will execute before its
-			siblings.
+			irrelevant. It may have an indefinite number of children.
 			
-			For each of its children, the use command will integrate any available interface with
-			an alias that matches the string form of the value returned by said child. The use
-			command will then return its content as a string.
+			For each of its children, the use command will integrate the interface located at the
+			path specified by the string form of the value returned by said child if said interface
+			exists. The use command will then return its content as a string.
 		-

@@ -16,6 +16,13 @@ Kaeon FUSION Standard Interface
 			-
 		
 		Added Effects
+		
+			Use Priority
+			
+				-
+					When the standard interface is in effect, Kaeon FUSION's use command will have
+					priority over all other commands.
+				-
 			
 			State
 				

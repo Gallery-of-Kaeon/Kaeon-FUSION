@@ -8,6 +8,14 @@ Kaeon FUSION Standard Conventions
 		-
 	
 	Principles
+
+		Command Priority
+			
+			-
+				Certain Kaeon FUSION commands may hold priority over others, meaning that commands
+				every time Kaeon FUSION trickles down at a command, the command's children will be
+				rearranged first based on their priority and then based on their current order.
+			-
 	
 		Module Aiases
 		
@@ -39,5 +47,4 @@ Kaeon FUSION Standard Conventions
 				By default, the workspace will consist of the local directory, the root directory,
 				and the internet, but said directories may be added to or removed from the
 				workspace.
-
 			-
