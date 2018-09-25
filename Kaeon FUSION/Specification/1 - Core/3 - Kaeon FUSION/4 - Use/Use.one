@@ -9,6 +9,5 @@
 			irrelevant. It may have an indefinite number of children.
 			
 			For each of its children, the use command will integrate the interface located at the
-			path specified by the string form of the value returned by said child if said interface
-			exists. The use command will then return its content as a string.
+			path specified by the content of said child if said interface exists.
 		-
