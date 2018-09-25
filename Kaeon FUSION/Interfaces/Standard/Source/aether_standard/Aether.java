@@ -180,6 +180,7 @@ import standard_kaeon_fusion.commands.system.Year;
 import standard_kaeon_fusion.commands.undefined.Functions;
 import standard_kaeon_fusion.commands.undefined.Literals;
 import standard_kaeon_fusion.commands.undefined.Variables;
+import standard_kaeon_fusion.commands.use.Use;
 import standard_kaeon_fusion.utilities.Console;
 import standard_kaeon_fusion.utilities.FUSIONUtilities;
 import standard_kaeon_fusion.utilities.Priority;
@@ -205,23 +206,16 @@ public class Aether {
 			
 			PhilosophersStoneUtilities.publiclyConnect(stone, tag);
 			
-			ArrayList<PhilosophersStone> literal =
+			ArrayList<PhilosophersStone> use =
 					PhilosophersStoneUtilities.get(
 							stone,
 							"Kaeon FUSION",
-							"Literal");
+							"Use");
 			
-			for(int i = 0; i < literal.size(); i++)
-				PhilosophersStoneUtilities.destroy(literal.get(i));
+			for(int i = 0; i < use.size(); i++)
+				PhilosophersStoneUtilities.destroy(use.get(i));
 			
-			ArrayList<PhilosophersStone> priority =
-					PhilosophersStoneUtilities.get(
-							stone,
-							"Kaeon FUSION",
-							"Priority");
-			
-			for(int i = 0; i < priority.size(); i++)
-				PhilosophersStoneUtilities.destroy(priority.get(i));
+			PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Use());
 			
 			if(!PhilosophersStoneUtilities.has(stone, "Console"))
 				PhilosophersStoneUtilities.publiclyConnect(stone, new Console());

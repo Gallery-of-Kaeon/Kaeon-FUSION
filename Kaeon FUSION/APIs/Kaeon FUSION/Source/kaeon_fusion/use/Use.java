@@ -1,4 +1,4 @@
-package kaeon_fusion.commands.use;
+package kaeon_fusion.use;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -46,11 +46,11 @@ public class Use extends FUSIONUnit {
 			}
 		}
 		
-		for(int i = 0; i < processed.size(); i++) {
+		for(int i = 0; i < element.children.size(); i++) {
 			
 			for(int j = 0; j < workspace.size(); j++) {
 				
-				String path = "" + processed.get(i);
+				String path = element.children.get(i).content;
 				
 				if(path.toLowerCase().endsWith(".jar"))
 					path = path.substring(0, path.length() - 4);
@@ -67,6 +67,6 @@ public class Use extends FUSIONUnit {
 			}
 		}
 		
-		return element.content;
+		return null;
 	}
 }
