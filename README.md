@@ -31,6 +31,8 @@ and the specification for Kaeon FUSION.
 
 [FAQs](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/README.md#faqs)
 
+[Acknowledgements](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/README.md#acknowledgements)
+
 [Disclaimer](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/README.md#disclaimer)
 
 ### Repository Links
@@ -285,6 +287,12 @@ we'll come to you.
 However,
 if you have something you feel that we need to know,
 we'll hear you out.
+
+<h2 align="center">Acknowledgements</h2>
+
+The stack interface makes use of the [require1k](https://github.com/Stuk/require1k) JavaScript utility.
+
+The Kaeon Origin IDE makes use of a [swing layout](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/IDE/Source/Source/kaeon_origin/ide/utilities/web/VerticalLayout.java) developed by Colin Mummery.
 
 <h2 align="center">Disclaimer</h2>
 
