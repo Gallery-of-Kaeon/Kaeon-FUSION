@@ -11,7 +11,6 @@ import philosophers_stone.PhilosophersStoneUtilities;
 import stack.dialects.Assembly;
 import stack.dialects.CSS;
 import stack.dialects.CSV;
-import stack.dialects.JSON;
 import stack.dialects.SQL;
 import stack.dialects.XML;
 import stack.dialects.cross.C;
@@ -72,7 +71,6 @@ public class Aether {
 
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new Assembly());
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new XML());
-		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new JSON());
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new SQL());
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new CSS());
 		PhilosophersStoneUtilities.publiclyConnectMutually(stone, new CSV());
