@@ -49,11 +49,11 @@ Kaeon FUSION Stack Interface
 							contain the body of the main function.
 						-
 				
-				Miscellaneous Dialects
+				Assembly Dialect
 				
 					-
-						The Kaeon FUSION Stack Interface provides build dialects analogous to
-						JSON and Assembly.
+						The Kaeon FUSION Stack Interface provide a build dialect analogous to
+						Assembly.
 					-
 			
 			Code Groups
@@ -99,6 +99,19 @@ Kaeon FUSION Stack Interface
 					
 					If the arguments passed to the cross compiler contain the string "Return", the
 					cross compiled code will not be exported to the file system.
+				-
+			
+			JavaScript Applications
+			
+				-
+					If the JavaScript dialect is given a list where the string form of the first
+					element of said list is "Application", then the string form of every element
+					following the second element will be used as the name of an HTML file which
+					will then be generated to serve as the host for a JavaScript file of the same
+					name.
+					
+					The string form of the second element in the list will determine the intended
+					platform for the application. Its content may either be "Web" or "Native".
 				-
 		
 		Language Interaction
