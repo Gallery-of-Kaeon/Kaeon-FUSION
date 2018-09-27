@@ -985,27 +985,32 @@ public class CrossDialect extends BuildDialect {
 		
 		else {
 			
+			boolean variable = false;
+			
 			if(ElementUtilities.hasChild(meta, "Field")) {
 				
-				if(ElementUtilities.hasChild(ElementUtilities.getChild(meta, "Field"), "Variable")) {
+				if(ElementUtilities.hasChild(ElementUtilities.getChild(meta, "Field"), "Variable"))
+					variable = true;
+			}
+			
+			if(variable) {
 				
-					if(operation.children.size() == 0)
-						operationString = operation.content;
-				
-					else {
-						
-						ArrayList<String> newVariables = new ArrayList<String>(variables);
-						newVariables.add(operation.content);
-						
-						operationString =
-								buildElement(
-										"",
-										operation,
-										categories,
-										newVariables,
-										meta,
-										nest + 1);
-					}
+				if(operation.children.size() == 0)
+					operationString = operation.content;
+			
+				else {
+					
+					ArrayList<String> newVariables = new ArrayList<String>(variables);
+					newVariables.add(operation.content);
+					
+					operationString =
+							buildElement(
+									"",
+									operation,
+									categories,
+									newVariables,
+									meta,
+									nest + 1);
 				}
 			}
 			

@@ -171,7 +171,7 @@ public class JavaScript extends CrossDialect {
 		file.add(formatIdentifier(name) + ".js");
 		
 		if(!utility)
-			build = (!snippet ? "var scope=false;" : "") + build;
+			build = (!snippet ? "var scope=false;var arguments=[];" : "") + build;
 		
 		if(!snippet) {
 			
