@@ -5,7 +5,5 @@
 		Philosophy
 	-
 		-
-			Interfaces are modules that can alter the Kaeon FUSION interpreter at runtime. Each
-			interface has a string alias through which it can be referenced if it is available. The
-			letter case of the alias is irrelevant.
+			Interfaces are modules that can alter the Kaeon FUSION interpreter at runtime.
 		-
