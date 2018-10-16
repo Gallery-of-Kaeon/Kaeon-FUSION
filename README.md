@@ -264,7 +264,7 @@ Both the male version and the female version of the character are shown on the p
 
 For now,
 mostly [this person](https://www.github.com/kaeon-ace),
-and one other person who doesn't want to be named because they don't like posting their personal information online.
+and [this person](https://www.github.com/jwilliams0496).
 
 ### Can I join you?
 
