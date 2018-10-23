@@ -82,7 +82,7 @@ ONE+ also supports an extensible preprocessor system,
 which makes its syntax almost indefinitely customizable.
 The icing on the cake is that ONE+ is usable as a general purpose markup language independent of Kaeon FUSION.
 
-Kaeon FUSION's standard interface provides the basic functionality expected of any Turing complete language like [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) or [JavaScript](https://en.wikipedia.org/wiki/JavaScript).
+Kaeon FUSION's standard interface provides the basic functionality expected of any Turing complete language like [JavaScript](https://en.wikipedia.org/wiki/JavaScript) or [Python](https://en.wikipedia.org/wiki/Python_(programming_language)).
 However,
 there is also an interface available for Kaeon FUSION called the stack interface,
 which takes advantage of the dynamic nature of Kaeon FUSION's interpreter as well as its tree based syntax
@@ -184,29 +184,33 @@ Philosophical because we felt that a tree better represented the relationship be
 as the separation between them is explicit rather than implicit as is the case with LISP,
 and practical because having the nodes doubly linked makes it easier to implement commands that are aware of their surrounding commands.
 
-### Is Kaeon FUSION bound to the JVM?
+### Is Kaeon FUSION bound to a specific virtual machine?
 
-We wrote our implementation of Kaeon FUSION in Java because it was the language our team had the most experience in at the beginning of the project,
+We wrote our original implementation of Kaeon FUSION in Java because it was the language our team had the most experience in at the beginning of the project,
 and because the JVM's dynamic class loader made developing the interface's ability to dynamically load at runtime far easier than it would have been in a language that compiles to native code.
 
 However,
 an implementation of Kaeon FUSION can be written in any language and for any platform,
 as long as it conforms to the rules laid out in the specification.
-In fact,
-our current plan is to transition to the implementation to JavaScript.
 
-### Can the Java implementation of the Kaeon FUSION interpreter be embedded into a larger Java project?
+Moving forward,
+we plan to implement all of Kaeon FUSION components in JavaScript.
+
+### Can the Kaeon FUSION interpreter be embedded into a larger project?
 
 Yes,
 this is possible.
-Refer to the [APIs](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/APIs) section for the necessary JAR files.
-All of them except for the updater API will be necessary.
+Refer to the [APIs](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/APIs) section for the necessary files.
 
-Here's an example of how one would start the interpreter from Java:
+Here's an example of how one would start the interpreter from JavaScript:
 
-    new KaeonFUSION().processKaeonFUSION(ONEPlus.parseONEPlus(IO.openAsString("My Code.op")));
+    (new require("./KaeonFUSION.js").KaeonFUSION()).process(require("./ONEPlus.js").readONEPlus(sourceCodeString));
 
-The Java implementation of the Kaeon FUSION interpreter is built on Philosopher's Stones,
+And here's an example of how one would start the interpreter from Java:
+
+    new KaeonFUSION().processKaeonFUSION(ONEPlus.parseONEPlus(sourceCodeString));
+
+The implementation of the Kaeon FUSION interpreter is built on Philosopher's Stones,
 and the KaeonFUSION object,
 which serves as the core of the interpreter,
 is an extension of the Philosopher's Stone.
@@ -225,29 +229,13 @@ we cannot offer an accurate timeline for updates until further notice.
 
 ### What should I expect to see in the next major updates?
 
-Up until now,
-Kaeon FUSION has been running on Java.
-And unfortunately,
-in addition to the fact that the language is much slower than we want it to be,
-we have not yet been able to implement all of the features mentioned in the specification.
-Granted,
-Kaeon FUSION's speed,
-or lack thereof,
-is almost entirely mitigated by it's ability to cross compile,
-but we're still not happy about it.
-
-Our plan moving forward is to develop a new implementation of Kaeon FUSION using JavaScript,
-which will allow Kaeon FUSION to run natively in the browser,
-on mobile,
-and on other platforms,
-as well as to use URLs to load interfaces.
-In this new implementation,
-we plan to improve performance by crystallizing the interfaces (see [philosopher's stones](https://github.com/Gallery-of-Kaeon/Philosophers-Stone/blob/master/Philosopher's%20Stone/Specification/1%20-%20Philosopher's%20Stone%20of%20Computation/Philosopher's%20Stone%20of%20Computation.one) and [philosopher's stone crystallization](https://github.com/Gallery-of-Kaeon/Philosophers-Stone/blob/master/Philosopher's%20Stone/Specification/3%20-%20Philosopher's%20Crystal/Philosopher's%20Crystal.op)).
-
-Until this new implementation is developed,
-we will maintain the Java implementation,
-and the Java implementation will still be available once the JavaScript implementation has been released,
-but the Java implementation will no longer be updated after that point.
+We have recently completed porting the base interpreter from Java to JavaScript.
+However,
+we have not ported any of the interfaces or directives,
+nor have we ported Kaeon Origin.
+Our current focus is on porting all that we have yet to port from Java to JavaScript.
+From this point onward,
+we will no longer update any of our Java implementations.
 
 ### I would like to use Kaeon FUSION in a commercial project. Who do I make the check out to?
 
