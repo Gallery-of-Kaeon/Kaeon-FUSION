@@ -309,8 +309,37 @@ function getLine(tokenize, index) {
 
 	var line = [];
 
-	for(var i = index; i < tokenize.length && tokenize[i] != "\n"; i++)
+	var openColon = 0;
+	var openBracket = 0;
+
+	for(var i = index; i < tokenize.length; i++) {
+		
+		if(tokenize[i] == "\n") {
+
+			if(i > index) {
+
+				if(tokenize[i - 1] == ":")
+					openColon += 1;
+
+				if(tokenize[i - 1] == "{")
+					openBracket += 1;
+			}
+
+			if(openBracket == 0 && openColon == 0)
+				break;
+		}
+
+		else {
+
+			if(openColon > 0 && tokenize[i] == ";")
+				openColon -= 1;
+
+			if(openBracket > 0 && tokenize[i] == "}")
+				openBracket -= 1;
+		}
+
 		line.push(tokenize[i]);
+	}
 
 	return line;
 }
