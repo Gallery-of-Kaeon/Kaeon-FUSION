@@ -260,7 +260,7 @@ function process(tokens, tokenize, nestToken) {
 			else if(nest < previousNest) {
 
 				for(var j = nest; j < previousNest && baseElements.length > 0; j++)
-					currentElement = baseElements.splice(baseElements.length - 1, 1);
+					currentElement = baseElements.splice(baseElements.length - 1, 1)[0];
 			}
 
 			previousNest = nest;
@@ -416,7 +416,7 @@ function processLine(tokens, line, currentElement, directive) {
 			if(token == "}") {
 
 				if(nestStack.length > 0)
-					currentElement = nestStack.splice(nestStack.length - 1, 1);
+					currentElement = nestStack.splice(nestStack.length - 1, 1)[0];
 			}
 
 			else if(currentElement.parent != null)
@@ -427,7 +427,7 @@ function processLine(tokens, line, currentElement, directive) {
 			stack.add(currentElement);
 
 		if(token == ")" && stack.length > 0)
-			currentElement = stack.splice(stack.length - 1, 1);
+			currentElement = stack.splice(stack.length - 1, 1)[0];
 
 		if(token == "[") {
 
@@ -439,7 +439,7 @@ function processLine(tokens, line, currentElement, directive) {
 
 		if(token == "]" && directiveStack.length > 0) {
 
-			currentElement = directiveStack.splice(directiveStack.length - 1, 1);
+			currentElement = directiveStack.splice(directiveStack.length - 1, 1)[0];
 
 			directive = directiveStack.length != 0;
 		}
@@ -504,7 +504,7 @@ function preprocessLine(tokens, line) {
 		if(newLine[i] == "~") {
 
 			if(i < newLine.length - 1)
-				newLine[i] == newLine.get(i) + newLine.splice(i + 1, 1);
+				newLine[i] = newLine.get(i) + newLine.splice(i + 1, 1)[0];
 
 			if(i > 0) {
 
@@ -512,7 +512,7 @@ function preprocessLine(tokens, line) {
 
 					i--;
 
-					newLine[i] = newLine[i] + newLine.splice(i + 1, 1);
+					newLine[i] = newLine[i] + newLine.splice(i + 1, 1)[0];
 				}
 			}
 		}
@@ -523,7 +523,7 @@ function preprocessLine(tokens, line) {
 
 			while(i + 1 < newLine.length) {
 
-				var token = newLine.splice(i + 1, 1);
+				var token = newLine.splice(i + 1, 1)[0];
 
 				if(token == "\"")
 					break;
@@ -540,7 +540,7 @@ function preprocessLine(tokens, line) {
 
 			while(i + 1 < newLine.length) {
 
-				var token = newLine.splice(i + 1, 1);
+				var token = newLine.splice(i + 1, 1)[0];
 
 				if(token == "\'")
 					break;
@@ -557,7 +557,7 @@ function preprocessLine(tokens, line) {
 		if((!tokens.includes(newLine[i]) || newLine[i] == "-") &&
 			(!tokens.includes(newLine[i + 1]) || newLine[i + 1] == "-")) {
 
-			newLine[i] = newLine[i] + newLine.splice(i + 1, 1);
+			newLine[i] = newLine[i] + newLine.splice(i + 1, 1)[0];
 
 			i--;
 		}
