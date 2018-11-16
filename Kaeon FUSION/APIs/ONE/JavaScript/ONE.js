@@ -19,100 +19,193 @@ function createElement(content) {
 	return element;
 }
 
+function createElement(content, child) {
+	
+	var element = new Element();
+	
+	if(content != null)
+		element.content = content;
+	
+	if(child != null)
+		addChild(element, child);
+	
+	return element;
+}
+
 function copyElement(element) {
 
 	var newElement = createElement(element.content);
 	
-	for(var i = 0; i < element.length; i++)
+	for(var i = 0; i < element.children.length; i++)
 		addChild(newElement, copyElement(element.children[i]));
 		
 	return newElement;
 }
 
-function addChild(parent, child) {
-
-	child.parent = parent;
+function addChild(parent, child, indices) {
 	
-	parent.children.push(child);
-}
-
-function addChildren(parent, children) {
-	
-	for(var i = 0; i < children.length; i++) {
-
-		child.parent = parent;
+	if(Array.isArray(child)) {
 		
-		parent.children.push(children[i]);
+		if(indices != null) {
+		
+			var get = getChild(parent, indices);
+			
+			var index = getIndex(get);
+			parent = get.parent;
+			
+			for(var i = 0; i < children.length; i++) {
+		
+				child.parent = parent;
+				
+				parent.children.splice(index + i, 0, children[i]);
+			}
+		}
+		
+		else {
+			
+			for(var i = 0; i < child.length; i++) {
+		
+				child.parent = parent;
+				
+				parent.children.push(child[i]);
+			}
+		}
+	}
+
+	else {
+		
+		if(indices != null) {
+		
+			var get = getChild(parent, indices);
+			
+			var index = getIndex(get);
+			parent = get.parent;
+			
+			child.parent = parent;
+			
+			parent.children.splice(index, 0, child);
+		}
+		
+		else {
+		
+			child.parent = parent;
+			
+			parent.children.push(child);
+		}
 	}
 }
 
-function insertChild(parent, child, index) {
+function removeChild(element, indices, amount, multiple, deep, caseSensitive) {
 
-	child.parent = parent;
-	
-	parent.children.splice(index + i, 0, child);
+	var get = getChild(element, indices, amount, multiple, deep, caseSensitive);
+
+	for(var i = 0; i < get.length; i++)
+		get[i].parent.splice(getIndex(get[i]), 1);
+		
+	return get;
 }
 
-function insertChildren(parent, children, index) {
+function getChild(element, indices, amount, multiple, deep, caseSensitive) {
 	
-	for(var i = 0; i < children.length; i++) {
-
-		children[i].parent = parent;
+	if(!Array.isArray(indices))
+		indices = [indices];
+	
+	if(indices.length == 0)
+		return null;
+	
+	var currentElement = element;
+	
+	for(var i = 0; i < indices.length; i++) {
 		
-		parent.children.splice(index + i, 0, children[i]);
+		if(typeof indices[i] == "number") {
+			
+			var index = indices[i];
+			
+			if(index >= 0 && index < currentElement.children.length)
+				currentElement = currentElement.children[index];
+			
+			else
+				return null;
+		}
+		
+		else {
+			
+			content = "" + indices[i];
+			
+			for(var j = 0; j < currentElement.children.length; j++) {
+				
+				if(!caseSensitive) {
+				
+					if(currentElement.children[j].content.toLowerCase() == content.toLowerCase())
+						currentElement = currentElement.children[j];
+				}
+				
+				else {
+				
+					if(currentElement.children[j].content == content)
+						currentElement = currentElement.children[j];
+				}
+			}
+		}
+	}
+	
+	if(typeof indices[indices.length - 1] == "number")
+		return currentElement;
+	
+	else {
+		
+		if(currentElement.parent != null)
+			currentElement = currentElement.parent;
+		
+		if(multiple) {
+			
+			var children = [];
+			
+			var lower = caseSensitive ? content : content.toLowerCase();
+			
+			for(var i = 0; i < currentElement.children.length; i++) {
+				
+				if(currentElement.children[i].content.toLowerCase() === lower)
+					children.push(currentElement.children[i]);
+				
+				if(deep)
+					requestedChildren = requestedChildren.concat(getChildrenAs(currentElement.children[i], content, caseSensitive, deep));
+			}
+			
+			return children;
+		}
+		
+		else {
+			
+			var lower = caseSensitive ? content : content.toLowerCase();
+			
+			for(var i = 0; i < currentElement.children.length; i++) {
+				
+				if(currentElement.children[i].content.toLowerCase() === lower)
+					return currentElement.children[i];
+				
+				if(deep) {
+				
+					child = getChildAs(currentElement.children[i], content, caseSensitive, deep);
+					
+					if(child != null)
+						return child;
+				}
+			}
+			
+			return null;
+		}
 	}
 }
 
-function getChild(content) {
+function getRoot(element) {
 	
-	var lower = content.toLowerCase();
+	var root = element;
 	
-	for(var i = 0; i < element.children.length; i++) {
-		
-		if(element.children[i].content.toLowerCase() === lower)
-			return element.children[i];
-	}
+	while(root.parent != null)
+		root = root.parent;
 	
-	return null;
-}
-
-function getChildWithCase(content) {
-	
-	for(var i = 0; i < element.children.length; i++) {
-		
-		if(element.children[i].content === content)
-			return element.children[i];
-	}
-	
-	return null;
-}
-
-function getChildren(content) {
-	
-	var children = [];
-	
-	var lower = content.toLowerCase();
-	
-	for(var i = 0; i < element.children.length; i++) {
-		
-		if(element.children[i].content.toLowerCase() === lower)
-			children.push(element.children[i]);
-	}
-	
-	return children;
-}
-
-function getChildrenWithCase(content) {
-	
-	var children = [];
-	
-	for(var i = 0; i < element.children.length; i++) {
-		
-		if(element.children[i].content === content)
-			children.push(element.children[i]);
-	}
-	
-	return children;
+	return root;
 }
 
 function getIndex(element) {
@@ -127,6 +220,38 @@ function getIndex(element) {
 	}
 	
 	return -1;
+}
+
+function getPath(element) {
+	
+	var root = element;
+	var path = [];
+	
+	while(root.parent != null) {
+	
+		path.push(getIndex(root));
+	
+		root = root.parent;
+	}
+	
+	return path.reverse();
+}
+	
+function equals(a, b, caseSensitive) {
+	
+	var aLower = caseSensitive ? a.content : a.content.toLowerCase();
+	var bLower = caseSensitive ? b.content : b.content.toLowerCase();
+	
+	if(aLower != bLower || a.children.length != b.children.length)
+		return false;
+	
+	for(var i = 0; i < a.children.length; i++) {
+		
+		if(!equals(a.children[i], b.children[i]))
+			return false;
+	}
+	
+	return true;
 }
 
 function readONE(one) {
@@ -221,21 +346,28 @@ function getElementContent(element, breaking) {
 }
 
 function writeONE(element) {
-	return writeONEAs(element, ["-", "\n", "\t"], false);
+	return writeONEAs(element.parent == null ? element : createElement("", copyElement(element)), ["-", "\n", "\t"], false);
 }
 
 function writeONEAs(element, tokens, reduced) {
+
+	try {
 	
-	var write = element;
-	
-	if(element.content != "") {
+		var write = element;
 		
-		write = new Element();
+		if(element.content != "") {
+			
+			write = new Element();
+			
+			addChild(write, copyElement(element));
+		}
 		
-		addChild(write, copyElement(element));
+		return writeElement(tokens, write, 0, true, reduced);
 	}
 	
-	return writeElement(tokens, write, 0, true, reduced);
+	catch(error) {
+		return "";
+	}
 }
 
 function writeElement(tokens, element, nest, isRoot, reduced) {
@@ -290,14 +422,12 @@ module.exports = {
 	createElement,
 	copyElement,
 	addChild,
-	addChildren,
-	insertChild,
-	insertChildren,
+	removeChild,
 	getChild,
-	getChildWithCase,
-	getChildren,
-	getChildrenWithCase,
+	getRoot,
 	getIndex,
+	getPath,
+	equals,
 	readONE,
 	readONEAs,
 	getElements,
