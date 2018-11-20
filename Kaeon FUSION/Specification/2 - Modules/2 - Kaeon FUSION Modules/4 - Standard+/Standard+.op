@@ -1,0 +1,37 @@
+Kaeon FUSION Standard+
+
+	Philosophy
+	
+		-
+			Kaeon FUSION Standard+ is a suite of modules for Kaeon FUSION consisting of the
+			standard interface, the extended stack interface, the standard directives, and super
+			mode. Together, they constitute the de facto default functionality of Kaeon FUSION.
+		-
+	
+	Principles
+	
+		Standard+ Modules
+		
+			-
+				The Standard+ interface incorporates both the standard interface and the extended
+				stack interface into a given Kaeon FUSION environment and can be accessed with the
+				alias "Standard+".
+				
+				The Standard+ directive module incorporates both the standard directives and super
+				mode into a given ONE+ document and can be accessed with the alias "Standard+".
+			-
+	
+		Standard+ Kaeon FUSION
+		
+			-
+				Standard+ Kaeon FUSION is a dialect of Kaeon FUSION where the interfaces and
+				directives of Kaeon FUSION Standard+ are made available by default, without the use
+				of a use command or a use directive.
+			-
+	
+			Super Kaeon FUSION
+			
+				-
+					Super Kaeon FUSION is a dialect of Standard+ Kaeon FUSION where super mode is
+					activated by default, without the use of the super directive.
+				-
