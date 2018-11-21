@@ -47,7 +47,7 @@ class KaeonFUSION extends fusion.FUSION {
 
 		this.tags.push("Kaeon FUSION");
 
-		philosophersStone.connectMutually(this, new Use(), false);
+		philosophersStone.connect(this, new Use(), true);
 	}
 }
 
