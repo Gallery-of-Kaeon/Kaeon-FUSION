@@ -405,7 +405,7 @@ function cropElement(element, literal) {
 	return element;
 }
 
-function processLine(tokens, line, currentElement, directive) {
+function processLine(tokens, line, currentElement, directives) {
 
 	var baseElement = currentElement;
 
@@ -428,7 +428,7 @@ function processLine(tokens, line, currentElement, directive) {
 			one.addChild(currentElement, newElement);
 
 			if(directive)
-				directives.get(directives.length - 1).push(newElement);
+				directives[directives.length - 1].push(newElement);
 		}
 
 		if(token == ":" || token == "{") {
@@ -533,7 +533,7 @@ function preprocessLine(tokens, line) {
 		if(newLine[i] == "~") {
 
 			if(i < newLine.length - 1)
-				newLine[i] = newLine.get(i) + newLine.splice(i + 1, 1)[0];
+				newLine[i] = newLine[i] + newLine.splice(i + 1, 1)[0];
 
 			if(i > 0) {
 

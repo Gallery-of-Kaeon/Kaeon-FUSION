@@ -28,7 +28,7 @@ class FUSION extends philosophersStone.PhilosophersStone {
 
 	update() {
 		
-		var units = philosophersStone.get(this, ["FUSION Unit"]);
+		var units = philosophersStone.get(philosophersStone.getAtlas(this), ["FUSION Unit"]);
 
 		for(var i = 0; i < units.length; i++) {
 			
