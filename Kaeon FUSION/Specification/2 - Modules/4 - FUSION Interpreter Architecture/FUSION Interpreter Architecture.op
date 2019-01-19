@@ -4,7 +4,7 @@ FUSION Interpreter Architecture
 	
 		-
 			The FUSION interpreter architecture dictates the ideal way to implement FUSION using a
-			standard philosopher's atlas.
+			Philosopher's Atlas.
 		-
 	
 	Principles
@@ -12,7 +12,7 @@ FUSION Interpreter Architecture
 		FUSION Core
 		
 			-
-				A FUSION core is a standard philosopher's stone that manages the FUSION process. It
+				A FUSION core is a standard Philosopher's Stone that manages the FUSION process. It
 				will have the tag "FUSION", and will contain a boolean flag called "running" that
 				indicates whether the process or internal process functions are currently running.
 			-
@@ -23,7 +23,7 @@ FUSION Interpreter Architecture
 				
 					-
 						If a FUSION core receives a packet with the string "Update" as its first
-						element, it will scan the philosopher's atlas to see if any FUSION units
+						element, it will scan the Philosopher's Atlas to see if any FUSION units
 						have been added or removed.
 					-
 			
@@ -61,8 +61,8 @@ FUSION Interpreter Architecture
 			
 			-
 				All FUSION commands, along with certain other functionality should be implemented
-				as FUSION Units, which are standard philosopher's stones and attached to the
-				philosopher's atlas containing the relevant FUSION cores. They will have the tag
+				as FUSION Units, which are standard Philosopher's Stones and attached to the
+				Philosopher's Atlas containing the relevant FUSION cores. They will have the tag
 				"FUSION Unit".
 			-
 		
