@@ -63,35 +63,69 @@ _This part is a bit technical. If you're new to programming, we've put together 
 
 Kaeon FUSION (pronounced "KAI-on") is an interpreted programming language designed to be the successor to [LISP](https://en.wikipedia.org/wiki/Lisp_(programming_language)).
 
-The primary advantage of Kaeon FUSION over LISP is that unlike LISP,
-where many different interpretations of the language exist but are divided into separate and incompatible dialects,
-Kaeon FUSION's various dialects come in the form of modules called interfaces,
-which dynamically extend the interpreter at runtime.
-This not only allows for new commands to be added but also for changes to be made to the basic rules of the language.
-Said changes can be anything from modifying how the language handles exceptions to completely altering the language's control flow.
-Of course, any combination of interfaces may be used simultaneously.
+When a Kaeon FUSION script begins, the language itself has no functionality save for a command called "use".
+The use command takes the names of plugin modules called "interfaces" for the interpreter and dynamically integrates them at runtime.
 
-Furthermore,
-Kaeon FUSION's syntax,
-[ONE+](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/README.md),
-also provides several advantages over LISP.
-In addition to being arguably easier on the eyes than (L(I(S(P)))),
-ONE+ is tree based,
-which we feel better represents how the interpreter actually processes the code.
-ONE+ also supports an extensible preprocessor system,
-which makes its syntax almost indefinitely customizable.
-The icing on the cake is that ONE+ is usable as a general purpose markup language independent of Kaeon FUSION.
+Let us elaborate a little more on this point.
+When we say that the language has "no functionality",
+what we mean is that the whole language is a blank slate,
+lacking support for functions,
+variables,
+literals,
+math and logic operations,
+IO of any kind,
+flow control structures and conditionals,
+etc.
 
-Kaeon FUSION's standard interface provides the basic functionality expected of any Turing complete language like [JavaScript](https://en.wikipedia.org/wiki/JavaScript) or [Python](https://en.wikipedia.org/wiki/Python_(programming_language)).
 However,
-there is also an interface available for Kaeon FUSION called the stack interface,
-which takes advantage of the dynamic nature of Kaeon FUSION's interpreter as well as its tree based syntax
-to cross compile Kaeon FUSION code to and from several mainstream programming and markup languages.
+as mentioned previously,
+all of the aforementioned features and more can be dynamically integrated into the interpreter at any point during runtime with a single command.
+Additionally, there is no limit on the number on interfaces a script can use.
 
-We believe that these properties not only allow Kaeon FUSION to serve practically any existing software development need,
-but also to adapt to the unforseen needs of the future,
-hence its motto,
-"a language without limits".
+Essentially,
+Kaeon FUSION is more or less like LISP,
+if LISP allowed the simultaneous use of multiple distinct dialects at once and allowed the dialect to be changed mid runtime.
+
+Kaeon FUSION does differ from LISP in another significant way in that its code is abstracted as a doubly linked acyclic tree of strings as opposed to a singly linked list of strings and other singly linked lists.
+The syntax that Kaeon FUSION uses to represent this tree,
+which can be used independently of Kaeon FUSION as a markup language,
+is called [ONE+](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/README.md),
+and is a syntactic superset of,
+but functional equivilent to a simpler langauge called [ONE](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/1%20-%20ONE/README.md).
+
+ONE+ bears a strong visual resemblence to YAML,
+and also shares some elements of JSON and Python,
+but it also supports a modular preprocessor system.
+Like Kaeon FUSION's interfaces,
+ONE+'s preprocessor can dynamically integrate external modules into itself during parsing,
+allowing for an indefinite amount of syntactic customization.
+
+Currently,
+the two most important interfaces available for Kaeon FUSION are the standard interface and the stack interface.
+
+The standard interface provides all of the functionality expected of a modern,
+Turing complete programming language as well as support for object orientation and more.
+
+The stack interface allows specialized ONE+ dialects to be cross compiled into other programming and markup languages,
+including C, JavaScript, and machine code, as well as Java, Python, HTML, CSS, XML, JSON, and more.
+
+Kaeon FUSION is useful in use cases where new languages need to be developed,
+systems need to be dramatically modified at runtime,
+and for when said projects are expected to have requirements that will change in unpredictable ways.
+
+Unfortunately, the current implementation of Kaeon FUSION has a long way to go before it's ready for use in production.
+That said,
+it serves as an interesting experiment demonstrating that it is possible to have a language that can dynamically adapt to any use case,
+even while running.
+Additionally,
+ONE+ is more than ready for use as a semantically simpler and more customizable alternative to existing markup languages such as XML and JSON.
+Futhermore,
+all of this is open source,
+so it's inevitable that Kaeon FUSION will see dramatic improvements with further investment,
+Kaeon FUSION will see dramatic improvements.
+And given Kaeon FUSION's dynamic nature,
+there's virtually nothing about it that can't be altered if necessary,
+hence the tagline "a language without limits".
 
 <h2 align="center">Kaeon FUSION Examples</h2>
 
@@ -303,15 +337,6 @@ and may take a while to catch up.
 It should also be noted that prior to July 4, 2018,
 all of our implementations were developed and tested on an unmodified Lenovo IdeaPad P500 laptop running Windows 10.
 Since July 4, 2018 we have been using a 2018 Alienware 15 inch laptop running Windows 10.
-
-Kaeon FUSION,
-being a purely interpreted language,
-is not very fast.
-However,
-we do intend to optomize our interpreter in the near future to be much faster than it currently is.
-In addition,
-the Stack interface will allow Kaeon FUSION to be cross compiled into much faster languages,
-allowing Kaeon FUSION to be used even where speed is an issue.
 
 As of November 5, 2017,
 the Kaeon Origin IDE automatically notifies the user when updates are available and offers them the option to have the updates installed automatically.
