@@ -84,7 +84,7 @@ Additionally, there is no limit on the number on interfaces a script can use.
 
 Essentially,
 Kaeon FUSION is more or less like LISP,
-if LISP allowed the simultaneous use of multiple distinct dialects at once and allowed the dialect to be changed mid runtime.
+if LISP allowed the simultaneous use of multiple distinct dialects at once and allowed said dialects to be changed mid runtime.
 
 Kaeon FUSION does differ from LISP in another significant way in that its code is abstracted as a doubly linked acyclic tree of strings as opposed to a singly linked list of strings and other such lists.
 The syntax that Kaeon FUSION uses to represent this tree,
