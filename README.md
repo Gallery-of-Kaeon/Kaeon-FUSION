@@ -129,8 +129,7 @@ ONE+ is more than ready for use as a semantically simpler and more customizable 
 
 Futhermore,
 all of this is open source,
-so it's inevitable that Kaeon FUSION will see dramatic improvements with further investment,
-Kaeon FUSION will see dramatic improvements.
+so it's inevitable that Kaeon FUSION will see dramatic improvements with further investment.
 And given Kaeon FUSION's dynamic nature,
 there's virtually nothing about it that can't be altered if necessary,
 hence the tagline "a language without limits".
