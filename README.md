@@ -64,7 +64,7 @@ _This part is a bit technical. If you're new to programming, we've put together 
 Kaeon FUSION (pronounced "KAI-on") is an interpreted programming language designed to be the successor to [LISP](https://en.wikipedia.org/wiki/Lisp_(programming_language)).
 
 When a Kaeon FUSION script begins, the language itself has no functionality save for a command called "use".
-The use command takes the names of plugin modules called "interfaces" for the interpreter and dynamically integrates them at runtime.
+The use command takes the names of plugin modules for the interpreter called "interfaces" and dynamically integrates them at runtime.
 
 Let us elaborate a little more on this point.
 When we say that the language has "no functionality",
