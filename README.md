@@ -94,7 +94,7 @@ and is a syntactic superset of,
 but semantic equivalent to a simpler langauge called [ONE](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/1%20-%20ONE/README.md).
 
 ONE+ bears a strong visual resemblance to YAML,
-and also shares some elements of JSON and Python,
+and shares some elements of JSON and Python,
 but it also supports a modular preprocessor system.
 Like Kaeon FUSION's interfaces,
 ONE+'s preprocessor can dynamically integrate external modules into itself during parsing,
