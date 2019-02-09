@@ -91,9 +91,9 @@ The syntax that Kaeon FUSION uses to represent this tree,
 which can be used independently of Kaeon FUSION as a markup language,
 is called [ONE+](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/README.md),
 and is a syntactic superset of,
-but semantic equivilent to a simpler langauge called [ONE](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/1%20-%20ONE/README.md).
+but semantic equivalent to a simpler langauge called [ONE](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/1%20-%20ONE/README.md).
 
-ONE+ bears a strong visual resemblence to YAML,
+ONE+ bears a strong visual resemblance to YAML,
 and also shares some elements of JSON and Python,
 but it also supports a modular preprocessor system.
 Like Kaeon FUSION's interfaces,
@@ -112,7 +112,7 @@ including C, JavaScript, and machine code, as well as Java, Python, HTML, CSS, X
 Kaeon FUSION is useful in cases where new languages need to be developed,
 where systems need to be dramatically modified at runtime,
 or where projects are expected to have requirements that will change in unpredictable ways.
-The simiarities it has to LISP also make it a prime choice for programming language research.
+The similarities it has to LISP also make it a prime choice for programming language research.
 
 Of course,
 it can certainly be a lot fun to play around with the dynamic aspects of the language,
@@ -127,7 +127,7 @@ even while running.
 Additionally,
 ONE+ is more than ready for use as a semantically simpler and more customizable alternative to existing markup languages such as XML and JSON.
 
-Futhermore,
+Furthermore,
 all of this is open source,
 so it's inevitable that Kaeon FUSION will see dramatic improvements with further investment.
 And given Kaeon FUSION's dynamic nature,
