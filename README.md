@@ -86,12 +86,12 @@ Essentially,
 Kaeon FUSION is more or less like LISP,
 if LISP allowed the simultaneous use of multiple distinct dialects at once and allowed the dialect to be changed mid runtime.
 
-Kaeon FUSION does differ from LISP in another significant way in that its code is abstracted as a doubly linked acyclic tree of strings as opposed to a singly linked list of strings and other singly linked lists.
+Kaeon FUSION does differ from LISP in another significant way in that its code is abstracted as a doubly linked acyclic tree of strings as opposed to a singly linked list of strings and other such lists.
 The syntax that Kaeon FUSION uses to represent this tree,
 which can be used independently of Kaeon FUSION as a markup language,
 is called [ONE+](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/README.md),
 and is a syntactic superset of,
-but functional equivilent to a simpler langauge called [ONE](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/1%20-%20ONE/README.md).
+but semantic equivilent to a simpler langauge called [ONE](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/1%20-%20ONE/README.md).
 
 ONE+ bears a strong visual resemblence to YAML,
 and also shares some elements of JSON and Python,
@@ -110,15 +110,23 @@ The stack interface allows specialized ONE+ dialects to be cross compiled into o
 including C, JavaScript, and machine code, as well as Java, Python, HTML, CSS, XML, JSON, and more.
 
 Kaeon FUSION is useful in use cases where new languages need to be developed,
-systems need to be dramatically modified at runtime,
-and for when said projects are expected to have requirements that will change in unpredictable ways.
+where systems need to be dramatically modified at runtime,
+or where projects are expected to have requirements that will change in unpredictable ways.
+The simiarities it has to LISP also make it a prime choice for programming language research.
+
+Of course,
+it can certainly be a lot fun to play around with the dynamic aspects of the language,
+if for no other reason than one's own amusement,
+so it's also a great choice for hobbyists and enthusiasts.
 
 Unfortunately, the current implementation of Kaeon FUSION has a long way to go before it's ready for use in production.
 That said,
 it serves as an interesting experiment demonstrating that it is possible to have a language that can dynamically adapt to any use case,
 even while running.
+
 Additionally,
 ONE+ is more than ready for use as a semantically simpler and more customizable alternative to existing markup languages such as XML and JSON.
+
 Futhermore,
 all of this is open source,
 so it's inevitable that Kaeon FUSION will see dramatic improvements with further investment,
