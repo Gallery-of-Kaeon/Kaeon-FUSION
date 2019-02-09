@@ -109,7 +109,7 @@ Turing complete programming language as well as support for object orientation a
 The stack interface allows specialized ONE+ dialects to be cross compiled into other programming and markup languages,
 including C, JavaScript, and machine code, as well as Java, Python, HTML, CSS, XML, JSON, and more.
 
-Kaeon FUSION is useful in use cases where new languages need to be developed,
+Kaeon FUSION is useful in cases where new languages need to be developed,
 where systems need to be dramatically modified at runtime,
 or where projects are expected to have requirements that will change in unpredictable ways.
 The simiarities it has to LISP also make it a prime choice for programming language research.
