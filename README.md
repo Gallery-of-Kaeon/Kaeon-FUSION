@@ -112,7 +112,10 @@ including C, JavaScript, and machine code, as well as Java, Python, HTML, CSS, X
 Kaeon FUSION is useful in cases where new languages need to be developed,
 where systems need to be dramatically modified at runtime,
 or where projects are expected to have requirements that will change in unpredictable ways.
-The similarities it has to LISP also make it a prime choice for programming language research.
+
+The similarities it has to LISP also make it a prime choice for programming language research,
+for use as a scripting language,
+and for use as a transpilation target.
 
 Of course,
 it can certainly be a lot fun to play around with the dynamic aspects of the language,
