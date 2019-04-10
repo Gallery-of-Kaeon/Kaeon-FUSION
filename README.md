@@ -223,7 +223,7 @@ as well as their own ONE+ alternate syntaxes using out [ONE+ Alternate Syntax De
 
 ### Is Kaeon FUSION a LISP?
 
-Despite the similarites Kaeon FUSION is not in the LISP family,
+Despite the superficial similarites Kaeon FUSION is not in the LISP family,
 as even though it uses a code as data paradigm,
 said data is represented in a doubly linked tree structure as opposed to a singly linked list structure.
 This was done both for philosophical and practical reasons.
