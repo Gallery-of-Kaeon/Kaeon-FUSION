@@ -61,7 +61,7 @@ For any questions or comments, please email the following address: kaeon.ace@gma
 
 _This part is a bit technical. If you're new to programming, we've put together a beginner's resource which you can find [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/README.md)._
 
-Kaeon FUSION (pronounced "KAI-on") is an interpreted programming language designed to be the successor to [LISP](https://en.wikipedia.org/wiki/Lisp_(programming_language)).
+Kaeon FUSION (pronounced "KAI-on") is an interpreted programming language designed to be able to dynamically adapt to any use case.
 
 When a Kaeon FUSION script begins, the language itself has no functionality save for a command called "use".
 The use command takes the names of plugin modules for the interpreter called "interfaces" and dynamically integrates them at runtime.
@@ -83,10 +83,11 @@ all of the aforementioned features and more can be dynamically integrated into t
 Additionally, there is no limit on the number on interfaces a script can use.
 
 Essentially,
-Kaeon FUSION is more or less like LISP,
-if LISP allowed the simultaneous use of multiple distinct dialects at once and allowed said dialects to be changed mid runtime.
+Kaeon FUSION is sort of like [LISP](https://en.wikipedia.org/wiki/Lisp_(programming_language)) with respect to serving as a platform for domain specific languages (DSLs),
+but where multiple DSLs may be used at once and may be changed mid runtime.
 
-Kaeon FUSION does differ from LISP in another significant way in that its code is abstracted as a doubly linked acyclic tree of strings as opposed to a singly linked list of strings and other such lists.
+Another similarity that Kaeon FUSION shares with LISP is that it uses a code-as-data / data-as-code paradigm,
+though unlike LISP its code is abstracted as a doubly linked acyclic tree of strings as opposed to a singly linked list of strings and other such lists.
 The syntax that Kaeon FUSION uses to represent this tree,
 which can be used independently of Kaeon FUSION as a markup language,
 is called [ONE+](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/README.md),
@@ -113,7 +114,8 @@ Kaeon FUSION is useful in cases where new languages need to be developed,
 where systems need to be dramatically modified at runtime,
 or where projects are expected to have requirements that will change in unpredictable ways.
 
-The similarities it has to LISP also make it a prime choice for programming language research,
+Though Kaeon FUSION can in theory adapt to just about anything,
+its most obvious applications are in programming language research,
 for use as a scripting language,
 and for use as a transpilation target.
 
