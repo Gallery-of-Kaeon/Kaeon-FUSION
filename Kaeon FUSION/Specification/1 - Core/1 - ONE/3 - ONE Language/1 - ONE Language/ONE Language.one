@@ -36,11 +36,12 @@
 				
 				Element definitions may be nested within one another. If an element definition is
 				nested within another element definition, the child element definition must be
-				placed directly after its parent. For every terminating sequence that does not
-				occur with an encoded sequence and for every nesting sequence which immediately
-				precedes an encoded sequence within the element definition, one instance of the
-				nesting sequence must be placed between the breaking sequence that precedes said
-				sequence and said sequence for every level the element definition is nested.
+				placed directly after either its parent or after another element definition nested
+				within the scope of its parent. For every terminating sequence that does not occur
+				with an encoded sequence and for every nesting sequence which immediately precedes
+				an encoded sequence within the element definition, one instance of the nesting
+				sequence must be placed between the breaking sequence that precedes said sequence
+				and said sequence for every level the element definition is nested.
 			-
 		-
 			Semantics
