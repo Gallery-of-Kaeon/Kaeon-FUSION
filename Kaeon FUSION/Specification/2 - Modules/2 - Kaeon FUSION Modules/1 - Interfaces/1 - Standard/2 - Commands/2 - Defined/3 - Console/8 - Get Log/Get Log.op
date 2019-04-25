@@ -1,0 +1,9 @@
+Get Log
+	
+	Philosophy
+	
+		-
+			The get log command is a command with the content "Get Log".
+			
+			It returns the text in the console as a string.
+		-
