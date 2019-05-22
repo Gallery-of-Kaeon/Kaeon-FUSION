@@ -1,21 +1,18 @@
 var one = require("./ONE.js");
 var philosophersStone = require("./PhilosophersStone.js");
 
-class FUSION extends philosophersStone.PhilosophersStone {
+function FUSION() {
+
+	philosophersStone.abide(this, new philosophersStone.standard());
 	
-	constructor() {
+	this.running = false;
 
-		super();
+	this.fusionUnits = [];
+	this.updated = false;
 
-		this.running = false;
+	this.tags.push("FUSION");
 
-		this.fusionUnits = [];
-		this.updated = false;
-
-		this.tags.push("FUSION");
-	}
-
-	onCall(packet) {
+	this.standard = function(packet) {
 		
 		if(("" + packet[0]).toLowerCase() == "update")
 			this.update();
@@ -26,9 +23,9 @@ class FUSION extends philosophersStone.PhilosophersStone {
 		return null;
 	}
 
-	update() {
+	this.update = function() {
 		
-		var units = philosophersStone.get(philosophersStone.getAtlas(this), ["FUSION Unit"]);
+		var units = philosophersStone.retrieve(philosophersStone.traverse(this), new philosophersStone.isTagged(null, "FUSION Unit"));
 
 		for(var i = 0; i < units.length; i++) {
 			
@@ -48,7 +45,7 @@ class FUSION extends philosophersStone.PhilosophersStone {
 		this.updated = true;
 	}
 
-	process(element) {
+	this.process = function(element) {
 
 		this.running = true;
 
@@ -60,7 +57,7 @@ class FUSION extends philosophersStone.PhilosophersStone {
 		this.running = false;
 	}
 
-	internalProcess(element, internal) {
+	this.internalProcess = function(element, internal) {
 		
 		var currentElement = element;
 
@@ -154,7 +151,7 @@ class FUSION extends philosophersStone.PhilosophersStone {
 		}
 	}
 
-	updateVerifiedUnits(
+	this.updateVerifiedUnits = function(
 		verifiedFUSIONUnits,
 		currentElement,
 		denied) {
@@ -172,7 +169,7 @@ class FUSION extends philosophersStone.PhilosophersStone {
 		return verifiedFUSIONUnits;
 	}
 
-	isDenied(element) {
+	this.isDenied = function(element) {
 
 		if(element.content == null)
 			return false;
@@ -195,7 +192,7 @@ class FUSION extends philosophersStone.PhilosophersStone {
 		return denied;
 	}
 
-	getVerifiedFUSIONUnits(element) {
+	this.getVerifiedFUSIONUnits = function(element) {
 
 		var verifiedFUSIONUnits = [];
 		
@@ -215,7 +212,7 @@ class FUSION extends philosophersStone.PhilosophersStone {
 		return verifiedFUSIONUnits;
 	}
 
-	trickleDown(
+	this.trickleDown = function(
 		verifiedFUSIONUnits,
 		element) {
 		
@@ -240,7 +237,7 @@ class FUSION extends philosophersStone.PhilosophersStone {
 		return trickleDown;
 	}
 
-	processElement(
+	this.processElement = function(
 		verifiedFUSIONUnits,
 		element,
 		processed) {
@@ -266,7 +263,7 @@ class FUSION extends philosophersStone.PhilosophersStone {
 		return object;
 	}
 
-	isAdded(
+	this.isAdded = function(
 		verifiedFUSIONUnits,
 		element,
 		processed) {
@@ -292,7 +289,7 @@ class FUSION extends philosophersStone.PhilosophersStone {
 		return isAdded;
 	}
 
-	terminate(
+	this.terminate = function(
 		verifiedFUSIONUnits,
 		element,
 		processed) {
@@ -318,7 +315,7 @@ class FUSION extends philosophersStone.PhilosophersStone {
 		return terminate;
 	}
 
-	jump(
+	this.jump = function(
 		verifiedFUSIONUnits,
 		element,
 		processed) {
@@ -345,7 +342,7 @@ class FUSION extends philosophersStone.PhilosophersStone {
 		return jumpElement;
 	}
 
-	handleError(
+	this.handleError = function(
 		element,
 		processed,
 		error) {
@@ -363,44 +360,41 @@ class FUSION extends philosophersStone.PhilosophersStone {
 	}
 }
 
-class FUSIONUnit extends philosophersStone.PhilosophersStone {
+function FUSIONUnit() {
+
+	philosophersStone.abide(this, new philosophersStone.standard());
 	
-	constructor() {
+	this.tags.push("FUSION Unit");
 
-		super();
-
-		this.tags.push("FUSION Unit");
-	}
-
-	deny(element) {
+	this.deny = function(element) {
 		return false;
 	}
 
-	verify(element) {
+	this.verify = function(element) {
 		return false;
 	}
 
-	trickleDown(element) {
+	this.trickleDown = function(element) {
 		return true;
 	}
 
-	process(element, processed) {
+	this.process = function(element, processed) {
 		return null;
 	}
 
-	isAdded(element, processed) {
+	this.isAdded = function(element, processed) {
 		return true;
 	}
 
-	terminate(element, processed) {
+	this.terminate = function(element, processed) {
 		return false;
 	}
 
-	jump(element, processed) {
+	this.jump = function(element, processed) {
 		return null;
 	}
 
-	handleError(element, processed, error) {
+	this.handleError = function(element, processed, error) {
 		
 	}
 }

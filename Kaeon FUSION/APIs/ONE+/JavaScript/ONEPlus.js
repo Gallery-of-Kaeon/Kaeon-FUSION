@@ -1,10 +1,8 @@
 var one = require("./ONE.js");
-var philosophersStone = require("./PhilosophersStone.js");
-var aether = require("./Aether.js");
 var tokenizer = require("./tokenizer.js");
 
 function readONEPlus(data) {
-	return readONEPlusAs(data, new philosophersStone.PhilosophersStone());
+	return readONEPlusAs(data, {});
 }
 
 function readONEPlusAs(data, host) {
@@ -12,9 +10,9 @@ function readONEPlusAs(data, host) {
 	if(data.trim().startsWith("-[")) {
 
 		return
-			aether.call(
-				data.substring(data.indexOf("-[") + 2, data.indexOf("]\n")),
-				data.substring(string.indexOf("]\n") + 2));
+			require(
+				data.substring(data.indexOf("-[") + 2, data.indexOf("]\n")))(
+					data.substring(string.indexOf("]\n") + 2));
 	}
 
 	tokens = getTokens(data);
@@ -785,7 +783,7 @@ class Use extends DirectiveUnit {
 			var child = directive.directive.children[i];
 
 			try {
-				directiveUnits = directiveUnits.concat(aether.call(child.content, null));
+				directiveUnits = directiveUnits.concat(require(child.content)());
 			}
 
 			catch(error) {

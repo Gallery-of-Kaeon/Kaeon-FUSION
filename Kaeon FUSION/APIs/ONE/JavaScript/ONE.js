@@ -1,12 +1,9 @@
-class Element {
+function Element() {
 	
-	constructor() {
-		
-		this.content = "";
-		
-		this.parent = null;
-		this.children = [];
-	}
+	this.content = "";
+	
+	this.parent = null;
+	this.children = [];
 }
 
 function createElement(content) {

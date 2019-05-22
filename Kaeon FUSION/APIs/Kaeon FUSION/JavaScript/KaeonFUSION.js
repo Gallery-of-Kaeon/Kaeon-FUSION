@@ -1,31 +1,27 @@
 var philosophersStone = require("./PhilosophersStone.js");
 var fusion = require("./FUSION.js");
-var aether = require("./Aether.js");
 
-class Use extends fusion.FUSIONUnit {
+function Use() {
 
-	constructor() {
+	philosophersStone.abide(this, new fusion.FUSIONUnit());
 
-		super();
+	this.fusion = null;
 
-		this.fusion = null;
-	}
-
-	verify(element) {
+	this.verify = function(element) {
 
 		if(this.fusion == null)
-			this.fusion = philosophersStone.get(philosophersStone.getAtlas(this), ["FUSION"])[0];
+			this.fusion = philosophersStone.retrieve(philosophersStone.traverse(this), new philosophersStone.isTagged(null, "FUSION"))[0];
 
 		return element.content.toLowerCase() == "use";
 	}
 
-	process(element, processed) {
+	this.process = function(element, processed) {
 
 		for(var i = 0; i < element.children.length; i++) {
 
 			try {
 
-				aether.call(element.children[i].content, this.fusion);
+				require(element.children[i].content)(this.fusion);
 
 				this.fusion.update();
 			}
@@ -39,16 +35,13 @@ class Use extends fusion.FUSIONUnit {
 	}
 }
 
-class KaeonFUSION extends fusion.FUSION {
-	
-	constructor() {
+function KaeonFUSION() {
 
-		super();
+	philosophersStone.abide(this, new fusion.FUSION());
 
-		this.tags.push("Kaeon FUSION");
+	this.tags.push("Kaeon FUSION");
 
-		philosophersStone.connect(this, new Use(), true);
-	}
+	philosophersStone.connect(this, new Use(), [], true);
 }
 
 module.exports = {
