@@ -9,8 +9,16 @@ function Use() {
 
 	this.verify = function(element) {
 
-		if(this.fusion == null)
-			this.fusion = philosophersStone.retrieve(philosophersStone.traverse(this), new philosophersStone.isTagged(null, "FUSION"))[0];
+		if(this.fusion == null) {
+
+			this.fusion =
+				philosophersStone.retrieve(
+					philosophersStone.traverse(this),
+					function(item) {
+						return philosophersStone.isTagged(item, "FUSION");
+					}
+				)[0];
+		}
 
 		return element.content.toLowerCase() == "use";
 	}

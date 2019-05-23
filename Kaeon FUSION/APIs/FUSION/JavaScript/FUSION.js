@@ -25,7 +25,13 @@ function FUSION() {
 
 	this.update = function() {
 		
-		var units = philosophersStone.retrieve(philosophersStone.traverse(this), new philosophersStone.isTagged(null, "FUSION Unit"));
+		var units =
+			philosophersStone.retrieve(
+				philosophersStone.traverse(this),
+				function(item) {
+					return philosophersStone.isTagged(item, "FUSION Unit");
+				}
+			);
 
 		for(var i = 0; i < units.length; i++) {
 			
