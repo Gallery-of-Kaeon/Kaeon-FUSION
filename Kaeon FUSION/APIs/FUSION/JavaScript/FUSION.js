@@ -356,7 +356,7 @@ function FUSION() {
 		for(var i = 0; i < this.fusionUnits.length; i++) {
 			
 			try {
-				this.fusionUnits[i].handleError(element, arguments, error);
+				this.fusionUnits[i].handleError(element, processed, error);
 			}
 			
 			catch(error) {
