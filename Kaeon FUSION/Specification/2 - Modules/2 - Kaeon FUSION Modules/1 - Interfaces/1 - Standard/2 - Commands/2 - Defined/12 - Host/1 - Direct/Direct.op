@@ -1,0 +1,14 @@
+Direct
+
+	Philosophy
+
+		-
+			The direct command contains the content "Direct". It may have an indefinite number of
+			children.
+
+			The direct command shall execute the string form of each of the values returned by its
+			children in the order they were returned as code directly in the host environment of
+			the interpreter in the language the interpreter was written in. It will then return the
+			values returned by the executed units of code as a list arranged in the order they were
+			executed in.
+		-
