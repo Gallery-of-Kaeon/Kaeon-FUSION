@@ -1,0 +1,15 @@
+Disconnect
+
+	Philosophy
+
+		-
+			The disconnect command is a command with the content "Disconnect". It has either three
+			or four children, the first of which shall return a list containing the state of a
+			Philosopher's Atlas, the second and third of which may return any value, and the fourth
+			of which, if present, shall return a boolean.
+
+			It removes connections in the returned philosopher's atlas from the value returned by
+			the second child to the value returned by the third child, and if the fourth child is
+			present and returns true then also from the value returned by the third child to the
+			value returned by the second child.
+		-

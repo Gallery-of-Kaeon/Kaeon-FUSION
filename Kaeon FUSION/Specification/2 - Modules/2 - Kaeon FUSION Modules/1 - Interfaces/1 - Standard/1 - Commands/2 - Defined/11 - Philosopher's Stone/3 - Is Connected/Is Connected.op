@@ -1,0 +1,18 @@
+Is Connected
+
+	Philosophy
+
+		-
+			The is connected command is a command with the content "Is Connected". It has between
+			three and five children, the first of which shall return a list containing the state of
+			a Philosopher's Atlas, the second and third of which may return any value, the fourth
+			of which, if present, shall return a list of Kaeon FUSION scripts in ONE list form, and
+			the fifth of which, if present, shall return a boolean.
+
+			If a connection exists in the returned philosopher's atlas from the value returned by
+			the second child to the value returned by the third child, and if the fifth child is
+			present and returns true then also from the value returned by the third child to the
+			value returned by the second child, and if the fourth child is present the scripts it
+			returns serve as atlas policies for the specified connections, then it shall return
+			true, and return false otherwise.
+		-

@@ -1,0 +1,10 @@
+New
+	
+	Philosophy
+		
+		-
+			The new command contains the content "New".
+			
+			It has one child that executes a Kaeon FUSION script virtually. It returns the contents
+			of the state of the virtually executed script serialized as a list.
+		-

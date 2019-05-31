@@ -1,0 +1,19 @@
+Connect
+
+	Philosophy
+
+		-
+			The connect command is a command with the content "Connect". It has between three and
+			five children, the first of which shall return a list containing the state of a
+			Philosopher's Atlas, the second and third of which may return any value, the fourth of
+			which, if present, shall return a list of Kaeon FUSION scripts in ONE list form, and
+			the fifth of which, if present, shall return a boolean.
+
+			It forms a connection in the returned philosopher's atlas from the value returned by
+			the second child to the value returned by the third child, and if the fifth child is
+			present and returns true then also from the value returned by the third child to the
+			value returned by the second child, and if the fourth child is present the scripts it
+			returns shall serve as atlas policies for the new connections, taking a given traversal
+			path in the form of a list as an argument. Any pre-existing connections between the
+			connected values shall be overridden.
+		-

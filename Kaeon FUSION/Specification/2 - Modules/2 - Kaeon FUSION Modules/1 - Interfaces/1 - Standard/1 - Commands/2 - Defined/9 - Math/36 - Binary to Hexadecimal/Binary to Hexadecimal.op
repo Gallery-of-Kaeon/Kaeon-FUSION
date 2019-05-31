@@ -1,0 +1,12 @@
+Binary to Hexaecimal
+
+	Philosophy
+	
+		-
+			The binary to hexadecimal command contains the content "Binary to Hexadecimal". It has
+			one child that return a value, the string form of which contains a binary
+			representation of a number.
+
+			It returns a string containing the value specified in binary by the string form of the
+			returned value in hexadecimal format.
+		-

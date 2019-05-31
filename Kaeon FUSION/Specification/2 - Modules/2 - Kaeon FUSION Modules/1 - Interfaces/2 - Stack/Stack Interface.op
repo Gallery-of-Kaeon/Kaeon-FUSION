@@ -1,0 +1,117 @@
+Kaeon FUSION Stack Interface
+
+	Philosophy
+	
+		-
+			The Kaeon FUSION stack interface provides a standard set of functionality for the
+			various call packets provided by the Kaeon FUSION standard interface.
+		-
+		
+	Principles
+		
+		Alias
+			
+			-
+				The Kaeon FUSION stack interface may be referenced using the alias "Stack".
+			-
+	
+		Building and Deriving
+		
+			Build and Derive Calls
+			
+				-
+					Cross compilation may be triggered through use of build and derive calls sent
+					through the standard interface's call command.
+				-
+		
+			Dialects
+			
+				Cross Dialects
+				
+					-
+						The Kaeon FUSION Stack Interface provides cross dialects analogous to C and
+						JavaScript.
+					-
+					
+					Utility Code
+					
+						-
+							If the string "Utility" is passed to a cross dialect provided by the
+							stack interface as an argument, the cross compiled code will not
+							contain a main function.
+						-
+					
+					Snippet Code
+					
+						-
+							If the string "Snippet" is passed to a cross dialect provided by the
+							stack interface as an argument, the cross compiled code will only
+							contain the body of the main function.
+						-
+			
+			Code Groups
+				
+				-
+					The strings provided as code to be cross compiled will be arranged into groups
+					prior to cross compilation, and each group will be assigned a unique index.
+					Unless otherwise specified, each provided string will be placed by itself into
+					its own group.
+				-
+			
+			Arguments
+				
+				-
+					The string form of the first argument, if said argument returns a non-null
+					value and at least one argument is present, specifies the directory the cross
+					compiled code should be exported to.
+					
+					If no arguments are present, or if the first argument returns a null value, the
+					code will be exported to the local directory.
+					
+					The second argument, if present, will be a list. The string form of each
+					element in the list, if said element is a non-null value, specifies the name of
+					the cross compiled group corresponding to its index. If this argument is
+					absent, an element corresponding to a given file returns a null value, or there
+					is no element in the list corresponding to a given group, the corresponding
+					cross compiled groups will be given default names determined by the dialect in
+					use.
+					
+					Any arguments following the second argument will be specific to the dialect in
+					use.
+				-
+			
+			Generated Files
+			
+				-
+					All files generated during cross compilation will be assigned names. They,
+					along with their names will each be placed into lists where the name is the
+					first element and the file is the second element.
+					
+					The files will be exported to the file system and the list of file lists will
+					be returned to the code that called the cross compilation.
+					
+					If the arguments passed to the cross compiler contain the string "Return", the
+					cross compiled code will not be exported to the file system.
+				-
+			
+			JavaScript Applications
+			
+				-
+					If the JavaScript dialect is given a list where the string form of the first
+					element of said list is "Application", then the string form of every element
+					following the second element will be used as the name of an HTML file which
+					will then be generated to serve as the host for a JavaScript file of the same
+					name.
+					
+					The string form of the second element in the list will determine the intended
+					platform for the application. Its content may either be "Web" or "Native".
+				-
+		
+		Language Interaction
+		
+			-
+				The stack interface shall provide support for code and module calls sent through
+				the standard interface's call command.
+				
+				The languages supported are C and JavaScript.
+			-

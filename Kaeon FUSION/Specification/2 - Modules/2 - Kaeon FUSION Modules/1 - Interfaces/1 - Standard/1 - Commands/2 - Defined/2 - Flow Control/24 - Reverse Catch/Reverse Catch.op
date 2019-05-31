@@ -1,0 +1,11 @@
+Reverse Catch
+
+	Philosophy
+	
+		-
+			The reverse catch command contains the content "Reverse Catch".
+			
+			Unless an exception was thrown by a previous command, it will not trickle down. If it
+			does trickle down, commands within its scope will be executed despite the exception
+			that triggered it, but said exception will not be caught by the reverse catch command.
+		-

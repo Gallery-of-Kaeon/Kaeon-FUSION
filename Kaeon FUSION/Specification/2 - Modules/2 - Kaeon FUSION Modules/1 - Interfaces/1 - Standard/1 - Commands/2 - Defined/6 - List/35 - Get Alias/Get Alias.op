@@ -1,0 +1,12 @@
+Get Alias
+
+	Philosophy
+
+		-
+			The get alias command contains the content "Get Alias". It has two children, the first
+			of which returns a list and the second of which returns an number corresponding to an
+			index within said list.
+
+			It returns the alias of the element in the returned list at the index specified by the
+			returned number.
+		-

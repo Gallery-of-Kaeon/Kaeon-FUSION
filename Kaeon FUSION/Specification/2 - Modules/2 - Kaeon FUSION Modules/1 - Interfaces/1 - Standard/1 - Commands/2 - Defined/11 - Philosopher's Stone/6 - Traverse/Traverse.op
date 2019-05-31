@@ -1,0 +1,13 @@
+Traverse
+
+	Philosophy
+
+		-
+			The traverse command is a command with the content "Traverse". It has two children, the
+			first of which shall return a list containing the state of a Philosopher's Atlas, and
+			the second of which may return any value.
+
+			It performs a traversal of the returned Philosopher's Atlas starting at the value
+			returned by the second child, and returns a list of all values traversed across during
+			said traversal.
+		-

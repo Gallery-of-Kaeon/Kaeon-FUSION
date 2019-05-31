@@ -1,0 +1,12 @@
+Get Connections
+
+	Philosophy
+
+		-
+			The get connections command is a command with the content "Get Connections". It has two
+			children, the first of which shall return a list containing the state of a
+			Philosopher's Atlas, and the second of which may return any value.
+
+			It returns all values that the value returned by the second child is connected to in
+			the returned Philosopher's Atlas.
+		-

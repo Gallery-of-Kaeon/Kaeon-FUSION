@@ -1,0 +1,14 @@
+With
+
+	Philosophy
+	
+		-
+			The with command contains the content "With". It has two children, the first of which
+			returns a string or a list and the second of which returns a list.
+			
+			It will execute a command where, if the first child returned a string then said string
+			shall be the content of the command, and if the first child returned a list then the
+			list is the command in ONE list form, and the elements of the list returned by the
+			second child are the values passed to the command by its children. It will then return
+			the value returned by the command.
+		-

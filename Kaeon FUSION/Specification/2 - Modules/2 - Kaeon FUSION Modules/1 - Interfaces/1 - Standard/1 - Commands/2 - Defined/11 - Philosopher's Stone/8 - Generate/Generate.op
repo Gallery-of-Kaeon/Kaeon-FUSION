@@ -1,0 +1,15 @@
+Generate
+
+	Philosophy
+
+		-
+			The generate command is a command with the content "Generate". It may have either two
+			or three children, the first of which shall return a list containing the corpus of a
+			SOUL, the second of which may return any value, the third of which shall return a
+			number between zero and one, inclusive.
+
+			It shall generate and return a value that correlates as output to the value returned by
+			the second child as input with a one to one correlation if the third child is not
+			present and with the correlation specified by the third child if it is present
+			according to the returned corpus.
+		-

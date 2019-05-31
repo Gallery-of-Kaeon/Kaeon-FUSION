@@ -1,0 +1,96 @@
+Assembly Dialect
+
+	Philosophy
+	
+		-
+			The assembly dialect is a build dialect analogous to machine code.
+		-
+
+	Principles
+	
+		Instructions
+		
+			-
+				Every element in an assembly dialect document that is not a use command or a mode
+				command is analogous to a linear sequence of instructions in machine code.
+			-
+
+		Size Command
+
+			-
+				A size command contains the content "Size", regardless of letter case, and has
+				a single child containing an integer number greater than or equal to one, which
+				will determine what byte size the instructions following it and preceding the size
+				mode command or the end of the file will be encoded with. The size will be set to
+				eight by default.
+			-
+	
+		Modes
+			
+			Mode Command
+				
+				-
+					A mode command contains the content "Mode", regardless of letter case, and has
+					a single child containing the content "Binary", "Raw", "Decimal",
+					"Hexadecimal", or "Mnemonic", which will determine what mode the instructions
+					following it and preceding the next mode command or the end of the file will be
+					cross compiled according to. The mode will be set to binary by default.
+				-
+			
+			Binary Mode
+			
+				-
+					An instruction in binary mode is an element which may contain as its content a
+					sequence of zeroes and ones, and corresponds literally to a single binary
+					instruction.
+				-
+			
+			Raw Mode
+			
+				-
+					An instruction in raw mode is an element which may contain any string as its
+					content, corresponding to a sequence of instructions where each character
+					corresponds to a binary value.
+				-
+			
+			Decimal Mode
+			
+				-
+					An instruction in decimal mode is an element which may contain as its content a
+					decimal number, and corresponds to a single binary instruction such that said
+					instruction is the binary form of said number.
+				-
+			
+			Hexadecimal Mode
+			
+				-
+					An instruction in hexadecimal mode is an element which may contain as its
+					content a hexadecimal number, and corresponds to a single binary instruction
+					such that said instruction is the binary form of said number.
+				-
+			
+			Mnemonic Mode
+			
+				-
+					An instruction in mnemonic mode is an element that may have any content other
+					than "Use", "Size", or "Mode", regardless of letter case, and may have any
+					children.
+				-
+		
+		Use Command
+		
+			-
+				A use command will have the content "Use", regardless of letter case, and will have
+				an indefinite number of children, each of which containing as their content the
+				file path of a ONE+ file.
+				
+				The ONE+ file will be a Kaeon FUSION file using the standard interface that may be
+				passed as an argument the contents of an assembly dialect instruction written in
+				mnemonic mode in ONE list form, and based on it either return a list of strings
+				containing binary corresponding to the compiled instruction, or return null if the
+				mnemonic is unrecognized.
+				
+				If multiple ONE+ files are included through use commands, and more than one of them
+				return a non null value for a given mnemonic, the more recently included document
+				will take priority.
+			-

@@ -1,0 +1,11 @@
+Define
+	
+	Philosophy
+	
+		-
+			The define command contains the content "Define" and may have an indefinite number of
+			children. It does not trickle down.
+			
+			It will return an element in ONE list form equal to itself with no content with all the
+			elements in its scope.
+		-

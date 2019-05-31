@@ -1,0 +1,11 @@
+From Bytes
+
+	Philosophy
+
+		-
+			The from bytes command is a command with the content "From Bytes". It has one child
+			that returns a byte array.
+
+			It converts the byte array to an assembly dialect document in ONE list form and then
+			returns the resulting list.
+		-
