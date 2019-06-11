@@ -5,6 +5,8 @@ function Use() {
 
 	philosophersStone.abide(this, new fusion.FUSIONUnit());
 
+	this.tags.push("Use");
+
 	this.fusion = null;
 
 	this.verify = function(element) {
@@ -29,7 +31,15 @@ function Use() {
 
 			try {
 
-				require(element.children[i].content)(this.fusion);
+				let path = element.children[i].content;
+
+				if(path.indexOf("/") == -1)
+					path = "./" + path;
+
+				if(!path.toLowerCase().endsWith(".js"))
+					path += ".js";
+
+				require(path)(this.fusion);
 
 				this.fusion.update();
 			}
