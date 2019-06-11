@@ -6,16 +6,6 @@ function Element() {
 	this.children = [];
 }
 
-function createElement(content) {
-	
-	var element = new Element();
-	
-	if(content != null)
-		element.content = content;
-	
-	return element;
-}
-
 function createElement(content, child) {
 	
 	var element = new Element();
@@ -251,6 +241,44 @@ function equals(a, b, caseSensitive) {
 	return true;
 }
 
+function toElement(list) {
+
+	if(list.length == 0)
+		return new Element();
+
+	let element = createElement("" + list[0]);
+
+	for(let i = 1; i < list.length; i++) {
+		
+		if(Array.isArray(list[i]))
+			addChild(element, toElement(list[i]));
+		
+		else
+			addChild(element, createElement("" + list[i]));
+	}
+
+	return element;
+}
+
+function toList(element) {
+
+	let list = [];
+	
+	if(element.content != null)
+		list.push(element.content);
+	
+	for(let i = 0; i < element.children.length; i++) {
+		
+		if(element.children[i].children.length == 0)
+			list.push(element.children[i].content);
+		
+		else
+			list.push(toList(element.children[i]));
+	}
+		
+	return list;
+}
+
 function readONE(one) {
 	return readONEAs(one, ["-", "\n", "\t"], false);
 }
@@ -425,6 +453,8 @@ module.exports = {
 	getIndex,
 	getPath,
 	equals,
+	toElement,
+	toList,
 	readONE,
 	readONEAs,
 	getElements,
