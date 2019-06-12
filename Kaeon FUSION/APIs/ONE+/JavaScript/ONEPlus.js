@@ -451,7 +451,7 @@ function processLine(tokens, line, currentElement, directives) {
 		}
 
 		if(token == "(")
-			stack.add(currentElement);
+			stack.push(currentElement);
 
 		if(token == ")" && stack.length > 0)
 			currentElement = stack.splice(stack.length - 1, 1)[0];
