@@ -277,8 +277,16 @@ function process(tokens, tokenize, nestToken) {
 
 			if(!literal) {
 
-				for(var j = literalNest + 1; j < line.length; j++)
+				for(var j = literalNest + 1; j < line.length; j++) {
+
 					literalString += line[j];
+
+					if(line[j] == "\n" && j < line.length) {
+
+						if(line[j + 1] != "\n")
+							j += literalNest + 1;
+					}
+				}
 
 				literalString += '\n';
 			}
