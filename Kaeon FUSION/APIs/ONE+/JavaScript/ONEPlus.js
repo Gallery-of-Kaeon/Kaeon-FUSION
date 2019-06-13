@@ -2,17 +2,12 @@ var one = require("./ONE.js");
 var tokenizer = require("./tokenizer.js");
 
 function readONEPlus(data) {
-	return readONEPlusAs(data, {});
-}
-
-function readONEPlusAs(data, host) {
 
 	if(data.trim().startsWith("-[")) {
 
-		return
-			require(
-				data.substring(data.indexOf("-[") + 2, data.indexOf("]\n")))(
-					data.substring(string.indexOf("]\n") + 2));
+		return require(
+			data.substring(data.indexOf("-[") + 2, data.indexOf("]\n")))(
+				data.substring(data.indexOf("]\n") + 2));
 	}
 
 	tokens = getTokens(data);
@@ -804,7 +799,6 @@ class Use extends DirectiveUnit {
 module.exports = {
 
 	readONEPlus,
-	readONEPlusAs,
 	getTokens,
 	getIndentToken,
 	preprocess,
