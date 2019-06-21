@@ -1,6 +1,20 @@
 var philosophersStone = require("./PhilosophersStone.js");
 var fusion = require("./FUSION.js");
 
+var io = require("./io.js");
+
+var platform = "Browser";
+
+if(typeof process === 'object') {
+
+	if(typeof process.versions === 'object') {
+
+		if(typeof process.versions.node !== 'undefined') {
+			platform = "Node";
+		}
+	}
+}
+
 function Use() {
 
 	philosophersStone.abide(this, new fusion.FUSIONUnit());
@@ -9,13 +23,15 @@ function Use() {
 
 	this.fusion = null;
 
+	var reference = this;
+
 	this.verify = function(element) {
 
-		if(this.fusion == null) {
+		if(reference.fusion == null) {
 
-			this.fusion =
+			reference.fusion =
 				philosophersStone.retrieve(
-					philosophersStone.traverse(this),
+					philosophersStone.traverse(reference),
 					function(item) {
 						return philosophersStone.isTagged(item, "FUSION");
 					}
@@ -33,19 +49,34 @@ function Use() {
 
 				let path = element.children[i].content;
 
-				if(path.indexOf("/") == -1)
-					path = "./" + path;
+				if(
+					!(path.startsWith("http://") || path.startsWith("https://")) ||
+					platform.toLowerCase() == "browser") {
 
-				if(!path.toLowerCase().endsWith(".js"))
-					path += ".js";
+					if(!(path.startsWith("http://") || path.startsWith("https://"))) {
+						
+						if(path.indexOf("/") == -1)
+							path = "./" + path;
 
-				require(path)(this.fusion);
+						if(!path.toLowerCase().endsWith(".js"))
+							path += ".js";
+					}
 
-				this.fusion.update();
+					require(path)(reference.fusion);
+				}
+
+				else {
+
+					io.save(io.open(path), "./OnlineInterface.js")
+
+					require("./OnlineInterface.js")(reference.fusion);
+				}
+
+				reference.fusion.update();
 			}
 
 			catch(error) {
-
+				
 			}
 		}
 
