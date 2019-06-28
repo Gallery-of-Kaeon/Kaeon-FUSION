@@ -7,7 +7,7 @@ Destroy
 			string and may optionally have a second child that returns a boolean.
 			
 			It will delete any variable alias in the state that matches the returned string. If the
-			second child is either not present, or present and returned false, then the command
-			will only delete values in the local scope. If the second child is present and returned
-			true, then the command will only delete values in the global scope.
+			second child is and returned false, then the command will only delete values in the
+			local scope. If the second child is present and returned true, then the command will
+			only delete values in the global scope.
 		-
