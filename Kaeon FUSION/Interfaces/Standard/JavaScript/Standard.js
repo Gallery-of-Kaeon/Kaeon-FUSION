@@ -8,12 +8,13 @@ var onePlus = require("./ONEPlus.js");
 var io = require("./io.js");
 var tokenizer = require("./tokenizer.js");
 
-var fs = require("fs");
-var path = require("path");
-
+var fs = {};
+var path = {};
 var cmd = {};
 
 try {
+	fs = require("fs");
+	path = require("path");
 	cmd = require("node-cmd");
 }
 
@@ -431,49 +432,25 @@ function doCommand() {
 
 		try {
 
-			if(reference.fusion == null) {
+			reference.fusion =
+				reference.fusion == null ?
+					getStone(reference, "FUSION") :
+					reference.fusion;
 
-				reference.fusion =
-					philosophersStone.retrieve(
-						philosophersStone.traverse(reference),
-						function(item) {
-							return philosophersStone.isTagged(item, "FUSION");
-						}
-					)[0];
-			}
+			reference.state =
+				reference.state == null ?
+					getStone(reference, "State") :
+					reference.state;
 
-			if(reference.state == null) {
+			reference.argumentsCommand =
+				reference.argumentsCommand == null ?
+					getStone(reference, "Arguments") :
+					reference.argumentsCommand;
 
-				reference.state =
-					philosophersStone.retrieve(
-						philosophersStone.traverse(reference),
-						function(item) {
-							return philosophersStone.isTagged(item, "State");
-						}
-					)[0];
-			}
-
-			if(reference.argumentsCommand == null) {
-
-				reference.argumentsCommand =
-					philosophersStone.retrieve(
-						philosophersStone.traverse(reference),
-						function(item) {
-							return philosophersStone.isTagged(item, "Arguments");
-						}
-					)[0];
-			}
-
-			if(reference.returnCommand == null) {
-
-				reference.returnCommand =
-					philosophersStone.retrieve(
-						philosophersStone.traverse(reference),
-						function(item) {
-							return philosophersStone.isTagged(item, "Return");
-						}
-					)[0];
-			}
+			reference.returnCommand =
+				reference.returnCommand == null ?
+					getStone(reference, "Return") :
+					reference.returnCommand;
 		}
 
 		catch(error) {
@@ -485,27 +462,15 @@ function doCommand() {
 
 	this.process = function(element, processed) {
 
-		let code = one.toElement(processed[0]);
-
-		let currentArguments = reference.argumentsCommand.args;
-		let currentState = reference.state.data;
-
-		reference.argumentsCommand.args = processed.length > 1 ? processed[1] : null;
-		reference.state.data = [currentState[0], [], []];
-
-		reference.fusion.internalProcess(code, true);
-
-		let value = reference.returnCommand.returnValue;
-
-		element.savedState = reference.state.data.slice(0);
-		element.savedState[0] = [];
-
-		reference.argumentsCommand.args = currentArguments;
-		reference.state.data = currentState;
-		reference.returnCommand.returnValue = null;
-		reference.returnCommand.isReturning = false;
-
-		return value;
+		return executeFunction(
+			element,
+			reference.fusion,
+			reference.state,
+			reference.argumentsCommand,
+			reference.returnCommand,
+			one.toElement(processed[0]),
+			processed.length > 1 ? processed[1] : null
+		);
 	}
 }
 
@@ -978,6 +943,213 @@ function lockDown() {
 	this.process = function(element, processed) {
 
 		reference.block = reference.block.concat(processed);
+
+		return null;
+	}
+}
+
+function reflect() {
+
+	philosophersStone.abide(this, new fusion.FUSIONUnit());
+
+	this.fusionStone = null;
+	this.state = null;
+	this.argumentsCommand = null;
+	this.returnCommand = null;
+
+	var reference = this;
+
+	this.verify = function(element) {
+
+		try {
+
+			reference.fusionStone =
+				reference.fusionStone == null ?
+					getStone(reference, "FUSION") :
+					reference.fusionStone;
+
+			reference.state =
+				reference.state == null ?
+					getStone(reference, "State") :
+					reference.state;
+
+			reference.argumentsCommand =
+				reference.argumentsCommand == null ?
+					getStone(reference, "Arguments") :
+					reference.argumentsCommand;
+
+			reference.returnCommand =
+				reference.returnCommand == null ?
+					getStone(reference, "Return") :
+					reference.returnCommand;
+		}
+
+		catch(error) {
+			
+		}
+
+		return element.content.toLowerCase() == "reflect";
+	}
+
+	this.process = function(element, processed) {
+		
+		let deny = processed.length > 0 ? processed[0] : null;
+		let verify = processed.length > 1 ? processed[1] : null;
+		let trickleDown = processed.length > 2 ? processed[2] : null;
+		let processFunction = processed.length > 3 ? processed[3] : null;
+		let terminate = processed.length > 4 ? processed[4] : null;
+		let isAdded = processed.length > 5 ? processed[5] : null;
+		let jump = processed.length > 6 ? processed[6] : null;
+		let handleError = processed.length > 7 ? processed[7] : null;
+
+		let unit = new fusion.FUSIONUnit();
+
+		var innerReference = this;
+		innerReference.reference = reference;
+
+		unit.deny = function(element) {
+				
+			if(deny == null)
+				return false;
+			
+			let result = executeFunction(
+				element,
+				innerReference.reference.fusionStone,
+				innerReference.reference.state,
+				innerReference.reference.argumentsCommand,
+				innerReference.reference.returnCommand,
+				one.toElement(deny),
+				[one.toList(element)],
+				unit);
+			
+			return ("" + result).toLowerCase() == "true";
+		}
+
+		unit.verify = function(element) {
+
+			if(verify == null)
+				return false;
+			
+			let result = executeFunction(
+				element,
+				innerReference.reference.fusionStone,
+				innerReference.reference.state,
+				innerReference.reference.argumentsCommand,
+				innerReference.reference.returnCommand,
+				one.toElement(verify),
+				[one.toList(element)],
+				unit);
+			
+			return result;
+		}
+
+		unit.trickleDown = function(element) {
+				
+			if(trickleDown == null)
+				return true;
+			
+			let result = executeFunction(
+				element,
+				innerReference.reference.fusionStone,
+				innerReference.reference.state,
+				innerReference.reference.argumentsCommand,
+				innerReference.reference.returnCommand,
+				one.toElement(trickleDown),
+				[one.toList(element)],
+				unit);
+			
+			return ("" + result).toLowerCase() == "true";
+		}
+
+		unit.process = function(element, processed) {
+				
+			if(processFunction == null)
+				return null;
+			
+			return executeFunction(
+				element,
+				innerReference.reference.fusionStone,
+				innerReference.reference.state,
+				innerReference.reference.argumentsCommand,
+				innerReference.reference.returnCommand,
+				one.toElement(processFunction),
+				[one.toList(element), processed],
+				unit);
+		}
+
+		unit.terminate = function(element, processed) {
+				
+			if(terminate == null)
+				return false;
+			
+			let result = executeFunction(
+				element,
+				innerReference.reference.fusionStone,
+				innerReference.reference.state,
+				innerReference.reference.argumentsCommand,
+				innerReference.reference.returnCommand,
+				one.toElement(terminate),
+				[one.toList(element), processed],
+				unit);
+			
+			return ("" + result).toLowerCase() == "true";
+		}
+
+		unit.isAdded = function(element, processed) {
+				
+			if(isAdded == null)
+				return true;
+			
+			let result = executeFunction(
+				element,
+				innerReference.reference.fusionStone,
+				innerReference.reference.state,
+				innerReference.reference.argumentsCommand,
+				innerReference.reference.returnCommand,
+				one.toElement(isAdded),
+				[one.toList(element), processed],
+				unit);
+			
+			return ("" + result).toLowerCase() == "true";
+		}
+
+		unit.jump = function(element, processed) {
+				
+			if(jump == null)
+				return null;
+			
+			let result = executeFunction(
+				element,
+				innerReference.reference.fusionStone,
+				innerReference.reference.state,
+				innerReference.reference.argumentsCommand,
+				innerReference.reference.returnCommand,
+				one.toElement(jump),
+				[one.toList(element), processed],
+				unit);
+			
+			return one.toElement(result);
+		}
+
+		unit.handleError = function(element, processed, exception) {
+				
+			if(handleError == null)
+				return null;
+			
+			executeFunction(
+				element,
+				innerReference.reference.fusionStone,
+				innerReference.reference.state,
+				innerReference.reference.argumentsCommand,
+				innerReference.reference.returnCommand,
+				one.toElement(handleError),
+				[one.toList(element), processed, exception],
+				unit);
+		}
+
+		philosophersStone.connect(reference.fusionStone, unit, [], true);
+		
+		reference.fusionStone.update();
 
 		return null;
 	}
@@ -3673,7 +3845,7 @@ function equal() {
 
 		for(let i = 1; i < processed.length; i++) {
 
-			if(processed[i - 1] != processed[i])
+			if(("" + processed[i - 1]) != ("" + processed[i]))
 				return false;
 		}
 
@@ -4442,6 +4614,53 @@ function hexadecimalToBinary() {
 }
 
 // UTILITY FUNCTIONS
+
+function getStone(reference, tags) {
+
+	return philosophersStone.retrieve(
+		philosophersStone.traverse(reference),
+		function(item) {
+			return philosophersStone.isTagged(item, tags);
+		}
+	)[0];
+}
+
+function executeFunction(element, fusion, state, argumentsCommand, returnCommand, code, argumentsList, unit) {
+
+	let currentArguments = argumentsCommand.args;
+	let currentState = state.data;
+
+	argumentsCommand.args = argumentsList;
+	state.data = [currentState[0], [], []];
+
+	let verify = null;
+
+	if(unit != null) {
+
+		verify = unit.verify;
+
+		unit.verify = function(element) {
+			return false;
+		}
+	}
+
+	fusion.internalProcess(code, true);
+
+	let value = returnCommand.returnValue;
+
+	element.savedState = state.data.slice(0);
+	element.savedState[0] = [];
+
+	argumentsCommand.args = currentArguments;
+	state.data = currentState;
+	returnCommand.returnValue = null;
+	returnCommand.isReturning = false;
+
+	if(unit != null)
+		unit.verify = verify;
+
+	return value;
+}
 	
 function reverseElement(element) {
 		
@@ -4591,6 +4810,7 @@ module.exports = function(fusion) {
 		philosophersStone.connect(fusion, new disable(), [], true);
 		philosophersStone.connect(fusion, new enable(), [], true);
 		philosophersStone.connect(fusion, new lockDown(), [], true);
+		philosophersStone.connect(fusion, new reflect(), [], true);
 		philosophersStone.connect(fusion, new interpreter(), [], true);
 		philosophersStone.connect(fusion, new listen(), [], true);
 		philosophersStone.connect(fusion, new be(), [], true);
