@@ -34,6 +34,77 @@ if(typeof process === 'object') {
 	}
 }
 
+// USE OVERRIDE STONE
+
+function useCommand() {
+
+	philosophersStone.abide(this, new fusion.FUSIONUnit());
+
+	this.tags.push("Use");
+
+	this.fusion = null;
+
+	var reference = this;
+
+	this.verify = function(element) {
+
+		if(reference.fusion == null) {
+
+			reference.fusion =
+				philosophersStone.retrieve(
+					philosophersStone.traverse(reference),
+					function(item) {
+						return philosophersStone.isTagged(item, "FUSION");
+					}
+				)[0];
+		}
+
+		return element.content.toLowerCase() == "use";
+	}
+
+	this.process = function(element, processed) {
+
+		for(let i = 0; i < processed.length; i++) {
+
+			try {
+
+				let path = "" + processed[i];
+
+				if(
+					!(path.startsWith("http://") || path.startsWith("https://")) ||
+					platform.toLowerCase() == "browser") {
+
+					if(!(path.startsWith("http://") || path.startsWith("https://"))) {
+						
+						if(path.indexOf("/") == -1)
+							path = "./" + path;
+
+						if(!path.toLowerCase().endsWith(".js"))
+							path += ".js";
+					}
+
+					require(path)(reference.fusion);
+				}
+
+				else {
+
+					io.save(io.open(path), "./OnlineInterface.js")
+
+					require("./OnlineInterface.js")(reference.fusion);
+				}
+
+				reference.fusion.update();
+			}
+
+			catch(error) {
+				
+			}
+		}
+
+		return null;
+	}
+}
+
 // UTILITY STONES
 
 function state() {
@@ -4784,6 +4855,12 @@ function sortString(string, numerical) {
 module.exports = function(fusion) {
 
 	if(fusion != null) {
+
+		let use = getStone(fusion, "Use");
+
+		philosophersStone.disconnect(fusion, use, true);
+
+		philosophersStone.connect(fusion, new useCommand(), [], true);
 
 		philosophersStone.connect(fusion, new state(), [], true);
 		philosophersStone.connect(fusion, new priority(), [], true);
