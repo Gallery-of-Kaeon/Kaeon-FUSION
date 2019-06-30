@@ -2114,8 +2114,10 @@ function log() {
 
 	philosophersStone.abide(this, new fusion.FUSIONUnit());
 
+	var nodeProcess = platform == "Node" ? process : null;
+
 	this.verify = function(element) {
-		return element.content.toLowerCase() == "log" || element.content.toLowerCase() == "log line";
+		return element.content.toLowerCase() == "log";
 	}
 
 	this.process = function(element, processed) {
@@ -2125,7 +2127,92 @@ function log() {
 		for(let i = 0; i < processed.length; i++)
 			str += renderItem(processed[i]);
 		
-		console.log(str);
+		if(platform == "Browser")
+			console.log(str);
+		
+		else
+			nodeProcess.stdout.write(str);
+
+		return null;
+	}
+}
+
+function logLine() {
+
+	philosophersStone.abide(this, new fusion.FUSIONUnit());
+
+	var nodeProcess = platform == "Node" ? process : null;
+
+	this.verify = function(element) {
+		return element.content.toLowerCase() == "log line";
+	}
+
+	this.process = function(element, processed) {
+
+		let str = "";
+
+		for(let i = 0; i < processed.length; i++)
+			str += renderItem(processed[i]);
+		
+		if(platform == "Browser")
+			console.log(str);
+		
+		else
+			nodeProcess.stdout.write(str + "\n");
+
+		return null;
+	}
+}
+
+function logError() {
+
+	philosophersStone.abide(this, new fusion.FUSIONUnit());
+
+	var nodeProcess = platform == "Node" ? process : null;
+
+	this.verify = function(element) {
+		return element.content.toLowerCase() == "log error";
+	}
+
+	this.process = function(element, processed) {
+
+		let str = "";
+
+		for(let i = 0; i < processed.length; i++)
+			str += renderItem(processed[i]);
+	
+		if(platform == "Browser")
+			console.error(str);
+		
+		else
+			nodeProcess.stderr.write(str);
+
+		return null;
+	}
+}
+
+function logLineError() {
+
+	philosophersStone.abide(this, new fusion.FUSIONUnit());
+
+	var nodeProcess = platform == "Node" ? process : null;
+
+	this.verify = function(element) {
+		return element.content.toLowerCase() == "log line error";
+	}
+
+	this.process = function(element, processed) {
+
+		let str = "";
+
+		for(let i = 0; i < processed.length; i++)
+			str += renderItem(processed[i]);
+		
+		if(platform == "Browser")
+			console.error(str);
+		
+		else
+			nodeProcess.stderr.write(str + "\n");
 
 		return null;
 	}
@@ -4917,6 +5004,9 @@ module.exports = function(fusion) {
 		philosophersStone.connect(fusion, new vanish(), [], true);
 
 		philosophersStone.connect(fusion, new log(), [], true);
+		philosophersStone.connect(fusion, new logLine(), [], true);
+		philosophersStone.connect(fusion, new logError(), [], true);
+		philosophersStone.connect(fusion, new logLineError(), [], true);
 		philosophersStone.connect(fusion, new input(), [], true);
 		
 		philosophersStone.connect(fusion, new operatingSystem(), [], true);
