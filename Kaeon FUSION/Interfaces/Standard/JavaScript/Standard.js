@@ -4771,7 +4771,7 @@ function hexadecimalToBinary() {
 	}
 }
 
-// UTILITY FUNCTIONS
+// COMMAND UTILITY FUNCTIONS
 
 function getStone(reference, tags) {
 
@@ -4935,6 +4935,450 @@ function sortString(string, numerical) {
 		
 		return string;
 	}
+}
+
+// DIRECTIVES
+
+function alternate() {
+
+	philosophersStone.abide(this, new onePlus.DirectiveUnit());
+	
+	this.apply = function(directiveUnits, directives, directive) {
+		
+		let element = directive.directive;
+		
+		if(element.content.toLowerCase() == "alternate") {
+
+			let index = one.getIndex(element);
+			
+			let syntax = directive.header[0].content;
+			
+			for(let i = 0; i < directive.body.length; i++) {
+				
+				try {
+					
+					let document = require(syntax)(directive.body[i].content);
+					
+					for(let j = 0; j < document.children.length; j++) {
+						
+						one.addChild(
+								element.parent,
+								document.children[i],
+								index + i + 1);
+					}
+				}
+				
+				catch(error) {
+					
+				}
+			}
+		}
+	}
+}
+
+function callDirective() {
+
+	philosophersStone.abide(this, new onePlus.DirectiveUnit());
+			
+	this.apply = function(directiveUnits, directives, directive) {
+		
+		let element = directive.directive;
+		
+		if(element.content.toLowerCase() == "call") {
+			
+			let call =
+				getDefinition(
+					directiveUnits,
+					element.children[0].content);
+			
+			if(call != null) {
+				
+				applyArguments(directives, call, element.children[0].children);
+				
+				let start = 0;
+				let end = call.children.length - 1;
+				
+				if(element.children.length == 2) {
+					start = Number(element.children[1].content) - 1;
+					end = start;
+				}
+				
+				if(element.children.length == 3) {
+					start = Number(element.children[1].content) - 1;
+					end = Number(element.children[2].content) - 1;
+				}
+				
+				for(let i = start; i <= end; i++) {
+					
+					one.addChild(
+						element.parent,
+						call.children[i],
+						one.getIndex(element) + (i - start) + 1);
+				}
+			}
+		}
+	}
+}
+
+function defineDirective() {
+
+	philosophersStone.abide(this, new onePlus.DirectiveUnit());
+	
+	this.isDefine = true;
+	this.definitions = [];
+
+	var reference = this;
+			
+	this.apply = function(directiveUnits, directives, directive) {
+		
+		let element = directive.directive;
+		
+		if(element.content.toLowerCase() == "define") {
+
+			let define = one.copyElement(element.children[0]);
+			
+			for(let i = 1; i < element.children.length; i++)
+				one.addChild(define, one.copyElement(element.children[i]));
+			
+			reference.definitions.push(define);
+		}
+	}
+}
+
+function ifDirective() {
+
+	philosophersStone.abide(this, new onePlus.DirectiveUnit());
+			
+	this.apply = function(directiveUnits, directives, directive) {
+		
+		let element = directive.directive;
+		
+		if(element.content.toLowerCase() == "if") {
+			
+			for(let i = 0; i < directive.header.length - 1; i++) {
+				
+				if(!one.equals(directive.header[i], directive.header[i + 1]))
+					return;
+			}
+			
+			let index = one.getIndex(element);
+			
+			for(let i = 0; i < directive.body.length; i++) {
+				
+				one.addChild(
+					element.parent,
+					directive.body[i],
+					index + i + 1);
+			}
+		}
+	}
+}
+
+function forDirective() {
+
+	philosophersStone.abide(this, new onePlus.DirectiveUnit());
+			
+	this.apply = function(directiveUnits, directives, directive) {
+		
+		let element = directive.directive;
+		
+		if(element.content.toLowerCase() == "for") {
+			
+			let body = directive.body;
+			
+			if(directive.header.length == 0)
+				return;
+			
+			let start = 0;
+			let end = 0;
+			
+			if(directive.header.length == 1) {
+				start = 0;
+				end = Number(directive.header[0].content) - 1;
+			}
+			
+			if(directive.header.length == 2) {
+				start = Number(directive.header[0].content) - 1;
+				end = Number(directive.header[1].content) - 1;
+			}
+			
+			let index = one.getIndex(element);
+			
+			for(let i = start; i <= end; i++) {
+				
+				let apply = applyIndex(directives, body, i);
+				
+				for(let j = 0; j < apply.length; j++) {
+					
+					one.addChild(
+						element.parent,
+						apply[i],
+						index + (body.length * (i - start)) + j + 1);
+				}
+			}
+		}
+	}
+}
+
+function importDirective() {
+
+	philosophersStone.abide(this, new onePlus.DirectiveUnit());
+			
+	this.apply = function(directiveUnits, directives, directive) {
+		
+		let element = directive.directive;
+		
+		if(element.content.toLowerCase() == "import") {
+			
+			let define = new defineDirective();
+			
+			for(let i = 0; i < directiveUnits.length; i++) {
+				
+				if(typeof directiveUnits[i].isDefine != undefined) {
+					
+					define = directiveUnits[i];
+					
+					break;
+				}
+			}
+			
+			importDirectives(define, element);
+		}
+	}
+}
+
+function sizeDirective() {
+
+	philosophersStone.abide(this, new onePlus.DirectiveUnit());
+	
+	this.apply = function(directiveUnits, directives, directive) {
+		
+		let element = directive.directive;
+		
+		if(element.content.toLowerCase() == "size") {
+			
+			let call = new one.Element();
+			
+			call.content =
+				"" +
+				getDefinition(
+					directiveUnits,
+					element.children[0].content).children.length;
+			
+			one.addChild(
+					element.parent,
+					call,
+					one.getIndex(element) + 1);
+		}
+	}
+}
+
+// DIRECTIVE UTILITY FUNCTIONS
+	
+function isDirective(directives, element) {
+		
+	for(let i = 0; i < directives.length; i++) {
+		
+		if(directives[i].directive == element)
+			return true;
+	}
+	
+	return false;
+}
+
+function getDefinition(directiveUnits, definition) {
+	
+	let define = new defineDirective();
+	
+	for(let i = 0; i < directiveUnits.length; i++) {
+		
+		if(typeof directiveUnits[i].isDefine != undefined) {
+			
+			define = directiveUnits[i];
+			
+			break;
+		}
+	}
+	
+	for(let i = 0; i < define.definitions.length; i++) {
+		
+		if(definition.equalsIgnoreCase(define.definitions[i].content)) {
+			
+			let element = one.copyElement(define.definitions[i]);
+			element.content = "";
+			
+			return element;
+		}
+	}
+	
+	return null;
+}
+
+function applyArguments(directives, element, args) {
+
+	for(let i = 0; i < element.children.length; i++) {
+		
+		if(isDirective(directives, element.children[i])) {
+			
+			if(element.children[i].content.toLowerCase() == "arguments") {
+				
+				one.addChild(
+					element,
+					one.copyElement(
+						args[
+							Number(
+								element.
+								children.
+								splice(i, 1)[0].
+								children[0].
+								content) - 1]));
+			}
+			
+			continue;
+		}
+		
+		applyArguments(directives, element.children[i], args);
+	}
+}
+	
+function applyIndex(directives, elements, index) {
+	
+	let apply = [];
+	
+	for(let i = 0; i < elements.length; i++) {
+		
+		let copy = new one.Element();
+		copy.content = elements[i].content;
+		
+		if(isDirective(directives, elements[i])) {
+			
+			if(elements[i].content.toLowerCase() == "index")
+				copy.content = "" + index;
+			
+			else {
+				
+				let directive = new onePlus.Directive();
+				directive.directive = copy;
+				
+				directives.push(directive);
+			}
+		}
+		
+		one.addChild(
+			copy,
+			applyIndex(directives, elements[i].children, index));
+		
+		apply.push(copy);
+	}
+	
+	return apply;
+}
+	
+function importDirectives(define, element) {
+	
+	for(let i = 0; i < element.children.length; i++) {
+		
+		let directiveElements = getDirectives(io.open(element.children[i].content));
+		
+		for(let j = 0; j < directiveElements.length; j++) {
+			
+			if(directiveElements[j].directive.content.toLowerCase() == "define") {
+
+				let defineElement = directiveElements[i].directive;
+				let definition = one.copyElement(directiveElements[j].directive.children[0]);
+				
+				for(let k = 1; k < defineElement.children.length; k++)
+					one.addChild(definition, one.copyElement(defineElement.children[k]));
+				
+				define.definitions.push(definition);
+			}
+			
+			if(directiveElements[j].directive.content.toLowerCase() == "import")
+				importDirectives(define, directiveElements[j].directive);
+		}
+	}
+}
+
+function getDirectives(string) {
+	
+	let tokens = onePlus.getTokens(string);
+	let tokenize = tokenizer.tokenize(tokens, string);
+	
+	let nestToken = onePlus.getIndentToken(string);
+	
+	let directives = [];
+	
+	let element = new one.Element();
+	
+	let currentElement = element;
+	
+	let previousNest = 0;
+	let previousElement = element;
+	
+	let baseElements = [];
+	
+	let inLiteralBlock = false;
+	let literalNest = 0;
+	let literalString = "";
+	
+	for(let i = 0; i < tokenize.length;) {
+		
+		let line = onePlus.getLine(tokenize, i);
+		let nest = onePlus.getNest(line, nestToken);
+		
+		if(!inLiteralBlock) {
+			
+			if(nest > previousNest) {
+				
+				baseElements.push(currentElement);
+				
+				currentElement = previousElement;
+			}
+			
+			else if(nest < previousNest) {
+				
+				for(let j = nest; j < previousNest && baseElements.length > 0; j++)
+					currentElement = baseElements.splice(baseElements.length - 1, 1)[0];
+			}
+			
+			previousNest = nest;
+		}
+		
+		let literal =
+				onePlus.isLiteralBlock(line, nest) &&
+				!(inLiteralBlock && nest != literalNest);
+		
+		if(literal) {
+			inLiteralBlock = !inLiteralBlock;
+			literalNest = nest;
+		}
+		
+		if(inLiteralBlock) {
+			
+			if(!literal) {
+				
+				for(let j = literalNest + 1; j < line.length; j++)
+					literalString += line[j];
+				
+				literalString += '\n';
+			}
+		}
+		
+		else if(literal) {
+			
+			previousElement = onePlus.cropElement(onePlus.getElement(literalString), true);
+			one.addChild(currentElement, previousElement);
+			
+			literalString = "";
+		}
+		
+		else if(line.length > 0)
+			previousElement = onePlus.processLine(tokens, line, currentElement, directives);
+		
+		i += line.length + 1;
+	}
+	
+	return onePlus.generateDirectives(directives);
 }
 
 // EXPORT FUNCTION
@@ -5134,9 +5578,15 @@ module.exports = function(fusion) {
 
 	else {
 
-		let directives = [];
-
-		// STUB
+		let directives = [
+			new alternate(),
+			new callDirective(),
+			new defineDirective(),
+			new forDirective(),
+			new ifDirective(),
+			new importDirective(),
+			new sizeDirective()
+		];
 		
 		return directives;
 	}
