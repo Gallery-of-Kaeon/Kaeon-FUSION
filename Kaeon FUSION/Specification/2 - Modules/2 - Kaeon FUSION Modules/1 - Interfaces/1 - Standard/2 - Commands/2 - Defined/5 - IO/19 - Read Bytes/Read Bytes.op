@@ -1,0 +1,16 @@
+Read Bytes
+
+	Philosophy
+
+		-
+			The read bytes command is a command with the content "Read Bytes". It may have between
+			one and three children, the first of which shall return a string containing a file
+			path, and the second and third of which, if present, shall return integer numbers
+			greater than or equal to one.
+
+			It shall read the raw bytes from the file specified by the returned path and return
+			them as an assembly dialect document where the mode is binary. If the second number is
+			present, it shall start reading at the index specified by said number, and if the third
+			number is present, it shall stop reading at the index specified by said number, where
+			indicies start at one.
+		-

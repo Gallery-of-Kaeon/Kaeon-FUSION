@@ -1,0 +1,15 @@
+Write Bytes
+
+	Philosophy
+
+		-
+			The write bytes command is a command with the content "Write Bytes". It shall either
+			two or three children, the first of which returns an assembly dialect document, the
+			second of which returns a string containing a file path, and the third of which, if
+			present, returns an integer number greater than or equal to one.
+
+			It writes the bytes specified by the returned assembly dialect document to the file
+			specified by the returned path. If the returned number is present, it shall start
+			writing the bytes to the file at the index specified by said number where indicies
+			start at one.
+		-
