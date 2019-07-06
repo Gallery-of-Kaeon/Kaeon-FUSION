@@ -256,16 +256,11 @@ Refer to the [APIs](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master
 
 Here's an example of how one would start the interpreter from JavaScript:
 
+	let sourceCodeString = "# my source code";
+
     (new require("./KaeonFUSION.js").KaeonFUSION()).process(require("./ONEPlus.js").readONEPlus(sourceCodeString));
 
-And here's an example of how one would start the interpreter from Java:
-
-    new KaeonFUSION().processKaeonFUSION(ONEPlus.parseONEPlus(sourceCodeString));
-
-The implementation of the Kaeon FUSION interpreter is built on Philosopher's Stones,
-and the KaeonFUSION object,
-which serves as the core of the interpreter,
-is an extension of the Philosopher's Stone.
+The implementation of the Kaeon FUSION interpreter is built on Philosopher's Stones.
 You can read about Philosopher's Stones [here](https://github.com/Gallery-of-Kaeon/Philosophers-Stone/blob/master/README.md).
 It is important to understand Philosopher's Stones in order to take full advantage of the APIs.
 
@@ -289,7 +284,7 @@ the contents of this repository are free for everyone to use and make modificati
 
 ### Any fun facts about Kaeon FUSION?
 
-Kaeon FUSION has a mascot, as do all projects under the Kaeon name:
+Kaeon FUSION actually has a mascot, as do all projects under the Kaeon name:
 the ACE.
 Both the male version and the female version of the character are shown on the profile picture of the Gallery-of-Kaeon github account.
 
