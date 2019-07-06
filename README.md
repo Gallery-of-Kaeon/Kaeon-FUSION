@@ -43,15 +43,13 @@ and the specification for Kaeon FUSION.
 
 [APIs](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/APIs)
 
-[IDE](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/IDE/README.md)
-
 [Interfaces](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Interfaces), [Directives](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Directives), and [Syntaxes](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Syntaxes)
-
-[Interface](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Module%20Development%20Framework/Interfaces/README.md), [Directive](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Module%20Development%20Framework/Directives/README.md), and [Syntax](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Module%20Development%20Framework/Syntaxes/README.md) Development Frameworks
 
 [Libraries](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Libraries)
 
 [Specification](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Specification)
+
+_NOTE: The current documentation and sample programs are partially out of date, and much of them only apply to the Java based version of Kaeon FUSION, which is now depricated._
 
 <h2 align="center">Contact Info</h2>
 
@@ -60,6 +58,8 @@ For any questions or comments, please email the following address: kaeon.ace@gma
 <h2 align="center">What is Kaeon FUSION?</h2>
 
 _This part is a bit technical. If you're new to programming, we've put together a beginner's resource which you can find [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/README.md)._
+
+_NOTE: The beginner's guide is partially out of date, and much of it only applies to the Java based version of Kaeon FUSION, which is now depricated._
 
 Kaeon FUSION (pronounced "KAI-on") is an interpreted programming language designed to be able to dynamically adapt to any use case.
 
@@ -102,13 +102,10 @@ ONE+'s preprocessor can dynamically integrate external modules into itself durin
 allowing for an indefinite amount of syntactic customization.
 
 Currently,
-the two most important interfaces available for Kaeon FUSION are the standard interface and the stack interface.
+the most important interface available for Kaeon FUSION is the standard interface.
 
 The standard interface provides all of the functionality expected of a modern,
 Turing complete programming language as well as support for object orientation and more.
-
-The stack interface allows specialized ONE+ dialects to be cross compiled into other programming and markup languages,
-including C, JavaScript, and machine code, as well as Java, Python, HTML, CSS, XML, JSON, and more.
 
 Though Kaeon FUSION can in theory adapt to just about anything,
 its most obvious applications are where new languages need to be developed,
@@ -202,7 +199,13 @@ Click [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%
 
 ### How can I try it out?
 
-We've provided a simple IDE called [Kaeon Origin](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/IDE/README.md) to get you started.
+A JavaScript based interpreter for Kaeon FUSION comes with the Kaeon United framework,
+which you can find [here](https://github.com/Gallery-of-Kaeon/Kaeon-United).
+
+The Java version of Kaeon FUSION,
+which is now depricated,
+has a legacy IDE called Kaeon Origin,
+which you can find [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/IDE/README.md).
 
 ### What's the difference between an interface and a library?
 
@@ -219,6 +222,8 @@ third parties can write their own Kaeon FUSION interfaces using our [Kaeon FUSIO
 
 Third parties may also write their own ONE+ directives using our [ONE+ Directive Development Framework](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Module%20Development%20Framework/Directives/README.md),
 as well as their own ONE+ alternate syntaxes using out [ONE+ Alternate Syntax Development Framework](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Module%20Development%20Framework/Syntaxes/README.md).
+
+_NOTE: These are for the Java version of Kaeon FUSION, which is now depricated._
 
 ### Is Kaeon FUSION a LISP?
 
@@ -239,7 +244,8 @@ However,
 an implementation of Kaeon FUSION can be written in any language and for any platform,
 as long as it conforms to the rules laid out in the specification.
 
-Moving forward,
+Our Java implementation of Kaeon FUSION is now depricated,
+and moving forward,
 we plan to implement all of Kaeon FUSION components in JavaScript.
 
 ### Can the Kaeon FUSION interpreter be embedded into a larger project?
@@ -268,20 +274,12 @@ It is important to understand Philosopher's Stones in order to take full advanta
 Kaeon FUSION has officially been in development since December 15, 2016,
 and was built upon things that were in development for around one and a half years before the project began.
 
-### How often will Kaeon FUSION be updated?
+### What's next for Kaeon FUSION?
 
-Due to the current state of Kaeon FUSION's development,
-we cannot offer an accurate timeline for updates until further notice.
+We are currently focusing on bringing Kaeon FUSION's JavaScript implementation up to date with the current spcification as well as updating the modular components of the specification itself.
+We are also looking into how to improve the interpreter's performance.
 
-### What should I expect to see in the next major updates?
-
-We have recently completed porting the base interpreter from Java to JavaScript.
-However,
-we have not ported any of the interfaces or directives,
-nor have we ported Kaeon Origin.
-Our current focus is on porting all that we have yet to port from Java to JavaScript.
-From this point onward,
-we will no longer update any of our Java implementations.
+Furthermore, we are currently working on re-writing outdated portions of the documentation.
 
 ### I would like to use Kaeon FUSION in a commercial project. Who do I make the check out to?
 
@@ -289,16 +287,11 @@ Kaeon FUSION is licensed under the [Apache License 2.0](https://github.com/Galle
 Therefore,
 the contents of this repository are free for everyone to use and make modifications to.
 
-### Does Kaeon FUSION have a mascot?
+### Any fun facts about Kaeon FUSION?
 
-The mascot of all projects under the Kaeon name is the ACE.
+Kaeon FUSION has a mascot, as do all projects under the Kaeon name:
+the ACE.
 Both the male version and the female version of the character are shown on the profile picture of the Gallery-of-Kaeon github account.
-
-### Who are you?
-
-For now,
-mostly [this person](https://www.github.com/kaeon-ace),
-and [this person](https://www.github.com/jwilliams0496).
 
 ### Can I join you?
 
@@ -324,45 +317,30 @@ we'll hear you out.
 
 <h2 align="center">Acknowledgements</h2>
 
-The stack interface makes use of the [require1k](https://github.com/Stuk/require1k) JavaScript utility.
+The Java version of the stack interface makes use of the [require1k](https://github.com/Stuk/require1k) JavaScript utility.
 
 The Kaeon Origin IDE makes use of a [swing layout](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/IDE/Source/Source/kaeon_origin/ide/utilities/web/VerticalLayout.java) developed by Colin Mummery.
 
 <h2 align="center">Disclaimer</h2>
 
-TL;DR: The core of Kaeon FUSION's specification is more or less complete,
+The core of Kaeon FUSION's specification is more or less complete,
 but the implementation,
 the documentation,
 and the modular parts of the specification are works in progress.
 
-It is important to note that the contents of this repository are aimed at those who have a strong background in computer science.
-If you're a newcomer to programming in general,
-we recommend you check out our [Kaeon FUSION for Beginners](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/README.md) resource.
+Kaeon FUSION is officially defined by it's specification,
+and any implentation,
+ours or otherwise,
+is valid insofar as it conforms to the specification.
 
-Whenever a change is made to Kaeon FUSION,
-the specification is always updated first.
-The implementation is then updated to conform to the updated specification.
-As a consequence,
-many parts of the documentation are often out of date,
-and may take a while to catch up.
+The specification itself is composed of several documents written in either ONE or ONE+,
+the same markup formats Kaeon FUSION itself uses.
+These documents are arranged into numbered folders,
+and folders with lower numbers take precedence over folders with higher numbers,
+so if there is any inconsistency in the specification,
+one document can overrule another based on its placement.
 
-It should also be noted that prior to July 4, 2018,
-all of our implementations were developed and tested on an unmodified Lenovo IdeaPad P500 laptop running Windows 10.
-Since July 4, 2018 we have been using a 2018 Alienware 15 inch laptop running Windows 10.
-
-As of November 5, 2017,
-the Kaeon Origin IDE automatically notifies the user when updates are available and offers them the option to have the updates installed automatically.
-If you downloaded Kaeon Origin prior to November 5, 2017,
-we recommend that you re-download it.
-
-As of April 10, 2018,
-the Kaeon Origin IDE requires that the update path be manually specified.
-This is in case the update path changes.
-You may specify the update path in the Kaeon Origin section of the options menu.
-Please set it to:
-
-    https://raw.githubusercontent.com/Gallery-of-Kaeon/Kaeon-FUSION/master/Kaeon%20FUSION/IDE/Application/Update/Update.op
-
-On May 5, 2018,
-We had to repair Kaeon Origin's updater module due to changes we made to the ONE+ parser.
-If you downloaded Kaeon Origin prior to May 5, 2018, please re-download it manually.
+The specification can be updated at any time,
+in any way,
+and for any reason,
+and thus any existing implementation or documentation will have to pivot in order to stay up to date.
