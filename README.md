@@ -64,7 +64,8 @@ _NOTE: The beginner's guide is partially out of date, and much of it only applie
 Kaeon FUSION (pronounced "KAI-on") is an interpreted programming language designed to be able to dynamically adapt to any use case.
 
 When a Kaeon FUSION script begins, the language itself has no functionality save for a command called "use".
-The use command takes the names of plugin modules for the interpreter called "interfaces" and dynamically integrates them at runtime.
+The use command takes the names of plugin modules for the interpreter called "interfaces" and dynamically integrates them at runtime,
+thus its paradigm could most accurately be described as "purely reflective".
 
 Let us elaborate a little more on this point.
 When we say that the language has "no functionality",
