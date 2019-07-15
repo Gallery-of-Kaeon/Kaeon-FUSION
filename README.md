@@ -121,7 +121,8 @@ it can certainly be a lot fun to play around with the dynamic aspects of the lan
 if for no other reason than one's own amusement,
 so it's also a great choice for hobbyists and enthusiasts.
 
-Unfortunately, the current implementation of Kaeon FUSION has a long way to go before it's ready for use in production.
+Unfortunately,
+our current implementation of Kaeon FUSION still has a long way to go before it lives up to our aspirations for it.
 That said,
 it serves as a powerful proof of concept demonstrating that it is possible to have a language that can dynamically alter its own properties and paradigms,
 and can thereby adapt to any use case,
