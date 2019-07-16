@@ -143,7 +143,8 @@ hence the tagline "a language without limits".
 Here's the solution to [Euler problem #1](https://projecteuler.net/problem=1),
 written in [ONE+](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/README.md),
 the markup language Kaeon FUSION uses as its syntax,
-and with the Super Mode directive acting as a preprocessor, causing the syntax to superficially resemble Python:
+and with the Super Mode directive acting as a preprocessor,
+causing the syntax to superficially resemble Python:
 
 	[USE: SUPER] [SUPER]
 
@@ -155,6 +156,8 @@ and with the Super Mode directive acting as a preprocessor, causing the syntax t
 			sum += i
 
 	print sum
+
+_NOTE: Super Mode has only been implemented in the Java based version of Kaeon FUSION, which is now depricated._
 
 Here's the same code as above,
 also written in ONE+ but without using Super Mode:
