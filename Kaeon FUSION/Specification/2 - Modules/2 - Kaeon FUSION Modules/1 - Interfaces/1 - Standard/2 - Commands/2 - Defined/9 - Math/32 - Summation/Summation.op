@@ -1,0 +1,10 @@
+Summation
+
+	Philosophy
+	
+		-
+			The summation command contains the content "Summation". It must have a single child
+			that returns a list of numbers.
+			
+			It returns the sum of all the numbers in the list.
+		-
