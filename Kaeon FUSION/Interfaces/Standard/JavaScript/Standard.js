@@ -4674,12 +4674,12 @@ function range() {
 	}
 }
 
-function sum() {
+function summation() {
 
 	philosophersStone.abide(this, new fusion.FUSIONUnit());
 
 	this.verify = function(element) {
-		return element.content.toLowerCase() == "sum";
+		return element.content.toLowerCase() == "summation";
 	}
 
 	this.process = function(element, processed) {
@@ -5567,7 +5567,7 @@ module.exports = function(fusion) {
 		philosophersStone.connect(fusion, new mean(), [], true);
 		philosophersStone.connect(fusion, new median(), [], true);
 		philosophersStone.connect(fusion, new range(), [], true);
-		philosophersStone.connect(fusion, new sum(), [], true);
+		philosophersStone.connect(fusion, new summation(), [], true);
 		philosophersStone.connect(fusion, new decimalToBinary(), [], true);
 		philosophersStone.connect(fusion, new decimalToHexadecimal(), [], true);
 		philosophersStone.connect(fusion, new binaryToDecimal(), [], true);
