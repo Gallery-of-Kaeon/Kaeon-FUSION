@@ -1537,8 +1537,20 @@ function execute() {
 				)[0];
 		}
 
-		for(let i = 0; i < processed.length; i++)
-			reference.fusion.internalProcess(onePlus.readONEPlus("" + processed[i]), true);
+		for(let i = 0; i < processed.length; i++) {
+
+			let data = "" + processed[i];
+
+			for(let j = 0; j < data.length; j++) {
+
+				if(data.charCodeAt(j) == 13) {
+					data = data.substring(0, j) + data.substring(j + 1);
+					j--;
+				}
+			}
+
+			reference.fusion.internalProcess(onePlus.readONEPlus(data), true);
+		}
 
 		return null;
 	}
@@ -3098,7 +3110,18 @@ function elementToList() {
 	}
 
 	this.process = function(element, processed) {
-		return one.toList(onePlus.readONEPlus("" + processed[0]));
+
+		let data = "" + processed[0];
+
+		for(let i = 0; i < data.length; i++) {
+
+			if(data.charCodeAt(i) == 13) {
+				data = data.substring(0, i) + data.substring(i + 1);
+				i--;
+			}
+		}
+
+		return one.toList(onePlus.readONEPlus(data));
 	}
 }
 
