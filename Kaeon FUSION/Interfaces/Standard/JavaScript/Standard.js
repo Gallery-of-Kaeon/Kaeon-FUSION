@@ -2428,7 +2428,7 @@ function directory() {
 
 		fs.readdirSync("" + processed[0]).forEach(file => {
 
-			if(fs.lstatSync(file).isDirectory())
+			if(fs.lstatSync("" + processed[0] + path.sep + file).isDirectory())
 				contents[0].push(file);
 
 			else
