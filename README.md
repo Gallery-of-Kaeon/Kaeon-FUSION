@@ -15,8 +15,6 @@ This repository contains the specification,
 documentation,
 sample code,
 APIs,
-an IDE,
-a plugin development framework for said IDE,
 modules,
 libraries,
 and the specification for Kaeon FUSION.
@@ -57,11 +55,18 @@ For any questions or comments, please email the following address: kaeon.ace@gma
 
 <h2 align="center">What is Kaeon FUSION?</h2>
 
-_This part is a bit technical. If you're new to programming, we've put together a beginner's resource which you can find [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/README.md)._
+Kaeon FUSION (pronounced "KAI-on") is, in one layman-friendly sentence, a "build your own language" language.
+
+A programmer can completely customize how the language works,
+even while it's running,
+and how it looks,
+with virtually no limits.
+
+But how does it actually do this?
+
+_The explanation is going to get a bit technical from this point on. If you're new to programming, we've put together a beginner's resource which you can find [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/README.md)._
 
 _NOTE: The beginner's guide is partially out of date, and much of it only applies to the Java based version of Kaeon FUSION, which is now depricated._
-
-Kaeon FUSION (pronounced "KAI-on") is an interpreted programming language designed to be able to dynamically adapt to any use case.
 
 When a Kaeon FUSION script begins, the language itself has no functionality save for a command called "use".
 The use command takes the names of plugin modules for the interpreter called "interfaces" and dynamically integrates them at runtime,
