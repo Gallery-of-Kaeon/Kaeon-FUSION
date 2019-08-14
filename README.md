@@ -166,7 +166,7 @@ _NOTE: Super Mode has only been implemented in the Java based version of Kaeon F
 
 Here's the same code as above,
 also written in ONE+,
-but using an alternate syntax that makes it look like a completely different language,
+but using an alternate syntax called ONE LISP that makes it look like a completely different language,
 LISP:
 
 	-[ONE LISP]
