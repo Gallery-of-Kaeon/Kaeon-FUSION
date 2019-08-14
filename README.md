@@ -165,7 +165,35 @@ causing the syntax to superficially resemble Python:
 _NOTE: Super Mode has only been implemented in the Java based version of Kaeon FUSION, which is now depricated._
 
 Here's the same code as above,
-also written in ONE+ but without using Super Mode:
+also written in ONE+,
+but using an alternate syntax that makes it look like a completely different language,
+LISP:
+
+	-[ONE LISP]
+
+    (use standard)
+
+    (sum 0)
+    (i 3)
+	
+	(scope
+	
+    	(scope
+		
+    		(break (not (or
+    			(equal 0 (modulus i 3))
+    			(equal 0 (modulus i 5)))))
+		
+    		(sum (add sum i)))
+
+    	(i (add i 1))
+    	(loop (less i 1000)))
+
+    ("log line" sum)
+
+Here again is the same code from the first example,
+also written in ONE+,
+but without using any directives or alternate syntaxes:
 
     Use: Standard
 
