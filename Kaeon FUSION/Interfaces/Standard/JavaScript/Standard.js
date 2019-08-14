@@ -2838,7 +2838,7 @@ function remove() {
 		if(Array.isArray(processed[0]))
 			return processed[0].splice(index, 1);
 		
-		let string = "" + processed.get(0);
+		let string = "" + processed[0];
 		
 		let remove = string.charAt(index);
 		string = string.substring(0, index) + string.substring(index + 1);
@@ -2898,8 +2898,8 @@ function crop() {
 
 	this.process = function(element, processed) {
 		
-		let from = Number("" + processed.get(1)) - 1;
-		let to = Number("" + processed.get(2)) - 1;
+		let from = Number("" + processed[1]) - 1;
+		let to = Number("" + processed[2]) - 1;
 		
 		if(from <= to) {
 			
@@ -3579,7 +3579,7 @@ function isSortedAlphabetical() {
 		
 		else {
 			
-			let string = "" + processed.get(0);
+			let string = "" + processed[0];
 			
 			for(let i = 0; i < string.length - 1; i++) {
 				
@@ -3741,7 +3741,7 @@ function replace() {
 			return list;
 		}
 		
-		return ("" + processed[0]).replace("" + processed[1], "" + processed[2]);
+		return ("" + processed[0]).split("" + processed[1]).join("" + processed[2]);
 	}
 }
 

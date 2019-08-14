@@ -7,5 +7,5 @@ Replace
 			which returns a list, and the rest of which return objects.
 			
 			It replaces every instance of the object returned by the second child in the list with
-			the object returned by the first child, and returns the list.
+			the object returned by the third child, and returns the list.
 		-

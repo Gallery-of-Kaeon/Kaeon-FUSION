@@ -3,8 +3,14 @@ Crop
 	Philosophy
 		
 		-
-			The crop command contains the content "Crop". It will have three children, the first of
-			which returns a list and the second and third of which return numbers.
+			The crop command contains the content "Crop". It will have between two and three
+			children, the first of which returns a list and the second of which, and the third of
+			which if present, return numbers.
+
+			The number retruned by the second child is referred to as the second number, and the
+			numberreturned by the third child is referred to as the third number. If the third
+			child is not present, the third number shall be equal to the length of the list plus
+			one.
 			
 			If the second and third number are equal it will return an empty list.
 			
