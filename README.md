@@ -68,6 +68,10 @@ _The explanation is going to get a bit technical from this point on. If you're n
 
 _NOTE: The beginner's guide is partially out of date, and much of it only applies to the Java based version of Kaeon FUSION, which is now depricated._
 
+Kaeon FUSION,
+to put it in a more formal way,
+is an inperpreted programming langauge wherein the interpreter can be dynamically reprogrammed at runtime.
+
 When a Kaeon FUSION script begins, the language itself has no functionality save for a command called "use".
 The use command takes the names of plugin modules for the interpreter called "interfaces" and dynamically integrates them at runtime,
 thus its primary paradigm could most accurately be described as "purely reflective".
