@@ -1,9 +1,5 @@
 function getInput(query) {
-
-	if(query != null)
-		console.log(query);
-
-	return readline();
+	return prompt("" + (query != null ? query : ""));
 }
 
 function open(file) {
