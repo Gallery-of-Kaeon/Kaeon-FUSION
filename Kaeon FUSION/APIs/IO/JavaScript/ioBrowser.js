@@ -4,24 +4,65 @@ function getInput(query) {
 
 function open(file) {
 
-	var rawFile = new XMLHttpRequest();
-	rawFile.open("GET", file, false);
+	if(typeof file == "function") {
+		
+		let input = document.createElement("input");
 
-	var allText = "";
+		input.setAttribute("type", "file");
+		input.setAttribute("style", "display: none");
 
-	rawFile.onreadystatechange = function() {
+		var callback = file;
 
-		if(rawFile.readyState === 4) {
+		let listener = function(event) {
 
-			if(rawFile.status === 200 || rawFile.status == 0) {
-				allText = rawFile.responseText;
+			let upload = event.target.files[0];
+
+			if(!upload)
+				return;
+			
+			let reader = new FileReader();
+
+			reader.onload = function(event) {
+				callback(event.target.result);
 			}
+
+			reader.readAsText(upload);
 		}
+
+		input.addEventListener(
+			'change',
+			listener,
+			false
+		);
+
+		document.documentElement.appendChild(input);
+
+		input.click();
+
+		document.documentElement.removeChild(input);
 	}
 
-	rawFile.send(null);
+	else {
 
-	return allText;
+		var rawFile = new XMLHttpRequest();
+		rawFile.open("GET", file, false);
+
+		var allText = "";
+
+		rawFile.onreadystatechange = function() {
+
+			if(rawFile.readyState === 4) {
+
+				if(rawFile.status === 200 || rawFile.status == 0) {
+					allText = rawFile.responseText;
+				}
+			}
+		}
+
+		rawFile.send(null);
+
+		return allText;
+	}
 }
 
 function save(content, file) {
