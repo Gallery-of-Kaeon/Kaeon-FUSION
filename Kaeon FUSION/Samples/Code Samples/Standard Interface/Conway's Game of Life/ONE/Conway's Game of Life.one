@@ -5,73 +5,109 @@
 		Standard
 	-
 -
-	Define
+	Global
 -
 	-
 		generate board
 	-
 		-
-			board
+			Define
 		-
 			-
-				List
-			-
-		-
-			i
-		-
-			-
-				1
-			-
-		-
-			Scope
-		-
-			-
-				row
+				board
 			-
 				-
 					List
 				-
 			-
-				j
+				i
 			-
 				-
-					0
+					1
 				-
 			-
 				Scope
 			-
 				-
+					row
+				-
+					-
+						List
+					-
+				-
+					j
+				-
+					-
+						0
+					-
+				-
+					Scope
+				-
+					-
+						Append
+					-
+						-
+							Row
+						-
+						-
+							Ternary
+						-
+							-
+								Less
+							-
+								-
+									Random
+								-
+								-
+									.1
+								-
+							-
+								1
+							-
+							-
+								0
+							-
+					-
+						j
+					-
+						-
+							Add
+						-
+							-
+								j
+							-
+							-
+								1
+							-
+					-
+						Loop
+					-
+						-
+							Less or Equal
+						-
+							-
+								j
+							-
+							-
+								10
+							-
+				-
 					Append
 				-
 					-
-						Row
+						board
 					-
 					-
-						Ternary
+						row
 					-
-						-
-							Less
-						-
-							-
-								Random
-							-
-							-
-								.1
-							-
-						-
-							1
-						-
-						-
-							0
-						-
 				-
-					j
+					i
 				-
 					-
 						Add
 					-
 						-
-							j
+							i
 						-
 						-
 							1
@@ -83,97 +119,46 @@
 						Less or Equal
 					-
 						-
-							j
+							i
 						-
 						-
 							10
 						-
 			-
-				Append
+				Return
 			-
 				-
 					board
 				-
-				-
-					row
-				-
-			-
-				i
-			-
-				-
-					Add
-				-
-					-
-						i
-					-
-					-
-						1
-					-
-			-
-				Loop
-			-
-				-
-					Less or Equal
-				-
-					-
-						i
-					-
-					-
-						10
-					-
-		-
-			Return
-		-
-			-
-				board
-			-
 -
-	Define
+	Global
 -
 	-
 		draw board
 	-
 		-
-			board
+			Define
 		-
 			-
-				At
-			-
-				-
-					Arguments
-				-
-				-
-					1
-				-
-		-
-			draw
-		-
-			-
-				""
-			-
-		-
-			i
-		-
-			-
-				1
-			-
-		-
-			Scope
-		-
-			-
-				row
+				board
 			-
 				-
 					At
 				-
 					-
-						board
+						Arguments
 					-
 					-
-						i
+						1
 					-
 			-
-				j
+				draw
+			-
+				-
+					""
+				-
+			-
+				i
 			-
 				-
 					1
@@ -182,8 +167,299 @@
 				Scope
 			-
 				-
-					cell
+					row
 				-
+					-
+						At
+					-
+						-
+							board
+						-
+						-
+							i
+						-
+				-
+					j
+				-
+					-
+						1
+					-
+				-
+					Scope
+				-
+					-
+						cell
+					-
+						-
+							At
+						-
+							-
+								At
+							-
+								-
+									board
+								-
+								-
+									i
+								-
+							-
+								j
+							-
+					-
+						draw
+					-
+						-
+							Concatenate
+						-
+							-
+								draw
+							-
+							-
+								Ternary
+							-
+								-
+									Equal
+								-
+									-
+										cell
+									-
+									-
+										1
+									-
+								-
+									*
+								-
+								-
+									-
+								-
+					-
+						j
+					-
+						-
+							Add
+						-
+							-
+								j
+							-
+							-
+								1
+							-
+					-
+						Loop
+					-
+						-
+							Less or Equal
+						-
+							-
+								j
+							-
+							-
+								Size
+							-
+								-
+									At
+								-
+									-
+										board
+									-
+									-
+										i
+									-
+				-
+					Scope
+				-
+					-
+						Break
+					-
+						-
+							Greater
+						-
+							-
+								i
+							-
+							-
+								Subtract
+							-
+								-
+									Size
+								-
+									-
+										board
+									-
+								-
+									1
+								-
+					-
+						draw
+					-
+						-
+							Concatenate
+						-
+							-
+								draw
+							-
+							-
+								\n
+							-
+				-
+					i
+				-
+					-
+						Add
+					-
+						-
+							i
+						-
+						-
+							1
+						-
+				-
+					Loop
+				-
+					-
+						Less or Equal
+					-
+						-
+							i
+						-
+						-
+							Size
+						-
+							-
+								board
+							-
+			-
+				Return
+			-
+				-
+					draw
+				-
+-
+	Global
+-
+	-
+		get neighbors
+	-
+		-
+			Define
+		-
+			-
+				board
+			-
+				-
+					At
+				-
+					-
+						Arguments
+					-
+					-
+						1
+					-
+			-
+				i
+			-
+				-
+					At
+				-
+					-
+						Arguments
+					-
+					-
+						2
+					-
+			-
+				j
+			-
+				-
+					At
+				-
+					-
+						Arguments
+					-
+					-
+						3
+					-
+			-
+				sum
+			-
+				-
+					0
+				-
+			-
+				sum
+			-
+				-
+					Add
+				-
+					-
+						sum
+					-
+					-
+						At
+					-
+						-
+							At
+						-
+							-
+								board
+							-
+							-
+								Subtract
+							-
+								-
+									i
+								-
+								-
+									1
+								-
+						-
+							j
+						-
+			-
+				Catch
+			-
+			-
+				sum
+			-
+				-
+					Add
+				-
+					-
+						sum
+					-
+					-
+						At
+					-
+						-
+							At
+						-
+							-
+								board
+							-
+							-
+								Add
+							-
+								-
+									i
+								-
+								-
+									1
+								-
+						-
+							j
+						-
+			-
+				Catch
+			-
+			-
+				sum
+			-
+				-
+					Add
+				-
+					-
+						sum
+					-
 					-
 						At
 					-
@@ -197,61 +473,274 @@
 								i
 							-
 						-
-							j
-						-
-				-
-					draw
-				-
-					-
-						Concatenate
-					-
-						-
-							draw
-						-
-						-
-							Ternary
+							Subtract
 						-
 							-
-								Equal
+								j
+							-
+							-
+								1
+							-
+			-
+				Catch
+			-
+			-
+				sum
+			-
+				-
+					Add
+				-
+					-
+						sum
+					-
+					-
+						At
+					-
+						-
+							At
+						-
+							-
+								board
+							-
+							-
+								i
+							-
+						-
+							Add
+						-
+							-
+								j
+							-
+							-
+								1
+							-
+			-
+				Catch
+			-
+			-
+				sum
+			-
+				-
+					Add
+				-
+					-
+						sum
+					-
+					-
+						At
+					-
+						-
+							At
+						-
+							-
+								board
+							-
+							-
+								Subtract
 							-
 								-
-									cell
+									i
 								-
 								-
 									1
 								-
+						-
+							Subtract
+						-
 							-
-								*
+								j
 							-
+							-
+								1
+							-
+			-
+				Catch
+			-
+			-
+				sum
+			-
+				-
+					Add
+				-
+					-
+						sum
+					-
+					-
+						At
+					-
+						-
+							At
+						-
+							-
+								board
+							-
+							-
+								Add
 							-
 								-
+									i
+								-
+								-
+									1
+								-
+						-
+							Subtract
+						-
 							-
+								j
+							-
+							-
+								1
+							-
+			-
+				Catch
+			-
+			-
+				sum
+			-
+				-
+					Add
+				-
+					-
+						sum
+					-
+					-
+						At
+					-
+						-
+							At
+						-
+							-
+								board
+							-
+							-
+								Subtract
+							-
+								-
+									i
+								-
+								-
+									1
+								-
+						-
+							Add
+						-
+							-
+								j
+							-
+							-
+								1
+							-
+			-
+				Catch
+			-
+			-
+				sum
+			-
+				-
+					Add
+				-
+					-
+						sum
+					-
+					-
+						At
+					-
+						-
+							At
+						-
+							-
+								board
+							-
+							-
+								Add
+							-
+								-
+									i
+								-
+								-
+									1
+								-
+						-
+							Add
+						-
+							-
+								j
+							-
+							-
+								1
+							-
+			-
+				Catch
+			-
+			-
+				Return
+			-
+				-
+					sum
+				-
+-
+	Global
+-
+	-
+		conway
+	-
+		-
+			Define
+		-
+			-
+				board
+			-
+				-
+					At
+				-
+					-
+						Arguments
+					-
+					-
+						1
+					-
+			-
+				new board
+			-
+				-
+					List
+				-
+			-
+				i
+			-
+				-
+					1
+				-
+			-
+				Scope
+			-
+				-
+					row
+				-
+					-
+						List
+					-
 				-
 					j
 				-
 					-
-						Add
+						1
 					-
-						-
-							j
-						-
-						-
-							1
-						-
 				-
-					Loop
+					Scope
 				-
 					-
-						Less or Equal
+						neighbors
 					-
 						-
-							j
-						-
-						-
-							Size
+							Do
 						-
 							-
-								At
+								get neighbors
+							-
+							-
+								List
 							-
 								-
 									board
@@ -259,504 +748,6 @@
 								-
 									i
 								-
-			-
-				Scope
-			-
-				-
-					Break
-				-
-					-
-						Greater
-					-
-						-
-							i
-						-
-						-
-							Subtract
-						-
-							-
-								Size
-							-
-								-
-									board
-								-
-							-
-								1
-							-
-				-
-					draw
-				-
-					-
-						Concatenate
-					-
-						-
-							draw
-						-
-						-
-							\n
-						-
-			-
-				i
-			-
-				-
-					Add
-				-
-					-
-						i
-					-
-					-
-						1
-					-
-			-
-				Loop
-			-
-				-
-					Less or Equal
-				-
-					-
-						i
-					-
-					-
-						Size
-					-
-						-
-							board
-						-
-		-
-			Return
-		-
-			-
-				draw
-			-
--
-	Define
--
-	-
-		get neighbors
-	-
-		-
-			board
-		-
-			-
-				At
-			-
-				-
-					Arguments
-				-
-				-
-					1
-				-
-		-
-			i
-		-
-			-
-				At
-			-
-				-
-					Arguments
-				-
-				-
-					2
-				-
-		-
-			j
-		-
-			-
-				At
-			-
-				-
-					Arguments
-				-
-				-
-					3
-				-
-		-
-			sum
-		-
-			-
-				0
-			-
-		-
-			sum
-		-
-			-
-				Add
-			-
-				-
-					sum
-				-
-				-
-					At
-				-
-					-
-						At
-					-
-						-
-							board
-						-
-						-
-							Subtract
-						-
-							-
-								i
-							-
-							-
-								1
-							-
-					-
-						j
-					-
-		-
-			Catch
-		-
-		-
-			sum
-		-
-			-
-				Add
-			-
-				-
-					sum
-				-
-				-
-					At
-				-
-					-
-						At
-					-
-						-
-							board
-						-
-						-
-							Add
-						-
-							-
-								i
-							-
-							-
-								1
-							-
-					-
-						j
-					-
-		-
-			Catch
-		-
-		-
-			sum
-		-
-			-
-				Add
-			-
-				-
-					sum
-				-
-				-
-					At
-				-
-					-
-						At
-					-
-						-
-							board
-						-
-						-
-							i
-						-
-					-
-						Subtract
-					-
-						-
-							j
-						-
-						-
-							1
-						-
-		-
-			Catch
-		-
-		-
-			sum
-		-
-			-
-				Add
-			-
-				-
-					sum
-				-
-				-
-					At
-				-
-					-
-						At
-					-
-						-
-							board
-						-
-						-
-							i
-						-
-					-
-						Add
-					-
-						-
-							j
-						-
-						-
-							1
-						-
-		-
-			Catch
-		-
-		-
-			sum
-		-
-			-
-				Add
-			-
-				-
-					sum
-				-
-				-
-					At
-				-
-					-
-						At
-					-
-						-
-							board
-						-
-						-
-							Subtract
-						-
-							-
-								i
-							-
-							-
-								1
-							-
-					-
-						Subtract
-					-
-						-
-							j
-						-
-						-
-							1
-						-
-		-
-			Catch
-		-
-		-
-			sum
-		-
-			-
-				Add
-			-
-				-
-					sum
-				-
-				-
-					At
-				-
-					-
-						At
-					-
-						-
-							board
-						-
-						-
-							Add
-						-
-							-
-								i
-							-
-							-
-								1
-							-
-					-
-						Subtract
-					-
-						-
-							j
-						-
-						-
-							1
-						-
-		-
-			Catch
-		-
-		-
-			sum
-		-
-			-
-				Add
-			-
-				-
-					sum
-				-
-				-
-					At
-				-
-					-
-						At
-					-
-						-
-							board
-						-
-						-
-							Subtract
-						-
-							-
-								i
-							-
-							-
-								1
-							-
-					-
-						Add
-					-
-						-
-							j
-						-
-						-
-							1
-						-
-		-
-			Catch
-		-
-		-
-			sum
-		-
-			-
-				Add
-			-
-				-
-					sum
-				-
-				-
-					At
-				-
-					-
-						At
-					-
-						-
-							board
-						-
-						-
-							Add
-						-
-							-
-								i
-							-
-							-
-								1
-							-
-					-
-						Add
-					-
-						-
-							j
-						-
-						-
-							1
-						-
-		-
-			Catch
-		-
-		-
-			Return
-		-
-			-
-				sum
-			-
--
-	Define
--
-	-
-		conway
-	-
-		-
-			board
-		-
-			-
-				At
-			-
-				-
-					Arguments
-				-
-				-
-					1
-				-
-		-
-			new board
-		-
-			-
-				List
-			-
-		-
-			i
-		-
-			-
-				1
-			-
-		-
-			Scope
-		-
-			-
-				row
-			-
-				-
-					List
-				-
-			-
-				j
-			-
-				-
-					1
-				-
-			-
-				Scope
-			-
-				-
-					neighbors
-				-
-					-
-						get neighbors
-					-
-						-
-							board
-						-
-						-
-							i
-						-
-						-
-							j
-						-
-				-
-					Scope
-				-
-					-
-						Break
-					-
-						-
-							Equal
-						-
-							-
-								1
-							-
-							-
-								At
-							-
-								-
-									At
-								-
-									-
-										board
-									-
-									-
-										i
-									-
 								-
 									j
 								-
@@ -767,7 +758,58 @@
 							Break
 						-
 							-
-								Not
+								Equal
+							-
+								-
+									1
+								-
+								-
+									At
+								-
+									-
+										At
+									-
+										-
+											board
+										-
+										-
+											i
+										-
+									-
+										j
+									-
+						-
+							Scope
+						-
+							-
+								Break
+							-
+								-
+									Not
+								-
+									-
+										Equal
+									-
+										-
+											neighbors
+										-
+										-
+											3
+										-
+							-
+								Append
+							-
+								-
+									row
+								-
+								-
+									1
+								-
+						-
+							Scope
+						-
+							-
+								Break
 							-
 								-
 									Equal
@@ -778,15 +820,15 @@
 									-
 										3
 									-
-						-
-							Append
-						-
 							-
-								row
+								Append
 							-
-							-
-								1
-							-
+								-
+									row
+								-
+								-
+									0
+								-
 					-
 						Scope
 					-
@@ -797,34 +839,97 @@
 								Equal
 							-
 								-
-									neighbors
+									0
 								-
 								-
-									3
+									At
+								-
+									-
+										At
+									-
+										-
+											board
+										-
+										-
+											i
+										-
+									-
+										j
+									-
+						-
+							Scope
+						-
+							-
+								Break
+							-
+								-
+									Not
+								-
+									-
+										Or
+									-
+										-
+											Equal
+										-
+											-
+												neighbors
+											-
+											-
+												2
+											-
+										-
+											Equal
+										-
+											-
+												neighbors
+											-
+											-
+												3
+											-
+							-
+								Append
+							-
+								-
+									row
+								-
+								-
+									1
 								-
 						-
-							Append
+							Else
 						-
 							-
-								row
+								Append
 							-
-							-
-								0
-							-
-				-
-					Scope
-				-
+								-
+									row
+								-
+								-
+									0
+								-
 					-
-						Break
+						j
 					-
 						-
-							Equal
+							Add
 						-
 							-
-								0
+								j
 							-
 							-
-								At
+								1
+							-
+					-
+						Loop
+					-
+						-
+							Less or Equal
+						-
+							-
+								j
+							-
+							-
+								Size
 							-
 								-
 									At
@@ -835,68 +940,23 @@
 									-
 										i
 									-
-								-
-									j
-								-
-					-
-						Scope
-					-
-						-
-							Break
-						-
-							-
-								Not
-							-
-								-
-									Or
-								-
-									-
-										Equal
-									-
-										-
-											neighbors
-										-
-										-
-											2
-										-
-									-
-										Equal
-									-
-										-
-											neighbors
-										-
-										-
-											3
-										-
-						-
-							Append
-						-
-							-
-								row
-							-
-							-
-								1
-							-
-					-
-						Else
-					-
-						-
-							Append
-						-
-							-
-								row
-							-
-							-
-								0
-							-
 				-
-					j
+					Append
+				-
+					-
+						new board
+					-
+					-
+						row
+					-
+				-
+					i
 				-
 					-
 						Add
 					-
 						-
-							j
+							i
 						-
 						-
 							1
@@ -908,107 +968,116 @@
 						Less or Equal
 					-
 						-
-							j
+							i
 						-
 						-
 							Size
 						-
 							-
-								At
+								board
 							-
-								-
-									board
-								-
-								-
-									i
-								-
 			-
-				Append
+				Return
 			-
 				-
 					new board
 				-
-				-
-					row
-				-
-			-
-				i
-			-
-				-
-					Add
-				-
-					-
-						i
-					-
-					-
-						1
-					-
-			-
-				Loop
-			-
-				-
-					Less or Equal
-				-
-					-
-						i
-					-
-					-
-						Size
-					-
-						-
-							board
-						-
-		-
-			Return
-		-
-			-
-				new board
-			-
 -
-	Define
+	Global
 -
 	-
 		main
 	-
 		-
-			board
+			Define
 		-
 			-
-				generate board
-			-
-		-
-			Scope
-		-
-			-
-				Log Line
+				limit
 			-
 				-
-					draw board
+					Input
 				-
 					-
-						board
+						How many iterations?
 					-
-				-
-					\n
-				-
 			-
 				board
 			-
 				-
-					conway
+					Do
 				-
 					-
-						board
+						generate board
 					-
 			-
-				Wait
+				i
 			-
 				-
-					.5
+					1
 				-
 			-
-				Loop
+				Scope
 			-
+				-
+					Log Line
+				-
+					-
+						Do
+					-
+						-
+							draw board
+						-
+						-
+							List
+						-
+							-
+								board
+							-
+					-
+						\n
+					-
+				-
+					board
+				-
+					-
+						Do
+					-
+						-
+							conway
+						-
+						-
+							List
+						-
+							-
+								board
+							-
+				-
+					i
+				-
+					-
+						Add
+					-
+						-
+							i
+						-
+						-
+							1
+						-
+				-
+					Loop
+				-
+					-
+						Less or Equal
+					-
+						-
+							i
+						-
+						-
+							limit
+						-
 -
-	main
+	Do
 -
+	-
+		main
+	-
