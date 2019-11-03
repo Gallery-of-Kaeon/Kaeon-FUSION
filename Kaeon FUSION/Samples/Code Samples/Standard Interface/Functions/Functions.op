@@ -1,17 +1,17 @@
 Use: Standard
 
-baz: 5
-
-Define: foo
+Global: foo: Define
 	Log Line: bar
 
-Define: baz
+Global: baz: Define
 	
 	i: 0
 	
 	Scope
 		
-		foo
+		Do: foo
 		
 		i: Add: i, 1
 		Loop: Less: i, At: Arguments, 1
+
+Do: baz, List: 5
