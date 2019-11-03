@@ -1,6 +1,6 @@
 Use: Standard
 
-Define: generate board
+Global: generate board: Define
 
 	board: List
 
@@ -22,7 +22,7 @@ Define: generate board
 
 	Return: board
 
-Define: draw board { board: At: Arguments, 1 }
+Global: draw board: Define { board: At: Arguments, 1 }
 
 	draw: ""
 
@@ -47,7 +47,7 @@ Define: draw board { board: At: Arguments, 1 }
 
 	Return: draw
 
-Define: get neighbors { board { At: Arguments, 1 }, i { At: Arguments, 2 }, j { At: Arguments, 3 } }
+Global: get neighbors: Define { board { At: Arguments, 1 }, i { At: Arguments, 2 }, j { At: Arguments, 3 } }
 	
 	sum: 0
 
@@ -62,7 +62,7 @@ Define: get neighbors { board { At: Arguments, 1 }, i { At: Arguments, 2 }, j { 
 
 	Return: sum
 
-Define: conway { board: At: Arguments, 1 }
+Global: conway: Define { board: At: Arguments, 1 }
 
 	new board: List
 
@@ -72,7 +72,7 @@ Define: conway { board: At: Arguments, 1 }
 
 		j { 1 } Scope
 			
-			neighbors: get neighbors: board, i, j
+			neighbors: Do: get neighbors, List: board, i, j
 
 			Scope { Break: Equal: 1, At: At { board, i }, j }
 
@@ -100,17 +100,19 @@ Define: conway { board: At: Arguments, 1 }
 
 	Return: new board
 	
-Define: main
+Global: main: Define
 
-	board: generate board
+	limit: Input: How many iterations?
 
-	Scope
+	board: Do: generate board
 
-		Log Line: draw board: board; \n
-		board: conway: board
+	i { 1 } Scope
 
-		Wait: .5
+		Log Line: Do { draw board, List: board } \n
+		board: Do: conway, List: board
+		
+		i: Add: i, 1
 
-		Loop
+		Loop: Less or Equal: i, limit
 
-main
+Do: main
