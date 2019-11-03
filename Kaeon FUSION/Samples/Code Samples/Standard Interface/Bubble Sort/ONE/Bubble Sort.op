@@ -1,108 +1,39 @@
 -
-	Define
+	Use
+-
+	-
+		Standard
+	-
+-
+	Global
 -
 	-
 		Bubble Sort
 	-
 		-
-			my list
+			Define
 		-
 			-
-				At
+				my list
 			-
 				-
-					Arguments
-				-
-				-
-					1
-				-
-		-
-			i
-		-
-			-
-				1
-			-
-		-
-			Scope
-		-
-			-
-				j
-			-
-				-
-					Add
+					At
 				-
 					-
-						i
+						Arguments
 					-
 					-
 						1
 					-
 			-
-				Scope
+				i
 			-
 				-
-					a
+					1
 				-
-					-
-						At
-					-
-						-
-							my list
-						-
-						-
-							i
-						-
-				-
-					b
-				-
-					-
-						At
-					-
-						-
-							my list
-						-
-						-
-							j
-						-
-				-
-					Scope
-				-
-					-
-						Break
-					-
-						-
-							Less or Equal
-						-
-							-
-								a
-							-
-							-
-								b
-							-
-					-
-						Set
-					-
-						-
-							my list
-						-
-						-
-							i
-						-
-						-
-							b
-						-
-					-
-						Set
-					-
-						-
-							my list
-						-
-						-
-							j
-						-
-						-
-							a
-						-
+			-
+				Scope
+			-
 				-
 					j
 				-
@@ -110,7 +41,112 @@
 						Add
 					-
 						-
-							j
+							i
+						-
+						-
+							1
+						-
+				-
+					Scope
+				-
+					-
+						a
+					-
+						-
+							At
+						-
+							-
+								my list
+							-
+							-
+								i
+							-
+					-
+						b
+					-
+						-
+							At
+						-
+							-
+								my list
+							-
+							-
+								j
+							-
+					-
+						Scope
+					-
+						-
+							Break
+						-
+							-
+								Less or Equal
+							-
+								-
+									a
+								-
+								-
+									b
+								-
+						-
+							Set
+						-
+							-
+								my list
+							-
+							-
+								i
+							-
+							-
+								b
+							-
+						-
+							Set
+						-
+							-
+								my list
+							-
+							-
+								j
+							-
+							-
+								a
+							-
+					-
+						j
+					-
+						-
+							Add
+						-
+							-
+								j
+							-
+							-
+								1
+							-
+					-
+						Loop
+					-
+						-
+							Less or Equal
+						-
+							-
+								j
+							-
+							-
+								Size
+							-
+								-
+									my list
+								-
+				-
+					i
+				-
+					-
+						Add
+					-
+						-
+							i
 						-
 						-
 							1
@@ -119,10 +155,10 @@
 					Loop
 				-
 					-
-						Less or Equal
+						Less
 					-
 						-
-							j
+							i
 						-
 						-
 							Size
@@ -131,35 +167,38 @@
 								my list
 							-
 			-
-				i
+				Return
 			-
 				-
-					Add
+					my list
 				-
-					-
-						i
-					-
-					-
-						1
-					-
-			-
-				Loop
-			-
-				-
-					Less
-				-
-					-
-						i
-					-
-					-
-						Size
-					-
-						-
-							my list
-						-
+-
+	Log Line
+-
+	-
+		Do
+	-
 		-
-			Return
+			Bubble Sort
+		-
+		-
+			List
 		-
 			-
-				my list
+				List
 			-
+				-
+					3
+				-
+				-
+					2
+				-
+				-
+					5
+				-
+				-
+					1
+				-
+				-
+					4
+				-
