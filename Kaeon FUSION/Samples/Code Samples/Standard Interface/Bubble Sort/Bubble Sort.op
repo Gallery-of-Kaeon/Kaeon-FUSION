@@ -1,12 +1,6 @@
-#[
+Use: Standard
 
-	Use the Import command in Kaeon FUSION
-	code using the standard interface to
-	import the following function.
-
- ]#
-
-Define: Bubble Sort
+Global: Bubble Sort: Define
 	
 	my list: At: Arguments, 1
 
@@ -28,3 +22,5 @@ Define: Bubble Sort
 		Loop: Less: i, Size: my list
 
 	Return: my list
+
+Log Line: Do: Bubble Sort, List: List: 3, 2, 5, 1, 4
