@@ -5,68 +5,83 @@
 		Standard
 	-
 -
-	baz
--
-	-
-		5
-	-
--
-	Define
+	Global
 -
 	-
 		foo
 	-
 		-
-			Log Line
+			Define
 		-
 			-
-				bar
+				Log Line
 			-
+				-
+					bar
+				-
 -
-	Define
+	Global
 -
 	-
 		baz
 	-
 		-
-			i
+			Define
 		-
-			-
-				0
-			-
-		-
-			Scope
-		-
-			-
-				foo
-			-
 			-
 				i
 			-
 				-
-					Add
+					0
 				-
-					-
-						i
-					-
-					-
-						1
-					-
 			-
-				Loop
+				Scope
 			-
 				-
-					Less
+					Do
 				-
 					-
-						i
+						foo
 					-
+				-
+					i
+				-
 					-
-						At
+						Add
 					-
 						-
-							Arguments
+							i
 						-
 						-
 							1
 						-
+				-
+					Loop
+				-
+					-
+						Less
+					-
+						-
+							i
+						-
+						-
+							At
+						-
+							-
+								Arguments
+							-
+							-
+								1
+							-
+-
+	Do
+-
+	-
+		baz
+	-
+	-
+		List
+	-
+		-
+			5
+		-
