@@ -1,0 +1,17 @@
+For
+
+	Philosophy
+	
+		-
+			The for command contains the content "For" and has two children, the first of which
+			returns an integer number or a list, and the second of which returns a ONE element in
+			ONE list form.
+			
+			If the value returned by the first child is a number, it will execute the returned ONE
+			element as Kaeon FUSION code for the number of iterations specified by the returned
+			number, where upon each iteration it shall pass to said code the index of the current
+			iteration, starting at one. If the value returned by the first child is a list, it will
+			execute the returned ONE element as Kaeon FUSION code for each element in the returned,
+			where upon each iteration it shall pass to said code the element of the list
+			corresponding to the current iteration. 
+		-
