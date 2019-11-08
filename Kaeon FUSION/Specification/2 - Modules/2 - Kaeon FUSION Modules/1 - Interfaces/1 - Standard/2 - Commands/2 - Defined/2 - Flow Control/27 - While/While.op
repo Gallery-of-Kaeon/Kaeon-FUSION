@@ -1,0 +1,12 @@
+While
+
+	Philosophy
+	
+		-
+			The while command contains the content "While" and has two children, each of which
+			return a ONE element in ONE list form.
+			
+			It will execute the element returned by the first child as Kaeon FUSION code, and if it
+			returns a value of true, it shall execute the element returned by the second child as
+			Kaeon FUSION code and then repeat then process.
+		-
