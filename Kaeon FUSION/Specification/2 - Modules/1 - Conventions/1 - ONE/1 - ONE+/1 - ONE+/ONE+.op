@@ -14,13 +14,12 @@ ONE+
 				In addition to the three character sequences required by ONE, ONE+ requires the
 				following unique character sequences: The segregating sequence, the nested
 				sequence, the denested sequence, the open scope sequence, the close scope sequence,
-				the open domain sequence, the close domain sequence, the open directive sequence,
-				the close directive sequence, the escape sequence, the escape scope sequence, the
-				encoded escape scope sequence, the alternate breaking sequence, the alternate
-				nesting sequence, the comment sequence, the open comment sequence, the close
-				comment sequence, and the blank sequence. It is not permitted for the sequences to
-				be defined such that there may be any instances where two or more sequences
-				conflict at a given location.
+				the open domain sequence, the close domain sequence, the escape sequence, the
+				escape scope sequence, the encoded escape scope sequence, the alternate breaking
+				sequence, the alternate nesting sequence, the comment sequence, the open comment
+				sequence, the close comment sequence, and the blank sequence. It is not permitted
+				for the sequences to be defined such that there may be any instances where two or
+				more sequences conflict at a given location.
 				
 				In ONE+, it is possible to have more than one character sequence for each defined
 				sequence.
@@ -37,6 +36,8 @@ ONE+
 				as definitions. Definitions can be nested just like elements depending on how many
 				nesting sequences immediately precede them.
 			-
+
+		Plus Sequences
 			
 			Blank Plus Sequences
 				
@@ -54,52 +55,52 @@ ONE+
 					document, the effect will be nullified. The escape sequence itself will not be
 					encoded into any elements.
 				-
-					
-				Escape Scope Plus Sequences
-					
-					-
-						An escape scope plus sequence is an plus sequence that begins with an
-						escape scope sequence and ends with another escape scope sequence. If any
-						characters located between the two escape scope sequences would normally
-						have an effect on the document, the effect will be nullified. The escape
-						scope sequences themselves will not be encoded into any elements.
-					-
-					
-				Encoded Escape Scope Plus Sequences
-					
-					-
-						An encoded escape scope plus sequence is an plus sequence that begins with
-						an encoded escape scope sequence and ends with another encoded escape scope
-						sequence. If any characters located between the two encoded escape scope
-						sequences would normally have an effect on the document, the effect will be
-						nullified. The encoded escape scope sequences themselves will be encoded
-						into the elements.
-					-
+			
+			Escape Scope Plus Sequences
 				
-				Extended Escape Scope Plus Sequences
+				-
+					An escape scope plus sequence is an plus sequence that begins with an escape
+					scope sequence and ends with another escape scope sequence. If any characters
+					located between the two escape scope sequences would normally have an effect on
+					the document, the effect will be nullified. The escape scope sequences
+					themselves will not be encoded into any elements.
+				-
 				
-					-
-						If an escape scope plus sequence or encoded escape scope plus sequence does
-						not properly close within the definition it occurs within, and said
-						definition is followed by another definition, the sequence will continue
-						through to the next definition.
-					-
+			Encoded Escape Scope Plus Sequences
 				
-				Escape Character Plus Sequences
+				-
+					An encoded escape scope plus sequence is an plus sequence that begins with an
+					encoded escape scope sequence and ends with another encoded escape scope
+					sequence. If any characters located between the two encoded escape scope
+					sequences would normally have an effect on the document, the effect will be
+					nullified. The encoded escape scope sequences themselves will be encoded into
+					the elements.
+				-
+			
+			Extended Escape Scope Plus Sequences
+			
+				-
+					If an escape scope plus sequence or encoded escape scope plus sequence does not
+					properly close within the definition it occurs within, and said definition is
+					followed by another definition, the sequence will continue through to the next
+					definition.
+				-
+			
+			Escape Character Plus Sequences
+				
+				-
+					An escape character plus sequence is an plus sequence that consists of an
+					escape sequence followed by either an alternate breaking sequence or an
+					alternate nesting sequence. It will not be encoded into the document.
 					
-					-
-						An escape character plus sequence is an plus sequence that consists of an
-						escape sequence followed by either an alternate breaking sequence or an
-						alternate nesting sequence. It will not be encoded into the document.
-						
-						If the escape character plus sequence contains an alternate breaking
-						sequence, a breaking sequence will be encoded into the document in place of
-						the escape character plus sequence.
-						
-						If the escape character plus sequence contains an alternate nesting
-						sequence, a nesting sequence will be encoded into the document in place of
-						the escape character plus sequence.
-					-
+					If the escape character plus sequence contains an alternate breaking sequence,
+					a breaking sequence will be encoded into the document in place of the escape
+					character plus sequence.
+					
+					If the escape character plus sequence contains an alternate nesting sequence, a
+					nesting sequence will be encoded into the document in place of the escape
+					character plus sequence.
+				-
 			
 			Comment Plus Sequences
 				
@@ -109,13 +110,13 @@ ONE+
 					have no effect on the document.
 				-
 				
-				Comment Block Plus Sequences
-					
-					-
-						A comment plus sequence is an plus sequence that starts with an open
-						comment sequence and ends with a close comment sequence. All characters in
-						the plus sequence will have no effect on the document.
-					-
+			Comment Block Plus Sequences
+				
+				-
+					A comment plus sequence is an plus sequence that starts with an open comment
+					sequence and ends with a close comment sequence. All characters in the plus
+					sequence will have no effect on the document.
+				-
 			
 			Plus Element Definitions
 				
@@ -125,115 +126,50 @@ ONE+
 					sequences or are blank sequences leading or trailing the definition or comments
 					within the definition will be encoded into an element.
 				-
-				
-				Multiple Plus Element Definitions
-					
-					-
-						It is possible to separate the content encoded through a plus element
-						definition across multiple elements.
-						
-						The content can be separated with the following character sequences: the
-						segregating sequence, the nested sequence, the denested sequence, the open
-						scope sequence, the close scope sequence, the open domain sequence, and the
-						close domain sequence. Any blank sequences preceding or following the
-						separating sequence will not be encoded into the elements, nor will the
-						separating sequence itself.
-						
-						If a segregating sequence or open scope sequence is used as the separating
-						sequence, the element following it will be a sibling of the element
-						preceding it.
-						
-						If a close scope sequence is used as the separating sequence, the element
-						following it will be a sibling of the element preceding the corresponding
-						open scope sequence.
-						
-						If a nested sequence or open domain sequence is used as the separating
-						sequence, the element following it will be a child of the element preceding
-						it.
-						
-						If a closed domain sequence is used as the separating sequence, the element
-						following it will be a sibling of the element preceding the corresponding
-						open domain sequence.
-						
-						If a denested sequence is used as the separating sequence, the element
-						following it will be a sibling of the parent of the preceding element.
-					-
-				
-				Nesting
-				
-					-
-						An element defined in a ONE element definition or the first element defined
-						in a plus element definition nested beneath a plus element definition will
-						be a child of the last element defined by the parent plus element
-						definition that is not followed by a closed domain sequence or denested
-						sequence.
-						
-						If a multiple plus element definition is ended with a nested sequence or an
-						open domain sequence, elements defined following said plus sequence will
-						define children of the last element defined by said plus sequence
-						regardless of the nest level of said elements, until an excess denested
-						sequence or close domain sequence is used respectively.
-					-
 			
-			Directive Definitions
+			Multiple Plus Element Definitions
 				
 				-
-					A directive definition is an element definition preceded by an open directive
-					sequence and followed by a closed directive sequence. Elements defined in a
-					directive definition are referred to as directive elements.
+					It is possible to separate the content encoded through a plus element
+					definition across multiple elements.
 					
-					Any children of a directive element that were defined in the same directive
-					definition as itself are referred to as its header. Any other children that a
-					directive element has are referred to as its body. Any elements nested within
-					its parent and following itself are referred to as its scope.
+					The content can be separated with the following character sequences: the
+					segregating sequence, the nested sequence, the denested sequence, the open
+					scope sequence, the close scope sequence, the open domain sequence, and the
+					close domain sequence. Any blank sequences preceding or following the
+					separating sequence will not be encoded into the elements, nor will the
+					separating sequence itself.
 					
-					Directive elements will not be encoded into the document, nor will any elements
-					nested within them, but they will act as preprocessor commands.
+					If a segregating sequence or open scope sequence is used as the separating
+					sequence, the element following it will be a sibling of the element preceding
+					it.
 					
-					Directives are processed first from parent to child, and then from top to
-					bottom. However, if elements in a directive element's header themselves trigger
-					a directive, they will be processed before the directive element that they are
-					nested within.
+					If a close scope sequence is used as the separating sequence, the element
+					following it will be a sibling of the element preceding the corresponding
+					open scope sequence.
 					
-					Directives must also be able to access the host environment of the ONE+ parser.
+					If a nested sequence or open domain sequence is used as the separating
+					sequence, the element following it will be a child of the element preceding it.
+					
+					If a closed domain sequence is used as the separating sequence, the element
+					following it will be a sibling of the element preceding the corresponding open
+					domain sequence.
+					
+					If a denested sequence is used as the separating sequence, the element
+					following it will be a sibling of the parent of the preceding element.
 				-
-				
-				Directive Interfaces
-				
-					-
-						Directives are implemented in modules called directive interfaces.
-						
-						A directive interface can be enabled using a directive element that
-						contains the content "Use". The content of each child of this element
-						should contain the file path or alias of an interface. If the interfaces
-						are available, the directives implemented within them will be usable.
-					-
 			
-			Alternate Syntaxes
+			Nesting
 			
 				-
-					If the first sequence of the document past any instances of the blank sequence
-					begins with the terminating sequence followed by the open directive sequence,
-					then the sequence of characters between the aforementioned open directive
-					sequence and the first instance of a sequence consisting of the close directive
-					sequence followed by the breaking sequence will match the file path or alias of
-					a module for parsing an alternate syntax for encoding ONE documents.
+					An element defined in a ONE element definition or the first element defined in
+					a plus element definition nested beneath a plus element definition will be a
+					child of the last element defined by the parent plus element definition that is
+					not followed by a closed domain sequence or denested sequence.
 					
-					All text following the aforementioned breaking sequence will be encoded as a
-					ONE document based on the specified syntax.
+					If a multiple plus element definition is ended with a nested sequence or an
+					open domain sequence, elements defined following said plus sequence will define
+					children of the last element defined by said plus sequence regardless of the
+					nest level of said elements, until an excess denested sequence or close domain
+					sequence is used respectively.
 				-
-				
-		Workspace
-		
-			-
-				The workspace refers to the directories that the ONE+ parser will import resources
-				from. The directories that compose the workspace must be arranged into a hierarchy.
-				
-				When attempting to locate a given resource, the ONE+ parser will search each
-				directory in the order of their priorities until either the resource is found or
-				there are no more directories to search.
-				
-				By default, the workspace will consist of the local directory, the root directory,
-				and the internet, but the host environment of the ONE+ parser may add directories
-				to or remove directories from the workspace.
-			-
