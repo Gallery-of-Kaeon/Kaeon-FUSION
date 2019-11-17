@@ -1,0 +1,52 @@
+Universal Preprocessor
+
+	Philosophy
+
+		-
+			The Universal preprocessor is a preprocessor that allows code from any programming
+			language to be embedded as a preprocessor into any text file.
+		-
+
+	Principles
+
+		Directives
+
+			-
+				Preprocessor directives in the Universal preprocessor shall be encoded in
+				directives.
+				
+				Directives begin with a sequence consisting of an open paren followed by a
+				closed angle bracket, which is followed by any valid code in the language being
+				used, referred to as the directive content, and end with a sequence consisting of
+				an open angle bracket followed by a closed paren.
+
+				Directive starting sequences can be nullified in any manner otherwise used to
+				nullify or escape characters by the host language, and can be encoded within
+				directives outside of literals in any manner permitted by the language of the
+				directive content.
+			-
+
+		Execution
+
+			-
+				Each directive shall execute as code in the language of its directive content in
+				order of its placement.
+
+				The state of the preprocessor shall carry over from directive to directive to
+				whatever extent possible.
+
+				Each directive shall take two arguments, the first being the source code without
+				the unescaped directives as a string, and the second being the index of its
+				respective directive starting sequence as an integer number.
+
+				Any text logged to standard out by the code will be injected into the source text
+				at the index of the starting tag, but if the code returns a non null value, the
+				string form of said value shall replace the source text altogether.
+			-
+
+		Auto Detection
+
+			-
+				The language used for a given directive's directive content shall be detected
+				automatically.
+			-
