@@ -90,6 +90,8 @@ function KaeonFUSION() {
 
 	this.tags.push("Kaeon FUSION");
 
+	this.returnValue = null;
+
 	philosophersStone.connect(this, new Use(), [], true);
 }
 

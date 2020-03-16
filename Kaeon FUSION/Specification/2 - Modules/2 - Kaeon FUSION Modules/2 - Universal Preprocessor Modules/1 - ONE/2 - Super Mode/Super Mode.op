@@ -3,40 +3,20 @@ Super Mode
 	Philosophy
 		
 		-
-			Super Mode is a ONE+ directive that works with the Kaeon FUSION Standard Interface to
-			allow for infix notation and to reduce verbosity.
+			Super Mode is an alternate syntax for Kaeon FUSION code that serves to allow for infix
+			notation and to reduce verbosity.
 		-
 	
 	Principles
 		
-		Activation
-			
-			-
-				Super Mode comes packaged in a directive module with the alias "SUPER". Once the
-				module has been imported with a use directive, a directive with the content "SUPER"
-				may be used to activate super mode.
-			-
-		
 		Effects
 			
-			Directives and Interfaces
+			Interfaces
 				
 				-
-					Super Mode will enable the use of the standard ONE+ directives, and will cause
-					the Kaeon FUSION code it is used on to automatically use the Standard interface
-					and the Stack interface.
+					Super Mode will automatically enable the Standard interface and the Stack
+					interface.
 				-
-				
-				Sub
-				
-					-
-						The sub directive is a directive with the content "SUB". If Super Mode is
-						processing elements nested within the sub directive's parent, said sub
-						directive will prevent Super Mode from processing any elements following it
-						or any elements nested within them, with the exception of elements
-						following or nested within those following a Super Mode directive that
-						follows or is nested within an element that follows the sub directive.
-					-
 			
 			Super Tokens
 				
@@ -316,3 +296,10 @@ Super Mode
 							will use the children of the element it occurs in as alternative right
 							hand values.
 						-
+
+		Standard+
+
+			-
+				Standard+ is when super mode is active by default when interpreting Kaeon FUSION
+				code.
+			-

@@ -12,18 +12,20 @@ Universal Preprocessor
 		Directives
 
 			-
-				Preprocessor directives in the Universal preprocessor shall be encoded in
+				Preprocessor directives in the universal preprocessor shall be encoded in
 				directives.
 				
-				Directives begin with a sequence consisting of an open paren followed by a
-				closed angle bracket, which is followed by any valid code in the language being
-				used, referred to as the directive content, and end with a sequence consisting of
-				an open angle bracket followed by a closed paren.
+				Directives begin with a sequence consisting of an open paren followed by a closed
+				square bracket, followed by the name of the language the directive is written in,
+				followed by a sequence consisting of an open square bracket followed by closed
+				angle bracket, which is followed by any valid code in the language being used,
+				referred to as the directive content, and end with a sequence consisting of an open
+				angle bracket followed by a closed paren.
 
-				Directive starting sequences can be nullified in any manner otherwise used to
-				nullify or escape characters by the host language, and can be encoded within
-				directives outside of literals in any manner permitted by the language of the
-				directive content.
+				Token sequences used in universal preprocessor directives, can be nullified in any
+				manner otherwise used to nullify or escape characters by the host language, and can
+				be encoded within directives outside of literals in any manner permitted by the
+				language of the directive content.
 			-
 
 		Execution
@@ -47,6 +49,6 @@ Universal Preprocessor
 		Auto Detection
 
 			-
-				The language used for a given directive's directive content shall be detected
-				automatically.
+				If the language used for the directive content is specified as an asterisk, the
+				language shall be detected automatically.
 			-
