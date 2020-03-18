@@ -3,13 +3,6 @@ var tokenizer = require("./tokenizer.js");
 
 function readONEPlus(data) {
 
-	if(data.trim().startsWith("-[")) {
-
-		return require(
-			data.substring(data.indexOf("-[") + 2, data.indexOf("]\n")))(
-				data.substring(data.indexOf("]\n") + 2));
-	}
-
 	tokens = getTokens(data);
 	tokenize = tokenizer.tokenize(tokens, data);
 	nestToken = getIndentToken(data);
@@ -221,8 +214,6 @@ function preprocess(tokens, tokenize, data) {
 
 function process(tokens, tokenize, nestToken) {
 
-	var directives = [];
-
 	var element = new one.Element();
 
 	var currentElement = element;
@@ -296,12 +287,10 @@ function process(tokens, tokenize, nestToken) {
 		}
 
 		else if(line.length > 0)
-			previousElement = processLine(tokens, line, currentElement, directives);
+			previousElement = processLine(tokens, line, currentElement);
 
 		i += line.length + 1;
 	}
-
-	processDirectives(element, generateDirectives(directives));
 
 	return element;
 }
@@ -406,15 +395,12 @@ function cropElement(element, literal) {
 	return element;
 }
 
-function processLine(tokens, line, currentElement, directives) {
+function processLine(tokens, line, currentElement) {
 
 	var baseElement = currentElement;
 
-	var directive = false;
-
 	var stack = [];
 	var nestStack = [];
-	var directiveStack = [];
 
 	var newLine = preprocessLine(tokens, line);
 
@@ -427,9 +413,6 @@ function processLine(tokens, line, currentElement, directives) {
 			var newElement = cropElement(getElement(processContent(token)), false);
 
 			one.addChild(currentElement, newElement);
-
-			if(directive)
-				directives[directives.length - 1].push(newElement);
 		}
 
 		if(token == ":" || token == "{") {
@@ -458,21 +441,6 @@ function processLine(tokens, line, currentElement, directives) {
 
 		if(token == ")" && stack.length > 0)
 			currentElement = stack.splice(stack.length - 1, 1)[0];
-
-		if(token == "[") {
-
-			directiveStack.push(currentElement);
-			directives.push([]);
-
-			directive = true;
-		}
-
-		if(token == "]" && directiveStack.length > 0) {
-
-			currentElement = directiveStack.splice(directiveStack.length - 1, 1)[0];
-
-			directive = directiveStack.length != 0;
-		}
 	}
 
 	var previousElement = null;
@@ -596,206 +564,6 @@ function preprocessLine(tokens, line) {
 	return newLine;
 }
 
-function generateDirectives(elements) {
-
-	var directives = [];
-
-	for(var i = 0; i < elements.length; i++) {
-
-		for(var j = 0; j < elements[i].length; j++) {
-
-			var directive = new Directive();
-
-			directive.directive = elements[i][j];
-
-			for(var k = 0; k < elements[i][j].children.length; k++) {
-
-				var isHeader = false;
-
-				for(var l = 0; l < elements[i].length; l++) {
-
-					if(elements[i][j].children[k] == elements[i][l]) {
-
-						isHeader = true;
-
-						break;
-					}
-				}
-
-				if(isHeader)
-					directive.header.push(elements[i][j].children[k]);
-
-				else
-					directive.body.push(elements[i][j].children[k]);
-			}
-
-			directives.push(directive);
-		}
-	}
-
-	return directives;
-}
-
-function processDirectives(element, directives) {
-
-	var directiveUnits = [];
-	directiveUnits.push(new Use());
-
-	while(hasDirectives(element, directives))
-		processDirectives(element, directiveUnits, directives);
-}
-
-function processDirectivesAs(element, directiveUnits, directives) {
-
-	if(isDirective(element, directives)) {
-
-		for(var i = 0; i < element.children.length; i++) {
-
-			var inHeader = false;
-
-			var directive = getDirective(element, directives);
-
-			for(var j = 0; j < directive.header.length; j++) {
-
-				if(directive.header[j] == element.children[i]) {
-
-					inHeader = true;
-
-					break;
-				}
-			}
-
-			if(inHeader) {
-
-				processDirectives(
-					element.children[i],
-					directiveUnits,
-					directives);
-			}
-		}
-
-		for(var i = 0; i < directiveUnits.length; i++) {
-
-			try {
-
-				directiveUnits[i].apply(
-					directiveUnits,
-					directives,
-					getDirective(
-						element,
-						directives));
-			}
-
-			catch(error) {
-
-			}
-		}
-
-		return;
-	}
-
-	var newUnits = directiveUnits.slice();
-
-	for(var i = 0; i < element.children.length; i++) {
-
-		processDirectives(
-			element.children[i],
-			newUnits,
-			directives);
-
-		if(isDirective(element.children[i], directives)) {
-
-			element.children.splice(i, 1);
-
-			i--;
-		}
-	}
-}
-
-function hasDirectives(element, directives) {
-
-	if(isDirective(element, directives))
-		return true;
-
-	for(var i = 0; i < element.children.length; i++) {
-
-		if(hasDirectives(element.children[i], directives))
-			return true;
-	}
-
-	return false;
-}
-
-function isDirective(element, directives) {
-
-	for(var i = 0; i < directives.length; i++) {
-
-		var directive = directives[i];
-
-		if(directive.directive == element)
-			return true;
-	}
-
-	return false;
-}
-
-function getDirective(element, directives) {
-
-	for(var i = 0; i < directives.length; i++) {
-
-		var directive = directives[i];
-
-		if(directive.directive == element)
-			return directive;
-	}
-
-	return null;
-}
-
-class Directive {
-
-	constructor() {
-
-		this.directive = null;
-
-		this.header = [];
-		this.body = [];
-	}
-}
-
-class DirectiveUnit {
-
-	apply(directiveUnits, directives, directive) {
-
-	}
-}
-
-class Use extends DirectiveUnit {
-
-	constructor() {
-		super();
-	}
-
-	apply(directiveUnits, directives, directive) {
-
-		if(directive.directive.content.toUpperCase != "USE")
-			return;
-
-		for(var i = 0; i < directive.directive.children.length; i++) {
-
-			var child = directive.directive.children[i];
-
-			try {
-				directiveUnits = directiveUnits.concat(require(child.content)());
-			}
-
-			catch(error) {
-
-			}
-		}
-	}
-}
-
 module.exports = {
 
 	readONEPlus,
@@ -811,14 +579,5 @@ module.exports = {
 	cropElement,
 	processLine,
 	processContent,
-	preprocessLine,
-	generateDirectives,
-	processDirectives,
-	processDirectivesAs,
-	hasDirectives,
-	isDirective,
-	getDirective,
-	Directive,
-	DirectiveUnit,
-	Use
+	preprocessLine
 };
