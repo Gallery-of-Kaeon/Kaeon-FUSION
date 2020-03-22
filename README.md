@@ -154,7 +154,7 @@ using the universal preprocessor to convert the code,
 which looks similar to Python,
 to ONE:
 
-	(] KF [> Use: SUPER; Return: SUPER: At: Arguments, 0 <)
+	(] KF [> Use: SUPER; Return: SUPER <)
 
 	sum = 0
 
@@ -172,7 +172,7 @@ using the universal preprocessor to convert the code,
 which now looks like LISP,
 into ONE:
 
-	(] KF [> Use: ONE LISP; Return: ONE LISP: At: Arguments, 0 <)
+	(] KF [> Use: ONE LISP; Return: ONE LISP <)
 
     (use standard)
 
