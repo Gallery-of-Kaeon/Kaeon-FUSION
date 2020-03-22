@@ -150,12 +150,11 @@ hence the tagline "a language without limits".
 <h2 align="center">Kaeon FUSION Examples</h2>
 
 Here's the solution to [Euler problem #1](https://projecteuler.net/problem=1),
-written in [ONE+](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/README.md),
-the markup language Kaeon FUSION uses as its syntax,
-and with the Super Mode directive acting as a preprocessor,
-causing the syntax to superficially resemble Python:
+using the universal preprocessor to convert the code,
+which looks similar to Python,
+to ONE:
 
-	[USE: SUPER] [SUPER]
+	(] KF [> Use: SUPER; Return: SUPER: At: Arguments, 0 <)
 
 	sum = 0
 
@@ -169,11 +168,11 @@ causing the syntax to superficially resemble Python:
 _NOTE: Super Mode has only been implemented in the Java based version of Kaeon FUSION, which is now depricated._
 
 Here's the same code as above,
-also written in ONE+,
-but using an alternate syntax called ONE LISP that makes it look like a completely different language,
-LISP:
+using the universal preprocessor to convert the code,
+which now looks like LISP,
+into ONE:
 
-	-[ONE LISP]
+	(] KF [> Use: ONE LISP; Return: ONE LISP: At: Arguments, 0 <)
 
     (use standard)
 
@@ -197,7 +196,7 @@ LISP:
 
 Here again is the same code from the first example,
 also written in ONE+,
-but without using any directives or alternate syntaxes:
+without the universal preprocessor:
 
     Use: Standard
 
