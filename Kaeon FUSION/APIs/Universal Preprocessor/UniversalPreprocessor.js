@@ -20,15 +20,31 @@ function processKaeonFUSIONDirective(state, directive, text, index) {
 			new kaeonFUSION.KaeonFUSION();
 
 	var tempArgs = process.argv;
-	var tempWrite = process.stdout.write.bind(process.stdout);
+	var tempWrite = null;
+	
+	if((typeof process !== 'undefined') && (process.release.name === 'node')) {
 
-	process.argv = [null, null, text, index];
+		tempWrite = process.stdout.write.bind(process.stdout);
 
-	process.stdout.write = (chunk, encoding, callback) => {
+		process.argv = [null, null, text, index];
 
-		if (typeof chunk === 'string')
-			alpha += chunk.substring(0, chunk.length - 1);
-	};
+		process.stdout.write = (chunk, encoding, callback) => {
+
+			if(typeof chunk === 'string')
+				alpha += chunk.substring(0, chunk.length - 1);
+		};
+	}
+
+	else {
+
+		tempWrite = console.log;
+
+		console.log = function() {
+
+			for(let i = 0; i < arguments.length; i++)
+				alpha += (i > 0 ? " " : "") + arguments[i];
+		}
+	}
 
 	var alpha = text.substring(0, index);
 	var beta = text.substring(index);
@@ -37,17 +53,31 @@ function processKaeonFUSIONDirective(state, directive, text, index) {
 
 		// STUB - ADD RETURN
 		state.kaeonFUSIONInterpreter.process(onePlus.readONEPlus(directive));
+		
+		if((typeof process !== 'undefined') &&
+			(process.release.name === 'node')) {
+		
+			process.argv = tempArgs;
+			process.stdout.write = tempWrite;
+		}
 
-		process.argv = tempArgs;
-		process.stdout.write = tempWrite;
+		else
+			console.log = tempWrite;
 
 		return alpha + beta;
 	}
 
 	catch(error) {
+		
+		if((typeof process !== 'undefined') &&
+			(process.release.name === 'node')) {
+		
+			process.argv = tempArgs;
+			process.stdout.write = tempWrite;
+		}
 
-		process.argv = tempArgs;
-		process.stdout.write = tempWrite;
+		else
+			console.log = tempWrite;
 		
 		return text;
 	}
@@ -55,14 +85,29 @@ function processKaeonFUSIONDirective(state, directive, text, index) {
 
 function processJavaScriptDirective(state, directive, text, index) {
 
-	var tempArgs = process.argv;
-	var tempWrite = process.stdout.write.bind(process.stdout);
+	var tempWrite = null;
+	
+	if((typeof process !== 'undefined') && (process.release.name === 'node')) {
 
-	process.stdout.write = (chunk, encoding, callback) => {
+		tempWrite = process.stdout.write.bind(process.stdout);
 
-		if (typeof chunk === 'string')
-			alpha += chunk.substring(0, chunk.length - 1);
-	};
+		process.stdout.write = (chunk, encoding, callback) => {
+
+			if(typeof chunk === 'string')
+				alpha += chunk.substring(0, chunk.length - 1);
+		};
+	}
+
+	else {
+
+		tempWrite = console.log;
+
+		console.log = function() {
+
+			for(let i = 0; i < arguments.length; i++)
+				alpha += (i > 0 ? " " : "") + arguments[i];
+		}
+	}
 
 	var alpha = text.substring(0, index);
 	var beta = text.substring(index);
@@ -72,21 +117,33 @@ function processJavaScriptDirective(state, directive, text, index) {
 		var value = null;
 
 		eval(
-			"var tempFunc=function(text, index){" +
+			"let tempFunc=function(text, index){" +
 			directive +
 			"};value=tempFunc(text, index);"
 		);
-	
-		process.argv = tempArgs;
-		process.stdout.write = tempWrite;
+		
+		if((typeof process !== 'undefined') &&
+			(process.release.name === 'node')) {
+		
+			process.stdout.write = tempWrite;
+		}
+
+		else
+			console.log = tempWrite;
 	
 		return value != null ? "" + value : alpha + beta;
 	}
 
 	catch(error) {
-	
-		process.argv = tempArgs;
-		process.stdout.write = tempWrite;
+		
+		if((typeof process !== 'undefined') &&
+			(process.release.name === 'node')) {
+		
+			process.stdout.write = tempWrite;
+		}
+
+		else
+			console.log = tempWrite;
 	
 		return text;
 	}
@@ -96,7 +153,7 @@ function processDirective(state, language, directive, text, index) {
 
 	let directiveLanguage = getLangauge(language);
 
-	if(directiveLanguage == "kaeon fusion")
+	if(directiveLanguage == "kaeon fusion" || directiveLanguage == "kf")
 		return processKaeonFUSIONDirective(state, directive, text, index);
 
 	if(directiveLanguage == "javascript" || directiveLanguage == "js")
@@ -162,4 +219,4 @@ module.exports = {
 	processJavaScriptDirective,
 	processDirective,
 	preprocess
-}
+};
