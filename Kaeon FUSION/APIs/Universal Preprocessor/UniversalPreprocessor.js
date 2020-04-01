@@ -6,7 +6,10 @@ var tokenizer = require("./tokenizer.js");
 function getLangauge(language) {
 
 	if(language == "*") {
+
 		// STUB - AUTO DETECT
+
+		return "kf";
 	}
 
 	return language.trim().toLowerCase();
@@ -51,8 +54,13 @@ function processKaeonFUSIONDirective(state, directive, text, index) {
 
 	try {
 
-		// STUB - ADD RETURN
-		state.kaeonFUSIONInterpreter.process(onePlus.readONEPlus(directive));
+		state.kaeonFUSIONInterpreter.process(
+			onePlus.readONEPlus(directive)
+		);
+
+		let value = state.kaeonFUSIONInterpreter.returnValue;
+
+		state.kaeonFUSIONInterpreter.returnValue = null;
 		
 		if((typeof process !== 'undefined') &&
 			(process.release.name === 'node')) {
@@ -64,7 +72,7 @@ function processKaeonFUSIONDirective(state, directive, text, index) {
 		else
 			console.log = tempWrite;
 
-		return alpha + beta;
+		return value != null ? "" + value : alpha + beta;
 	}
 
 	catch(error) {
@@ -164,7 +172,6 @@ function processDirective(state, language, directive, text, index) {
 	return text;
 }
 
-// STUB - REQUIRES FURTHER TESTING
 function preprocess(text) {
 
 	let tokens = tokenizer.tokenize(["(]", "[>", "<)"], text);
