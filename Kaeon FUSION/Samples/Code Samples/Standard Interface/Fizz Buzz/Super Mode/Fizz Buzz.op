@@ -1,4 +1,4 @@
-[USE: SUPER] [SUPER]
+(] KF [> Use: SUPER <)
 
 for range { i, 0, input: "Enter a number: " }
 	
