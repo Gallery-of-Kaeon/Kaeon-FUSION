@@ -22,31 +22,20 @@ function processKaeonFUSIONDirective(state, directive, text, index) {
 			state.kaeonFUSIONInterpreter :
 			new kaeonFUSION.KaeonFUSION();
 
-	var tempArgs = process.argv;
-	var tempWrite = null;
-	
-	if((typeof process !== 'undefined') && (process.release.name === 'node')) {
+	var tempArgs = null;
+	var tempWrite = console.log;
 
-		tempWrite = process.stdout.write.bind(process.stdout);
+	if(typeof process !== "undefined") {
+
+		tempArgs = process.argv;
 
 		process.argv = [null, null, text, index];
-
-		process.stdout.write = (chunk, encoding, callback) => {
-
-			if(typeof chunk === 'string')
-				alpha += chunk.substring(0, chunk.length - 1);
-		};
 	}
 
-	else {
+	console.log = function() {
 
-		tempWrite = console.log;
-
-		console.log = function() {
-
-			for(let i = 0; i < arguments.length; i++)
-				alpha += (i > 0 ? " " : "") + arguments[i];
-		}
+		for(let i = 0; i < arguments.length; i++)
+			alpha += (i > 0 ? " " : "") + arguments[i];
 	}
 
 	var alpha = text.substring(0, index);
@@ -62,30 +51,20 @@ function processKaeonFUSIONDirective(state, directive, text, index) {
 
 		state.kaeonFUSIONInterpreter.returnValue = null;
 		
-		if((typeof process !== 'undefined') &&
-			(process.release.name === 'node')) {
-		
+		if(typeof process !== "undefined")
 			process.argv = tempArgs;
-			process.stdout.write = tempWrite;
-		}
 
-		else
-			console.log = tempWrite;
+		console.log = tempWrite;
 
 		return value != null ? "" + value : alpha + beta;
 	}
 
 	catch(error) {
 		
-		if((typeof process !== 'undefined') &&
-			(process.release.name === 'node')) {
-		
+		if(typeof process !== "undefined")
 			process.argv = tempArgs;
-			process.stdout.write = tempWrite;
-		}
 
-		else
-			console.log = tempWrite;
+		console.log = tempWrite;
 		
 		return text;
 	}
@@ -93,28 +72,12 @@ function processKaeonFUSIONDirective(state, directive, text, index) {
 
 function processJavaScriptDirective(state, directive, text, index) {
 
-	var tempWrite = null;
-	
-	if((typeof process !== 'undefined') && (process.release.name === 'node')) {
+	var tempWrite = console.log;
 
-		tempWrite = process.stdout.write.bind(process.stdout);
+	console.log = function() {
 
-		process.stdout.write = (chunk, encoding, callback) => {
-
-			if(typeof chunk === 'string')
-				alpha += chunk.substring(0, chunk.length - 1);
-		};
-	}
-
-	else {
-
-		tempWrite = console.log;
-
-		console.log = function() {
-
-			for(let i = 0; i < arguments.length; i++)
-				alpha += (i > 0 ? " " : "") + arguments[i];
-		}
+		for(let i = 0; i < arguments.length; i++)
+			alpha += (i > 0 ? " " : "") + arguments[i];
 	}
 
 	var alpha = text.substring(0, index);
@@ -130,28 +93,14 @@ function processJavaScriptDirective(state, directive, text, index) {
 			"};value=tempFunc(text, index);"
 		);
 		
-		if((typeof process !== 'undefined') &&
-			(process.release.name === 'node')) {
-		
-			process.stdout.write = tempWrite;
-		}
-
-		else
-			console.log = tempWrite;
+		console.log = tempWrite;
 	
 		return value != null ? "" + value : alpha + beta;
 	}
 
 	catch(error) {
 		
-		if((typeof process !== 'undefined') &&
-			(process.release.name === 'node')) {
-		
-			process.stdout.write = tempWrite;
-		}
-
-		else
-			console.log = tempWrite;
+		console.log = tempWrite;
 	
 		return text;
 	}
@@ -174,7 +123,9 @@ function processDirective(state, language, directive, text, index) {
 
 function preprocess(text) {
 
-	let tokens = tokenizer.tokenize(["(]", "[>", "<)"], text);
+	text = text.split("\r").join("");
+
+	let tokens = tokenizer.tokenize(["(]", "(>", "[>", "<)"], text);
 	let directives = [];
 
 	let newText = "";
@@ -192,6 +143,19 @@ function preprocess(text) {
 			)
 
 			i += 4;
+		}
+
+		else if(tokens[i] == "(>") {
+
+			directives.push(
+				{
+					language: "*",
+					content: tokens[i + 1].trim(),
+					index: newText.length
+				}
+			)
+
+			i += 2;
 		}
 
 		else
