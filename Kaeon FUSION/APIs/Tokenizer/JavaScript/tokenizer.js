@@ -59,6 +59,9 @@ function getToken(tokens, string, index) {
 }
 
 function isToken(token, string, index) {
+
+	if(string.length - index < token.length)
+		return false;
 	
 	for(var i = index; i < string.length && i - index < token.length; i++) {
 
