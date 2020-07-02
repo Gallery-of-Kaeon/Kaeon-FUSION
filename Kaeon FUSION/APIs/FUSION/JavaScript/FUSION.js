@@ -7,6 +7,8 @@ function FUSION() {
 	
 	this.running = false;
 
+	this.threads = [];
+
 	this.fusionUnits = [];
 	this.updated = false;
 
@@ -54,6 +56,7 @@ function FUSION() {
 	this.process = function(element) {
 
 		this.running = true;
+		this.threads = [];
 
 		this.update();
 
@@ -64,8 +67,6 @@ function FUSION() {
 	}
 
 	this.internalProcess = function(element, internal) {
-		
-		var currentElement = element;
 
 		if(!internal) {
 
@@ -74,87 +75,136 @@ function FUSION() {
 			this.update();
 		}
 
-		var processed = [[], []];
+		this.threads.push(element);
 
-		var bubbleUp = false;
+		element.state = [element, [[], []], false];
+		element.stack = [];
 
-		while(this.running) {
+		while(this.running && this.threads.length > 0) {
 
-			this.updated = false;
+			for(let i = 0; i < this.threads.length; i++) {
 
-			var denied = this.isDenied(currentElement);
+				if(this.threads[i].removed) {
 
-			var verifiedFUSIONUnits =
-				!denied ?
-					this.getVerifiedFUSIONUnits(currentElement) :
-					[];
-
-			if(!bubbleUp) {
-				
-				var trickleDown = this.trickleDown(verifiedFUSIONUnits, currentElement);
-
-				if(trickleDown && currentElement.children.length > 0) {
-					
-					currentElement = currentElement.children[0];
-					processed.push([]);
+					this.threads.splice[i];
+					i--;
 
 					continue;
 				}
-			}
 
-			var processedArguments = processed[processed.length - 2];
-			var newArguments = processed[processed.length - 1];
+				if(this.threads[i].paused)
+					continue;
 
-			var object = this.processElement(verifiedFUSIONUnits, currentElement, newArguments);
-			verifiedFUSIONUnits = this.updateVerifiedUnits(verifiedFUSIONUnits, currentElement, denied);
+				if(this.threads[i].stack == null)
+					this.threads[i].stack = [];
+				
+				let item = this.threads[i].stack.length == 0 ?
+					this.threads[i] :
+					this.threads[i].stack[this.threads[i].stack.length - 1];
 
-			var terminated = this.terminate(verifiedFUSIONUnits, currentElement, newArguments);
-			verifiedFUSIONUnits = this.updateVerifiedUnits(verifiedFUSIONUnits, currentElement, denied);
+				if(item.state == null)
+					item.state = [item, [[], []], false];
 
-			var added = this.isAdded(verifiedFUSIONUnits, currentElement, newArguments);
-			verifiedFUSIONUnits = this.updateVerifiedUnits(verifiedFUSIONUnits, currentElement, denied);
+				item.state = this.tick(item.state);
 
-			var jumpElement = this.jump(verifiedFUSIONUnits, currentElement, newArguments);
+				if(item.state == null) {
 
-			if(!denied && added)
-				processedArguments.push(object);
+					if(this.threads[i].stack.length == 0) {
 
-			processed[processed.length - 1] = [];
+						this.threads.splice(i, 1);
 
-			if(terminated)
-				break;
+						i--;
+					}
 
-			bubbleUp = false;
-
-			if(jumpElement == null) {
-
-				var index = one.getIndex(currentElement);
-
-				if(currentElement.parent == null)
-					break;
-
-				if(index < currentElement.parent.children.length - 1)
-					currentElement = currentElement.parent.children[index + 1];
-
-				else {
-					
-					currentElement = currentElement.parent;
-					bubbleUp = true;
-
-					processed.splice(processed.length - 1, 1);
+					else
+						this.popThread(this.threads[i]);
 				}
 			}
+		}
+	}
 
-			else {
+	this.tick = function(state) {
 
-				for(var i = 0; i < processed.length; i++)
-					processed[i] = [];
+		let currentElement = state[0];
+		let processed = state[1];
+		let bubbleUp = state[2];
 
-				currentElement = jumpElement;
+		this.updated = false;
 
-				bubbleUp = false;
+		var denied = this.isDenied(currentElement);
+
+		var verifiedFUSIONUnits =
+			!denied ?
+				this.getVerifiedFUSIONUnits(currentElement) :
+				[];
+
+		if(!bubbleUp) {
+			
+			var trickleDown = this.trickleDown(verifiedFUSIONUnits, currentElement);
+
+			if(trickleDown && currentElement.children.length > 0) {
+				
+				currentElement = currentElement.children[0];
+				processed.push([]);
+
+				return [currentElement, processed, bubbleUp];
 			}
 		}
+
+		var processedArguments = processed[processed.length - 2];
+		var newArguments = processed[processed.length - 1];
+
+		var object = this.processElement(verifiedFUSIONUnits, currentElement, newArguments);
+		verifiedFUSIONUnits = this.updateVerifiedUnits(verifiedFUSIONUnits, currentElement, denied);
+
+		var terminated = this.terminate(verifiedFUSIONUnits, currentElement, newArguments);
+		verifiedFUSIONUnits = this.updateVerifiedUnits(verifiedFUSIONUnits, currentElement, denied);
+
+		var added = this.isAdded(verifiedFUSIONUnits, currentElement, newArguments);
+		verifiedFUSIONUnits = this.updateVerifiedUnits(verifiedFUSIONUnits, currentElement, denied);
+
+		var jumpElement = this.jump(verifiedFUSIONUnits, currentElement, newArguments);
+
+		if(!denied && added)
+			processedArguments.push(object);
+
+		processed[processed.length - 1] = [];
+
+		if(terminated)
+			return null;
+
+		bubbleUp = false;
+
+		if(jumpElement == null) {
+
+			var index = one.getIndex(currentElement);
+
+			if(currentElement.parent == null)
+				return null;
+
+			if(index < currentElement.parent.children.length - 1)
+				currentElement = currentElement.parent.children[index + 1];
+
+			else {
+				
+				currentElement = currentElement.parent;
+				bubbleUp = true;
+
+				processed.splice(processed.length - 1, 1);
+			}
+		}
+
+		else {
+
+			for(var i = 0; i < processed.length; i++)
+				processed[i] = [];
+
+			currentElement = jumpElement;
+
+			bubbleUp = false;
+		}
+
+		return [currentElement, processed, bubbleUp];
 	}
 
 	this.updateVerifiedUnits = function(
@@ -363,6 +413,47 @@ function FUSION() {
 				
 			}
 		}
+	}
+
+	this.getThread = function(element) {
+
+		while(element != null) {
+
+			for(let i = 0; i < this.threads.length; i++) {
+
+				if(this.threads[i] === element ||
+					this.threads[i].stack.includes(element)) {
+
+					return this.threads[i];
+				}
+			}
+
+			element = element.parent;
+		}
+
+		return null;
+	}
+
+	this.addThread = function(element) {
+		this.threads.push(element);
+	}
+
+	this.setThread = function(element, paused) {
+		this.getThread(element).paused = paused;
+	}
+
+	this.removeThread = function(element) {
+		this.getThread(element).removed = true;
+	}
+
+	this.pushThread = function(element, subRoutine) {
+		this.getThread(element).stack.push(subRoutine);
+	}
+
+	this.popThread = function(element) {
+
+		this.getThread(element).stack.splice(
+			this.getThread(element).stack.length - 1, 1);
 	}
 }
 
