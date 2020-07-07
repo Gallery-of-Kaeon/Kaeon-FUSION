@@ -1,0 +1,79 @@
+Universal Preprocessor
+
+	Philosophy
+
+		-
+			The universal preprocessor is a preprocessor that allows code from any programming
+			language to be embedded as a preprocessor into any text file.
+		-
+
+	Principles
+
+		Directives
+
+			-
+				Preprocessor directives in the universal preprocessor shall be encoded in
+				directives.
+				
+				Directives typically begin with a sequence consisting of an open paren followed by
+				a closed square bracket, which is followed by the name of the language the
+				directive is written in, referred to as the directive language, which is followed
+				by a sequence consisting of an open square bracket followed by closed angle
+				bracket, which is followed by any valid code written in the directive language,
+				referred to as the directive content, and end with a sequence consisting of an open
+				angle bracket followed by a closed paren. A directive following this format is
+				called an explicit directive.
+
+				Alternatively, a directive may begin with a sequence consisting of an open paren
+				followed by a closed angle bracket, which is followed by any valid code written in
+				any language, referred to as the directive content, and end with a sequence
+				consisting of an open angle bracket followed by a closed paren. A directive
+				following this format is called an implicit directive.
+
+				Token sequences used in universal preprocessor directives can be nullified in any
+				manner otherwise used to nullify or escape characters by the host language, and can
+				be encoded within directives outside of literals in any manner permitted by the
+				language of the directive content.
+			-
+
+		Host Language
+
+			-
+				The host language determines how the tokens used by the universal preprocessor are
+				escaped.
+
+				The host language is by default detected dynamically, but it may be explicitly set
+				using a host protocol, which sets the host language for all universal preprocessor
+				tokens that follow it.
+				
+				Host protocols begin with a sequence consisting of an open paren followed by a
+				closed square bracket, which is followed by the name of the language to set as the
+				host language, which is followed by a sequence consisting of an open square bracket
+				followed by closed paren.
+			-
+
+		Execution
+
+			-
+				Each directive shall execute as code in the language of its directive content in
+				order of its placement.
+
+				The state of the preprocessor shall carry over from directive to directive to
+				whatever extent possible.
+
+				Each directive shall take two arguments, the first being the source code without
+				the unescaped directives as a string, and the second being the index of its
+				respective starting open paren as an integer number.
+
+				Any text logged to standard out by the code will be injected into the source text
+				at the index of the starting tag, but if the code returns a non null value, the
+				string form of said value shall replace the source text altogether.
+			-
+
+		Auto Detection
+
+			-
+				For an implicit directive, or for an explicit directive where the directive
+				language is specified as an asterisk, the language of the directive content shall
+				be detected automatically.
+			-
