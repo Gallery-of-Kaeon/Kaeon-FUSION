@@ -1,7 +1,7 @@
 [Home](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/README.md) /
 [Back](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/README.md) /
 [Previous](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/1%20-%20ONE/README.md) /
-[Next](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/1%20-%20Standard%20ONE%2B%20Directives/README.md)
+[Next](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/3%20-%20FUSION/README.md)
 
 # ONE+
 
@@ -22,10 +22,6 @@ However, unlike ONE,
 ONE+ does make use of token characters and thus requires escape sequences in certain situations.
 
 The proper file extension for a ONE+ file is ".op".
-
-## Sub-Topics
-
-[1 - Standard ONE+ Directives](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/1%20-%20Standard%20ONE%2B%20Directives/README.md)
 
 ## Indentation
 
@@ -322,104 +318,11 @@ Becomes:
     	world
     -
 
-## Directives
-
-Directives are preprocessor scripts for ONE+.
-
-Any element defined in a multiple element line and encased in square brackets constitutes a directive call.
-Any children of such a directive call in the same square brackets constitute the directive call's header.
-Any other children a directive call may have constitute the directive call's body.
-
-By convention,
-the content of a directive call is written entirely in upper case.
-
-For example:
-
-    [DIRECTIVE NAME: header argument 1, header argument 2, header argument n]
-    
-    	body argument 1
-    	body argument 2
-    	body argument n
-
-### The Use Directive
-
-Directives come packaged in modules stored in the same environment as the ONE+ parser.
-
-The only directive automatically usable by ONE+ is the use directive,
-which allows other directive to be made usable.
-
-The use directive call contains the content "USE",
-and all of the elements in its header contain the names of modules containing directives.
-
-For example,
-you can use the hypothetical directive call "FOO" which is stored in the hypothetical directive module "bar" using the following code:
-
-    [USE: bar]
-    
-    [FOO]
-
-## Alternate Syntaxes
-
-If you wish to use a different syntax altogether to encode a ONE document,
-ONE+ allows for this using alternate syntaxes.
-
-Alternate syntaxes,
-like directives,
-come packaged in modules stored in the same environment as the ONE+ parser.
-
-To use an alternate syntax,
-make sure the first line of your file starts with "-[" and ends with "]".
-
-The text between the two brackets should contain the name of the desired dialect.
-Any text following the first line will be encoded as ONE data based on the specified dialect.
-
-For example,
-our implementation of ONE+ comes with an alternate syntax called ONE LISP,
-which as the name implies,
-looks like LISP.
-
-If you were to compile the following code to ONE:
-
-    -[ONE LISP]
-
-    (a 1 2 3)
-    (foo (bar 4) (baz 5))
-
-It would produce the following:
-
-    -
-    	a
-    -
-    	-
-    		1
-    	-
-    	-
-    		2
-    	-
-    	-
-    		3
-    	-
-    -
-    	foo
-    -
-    	-
-    		bar
-    	-
-    		-
-    			4
-    		-
-    	-
-    		baz
-    	-
-    		-
-    			5
-    		-
-
 <div align="right"><p>
 
 <a href="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/README.md">Home</a> / 
 <a href="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/README.md">Back</a> / 
 <a href="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/1%20-%20ONE/README.md">Previous</a> / 
-<a href="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/1%20-%20Standard%20ONE%2B%20Directives/README.md">Next</a>
+<a href="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/3%20-%20FUSION/README.md">Next</a>
 
 </p></div>
