@@ -1,7 +1,6 @@
 [Home](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/README.md) /
 [Back](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/README.md) /
-[Previous](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/2%20-%20Interfaces%20and%20the%20Use%20Command/README.md) /
-[Next](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/1%20-%20Super%20Mode/README.md)
+[Previous](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/5%20-%20Interfaces%20and%20the%20Use%20Command/README.md)
 
 # Kaeon FUSION Standard Interface
 
@@ -136,8 +135,8 @@ will run "foo" with "Function Argument".
 
 ### Stored Function Calls
 
-If a function call is nested within a “New” command,
-the “New” command will return the state of the function after it executes. 
+If a function call is nested within a ï¿½Newï¿½ command,
+the ï¿½Newï¿½ command will return the state of the function after it executes. 
 
 For example:
 
@@ -882,7 +881,6 @@ will print "15" to the console.
 
 <a href="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/README.md">Home</a> / 
 <a href="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/README.md">Back</a> / 
-<a href="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/2%20-%20Interfaces%20and%20the%20Use%20Command/README.md">Previous</a> / 
-<a href="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/1%20-%20Super%20Mode/README.md">Next</a>
+<a href="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/5%20-%20Interfaces%20and%20the%20Use%20Command/README.md">Previous</a>
 
 </p></div>
