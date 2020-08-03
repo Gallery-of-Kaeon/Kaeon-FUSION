@@ -28,11 +28,7 @@ _For both the documentation and the beginners resource in PDF form, click [here]
 
 [1 - Foundations](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/README.md)
 
-[2 - Interfaces and the Use Command](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/2%20-%20Interfaces%20and%20the%20Use%20Command/README.md)
-
-[3 - The Standard Interface](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md)
-
-[4 - The Stack Interface](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/4%20-%20Stack%20Interface/README.md)
+[2 - The Standard Interface](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/2%20-%20Standard%20Interface/README.md)
 
 <div align="right"><p>
 
