@@ -77,3 +77,11 @@ Universal Preprocessor
 				language is specified as an asterisk, the language of the directive content shall
 				be detected automatically.
 			-
+
+		Commenting
+
+			-
+				If the directive language for a given directive is declared as a tilde, or as any
+				string not recognized as a language alias, then the contents of the directive shall
+				not execute, thus making the directive function as a comment.
+			-
