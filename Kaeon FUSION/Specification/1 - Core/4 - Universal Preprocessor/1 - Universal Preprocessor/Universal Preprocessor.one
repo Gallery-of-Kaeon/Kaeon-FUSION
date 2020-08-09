@@ -77,9 +77,10 @@
 				The state of the preprocessor shall carry over from directive to directive to
 				whatever extent possible.
 
-				Each directive shall take two arguments, the first being the source code without
-				the unescaped directives as a string, and the second being the index of its
-				respective starting open paren as an integer number.
+				Each directive shall take three arguments, the first being the source code without
+				the unescaped directives as a string, the second being the index of its respective
+				starting open paren as an integer number, and the third being a list of
+				miscellaneous values passed to the Universal Preprocessor as arguments.
 
 				Any text logged to standard out by the code will be injected into the source text
 				at the index of the starting tag, but if the code returns a non-null value, the
