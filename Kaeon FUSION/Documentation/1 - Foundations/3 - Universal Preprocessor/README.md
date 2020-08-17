@@ -57,7 +57,7 @@ The following code:
     (] JS [>
 
     	for(let i = 0; i < 10; i++)
-    		console.log("ABC:", i);
+    		console.log("ABC:", i, "\n");
     <)
     World
 
@@ -74,6 +74,7 @@ Will be preprocessed to:
     ABC: 7
     ABC: 8
     ABC: 9
+    
     World
 
 ### Example 2
