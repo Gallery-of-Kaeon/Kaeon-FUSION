@@ -29,7 +29,7 @@ function processKaeonFUSIONDirective(state, directive, text, index) {
 
 		tempArgs = process.argv;
 
-		process.argv = [null, null, text, index];
+		process.argv = [null, null, text, index, tempArgs];
 	}
 
 	console.log = function() {
@@ -55,6 +55,9 @@ function processKaeonFUSIONDirective(state, directive, text, index) {
 			process.argv = tempArgs;
 
 		console.log = tempWrite;
+
+		if(Array.isArray(value))
+			return value;
 
 		return value != null ? "" + value : alpha + beta;
 	}
@@ -88,12 +91,15 @@ function processJavaScriptDirective(state, directive, text, index) {
 		var value = null;
 
 		eval(
-			"let tempFunc=function(text, index){" +
+			"let tempFunc=function(text, index, args){" +
 			directive +
-			"};value=tempFunc(text, index);"
+			"};value=tempFunc(text, index, arguments);"
 		);
 		
 		console.log = tempWrite;
+
+		if(Array.isArray(value))
+			return value;
 	
 		return value != null ? "" + value : alpha + beta;
 	}
@@ -177,6 +183,9 @@ function preprocess(text) {
 				newText,
 				directives[i].index + indexShift
 			);
+
+		if(Array.isArray(newText))
+			return newText;
 		
 		indexShift += newText.length - tempLength;
 	}

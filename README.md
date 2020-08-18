@@ -172,7 +172,7 @@ using the universal preprocessor to convert the code,
 which now looks like LISP,
 into ONE:
 
-	(] KF [> Use: ONE LISP <)
+	(] KF [> Use: ONELisp <)
 
     (use standard)
 
