@@ -1,5 +1,29 @@
+var cors_api_url = 'https://cors-anywhere.herokuapp.com/';
+
 function getInput(query) {
 	return prompt("" + (query != null ? query : ""));
+}
+
+function getXMLHTTP(url) {
+
+	var rawFile = new XMLHttpRequest();
+	rawFile.open("GET", url, false);
+
+	var allText = "";
+
+	rawFile.onreadystatechange = function() {
+
+		if(rawFile.readyState === 4) {
+
+			if(rawFile.status === 200 || rawFile.status == 0) {
+				allText = rawFile.responseText;
+			}
+		}
+	}
+
+	rawFile.send(null);
+
+	return allText;
 }
 
 function open(file) {
@@ -44,24 +68,20 @@ function open(file) {
 
 	else {
 
-		var rawFile = new XMLHttpRequest();
-		rawFile.open("GET", file, false);
-
-		var allText = "";
-
-		rawFile.onreadystatechange = function() {
-
-			if(rawFile.readyState === 4) {
-
-				if(rawFile.status === 200 || rawFile.status == 0) {
-					allText = rawFile.responseText;
-				}
-			}
+		try {
+			return getXMLHTTP(cors_api_url + file);
 		}
 
-		rawFile.send(null);
+		catch(error) {
 
-		return allText;
+			try {
+				return getXMLHTTP(file);
+			}
+
+			catch(error) {
+				return null;
+			}
+		}
 	}
 }
 
@@ -85,6 +105,7 @@ function save(content, file) {
 
 module.exports = {
 
+	cors_api_url,
 	getInput,
 	open,
 	save
