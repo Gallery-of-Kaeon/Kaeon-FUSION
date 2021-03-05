@@ -1,12 +1,21 @@
 // DEPENDENCIES
 
-var one = require("./ONE.js");
-var fusion = require("./FUSION.js");
-var philosophersStone = require("./PhilosophersStone.js");
-var oneSuite = require("./ONESuite.js");
+var moduleDependencies = {
+	one: "https://raw.githubusercontent.com/Gallery-of-Kaeon/Kaeon-FUSION/master/Kaeon%20FUSION/APIs/ONE/JavaScript/ONE.js",
+	fusion: "https://raw.githubusercontent.com/Gallery-of-Kaeon/Kaeon-FUSION/master/Kaeon%20FUSION/APIs/FUSION/JavaScript/FUSION.js",
+	philosophersStone: "https://raw.githubusercontent.com/Gallery-of-Kaeon/Philosophers-Stone/master/Philosopher's%20Stone/API/JavaScript/PhilosophersStone.js",
+	oneSuite: "https://raw.githubusercontent.com/Gallery-of-Kaeon/Kaeon-FUSION/master/Kaeon%20FUSION/APIs/ONE%20Suite/JavaScript/ONESuite.js",
+	io: "https://raw.githubusercontent.com/Gallery-of-Kaeon/JavaScript-Utilities/master/JavaScript%20Utilities/IO/io.js",
+	tokenizer: "https://raw.githubusercontent.com/Gallery-of-Kaeon/JavaScript-Utilities/master/JavaScript%20Utilities/Tokenizer/tokenizer.js",
+};
 
-var io = require("./io.js");
-var tokenizer = require("./tokenizer.js");
+var one = require(moduleDependencies.one);
+var fusion = require(moduleDependencies.fusion);
+var philosophersStone = require(moduleDependencies.philosophersStone);
+var oneSuite = require(moduleDependencies.oneSuite);
+
+var io = require(moduleDependencies.io);
+var tokenizer = require(moduleDependencies.tokenizer);
 
 var fs = {};
 var path = {};
