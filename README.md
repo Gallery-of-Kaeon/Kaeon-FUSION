@@ -2,7 +2,7 @@
 <h2 align="center">A Language Without Limits!</h2>
 
 <p align="center">
-	<img src="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/raw/master/Kaeon%20FUSION/Logo/Kaeon%20FUSION%20Logo.png" width="300px" height="300px"/>
+	<img src="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/raw/master/Kaeon%20FUSION/Documentation/Logo/Kaeon%20FUSION%20Logo.png" width="300px" height="300px"/>
 </p>
 
     Use: Standard
