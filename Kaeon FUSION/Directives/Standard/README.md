@@ -1,2 +1,0 @@
-The jar file that provides the standard ONE+ directives also provides the standard interface.
-It is listed under the interfaces section [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Interfaces/Standard).

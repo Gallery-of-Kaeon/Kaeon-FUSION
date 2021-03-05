@@ -1,9 +1,0 @@
--
-	Interfaces
--
-	-
-		Philosophy
-	-
-		-
-			Interfaces are modules that can alter the Kaeon FUSION interpreter at runtime.
-		-

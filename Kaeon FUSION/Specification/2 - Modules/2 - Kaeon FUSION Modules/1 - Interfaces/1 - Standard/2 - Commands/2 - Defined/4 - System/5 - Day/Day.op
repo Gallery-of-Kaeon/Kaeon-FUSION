@@ -1,9 +1,0 @@
-Day
-
-	Philosophy
-	
-		-
-			The day command contains the content "Day".
-			
-			It returns the current day according to the computer's clock as a number.
-		-

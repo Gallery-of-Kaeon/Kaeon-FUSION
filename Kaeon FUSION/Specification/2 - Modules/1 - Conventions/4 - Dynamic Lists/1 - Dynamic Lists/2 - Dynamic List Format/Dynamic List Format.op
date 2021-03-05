@@ -1,9 +1,0 @@
-Dynamic List Format
-
-	Philosophy
-
-		-
-			The dynamic list format is a standard for encoding a dynamic list as a non dynamic
-			list, where every odd numbered item is an element alias, and every even numbered item
-			is a list element assigned to the alias immediately preceding it.
-		-

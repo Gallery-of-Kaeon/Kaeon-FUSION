@@ -1,9 +1,0 @@
-Type
-	
-	Philosophy
-		
-		-
-			The type command contains the content "Type". It must have a single child.
-			
-			It returns the type of its child.
-		-

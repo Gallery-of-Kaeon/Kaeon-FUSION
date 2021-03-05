@@ -1,9 +1,0 @@
-Weekday
-
-	Philosophy
-	
-		-
-			The weekday command contains the content "Weekday".
-			
-			It returns the current day of the week according to the computer's clock as a string.
-		-
