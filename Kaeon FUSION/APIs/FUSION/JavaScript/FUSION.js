@@ -1,5 +1,10 @@
-var one = require("./ONE.js");
-var philosophersStone = require("./PhilosophersStone.js");
+var moduleDependencies = {
+	one: "https://raw.githubusercontent.com/Gallery-of-Kaeon/Kaeon-FUSION/master/Kaeon%20FUSION/APIs/ONE/JavaScript/ONE.js",
+	philosophersStone: "https://raw.githubusercontent.com/Gallery-of-Kaeon/Philosophers-Stone/master/Philosopher's%20Stone/API/JavaScript/PhilosophersStone.js"
+};
+
+var one = require(moduleDependencies.one);
+var philosophersStone = require(moduleDependencies.philosophersStone);
 
 function FUSION() {
 

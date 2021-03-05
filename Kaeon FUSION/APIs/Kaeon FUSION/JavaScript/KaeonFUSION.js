@@ -1,7 +1,13 @@
-var philosophersStone = require("./PhilosophersStone.js");
-var fusion = require("./FUSION.js");
+var moduleDependencies = {
+	philosophersStone: "https://raw.githubusercontent.com/Gallery-of-Kaeon/Philosophers-Stone/master/Philosopher's%20Stone/API/JavaScript/PhilosophersStone.js",
+	fusion: "https://raw.githubusercontent.com/Gallery-of-Kaeon/Kaeon-FUSION/master/Kaeon%20FUSION/APIs/FUSION/JavaScript/FUSION.js",
+	io: "https://raw.githubusercontent.com/Gallery-of-Kaeon/JavaScript-Utilities/master/JavaScript%20Utilities/IO/io.js"
+};
 
-var io = require("./io.js");
+var philosophersStone = require(moduleDependencies.philosophersStone);
+var fusion = require(moduleDependencies.fusion);
+
+var io = require(moduleDependencies.io);
 
 var platform = "Browser";
 

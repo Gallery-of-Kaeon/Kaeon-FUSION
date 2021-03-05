@@ -1,2 +1,0 @@
-The Philosopher's Stone API is located in the Philosopher's Stone repositiory.
-You can find it [here](https://github.com/Gallery-of-Kaeon/Philosophers-Stone/tree/master/Philosopher's%20Stone/API).

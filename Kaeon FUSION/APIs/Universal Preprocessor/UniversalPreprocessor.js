@@ -1,7 +1,13 @@
-var kaeonFUSION = require("./KaeonFUSION.js");
-var onePlus = require("./ONEPlus.js");
+var moduleDependencies = {
+	kaeonFUSION: "https://raw.githubusercontent.com/Gallery-of-Kaeon/Kaeon-FUSION/master/Kaeon%20FUSION/APIs/Kaeon%20FUSION/JavaScript/KaeonFUSION.js",
+	onePlus: "https://raw.githubusercontent.com/Gallery-of-Kaeon/Kaeon-FUSION/master/Kaeon%20FUSION/APIs/ONE%2B/JavaScript/ONEPlus.js",
+	tokenizer: "https://raw.githubusercontent.com/Gallery-of-Kaeon/JavaScript-Utilities/master/JavaScript%20Utilities/Tokenizer/tokenizer.js"
+};
 
-var tokenizer = require("./tokenizer.js");
+var kaeonFUSION = require(moduleDependencies.kaeonFUSION);
+var onePlus = require(moduleDependencies.onePlus);
+
+var tokenizer = require(moduleDependencies.tokenizer);
 
 function getLangauge(language) {
 

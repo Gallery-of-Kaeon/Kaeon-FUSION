@@ -1,9 +1,16 @@
-var one = require("./ONE.js");
-var onePlus = require("./ONEPlus.js");
+var moduleDependencies = {
+	one: "https://raw.githubusercontent.com/Gallery-of-Kaeon/Kaeon-FUSION/master/Kaeon%20FUSION/APIs/ONE/JavaScript/ONE.js",
+	onePlus: "https://raw.githubusercontent.com/Gallery-of-Kaeon/Kaeon-FUSION/master/Kaeon%20FUSION/APIs/ONE%2B/JavaScript/ONEPlus.js",
+	kaeonFUSION: "https://raw.githubusercontent.com/Gallery-of-Kaeon/Kaeon-FUSION/master/Kaeon%20FUSION/APIs/Kaeon%20FUSION/JavaScript/KaeonFUSION.js",
+	universalPreprocessor: "https://raw.githubusercontent.com/Gallery-of-Kaeon/Kaeon-FUSION/master/Kaeon%20FUSION/APIs/Universal%20Preprocessor/UniversalPreprocessor.js"
+};
 
-var kaeonFUSION = require("./KaeonFUSION.js");
+var one = require(moduleDependencies.one);
+var onePlus = require(moduleDependencies.onePlus);
 
-var universalPreprocessor = require("./UniversalPreprocessor.js");
+var kaeonFUSION = require(moduleDependencies.kaeonFUSION);
+
+var universalPreprocessor = require(moduleDependencies.universalPreprocessor);
 
 function parse(string) {
 
