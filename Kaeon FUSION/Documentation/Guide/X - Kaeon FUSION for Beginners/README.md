@@ -1,6 +1,6 @@
 [Kaeon FUSION Home](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/README.md) /
-[Back](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/README.md) /
-[Next](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/1%20-%20Your%20First%20Program/README.md)
+[Back](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/Guide/README.md) /
+[Next](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/Guide/X%20-%20Kaeon%20FUSION%20for%20Beginners/1%20-%20Your%20First%20Program/README.md)
 
 # Kaeon FUSION for Beginners
 
@@ -92,4 +92,4 @@ you may never need to touch another programming language.
 
 ## Okay, I'm ready to start!
 
-[Let's get going then!](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/1%20-%20Your%20First%20Program/README.md)
+[Let's get going then!](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/Guide/X%20-%20Kaeon%20FUSION%20for%20Beginners/1%20-%20Your%20First%20Program/README.md)

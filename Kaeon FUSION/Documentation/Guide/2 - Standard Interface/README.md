@@ -1,6 +1,6 @@
-[Home](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/README.md) /
-[Back](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/README.md) /
-[Previous](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/5%20-%20Interfaces%20and%20the%20Use%20Command/README.md)
+[Home](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/Guide/README.md) /
+[Back](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/Guide/README.md) /
+[Previous](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/Guide/1%20-%20Foundations/5%20-%20Interfaces%20and%20the%20Use%20Command/README.md)
 
 # Kaeon FUSION Standard Interface
 
@@ -27,31 +27,31 @@ The interface is activated using the following command:
 
 ## Sub-Topics
 
-[1 - Super Mode](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/1%20-%20Super%20Mode/README.md)
+[1 - Super Mode](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/Guide/3%20-%20Standard%20Interface/1%20-%20Super%20Mode/README.md)
 
 ## Contents
 
-[1 - Basics](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#1---basics)
+[1 - Basics](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/Guide/3%20-%20Standard%20Interface/README.md#1---basics)
 
-[2 - Core Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#2---core-commands)
+[2 - Core Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/Guide/3%20-%20Standard%20Interface/README.md#2---core-commands)
 
-[3 - Console IO Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#3---console-io-commands)
+[3 - Console IO Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/Guide/3%20-%20Standard%20Interface/README.md#3---console-io-commands)
 
-[4 - Arithmetic Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#4---arithmetic-commands)
+[4 - Arithmetic Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/Guide/3%20-%20Standard%20Interface/README.md#4---arithmetic-commands)
 
-[5 - Logic Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#5---logic-commands)
+[5 - Logic Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/Guide/3%20-%20Standard%20Interface/README.md#5---logic-commands)
 
-[6 - List Operation Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#6---list-operation-commands)
+[6 - List Operation Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/Guide/3%20-%20Standard%20Interface/README.md#6---list-operation-commands)
 
-[7 - File IO Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#7---file-io-commands)
+[7 - File IO Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/Guide/3%20-%20Standard%20Interface/README.md#7---file-io-commands)
 
-[8 - Flow Control Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#8---flow-control-commands)
+[8 - Flow Control Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/Guide/3%20-%20Standard%20Interface/README.md#8---flow-control-commands)
 
-[9 - Threading Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#9---threading-commands)
+[9 - Threading Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/Guide/3%20-%20Standard%20Interface/README.md#9---threading-commands)
 
-[10 - Metaprogramming Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#10---metaprogramming-commands)
+[10 - Metaprogramming Commands](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/Guide/3%20-%20Standard%20Interface/README.md#10---metaprogramming-commands)
 
-[11 - Object Orientation](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/3%20-%20Standard%20Interface/README.md#11---object-orientation)
+[11 - Object Orientation](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/Guide/3%20-%20Standard%20Interface/README.md#11---object-orientation)
 
 ## 1 - Basics
 
@@ -879,8 +879,8 @@ will print "15" to the console.
 
 <div align="right"><p>
 
-<a href="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/README.md">Home</a> / 
-<a href="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/README.md">Back</a> / 
-<a href="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/5%20-%20Interfaces%20and%20the%20Use%20Command/README.md">Previous</a>
+<a href="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/Guide/README.md">Home</a> / 
+<a href="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/Guide/README.md">Back</a> / 
+<a href="https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/Guide/1%20-%20Foundations/5%20-%20Interfaces%20and%20the%20Use%20Command/README.md">Previous</a>
 
 </p></div>

@@ -35,17 +35,11 @@ and the specification for Kaeon FUSION.
 
 ### Repository Links
 
-[Online](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/README.md) and [PDF](https://drive.google.com/open?id=1Ut8fIiKjGFRSH0hO9KSEyIFxsP3PTXOE) Documentation
+[Online](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/Guide/README.md) and [PDF](https://drive.google.com/open?id=1Ut8fIiKjGFRSH0hO9KSEyIFxsP3PTXOE) Documentation
 
-[Samples](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Samples)
+[Samples](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/Samples)
 
-[APIs](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/APIs)
-
-[Interfaces](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Interfaces), [Directives](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Directives), and [Syntaxes](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Syntaxes)
-
-[Libraries](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Libraries)
-
-[Specification](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Specification)
+[Source](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Source)
 
 _NOTE: The current documentation and sample programs are partially out of date, and much of them only apply to the Java based version of Kaeon FUSION, which is now depricated._
 
@@ -100,9 +94,9 @@ Another similarity that Kaeon FUSION shares with LISP is that it uses a code-as-
 though unlike LISP its code is abstracted as a doubly linked acyclic tree of strings as opposed to a singly linked list of strings and other such lists.
 The syntax that Kaeon FUSION uses to represent this tree,
 which can be used independently of Kaeon FUSION as a markup language,
-is called [ONE+](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/2%20-%20ONE%2B/README.md),
+is called [ONE+](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/Guide/1%20-%20Foundations/2%20-%20ONE%2B/README.md),
 and is a syntactic superset of,
-but semantic equivalent to a simpler langauge called [ONE](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/1%20-%20ONE/README.md).
+but semantic equivalent to a simpler langauge called [ONE](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/Guide/1%20-%20Foundations/1%20-%20ONE/README.md).
 
 ONE+ bears a strong visual resemblance to YAML,
 and shares some elements of JSON and Python,
@@ -149,6 +143,14 @@ hence the tagline "a language without limits".
 
 <h2 align="center">Kaeon FUSION Examples</h2>
 
+_NOTE: Kaeon FUSION's most important interfaces are available as the interface "Kaeon United", which is built into our interpreter._
+
+Here's a typical Kaeon FUSION hello world program:
+
+    Use: Kaeon United
+
+	Log Line: "Hello, world!"
+
 Here's the solution to [Euler problem #1](https://projecteuler.net/problem=1),
 using the universal preprocessor to convert the code,
 which looks similar to Python,
@@ -174,7 +176,7 @@ into ONE:
 
 	(] KF [> Use: ONELisp <)
 
-    (use standard)
+    (use "Kaeon United")
 
     (sum 0)
     (i 3)
@@ -198,7 +200,7 @@ Here again is the same code from the first example,
 also written in ONE+,
 without the universal preprocessor:
 
-    Use: Standard
+    Use: Kaeon United
 
     sum: 0
 
@@ -218,14 +220,14 @@ without the universal preprocessor:
     Log Line: sum
 
 Here's hello world,
-written using [ONE](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/1%20-%20Foundations/1%20-%20ONE/README.md),
+written using [ONE](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/Guide/1%20-%20Foundations/1%20-%20ONE/README.md),
 the most basic form of Kaeon FUSION's syntax:
 
     -
     	Use
     -
     	-
-    		Standard
+    		Kaeon United
     	-
     -
     	Log Line
@@ -234,19 +236,28 @@ the most basic form of Kaeon FUSION's syntax:
     		Hello, world!
     	-
 
-Click [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Samples) for all of our available sample code.
+Click [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/Documentation/Samples) for all of our available sample code.
 
 <h2 align="center">FAQs</h2>
 
 ### How can I try it out?
 
-A JavaScript based interpreter for Kaeon FUSION comes with the Kaeon United framework,
+A JavaScript based interpreter for Kaeon FUSION is included the Kaeon United framework,
 which you can find [here](https://github.com/Gallery-of-Kaeon/Kaeon-United).
 
-The Java version of Kaeon FUSION,
-which is now depricated,
-has a legacy IDE called Kaeon Origin,
-which you can find [here](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/IDE/README.md).
+If you have [Node.js](https://nodejs.org/en/) installed,
+you can use said interpreter via the following command:
+
+    npx kaeon-united process open my_code.op
+
+Also,
+a Kaeon FUSION REPL can be opened with this command:
+
+    npx kaeon-united process
+
+Additionally,
+there is also an online IDE called [Kaeon Origin](https://github.com/Gallery-of-Kaeon/Kaeon-United),
+which supports both Kaeon FUSION and JavaScript and can be found [here](https://gallery-of-kaeon.github.io/?unitedjs=https://raw.githubusercontent.com/Gallery-of-Kaeon/Kaeon-Origin/master/Kaeon%20Origin/Application/kaeonOrigin.js).
 
 ### What's the difference between an interface and a library?
 
@@ -255,16 +266,6 @@ doing anything from adding new commands to adding new back end properties.
 
 In the context of Kaeon FUSION,
 a library is a set of functions written for the Kaeon FUSION standard interface that can be shared across Kaeon FUSION files.
-
-### Can I write my own interfaces?
-
-Yes,
-third parties can write their own Kaeon FUSION interfaces using our [Kaeon FUSION Interface Development Framework](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Module%20Development%20Framework/Interfaces/README.md).
-
-Third parties may also write their own ONE+ directives using our [ONE+ Directive Development Framework](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Module%20Development%20Framework/Directives/README.md),
-as well as their own ONE+ alternate syntaxes using out [ONE+ Alternate Syntax Development Framework](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Module%20Development%20Framework/Syntaxes/README.md).
-
-_NOTE: These are for the Java version of Kaeon FUSION, which is now depricated._
 
 ### Is Kaeon FUSION a LISP?
 
@@ -293,17 +294,14 @@ we plan to implement all of Kaeon FUSION components in JavaScript.
 
 Yes,
 this is possible.
-Refer to the [APIs](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/tree/master/Kaeon%20FUSION/APIs) section for the necessary files.
+
+The functionality required to do so is included in the [Kaeon United](https://github.com/Gallery-of-Kaeon/Kaeon-United) framework.
 
 Here's an example of how one would start the interpreter from JavaScript:
 
 	let sourceCodeString = "# my source code";
 
-    (new require("./KaeonFUSION.js").KaeonFUSION()).process(require("./ONEPlus.js").readONEPlus(sourceCodeString));
-
-The implementation of the Kaeon FUSION interpreter is built on Philosopher's Stones.
-You can read about Philosopher's Stones [here](https://github.com/Gallery-of-Kaeon/Philosophers-Stone/blob/master/README.md).
-It is important to understand Philosopher's Stones in order to take full advantage of the APIs.
+    require("kaeon-united").oneSuite().parse(sourceCodeString));
 
 ### How long has Kaeon FUSION been in development?
 
@@ -325,7 +323,8 @@ the contents of this repository are free for everyone to use and make modificati
 
 ### Any fun facts about Kaeon FUSION?
 
-Kaeon FUSION actually has a mascot, as do all projects under the Kaeon name:
+Kaeon FUSION actually has a mascot,
+as do all projects under the Kaeon name:
 the ACE.
 Both the male version and the female version of the character are shown on the profile picture of the Gallery-of-Kaeon github account.
 
@@ -351,12 +350,6 @@ However,
 if you have something you feel that we need to know,
 we'll hear you out.
 
-<h2 align="center">Acknowledgements</h2>
-
-The Java version of the stack interface makes use of the [require1k](https://github.com/Stuk/require1k) JavaScript utility.
-
-The Kaeon Origin IDE makes use of a [swing layout](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/IDE/Source/Source/kaeon_origin/ide/utilities/web/VerticalLayout.java) developed by Colin Mummery.
-
 <h2 align="center">Disclaimer</h2>
 
 The core of Kaeon FUSION's specification is more or less complete,
@@ -369,7 +362,9 @@ and any implentation,
 ours or otherwise,
 is valid insofar as it conforms to the specification.
 
-The specification itself is composed of several documents written in either ONE or ONE+,
+The specification itself,
+which is contained within the [Kaeon United Specification](https://github.com/Gallery-of-Kaeon/Kaeon-United/blob/master/Kaeon%20United/Specification/Kaeon%20United%20Specification.txt),
+is composed of several documents written in either ONE or ONE+,
 the same markup formats Kaeon FUSION itself uses.
 These documents are arranged into numbered folders,
 and folders with lower numbers take precedence over folders with higher numbers,

@@ -1,5 +1,5 @@
-[Home](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/README.md) /
-[Previous](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md)
+[Home](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/Guide/X%20-%20Kaeon%20FUSION%20for%20Beginners/README.md) /
+[Previous](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/Guide/X%20-%20Kaeon%20FUSION%20for%20Beginners/2%20-%20Getting%20Comfortable%20in%20Kaeon%20FUSION/README.md)
 
 # Advanced Kaeon FUSION
 
@@ -8,11 +8,11 @@ it's time to learn about some of the more advnaced things you can do with the Ka
 
 ## Contents
 
-[1 - Concurrency and Time](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/3%20-%20Advanced%20Kaeon%20FUSION/README.md#1---concurrency-and-time)
+[1 - Concurrency and Time](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/Guide/X%20-%20Kaeon%20FUSION%20for%20Beginners/3%20-%20Advanced%20Kaeon%20FUSION/README.md#1---concurrency-and-time)
 
-[2 - Metaprogramming](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/3%20-%20Advanced%20Kaeon%20FUSION/README.md#2---metaprogramming)
+[2 - Metaprogramming](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/Guide/X%20-%20Kaeon%20FUSION%20for%20Beginners/3%20-%20Advanced%20Kaeon%20FUSION/README.md#2---metaprogramming)
 
-[3 - Building](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/X%20-%20Kaeon%20FUSION%20for%20Beginners/3%20-%20Advanced%20Kaeon%20FUSION/README.md#3---building)
+[3 - Building](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/Guide/X%20-%20Kaeon%20FUSION%20for%20Beginners/3%20-%20Advanced%20Kaeon%20FUSION/README.md#3---building)
 
 ## 1 - Concurrency and Time
 
@@ -139,7 +139,7 @@ will open the Notepad application.
 Perhaps the most important thing you can do using the Kaeon FUSION Standard Interface is generate code in other languages without actually having to write any code in other languages.
 
 Different dialects of ONE that correspond to different development domains can be provided by other interfaces,
-like the [stack interface](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/4%20-%20Stack%20Interface/README.md).
+like the [stack interface](https://github.com/Gallery-of-Kaeon/Kaeon-FUSION/blob/master/Kaeon%20FUSION/Documentation/Guide/4%20-%20Stack%20Interface/README.md).
 Using these dialects,
 you can write ONE+ code that doesn't do anything in Kaeon FUSION but can work with Kaeon FUSION to build something like a website.
 
